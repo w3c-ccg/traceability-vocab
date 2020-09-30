@@ -1,5 +1,7 @@
 const fs = require('fs')
 const path = require('path')
+const faker = require('faker');
+
 
 const getAllJsonFilesFromDirectory = (targetDirectory) => {
     const files = fs.readdirSync(targetDirectory).filter(f => {
@@ -22,7 +24,8 @@ const getIntermediateFromDirectory = (targetDirectory) => {
                 $comment: $classComment,
                 title: file.title,
                 description: file.description,
-                classProperties: {}
+                classProperties: {},
+                examples: file.examples
             }
         }
         Object.values(file.properties).forEach((prop) => {
@@ -82,4 +85,56 @@ const getContextFromIntermediate = (intermediate) => {
     }
 }
 
-module.exports = { getAllJsonFilesFromDirectory, getIntermediateFromDirectory, getContextFromIntermediate };
+
+const deleteRandomProperty = (obj) => {
+    let mutated = { ...obj }
+    let randomProperty = Object.keys(mutated)[faker.random.number(Object.keys(mutated).length - 1)]
+    delete mutated[randomProperty];
+    return mutated;
+}
+
+const addRandomProperty = (obj) => {
+    let mutated = { ...obj };
+    mutated = {
+        ...mutated,
+        [faker.hacker.noun()]: faker.hacker.verb()
+    }
+    return mutated;
+}
+
+const deleteRandomNumberProperties = (obj) => {
+    let mutated = { ...obj };
+    let randomNumberOfPropertiesToDelete = faker.random.number(Object.keys(mutated).length - 1)
+    while (randomNumberOfPropertiesToDelete > 0) {
+        mutated = deleteRandomProperty(mutated);
+        randomNumberOfPropertiesToDelete -= 1;
+    }
+    return mutated
+}
+
+const addRandomNumberProperties = (obj) => {
+    let mutated = { ...obj };
+    let randomNumberOfPropertiesToDelete = faker.random.number(Object.keys(mutated).length - 1)
+    while (randomNumberOfPropertiesToDelete > 0) {
+        mutated = addRandomProperty(mutated)
+        randomNumberOfPropertiesToDelete -= 1;
+    }
+    return mutated
+}
+
+
+
+const writeFileToPublic = (targetSubDirectory, fileData) => {
+    fs.writeFileSync(path.resolve(__dirname, '../../../docs/', targetSubDirectory), fileData);
+}
+
+module.exports = {
+    writeFileToPublic,
+    addRandomProperty,
+    addRandomNumberProperties,
+    deleteRandomNumberProperties,
+    deleteRandomProperty,
+    getAllJsonFilesFromDirectory,
+    getIntermediateFromDirectory,
+    getContextFromIntermediate
+};

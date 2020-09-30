@@ -327,10 +327,20 @@
           "term": "addressCountry",
           "@id": "https://gs1.org/voc/addressCountry"
         },
-        "title": "Postal Code",
+        "title": "Address Country",
         "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
       }
-    }
+    },
+    "examples": [
+      {
+        "@context": "https://w3id.org/traceability/v1",
+        "organizationName": "Weyland Industries"
+      },
+      {
+        "@context": "https://w3id.org/traceability/v1",
+        "organizationName": "Yutani Corporation"
+      }
+    ]
   }
 }
             </script>
@@ -338,13 +348,13 @@
         <p id="vocab-last-generated" class="note">
             This vocabulary was last generated
             <span id="vocab-last-generated-date">
-                Wednesday, September 30, 2020 3:29 PM
+                Wednesday, September 30, 2020 4:08 PM
             </span>
         </p>
 
     </section>
 
-    </section>
+
 
     <section class="informative">
         <h2>Privacy Considerations</h2>
@@ -452,6 +462,14 @@
                 `
             })
 
+            let classExamples = classDefinition.examples.map((ex) => {
+                return `
+<pre class="example">
+${JSON.stringify({ "@context": "https://w3id.org/traceability/v1", ...ex }, null, 2)}
+</pre>
+                `
+            }).join("\n")
+
             vocabularyString += `
             <section>
             <h2>${classDefinition.title}</h2>
@@ -486,6 +504,9 @@
                     </tbody>
                     </table>
 
+                    ${classExamples}
+                    
+
             ${classPropertySections}
             </section>
             `
@@ -493,6 +514,10 @@
         document.getElementById('vocabulary').innerHTML += vocabularyString;
 
     </script>
+
+
+
+
 
 
 

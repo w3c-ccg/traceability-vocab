@@ -18,6 +18,13 @@ it('should generate context from json schema', async () => {
     vocabularyContext = getContextFromIntermediate(intermediateJson)
 });
 
+
+it('should add good test vectors to intermediate', async () => {
+    Object.values(intermediateJson).forEach((classDefinition) => {
+        console.log(classDefinition)
+    })
+});
+
 // todo iterate and test here....
 
 it('should update respec', async () => {
