@@ -115,10 +115,10 @@ const deleteRandomNumberProperties = (obj) => {
 
 const addRandomNumberProperties = (obj) => {
     let mutated = { ...obj };
-    let randomNumberOfPropertiesToDelete = faker.random.number(Object.keys(mutated).length - 1) + 1
-    while (randomNumberOfPropertiesToDelete > 0) {
+    let randomNumberOfPropertiesToAdd = faker.random.number(3) + 1;
+    while (randomNumberOfPropertiesToAdd > 0) {
         mutated = addRandomProperty(mutated)
-        randomNumberOfPropertiesToDelete -= 1;
+        randomNumberOfPropertiesToAdd -= 1;
     }
     return mutated
 }

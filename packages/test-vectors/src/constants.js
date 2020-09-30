@@ -1,3 +1,3 @@
 const FAKER_SEED = 20200930
-
-module.exports = { FAKER_SEED }
+const EXAMPLE_COUNT = 3;
+module.exports = { FAKER_SEED, EXAMPLE_COUNT }

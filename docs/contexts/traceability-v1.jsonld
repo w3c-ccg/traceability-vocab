@@ -9,6 +9,36 @@
       "@id": "http://schema.org/image",
       "@type": "@id"
     },
+    "GeoCoordinates": {
+      "@id": "https://gs1.org/voc/GeoCoordinates",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "latitude": {
+          "@id": "https://gs1.org/voc/latitude"
+        },
+        "longitude": {
+          "@id": "https://gs1.org/voc/longitude"
+        }
+      }
+    },
+    "Place": {
+      "@id": "https://gs1.org/voc/Place",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "geo": {
+          "@id": "https://gs1.org/voc/GeoCoordinates"
+        },
+        "address": {
+          "@id": "https://gs1.org/voc/PostalAddress"
+        }
+      }
+    },
     "PostalAddress": {
       "@id": "https://gs1.org/voc/PostalAddress",
       "@context": {
@@ -19,29 +49,29 @@
         "organizationName": {
           "@id": "https://gs1.org/voc/organizationName"
         },
-        "postOfficeBoxNumber": {
-          "@id": "https://gs1.org/voc/postOfficeBoxNumber"
-        },
         "streetAddress": {
           "@id": "https://gs1.org/voc/streetAddress"
-        },
-        "crossStreet": {
-          "@id": "https://gs1.org/voc/crossStreet"
         },
         "addressLocality": {
           "@id": "https://gs1.org/voc/addressLocality"
         },
-        "countyCode": {
-          "@id": "https://gs1.org/voc/countyCode"
-        },
         "addressRegion": {
           "@id": "https://gs1.org/voc/addressRegion"
+        },
+        "addressCountry": {
+          "@id": "https://gs1.org/voc/addressCountry"
+        },
+        "crossStreet": {
+          "@id": "https://gs1.org/voc/crossStreet"
+        },
+        "countyCode": {
+          "@id": "https://gs1.org/voc/countyCode"
         },
         "postalCode": {
           "@id": "https://gs1.org/voc/postalCode"
         },
-        "addressCountry": {
-          "@id": "https://gs1.org/voc/addressCountry"
+        "postOfficeBoxNumber": {
+          "@id": "https://gs1.org/voc/postOfficeBoxNumber"
         }
       }
     }

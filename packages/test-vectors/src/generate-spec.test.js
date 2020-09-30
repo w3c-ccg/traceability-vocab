@@ -14,6 +14,8 @@ const specFile = path.resolve(__dirname, '../../../docs/index.html');
 const vocabularyFile = path.resolve(__dirname, '../../../docs/contexts/traceability-v1.jsonld')
 const intermediateJsonFile = path.resolve(__dirname, '../../../docs/intermediate.json')
 
+const ajv = new Ajv();
+
 let intermediateJson;
 let vocabularyContext;
 let updatedSpec;
@@ -23,19 +25,27 @@ it('should generate context from json schema', async () => {
     vocabularyContext = getContextFromIntermediate(intermediateJson)
 });
 
+it('should add all schemas to ajv', () => {
+    Object.values(intermediateJson).forEach((classDefinition) => {
+        ajv.addSchema(classDefinition.schema)
+    })
+})
+
 it('should validate using json schema', async () => {
     Object.values(intermediateJson).forEach((classDefinition) => {
         const fixture = classDefinitionToFixtureJson(classDefinition)
 
-        const ajv = new Ajv();
         validate = ajv.compile(classDefinition.schema);
 
         fixture.good.forEach((goodExample) => {
-            expect(validate(goodExample)).toBe(true)
+            const valid = validate(goodExample);
+            if (!valid) console.log(validate.errors);
+            expect(valid).toBe(true)
         })
 
         fixture.bad.forEach((badExample) => {
-            expect(validate(badExample)).toBe(false)
+            const valid = validate(badExample);
+            expect(valid).toBe(false)
         })
 
         classDefinition.examples = fixture.good;

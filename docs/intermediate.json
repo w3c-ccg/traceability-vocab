@@ -1,4 +1,170 @@
 {
+  "https://gs1.org/voc/GeoCoordinates": {
+    "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "GeoCoordinates",
+      "@id": "https://gs1.org/voc/GeoCoordinates"
+    },
+    "title": "Geographic Coordinates",
+    "description": "The geographic coordinates of a place or event.",
+    "classProperties": {
+      "https://gs1.org/voc/latitude": {
+        "$comment": {
+          "term": "latitude",
+          "@id": "https://gs1.org/voc/latitude"
+        },
+        "title": "Latitude",
+        "description": "Angular distance North or South from the earth's equator measured through 90 degrees."
+      },
+      "https://gs1.org/voc/longitude": {
+        "$comment": {
+          "term": "longitude",
+          "@id": "https://gs1.org/voc/longitude"
+        },
+        "title": "Longitude",
+        "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees."
+      }
+    },
+    "examples": [
+      {
+        "latitude": "53.2934",
+        "longitude": "56.2069"
+      },
+      {
+        "latitude": "80.9337",
+        "longitude": "-27.7964"
+      },
+      {
+        "latitude": "46.7771",
+        "longitude": "-58.7147"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"GeoCoordinates\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
+      "title": "Geographic Coordinates",
+      "description": "The geographic coordinates of a place or event.",
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "$comment": "{\"term\": \"latitude\", \"@id\": \"https://gs1.org/voc/latitude\"}",
+          "title": "Latitude",
+          "description": "Angular distance North or South from the earth's equator measured through 90 degrees.",
+          "type": "string"
+        },
+        "longitude": {
+          "$comment": "{\"term\": \"longitude\", \"@id\": \"https://gs1.org/voc/longitude\"}",
+          "title": "Longitude",
+          "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://gs1.org/voc/Place": {
+    "$id": "https://w3id.org/traceability/schemas/Place.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Place",
+      "@id": "https://gs1.org/voc/Place"
+    },
+    "title": "Place",
+    "description": "Entities that have a somewhat fixed, physical location.",
+    "classProperties": {
+      "https://gs1.org/voc/GeoCoordinates": {
+        "$comment": {
+          "term": "geo",
+          "@id": "https://gs1.org/voc/GeoCoordinates"
+        },
+        "title": "Geographic Coordinates",
+        "description": "Links to information about geocoordinates for a place."
+      },
+      "https://gs1.org/voc/PostalAddress": {
+        "$comment": {
+          "term": "address",
+          "@id": "https://gs1.org/voc/PostalAddress"
+        },
+        "title": "Postal Address",
+        "description": "The postal address for an organization or place."
+      }
+    },
+    "examples": [
+      {
+        "address": {
+          "organizationName": "Roob LLC",
+          "streetAddress": "792 Raphael Pines",
+          "addressLocality": "Ondrickaberg",
+          "addressRegion": "Louisiana",
+          "postalCode": "88279-2328",
+          "addressCountry": "Dominica"
+        },
+        "geo": {
+          "latitude": "16.2351",
+          "longitude": "-28.0032"
+        }
+      },
+      {
+        "address": {
+          "organizationName": "Bernier, Hegmann and Heathcote",
+          "streetAddress": "330 Schaefer Lodge",
+          "addressLocality": "West Jadyn",
+          "addressRegion": "West Virginia",
+          "postalCode": "83403",
+          "addressCountry": "Panama"
+        },
+        "geo": {
+          "latitude": "58.9154",
+          "longitude": "-3.4023"
+        }
+      },
+      {
+        "address": {
+          "organizationName": "Sauer, Hoeger and Barton",
+          "streetAddress": "8517 Cole Port",
+          "addressLocality": "Breitenbergfort",
+          "addressRegion": "Nebraska",
+          "postalCode": "82800",
+          "addressCountry": "Oman"
+        },
+        "geo": {
+          "latitude": "35.3097",
+          "longitude": "129.1817"
+        }
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Place.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Place\", \"@id\": \"https://gs1.org/voc/Place\"}",
+      "title": "Place",
+      "description": "Entities that have a somewhat fixed, physical location.",
+      "type": "object",
+      "properties": {
+        "geo": {
+          "$comment": "{\"term\": \"geo\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
+          "title": "Geographic Coordinates",
+          "description": "Links to information about geocoordinates for a place.",
+          "$ref": "https://w3id.org/traceability/schemas/GeoCoordinates.json"
+        },
+        "address": {
+          "$comment": "{\"term\": \"address\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
+          "title": "Postal Address",
+          "description": "The postal address for an organization or place.",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://gs1.org/voc/PostalAddress": {
     "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -17,14 +183,6 @@
         "title": "Organization Name",
         "description": "The name of the organization expressed in text."
       },
-      "https://gs1.org/voc/postOfficeBoxNumber": {
-        "$comment": {
-          "term": "postOfficeBoxNumber",
-          "@id": "https://gs1.org/voc/postOfficeBoxNumber"
-        },
-        "title": "Post Office Box Number",
-        "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
-      },
       "https://gs1.org/voc/streetAddress": {
         "$comment": {
           "term": "streetAddress",
@@ -32,14 +190,6 @@
         },
         "title": "Street Address",
         "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building."
-      },
-      "https://gs1.org/voc/crossStreet": {
-        "$comment": {
-          "term": "crossStreet",
-          "@id": "https://gs1.org/voc/crossStreet"
-        },
-        "title": "Cross Street",
-        "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it."
       },
       "https://gs1.org/voc/addressLocality": {
         "$comment": {
@@ -49,14 +199,6 @@
         "title": "Address Locality",
         "description": "Text specifying the name of the locality, for example a city."
       },
-      "https://gs1.org/voc/countyCode": {
-        "$comment": {
-          "term": "countyCode",
-          "@id": "https://gs1.org/voc/countyCode"
-        },
-        "title": "County Code",
-        "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state."
-      },
       "https://gs1.org/voc/addressRegion": {
         "$comment": {
           "term": "addressRegion",
@@ -64,6 +206,30 @@
         },
         "title": "Address Region",
         "description": "Text specifying a province or state in abbreviated format for example NJ."
+      },
+      "https://gs1.org/voc/addressCountry": {
+        "$comment": {
+          "term": "addressCountry",
+          "@id": "https://gs1.org/voc/addressCountry"
+        },
+        "title": "Address Country",
+        "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
+      },
+      "https://gs1.org/voc/crossStreet": {
+        "$comment": {
+          "term": "crossStreet",
+          "@id": "https://gs1.org/voc/crossStreet"
+        },
+        "title": "Cross Street",
+        "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it."
+      },
+      "https://gs1.org/voc/countyCode": {
+        "$comment": {
+          "term": "countyCode",
+          "@id": "https://gs1.org/voc/countyCode"
+        },
+        "title": "County Code",
+        "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state."
       },
       "https://gs1.org/voc/postalCode": {
         "$comment": {
@@ -73,39 +239,39 @@
         "title": "Postal Code",
         "description": "Text specifying the postal code for an address."
       },
-      "https://gs1.org/voc/addressCountry": {
+      "https://gs1.org/voc/postOfficeBoxNumber": {
         "$comment": {
-          "term": "addressCountry",
-          "@id": "https://gs1.org/voc/addressCountry"
+          "term": "postOfficeBoxNumber",
+          "@id": "https://gs1.org/voc/postOfficeBoxNumber"
         },
-        "title": "Address Country",
-        "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
+        "title": "Post Office Box Number",
+        "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
       }
     },
     "examples": [
       {
-        "organizationName": "Roob LLC",
-        "streetAddress": "792 Raphael Pines",
-        "addressLocality": "Ondrickaberg",
-        "addressRegion": "Louisiana",
-        "postalCode": "88279-2328",
-        "addressCountry": "Dominica"
+        "organizationName": "Pollich, Feeney and Kshlerin",
+        "streetAddress": "28754 Arvid Vista",
+        "addressLocality": "Laurelborough",
+        "addressRegion": "Idaho",
+        "postalCode": "68717",
+        "addressCountry": "Israel"
       },
       {
-        "organizationName": "Treutel - Gutkowski",
-        "streetAddress": "0417 Koelpin Land",
-        "addressLocality": "Darehaven",
-        "addressRegion": "Louisiana",
-        "postalCode": "03684",
-        "addressCountry": "Venezuela"
+        "organizationName": "Okuneva Inc",
+        "streetAddress": "100 Cyril Extension",
+        "addressLocality": "Lake Ryderburgh",
+        "addressRegion": "Indiana",
+        "postalCode": "15603",
+        "addressCountry": "Jersey"
       },
       {
-        "organizationName": "Hoeger, Barton and Johnston",
-        "streetAddress": "517 Cole Port",
-        "addressLocality": "Breitenbergfort",
-        "addressRegion": "Nebraska",
-        "postalCode": "82800",
-        "addressCountry": "Oman"
+        "organizationName": "Koelpin Inc",
+        "streetAddress": "2739 Sipes Neck",
+        "addressLocality": "New Bellshire",
+        "addressRegion": "Virginia",
+        "postalCode": "40920",
+        "addressCountry": "United States Minor Outlying Islands"
       }
     ],
     "schema": {
@@ -122,22 +288,10 @@
           "description": "The name of the organization expressed in text.",
           "type": "string"
         },
-        "postOfficeBoxNumber": {
-          "$comment": "{\"term\": \"postOfficeBoxNumber\", \"@id\": \"https://gs1.org/voc/postOfficeBoxNumber\"}",
-          "title": "Post Office Box Number",
-          "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept.",
-          "type": "string"
-        },
         "streetAddress": {
           "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://gs1.org/voc/streetAddress\"}",
           "title": "Street Address",
           "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building.",
-          "type": "string"
-        },
-        "crossStreet": {
-          "$comment": "{\"term\": \"crossStreet\", \"@id\": \"https://gs1.org/voc/crossStreet\"}",
-          "title": "Cross Street",
-          "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it.",
           "type": "string"
         },
         "addressLocality": {
@@ -146,16 +300,28 @@
           "description": "Text specifying the name of the locality, for example a city.",
           "type": "string"
         },
-        "countyCode": {
-          "$comment": "{\"term\": \"countyCode\", \"@id\": \"https://gs1.org/voc/countyCode\"}",
-          "title": "County Code",
-          "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state.",
-          "type": "string"
-        },
         "addressRegion": {
           "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://gs1.org/voc/addressRegion\"}",
           "title": "Address Region",
           "description": "Text specifying a province or state in abbreviated format for example NJ.",
+          "type": "string"
+        },
+        "addressCountry": {
+          "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://gs1.org/voc/addressCountry\"}",
+          "title": "Address Country",
+          "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1.",
+          "type": "string"
+        },
+        "crossStreet": {
+          "$comment": "{\"term\": \"crossStreet\", \"@id\": \"https://gs1.org/voc/crossStreet\"}",
+          "title": "Cross Street",
+          "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it.",
+          "type": "string"
+        },
+        "countyCode": {
+          "$comment": "{\"term\": \"countyCode\", \"@id\": \"https://gs1.org/voc/countyCode\"}",
+          "title": "County Code",
+          "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state.",
           "type": "string"
         },
         "postalCode": {
@@ -164,10 +330,10 @@
           "description": "Text specifying the postal code for an address.",
           "type": "string"
         },
-        "addressCountry": {
-          "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://gs1.org/voc/addressCountry\"}",
-          "title": "Address Country",
-          "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1.",
+        "postOfficeBoxNumber": {
+          "$comment": "{\"term\": \"postOfficeBoxNumber\", \"@id\": \"https://gs1.org/voc/postOfficeBoxNumber\"}",
+          "title": "Post Office Box Number",
+          "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept.",
           "type": "string"
         }
       },
