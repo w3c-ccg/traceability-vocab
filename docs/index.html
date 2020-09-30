@@ -3,253 +3,253 @@
 
 <head>
 
-    <title>Traceability Vocabulary v0.0</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>Traceability Vocabulary v0.0</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
-    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
-    <script type="text/javascript" class="remove">
+  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+  <script type="text/javascript" class="remove">
 
-        const respecPagesJson = {
-            "name": "traceability-vocab",
-            "status": "UNOFFICIAL",
-            "latest": "https://transmute-industries.github.io/traceability-vocab",
-            "repository": "https://github.com/transmute-industries/traceability-vocab",
-            "issues": "https://github.com/transmute-industries/traceability-vocab/issues",
-            "group": {
-                "name": "Credentials Community Group",
-                "url": "https://www.w3.org/community/credentials/",
-                "list": "public-credentials",
-                "patentUri": "https://www.w3.org/community/about/agreements/cla/"
+    const respecPagesJson = {
+      "name": "traceability-vocab",
+      "status": "UNOFFICIAL",
+      "latest": "https://transmute-industries.github.io/traceability-vocab",
+      "repository": "https://github.com/transmute-industries/traceability-vocab",
+      "issues": "https://github.com/transmute-industries/traceability-vocab/issues",
+      "group": {
+        "name": "Credentials Community Group",
+        "url": "https://www.w3.org/community/credentials/",
+        "list": "public-credentials",
+        "patentUri": "https://www.w3.org/community/about/agreements/cla/"
+      },
+      "editors": [
+        {
+          "name": "Orie Steele",
+          "url": "https://github.com/OR13",
+          "company": "Transmute",
+          "companyURL": "https://www.transmute.industries/"
+        }
+      ],
+      "bibliography": {
+        "RDF-DATASET-NORMALIZATION": {
+          "title": "RDF Dataset Normalization 1.0",
+          "href": "http://json-ld.github.io/normalization/spec/",
+          "authors": ["David Longley", "Manu Sporny"],
+          "status": "CGDRAFT",
+          "publisher": "JSON-LD Community Group"
+        }
+      }
+    }
+
+    var respecConfig = {
+      // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+      specStatus: respecPagesJson.status,
+
+      // the specification's short name, as in http://www.w3.org/TR/short-name/
+      shortName: respecPagesJson.name,
+
+      // if you wish the publication date to be other than today, set this
+      // publishDate:  "2009-08-06",
+
+      // if there is a previously published draft, 
+      // uncomment this and set its YYYY-MM-DD date
+      // and its maturity status
+      previousPublishDate: "2020-09-30",
+      previousMaturity: "UNOFFICIAL",
+
+      // if there a publicly available Editor's Draft, this is the link
+      edDraftURI: respecPagesJson.latest,
+
+      // if this is a LCWD, uncomment and set the end of its review period
+      // lcEnd: "2009-08-05",
+
+      // if you want to have extra CSS, append them to this list
+      // it is recommended that the respec.css stylesheet be kept
+      //extraCSS:             ["spec.css", "prettify.css"],
+
+      // editors, add as many as you like
+      // only "name" is required
+      editors: respecPagesJson.editors,
+
+
+      // extend the bibliography entries
+      //localBiblio: webpayments.localBiblio,
+
+      wg: respecPagesJson.group.name,
+      // URI of the public WG page
+      wgURI: respecPagesJson.group.url,
+      // name (with the @w3c.org) of the public mailing to which comments are due
+      wgPublicList: respecPagesJson.group.list,
+      // URI of the patent status for this WG, for Rec-track documents
+      // !!!! IMPORTANT !!!!
+      // This is important for Rec-track documents, do not copy a patent URI from a random
+      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+      // Team Contact.
+      wgPatentURI: respecPagesJson.group.patentUri,
+
+      otherLinks: [
+        {
+          key: "Source Control",
+          data: [
+            {
+              value: respecPagesJson.repository,
+              href: respecPagesJson.repository,
             },
-            "editors": [
-                {
-                    "name": "Orie Steele",
-                    "url": "https://github.com/OR13",
-                    "company": "Transmute",
-                    "companyURL": "https://www.transmute.industries/"
-                }
-            ],
-            "bibliography": {
-                "RDF-DATASET-NORMALIZATION": {
-                    "title": "RDF Dataset Normalization 1.0",
-                    "href": "http://json-ld.github.io/normalization/spec/",
-                    "authors": ["David Longley", "Manu Sporny"],
-                    "status": "CGDRAFT",
-                    "publisher": "JSON-LD Community Group"
-                }
-            }
-        }
+          ],
+        },
+        {
+          key: "Issue Tracker",
+          data: [
+            {
+              value: respecPagesJson.issues,
+              href: respecPagesJson.issues,
+            },
+          ],
+        },
+      ],
 
-        var respecConfig = {
-            // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-            specStatus: respecPagesJson.status,
-
-            // the specification's short name, as in http://www.w3.org/TR/short-name/
-            shortName: respecPagesJson.name,
-
-            // if you wish the publication date to be other than today, set this
-            // publishDate:  "2009-08-06",
-
-            // if there is a previously published draft, 
-            // uncomment this and set its YYYY-MM-DD date
-            // and its maturity status
-            previousPublishDate: "2020-09-30",
-            previousMaturity: "UNOFFICIAL",
-
-            // if there a publicly available Editor's Draft, this is the link
-            edDraftURI: respecPagesJson.latest,
-
-            // if this is a LCWD, uncomment and set the end of its review period
-            // lcEnd: "2009-08-05",
-
-            // if you want to have extra CSS, append them to this list
-            // it is recommended that the respec.css stylesheet be kept
-            //extraCSS:             ["spec.css", "prettify.css"],
-
-            // editors, add as many as you like
-            // only "name" is required
-            editors: respecPagesJson.editors,
-
-
-            // extend the bibliography entries
-            //localBiblio: webpayments.localBiblio,
-
-            wg: respecPagesJson.group.name,
-            // URI of the public WG page
-            wgURI: respecPagesJson.group.url,
-            // name (with the @w3c.org) of the public mailing to which comments are due
-            wgPublicList: respecPagesJson.group.list,
-            // URI of the patent status for this WG, for Rec-track documents
-            // !!!! IMPORTANT !!!!
-            // This is important for Rec-track documents, do not copy a patent URI from a random
-            // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-            // Team Contact.
-            wgPatentURI: respecPagesJson.group.patentUri,
-
-            otherLinks: [
-                {
-                    key: "Source Control",
-                    data: [
-                        {
-                            value: respecPagesJson.repository,
-                            href: respecPagesJson.repository,
-                        },
-                    ],
-                },
-                {
-                    key: "Issue Tracker",
-                    data: [
-                        {
-                            value: respecPagesJson.issues,
-                            href: respecPagesJson.issues,
-                        },
-                    ],
-                },
-            ],
-
-            // URI of the patent status for this WG, for Rec-track documents
-            // !!!! IMPORTANT !!!!
-            // This is important for Rec-track documents, do not copy a patent URI from a random
-            // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-            // Team Contact.
-            // wgPatentURI:  "",
-            maxTocLevel: 4,
-            /*preProcess: [ webpayments.preProcess ],
-            alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
-            */
-            localBiblio: respecPagesJson.bibliography,
-        };
-    </script>
-    <style>
-        table {
-            width: 100%;
-        }
-    </style>
+      // URI of the patent status for this WG, for Rec-track documents
+      // !!!! IMPORTANT !!!!
+      // This is important for Rec-track documents, do not copy a patent URI from a random
+      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+      // Team Contact.
+      // wgPatentURI:  "",
+      maxTocLevel: 4,
+      /*preProcess: [ webpayments.preProcess ],
+      alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
+      */
+      localBiblio: respecPagesJson.bibliography,
+    };
+  </script>
+  <style>
+    table {
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body>
 
-    <section id="abstract">
-        <p>
-            This specification describes a Linked Data vocabulary for asserting
-            Verifiable Credentials related to traceability information, such as chemical properties, mechanical
-            properties, country of origin, and other
-            attributes used to determine the status of a products and materials in a supply chain.
-        </p>
-    </section>
+  <section id="abstract">
+    <p>
+      This specification describes a Linked Data vocabulary for asserting
+      Verifiable Credentials related to traceability information, such as chemical properties, mechanical
+      properties, country of origin, and other
+      attributes used to determine the status of a products and materials in a supply chain.
+    </p>
+  </section>
 
-    <section id="sotd">
-        <p>
-            This is an experimental specification and is undergoing regular
-            revisions. It is not fit for production deployment.
-        </p>
+  <section id="sotd">
+    <p>
+      This is an experimental specification and is undergoing regular
+      revisions. It is not fit for production deployment.
+    </p>
 
-        <p>
-            Please <a href="https://github.com/transmute-industries/traceability-vocab/issues/">open an issue</a> , if
-            you wish to collaborate on this specification.
-        </p>
+    <p>
+      Please <a href="https://github.com/transmute-industries/traceability-vocab/issues/">open an issue</a> , if
+      you wish to collaborate on this specification.
+    </p>
 
-        <p>
-            You may also reach out via the mailing list:
-            <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
-            (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
-            <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
-        </p>
+    <p>
+      You may also reach out via the mailing list:
+      <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
+      (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
+      <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
+    </p>
+  </section>
+
+  <section class="informative">
+    <h2>Introduction</h2>
+
+    <p>
+      This specification describes a Linked Data vocabulary for asserting
+      Verifiable Credentials related to traceability information, such as chemical properties, mechanical
+      properties, country of origin, and other
+      attributes used to determine the status of a products and materials in a supply chain.
+    </p>
+
+    <section class="informative">
+      <h3>Use Cases and Requirements</h3>
+
+      <p>
+        The following use cases outline a number of key scenarios that readers might
+        find useful:
+      </p>
+
+      <ul>
+        <li>
+          Certified Mill Test Report
+        </li>
+      </ul>
+
     </section>
 
     <section class="informative">
-        <h2>Introduction</h2>
+      <h3>Example</h3>
 
-        <p>
-            This specification describes a Linked Data vocabulary for asserting
-            Verifiable Credentials related to traceability information, such as chemical properties, mechanical
-            properties, country of origin, and other
-            attributes used to determine the status of a products and materials in a supply chain.
-        </p>
-
-        <section class="informative">
-            <h3>Use Cases and Requirements</h3>
-
-            <p>
-                The following use cases outline a number of key scenarios that readers might
-                find useful:
-            </p>
-
-            <ul>
-                <li>
-                    Certified Mill Test Report
-                </li>
-            </ul>
-
-        </section>
-
-        <section class="informative">
-            <h3>Example</h3>
-
-            <p>
-                The following example is provided as a simple example of when this vocabulary
-                is useful:
-            </p>
-
-        </section>
+      <p>
+        The following example is provided as a simple example of when this vocabulary
+        is useful:
+      </p>
 
     </section>
 
-    <section id="terminology" class="informative">
-        <h2>Terminology</h2>
-        <p>
-            The following terms are used to describe concepts in this specification.
-        </p>
+  </section>
 
-        <dl class="termlist">
-            <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
-            <dd>
-                A thing with distinct and independent existence, such as a person,
-                organization, or device that performs one or more roles in the ecosystem.
-            </dd>
-            <dt><dfn>user agent</dfn></dt>
-            <dd>
-                A program, such as a browser or other Web client, that mediates the
-                communication between the various roles in this specification.
-            </dd>
-            <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
-            <dd>
-                An identifier as defined by [[RFC3986]].
-            </dd>
-        </dl>
-    </section>
+  <section id="terminology" class="informative">
+    <h2>Terminology</h2>
+    <p>
+      The following terms are used to describe concepts in this specification.
+    </p>
 
-    <section id="vocabulary" class="normative">
-        <h2>Vocabulary</h2>
+    <dl class="termlist">
+      <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
+      <dd>
+        A thing with distinct and independent existence, such as a person,
+        organization, or device that performs one or more roles in the ecosystem.
+      </dd>
+      <dt><dfn>user agent</dfn></dt>
+      <dd>
+        A program, such as a browser or other Web client, that mediates the
+        communication between the various roles in this specification.
+      </dd>
+      <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
+      <dd>
+        An identifier as defined by [[RFC3986]].
+      </dd>
+    </dl>
+  </section>
 
-        <p>
-            This vocabulary assumes all terms specified in the base Verifiable
-            Credentials [[VC-DATA-MODEL]] context.
-        </p>
+  <section id="vocabulary" class="normative">
+    <h2>Vocabulary</h2>
 
-        <p>
-            In addition, the following classes
-            are available for specifying information related to supply-chain traceability.
-        </p>
+    <p>
+      This vocabulary assumes all terms specified in the base Verifiable
+      Credentials [[VC-DATA-MODEL]] context.
+    </p>
 
-        <p>
-            You may view the latest json-ld vocabulary at: <br>
-            <a href="https://w3id.org/traceability/v1">
-                https://w3id.org/traceability/v1
-            </a>
-        </p>
+    <p>
+      In addition, the following classes
+      are available for specifying information related to supply-chain traceability.
+    </p>
 
-        <p>
-            You may view the latest json-schema definition at: <br>
-            <a href="https://w3id.org/traceability/v1/PostalAddress.json">
-                https://w3id.org/traceability/v1/PostalAddress.json
-            </a>
-        </p>
+    <p>
+      You may view the latest json-ld vocabulary at: <br>
+      <a href="https://w3id.org/traceability/v1">
+        https://w3id.org/traceability/v1
+      </a>
+    </p>
 
-        <script type="application/json" id="intermediate-json">
+    <p>
+      You may view the latest json-schema definition at: <br>
+      <a href="https://w3id.org/traceability/v1/PostalAddress.json">
+        https://w3id.org/traceability/v1/PostalAddress.json
+      </a>
+    </p>
+
+    <script type="application/json" id="intermediate-json">
       {
   "https://gs1.org/voc/PostalAddress": {
-    "$id": "https://example.com/PostalAddress.schema.json",
+    "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$comment": {
       "term": "PostalAddress",
@@ -333,107 +333,189 @@
     },
     "examples": [
       {
-        "@context": "https://w3id.org/traceability/v1",
-        "organizationName": "Weyland Industries"
+        "organizationName": "Roob LLC",
+        "streetAddress": "792 Raphael Pines",
+        "addressLocality": "Ondrickaberg",
+        "addressRegion": "Louisiana",
+        "postalCode": "88279-2328",
+        "addressCountry": "Dominica"
       },
       {
-        "@context": "https://w3id.org/traceability/v1",
-        "organizationName": "Yutani Corporation"
+        "organizationName": "Treutel - Gutkowski",
+        "streetAddress": "0417 Koelpin Land",
+        "addressLocality": "Darehaven",
+        "addressRegion": "Louisiana",
+        "postalCode": "03684",
+        "addressCountry": "Venezuela"
+      },
+      {
+        "organizationName": "Hoeger, Barton and Johnston",
+        "streetAddress": "517 Cole Port",
+        "addressLocality": "Breitenbergfort",
+        "addressRegion": "Nebraska",
+        "postalCode": "82800",
+        "addressCountry": "Oman"
       }
-    ]
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"PostalAddress\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
+      "title": "Postal Address",
+      "description": "The location at which a particular organization or person may be found or reached.",
+      "type": "object",
+      "properties": {
+        "organizationName": {
+          "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://gs1.org/voc/organizationName\"}",
+          "title": "Organization Name",
+          "description": "The name of the organization expressed in text.",
+          "type": "string"
+        },
+        "postOfficeBoxNumber": {
+          "$comment": "{\"term\": \"postOfficeBoxNumber\", \"@id\": \"https://gs1.org/voc/postOfficeBoxNumber\"}",
+          "title": "Post Office Box Number",
+          "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept.",
+          "type": "string"
+        },
+        "streetAddress": {
+          "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://gs1.org/voc/streetAddress\"}",
+          "title": "Street Address",
+          "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building.",
+          "type": "string"
+        },
+        "crossStreet": {
+          "$comment": "{\"term\": \"crossStreet\", \"@id\": \"https://gs1.org/voc/crossStreet\"}",
+          "title": "Cross Street",
+          "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it.",
+          "type": "string"
+        },
+        "addressLocality": {
+          "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://gs1.org/voc/addressLocality\"}",
+          "title": "Address Locality",
+          "description": "Text specifying the name of the locality, for example a city.",
+          "type": "string"
+        },
+        "countyCode": {
+          "$comment": "{\"term\": \"countyCode\", \"@id\": \"https://gs1.org/voc/countyCode\"}",
+          "title": "County Code",
+          "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state.",
+          "type": "string"
+        },
+        "addressRegion": {
+          "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://gs1.org/voc/addressRegion\"}",
+          "title": "Address Region",
+          "description": "Text specifying a province or state in abbreviated format for example NJ.",
+          "type": "string"
+        },
+        "postalCode": {
+          "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://gs1.org/voc/postalCode\"}",
+          "title": "Postal Code",
+          "description": "Text specifying the postal code for an address.",
+          "type": "string"
+        },
+        "addressCountry": {
+          "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://gs1.org/voc/addressCountry\"}",
+          "title": "Address Country",
+          "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
   }
 }
             </script>
 
-        <p id="vocab-last-generated" class="note">
-            This vocabulary was last generated
-            <span id="vocab-last-generated-date">
-                Wednesday, September 30, 2020 4:08 PM
-            </span>
-        </p>
+    <p id="vocab-last-generated" class="note">
+      This vocabulary was last generated
+      <span id="vocab-last-generated-date">
+        Wednesday, September 30, 2020 5:52 PM
+      </span>
+    </p>
 
-    </section>
+  </section>
 
 
 
-    <section class="informative">
-        <h2>Privacy Considerations</h2>
+  <section class="informative">
+    <h2>Privacy Considerations</h2>
 
-        <p>
-            This section details the general privacy considerations and specific privacy
-            implications of deploying this specification into production environments.
-        </p>
+    <p>
+      This section details the general privacy considerations and specific privacy
+      implications of deploying this specification into production environments.
+    </p>
 
-    </section>
+  </section>
 
-    <section class="informative">
-        <h2>Security Considerations</h2>
+  <section class="informative">
+    <h2>Security Considerations</h2>
 
-        <p>
-            There are a number of security considerations that implementers should be
-            aware of when processing data described by this specification. Ignoring or
-            not understanding the implications of this section can result in
-            security vulnerabilities.
-        </p>
+    <p>
+      There are a number of security considerations that implementers should be
+      aware of when processing data described by this specification. Ignoring or
+      not understanding the implications of this section can result in
+      security vulnerabilities.
+    </p>
 
-        <p>
-            While this section attempts to highlight a broad set of security
-            considerations, it is not a complete list. Implementers are urged to seek the
-            advice of security and cryptography professionals when implementing mission
-            critical systems using the technology outlined in this specification.
-        </p>
+    <p>
+      While this section attempts to highlight a broad set of security
+      considerations, it is not a complete list. Implementers are urged to seek the
+      advice of security and cryptography professionals when implementing mission
+      critical systems using the technology outlined in this specification.
+    </p>
 
-    </section>
+  </section>
 
-    <section class="informative">
-        <h2>Accessibility Considerations</h2>
+  <section class="informative">
+    <h2>Accessibility Considerations</h2>
 
-        <p>
-            There are a number of accessibility considerations implementers should be
-            aware of when processing data described in this specification. As with any web
-            standards or protocols implementation, ignoring accessibility issues makes
-            this information unusable to a large subset of the population. It is important
-            to follow accessibility guidelines and standards, such as [[WCAG21]], to ensure
-            all people, regardless of ability, can make use of this data. This is
-            especially important when establishing systems utilizing cryptography, which
-            have historically created problems for assistive technologies.
-        </p>
+    <p>
+      There are a number of accessibility considerations implementers should be
+      aware of when processing data described in this specification. As with any web
+      standards or protocols implementation, ignoring accessibility issues makes
+      this information unusable to a large subset of the population. It is important
+      to follow accessibility guidelines and standards, such as [[WCAG21]], to ensure
+      all people, regardless of ability, can make use of this data. This is
+      especially important when establishing systems utilizing cryptography, which
+      have historically created problems for assistive technologies.
+    </p>
 
-        <p>
-            This section details the general accessibility considerations to take into
-            account when utilizing this data model.
-        </p>
+    <p>
+      This section details the general accessibility considerations to take into
+      account when utilizing this data model.
+    </p>
 
-    </section>
+  </section>
 
-    <section class="informative">
-        <h2>Internationalization Considerations</h2>
+  <section class="informative">
+    <h2>Internationalization Considerations</h2>
 
-        <p>
-            There are a number of internationalization considerations implementers should be
-            aware of when publishing data described in this specification. As with any web
-            standards or protocols implementation, ignoring internationalization makes it
-            difficult for data to be produced and consumed across a disparate set of
-            languages and societies, which would limit the applicability of the
-            specification and significantly diminish its value as a standard.
-        </p>
+    <p>
+      There are a number of internationalization considerations implementers should be
+      aware of when publishing data described in this specification. As with any web
+      standards or protocols implementation, ignoring internationalization makes it
+      difficult for data to be produced and consumed across a disparate set of
+      languages and societies, which would limit the applicability of the
+      specification and significantly diminish its value as a standard.
+    </p>
 
-        <p>
-            This section outlines general internationalization considerations to take into
-            account when utilizing this data model.
-        </p>
+    <p>
+      This section outlines general internationalization considerations to take into
+      account when utilizing this data model.
+    </p>
 
-    </section>
+  </section>
 
-    <script>
-        const intermediate = JSON.parse(document.getElementById('intermediate-json').innerHTML);
-        console.log(intermediate)
-        let vocabularyString = ''
-        Object.values(intermediate).forEach(classDefinition => {
+  <script>
+    const intermediate = JSON.parse(document.getElementById('intermediate-json').innerHTML);
+    console.log(intermediate)
+    let vocabularyString = ''
+    Object.values(intermediate).forEach(classDefinition => {
 
-            let classPropertySections = ''
-            Object.values(classDefinition.classProperties).forEach((classProperty) => {
-                classPropertySections += `
+      let classPropertySections = ''
+      Object.values(classDefinition.classProperties).forEach((classProperty) => {
+        classPropertySections += `
                 <section>
                 <h3>${classProperty.title}</h3>
                 <p>${classProperty.description}</p>
@@ -460,17 +542,17 @@
                     </table>
                 </section>
                 `
-            })
+      })
 
-            let classExamples = classDefinition.examples.map((ex) => {
-                return `
+      let classExamples = [classDefinition.examples[0]].map((ex) => {
+        return `
 <pre class="example">
 ${JSON.stringify({ "@context": "https://w3id.org/traceability/v1", ...ex }, null, 2)}
 </pre>
                 `
-            }).join("\n")
+      }).join("\n")
 
-            vocabularyString += `
+      vocabularyString += `
             <section>
             <h2>${classDefinition.title}</h2>
             <p>${classDefinition.description}</p>
@@ -510,10 +592,12 @@ ${JSON.stringify({ "@context": "https://w3id.org/traceability/v1", ...ex }, null
             ${classPropertySections}
             </section>
             `
-        });
-        document.getElementById('vocabulary').innerHTML += vocabularyString;
+    });
+    document.getElementById('vocabulary').innerHTML += vocabularyString;
 
-    </script>
+  </script>
+
+
 
 
 

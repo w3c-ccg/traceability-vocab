@@ -25,7 +25,8 @@ const getIntermediateFromDirectory = (targetDirectory) => {
                 title: file.title,
                 description: file.description,
                 classProperties: {},
-                examples: file.examples
+                examples: file.examples,
+                schema: file
             }
         }
         Object.values(file.properties).forEach((prop) => {
@@ -104,7 +105,7 @@ const addRandomProperty = (obj) => {
 
 const deleteRandomNumberProperties = (obj) => {
     let mutated = { ...obj };
-    let randomNumberOfPropertiesToDelete = faker.random.number(Object.keys(mutated).length - 1)
+    let randomNumberOfPropertiesToDelete = faker.random.number(Object.keys(mutated).length - 1) + 1
     while (randomNumberOfPropertiesToDelete > 0) {
         mutated = deleteRandomProperty(mutated);
         randomNumberOfPropertiesToDelete -= 1;
@@ -114,7 +115,7 @@ const deleteRandomNumberProperties = (obj) => {
 
 const addRandomNumberProperties = (obj) => {
     let mutated = { ...obj };
-    let randomNumberOfPropertiesToDelete = faker.random.number(Object.keys(mutated).length - 1)
+    let randomNumberOfPropertiesToDelete = faker.random.number(Object.keys(mutated).length - 1) + 1
     while (randomNumberOfPropertiesToDelete > 0) {
         mutated = addRandomProperty(mutated)
         randomNumberOfPropertiesToDelete -= 1;
@@ -128,7 +129,14 @@ const writeFileToPublic = (targetSubDirectory, fileData) => {
     fs.writeFileSync(path.resolve(__dirname, '../../../docs/', targetSubDirectory), fileData);
 }
 
+const classDefinitionToFixtureJson = (classDefinition) => {
+    const relativePathToFixture = classDefinition.$id.split('https://w3id.org/traceability/schemas/').pop();
+    const fixture = fs.readFileSync(path.resolve(__dirname, '../../../docs/test-vectors/', relativePathToFixture)).toString();
+    return JSON.parse(fixture)
+}
+
 module.exports = {
+    classDefinitionToFixtureJson,
     writeFileToPublic,
     addRandomProperty,
     addRandomNumberProperties,

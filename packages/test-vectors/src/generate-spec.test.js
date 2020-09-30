@@ -1,8 +1,13 @@
 const fs = require('fs');
 const path = require('path');
+const Ajv = require('ajv')
 const cheerio = require('cheerio');
 const moment = require('moment');
-const { getIntermediateFromDirectory, getContextFromIntermediate } = require('./help');
+const {
+    classDefinitionToFixtureJson,
+    getIntermediateFromDirectory,
+    getContextFromIntermediate
+} = require('./help');
 const UPDATE_RESPEC_TEST_REPORT = 'YES';
 
 const specFile = path.resolve(__dirname, '../../../docs/index.html');
@@ -18,14 +23,24 @@ it('should generate context from json schema', async () => {
     vocabularyContext = getContextFromIntermediate(intermediateJson)
 });
 
-
-it('should add good test vectors to intermediate', async () => {
+it('should validate using json schema', async () => {
     Object.values(intermediateJson).forEach((classDefinition) => {
-        console.log(classDefinition)
+        const fixture = classDefinitionToFixtureJson(classDefinition)
+
+        const ajv = new Ajv();
+        validate = ajv.compile(classDefinition.schema);
+
+        fixture.good.forEach((goodExample) => {
+            expect(validate(goodExample)).toBe(true)
+        })
+
+        fixture.bad.forEach((badExample) => {
+            expect(validate(badExample)).toBe(false)
+        })
+
+        classDefinition.examples = fixture.good;
     })
 });
-
-// todo iterate and test here....
 
 it('should update respec', async () => {
     const spec = fs.readFileSync(specFile).toString();
