@@ -12,10 +12,13 @@ const intermediateJsonFile = path.resolve(__dirname, '../../../docs/intermediate
 let intermediateJson;
 let vocabularyContext;
 let updatedSpec;
+
 it('should generate context from json schema', async () => {
     intermediateJson = getIntermediateFromDirectory(path.resolve(__dirname, '../../../docs/schemas'))
     vocabularyContext = getContextFromIntermediate(intermediateJson)
 });
+
+// todo iterate and test here....
 
 it('should update respec', async () => {
     const spec = fs.readFileSync(specFile).toString();
