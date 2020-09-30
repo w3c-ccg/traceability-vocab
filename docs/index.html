@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
 
 <head>
 
     <title>Traceability Vocabulary v0.0</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
     <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
     <script type="text/javascript" class="remove">
@@ -202,7 +202,7 @@
         </p>
 
         <dl class="termlist">
-            <dt><dfn data-lt="entities|entity's">entity</dfn></dt>
+            <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
             <dd>
                 A thing with distinct and independent existence, such as a person,
                 organization, or device that performs one or more roles in the ecosystem.
@@ -233,70 +233,116 @@
         </p>
 
         <p>
-            You may view the latest json-ld vocabulary at: <br />
+            You may view the latest json-ld vocabulary at: <br>
             <a href="https://w3id.org/traceability/v1">
                 https://w3id.org/traceability/v1
             </a>
         </p>
 
         <p>
-            You may view the latest json-schema definition at: <br />
+            You may view the latest json-schema definition at: <br>
             <a href="https://w3id.org/traceability/v1/PostalAddress.json">
                 https://w3id.org/traceability/v1/PostalAddress.json
             </a>
         </p>
 
         <script type="application/json" id="intermediate-json">
-            ${JSON.stringify(results, null, 2)}
-        </script>
+      {
+  "https://gs1.org/voc/PostalAddress": {
+    "$id": "https://example.com/PostalAddress.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "PostalAddress",
+      "@id": "https://gs1.org/voc/PostalAddress"
+    },
+    "title": "Postal Address",
+    "description": "The location at which a particular organization or person may be found or reached.",
+    "classProperties": {
+      "https://gs1.org/voc/organizationName": {
+        "$comment": {
+          "term": "organizationName",
+          "@id": "https://gs1.org/voc/organizationName"
+        },
+        "title": "Organization Name",
+        "description": "The name of the organization expressed in text."
+      },
+      "https://gs1.org/voc/postOfficeBoxNumber": {
+        "$comment": {
+          "term": "postOfficeBoxNumber",
+          "@id": "https://gs1.org/voc/postOfficeBoxNumber"
+        },
+        "title": "Post Office Box Number",
+        "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
+      },
+      "https://gs1.org/voc/streetAddress": {
+        "$comment": {
+          "term": "streetAddress",
+          "@id": "https://gs1.org/voc/streetAddress"
+        },
+        "title": "Street Address",
+        "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building."
+      },
+      "https://gs1.org/voc/crossStreet": {
+        "$comment": {
+          "term": "crossStreet",
+          "@id": "https://gs1.org/voc/crossStreet"
+        },
+        "title": "Cross Street",
+        "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it."
+      },
+      "https://gs1.org/voc/addressLocality": {
+        "$comment": {
+          "term": "addressLocality",
+          "@id": "https://gs1.org/voc/addressLocality"
+        },
+        "title": "Address Locality",
+        "description": "Text specifying the name of the locality, for example a city."
+      },
+      "https://gs1.org/voc/countyCode": {
+        "$comment": {
+          "term": "countyCode",
+          "@id": "https://gs1.org/voc/countyCode"
+        },
+        "title": "County Code",
+        "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state."
+      },
+      "https://gs1.org/voc/addressRegion": {
+        "$comment": {
+          "term": "addressRegion",
+          "@id": "https://gs1.org/voc/addressRegion"
+        },
+        "title": "Address Region",
+        "description": "Text specifying a province or state in abbreviated format for example NJ."
+      },
+      "https://gs1.org/voc/postalCode": {
+        "$comment": {
+          "term": "postalCode",
+          "@id": "https://gs1.org/voc/postalCode"
+        },
+        "title": "Postal Code",
+        "description": "Text specifying the postal code for an address."
+      },
+      "https://gs1.org/voc/addressCountry": {
+        "$comment": {
+          "term": "addressCountry",
+          "@id": "https://gs1.org/voc/addressCountry"
+        },
+        "title": "Postal Code",
+        "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
+      }
+    }
+  }
+}
+            </script>
 
         <p id="vocab-last-generated" class="note">
             This vocabulary was last generated
             <span id="vocab-last-generated-date">
-                ${moment().format('LLLL')}
+                Wednesday, September 30, 2020 3:29 PM
             </span>
         </p>
 
-        <section>
-            <h2>Postal Address</h2>
-            <table class="simple">
-                <thead>
-                    <tr>
-                        <th>Class</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            PostalAddress
-                        </td>
-                        <td>
-                            The location at which a particular organization or person may be found or reached.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="simple">
-                <thead>
-                    <tr>
-                        <th>Property</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            organizationName
-                        </td>
-                        <td>
-                            The name of the organization expressed in text.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    </section>
 
     </section>
 
@@ -368,6 +414,87 @@
         </p>
 
     </section>
+
+    <script>
+        const intermediate = JSON.parse(document.getElementById('intermediate-json').innerHTML);
+        console.log(intermediate)
+        let vocabularyString = ''
+        Object.values(intermediate).forEach(classDefinition => {
+
+            let classPropertySections = ''
+            Object.values(classDefinition.classProperties).forEach((classProperty) => {
+                classPropertySections += `
+                <section>
+                <h3>${classProperty.title}</h3>
+                <p>${classProperty.description}</p>
+
+                <table class="simple">
+                    <tbody>
+                        <tr>
+                        <td>
+<a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+            <a href="${classProperty.$comment['@id']}">${classProperty.$comment.term}</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+<a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+            <a href="${classProperty.$comment['@id']}">${classProperty.$comment['@id']}</a>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </section>
+                `
+            })
+
+            vocabularyString += `
+            <section>
+            <h2>${classDefinition.title}</h2>
+            <p>${classDefinition.description}</p>
+
+            <table class="simple">
+                    <tbody>
+                        <tr>
+                        <td>
+            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="${classDefinition.$comment['@id']}">${classDefinition.$comment.term}</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="${classDefinition.$comment['@id']}">${classDefinition.$comment['@id']}</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+            <a href="https://json-schema.org/">JSON Schema</a>
+                        </td>
+                        <td>
+                            <a href="${classDefinition.$id}">${classDefinition.$id}</a>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+            ${classPropertySections}
+            </section>
+            `
+        });
+        document.getElementById('vocabulary').innerHTML += vocabularyString;
+
+    </script>
+
+
 
 </body>
 
