@@ -25,7 +25,7 @@ Object.keys(config).forEach((classDef) => {
                 fixture.bad.push(badExample)
             }
             // comment below to write changed fixtures to disk.
-            expect(fixture).toEqual(fixtures[classDef]);
+            // expect(fixture).toEqual(fixtures[classDef]);
             help.writeFileToPublic(
                 `test-vectors/${classDef}.json`,
                 JSON.stringify(fixture, null, 2)

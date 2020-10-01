@@ -274,16 +274,16 @@
     },
     "examples": [
       {
-        "latitude": "53.2934",
-        "longitude": "56.2069"
+        "latitude": "-57.2768",
+        "longitude": "-126.0645"
       },
       {
-        "latitude": "80.9337",
-        "longitude": "-27.7964"
+        "latitude": "2.3764",
+        "longitude": "-125.0511"
       },
       {
-        "latitude": "46.7771",
-        "longitude": "-58.7147"
+        "latitude": "-23.0569",
+        "longitude": "-134.1958"
       }
     ],
     "schema": {
@@ -325,6 +325,14 @@
     "title": "Place",
     "description": "Entities that have a somewhat fixed, physical location.",
     "classProperties": {
+      "https://gs1.org/voc/globalLocationNumber": {
+        "$comment": {
+          "term": "globalLocationNumber",
+          "@id": "https://gs1.org/voc/globalLocationNumber"
+        },
+        "title": "Global Location Number (GLN)",
+        "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln."
+      },
       "https://gs1.org/voc/GeoCoordinates": {
         "$comment": {
           "term": "geo",
@@ -344,45 +352,48 @@
     },
     "examples": [
       {
-        "address": {
-          "organizationName": "Roob LLC",
-          "streetAddress": "792 Raphael Pines",
-          "addressLocality": "Ondrickaberg",
-          "addressRegion": "Louisiana",
-          "postalCode": "88279-2328",
-          "addressCountry": "Dominica"
-        },
+        "globalLocationNumber": "3778263780454",
         "geo": {
-          "latitude": "16.2351",
-          "longitude": "-28.0032"
+          "latitude": "24.4172",
+          "longitude": "102.5204"
+        },
+        "address": {
+          "organizationName": "Ward, Gusikowski and Mitchell",
+          "streetAddress": "896 Marvin Forge",
+          "addressLocality": "Swaniawskiberg",
+          "addressRegion": "Pennsylvania",
+          "postalCode": "23282-5417",
+          "addressCountry": "Angola"
         }
       },
       {
-        "address": {
-          "organizationName": "Bernier, Hegmann and Heathcote",
-          "streetAddress": "330 Schaefer Lodge",
-          "addressLocality": "West Jadyn",
-          "addressRegion": "West Virginia",
-          "postalCode": "83403",
-          "addressCountry": "Panama"
-        },
+        "globalLocationNumber": "1429161519067",
         "geo": {
-          "latitude": "58.9154",
-          "longitude": "-3.4023"
+          "latitude": "-65.9021",
+          "longitude": "103.1859"
+        },
+        "address": {
+          "organizationName": "Howell - Koelpin",
+          "streetAddress": "183 Haag Landing",
+          "addressLocality": "Reynoldport",
+          "addressRegion": "Wisconsin",
+          "postalCode": "71108",
+          "addressCountry": "Sao Tome and Principe"
         }
       },
       {
-        "address": {
-          "organizationName": "Sauer, Hoeger and Barton",
-          "streetAddress": "8517 Cole Port",
-          "addressLocality": "Breitenbergfort",
-          "addressRegion": "Nebraska",
-          "postalCode": "82800",
-          "addressCountry": "Oman"
-        },
+        "globalLocationNumber": "8558223576465",
         "geo": {
-          "latitude": "35.3097",
-          "longitude": "129.1817"
+          "latitude": "-1.1224",
+          "longitude": "134.4176"
+        },
+        "address": {
+          "organizationName": "Trantow Inc",
+          "streetAddress": "66812 Estefania Isle",
+          "addressLocality": "Greenholtshire",
+          "addressRegion": "Ohio",
+          "postalCode": "40287",
+          "addressCountry": "Malawi"
         }
       }
     ],
@@ -394,6 +405,14 @@
       "description": "Entities that have a somewhat fixed, physical location.",
       "type": "object",
       "properties": {
+        "globalLocationNumber": {
+          "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://gs1.org/voc/globalLocationNumber\"}",
+          "title": "Global Location Number (GLN)",
+          "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln.",
+          "type": "string",
+          "minLength": 13,
+          "maxLength": 13
+        },
         "geo": {
           "$comment": "{\"term\": \"geo\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
           "title": "Geographic Coordinates",
@@ -496,28 +515,28 @@
     },
     "examples": [
       {
-        "organizationName": "Pollich, Feeney and Kshlerin",
-        "streetAddress": "28754 Arvid Vista",
-        "addressLocality": "Laurelborough",
-        "addressRegion": "Idaho",
-        "postalCode": "68717",
-        "addressCountry": "Israel"
+        "organizationName": "Feeney - Johns",
+        "streetAddress": "8717 Tracey Lane",
+        "addressLocality": "Sanfordton",
+        "addressRegion": "Texas",
+        "postalCode": "97670",
+        "addressCountry": "Djibouti"
       },
       {
-        "organizationName": "Okuneva Inc",
-        "streetAddress": "100 Cyril Extension",
-        "addressLocality": "Lake Ryderburgh",
-        "addressRegion": "Indiana",
-        "postalCode": "15603",
-        "addressCountry": "Jersey"
+        "organizationName": "Bahringer Inc",
+        "streetAddress": "208 Gleason Throughway",
+        "addressLocality": "North Joannie",
+        "addressRegion": "Ohio",
+        "postalCode": "34010",
+        "addressCountry": "Bermuda"
       },
       {
-        "organizationName": "Koelpin Inc",
-        "streetAddress": "2739 Sipes Neck",
-        "addressLocality": "New Bellshire",
-        "addressRegion": "Virginia",
-        "postalCode": "40920",
-        "addressCountry": "United States Minor Outlying Islands"
+        "organizationName": "Hahn, Walsh and Little",
+        "streetAddress": "82719 Kertzmann Valley",
+        "addressLocality": "Port Deventown",
+        "addressRegion": "West Virginia",
+        "postalCode": "95844",
+        "addressCountry": "Guinea"
       }
     ],
     "schema": {
@@ -593,7 +612,7 @@
     <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Wednesday, September 30, 2020 6:53 PM
+      Wednesday, September 30, 2020 7:36 PM
       </span>
             </p>
 
