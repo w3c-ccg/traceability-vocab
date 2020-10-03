@@ -1,13 +1,13 @@
 const { getPlace } = require("./Place");
 const { getPostalAddress } = require("./PostalAddress");
 const { getGeoCoordinates } = require("./GeoCoordinates");
-// const { getPercentComposition } = require('./PercentComposition');
+const { getSubstance } = require("./Substance");
 
 const generatorConfig = {
   Place: getPlace,
   PostalAddress: getPostalAddress,
   GeoCoordinates: getGeoCoordinates,
-  // "PercentComposition": getPercentComposition,
+  Substance: getSubstance,
 };
 
 module.exports = generatorConfig;

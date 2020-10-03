@@ -611,6 +611,22 @@
     "title": "Substance",
     "description": "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.",
     "classProperties": {
+      "https://www.gs1.org/voc/ingredientName": {
+        "$comment": {
+          "term": "ingredientName",
+          "@id": "https://www.gs1.org/voc/ingredientName"
+        },
+        "title": "Ingredient Name",
+        "description": "Free text field describing an ingredient or ingredient group. Ingredients include any additives (colourings, preservatives, e-numbers, etc.) that are encompassed."
+      },
+      "https://www.gs1.org/voc/ingredientContentPercentage": {
+        "$comment": {
+          "term": "ingredientContentPercentage",
+          "@id": "https://www.gs1.org/voc/ingredientContentPercentage"
+        },
+        "title": "Ingredient Content Percentage",
+        "description": "Quantity of the ingredient contained in the product as a percentage of the total product ingredients. This is used in conjunction with ingredientName."
+      },
       "http://purl.obolibrary.org/obo/chebi/formula": {
         "$comment": {
           "term": "formula",
@@ -636,6 +652,29 @@
         "description": "The condensed, 27 character <a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier#InChIKey\">InChIKey</a> is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds."
       }
     },
+    "examples": [
+      {
+        "ingredientName": "Titanium",
+        "ingredientContentPercentage": "45.358",
+        "formula": "Ti",
+        "inchi": "InChI=1S/Ti",
+        "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+      },
+      {
+        "ingredientName": "Titanium",
+        "ingredientContentPercentage": "93.790",
+        "formula": "Ti",
+        "inchi": "InChI=1S/Ti",
+        "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+      },
+      {
+        "ingredientName": "Titanium",
+        "ingredientContentPercentage": "78.958",
+        "formula": "Ti",
+        "inchi": "InChI=1S/Ti",
+        "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/Substance.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -644,6 +683,18 @@
       "description": "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.",
       "type": "object",
       "properties": {
+        "ingredientName": {
+          "$comment": "{\"term\": \"ingredientName\", \"@id\": \"https://www.gs1.org/voc/ingredientName\"}",
+          "title": "Ingredient Name",
+          "description": "Free text field describing an ingredient or ingredient group. Ingredients include any additives (colourings, preservatives, e-numbers, etc.) that are encompassed.",
+          "type": "string"
+        },
+        "ingredientContentPercentage": {
+          "$comment": "{\"term\": \"ingredientContentPercentage\", \"@id\": \"https://www.gs1.org/voc/ingredientContentPercentage\"}",
+          "title": "Ingredient Content Percentage",
+          "description": "Quantity of the ingredient contained in the product as a percentage of the total product ingredients. This is used in conjunction with ingredientName.",
+          "type": "string"
+        },
         "formula": {
           "$comment": "{\"term\": \"formula\", \"@id\": \"http://purl.obolibrary.org/obo/chebi/formula\"}",
           "title": "Formula",
@@ -662,7 +713,9 @@
           "description": "The condensed, 27 character <a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier#InChIKey\">InChIKey</a> is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds.",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false,
+      "examples": []
     }
   }
 }
@@ -671,7 +724,7 @@
       <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Saturday, October 3, 2020 12:14 PM
+      Saturday, October 3, 2020 12:44 PM
       </span>
             </p>
     </section>
@@ -787,8 +840,7 @@
         );
 
         let classExamples = classDefinition.examples
-          ? [classDefinition.examples[0]]
-          : []
+          ? classDefinition.examples
               .map((ex) => {
                 return `
 <pre class="example">
@@ -800,7 +852,8 @@ ${JSON.stringify(
 </pre>
                 `;
               })
-              .join("\n");
+              .join("\n")
+          : "";
 
         vocabularyString += `
             <section>
