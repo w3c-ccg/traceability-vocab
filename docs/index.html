@@ -1,2415 +1,785 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Traceability Vocabulary v0.0</title>
+    <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
-  <title>Traceability Vocabulary v0.0</title>
-  <meta http-equiv=" Content-Type" content="text/html;charset=utf-8">
-
-  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
-  <script type="text/javascript" class="remove">
-
-    const respecPagesJson = {
-      "name": "traceability-vocab",
-      "status": "UNOFFICIAL",
-      "latest": "https://transmute-industries.github.io/traceability-vocab",
-      "repository": "https://github.com/transmute-industries/traceability-vocab",
-      "issues": "https://github.com/transmute-industries/traceability-vocab/issues",
-      "group": {
-        "name": "Credentials Community Group",
-        "url": "https://www.w3.org/community/credentials/",
-        "list": "public-credentials",
-        "patentUri": "https://www.w3.org/community/about/agreements/cla/"
-      },
-      "editors": [
-        {
-          "name": "Orie Steele",
-          "url": "https://github.com/OR13",
-          "company": "Transmute",
-          "companyURL": "https://www.transmute.industries/"
-        }
-      ],
-      "bibliography": {
-        "RDF-DATASET-NORMALIZATION": {
-          "title": "RDF Dataset Normalization 1.0",
-          "href": "http://json-ld.github.io/normalization/spec/",
-          "authors": ["David Longley", "Manu Sporny"],
-          "status": "CGDRAFT",
-          "publisher": "JSON-LD Community Group"
-        }
-      }
-    }
-
-    var respecConfig = {
-      // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-      specStatus: respecPagesJson.status,
-
-      // the specification's short name, as in http://www.w3.org/TR/short-name/
-      shortName: respecPagesJson.name,
-
-      // if you wish the publication date to be other than today, set this
-      // publishDate:  "2009-08-06",
-
-      // if there is a previously published draft, 
-      // uncomment this and set its YYYY-MM-DD date
-      // and its maturity status
-      previousPublishDate: "2020-09-30",
-      previousMaturity: "UNOFFICIAL",
-
-      // if there a publicly available Editor's Draft, this is the link
-      edDraftURI: respecPagesJson.latest,
-
-      // if this is a LCWD, uncomment and set the end of its review period
-      // lcEnd: "2009-08-05",
-
-      // if you want to have extra CSS, append them to this list
-      // it is recommended that the respec.css stylesheet be kept
-      //extraCSS:             ["spec.css", "prettify.css"],
-
-      // editors, add as many as you like
-      // only "name" is required
-      editors: respecPagesJson.editors,
-
-
-      // extend the bibliography entries
-      //localBiblio: webpayments.localBiblio,
-      // group: "w3c-ccg",
-      // wg: respecPagesJson.group.name,
-      // // URI of the public WG page
-      // wgURI: respecPagesJson.group.url,
-      // // name (with the @w3c.org) of the public mailing to which comments are due
-      // wgPublicList: respecPagesJson.group.list,
-      // URI of the patent status for this WG, for Rec-track documents
-      // !!!! IMPORTANT !!!!
-      // This is important for Rec-track documents, do not copy a patent URI from a random
-      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-      // Team Contact.
-      // wgPatentURI: respecPagesJson.group.patentUri,
-
-      otherLinks: [
-        {
-          key: "Source Control",
-          data: [
-            {
-              value: respecPagesJson.repository,
-              href: respecPagesJson.repository,
-            },
-          ],
+    <script
+      src="https://www.w3.org/Tools/respec/respec-w3c"
+      class="remove"
+    ></script>
+    <script type="text/javascript" class="remove">
+      const respecPagesJson = {
+        name: "traceability-vocab",
+        status: "UNOFFICIAL",
+        latest: "https://transmute-industries.github.io/traceability-vocab",
+        repository:
+          "https://github.com/transmute-industries/traceability-vocab",
+        issues:
+          "https://github.com/transmute-industries/traceability-vocab/issues",
+        group: {
+          name: "Credentials Community Group",
+          url: "https://www.w3.org/community/credentials/",
+          list: "public-credentials",
+          patentUri: "https://www.w3.org/community/about/agreements/cla/",
         },
-        {
-          key: "Issue Tracker",
-          data: [
-            {
-              value: respecPagesJson.issues,
-              href: respecPagesJson.issues,
-            },
-          ],
+        editors: [
+          {
+            name: "Orie Steele",
+            url: "https://github.com/OR13",
+            company: "Transmute",
+            companyURL: "https://www.transmute.industries/",
+          },
+        ],
+        bibliography: {
+          "RDF-DATASET-NORMALIZATION": {
+            title: "RDF Dataset Normalization 1.0",
+            href: "http://json-ld.github.io/normalization/spec/",
+            authors: ["David Longley", "Manu Sporny"],
+            status: "CGDRAFT",
+            publisher: "JSON-LD Community Group",
+          },
         },
-      ],
+      };
 
-      // URI of the patent status for this WG, for Rec-track documents
-      // !!!! IMPORTANT !!!!
-      // This is important for Rec-track documents, do not copy a patent URI from a random
-      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-      // Team Contact.
-      // wgPatentURI:  "",
-      maxTocLevel: 4,
-      /*preProcess: [ webpayments.preProcess ],
+      var respecConfig = {
+        // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: respecPagesJson.status,
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: respecPagesJson.name,
+
+        // if you wish the publication date to be other than today, set this
+        // publishDate:  "2009-08-06",
+
+        // if there is a previously published draft,
+        // uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        previousPublishDate: "2020-09-30",
+        previousMaturity: "UNOFFICIAL",
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: respecPagesJson.latest,
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
+        // if you want to have extra CSS, append them to this list
+        // it is recommended that the respec.css stylesheet be kept
+        //extraCSS:             ["spec.css", "prettify.css"],
+
+        // editors, add as many as you like
+        // only "name" is required
+        editors: respecPagesJson.editors,
+
+        // extend the bibliography entries
+        //localBiblio: webpayments.localBiblio,
+        // group: "w3c-ccg",
+        // wg: respecPagesJson.group.name,
+        // // URI of the public WG page
+        // wgURI: respecPagesJson.group.url,
+        // // name (with the @w3c.org) of the public mailing to which comments are due
+        // wgPublicList: respecPagesJson.group.list,
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI: respecPagesJson.group.patentUri,
+
+        otherLinks: [
+          {
+            key: "Source Control",
+            data: [
+              {
+                value: respecPagesJson.repository,
+                href: respecPagesJson.repository,
+              },
+            ],
+          },
+          {
+            key: "Issue Tracker",
+            data: [
+              {
+                value: respecPagesJson.issues,
+                href: respecPagesJson.issues,
+              },
+            ],
+          },
+        ],
+
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI:  "",
+        maxTocLevel: 4,
+        /*preProcess: [ webpayments.preProcess ],
       alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
       */
-      localBiblio: respecPagesJson.bibliography,
-    };
-  </script>
-  <style>
-    table {
-      width: 100%;
-    }
-  </style>
-</head>
+        localBiblio: respecPagesJson.bibliography,
+      };
+    </script>
+    <style>
+      table {
+        width: 100%;
+      }
+    </style>
+  </head>
 
-<body>
-
-  <section id="abstract">
-    <p>
-      This specification describes a Linked Data vocabulary for asserting
-      Verifiable Credentials related to traceability information, such as chemical properties, mechanical
-      properties, country of origin, and other
-      attributes used to determine the status of a products and materials in a supply chain.
-    </p>
-  </section>
-
-  <section id="sotd">
-    <p>
-      This is an experimental specification and is undergoing regular
-      revisions. It is not fit for production deployment.
-    </p>
-
-    <p>
-      Please <a href="https://github.com/transmute-industries/traceability-vocab/issues/">open an issue</a> , if
-      you wish to collaborate on this specification.
-    </p>
-
-    <p>
-      You may also reach out via the mailing list:
-      <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
-      (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
-      <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
-    </p>
-  </section>
-
-  <section class="informative">
-    <h2>Introduction</h2>
-
-    <p>
-      This specification describes a Linked Data vocabulary for asserting
-      Verifiable Credentials related to traceability information, such as chemical properties, mechanical
-      properties, country of origin, and other
-      attributes used to determine the status of a products and materials in a supply chain.
-    </p>
-
-    <section class="informative">
-      <h3>Use Cases and Requirements</h3>
-
+  <body>
+    <section id="abstract">
       <p>
-        The following use cases outline a number of key scenarios that readers might
-        find useful:
+        This specification describes a Linked Data vocabulary for asserting
+        Verifiable Credentials related to traceability information, such as
+        chemical properties, mechanical properties, country of origin, and other
+        attributes used to determine the status of a products and materials in a
+        supply chain.
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is an experimental specification and is undergoing regular
+        revisions. It is not fit for production deployment.
       </p>
 
-      <ul>
-        <li>
-          Certified Mill Test Report
-        </li>
-      </ul>
+      <p>
+        Please
+        <a
+          href="https://github.com/transmute-industries/traceability-vocab/issues/"
+          >open an issue</a
+        >
+        , if you wish to collaborate on this specification.
+      </p>
 
+      <p>
+        You may also reach out via the mailing list:
+        <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
+        (<a href="mailto:public-credentials-request@w3.org?subject=subscribe"
+          >subscribe</a
+        >,
+        <a href="https://lists.w3.org/Archives/Public/public-credentials/"
+          >archives</a
+        >)
+      </p>
     </section>
 
     <section class="informative">
-      <h3>Example</h3>
+      <h2>Introduction</h2>
 
       <p>
-        The following example is provided as a simple example of when this vocabulary
-        is useful:
+        This specification describes a Linked Data vocabulary for asserting
+        Verifiable Credentials related to traceability information, such as
+        chemical properties, mechanical properties, country of origin, and other
+        attributes used to determine the status of a products and materials in a
+        supply chain.
       </p>
 
+      <section class="informative">
+        <h3>Use Cases and Requirements</h3>
+
+        <p>
+          The following use cases outline a number of key scenarios that readers
+          might find useful:
+        </p>
+
+        <ul>
+          <li>Certified Mill Test Report</li>
+        </ul>
+      </section>
+
+      <section class="informative">
+        <h3>Example</h3>
+
+        <p>
+          The following example is provided as a simple example of when this
+          vocabulary is useful:
+        </p>
+      </section>
     </section>
 
-  </section>
+    <section id="terminology" class="informative">
+      <h2>Terminology</h2>
+      <p>
+        The following terms are used to describe concepts in this specification.
+      </p>
 
-  <section id="terminology" class="informative">
-    <h2>Terminology</h2>
-    <p>
-      The following terms are used to describe concepts in this specification.
-    </p>
+      <dl class="termlist">
+        <dt><dfn data-lt="entities|entity's">entity</dfn></dt>
+        <dd>
+          A thing with distinct and independent existence, such as a person,
+          organization, or device that performs one or more roles in the
+          ecosystem.
+        </dd>
+        <dt><dfn>user agent</dfn></dt>
+        <dd>
+          A program, such as a browser or other Web client, that mediates the
+          communication between the various roles in this specification.
+        </dd>
+        <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
+        <dd>An identifier as defined by [[RFC3986]].</dd>
+      </dl>
+    </section>
 
-    <dl class="termlist">
-      <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
-      <dd>
-        A thing with distinct and independent existence, such as a person,
-        organization, or device that performs one or more roles in the ecosystem.
-      </dd>
-      <dt><dfn>user agent</dfn></dt>
-      <dd>
-        A program, such as a browser or other Web client, that mediates the
-        communication between the various roles in this specification.
-      </dd>
-      <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
-      <dd>
-        An identifier as defined by [[RFC3986]].
-      </dd>
-    </dl>
-  </section>
+    <section id="vocabulary" class="normative">
+      <h2>Vocabulary</h2>
 
-  <section id="vocabulary" class="normative">
-    <h2>Vocabulary</h2>
+      <p>
+        This vocabulary assumes all terms specified in the base Verifiable
+        Credentials [[VC-DATA-MODEL]] context.
+      </p>
 
-    <p>
-      This vocabulary assumes all terms specified in the base Verifiable
-      Credentials [[VC-DATA-MODEL]] context.
-    </p>
+      <p>
+        In addition, the following classes are available for specifying
+        information related to supply-chain traceability.
+      </p>
 
-    <p>
-      In addition, the following classes
-      are available for specifying information related to supply-chain traceability.
-    </p>
+      <p>
+        You may view the latest json-ld vocabulary at: <br />
+        <a href="https://w3id.org/traceability/v1">
+          https://w3id.org/traceability/v1
+        </a>
+      </p>
 
-    <p>
-      You may view the latest json-ld vocabulary at: <br>
-      <a href="https://w3id.org/traceability/v1">
-        https://w3id.org/traceability/v1
-      </a>
-    </p>
+      <p>
+        You may view the latest json-schema definition at: <br />
+        <a href="https://w3id.org/traceability/v1/PostalAddress.json">
+          https://w3id.org/traceability/v1/PostalAddress.json
+        </a>
+      </p>
 
-    <p>
-      You may view the latest json-schema definition at: <br>
-      <a href="https://w3id.org/traceability/v1/PostalAddress.json">
-        https://w3id.org/traceability/v1/PostalAddress.json
-      </a>
-    </p>
-
-    <script type="application/json" id="intermediate-json">
-      {
-  "https://gs1.org/voc/GeoCoordinates": {
-    "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "GeoCoordinates",
-      "@id": "https://gs1.org/voc/GeoCoordinates"
-    },
-    "title": "Geographic Coordinates",
-    "description": "The geographic coordinates of a place or event.",
-    "classProperties": {
-      "https://gs1.org/voc/latitude": {
-        "$comment": {
-          "term": "latitude",
-          "@id": "https://gs1.org/voc/latitude"
-        },
-        "title": "Latitude",
-        "description": "Angular distance North or South from the earth's equator measured through 90 degrees."
-      },
-      "https://gs1.org/voc/longitude": {
-        "$comment": {
-          "term": "longitude",
-          "@id": "https://gs1.org/voc/longitude"
-        },
-        "title": "Longitude",
-        "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees."
-      }
-    },
-    "examples": [
-      {
-        "latitude": "-57.2768",
-        "longitude": "-126.0645"
-      },
-      {
-        "latitude": "2.3764",
-        "longitude": "-125.0511"
-      },
-      {
-        "latitude": "-23.0569",
-        "longitude": "-134.1958"
-      }
-    ],
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"GeoCoordinates\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
-      "title": "Geographic Coordinates",
-      "description": "The geographic coordinates of a place or event.",
-      "type": "object",
-      "properties": {
-        "latitude": {
-          "$comment": "{\"term\": \"latitude\", \"@id\": \"https://gs1.org/voc/latitude\"}",
-          "title": "Latitude",
-          "description": "Angular distance North or South from the earth's equator measured through 90 degrees.",
-          "type": "string"
-        },
-        "longitude": {
-          "$comment": "{\"term\": \"longitude\", \"@id\": \"https://gs1.org/voc/longitude\"}",
-          "title": "Longitude",
-          "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees.",
-          "type": "string"
+      <script type="application/json" id="intermediate-json">
+        {
+          "https://gs1.org/voc/Element": {
+            "$id": "https://w3id.org/traceability/schemas/Element.json",
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$comment": {
+              "term": "Element",
+              "@id": "https://gs1.org/voc/Element"
+            },
+            "title": "Element",
+            "description": "A chemical element from the periodic table.",
+            "classProperties": {
+              "https://w3id.org/traceability/atomicNumber": {
+                "$comment": {
+                  "term": "atomicNumber",
+                  "@id": "https://w3id.org/traceability/atomicNumber"
+                },
+                "title": "Atomic Number",
+                "description": "The number of protons in the nucleus of an atom."
+              },
+              "https://w3id.org/traceability/chemIdPlus": {
+                "$comment": {
+                  "term": "chemIdPlus",
+                  "@id": "https://w3id.org/traceability/chemIdPlus"
+                },
+                "title": "NIH ChemID Plus",
+                "description": "A link for more information regarding this element."
+              },
+              "https://w3id.org/traceability/webElement": {
+                "$comment": {
+                  "term": "webElement",
+                  "@id": "https://w3id.org/traceability/webElement"
+                },
+                "title": "Web Element",
+                "description": "A link for more information regarding this element."
+              },
+              "https://w3id.org/traceability/casRegistryId": {
+                "$comment": {
+                  "term": "casRegistryID",
+                  "@id": "https://w3id.org/traceability/casRegistryId"
+                },
+                "title": "CAS Registry Number",
+                "description": "A CAS Registry Number, also referred to as CASRN or CAS Number, is a unique numerical identifier assigned by the Chemical Abstracts Service to every chemical substance described in the open scientific literature, including organic and inorganic compounds, minerals, isotopes, alloys and nonstructurable materials."
+              }
+            },
+            "schema": {
+              "$id": "https://w3id.org/traceability/schemas/Element.json",
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$comment": "{\"term\": \"Element\", \"@id\": \"https://gs1.org/voc/Element\"}",
+              "title": "Element",
+              "description": "A chemical element from the periodic table.",
+              "type": "object",
+              "properties": {
+                "atomicNumber": {
+                  "$comment": "{\"term\": \"atomicNumber\", \"@id\": \"https://w3id.org/traceability/atomicNumber\"}",
+                  "title": "Atomic Number",
+                  "description": "The number of protons in the nucleus of an atom.",
+                  "type": "string"
+                },
+                "chemIdPlus": {
+                  "$comment": "{\"term\": \"chemIdPlus\", \"@id\": \"https://w3id.org/traceability/chemIdPlus\"}",
+                  "title": "NIH ChemID Plus",
+                  "description": "A link for more information regarding this element.",
+                  "type": "string"
+                },
+                "webElement": {
+                  "$comment": "{\"term\": \"webElement\", \"@id\": \"https://w3id.org/traceability/webElement\"}",
+                  "title": "Web Element",
+                  "description": "A link for more information regarding this element.",
+                  "type": "string"
+                },
+                "casRegistryId": {
+                  "$comment": "{\"term\": \"casRegistryID\", \"@id\": \"https://w3id.org/traceability/casRegistryId\"}",
+                  "title": "CAS Registry Number",
+                  "description": "A CAS Registry Number, also referred to as CASRN or CAS Number, is a unique numerical identifier assigned by the Chemical Abstracts Service to every chemical substance described in the open scientific literature, including organic and inorganic compounds, minerals, isotopes, alloys and nonstructurable materials.",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "https://gs1.org/voc/GeoCoordinates": {
+            "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$comment": {
+              "term": "GeoCoordinates",
+              "@id": "https://gs1.org/voc/GeoCoordinates"
+            },
+            "title": "Geographic Coordinates",
+            "description": "The geographic coordinates of a place or event.",
+            "classProperties": {
+              "https://gs1.org/voc/latitude": {
+                "$comment": {
+                  "term": "latitude",
+                  "@id": "https://gs1.org/voc/latitude"
+                },
+                "title": "Latitude",
+                "description": "Angular distance North or South from the earth's equator measured through 90 degrees."
+              },
+              "https://gs1.org/voc/longitude": {
+                "$comment": {
+                  "term": "longitude",
+                  "@id": "https://gs1.org/voc/longitude"
+                },
+                "title": "Longitude",
+                "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees."
+              }
+            },
+            "examples": [
+              {
+                "latitude": "-57.2768",
+                "longitude": "-126.0645"
+              },
+              {
+                "latitude": "2.3764",
+                "longitude": "-125.0511"
+              },
+              {
+                "latitude": "-23.0569",
+                "longitude": "-134.1958"
+              }
+            ],
+            "schema": {
+              "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$comment": "{\"term\": \"GeoCoordinates\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
+              "title": "Geographic Coordinates",
+              "description": "The geographic coordinates of a place or event.",
+              "type": "object",
+              "properties": {
+                "latitude": {
+                  "$comment": "{\"term\": \"latitude\", \"@id\": \"https://gs1.org/voc/latitude\"}",
+                  "title": "Latitude",
+                  "description": "Angular distance North or South from the earth's equator measured through 90 degrees.",
+                  "type": "string"
+                },
+                "longitude": {
+                  "$comment": "{\"term\": \"longitude\", \"@id\": \"https://gs1.org/voc/longitude\"}",
+                  "title": "Longitude",
+                  "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees.",
+                  "type": "string"
+                }
+              },
+              "required": ["latitude", "longitude"],
+              "additionalProperties": false,
+              "examples": []
+            }
+          },
+          "https://gs1.org/voc/Place": {
+            "$id": "https://w3id.org/traceability/schemas/Place.json",
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$comment": {
+              "term": "Place",
+              "@id": "https://gs1.org/voc/Place"
+            },
+            "title": "Place",
+            "description": "Entities that have a somewhat fixed, physical location.",
+            "classProperties": {
+              "https://gs1.org/voc/globalLocationNumber": {
+                "$comment": {
+                  "term": "globalLocationNumber",
+                  "@id": "https://gs1.org/voc/globalLocationNumber"
+                },
+                "title": "Global Location Number (GLN)",
+                "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln."
+              },
+              "https://gs1.org/voc/GeoCoordinates": {
+                "$comment": {
+                  "term": "geo",
+                  "@id": "https://gs1.org/voc/GeoCoordinates"
+                },
+                "title": "Geographic Coordinates",
+                "description": "Links to information about geocoordinates for a place."
+              },
+              "https://gs1.org/voc/PostalAddress": {
+                "$comment": {
+                  "term": "address",
+                  "@id": "https://gs1.org/voc/PostalAddress"
+                },
+                "title": "Postal Address",
+                "description": "The postal address for an organization or place."
+              }
+            },
+            "examples": [
+              {
+                "globalLocationNumber": "3778263780454",
+                "geo": {
+                  "latitude": "24.4172",
+                  "longitude": "102.5204"
+                },
+                "address": {
+                  "organizationName": "Ward, Gusikowski and Mitchell",
+                  "streetAddress": "896 Marvin Forge",
+                  "addressLocality": "Swaniawskiberg",
+                  "addressRegion": "Pennsylvania",
+                  "postalCode": "23282-5417",
+                  "addressCountry": "Angola"
+                }
+              },
+              {
+                "globalLocationNumber": "1429161519067",
+                "geo": {
+                  "latitude": "-65.9021",
+                  "longitude": "103.1859"
+                },
+                "address": {
+                  "organizationName": "Howell - Koelpin",
+                  "streetAddress": "183 Haag Landing",
+                  "addressLocality": "Reynoldport",
+                  "addressRegion": "Wisconsin",
+                  "postalCode": "71108",
+                  "addressCountry": "Sao Tome and Principe"
+                }
+              },
+              {
+                "globalLocationNumber": "8558223576465",
+                "geo": {
+                  "latitude": "-1.1224",
+                  "longitude": "134.4176"
+                },
+                "address": {
+                  "organizationName": "Trantow Inc",
+                  "streetAddress": "66812 Estefania Isle",
+                  "addressLocality": "Greenholtshire",
+                  "addressRegion": "Ohio",
+                  "postalCode": "40287",
+                  "addressCountry": "Malawi"
+                }
+              }
+            ],
+            "schema": {
+              "$id": "https://w3id.org/traceability/schemas/Place.json",
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$comment": "{\"term\": \"Place\", \"@id\": \"https://gs1.org/voc/Place\"}",
+              "title": "Place",
+              "description": "Entities that have a somewhat fixed, physical location.",
+              "type": "object",
+              "properties": {
+                "globalLocationNumber": {
+                  "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://gs1.org/voc/globalLocationNumber\"}",
+                  "title": "Global Location Number (GLN)",
+                  "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln.",
+                  "type": "string",
+                  "minLength": 13,
+                  "maxLength": 13
+                },
+                "geo": {
+                  "$comment": "{\"term\": \"geo\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
+                  "title": "Geographic Coordinates",
+                  "description": "Links to information about geocoordinates for a place.",
+                  "$ref": "https://w3id.org/traceability/schemas/GeoCoordinates.json"
+                },
+                "address": {
+                  "$comment": "{\"term\": \"address\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
+                  "title": "Postal Address",
+                  "description": "The postal address for an organization or place.",
+                  "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+                }
+              },
+              "additionalProperties": false,
+              "examples": []
+            }
+          },
+          "https://gs1.org/voc/PostalAddress": {
+            "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "$comment": {
+              "term": "PostalAddress",
+              "@id": "https://gs1.org/voc/PostalAddress"
+            },
+            "title": "Postal Address",
+            "description": "The location at which a particular organization or person may be found or reached.",
+            "classProperties": {
+              "https://gs1.org/voc/organizationName": {
+                "$comment": {
+                  "term": "organizationName",
+                  "@id": "https://gs1.org/voc/organizationName"
+                },
+                "title": "Organization Name",
+                "description": "The name of the organization expressed in text."
+              },
+              "https://gs1.org/voc/streetAddress": {
+                "$comment": {
+                  "term": "streetAddress",
+                  "@id": "https://gs1.org/voc/streetAddress"
+                },
+                "title": "Street Address",
+                "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building."
+              },
+              "https://gs1.org/voc/addressLocality": {
+                "$comment": {
+                  "term": "addressLocality",
+                  "@id": "https://gs1.org/voc/addressLocality"
+                },
+                "title": "Address Locality",
+                "description": "Text specifying the name of the locality, for example a city."
+              },
+              "https://gs1.org/voc/addressRegion": {
+                "$comment": {
+                  "term": "addressRegion",
+                  "@id": "https://gs1.org/voc/addressRegion"
+                },
+                "title": "Address Region",
+                "description": "Text specifying a province or state in abbreviated format for example NJ."
+              },
+              "https://gs1.org/voc/addressCountry": {
+                "$comment": {
+                  "term": "addressCountry",
+                  "@id": "https://gs1.org/voc/addressCountry"
+                },
+                "title": "Address Country",
+                "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
+              },
+              "https://gs1.org/voc/crossStreet": {
+                "$comment": {
+                  "term": "crossStreet",
+                  "@id": "https://gs1.org/voc/crossStreet"
+                },
+                "title": "Cross Street",
+                "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it."
+              },
+              "https://gs1.org/voc/countyCode": {
+                "$comment": {
+                  "term": "countyCode",
+                  "@id": "https://gs1.org/voc/countyCode"
+                },
+                "title": "County Code",
+                "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state."
+              },
+              "https://gs1.org/voc/postalCode": {
+                "$comment": {
+                  "term": "postalCode",
+                  "@id": "https://gs1.org/voc/postalCode"
+                },
+                "title": "Postal Code",
+                "description": "Text specifying the postal code for an address."
+              },
+              "https://gs1.org/voc/postOfficeBoxNumber": {
+                "$comment": {
+                  "term": "postOfficeBoxNumber",
+                  "@id": "https://gs1.org/voc/postOfficeBoxNumber"
+                },
+                "title": "Post Office Box Number",
+                "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
+              }
+            },
+            "examples": [
+              {
+                "organizationName": "Feeney - Johns",
+                "streetAddress": "8717 Tracey Lane",
+                "addressLocality": "Sanfordton",
+                "addressRegion": "Texas",
+                "postalCode": "97670",
+                "addressCountry": "Djibouti"
+              },
+              {
+                "organizationName": "Bahringer Inc",
+                "streetAddress": "208 Gleason Throughway",
+                "addressLocality": "North Joannie",
+                "addressRegion": "Ohio",
+                "postalCode": "34010",
+                "addressCountry": "Bermuda"
+              },
+              {
+                "organizationName": "Hahn, Walsh and Little",
+                "streetAddress": "82719 Kertzmann Valley",
+                "addressLocality": "Port Deventown",
+                "addressRegion": "West Virginia",
+                "postalCode": "95844",
+                "addressCountry": "Guinea"
+              }
+            ],
+            "schema": {
+              "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
+              "$schema": "http://json-schema.org/draft-07/schema#",
+              "$comment": "{\"term\": \"PostalAddress\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
+              "title": "Postal Address",
+              "description": "The location at which a particular organization or person may be found or reached.",
+              "type": "object",
+              "properties": {
+                "organizationName": {
+                  "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://gs1.org/voc/organizationName\"}",
+                  "title": "Organization Name",
+                  "description": "The name of the organization expressed in text.",
+                  "type": "string"
+                },
+                "streetAddress": {
+                  "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://gs1.org/voc/streetAddress\"}",
+                  "title": "Street Address",
+                  "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building.",
+                  "type": "string"
+                },
+                "addressLocality": {
+                  "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://gs1.org/voc/addressLocality\"}",
+                  "title": "Address Locality",
+                  "description": "Text specifying the name of the locality, for example a city.",
+                  "type": "string"
+                },
+                "addressRegion": {
+                  "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://gs1.org/voc/addressRegion\"}",
+                  "title": "Address Region",
+                  "description": "Text specifying a province or state in abbreviated format for example NJ.",
+                  "type": "string"
+                },
+                "addressCountry": {
+                  "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://gs1.org/voc/addressCountry\"}",
+                  "title": "Address Country",
+                  "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1.",
+                  "type": "string"
+                },
+                "crossStreet": {
+                  "$comment": "{\"term\": \"crossStreet\", \"@id\": \"https://gs1.org/voc/crossStreet\"}",
+                  "title": "Cross Street",
+                  "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it.",
+                  "type": "string"
+                },
+                "countyCode": {
+                  "$comment": "{\"term\": \"countyCode\", \"@id\": \"https://gs1.org/voc/countyCode\"}",
+                  "title": "County Code",
+                  "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state.",
+                  "type": "string"
+                },
+                "postalCode": {
+                  "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://gs1.org/voc/postalCode\"}",
+                  "title": "Postal Code",
+                  "description": "Text specifying the postal code for an address.",
+                  "type": "string"
+                },
+                "postOfficeBoxNumber": {
+                  "$comment": "{\"term\": \"postOfficeBoxNumber\", \"@id\": \"https://gs1.org/voc/postOfficeBoxNumber\"}",
+                  "title": "Post Office Box Number",
+                  "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept.",
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false,
+              "examples": []
+            }
+          }
         }
-      },
-      "required": [
-        "latitude",
-        "longitude"
-      ],
-      "additionalProperties": false,
-      "examples": []
-    }
-  },
-  "https://w3id.org/traceability/PercentComposition": {
-    "$id": "https://w3id.org/traceability/schemas/PercentComposition.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "PercentComposition",
-      "@id": "https://w3id.org/traceability/PercentComposition"
-    },
-    "title": "Percent Composition",
-    "description": "The percent by mass of each element in a compound.",
-    "classProperties": {
-      "https://w3id.org/traceability/hydrogen": {
-        "$comment": {
-          "term": "H",
-          "@id": "https://w3id.org/traceability/hydrogen"
-        },
-        "title": "Hydrogen",
-        "description": "Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass."
-      },
-      "https://w3id.org/traceability/helium": {
-        "$comment": {
-          "term": "He",
-          "@id": "https://w3id.org/traceability/helium"
-        },
-        "title": "Helium",
-        "description": "Helium is a chemical element with symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas that heads the noble gas group in the periodic table. Its boiling and melting points are the lowest among all the elements."
-      },
-      "https://w3id.org/traceability/lithium": {
-        "$comment": {
-          "term": "Li",
-          "@id": "https://w3id.org/traceability/lithium"
-        },
-        "title": "Lithium",
-        "description": "Lithium (from Greek:λίθος lithos, \"stone\") is a chemical element with the symbol Li and atomic number 3. It is a soft, silver-white metal belonging to the alkali metal group of chemical elements. Under standard conditions it is the lightest metal and the least dense solid element."
-      },
-      "https://w3id.org/traceability/beryllium": {
-        "$comment": {
-          "term": "Be",
-          "@id": "https://w3id.org/traceability/beryllium"
-        },
-        "title": "Beryllium",
-        "description": "Beryllium is a chemical element with symbol Be and atomic number 4. It is created through stellar nucleosynthesis and is a relatively rare element in the universe. It is a divalent element which occurs naturally only in combination with other elements in minerals."
-      },
-      "https://w3id.org/traceability/boron": {
-        "$comment": {
-          "term": "B",
-          "@id": "https://w3id.org/traceability/boron"
-        },
-        "title": "Boron",
-        "description": "Boron is a metalloid chemical element with symbol B and atomic number 5. Produced entirely by cosmic ray spallation and supernovae and not by stellar nucleosynthesis, it is a low-abundance element in both the Solar system and the Earth's crust. Boron is concentrated on Earth by the water-solubility of its more common naturally occurring compounds, the borate minerals."
-      },
-      "https://w3id.org/traceability/carbon": {
-        "$comment": {
-          "term": "C",
-          "@id": "https://w3id.org/traceability/carbon"
-        },
-        "title": "Carbon",
-        "description": "Carbon (from Latin:carbo \"coal\") is a chemical element with symbol C and atomic number 6. On the periodic table, it is the first (row 2) of six elements in column (group) 14, which have in common the composition of their outer electron shell. It is nonmetallic and tetravalent—making four electrons available to form covalent chemical bonds."
-      },
-      "https://w3id.org/traceability/nitrogen": {
-        "$comment": {
-          "term": "N",
-          "@id": "https://w3id.org/traceability/nitrogen"
-        },
-        "title": "Nitrogen",
-        "description": "Nitrogen is a chemical element with symbol N and atomic number 7. It is the lightest pnictogen and at room temperature, it is a transparent, odorless diatomic gas. Nitrogen is a common element in the universe, estimated at about seventh in total abundance in the Milky Way and the Solar System."
-      },
-      "https://w3id.org/traceability/oxygen": {
-        "$comment": {
-          "term": "O",
-          "@id": "https://w3id.org/traceability/oxygen"
-        },
-        "title": "Oxygen",
-        "description": "Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium."
-      },
-      "https://w3id.org/traceability/fluorine": {
-        "$comment": {
-          "term": "F",
-          "@id": "https://w3id.org/traceability/fluorine"
-        },
-        "title": "Fluorine",
-        "description": "Fluorine is a chemical element with symbol F and atomic number 9. It is the lightest halogen and exists as a highly toxic pale yellow diatomic gas at standard conditions. As the most electronegative element, it is extremely reactive:almost all other elements, including some noble gases, form compounds with fluorine."
-      },
-      "https://w3id.org/traceability/neon": {
-        "$comment": {
-          "term": "Ne",
-          "@id": "https://w3id.org/traceability/neon"
-        },
-        "title": "Neon",
-        "description": "Neon is a chemical element with symbol Ne and atomic number 10. It is in group 18 (noble gases) of the periodic table. Neon is a colorless, odorless, inert monatomic gas under standard conditions, with about two-thirds the density of air."
-      },
-      "https://w3id.org/traceability/sodium": {
-        "$comment": {
-          "term": "Na",
-          "@id": "https://w3id.org/traceability/sodium"
-        },
-        "title": "Sodium",
-        "description": "Sodium /ˈsoʊdiəm/ is a chemical element with symbol Na (from Ancient Greek Νάτριο) and atomic number 11. It is a soft, silver-white, highly reactive metal. In the Periodic table it is in column 1 (alkali metals), and shares with the other six elements in that column that it has a single electron in its outer shell, which it readily donates, creating a positively charged atom - a cation."
-      },
-      "https://w3id.org/traceability/magnesium": {
-        "$comment": {
-          "term": "Mg",
-          "@id": "https://w3id.org/traceability/magnesium"
-        },
-        "title": "Magnesium",
-        "description": "Magnesium is a chemical element with symbol Mg and atomic number 12. It is a shiny gray solid which bears a close physical resemblance to the other five elements in the second column (Group 2, or alkaline earth metals) of the periodic table:they each have the same electron configuration in their outer electron shell producing a similar crystal structure. Magnesium is the ninth most abundant element in the universe."
-      },
-      "https://w3id.org/traceability/aluminium": {
-        "$comment": {
-          "term": "Al",
-          "@id": "https://w3id.org/traceability/aluminium"
-        },
-        "title": "Aluminium",
-        "description": "Aluminium (or aluminum; see different endings) is a chemical element in the boron group with symbol Al and atomic number 13. It is a silvery-white, soft, nonmagnetic, ductile metal. Aluminium is the third most abundant element (after oxygen and silicon), and the most abundant metal, in the Earth's crust."
-      },
-      "https://w3id.org/traceability/silicon": {
-        "$comment": {
-          "term": "Si",
-          "@id": "https://w3id.org/traceability/silicon"
-        },
-        "title": "Silicon",
-        "description": "Silicon is a chemical element with symbol Si and atomic number 14. It is a tetravalent metalloid, more reactive than germanium, the metalloid directly below it in the table. Controversy about silicon's character dates to its discovery."
-      },
-      "https://w3id.org/traceability/phosphorus": {
-        "$comment": {
-          "term": "P",
-          "@id": "https://w3id.org/traceability/phosphorus"
-        },
-        "title": "Phosphorus",
-        "description": "Phosphorus is a chemical element with symbol P and atomic number 15. As an element, phosphorus exists in two major forms—white phosphorus and red phosphorus—but due to its high reactivity, phosphorus is never found as a free element on Earth. Instead phosphorus-containing minerals are almost always present in their maximally oxidised state, as inorganic phosphate rocks."
-      },
-      "https://w3id.org/traceability/sulfur": {
-        "$comment": {
-          "term": "S",
-          "@id": "https://w3id.org/traceability/sulfur"
-        },
-        "title": "Sulfur",
-        "description": "Sulfur or sulphur (see spelling differences) is a chemical element with symbol S and atomic number 16. It is an abundant, multivalent non-metal. Under normal conditions, sulfur atoms form cyclic octatomic molecules with chemical formula S8."
-      },
-      "https://w3id.org/traceability/chlorine": {
-        "$comment": {
-          "term": "Cl",
-          "@id": "https://w3id.org/traceability/chlorine"
-        },
-        "title": "Chlorine",
-        "description": "Chlorine is a chemical element with symbol Cl and atomic number 17. It also has a relative atomic mass of 35.5. Chlorine is in the halogen group (17) and is the second lightest halogen following fluorine."
-      },
-      "https://w3id.org/traceability/argon": {
-        "$comment": {
-          "term": "Ar",
-          "@id": "https://w3id.org/traceability/argon"
-        },
-        "title": "Argon",
-        "description": "Argon is a chemical element with symbol Ar and atomic number 18. It is in group 18 of the periodic table and is a noble gas. Argon is the third most common gas in the Earth's atmosphere, at 0.934% (9,340 ppmv), making it over twice as abundant as the next most common atmospheric gas, water vapor (which averages about 4000 ppmv, but varies greatly), and 23 times as abundant as the next most common non-condensing atmospheric gas, carbon dioxide (400 ppmv), and more than 500 times as abundant as the next most common noble gas, neon (18 ppmv)."
-      },
-      "https://w3id.org/traceability/potassium": {
-        "$comment": {
-          "term": "K",
-          "@id": "https://w3id.org/traceability/potassium"
-        },
-        "title": "Potassium",
-        "description": "Potassium is a chemical element with symbol K (derived from Neo-Latin, kalium) and atomic number 19. It was first isolated from potash, the ashes of plants, from which its name is derived. In the Periodic table, potassium is one of seven elements in column (group) 1 (alkali metals):they all have a single valence electron in their outer electron shell, which they readily give up to create an atom with a positive charge - a cation, and combine with anions to form salts."
-      },
-      "https://w3id.org/traceability/calcium": {
-        "$comment": {
-          "term": "Ca",
-          "@id": "https://w3id.org/traceability/calcium"
-        },
-        "title": "Calcium",
-        "description": "Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate."
-      },
-      "https://w3id.org/traceability/scandium": {
-        "$comment": {
-          "term": "Sc",
-          "@id": "https://w3id.org/traceability/scandium"
-        },
-        "title": "Scandium",
-        "description": "Scandium is a chemical element with symbol Sc and atomic number 21. A silvery-white metallic d-block element, it has historically been sometimes classified as a rare earth element, together with yttrium and the lanthanoids. It was discovered in 1879 by spectral analysis of the minerals euxenite and gadolinite from Scandinavia."
-      },
-      "https://w3id.org/traceability/titanium": {
-        "$comment": {
-          "term": "Ti",
-          "@id": "https://w3id.org/traceability/titanium"
-        },
-        "title": "Titanium",
-        "description": "Titanium is a chemical element with symbol Ti and atomic number 22. It is a lustrous transition metal with a silver color, low density and high strength. It is highly resistant to corrosion in sea water, aqua regia and chlorine."
-      },
-      "https://w3id.org/traceability/vanadium": {
-        "$comment": {
-          "term": "V",
-          "@id": "https://w3id.org/traceability/vanadium"
-        },
-        "title": "Vanadium",
-        "description": "Vanadium is a chemical element with symbol V and atomic number 23. It is a hard, silvery grey, ductile and malleable transition metal. The element is found only in chemically combined form in nature, but once isolated artificially, the formation of an oxide layer stabilizes the free metal somewhat against further oxidation."
-      },
-      "https://w3id.org/traceability/chromium": {
-        "$comment": {
-          "term": "Cr",
-          "@id": "https://w3id.org/traceability/chromium"
-        },
-        "title": "Chromium",
-        "description": "Chromium is a chemical element with symbol Cr and atomic number 24. It is the first element in Group 6. It is a steely-gray, lustrous, hard and brittle metal which takes a high polish, resists tarnishing, and has a high melting point."
-      },
-      "https://w3id.org/traceability/manganese": {
-        "$comment": {
-          "term": "Mn",
-          "@id": "https://w3id.org/traceability/manganese"
-        },
-        "title": "Manganese",
-        "description": "Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in combination with iron, and in many minerals. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels."
-      },
-      "https://w3id.org/traceability/iron": {
-        "$comment": {
-          "term": "Fe",
-          "@id": "https://w3id.org/traceability/iron"
-        },
-        "title": "Iron",
-        "description": "Iron is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. It is a metal in the first transition series. It is by mass the most common element on Earth, forming much of Earth's outer and inner core."
-      },
-      "https://w3id.org/traceability/cobalt": {
-        "$comment": {
-          "term": "Co",
-          "@id": "https://w3id.org/traceability/cobalt"
-        },
-        "title": "Cobalt",
-        "description": "Cobalt is a chemical element with symbol Co and atomic number 27. Like nickel, cobalt in the Earth's crust is found only in chemically combined form, save for small deposits found in alloys of natural meteoric iron. The free element, produced by reductive smelting, is a hard, lustrous, silver-gray metal."
-      },
-      "https://w3id.org/traceability/nickel": {
-        "$comment": {
-          "term": "Ni",
-          "@id": "https://w3id.org/traceability/nickel"
-        },
-        "title": "Nickel",
-        "description": "Nickel is a chemical element with symbol Ni and atomic number 28. It is a silvery-white lustrous metal with a slight golden tinge. Nickel belongs to the transition metals and is hard and ductile."
-      },
-      "https://w3id.org/traceability/copper": {
-        "$comment": {
-          "term": "Cu",
-          "@id": "https://w3id.org/traceability/copper"
-        },
-        "title": "Copper",
-        "description": "Copper is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29. It is a soft, malleable and ductile metal with very high thermal and electrical conductivity. A freshly exposed surface of pure copper has a reddish-orange color."
-      },
-      "https://w3id.org/traceability/zinc": {
-        "$comment": {
-          "term": "Zn",
-          "@id": "https://w3id.org/traceability/zinc"
-        },
-        "title": "Zinc",
-        "description": "Zinc, in commerce also spelter, is a chemical element with symbol Zn and atomic number 30. It is the first element of group 12 of the periodic table. In some respects zinc is chemically similar to magnesium:its ion is of similar size and its only common oxidation state is +2."
-      },
-      "https://w3id.org/traceability/gallium": {
-        "$comment": {
-          "term": "Ga",
-          "@id": "https://w3id.org/traceability/gallium"
-        },
-        "title": "Gallium",
-        "description": "Gallium is a chemical element with symbol Ga and atomic number 31. Elemental gallium does not occur in free form in nature, but as the gallium(III) compounds that are in trace amounts in zinc ores and in bauxite. Gallium is a soft, silvery metal, and elemental gallium is a brittle solid at low temperatures, and melts at 29.76 °C (85.57 °F) (slightly above room temperature)."
-      },
-      "https://w3id.org/traceability/germanium": {
-        "$comment": {
-          "term": "Ge",
-          "@id": "https://w3id.org/traceability/germanium"
-        },
-        "title": "Germanium",
-        "description": "Germanium is a chemical element with symbol Ge and atomic number 32. It is a lustrous, hard, grayish-white metalloid in the carbon group, chemically similar to its group neighbors tin and silicon. Purified germanium is a semiconductor, with an appearance most similar to elemental silicon."
-      },
-      "https://w3id.org/traceability/arsenic": {
-        "$comment": {
-          "term": "As",
-          "@id": "https://w3id.org/traceability/arsenic"
-        },
-        "title": "Arsenic",
-        "description": "Arsenic is a chemical element with symbol As and atomic number 33. Arsenic occurs in many minerals, usually in conjunction with sulfur and metals, and also as a pure elemental crystal. Arsenic is a metalloid."
-      },
-      "https://w3id.org/traceability/selenium": {
-        "$comment": {
-          "term": "Se",
-          "@id": "https://w3id.org/traceability/selenium"
-        },
-        "title": "Selenium",
-        "description": "Selenium is a chemical element with symbol Se and atomic number 34. It is a nonmetal with properties that are intermediate between those of its periodic table column-adjacent chalcogen elements sulfur and tellurium. It rarely occurs in its elemental state in nature, or as pure ore compounds."
-      },
-      "https://w3id.org/traceability/bromine": {
-        "$comment": {
-          "term": "Br",
-          "@id": "https://w3id.org/traceability/bromine"
-        },
-        "title": "Bromine",
-        "description": "Bromine (from Ancient Greek:βρῶμος, brómos, meaning \"stench\") is a chemical element with symbol Br, and atomic number 35. It is a halogen. The element was isolated independently by two chemists, Carl Jacob Löwig and Antoine Jerome Balard, in 1825–1826."
-      },
-      "https://w3id.org/traceability/krypton": {
-        "$comment": {
-          "term": "Kr",
-          "@id": "https://w3id.org/traceability/krypton"
-        },
-        "title": "Krypton",
-        "description": "Krypton (from Greek:κρυπτός kryptos \"the hidden one\") is a chemical element with symbol Kr and atomic number 36. It is a member of group 18 (noble gases) elements. A colorless, odorless, tasteless noble gas, krypton occurs in trace amounts in the atmosphere, is isolated by fractionally distilling liquefied air, and is often used with other rare gases in fluorescent lamps."
-      },
-      "https://w3id.org/traceability/rubidium": {
-        "$comment": {
-          "term": "Rb",
-          "@id": "https://w3id.org/traceability/rubidium"
-        },
-        "title": "Rubidium",
-        "description": "Rubidium is a chemical element with symbol Rb and atomic number 37. Rubidium is a soft, silvery-white metallic element of the alkali metal group, with an atomic mass of 85.4678. Elemental rubidium is highly reactive, with properties similar to those of other alkali metals, such as very rapid oxidation in air."
-      },
-      "https://w3id.org/traceability/strontium": {
-        "$comment": {
-          "term": "Sr",
-          "@id": "https://w3id.org/traceability/strontium"
-        },
-        "title": "Strontium",
-        "description": "Strontium is a chemical element with symbol Sr and atomic number 38. An alkaline earth metal, strontium is a soft silver-white or yellowish metallic element that is highly reactive chemically. The metal turns yellow when it is exposed to air."
-      },
-      "https://w3id.org/traceability/yttrium": {
-        "$comment": {
-          "term": "Y",
-          "@id": "https://w3id.org/traceability/yttrium"
-        },
-        "title": "Yttrium",
-        "description": "Yttrium is a chemical element with symbol Y and atomic number 39. It is a silvery-metallic transition metal chemically similar to the lanthanides and it has often been classified as a \"rare earth element\". Yttrium is almost always found combined with the lanthanides in rare earth minerals and is never found in nature as a free element."
-      },
-      "https://w3id.org/traceability/zirconium": {
-        "$comment": {
-          "term": "Zr",
-          "@id": "https://w3id.org/traceability/zirconium"
-        },
-        "title": "Zirconium",
-        "description": "Zirconium is a chemical element with symbol Zr and atomic number 40. The name of zirconium is taken from the name of the mineral zircon, the most important source of zirconium. The word zircon comes from the Persian word zargun زرگون, meaning \"gold-colored\"."
-      },
-      "https://w3id.org/traceability/niobium": {
-        "$comment": {
-          "term": "Nb",
-          "@id": "https://w3id.org/traceability/niobium"
-        },
-        "title": "Niobium",
-        "description": "Niobium, formerly columbium, is a chemical element with symbol Nb (formerly Cb) and atomic number 41. It is a soft, grey, ductile transition metal, which is often found in the pyrochlore mineral, the main commercial source for niobium, and columbite. The name comes from Greek mythology:Niobe, daughter of Tantalus since it is so similar to tantalum."
-      },
-      "https://w3id.org/traceability/molybdenum": {
-        "$comment": {
-          "term": "Mo",
-          "@id": "https://w3id.org/traceability/molybdenum"
-        },
-        "title": "Molybdenum",
-        "description": "Molybdenum is a chemical element with symbol Mo and atomic number 42. The name is from Neo-Latin molybdaenum, from Ancient Greek Μόλυβδος molybdos, meaning lead, since its ores were confused with lead ores. Molybdenum minerals have been known throughout history, but the element was discovered (in the sense of differentiating it as a new entity from the mineral salts of other metals) in 1778 by Carl Wilhelm Scheele."
-      },
-      "https://w3id.org/traceability/technetium": {
-        "$comment": {
-          "term": "Tc",
-          "@id": "https://w3id.org/traceability/technetium"
-        },
-        "title": "Technetium",
-        "description": "Technetium (/tɛkˈniːʃiəm/) is a chemical element with symbol Tc and atomic number 43. It is the element with the lowest atomic number in the periodic table that has no stable isotopes:every form of it is radioactive. Nearly all technetium is produced synthetically, and only minute amounts are found in nature."
-      },
-      "https://w3id.org/traceability/ruthenium": {
-        "$comment": {
-          "term": "Ru",
-          "@id": "https://w3id.org/traceability/ruthenium"
-        },
-        "title": "Ruthenium",
-        "description": "Ruthenium is a chemical element with symbol Ru and atomic number 44. It is a rare transition metal belonging to the platinum group of the periodic table. Like the other metals of the platinum group, ruthenium is inert to most other chemicals."
-      },
-      "https://w3id.org/traceability/rhodium": {
-        "$comment": {
-          "term": "Rh",
-          "@id": "https://w3id.org/traceability/rhodium"
-        },
-        "title": "Rhodium",
-        "description": "Rhodium is a chemical element with symbol Rh and atomic number 45. It is a rare, silvery-white, hard, and chemically inert transition metal. It is a member of the platinum group."
-      },
-      "https://w3id.org/traceability/palladium": {
-        "$comment": {
-          "term": "Pd",
-          "@id": "https://w3id.org/traceability/palladium"
-        },
-        "title": "Palladium",
-        "description": "Palladium is a chemical element with symbol Pd and atomic number 46. It is a rare and lustrous silvery-white metal discovered in 1803 by William Hyde Wollaston. He named it after the asteroid Pallas, which was itself named after the epithet of the Greek goddess Athena, acquired by her when she slew Pallas."
-      },
-      "https://w3id.org/traceability/silver": {
-        "$comment": {
-          "term": "Ag",
-          "@id": "https://w3id.org/traceability/silver"
-        },
-        "title": "Silver",
-        "description": "Silver is a chemical element with symbol Ag (Greek:άργυρος árguros, Latin:argentum, both from the Indo-European root *h₂erǵ- for \"grey\" or \"shining\") and atomic number 47. A soft, white, lustrous transition metal, it possesses the highest electrical conductivity, thermal conductivity and reflectivity of any metal. The metal occurs naturally in its pure, free form (native silver), as an alloy with gold and other metals, and in minerals such as argentite and chlorargyrite."
-      },
-      "https://w3id.org/traceability/cadmium": {
-        "$comment": {
-          "term": "Cd",
-          "@id": "https://w3id.org/traceability/cadmium"
-        },
-        "title": "Cadmium",
-        "description": "Cadmium is a chemical element with symbol Cd and atomic number 48. This soft, bluish-white metal is chemically similar to the two other stable metals in group 12, zinc and mercury. Like zinc, it prefers oxidation state +2 in most of its compounds and like mercury it shows a low melting point compared to transition metals."
-      },
-      "https://w3id.org/traceability/indium": {
-        "$comment": {
-          "term": "In",
-          "@id": "https://w3id.org/traceability/indium"
-        },
-        "title": "Indium",
-        "description": "Indium is a chemical element with symbol In and atomic number 49. It is a post-transition metallic element that is rare in Earth's crust. The metal is very soft, malleable and easily fusible, with a melting point higher than sodium, but lower than lithium or tin."
-      },
-      "https://w3id.org/traceability/tin": {
-        "$comment": {
-          "term": "Sn",
-          "@id": "https://w3id.org/traceability/tin"
-        },
-        "title": "Tin",
-        "description": "Tin is a chemical element with the symbol Sn (for Latin:stannum) and atomic number 50. It is a main group metal in group 14 of the periodic table. Tin shows a chemical similarity to both neighboring group-14 elements, germanium and lead, and has two possible oxidation states, +2 and the slightly more stable +4."
-      },
-      "https://w3id.org/traceability/antimony": {
-        "$comment": {
-          "term": "Sb",
-          "@id": "https://w3id.org/traceability/antimony"
-        },
-        "title": "Antimony",
-        "description": "Antimony is a chemical element with symbol Sb (from Latin:stibium) and atomic number 51. A lustrous gray metalloid, it is found in nature mainly as the sulfide mineral stibnite (Sb2S3). Antimony compounds have been known since ancient times and were used for cosmetics; metallic antimony was also known, but it was erroneously identified as lead upon its discovery."
-      },
-      "https://w3id.org/traceability/tellurium": {
-        "$comment": {
-          "term": "Te",
-          "@id": "https://w3id.org/traceability/tellurium"
-        },
-        "title": "Tellurium",
-        "description": "Tellurium is a chemical element with symbol Te and atomic number 52. It is a brittle, mildly toxic, rare, silver-white metalloid. Tellurium is chemically related to selenium and sulfur."
-      },
-      "https://w3id.org/traceability/iodine": {
-        "$comment": {
-          "term": "I",
-          "@id": "https://w3id.org/traceability/iodine"
-        },
-        "title": "Iodine",
-        "description": "Iodine is a chemical element with symbol I and atomic number 53. The name is from Greek ἰοειδής ioeidēs, meaning violet or purple, due to the color of iodine vapor. Iodine and its compounds are primarily used in nutrition, and industrially in the production of acetic acid and certain polymers."
-      },
-      "https://w3id.org/traceability/xenon": {
-        "$comment": {
-          "term": "Xe",
-          "@id": "https://w3id.org/traceability/xenon"
-        },
-        "title": "Xenon",
-        "description": "Xenon is a chemical element with symbol Xe and atomic number 54. It is a colorless, dense, odorless noble gas, that occurs in the Earth's atmosphere in trace amounts. Although generally unreactive, xenon can undergo a few chemical reactions such as the formation of xenon hexafluoroplatinate, the first noble gas compound to be synthesized."
-      },
-      "https://w3id.org/traceability/cesium": {
-        "$comment": {
-          "term": "Cs",
-          "@id": "https://w3id.org/traceability/cesium"
-        },
-        "title": "Cesium",
-        "description": "Caesium or cesium is a chemical element with symbol Cs and atomic number 55. It is a soft, silvery-gold alkali metal with a melting point of 28 °C (82 °F), which makes it one of only five elemental metals that are liquid at or near room temperature. Caesium is an alkali metal and has physical and chemical properties similar to those of rubidium and potassium."
-      },
-      "https://w3id.org/traceability/barium": {
-        "$comment": {
-          "term": "Ba",
-          "@id": "https://w3id.org/traceability/barium"
-        },
-        "title": "Barium",
-        "description": "Barium is a chemical element with symbol Ba and atomic number 56. It is the fifth element in Group 2, a soft silvery metallic alkaline earth metal. Because of its high chemical reactivity barium is never found in nature as a free element."
-      },
-      "https://w3id.org/traceability/lanthanum": {
-        "$comment": {
-          "term": "La",
-          "@id": "https://w3id.org/traceability/lanthanum"
-        },
-        "title": "Lanthanum",
-        "description": "Lanthanum is a soft, ductile, silvery-white metallic chemical element with symbol La and atomic number 57. It tarnishes rapidly when exposed to air and is soft enough to be cut with a knife. It gave its name to the lanthanide series, a group of 15 similar elements between lanthanum and lutetium in the periodic table:it is also sometimes considered the first element of the 6th-period transition metals."
-      },
-      "https://w3id.org/traceability/cerium": {
-        "$comment": {
-          "term": "Ce",
-          "@id": "https://w3id.org/traceability/cerium"
-        },
-        "title": "Cerium",
-        "description": "Cerium is a chemical element with symbol Ce and atomic number 58. It is a soft, silvery, ductile metal which easily oxidizes in air. Cerium was named after the dwarf planet Ceres (itself named after the Roman goddess of agriculture)."
-      },
-      "https://w3id.org/traceability/praseodymium": {
-        "$comment": {
-          "term": "Pr",
-          "@id": "https://w3id.org/traceability/praseodymium"
-        },
-        "title": "Praseodymium",
-        "description": "Praseodymium is a chemical element with symbol Pr and atomic number 59. Praseodymium is a soft, silvery, malleable and ductile metal in the lanthanide group. It is valued for its magnetic, electrical, chemical, and optical properties."
-      },
-      "https://w3id.org/traceability/neodymium": {
-        "$comment": {
-          "term": "Nd",
-          "@id": "https://w3id.org/traceability/neodymium"
-        },
-        "title": "Neodymium",
-        "description": "Neodymium is a chemical element with symbol Nd and atomic number 60. It is a soft silvery metal that tarnishes in air. Neodymium was discovered in 1885 by the Austrian chemist Carl Auer von Welsbach."
-      },
-      "https://w3id.org/traceability/promethium": {
-        "$comment": {
-          "term": "Pm",
-          "@id": "https://w3id.org/traceability/promethium"
-        },
-        "title": "Promethium",
-        "description": "Promethium, originally prometheum, is a chemical element with the symbol Pm and atomic number 61. All of its isotopes are radioactive; it is one of only two such elements that are followed in the periodic table by elements with stable forms, a distinction shared with technetium. Chemically, promethium is a lanthanide, which forms salts when combined with other elements."
-      },
-      "https://w3id.org/traceability/samarium": {
-        "$comment": {
-          "term": "Sm",
-          "@id": "https://w3id.org/traceability/samarium"
-        },
-        "title": "Samarium",
-        "description": "Samarium is a chemical element with symbol Sm and atomic number 62. It is a moderately hard silvery metal that readily oxidizes in air. Being a typical member of the lanthanide series, samarium usually assumes the oxidation state +3."
-      },
-      "https://w3id.org/traceability/europium": {
-        "$comment": {
-          "term": "Eu",
-          "@id": "https://w3id.org/traceability/europium"
-        },
-        "title": "Europium",
-        "description": "Europium is a chemical element with symbol Eu and atomic number 63. It was isolated in 1901 and is named after the continent of Europe. It is a moderately hard, silvery metal which readily oxidizes in air and water."
-      },
-      "https://w3id.org/traceability/gadolinium": {
-        "$comment": {
-          "term": "Gd",
-          "@id": "https://w3id.org/traceability/gadolinium"
-        },
-        "title": "Gadolinium",
-        "description": "Gadolinium is a chemical element with symbol Gd and atomic number 64. It is a silvery-white, malleable and ductile rare-earth metal. It is found in nature only in combined (salt) form."
-      },
-      "https://w3id.org/traceability/terbium": {
-        "$comment": {
-          "term": "Tb",
-          "@id": "https://w3id.org/traceability/terbium"
-        },
-        "title": "Terbium",
-        "description": "Terbium is a chemical element with symbol Tb and atomic number 65. It is a silvery-white rare earth metal that is malleable, ductile and soft enough to be cut with a knife. Terbium is never found in nature as a free element, but it is contained in many minerals, including cerite, gadolinite, monazite, xenotime and euxenite."
-      },
-      "https://w3id.org/traceability/dysprosium": {
-        "$comment": {
-          "term": "Dy",
-          "@id": "https://w3id.org/traceability/dysprosium"
-        },
-        "title": "Dysprosium",
-        "description": "Dysprosium is a chemical element with the symbol Dy and atomic number 66. It is a rare earth element with a metallic silver luster. Dysprosium is never found in nature as a free element, though it is found in various minerals, such as xenotime."
-      },
-      "https://w3id.org/traceability/holmium": {
-        "$comment": {
-          "term": "Ho",
-          "@id": "https://w3id.org/traceability/holmium"
-        },
-        "title": "Holmium",
-        "description": "Holmium is a chemical element with symbol Ho and atomic number 67. Part of the lanthanide series, holmium is a rare earth element. Holmium was discovered by Swedish chemist Per Theodor Cleve."
-      },
-      "https://w3id.org/traceability/erbium": {
-        "$comment": {
-          "term": "Er",
-          "@id": "https://w3id.org/traceability/erbium"
-        },
-        "title": "Erbium",
-        "description": "Erbium is a chemical element in the lanthanide series, with symbol Er and atomic number 68. A silvery-white solid metal when artificially isolated, natural erbium is always found in chemical combination with other elements on Earth. As such, it is a rare earth element which is associated with several other rare elements in the mineral gadolinite from Ytterby in Sweden, where yttrium, ytterbium, and terbium were discovered."
-      },
-      "https://w3id.org/traceability/thulium": {
-        "$comment": {
-          "term": "Tm",
-          "@id": "https://w3id.org/traceability/thulium"
-        },
-        "title": "Thulium",
-        "description": "Thulium is a chemical element with symbol Tm and atomic number 69. It is the thirteenth and antepenultimate (third-last) element in the lanthanide series. Like the other lanthanides, the most common oxidation state is +3, seen in its oxide, halides and other compounds."
-      },
-      "https://w3id.org/traceability/ytterbium": {
-        "$comment": {
-          "term": "Yb",
-          "@id": "https://w3id.org/traceability/ytterbium"
-        },
-        "title": "Ytterbium",
-        "description": "Ytterbium is a chemical element with symbol Yb and atomic number 70. It is the fourteenth and penultimate element in the lanthanide series, which is the basis of the relative stability of its +2 oxidation state. However, like the other lanthanides, its most common oxidation state is +3, seen in its oxide, halides and other compounds."
-      },
-      "https://w3id.org/traceability/lutetium": {
-        "$comment": {
-          "term": "Lu",
-          "@id": "https://w3id.org/traceability/lutetium"
-        },
-        "title": "Lutetium",
-        "description": "Lutetium is a chemical element with symbol Lu and atomic number 71. It is a silvery white metal, which resists corrosion in dry, but not in moist air. It is considered the first element of the 6th-period transition metals and the last element in the lanthanide series, and is traditionally counted among the rare earths."
-      },
-      "https://w3id.org/traceability/hafnium": {
-        "$comment": {
-          "term": "Hf",
-          "@id": "https://w3id.org/traceability/hafnium"
-        },
-        "title": "Hafnium",
-        "description": "Hafnium is a chemical element with symbol Hf and atomic number 72. A lustrous, silvery gray, tetravalent transition metal, hafnium chemically resembles zirconium and is found in zirconium minerals. Its existence was predicted by Dmitri Mendeleev in 1869, though it was not identified until 1923, making it the penultimate stable element to be discovered (rhenium was identified two years later)."
-      },
-      "https://w3id.org/traceability/tantalum": {
-        "$comment": {
-          "term": "Ta",
-          "@id": "https://w3id.org/traceability/tantalum"
-        },
-        "title": "Tantalum",
-        "description": "Tantalum is a chemical element with symbol Ta and atomic number 73. Previously known as tantalium, its name comes from Tantalus, an antihero from Greek mythology. Tantalum is a rare, hard, blue-gray, lustrous transition metal that is highly corrosion-resistant."
-      },
-      "https://w3id.org/traceability/tungsten": {
-        "$comment": {
-          "term": "W",
-          "@id": "https://w3id.org/traceability/tungsten"
-        },
-        "title": "Tungsten",
-        "description": "Tungsten, also known as wolfram, is a chemical element with symbol W and atomic number 74. The word tungsten comes from the Swedish language tung sten, which directly translates to heavy stone. Its name in Swedish is volfram, however, in order to distinguish it from scheelite, which in Swedish is alternatively named tungsten."
-      },
-      "https://w3id.org/traceability/rhenium": {
-        "$comment": {
-          "term": "Re",
-          "@id": "https://w3id.org/traceability/rhenium"
-        },
-        "title": "Rhenium",
-        "description": "Rhenium is a chemical element with symbol Re and atomic number 75. It is a silvery-white, heavy, third-row transition metal in group 7 of the periodic table. With an estimated average concentration of 1 part per billion (ppb), rhenium is one of the rarest elements in the Earth's crust."
-      },
-      "https://w3id.org/traceability/osmium": {
-        "$comment": {
-          "term": "Os",
-          "@id": "https://w3id.org/traceability/osmium"
-        },
-        "title": "Osmium",
-        "description": "Osmium (from Greek osme (ὀσμή) meaning \"smell\") is a chemical element with symbol Os and atomic number 76. It is a hard, brittle, bluish-white transition metal in the platinum group that is found as a trace element in alloys, mostly in platinum ores. Osmium is the densest naturally occurring element, with a density of 22.59 g/cm3."
-      },
-      "https://w3id.org/traceability/iridium": {
-        "$comment": {
-          "term": "Ir",
-          "@id": "https://w3id.org/traceability/iridium"
-        },
-        "title": "Iridium",
-        "description": "Iridium is a chemical element with symbol Ir and atomic number 77. A very hard, brittle, silvery-white transition metal of the platinum group, iridium is generally credited with being the second densest element (after osmium) based on measured density, although calculations involving the space lattices of the elements show that iridium is denser. It is also the most corrosion-resistant metal, even at temperatures as high as 2000 °C. Although only certain molten salts and halogens are corrosive to solid iridium, finely divided iridium dust is much more reactive and can be flammable."
-      },
-      "https://w3id.org/traceability/platinum": {
-        "$comment": {
-          "term": "Pt",
-          "@id": "https://w3id.org/traceability/platinum"
-        },
-        "title": "Platinum",
-        "description": "Platinum is a chemical element with symbol Pt and atomic number 78. It is a dense, malleable, ductile, highly unreactive, precious, gray-white transition metal. Its name is derived from the Spanish term platina, which is literally translated into \"little silver\"."
-      },
-      "https://w3id.org/traceability/gold": {
-        "$comment": {
-          "term": "Au",
-          "@id": "https://w3id.org/traceability/gold"
-        },
-        "title": "Gold",
-        "description": "Gold is a chemical element with symbol Au (from Latin:aurum) and atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element."
-      },
-      "https://w3id.org/traceability/mercury": {
-        "$comment": {
-          "term": "Hg",
-          "@id": "https://w3id.org/traceability/mercury"
-        },
-        "title": "Mercury",
-        "description": "Mercury is a chemical element with symbol Hg and atomic number 80. It is commonly known as quicksilver and was formerly named hydrargyrum (/haɪˈdrɑːrdʒərəm/). A heavy, silvery d-block element, mercury is the only metallic element that is liquid at standard conditions for temperature and pressure; the only other element that is liquid under these conditions is bromine, though metals such as caesium, gallium, and rubidium melt just above room temperature."
-      },
-      "https://w3id.org/traceability/thallium": {
-        "$comment": {
-          "term": "Tl",
-          "@id": "https://w3id.org/traceability/thallium"
-        },
-        "title": "Thallium",
-        "description": "Thallium is a chemical element with symbol Tl and atomic number 81. This soft gray post-transition metal is not found free in nature. When isolated, it resembles tin, but discolors when exposed to air."
-      },
-      "https://w3id.org/traceability/lead": {
-        "$comment": {
-          "term": "Pb",
-          "@id": "https://w3id.org/traceability/lead"
-        },
-        "title": "Lead",
-        "description": "Lead (/lɛd/) is a chemical element in the carbon group with symbol Pb (from Latin:plumbum) and atomic number 82. Lead is a soft, malleable and heavy post-transition metal. Metallic lead has a bluish-white color after being freshly cut, but it soon tarnishes to a dull grayish color when exposed to air."
-      },
-      "https://w3id.org/traceability/bismuth": {
-        "$comment": {
-          "term": "Bi",
-          "@id": "https://w3id.org/traceability/bismuth"
-        },
-        "title": "Bismuth",
-        "description": "Bismuth is a chemical element with symbol Bi and atomic number 83. Bismuth, a pentavalent post-transition metal, chemically resembles arsenic and antimony. Elemental bismuth may occur naturally, although its sulfide and oxide form important commercial ores."
-      },
-      "https://w3id.org/traceability/polonium": {
-        "$comment": {
-          "term": "Po",
-          "@id": "https://w3id.org/traceability/polonium"
-        },
-        "title": "Polonium",
-        "description": "Polonium is a chemical element with symbol Po and atomic number 84, discovered in 1898 by Marie Curie and Pierre Curie. A rare and highly radioactive element with no stable isotopes, polonium is chemically similar to bismuth and tellurium, and it occurs in uranium ores. Applications of polonium are few."
-      },
-      "https://w3id.org/traceability/astatine": {
-        "$comment": {
-          "term": "At",
-          "@id": "https://w3id.org/traceability/astatine"
-        },
-        "title": "Astatine",
-        "description": "Astatine is a very rare radioactive chemical element with the chemical symbol At and atomic number 85. It occurs on Earth as the decay product of various heavier elements. All its isotopes are short-lived; the most stable is astatine-210, with a half-life of 8.1 hours."
-      },
-      "https://w3id.org/traceability/radon": {
-        "$comment": {
-          "term": "Rn",
-          "@id": "https://w3id.org/traceability/radon"
-        },
-        "title": "Radon",
-        "description": "Radon is a chemical element with symbol Rn and atomic number 86. It is a radioactive, colorless, odorless, tasteless noble gas, occurring naturally as a decay product of radium. Its most stable isotope, 222Rn, has a half-life of 3.8 days."
-      },
-      "https://w3id.org/traceability/francium": {
-        "$comment": {
-          "term": "Fr",
-          "@id": "https://w3id.org/traceability/francium"
-        },
-        "title": "Francium",
-        "description": "Francium is a chemical element with symbol Fr and atomic number 87. It used to be known as eka-caesium and actinium K. It is the second-least electronegative element, behind only caesium. Francium is a highly radioactive metal that decays into astatine, radium, and radon."
-      },
-      "https://w3id.org/traceability/radium": {
-        "$comment": {
-          "term": "Ra",
-          "@id": "https://w3id.org/traceability/radium"
-        },
-        "title": "Radium",
-        "description": "Radium is a chemical element with symbol Ra and atomic number 88. It is the sixth element in group 2 of the periodic table, also known as the alkaline earth metals. Pure radium is almost colorless, but it readily combines with nitrogen (rather than oxygen) on exposure to air, forming a black surface layer of radium nitride (Ra3N2)."
-      },
-      "https://w3id.org/traceability/actinium": {
-        "$comment": {
-          "term": "Ac",
-          "@id": "https://w3id.org/traceability/actinium"
-        },
-        "title": "Actinium",
-        "description": "Actinium is a radioactive chemical element with symbol Ac (not to be confused with the abbreviation for an acetyl group) and atomic number 89, which was discovered in 1899. It was the first non-primordial radioactive element to be isolated. Polonium, radium and radon were observed before actinium, but they were not isolated until 1902."
-      },
-      "https://w3id.org/traceability/thorium": {
-        "$comment": {
-          "term": "Th",
-          "@id": "https://w3id.org/traceability/thorium"
-        },
-        "title": "Thorium",
-        "description": "Thorium is a chemical element with symbol Th and atomic number 90. A radioactive actinide metal, thorium is one of only two significantly radioactive elements that still occur naturally in large quantities as a primordial element (the other being uranium). It was discovered in 1828 by the Norwegian Reverend and amateur mineralogist Morten Thrane Esmark and identified by the Swedish chemist Jöns Jakob Berzelius, who named it after Thor, the Norse god of thunder."
-      },
-      "https://w3id.org/traceability/protactinium": {
-        "$comment": {
-          "term": "Pa",
-          "@id": "https://w3id.org/traceability/protactinium"
-        },
-        "title": "Protactinium",
-        "description": "Protactinium is a chemical element with symbol Pa and atomic number 91. It is a dense, silvery-gray metal which readily reacts with oxygen, water vapor and inorganic acids. It forms various chemical compounds where protactinium is usually present in the oxidation state +5, but can also assume +4 and even +2 or +3 states."
-      },
-      "https://w3id.org/traceability/uranium": {
-        "$comment": {
-          "term": "U",
-          "@id": "https://w3id.org/traceability/uranium"
-        },
-        "title": "Uranium",
-        "description": "Uranium is a chemical element with symbol U and atomic number 92. It is a silvery-white metal in the actinide series of the periodic table. A uranium atom has 92 protons and 92 electrons, of which 6 are valence electrons."
-      },
-      "https://w3id.org/traceability/neptunium": {
-        "$comment": {
-          "term": "Np",
-          "@id": "https://w3id.org/traceability/neptunium"
-        },
-        "title": "Neptunium",
-        "description": "Neptunium is a chemical element with symbol Np and atomic number 93. A radioactive actinide metal, neptunium is the first transuranic element. Its position in the periodic table just after uranium, named after the planet Uranus, led to it being named after Neptune, the next planet beyond Uranus."
-      },
-      "https://w3id.org/traceability/plutonium": {
-        "$comment": {
-          "term": "Pu",
-          "@id": "https://w3id.org/traceability/plutonium"
-        },
-        "title": "Plutonium",
-        "description": "Plutonium is a transuranic radioactive chemical element with symbol Pu and atomic number 94. It is an actinide metal of silvery-gray appearance that tarnishes when exposed to air, and forms a dull coating when oxidized. The element normally exhibits six allotropes and four oxidation states."
-      },
-      "https://w3id.org/traceability/americium": {
-        "$comment": {
-          "term": "Am",
-          "@id": "https://w3id.org/traceability/americium"
-        },
-        "title": "Americium",
-        "description": "Americium is a radioactive transuranic chemical element with symbol Am and atomic number 95. This member of the actinide series is located in the periodic table under the lanthanide element europium, and thus by analogy was named after the Americas. Americium was first produced in 1944 by the group of Glenn T.Seaborg from Berkeley, California, at the metallurgical laboratory of University of Chicago."
-      },
-      "https://w3id.org/traceability/curium": {
-        "$comment": {
-          "term": "Cm",
-          "@id": "https://w3id.org/traceability/curium"
-        },
-        "title": "Curium",
-        "description": "Curium is a transuranic radioactive chemical element with symbol Cm and atomic number 96. This element of the actinide series was named after Marie and Pierre Curie – both were known for their research on radioactivity. Curium was first intentionally produced and identified in July 1944 by the group of Glenn T. Seaborg at the University of California, Berkeley."
-      },
-      "https://w3id.org/traceability/berkelium": {
-        "$comment": {
-          "term": "Bk",
-          "@id": "https://w3id.org/traceability/berkelium"
-        },
-        "title": "Berkelium",
-        "description": "Berkelium is a transuranic radioactive chemical element with symbol Bk and atomic number 97. It is a member of the actinide and transuranium element series. It is named after the city of Berkeley, California, the location of the University of California Radiation Laboratory where it was discovered in December 1949."
-      },
-      "https://w3id.org/traceability/californium": {
-        "$comment": {
-          "term": "Cf",
-          "@id": "https://w3id.org/traceability/californium"
-        },
-        "title": "Californium",
-        "description": "Californium is a radioactive metallic chemical element with symbol Cf and atomic number 98. The element was first made in 1950 at the University of California Radiation Laboratory in Berkeley, by bombarding curium with alpha particles (helium-4 ions). It is an actinide element, the sixth transuranium element to be synthesized, and has the second-highest atomic mass of all the elements that have been produced in amounts large enough to see with the unaided eye (after einsteinium)."
-      },
-      "https://w3id.org/traceability/einsteinium": {
-        "$comment": {
-          "term": "Es",
-          "@id": "https://w3id.org/traceability/einsteinium"
-        },
-        "title": "Einsteinium",
-        "description": "Einsteinium is a synthetic element with symbol Es and atomic number 99. It is the seventh transuranic element, and an actinide. Einsteinium was discovered as a component of the debris of the first hydrogen bomb explosion in 1952, and named after Albert Einstein."
-      },
-      "https://w3id.org/traceability/fermium": {
-        "$comment": {
-          "term": "Fm",
-          "@id": "https://w3id.org/traceability/fermium"
-        },
-        "title": "Fermium",
-        "description": "Fermium is a synthetic element with symbol Fm and atomic number 100. It is a member of the actinide series. It is the heaviest element that can be formed by neutron bombardment of lighter elements, and hence the last element that can be prepared in macroscopic quantities, although pure fermium metal has not yet been prepared."
-      },
-      "https://w3id.org/traceability/mendelevium": {
-        "$comment": {
-          "term": "Md",
-          "@id": "https://w3id.org/traceability/mendelevium"
-        },
-        "title": "Mendelevium",
-        "description": "Mendelevium is a synthetic element with chemical symbol Md (formerly Mv) and atomic number 101. A metallic radioactive transuranic element in the actinide series, it is the first element that currently cannot be produced in macroscopic quantities through neutron bombardment of lighter elements. It is the antepenultimate actinide and the ninth transuranic element."
-      },
-      "https://w3id.org/traceability/nobelium": {
-        "$comment": {
-          "term": "No",
-          "@id": "https://w3id.org/traceability/nobelium"
-        },
-        "title": "Nobelium",
-        "description": "Nobelium is a synthetic chemical element with symbol No and atomic number 102. It is named in honor of Alfred Nobel, the inventor of dynamite and benefactor of science. A radioactive metal, it is the tenth transuranic element and is the penultimate member of the actinide series."
-      },
-      "https://w3id.org/traceability/lawrencium": {
-        "$comment": {
-          "term": "Lr",
-          "@id": "https://w3id.org/traceability/lawrencium"
-        },
-        "title": "Lawrencium",
-        "description": "Lawrencium is a synthetic chemical element with chemical symbol Lr (formerly Lw) and atomic number 103. It is named in honor of Ernest Lawrence, inventor of the cyclotron, a device that was used to discover many artificial radioactive elements. A radioactive metal, lawrencium is the eleventh transuranic element and is also the final member of the actinide series."
-      },
-      "https://w3id.org/traceability/rutherfordium": {
-        "$comment": {
-          "term": "Rf",
-          "@id": "https://w3id.org/traceability/rutherfordium"
-        },
-        "title": "Rutherfordium",
-        "description": "Rutherfordium is a chemical element with symbol Rf and atomic number 104, named in honor of physicist Ernest Rutherford. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 267Rf, has a half-life of approximately 1.3 hours. In the periodic table of the elements, it is a d - block element and the second of the fourth - row transition elements."
-      },
-      "https://w3id.org/traceability/dubnium": {
-        "$comment": {
-          "term": "Db",
-          "@id": "https://w3id.org/traceability/dubnium"
-        },
-        "title": "Dubnium",
-        "description": "Dubnium is a chemical element with symbol Db and atomic number 105. It is named after the town of Dubna in Russia (north of Moscow), where it was first produced. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, dubnium-268, has a half-life of approximately 28 hours."
-      },
-      "https://w3id.org/traceability/seaborgium": {
-        "$comment": {
-          "term": "Sg",
-          "@id": "https://w3id.org/traceability/seaborgium"
-        },
-        "title": "Seaborgium",
-        "description": "Seaborgium is a synthetic element with symbol Sg and atomic number 106. Its most stable isotope 271Sg has a half-life of 1.9 minutes. A more recently discovered isotope 269Sg has a potentially slightly longer half-life (ca."
-      },
-      "https://w3id.org/traceability/bohrium": {
-        "$comment": {
-          "term": "Bh",
-          "@id": "https://w3id.org/traceability/bohrium"
-        },
-        "title": "Bohrium",
-        "description": "Bohrium is a chemical element with symbol Bh and atomic number 107. It is named after Danish physicist Niels Bohr. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 270Bh, has a half-life of approximately 61 seconds."
-      },
-      "https://w3id.org/traceability/hassium": {
-        "$comment": {
-          "term": "Hs",
-          "@id": "https://w3id.org/traceability/hassium"
-        },
-        "title": "Hassium",
-        "description": "Hassium is a chemical element with symbol Hs and atomic number 108, named after the German state of Hesse. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 269Hs, has a half-life of approximately 9.7 seconds, although an unconfirmed metastable state, 277mHs, may have a longer half-life of about 130 seconds. More than 100 atoms of hassium have been synthesized to date."
-      },
-      "https://w3id.org/traceability/meitnerium": {
-        "$comment": {
-          "term": "Mt",
-          "@id": "https://w3id.org/traceability/meitnerium"
-        },
-        "title": "Meitnerium",
-        "description": "Meitnerium is a chemical element with symbol Mt and atomic number 109. It is an extremely radioactive synthetic element (an element not found in nature that can be created in a laboratory). The most stable known isotope, meitnerium-278, has a half-life of 7.6 seconds."
-      },
-      "https://w3id.org/traceability/darmstadtium": {
-        "$comment": {
-          "term": "Ds",
-          "@id": "https://w3id.org/traceability/darmstadtium"
-        },
-        "title": "Darmstadtium",
-        "description": "Darmstadtium is a chemical element with symbol Ds and atomic number 110. It is an extremely radioactive synthetic element. The most stable known isotope, darmstadtium-281, has a half-life of approximately 10 seconds."
-      },
-      "https://w3id.org/traceability/roentgenium": {
-        "$comment": {
-          "term": "Rg",
-          "@id": "https://w3id.org/traceability/roentgenium"
-        },
-        "title": "Roentgenium",
-        "description": "Roentgenium is a chemical element with symbol Rg and atomic number 111. It is an extremely radioactive synthetic element (an element that can be created in a laboratory but is not found in nature); the most stable known isotope, roentgenium-282, has a half-life of 2.1 minutes. Roentgenium was first created in 1994 by the GSI Helmholtz Centre for Heavy Ion Research near Darmstadt, Germany."
-      },
-      "https://w3id.org/traceability/copernicium": {
-        "$comment": {
-          "term": "Cn",
-          "@id": "https://w3id.org/traceability/copernicium"
-        },
-        "title": "Copernicium",
-        "description": "Copernicium is a chemical element with symbol Cn and atomic number 112. It is an extremely radioactive synthetic element that can only be created in a laboratory. The most stable known isotope, copernicium-285, has a half-life of approximately 29 seconds, but it is possible that this copernicium isotope may have a nuclear isomer with a longer half-life, 8.9 min."
-      },
-      "https://w3id.org/traceability/nihonium": {
-        "$comment": {
-          "term": "Nh",
-          "@id": "https://w3id.org/traceability/nihonium"
-        },
-        "title": "Nihonium",
-        "description": "Nihonium is a chemical element with atomic number 113. It has a symbol Nh. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and is extremely radioactive; its most stable known isotope, nihonium-286, has a half-life of 20 seconds."
-      },
-      "https://w3id.org/traceability/flerovium": {
-        "$comment": {
-          "term": "Fl",
-          "@id": "https://w3id.org/traceability/flerovium"
-        },
-        "title": "Flerovium",
-        "description": "Flerovium is a superheavy artificial chemical element with symbol Fl and atomic number 114. It is an extremely radioactive synthetic element. The element is named after the Flerov Laboratory of Nuclear Reactions of the Joint Institute for Nuclear Research in Dubna, Russia, where the element was discovered in 1998."
-      },
-      "https://w3id.org/traceability/moscovium": {
-        "$comment": {
-          "term": "Mc",
-          "@id": "https://w3id.org/traceability/moscovium"
-        },
-        "title": "Moscovium",
-        "description": "Moscovium is the name of a synthetic superheavy element in the periodic table that has the symbol Mc and has the atomic number 115. It is an extremely radioactive element; its most stable known isotope, moscovium-289, has a half-life of only 220 milliseconds. It is also known as eka-bismuth or simply element 115."
-      },
-      "https://w3id.org/traceability/livermorium": {
-        "$comment": {
-          "term": "Lv",
-          "@id": "https://w3id.org/traceability/livermorium"
-        },
-        "title": "Livermorium",
-        "description": "Livermorium is a synthetic superheavy element with symbol Lv and atomic number 116. It is an extremely radioactive element that has only been created in the laboratory and has not been observed in nature. The element is named after the Lawrence Livermore National Laboratory in the United States, which collaborated with the Joint Institute for Nuclear Research in Dubna, Russia to discover livermorium in 2000."
-      },
-      "https://w3id.org/traceability/tennessine": {
-        "$comment": {
-          "term": "Ts",
-          "@id": "https://w3id.org/traceability/tennessine"
-        },
-        "title": "Tennessine",
-        "description": "Tennessine is a superheavy artificial chemical element with an atomic number of 117 and a symbol of Ts. Also known as eka-astatine or element 117, it is the second-heaviest known element and penultimate element of the 7th period of the periodic table. As of 2016, fifteen tennessine atoms have been observed:six when it was first synthesized in 2010, seven in 2012, and two in 2014."
-      },
-      "https://w3id.org/traceability/oganesson": {
-        "$comment": {
-          "term": "Og",
-          "@id": "https://w3id.org/traceability/oganesson"
-        },
-        "title": "Oganesson",
-        "description": "Oganesson is IUPAC's name for the transactinide element with the atomic number 118 and element symbol Og. It is also known as eka-radon or element 118, and on the periodic table of the elements it is a p-block element and the last one of the 7th period. Oganesson is currently the only synthetic member of group 18."
-      },
-      "https://w3id.org/traceability/ununennium": {
-        "$comment": {
-          "term": "Uue",
-          "@id": "https://w3id.org/traceability/ununennium"
-        },
-        "title": "Ununennium",
-        "description": "Ununennium, also known as eka-francium or simply element 119, is the hypothetical chemical element with symbol Uue and atomic number 119. Ununennium and Uue are the temporary systematic IUPAC name and symbol respectively, until a permanent name is decided upon. In the periodic table of the elements, it is expected to be an s-block element, an alkali metal, and the first element in the eighth period."
-      }
-    },
-    "examples": [
-      {
-        "Tc": "84.61",
-        "Mc": "46.95",
-        "Og": "83.5"
-      },
-      {
-        "Pu": "33.9",
-        "Ts": "80.86",
-        "He": "98.29",
-        "Cr": "99.27",
-        "Mt": "78.96"
-      },
-      {
-        "Po": "19.42",
-        "Pd": "63.29",
-        "Pa": "25.91",
-        "Pr": "39.17",
-        "Sc": "39.14"
-      }
-    ],
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/PercentComposition.json",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"PercentComposition\", \"@id\": \"https://w3id.org/traceability/PercentComposition\"}",
-      "title": "Percent Composition",
-      "description": "The percent by mass of each element in a compound.",
-      "type": "object",
-      "properties": {
-        "H": {
-          "$comment": "{\"term\": \"H\", \"@id\": \"https://w3id.org/traceability/hydrogen\"}",
-          "title": "Hydrogen",
-          "description": "Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass.",
-          "type": "string"
-        },
-        "He": {
-          "$comment": "{\"term\": \"He\", \"@id\": \"https://w3id.org/traceability/helium\"}",
-          "title": "Helium",
-          "description": "Helium is a chemical element with symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas that heads the noble gas group in the periodic table. Its boiling and melting points are the lowest among all the elements.",
-          "type": "string"
-        },
-        "Li": {
-          "$comment": "{\"term\": \"Li\", \"@id\": \"https://w3id.org/traceability/lithium\"}",
-          "title": "Lithium",
-          "description": "Lithium (from Greek:λίθος lithos, \"stone\") is a chemical element with the symbol Li and atomic number 3. It is a soft, silver-white metal belonging to the alkali metal group of chemical elements. Under standard conditions it is the lightest metal and the least dense solid element.",
-          "type": "string"
-        },
-        "Be": {
-          "$comment": "{\"term\": \"Be\", \"@id\": \"https://w3id.org/traceability/beryllium\"}",
-          "title": "Beryllium",
-          "description": "Beryllium is a chemical element with symbol Be and atomic number 4. It is created through stellar nucleosynthesis and is a relatively rare element in the universe. It is a divalent element which occurs naturally only in combination with other elements in minerals.",
-          "type": "string"
-        },
-        "B": {
-          "$comment": "{\"term\": \"B\", \"@id\": \"https://w3id.org/traceability/boron\"}",
-          "title": "Boron",
-          "description": "Boron is a metalloid chemical element with symbol B and atomic number 5. Produced entirely by cosmic ray spallation and supernovae and not by stellar nucleosynthesis, it is a low-abundance element in both the Solar system and the Earth's crust. Boron is concentrated on Earth by the water-solubility of its more common naturally occurring compounds, the borate minerals.",
-          "type": "string"
-        },
-        "C": {
-          "$comment": "{\"term\": \"C\", \"@id\": \"https://w3id.org/traceability/carbon\"}",
-          "title": "Carbon",
-          "description": "Carbon (from Latin:carbo \"coal\") is a chemical element with symbol C and atomic number 6. On the periodic table, it is the first (row 2) of six elements in column (group) 14, which have in common the composition of their outer electron shell. It is nonmetallic and tetravalent—making four electrons available to form covalent chemical bonds.",
-          "type": "string"
-        },
-        "N": {
-          "$comment": "{\"term\": \"N\", \"@id\": \"https://w3id.org/traceability/nitrogen\"}",
-          "title": "Nitrogen",
-          "description": "Nitrogen is a chemical element with symbol N and atomic number 7. It is the lightest pnictogen and at room temperature, it is a transparent, odorless diatomic gas. Nitrogen is a common element in the universe, estimated at about seventh in total abundance in the Milky Way and the Solar System.",
-          "type": "string"
-        },
-        "O": {
-          "$comment": "{\"term\": \"O\", \"@id\": \"https://w3id.org/traceability/oxygen\"}",
-          "title": "Oxygen",
-          "description": "Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium.",
-          "type": "string"
-        },
-        "F": {
-          "$comment": "{\"term\": \"F\", \"@id\": \"https://w3id.org/traceability/fluorine\"}",
-          "title": "Fluorine",
-          "description": "Fluorine is a chemical element with symbol F and atomic number 9. It is the lightest halogen and exists as a highly toxic pale yellow diatomic gas at standard conditions. As the most electronegative element, it is extremely reactive:almost all other elements, including some noble gases, form compounds with fluorine.",
-          "type": "string"
-        },
-        "Ne": {
-          "$comment": "{\"term\": \"Ne\", \"@id\": \"https://w3id.org/traceability/neon\"}",
-          "title": "Neon",
-          "description": "Neon is a chemical element with symbol Ne and atomic number 10. It is in group 18 (noble gases) of the periodic table. Neon is a colorless, odorless, inert monatomic gas under standard conditions, with about two-thirds the density of air.",
-          "type": "string"
-        },
-        "Na": {
-          "$comment": "{\"term\": \"Na\", \"@id\": \"https://w3id.org/traceability/sodium\"}",
-          "title": "Sodium",
-          "description": "Sodium /ˈsoʊdiəm/ is a chemical element with symbol Na (from Ancient Greek Νάτριο) and atomic number 11. It is a soft, silver-white, highly reactive metal. In the Periodic table it is in column 1 (alkali metals), and shares with the other six elements in that column that it has a single electron in its outer shell, which it readily donates, creating a positively charged atom - a cation.",
-          "type": "string"
-        },
-        "Mg": {
-          "$comment": "{\"term\": \"Mg\", \"@id\": \"https://w3id.org/traceability/magnesium\"}",
-          "title": "Magnesium",
-          "description": "Magnesium is a chemical element with symbol Mg and atomic number 12. It is a shiny gray solid which bears a close physical resemblance to the other five elements in the second column (Group 2, or alkaline earth metals) of the periodic table:they each have the same electron configuration in their outer electron shell producing a similar crystal structure. Magnesium is the ninth most abundant element in the universe.",
-          "type": "string"
-        },
-        "Al": {
-          "$comment": "{\"term\": \"Al\", \"@id\": \"https://w3id.org/traceability/aluminium\"}",
-          "title": "Aluminium",
-          "description": "Aluminium (or aluminum; see different endings) is a chemical element in the boron group with symbol Al and atomic number 13. It is a silvery-white, soft, nonmagnetic, ductile metal. Aluminium is the third most abundant element (after oxygen and silicon), and the most abundant metal, in the Earth's crust.",
-          "type": "string"
-        },
-        "Si": {
-          "$comment": "{\"term\": \"Si\", \"@id\": \"https://w3id.org/traceability/silicon\"}",
-          "title": "Silicon",
-          "description": "Silicon is a chemical element with symbol Si and atomic number 14. It is a tetravalent metalloid, more reactive than germanium, the metalloid directly below it in the table. Controversy about silicon's character dates to its discovery.",
-          "type": "string"
-        },
-        "P": {
-          "$comment": "{\"term\": \"P\", \"@id\": \"https://w3id.org/traceability/phosphorus\"}",
-          "title": "Phosphorus",
-          "description": "Phosphorus is a chemical element with symbol P and atomic number 15. As an element, phosphorus exists in two major forms—white phosphorus and red phosphorus—but due to its high reactivity, phosphorus is never found as a free element on Earth. Instead phosphorus-containing minerals are almost always present in their maximally oxidised state, as inorganic phosphate rocks.",
-          "type": "string"
-        },
-        "S": {
-          "$comment": "{\"term\": \"S\", \"@id\": \"https://w3id.org/traceability/sulfur\"}",
-          "title": "Sulfur",
-          "description": "Sulfur or sulphur (see spelling differences) is a chemical element with symbol S and atomic number 16. It is an abundant, multivalent non-metal. Under normal conditions, sulfur atoms form cyclic octatomic molecules with chemical formula S8.",
-          "type": "string"
-        },
-        "Cl": {
-          "$comment": "{\"term\": \"Cl\", \"@id\": \"https://w3id.org/traceability/chlorine\"}",
-          "title": "Chlorine",
-          "description": "Chlorine is a chemical element with symbol Cl and atomic number 17. It also has a relative atomic mass of 35.5. Chlorine is in the halogen group (17) and is the second lightest halogen following fluorine.",
-          "type": "string"
-        },
-        "Ar": {
-          "$comment": "{\"term\": \"Ar\", \"@id\": \"https://w3id.org/traceability/argon\"}",
-          "title": "Argon",
-          "description": "Argon is a chemical element with symbol Ar and atomic number 18. It is in group 18 of the periodic table and is a noble gas. Argon is the third most common gas in the Earth's atmosphere, at 0.934% (9,340 ppmv), making it over twice as abundant as the next most common atmospheric gas, water vapor (which averages about 4000 ppmv, but varies greatly), and 23 times as abundant as the next most common non-condensing atmospheric gas, carbon dioxide (400 ppmv), and more than 500 times as abundant as the next most common noble gas, neon (18 ppmv).",
-          "type": "string"
-        },
-        "K": {
-          "$comment": "{\"term\": \"K\", \"@id\": \"https://w3id.org/traceability/potassium\"}",
-          "title": "Potassium",
-          "description": "Potassium is a chemical element with symbol K (derived from Neo-Latin, kalium) and atomic number 19. It was first isolated from potash, the ashes of plants, from which its name is derived. In the Periodic table, potassium is one of seven elements in column (group) 1 (alkali metals):they all have a single valence electron in their outer electron shell, which they readily give up to create an atom with a positive charge - a cation, and combine with anions to form salts.",
-          "type": "string"
-        },
-        "Ca": {
-          "$comment": "{\"term\": \"Ca\", \"@id\": \"https://w3id.org/traceability/calcium\"}",
-          "title": "Calcium",
-          "description": "Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate.",
-          "type": "string"
-        },
-        "Sc": {
-          "$comment": "{\"term\": \"Sc\", \"@id\": \"https://w3id.org/traceability/scandium\"}",
-          "title": "Scandium",
-          "description": "Scandium is a chemical element with symbol Sc and atomic number 21. A silvery-white metallic d-block element, it has historically been sometimes classified as a rare earth element, together with yttrium and the lanthanoids. It was discovered in 1879 by spectral analysis of the minerals euxenite and gadolinite from Scandinavia.",
-          "type": "string"
-        },
-        "Ti": {
-          "$comment": "{\"term\": \"Ti\", \"@id\": \"https://w3id.org/traceability/titanium\"}",
-          "title": "Titanium",
-          "description": "Titanium is a chemical element with symbol Ti and atomic number 22. It is a lustrous transition metal with a silver color, low density and high strength. It is highly resistant to corrosion in sea water, aqua regia and chlorine.",
-          "type": "string"
-        },
-        "V": {
-          "$comment": "{\"term\": \"V\", \"@id\": \"https://w3id.org/traceability/vanadium\"}",
-          "title": "Vanadium",
-          "description": "Vanadium is a chemical element with symbol V and atomic number 23. It is a hard, silvery grey, ductile and malleable transition metal. The element is found only in chemically combined form in nature, but once isolated artificially, the formation of an oxide layer stabilizes the free metal somewhat against further oxidation.",
-          "type": "string"
-        },
-        "Cr": {
-          "$comment": "{\"term\": \"Cr\", \"@id\": \"https://w3id.org/traceability/chromium\"}",
-          "title": "Chromium",
-          "description": "Chromium is a chemical element with symbol Cr and atomic number 24. It is the first element in Group 6. It is a steely-gray, lustrous, hard and brittle metal which takes a high polish, resists tarnishing, and has a high melting point.",
-          "type": "string"
-        },
-        "Mn": {
-          "$comment": "{\"term\": \"Mn\", \"@id\": \"https://w3id.org/traceability/manganese\"}",
-          "title": "Manganese",
-          "description": "Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in combination with iron, and in many minerals. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.",
-          "type": "string"
-        },
-        "Fe": {
-          "$comment": "{\"term\": \"Fe\", \"@id\": \"https://w3id.org/traceability/iron\"}",
-          "title": "Iron",
-          "description": "Iron is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. It is a metal in the first transition series. It is by mass the most common element on Earth, forming much of Earth's outer and inner core.",
-          "type": "string"
-        },
-        "Co": {
-          "$comment": "{\"term\": \"Co\", \"@id\": \"https://w3id.org/traceability/cobalt\"}",
-          "title": "Cobalt",
-          "description": "Cobalt is a chemical element with symbol Co and atomic number 27. Like nickel, cobalt in the Earth's crust is found only in chemically combined form, save for small deposits found in alloys of natural meteoric iron. The free element, produced by reductive smelting, is a hard, lustrous, silver-gray metal.",
-          "type": "string"
-        },
-        "Ni": {
-          "$comment": "{\"term\": \"Ni\", \"@id\": \"https://w3id.org/traceability/nickel\"}",
-          "title": "Nickel",
-          "description": "Nickel is a chemical element with symbol Ni and atomic number 28. It is a silvery-white lustrous metal with a slight golden tinge. Nickel belongs to the transition metals and is hard and ductile.",
-          "type": "string"
-        },
-        "Cu": {
-          "$comment": "{\"term\": \"Cu\", \"@id\": \"https://w3id.org/traceability/copper\"}",
-          "title": "Copper",
-          "description": "Copper is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29. It is a soft, malleable and ductile metal with very high thermal and electrical conductivity. A freshly exposed surface of pure copper has a reddish-orange color.",
-          "type": "string"
-        },
-        "Zn": {
-          "$comment": "{\"term\": \"Zn\", \"@id\": \"https://w3id.org/traceability/zinc\"}",
-          "title": "Zinc",
-          "description": "Zinc, in commerce also spelter, is a chemical element with symbol Zn and atomic number 30. It is the first element of group 12 of the periodic table. In some respects zinc is chemically similar to magnesium:its ion is of similar size and its only common oxidation state is +2.",
-          "type": "string"
-        },
-        "Ga": {
-          "$comment": "{\"term\": \"Ga\", \"@id\": \"https://w3id.org/traceability/gallium\"}",
-          "title": "Gallium",
-          "description": "Gallium is a chemical element with symbol Ga and atomic number 31. Elemental gallium does not occur in free form in nature, but as the gallium(III) compounds that are in trace amounts in zinc ores and in bauxite. Gallium is a soft, silvery metal, and elemental gallium is a brittle solid at low temperatures, and melts at 29.76 °C (85.57 °F) (slightly above room temperature).",
-          "type": "string"
-        },
-        "Ge": {
-          "$comment": "{\"term\": \"Ge\", \"@id\": \"https://w3id.org/traceability/germanium\"}",
-          "title": "Germanium",
-          "description": "Germanium is a chemical element with symbol Ge and atomic number 32. It is a lustrous, hard, grayish-white metalloid in the carbon group, chemically similar to its group neighbors tin and silicon. Purified germanium is a semiconductor, with an appearance most similar to elemental silicon.",
-          "type": "string"
-        },
-        "As": {
-          "$comment": "{\"term\": \"As\", \"@id\": \"https://w3id.org/traceability/arsenic\"}",
-          "title": "Arsenic",
-          "description": "Arsenic is a chemical element with symbol As and atomic number 33. Arsenic occurs in many minerals, usually in conjunction with sulfur and metals, and also as a pure elemental crystal. Arsenic is a metalloid.",
-          "type": "string"
-        },
-        "Se": {
-          "$comment": "{\"term\": \"Se\", \"@id\": \"https://w3id.org/traceability/selenium\"}",
-          "title": "Selenium",
-          "description": "Selenium is a chemical element with symbol Se and atomic number 34. It is a nonmetal with properties that are intermediate between those of its periodic table column-adjacent chalcogen elements sulfur and tellurium. It rarely occurs in its elemental state in nature, or as pure ore compounds.",
-          "type": "string"
-        },
-        "Br": {
-          "$comment": "{\"term\": \"Br\", \"@id\": \"https://w3id.org/traceability/bromine\"}",
-          "title": "Bromine",
-          "description": "Bromine (from Ancient Greek:βρῶμος, brómos, meaning \"stench\") is a chemical element with symbol Br, and atomic number 35. It is a halogen. The element was isolated independently by two chemists, Carl Jacob Löwig and Antoine Jerome Balard, in 1825–1826.",
-          "type": "string"
-        },
-        "Kr": {
-          "$comment": "{\"term\": \"Kr\", \"@id\": \"https://w3id.org/traceability/krypton\"}",
-          "title": "Krypton",
-          "description": "Krypton (from Greek:κρυπτός kryptos \"the hidden one\") is a chemical element with symbol Kr and atomic number 36. It is a member of group 18 (noble gases) elements. A colorless, odorless, tasteless noble gas, krypton occurs in trace amounts in the atmosphere, is isolated by fractionally distilling liquefied air, and is often used with other rare gases in fluorescent lamps.",
-          "type": "string"
-        },
-        "Rb": {
-          "$comment": "{\"term\": \"Rb\", \"@id\": \"https://w3id.org/traceability/rubidium\"}",
-          "title": "Rubidium",
-          "description": "Rubidium is a chemical element with symbol Rb and atomic number 37. Rubidium is a soft, silvery-white metallic element of the alkali metal group, with an atomic mass of 85.4678. Elemental rubidium is highly reactive, with properties similar to those of other alkali metals, such as very rapid oxidation in air.",
-          "type": "string"
-        },
-        "Sr": {
-          "$comment": "{\"term\": \"Sr\", \"@id\": \"https://w3id.org/traceability/strontium\"}",
-          "title": "Strontium",
-          "description": "Strontium is a chemical element with symbol Sr and atomic number 38. An alkaline earth metal, strontium is a soft silver-white or yellowish metallic element that is highly reactive chemically. The metal turns yellow when it is exposed to air.",
-          "type": "string"
-        },
-        "Y": {
-          "$comment": "{\"term\": \"Y\", \"@id\": \"https://w3id.org/traceability/yttrium\"}",
-          "title": "Yttrium",
-          "description": "Yttrium is a chemical element with symbol Y and atomic number 39. It is a silvery-metallic transition metal chemically similar to the lanthanides and it has often been classified as a \"rare earth element\". Yttrium is almost always found combined with the lanthanides in rare earth minerals and is never found in nature as a free element.",
-          "type": "string"
-        },
-        "Zr": {
-          "$comment": "{\"term\": \"Zr\", \"@id\": \"https://w3id.org/traceability/zirconium\"}",
-          "title": "Zirconium",
-          "description": "Zirconium is a chemical element with symbol Zr and atomic number 40. The name of zirconium is taken from the name of the mineral zircon, the most important source of zirconium. The word zircon comes from the Persian word zargun زرگون, meaning \"gold-colored\".",
-          "type": "string"
-        },
-        "Nb": {
-          "$comment": "{\"term\": \"Nb\", \"@id\": \"https://w3id.org/traceability/niobium\"}",
-          "title": "Niobium",
-          "description": "Niobium, formerly columbium, is a chemical element with symbol Nb (formerly Cb) and atomic number 41. It is a soft, grey, ductile transition metal, which is often found in the pyrochlore mineral, the main commercial source for niobium, and columbite. The name comes from Greek mythology:Niobe, daughter of Tantalus since it is so similar to tantalum.",
-          "type": "string"
-        },
-        "Mo": {
-          "$comment": "{\"term\": \"Mo\", \"@id\": \"https://w3id.org/traceability/molybdenum\"}",
-          "title": "Molybdenum",
-          "description": "Molybdenum is a chemical element with symbol Mo and atomic number 42. The name is from Neo-Latin molybdaenum, from Ancient Greek Μόλυβδος molybdos, meaning lead, since its ores were confused with lead ores. Molybdenum minerals have been known throughout history, but the element was discovered (in the sense of differentiating it as a new entity from the mineral salts of other metals) in 1778 by Carl Wilhelm Scheele.",
-          "type": "string"
-        },
-        "Tc": {
-          "$comment": "{\"term\": \"Tc\", \"@id\": \"https://w3id.org/traceability/technetium\"}",
-          "title": "Technetium",
-          "description": "Technetium (/tɛkˈniːʃiəm/) is a chemical element with symbol Tc and atomic number 43. It is the element with the lowest atomic number in the periodic table that has no stable isotopes:every form of it is radioactive. Nearly all technetium is produced synthetically, and only minute amounts are found in nature.",
-          "type": "string"
-        },
-        "Ru": {
-          "$comment": "{\"term\": \"Ru\", \"@id\": \"https://w3id.org/traceability/ruthenium\"}",
-          "title": "Ruthenium",
-          "description": "Ruthenium is a chemical element with symbol Ru and atomic number 44. It is a rare transition metal belonging to the platinum group of the periodic table. Like the other metals of the platinum group, ruthenium is inert to most other chemicals.",
-          "type": "string"
-        },
-        "Rh": {
-          "$comment": "{\"term\": \"Rh\", \"@id\": \"https://w3id.org/traceability/rhodium\"}",
-          "title": "Rhodium",
-          "description": "Rhodium is a chemical element with symbol Rh and atomic number 45. It is a rare, silvery-white, hard, and chemically inert transition metal. It is a member of the platinum group.",
-          "type": "string"
-        },
-        "Pd": {
-          "$comment": "{\"term\": \"Pd\", \"@id\": \"https://w3id.org/traceability/palladium\"}",
-          "title": "Palladium",
-          "description": "Palladium is a chemical element with symbol Pd and atomic number 46. It is a rare and lustrous silvery-white metal discovered in 1803 by William Hyde Wollaston. He named it after the asteroid Pallas, which was itself named after the epithet of the Greek goddess Athena, acquired by her when she slew Pallas.",
-          "type": "string"
-        },
-        "Ag": {
-          "$comment": "{\"term\": \"Ag\", \"@id\": \"https://w3id.org/traceability/silver\"}",
-          "title": "Silver",
-          "description": "Silver is a chemical element with symbol Ag (Greek:άργυρος árguros, Latin:argentum, both from the Indo-European root *h₂erǵ- for \"grey\" or \"shining\") and atomic number 47. A soft, white, lustrous transition metal, it possesses the highest electrical conductivity, thermal conductivity and reflectivity of any metal. The metal occurs naturally in its pure, free form (native silver), as an alloy with gold and other metals, and in minerals such as argentite and chlorargyrite.",
-          "type": "string"
-        },
-        "Cd": {
-          "$comment": "{\"term\": \"Cd\", \"@id\": \"https://w3id.org/traceability/cadmium\"}",
-          "title": "Cadmium",
-          "description": "Cadmium is a chemical element with symbol Cd and atomic number 48. This soft, bluish-white metal is chemically similar to the two other stable metals in group 12, zinc and mercury. Like zinc, it prefers oxidation state +2 in most of its compounds and like mercury it shows a low melting point compared to transition metals.",
-          "type": "string"
-        },
-        "In": {
-          "$comment": "{\"term\": \"In\", \"@id\": \"https://w3id.org/traceability/indium\"}",
-          "title": "Indium",
-          "description": "Indium is a chemical element with symbol In and atomic number 49. It is a post-transition metallic element that is rare in Earth's crust. The metal is very soft, malleable and easily fusible, with a melting point higher than sodium, but lower than lithium or tin.",
-          "type": "string"
-        },
-        "Sn": {
-          "$comment": "{\"term\": \"Sn\", \"@id\": \"https://w3id.org/traceability/tin\"}",
-          "title": "Tin",
-          "description": "Tin is a chemical element with the symbol Sn (for Latin:stannum) and atomic number 50. It is a main group metal in group 14 of the periodic table. Tin shows a chemical similarity to both neighboring group-14 elements, germanium and lead, and has two possible oxidation states, +2 and the slightly more stable +4.",
-          "type": "string"
-        },
-        "Sb": {
-          "$comment": "{\"term\": \"Sb\", \"@id\": \"https://w3id.org/traceability/antimony\"}",
-          "title": "Antimony",
-          "description": "Antimony is a chemical element with symbol Sb (from Latin:stibium) and atomic number 51. A lustrous gray metalloid, it is found in nature mainly as the sulfide mineral stibnite (Sb2S3). Antimony compounds have been known since ancient times and were used for cosmetics; metallic antimony was also known, but it was erroneously identified as lead upon its discovery.",
-          "type": "string"
-        },
-        "Te": {
-          "$comment": "{\"term\": \"Te\", \"@id\": \"https://w3id.org/traceability/tellurium\"}",
-          "title": "Tellurium",
-          "description": "Tellurium is a chemical element with symbol Te and atomic number 52. It is a brittle, mildly toxic, rare, silver-white metalloid. Tellurium is chemically related to selenium and sulfur.",
-          "type": "string"
-        },
-        "I": {
-          "$comment": "{\"term\": \"I\", \"@id\": \"https://w3id.org/traceability/iodine\"}",
-          "title": "Iodine",
-          "description": "Iodine is a chemical element with symbol I and atomic number 53. The name is from Greek ἰοειδής ioeidēs, meaning violet or purple, due to the color of iodine vapor. Iodine and its compounds are primarily used in nutrition, and industrially in the production of acetic acid and certain polymers.",
-          "type": "string"
-        },
-        "Xe": {
-          "$comment": "{\"term\": \"Xe\", \"@id\": \"https://w3id.org/traceability/xenon\"}",
-          "title": "Xenon",
-          "description": "Xenon is a chemical element with symbol Xe and atomic number 54. It is a colorless, dense, odorless noble gas, that occurs in the Earth's atmosphere in trace amounts. Although generally unreactive, xenon can undergo a few chemical reactions such as the formation of xenon hexafluoroplatinate, the first noble gas compound to be synthesized.",
-          "type": "string"
-        },
-        "Cs": {
-          "$comment": "{\"term\": \"Cs\", \"@id\": \"https://w3id.org/traceability/cesium\"}",
-          "title": "Cesium",
-          "description": "Caesium or cesium is a chemical element with symbol Cs and atomic number 55. It is a soft, silvery-gold alkali metal with a melting point of 28 °C (82 °F), which makes it one of only five elemental metals that are liquid at or near room temperature. Caesium is an alkali metal and has physical and chemical properties similar to those of rubidium and potassium.",
-          "type": "string"
-        },
-        "Ba": {
-          "$comment": "{\"term\": \"Ba\", \"@id\": \"https://w3id.org/traceability/barium\"}",
-          "title": "Barium",
-          "description": "Barium is a chemical element with symbol Ba and atomic number 56. It is the fifth element in Group 2, a soft silvery metallic alkaline earth metal. Because of its high chemical reactivity barium is never found in nature as a free element.",
-          "type": "string"
-        },
-        "La": {
-          "$comment": "{\"term\": \"La\", \"@id\": \"https://w3id.org/traceability/lanthanum\"}",
-          "title": "Lanthanum",
-          "description": "Lanthanum is a soft, ductile, silvery-white metallic chemical element with symbol La and atomic number 57. It tarnishes rapidly when exposed to air and is soft enough to be cut with a knife. It gave its name to the lanthanide series, a group of 15 similar elements between lanthanum and lutetium in the periodic table:it is also sometimes considered the first element of the 6th-period transition metals.",
-          "type": "string"
-        },
-        "Ce": {
-          "$comment": "{\"term\": \"Ce\", \"@id\": \"https://w3id.org/traceability/cerium\"}",
-          "title": "Cerium",
-          "description": "Cerium is a chemical element with symbol Ce and atomic number 58. It is a soft, silvery, ductile metal which easily oxidizes in air. Cerium was named after the dwarf planet Ceres (itself named after the Roman goddess of agriculture).",
-          "type": "string"
-        },
-        "Pr": {
-          "$comment": "{\"term\": \"Pr\", \"@id\": \"https://w3id.org/traceability/praseodymium\"}",
-          "title": "Praseodymium",
-          "description": "Praseodymium is a chemical element with symbol Pr and atomic number 59. Praseodymium is a soft, silvery, malleable and ductile metal in the lanthanide group. It is valued for its magnetic, electrical, chemical, and optical properties.",
-          "type": "string"
-        },
-        "Nd": {
-          "$comment": "{\"term\": \"Nd\", \"@id\": \"https://w3id.org/traceability/neodymium\"}",
-          "title": "Neodymium",
-          "description": "Neodymium is a chemical element with symbol Nd and atomic number 60. It is a soft silvery metal that tarnishes in air. Neodymium was discovered in 1885 by the Austrian chemist Carl Auer von Welsbach.",
-          "type": "string"
-        },
-        "Pm": {
-          "$comment": "{\"term\": \"Pm\", \"@id\": \"https://w3id.org/traceability/promethium\"}",
-          "title": "Promethium",
-          "description": "Promethium, originally prometheum, is a chemical element with the symbol Pm and atomic number 61. All of its isotopes are radioactive; it is one of only two such elements that are followed in the periodic table by elements with stable forms, a distinction shared with technetium. Chemically, promethium is a lanthanide, which forms salts when combined with other elements.",
-          "type": "string"
-        },
-        "Sm": {
-          "$comment": "{\"term\": \"Sm\", \"@id\": \"https://w3id.org/traceability/samarium\"}",
-          "title": "Samarium",
-          "description": "Samarium is a chemical element with symbol Sm and atomic number 62. It is a moderately hard silvery metal that readily oxidizes in air. Being a typical member of the lanthanide series, samarium usually assumes the oxidation state +3.",
-          "type": "string"
-        },
-        "Eu": {
-          "$comment": "{\"term\": \"Eu\", \"@id\": \"https://w3id.org/traceability/europium\"}",
-          "title": "Europium",
-          "description": "Europium is a chemical element with symbol Eu and atomic number 63. It was isolated in 1901 and is named after the continent of Europe. It is a moderately hard, silvery metal which readily oxidizes in air and water.",
-          "type": "string"
-        },
-        "Gd": {
-          "$comment": "{\"term\": \"Gd\", \"@id\": \"https://w3id.org/traceability/gadolinium\"}",
-          "title": "Gadolinium",
-          "description": "Gadolinium is a chemical element with symbol Gd and atomic number 64. It is a silvery-white, malleable and ductile rare-earth metal. It is found in nature only in combined (salt) form.",
-          "type": "string"
-        },
-        "Tb": {
-          "$comment": "{\"term\": \"Tb\", \"@id\": \"https://w3id.org/traceability/terbium\"}",
-          "title": "Terbium",
-          "description": "Terbium is a chemical element with symbol Tb and atomic number 65. It is a silvery-white rare earth metal that is malleable, ductile and soft enough to be cut with a knife. Terbium is never found in nature as a free element, but it is contained in many minerals, including cerite, gadolinite, monazite, xenotime and euxenite.",
-          "type": "string"
-        },
-        "Dy": {
-          "$comment": "{\"term\": \"Dy\", \"@id\": \"https://w3id.org/traceability/dysprosium\"}",
-          "title": "Dysprosium",
-          "description": "Dysprosium is a chemical element with the symbol Dy and atomic number 66. It is a rare earth element with a metallic silver luster. Dysprosium is never found in nature as a free element, though it is found in various minerals, such as xenotime.",
-          "type": "string"
-        },
-        "Ho": {
-          "$comment": "{\"term\": \"Ho\", \"@id\": \"https://w3id.org/traceability/holmium\"}",
-          "title": "Holmium",
-          "description": "Holmium is a chemical element with symbol Ho and atomic number 67. Part of the lanthanide series, holmium is a rare earth element. Holmium was discovered by Swedish chemist Per Theodor Cleve.",
-          "type": "string"
-        },
-        "Er": {
-          "$comment": "{\"term\": \"Er\", \"@id\": \"https://w3id.org/traceability/erbium\"}",
-          "title": "Erbium",
-          "description": "Erbium is a chemical element in the lanthanide series, with symbol Er and atomic number 68. A silvery-white solid metal when artificially isolated, natural erbium is always found in chemical combination with other elements on Earth. As such, it is a rare earth element which is associated with several other rare elements in the mineral gadolinite from Ytterby in Sweden, where yttrium, ytterbium, and terbium were discovered.",
-          "type": "string"
-        },
-        "Tm": {
-          "$comment": "{\"term\": \"Tm\", \"@id\": \"https://w3id.org/traceability/thulium\"}",
-          "title": "Thulium",
-          "description": "Thulium is a chemical element with symbol Tm and atomic number 69. It is the thirteenth and antepenultimate (third-last) element in the lanthanide series. Like the other lanthanides, the most common oxidation state is +3, seen in its oxide, halides and other compounds.",
-          "type": "string"
-        },
-        "Yb": {
-          "$comment": "{\"term\": \"Yb\", \"@id\": \"https://w3id.org/traceability/ytterbium\"}",
-          "title": "Ytterbium",
-          "description": "Ytterbium is a chemical element with symbol Yb and atomic number 70. It is the fourteenth and penultimate element in the lanthanide series, which is the basis of the relative stability of its +2 oxidation state. However, like the other lanthanides, its most common oxidation state is +3, seen in its oxide, halides and other compounds.",
-          "type": "string"
-        },
-        "Lu": {
-          "$comment": "{\"term\": \"Lu\", \"@id\": \"https://w3id.org/traceability/lutetium\"}",
-          "title": "Lutetium",
-          "description": "Lutetium is a chemical element with symbol Lu and atomic number 71. It is a silvery white metal, which resists corrosion in dry, but not in moist air. It is considered the first element of the 6th-period transition metals and the last element in the lanthanide series, and is traditionally counted among the rare earths.",
-          "type": "string"
-        },
-        "Hf": {
-          "$comment": "{\"term\": \"Hf\", \"@id\": \"https://w3id.org/traceability/hafnium\"}",
-          "title": "Hafnium",
-          "description": "Hafnium is a chemical element with symbol Hf and atomic number 72. A lustrous, silvery gray, tetravalent transition metal, hafnium chemically resembles zirconium and is found in zirconium minerals. Its existence was predicted by Dmitri Mendeleev in 1869, though it was not identified until 1923, making it the penultimate stable element to be discovered (rhenium was identified two years later).",
-          "type": "string"
-        },
-        "Ta": {
-          "$comment": "{\"term\": \"Ta\", \"@id\": \"https://w3id.org/traceability/tantalum\"}",
-          "title": "Tantalum",
-          "description": "Tantalum is a chemical element with symbol Ta and atomic number 73. Previously known as tantalium, its name comes from Tantalus, an antihero from Greek mythology. Tantalum is a rare, hard, blue-gray, lustrous transition metal that is highly corrosion-resistant.",
-          "type": "string"
-        },
-        "W": {
-          "$comment": "{\"term\": \"W\", \"@id\": \"https://w3id.org/traceability/tungsten\"}",
-          "title": "Tungsten",
-          "description": "Tungsten, also known as wolfram, is a chemical element with symbol W and atomic number 74. The word tungsten comes from the Swedish language tung sten, which directly translates to heavy stone. Its name in Swedish is volfram, however, in order to distinguish it from scheelite, which in Swedish is alternatively named tungsten.",
-          "type": "string"
-        },
-        "Re": {
-          "$comment": "{\"term\": \"Re\", \"@id\": \"https://w3id.org/traceability/rhenium\"}",
-          "title": "Rhenium",
-          "description": "Rhenium is a chemical element with symbol Re and atomic number 75. It is a silvery-white, heavy, third-row transition metal in group 7 of the periodic table. With an estimated average concentration of 1 part per billion (ppb), rhenium is one of the rarest elements in the Earth's crust.",
-          "type": "string"
-        },
-        "Os": {
-          "$comment": "{\"term\": \"Os\", \"@id\": \"https://w3id.org/traceability/osmium\"}",
-          "title": "Osmium",
-          "description": "Osmium (from Greek osme (ὀσμή) meaning \"smell\") is a chemical element with symbol Os and atomic number 76. It is a hard, brittle, bluish-white transition metal in the platinum group that is found as a trace element in alloys, mostly in platinum ores. Osmium is the densest naturally occurring element, with a density of 22.59 g/cm3.",
-          "type": "string"
-        },
-        "Ir": {
-          "$comment": "{\"term\": \"Ir\", \"@id\": \"https://w3id.org/traceability/iridium\"}",
-          "title": "Iridium",
-          "description": "Iridium is a chemical element with symbol Ir and atomic number 77. A very hard, brittle, silvery-white transition metal of the platinum group, iridium is generally credited with being the second densest element (after osmium) based on measured density, although calculations involving the space lattices of the elements show that iridium is denser. It is also the most corrosion-resistant metal, even at temperatures as high as 2000 °C. Although only certain molten salts and halogens are corrosive to solid iridium, finely divided iridium dust is much more reactive and can be flammable.",
-          "type": "string"
-        },
-        "Pt": {
-          "$comment": "{\"term\": \"Pt\", \"@id\": \"https://w3id.org/traceability/platinum\"}",
-          "title": "Platinum",
-          "description": "Platinum is a chemical element with symbol Pt and atomic number 78. It is a dense, malleable, ductile, highly unreactive, precious, gray-white transition metal. Its name is derived from the Spanish term platina, which is literally translated into \"little silver\".",
-          "type": "string"
-        },
-        "Au": {
-          "$comment": "{\"term\": \"Au\", \"@id\": \"https://w3id.org/traceability/gold\"}",
-          "title": "Gold",
-          "description": "Gold is a chemical element with symbol Au (from Latin:aurum) and atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element.",
-          "type": "string"
-        },
-        "Hg": {
-          "$comment": "{\"term\": \"Hg\", \"@id\": \"https://w3id.org/traceability/mercury\"}",
-          "title": "Mercury",
-          "description": "Mercury is a chemical element with symbol Hg and atomic number 80. It is commonly known as quicksilver and was formerly named hydrargyrum (/haɪˈdrɑːrdʒərəm/). A heavy, silvery d-block element, mercury is the only metallic element that is liquid at standard conditions for temperature and pressure; the only other element that is liquid under these conditions is bromine, though metals such as caesium, gallium, and rubidium melt just above room temperature.",
-          "type": "string"
-        },
-        "Tl": {
-          "$comment": "{\"term\": \"Tl\", \"@id\": \"https://w3id.org/traceability/thallium\"}",
-          "title": "Thallium",
-          "description": "Thallium is a chemical element with symbol Tl and atomic number 81. This soft gray post-transition metal is not found free in nature. When isolated, it resembles tin, but discolors when exposed to air.",
-          "type": "string"
-        },
-        "Pb": {
-          "$comment": "{\"term\": \"Pb\", \"@id\": \"https://w3id.org/traceability/lead\"}",
-          "title": "Lead",
-          "description": "Lead (/lɛd/) is a chemical element in the carbon group with symbol Pb (from Latin:plumbum) and atomic number 82. Lead is a soft, malleable and heavy post-transition metal. Metallic lead has a bluish-white color after being freshly cut, but it soon tarnishes to a dull grayish color when exposed to air.",
-          "type": "string"
-        },
-        "Bi": {
-          "$comment": "{\"term\": \"Bi\", \"@id\": \"https://w3id.org/traceability/bismuth\"}",
-          "title": "Bismuth",
-          "description": "Bismuth is a chemical element with symbol Bi and atomic number 83. Bismuth, a pentavalent post-transition metal, chemically resembles arsenic and antimony. Elemental bismuth may occur naturally, although its sulfide and oxide form important commercial ores.",
-          "type": "string"
-        },
-        "Po": {
-          "$comment": "{\"term\": \"Po\", \"@id\": \"https://w3id.org/traceability/polonium\"}",
-          "title": "Polonium",
-          "description": "Polonium is a chemical element with symbol Po and atomic number 84, discovered in 1898 by Marie Curie and Pierre Curie. A rare and highly radioactive element with no stable isotopes, polonium is chemically similar to bismuth and tellurium, and it occurs in uranium ores. Applications of polonium are few.",
-          "type": "string"
-        },
-        "At": {
-          "$comment": "{\"term\": \"At\", \"@id\": \"https://w3id.org/traceability/astatine\"}",
-          "title": "Astatine",
-          "description": "Astatine is a very rare radioactive chemical element with the chemical symbol At and atomic number 85. It occurs on Earth as the decay product of various heavier elements. All its isotopes are short-lived; the most stable is astatine-210, with a half-life of 8.1 hours.",
-          "type": "string"
-        },
-        "Rn": {
-          "$comment": "{\"term\": \"Rn\", \"@id\": \"https://w3id.org/traceability/radon\"}",
-          "title": "Radon",
-          "description": "Radon is a chemical element with symbol Rn and atomic number 86. It is a radioactive, colorless, odorless, tasteless noble gas, occurring naturally as a decay product of radium. Its most stable isotope, 222Rn, has a half-life of 3.8 days.",
-          "type": "string"
-        },
-        "Fr": {
-          "$comment": "{\"term\": \"Fr\", \"@id\": \"https://w3id.org/traceability/francium\"}",
-          "title": "Francium",
-          "description": "Francium is a chemical element with symbol Fr and atomic number 87. It used to be known as eka-caesium and actinium K. It is the second-least electronegative element, behind only caesium. Francium is a highly radioactive metal that decays into astatine, radium, and radon.",
-          "type": "string"
-        },
-        "Ra": {
-          "$comment": "{\"term\": \"Ra\", \"@id\": \"https://w3id.org/traceability/radium\"}",
-          "title": "Radium",
-          "description": "Radium is a chemical element with symbol Ra and atomic number 88. It is the sixth element in group 2 of the periodic table, also known as the alkaline earth metals. Pure radium is almost colorless, but it readily combines with nitrogen (rather than oxygen) on exposure to air, forming a black surface layer of radium nitride (Ra3N2).",
-          "type": "string"
-        },
-        "Ac": {
-          "$comment": "{\"term\": \"Ac\", \"@id\": \"https://w3id.org/traceability/actinium\"}",
-          "title": "Actinium",
-          "description": "Actinium is a radioactive chemical element with symbol Ac (not to be confused with the abbreviation for an acetyl group) and atomic number 89, which was discovered in 1899. It was the first non-primordial radioactive element to be isolated. Polonium, radium and radon were observed before actinium, but they were not isolated until 1902.",
-          "type": "string"
-        },
-        "Th": {
-          "$comment": "{\"term\": \"Th\", \"@id\": \"https://w3id.org/traceability/thorium\"}",
-          "title": "Thorium",
-          "description": "Thorium is a chemical element with symbol Th and atomic number 90. A radioactive actinide metal, thorium is one of only two significantly radioactive elements that still occur naturally in large quantities as a primordial element (the other being uranium). It was discovered in 1828 by the Norwegian Reverend and amateur mineralogist Morten Thrane Esmark and identified by the Swedish chemist Jöns Jakob Berzelius, who named it after Thor, the Norse god of thunder.",
-          "type": "string"
-        },
-        "Pa": {
-          "$comment": "{\"term\": \"Pa\", \"@id\": \"https://w3id.org/traceability/protactinium\"}",
-          "title": "Protactinium",
-          "description": "Protactinium is a chemical element with symbol Pa and atomic number 91. It is a dense, silvery-gray metal which readily reacts with oxygen, water vapor and inorganic acids. It forms various chemical compounds where protactinium is usually present in the oxidation state +5, but can also assume +4 and even +2 or +3 states.",
-          "type": "string"
-        },
-        "U": {
-          "$comment": "{\"term\": \"U\", \"@id\": \"https://w3id.org/traceability/uranium\"}",
-          "title": "Uranium",
-          "description": "Uranium is a chemical element with symbol U and atomic number 92. It is a silvery-white metal in the actinide series of the periodic table. A uranium atom has 92 protons and 92 electrons, of which 6 are valence electrons.",
-          "type": "string"
-        },
-        "Np": {
-          "$comment": "{\"term\": \"Np\", \"@id\": \"https://w3id.org/traceability/neptunium\"}",
-          "title": "Neptunium",
-          "description": "Neptunium is a chemical element with symbol Np and atomic number 93. A radioactive actinide metal, neptunium is the first transuranic element. Its position in the periodic table just after uranium, named after the planet Uranus, led to it being named after Neptune, the next planet beyond Uranus.",
-          "type": "string"
-        },
-        "Pu": {
-          "$comment": "{\"term\": \"Pu\", \"@id\": \"https://w3id.org/traceability/plutonium\"}",
-          "title": "Plutonium",
-          "description": "Plutonium is a transuranic radioactive chemical element with symbol Pu and atomic number 94. It is an actinide metal of silvery-gray appearance that tarnishes when exposed to air, and forms a dull coating when oxidized. The element normally exhibits six allotropes and four oxidation states.",
-          "type": "string"
-        },
-        "Am": {
-          "$comment": "{\"term\": \"Am\", \"@id\": \"https://w3id.org/traceability/americium\"}",
-          "title": "Americium",
-          "description": "Americium is a radioactive transuranic chemical element with symbol Am and atomic number 95. This member of the actinide series is located in the periodic table under the lanthanide element europium, and thus by analogy was named after the Americas. Americium was first produced in 1944 by the group of Glenn T.Seaborg from Berkeley, California, at the metallurgical laboratory of University of Chicago.",
-          "type": "string"
-        },
-        "Cm": {
-          "$comment": "{\"term\": \"Cm\", \"@id\": \"https://w3id.org/traceability/curium\"}",
-          "title": "Curium",
-          "description": "Curium is a transuranic radioactive chemical element with symbol Cm and atomic number 96. This element of the actinide series was named after Marie and Pierre Curie – both were known for their research on radioactivity. Curium was first intentionally produced and identified in July 1944 by the group of Glenn T. Seaborg at the University of California, Berkeley.",
-          "type": "string"
-        },
-        "Bk": {
-          "$comment": "{\"term\": \"Bk\", \"@id\": \"https://w3id.org/traceability/berkelium\"}",
-          "title": "Berkelium",
-          "description": "Berkelium is a transuranic radioactive chemical element with symbol Bk and atomic number 97. It is a member of the actinide and transuranium element series. It is named after the city of Berkeley, California, the location of the University of California Radiation Laboratory where it was discovered in December 1949.",
-          "type": "string"
-        },
-        "Cf": {
-          "$comment": "{\"term\": \"Cf\", \"@id\": \"https://w3id.org/traceability/californium\"}",
-          "title": "Californium",
-          "description": "Californium is a radioactive metallic chemical element with symbol Cf and atomic number 98. The element was first made in 1950 at the University of California Radiation Laboratory in Berkeley, by bombarding curium with alpha particles (helium-4 ions). It is an actinide element, the sixth transuranium element to be synthesized, and has the second-highest atomic mass of all the elements that have been produced in amounts large enough to see with the unaided eye (after einsteinium).",
-          "type": "string"
-        },
-        "Es": {
-          "$comment": "{\"term\": \"Es\", \"@id\": \"https://w3id.org/traceability/einsteinium\"}",
-          "title": "Einsteinium",
-          "description": "Einsteinium is a synthetic element with symbol Es and atomic number 99. It is the seventh transuranic element, and an actinide. Einsteinium was discovered as a component of the debris of the first hydrogen bomb explosion in 1952, and named after Albert Einstein.",
-          "type": "string"
-        },
-        "Fm": {
-          "$comment": "{\"term\": \"Fm\", \"@id\": \"https://w3id.org/traceability/fermium\"}",
-          "title": "Fermium",
-          "description": "Fermium is a synthetic element with symbol Fm and atomic number 100. It is a member of the actinide series. It is the heaviest element that can be formed by neutron bombardment of lighter elements, and hence the last element that can be prepared in macroscopic quantities, although pure fermium metal has not yet been prepared.",
-          "type": "string"
-        },
-        "Md": {
-          "$comment": "{\"term\": \"Md\", \"@id\": \"https://w3id.org/traceability/mendelevium\"}",
-          "title": "Mendelevium",
-          "description": "Mendelevium is a synthetic element with chemical symbol Md (formerly Mv) and atomic number 101. A metallic radioactive transuranic element in the actinide series, it is the first element that currently cannot be produced in macroscopic quantities through neutron bombardment of lighter elements. It is the antepenultimate actinide and the ninth transuranic element.",
-          "type": "string"
-        },
-        "No": {
-          "$comment": "{\"term\": \"No\", \"@id\": \"https://w3id.org/traceability/nobelium\"}",
-          "title": "Nobelium",
-          "description": "Nobelium is a synthetic chemical element with symbol No and atomic number 102. It is named in honor of Alfred Nobel, the inventor of dynamite and benefactor of science. A radioactive metal, it is the tenth transuranic element and is the penultimate member of the actinide series.",
-          "type": "string"
-        },
-        "Lr": {
-          "$comment": "{\"term\": \"Lr\", \"@id\": \"https://w3id.org/traceability/lawrencium\"}",
-          "title": "Lawrencium",
-          "description": "Lawrencium is a synthetic chemical element with chemical symbol Lr (formerly Lw) and atomic number 103. It is named in honor of Ernest Lawrence, inventor of the cyclotron, a device that was used to discover many artificial radioactive elements. A radioactive metal, lawrencium is the eleventh transuranic element and is also the final member of the actinide series.",
-          "type": "string"
-        },
-        "Rf": {
-          "$comment": "{\"term\": \"Rf\", \"@id\": \"https://w3id.org/traceability/rutherfordium\"}",
-          "title": "Rutherfordium",
-          "description": "Rutherfordium is a chemical element with symbol Rf and atomic number 104, named in honor of physicist Ernest Rutherford. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 267Rf, has a half-life of approximately 1.3 hours. In the periodic table of the elements, it is a d - block element and the second of the fourth - row transition elements.",
-          "type": "string"
-        },
-        "Db": {
-          "$comment": "{\"term\": \"Db\", \"@id\": \"https://w3id.org/traceability/dubnium\"}",
-          "title": "Dubnium",
-          "description": "Dubnium is a chemical element with symbol Db and atomic number 105. It is named after the town of Dubna in Russia (north of Moscow), where it was first produced. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, dubnium-268, has a half-life of approximately 28 hours.",
-          "type": "string"
-        },
-        "Sg": {
-          "$comment": "{\"term\": \"Sg\", \"@id\": \"https://w3id.org/traceability/seaborgium\"}",
-          "title": "Seaborgium",
-          "description": "Seaborgium is a synthetic element with symbol Sg and atomic number 106. Its most stable isotope 271Sg has a half-life of 1.9 minutes. A more recently discovered isotope 269Sg has a potentially slightly longer half-life (ca.",
-          "type": "string"
-        },
-        "Bh": {
-          "$comment": "{\"term\": \"Bh\", \"@id\": \"https://w3id.org/traceability/bohrium\"}",
-          "title": "Bohrium",
-          "description": "Bohrium is a chemical element with symbol Bh and atomic number 107. It is named after Danish physicist Niels Bohr. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 270Bh, has a half-life of approximately 61 seconds.",
-          "type": "string"
-        },
-        "Hs": {
-          "$comment": "{\"term\": \"Hs\", \"@id\": \"https://w3id.org/traceability/hassium\"}",
-          "title": "Hassium",
-          "description": "Hassium is a chemical element with symbol Hs and atomic number 108, named after the German state of Hesse. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 269Hs, has a half-life of approximately 9.7 seconds, although an unconfirmed metastable state, 277mHs, may have a longer half-life of about 130 seconds. More than 100 atoms of hassium have been synthesized to date.",
-          "type": "string"
-        },
-        "Mt": {
-          "$comment": "{\"term\": \"Mt\", \"@id\": \"https://w3id.org/traceability/meitnerium\"}",
-          "title": "Meitnerium",
-          "description": "Meitnerium is a chemical element with symbol Mt and atomic number 109. It is an extremely radioactive synthetic element (an element not found in nature that can be created in a laboratory). The most stable known isotope, meitnerium-278, has a half-life of 7.6 seconds.",
-          "type": "string"
-        },
-        "Ds": {
-          "$comment": "{\"term\": \"Ds\", \"@id\": \"https://w3id.org/traceability/darmstadtium\"}",
-          "title": "Darmstadtium",
-          "description": "Darmstadtium is a chemical element with symbol Ds and atomic number 110. It is an extremely radioactive synthetic element. The most stable known isotope, darmstadtium-281, has a half-life of approximately 10 seconds.",
-          "type": "string"
-        },
-        "Rg": {
-          "$comment": "{\"term\": \"Rg\", \"@id\": \"https://w3id.org/traceability/roentgenium\"}",
-          "title": "Roentgenium",
-          "description": "Roentgenium is a chemical element with symbol Rg and atomic number 111. It is an extremely radioactive synthetic element (an element that can be created in a laboratory but is not found in nature); the most stable known isotope, roentgenium-282, has a half-life of 2.1 minutes. Roentgenium was first created in 1994 by the GSI Helmholtz Centre for Heavy Ion Research near Darmstadt, Germany.",
-          "type": "string"
-        },
-        "Cn": {
-          "$comment": "{\"term\": \"Cn\", \"@id\": \"https://w3id.org/traceability/copernicium\"}",
-          "title": "Copernicium",
-          "description": "Copernicium is a chemical element with symbol Cn and atomic number 112. It is an extremely radioactive synthetic element that can only be created in a laboratory. The most stable known isotope, copernicium-285, has a half-life of approximately 29 seconds, but it is possible that this copernicium isotope may have a nuclear isomer with a longer half-life, 8.9 min.",
-          "type": "string"
-        },
-        "Nh": {
-          "$comment": "{\"term\": \"Nh\", \"@id\": \"https://w3id.org/traceability/nihonium\"}",
-          "title": "Nihonium",
-          "description": "Nihonium is a chemical element with atomic number 113. It has a symbol Nh. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and is extremely radioactive; its most stable known isotope, nihonium-286, has a half-life of 20 seconds.",
-          "type": "string"
-        },
-        "Fl": {
-          "$comment": "{\"term\": \"Fl\", \"@id\": \"https://w3id.org/traceability/flerovium\"}",
-          "title": "Flerovium",
-          "description": "Flerovium is a superheavy artificial chemical element with symbol Fl and atomic number 114. It is an extremely radioactive synthetic element. The element is named after the Flerov Laboratory of Nuclear Reactions of the Joint Institute for Nuclear Research in Dubna, Russia, where the element was discovered in 1998.",
-          "type": "string"
-        },
-        "Mc": {
-          "$comment": "{\"term\": \"Mc\", \"@id\": \"https://w3id.org/traceability/moscovium\"}",
-          "title": "Moscovium",
-          "description": "Moscovium is the name of a synthetic superheavy element in the periodic table that has the symbol Mc and has the atomic number 115. It is an extremely radioactive element; its most stable known isotope, moscovium-289, has a half-life of only 220 milliseconds. It is also known as eka-bismuth or simply element 115.",
-          "type": "string"
-        },
-        "Lv": {
-          "$comment": "{\"term\": \"Lv\", \"@id\": \"https://w3id.org/traceability/livermorium\"}",
-          "title": "Livermorium",
-          "description": "Livermorium is a synthetic superheavy element with symbol Lv and atomic number 116. It is an extremely radioactive element that has only been created in the laboratory and has not been observed in nature. The element is named after the Lawrence Livermore National Laboratory in the United States, which collaborated with the Joint Institute for Nuclear Research in Dubna, Russia to discover livermorium in 2000.",
-          "type": "string"
-        },
-        "Ts": {
-          "$comment": "{\"term\": \"Ts\", \"@id\": \"https://w3id.org/traceability/tennessine\"}",
-          "title": "Tennessine",
-          "description": "Tennessine is a superheavy artificial chemical element with an atomic number of 117 and a symbol of Ts. Also known as eka-astatine or element 117, it is the second-heaviest known element and penultimate element of the 7th period of the periodic table. As of 2016, fifteen tennessine atoms have been observed:six when it was first synthesized in 2010, seven in 2012, and two in 2014.",
-          "type": "string"
-        },
-        "Og": {
-          "$comment": "{\"term\": \"Og\", \"@id\": \"https://w3id.org/traceability/oganesson\"}",
-          "title": "Oganesson",
-          "description": "Oganesson is IUPAC's name for the transactinide element with the atomic number 118 and element symbol Og. It is also known as eka-radon or element 118, and on the periodic table of the elements it is a p-block element and the last one of the 7th period. Oganesson is currently the only synthetic member of group 18.",
-          "type": "string"
-        },
-        "Uue": {
-          "$comment": "{\"term\": \"Uue\", \"@id\": \"https://w3id.org/traceability/ununennium\"}",
-          "title": "Ununennium",
-          "description": "Ununennium, also known as eka-francium or simply element 119, is the hypothetical chemical element with symbol Uue and atomic number 119. Ununennium and Uue are the temporary systematic IUPAC name and symbol respectively, until a permanent name is decided upon. In the periodic table of the elements, it is expected to be an s-block element, an alkali metal, and the first element in the eighth period.",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "examples": []
-    }
-  },
-  "https://gs1.org/voc/Place": {
-    "$id": "https://w3id.org/traceability/schemas/Place.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "Place",
-      "@id": "https://gs1.org/voc/Place"
-    },
-    "title": "Place",
-    "description": "Entities that have a somewhat fixed, physical location.",
-    "classProperties": {
-      "https://gs1.org/voc/globalLocationNumber": {
-        "$comment": {
-          "term": "globalLocationNumber",
-          "@id": "https://gs1.org/voc/globalLocationNumber"
-        },
-        "title": "Global Location Number (GLN)",
-        "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln."
-      },
-      "https://gs1.org/voc/GeoCoordinates": {
-        "$comment": {
-          "term": "geo",
-          "@id": "https://gs1.org/voc/GeoCoordinates"
-        },
-        "title": "Geographic Coordinates",
-        "description": "Links to information about geocoordinates for a place."
-      },
-      "https://gs1.org/voc/PostalAddress": {
-        "$comment": {
-          "term": "address",
-          "@id": "https://gs1.org/voc/PostalAddress"
-        },
-        "title": "Postal Address",
-        "description": "The postal address for an organization or place."
-      }
-    },
-    "examples": [
-      {
-        "globalLocationNumber": "3778263780454",
-        "geo": {
-          "latitude": "24.4172",
-          "longitude": "102.5204"
-        },
-        "address": {
-          "organizationName": "Ward, Gusikowski and Mitchell",
-          "streetAddress": "896 Marvin Forge",
-          "addressLocality": "Swaniawskiberg",
-          "addressRegion": "Pennsylvania",
-          "postalCode": "23282-5417",
-          "addressCountry": "Angola"
-        }
-      },
-      {
-        "globalLocationNumber": "1429161519067",
-        "geo": {
-          "latitude": "-65.9021",
-          "longitude": "103.1859"
-        },
-        "address": {
-          "organizationName": "Howell - Koelpin",
-          "streetAddress": "183 Haag Landing",
-          "addressLocality": "Reynoldport",
-          "addressRegion": "Wisconsin",
-          "postalCode": "71108",
-          "addressCountry": "Sao Tome and Principe"
-        }
-      },
-      {
-        "globalLocationNumber": "8558223576465",
-        "geo": {
-          "latitude": "-1.1224",
-          "longitude": "134.4176"
-        },
-        "address": {
-          "organizationName": "Trantow Inc",
-          "streetAddress": "66812 Estefania Isle",
-          "addressLocality": "Greenholtshire",
-          "addressRegion": "Ohio",
-          "postalCode": "40287",
-          "addressCountry": "Malawi"
-        }
-      }
-    ],
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/Place.json",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"Place\", \"@id\": \"https://gs1.org/voc/Place\"}",
-      "title": "Place",
-      "description": "Entities that have a somewhat fixed, physical location.",
-      "type": "object",
-      "properties": {
-        "globalLocationNumber": {
-          "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://gs1.org/voc/globalLocationNumber\"}",
-          "title": "Global Location Number (GLN)",
-          "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln.",
-          "type": "string",
-          "minLength": 13,
-          "maxLength": 13
-        },
-        "geo": {
-          "$comment": "{\"term\": \"geo\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
-          "title": "Geographic Coordinates",
-          "description": "Links to information about geocoordinates for a place.",
-          "$ref": "https://w3id.org/traceability/schemas/GeoCoordinates.json"
-        },
-        "address": {
-          "$comment": "{\"term\": \"address\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
-          "title": "Postal Address",
-          "description": "The postal address for an organization or place.",
-          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
-        }
-      },
-      "additionalProperties": false,
-      "examples": []
-    }
-  },
-  "https://gs1.org/voc/PostalAddress": {
-    "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "PostalAddress",
-      "@id": "https://gs1.org/voc/PostalAddress"
-    },
-    "title": "Postal Address",
-    "description": "The location at which a particular organization or person may be found or reached.",
-    "classProperties": {
-      "https://gs1.org/voc/organizationName": {
-        "$comment": {
-          "term": "organizationName",
-          "@id": "https://gs1.org/voc/organizationName"
-        },
-        "title": "Organization Name",
-        "description": "The name of the organization expressed in text."
-      },
-      "https://gs1.org/voc/streetAddress": {
-        "$comment": {
-          "term": "streetAddress",
-          "@id": "https://gs1.org/voc/streetAddress"
-        },
-        "title": "Street Address",
-        "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building."
-      },
-      "https://gs1.org/voc/addressLocality": {
-        "$comment": {
-          "term": "addressLocality",
-          "@id": "https://gs1.org/voc/addressLocality"
-        },
-        "title": "Address Locality",
-        "description": "Text specifying the name of the locality, for example a city."
-      },
-      "https://gs1.org/voc/addressRegion": {
-        "$comment": {
-          "term": "addressRegion",
-          "@id": "https://gs1.org/voc/addressRegion"
-        },
-        "title": "Address Region",
-        "description": "Text specifying a province or state in abbreviated format for example NJ."
-      },
-      "https://gs1.org/voc/addressCountry": {
-        "$comment": {
-          "term": "addressCountry",
-          "@id": "https://gs1.org/voc/addressCountry"
-        },
-        "title": "Address Country",
-        "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
-      },
-      "https://gs1.org/voc/crossStreet": {
-        "$comment": {
-          "term": "crossStreet",
-          "@id": "https://gs1.org/voc/crossStreet"
-        },
-        "title": "Cross Street",
-        "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it."
-      },
-      "https://gs1.org/voc/countyCode": {
-        "$comment": {
-          "term": "countyCode",
-          "@id": "https://gs1.org/voc/countyCode"
-        },
-        "title": "County Code",
-        "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state."
-      },
-      "https://gs1.org/voc/postalCode": {
-        "$comment": {
-          "term": "postalCode",
-          "@id": "https://gs1.org/voc/postalCode"
-        },
-        "title": "Postal Code",
-        "description": "Text specifying the postal code for an address."
-      },
-      "https://gs1.org/voc/postOfficeBoxNumber": {
-        "$comment": {
-          "term": "postOfficeBoxNumber",
-          "@id": "https://gs1.org/voc/postOfficeBoxNumber"
-        },
-        "title": "Post Office Box Number",
-        "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
-      }
-    },
-    "examples": [
-      {
-        "organizationName": "Feeney - Johns",
-        "streetAddress": "8717 Tracey Lane",
-        "addressLocality": "Sanfordton",
-        "addressRegion": "Texas",
-        "postalCode": "97670",
-        "addressCountry": "Djibouti"
-      },
-      {
-        "organizationName": "Bahringer Inc",
-        "streetAddress": "208 Gleason Throughway",
-        "addressLocality": "North Joannie",
-        "addressRegion": "Ohio",
-        "postalCode": "34010",
-        "addressCountry": "Bermuda"
-      },
-      {
-        "organizationName": "Hahn, Walsh and Little",
-        "streetAddress": "82719 Kertzmann Valley",
-        "addressLocality": "Port Deventown",
-        "addressRegion": "West Virginia",
-        "postalCode": "95844",
-        "addressCountry": "Guinea"
-      }
-    ],
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"PostalAddress\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
-      "title": "Postal Address",
-      "description": "The location at which a particular organization or person may be found or reached.",
-      "type": "object",
-      "properties": {
-        "organizationName": {
-          "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://gs1.org/voc/organizationName\"}",
-          "title": "Organization Name",
-          "description": "The name of the organization expressed in text.",
-          "type": "string"
-        },
-        "streetAddress": {
-          "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://gs1.org/voc/streetAddress\"}",
-          "title": "Street Address",
-          "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building.",
-          "type": "string"
-        },
-        "addressLocality": {
-          "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://gs1.org/voc/addressLocality\"}",
-          "title": "Address Locality",
-          "description": "Text specifying the name of the locality, for example a city.",
-          "type": "string"
-        },
-        "addressRegion": {
-          "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://gs1.org/voc/addressRegion\"}",
-          "title": "Address Region",
-          "description": "Text specifying a province or state in abbreviated format for example NJ.",
-          "type": "string"
-        },
-        "addressCountry": {
-          "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://gs1.org/voc/addressCountry\"}",
-          "title": "Address Country",
-          "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1.",
-          "type": "string"
-        },
-        "crossStreet": {
-          "$comment": "{\"term\": \"crossStreet\", \"@id\": \"https://gs1.org/voc/crossStreet\"}",
-          "title": "Cross Street",
-          "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it.",
-          "type": "string"
-        },
-        "countyCode": {
-          "$comment": "{\"term\": \"countyCode\", \"@id\": \"https://gs1.org/voc/countyCode\"}",
-          "title": "County Code",
-          "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state.",
-          "type": "string"
-        },
-        "postalCode": {
-          "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://gs1.org/voc/postalCode\"}",
-          "title": "Postal Code",
-          "description": "Text specifying the postal code for an address.",
-          "type": "string"
-        },
-        "postOfficeBoxNumber": {
-          "$comment": "{\"term\": \"postOfficeBoxNumber\", \"@id\": \"https://gs1.org/voc/postOfficeBoxNumber\"}",
-          "title": "Post Office Box Number",
-          "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept.",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "examples": []
-    }
-  }
-}
-            </script>
+      </script>
 
-    <p id="vocab-last-generated" class="note">
-      This vocabulary was last generated
-      <span id="vocab-last-generated-date">
-      Wednesday, September 30, 2020 8:20 PM
-      </span>
-            </p>
+      <p id="vocab-last-generated" class="note">
+        This vocabulary was last generated
+        <span id="vocab-last-generated-date">
+          Saturday, October 3, 2020 9:27 AM
+        </span>
+      </p>
+    </section>
 
-  </section>
+    <section class="informative">
+      <h2>Privacy Considerations</h2>
 
+      <p>
+        This section details the general privacy considerations and specific
+        privacy implications of deploying this specification into production
+        environments.
+      </p>
+    </section>
 
+    <section class="informative">
+      <h2>Security Considerations</h2>
 
-  <section class="informative">
-    <h2>Privacy Considerations</h2>
+      <p>
+        There are a number of security considerations that implementers should
+        be aware of when processing data described by this specification.
+        Ignoring or not understanding the implications of this section can
+        result in security vulnerabilities.
+      </p>
 
-    <p>
-      This section details the general privacy considerations and specific privacy
-      implications of deploying this specification into production environments.
-    </p>
+      <p>
+        While this section attempts to highlight a broad set of security
+        considerations, it is not a complete list. Implementers are urged to
+        seek the advice of security and cryptography professionals when
+        implementing mission critical systems using the technology outlined in
+        this specification.
+      </p>
+    </section>
 
-  </section>
+    <section class="informative">
+      <h2>Accessibility Considerations</h2>
 
-  <section class="informative">
-    <h2>Security Considerations</h2>
+      <p>
+        There are a number of accessibility considerations implementers should
+        be aware of when processing data described in this specification. As
+        with any web standards or protocols implementation, ignoring
+        accessibility issues makes this information unusable to a large subset
+        of the population. It is important to follow accessibility guidelines
+        and standards, such as [[WCAG21]], to ensure all people, regardless of
+        ability, can make use of this data. This is especially important when
+        establishing systems utilizing cryptography, which have historically
+        created problems for assistive technologies.
+      </p>
 
-    <p>
-      There are a number of security considerations that implementers should be
-      aware of when processing data described by this specification. Ignoring or
-      not understanding the implications of this section can result in
-      security vulnerabilities.
-    </p>
+      <p>
+        This section details the general accessibility considerations to take
+        into account when utilizing this data model.
+      </p>
+    </section>
 
-    <p>
-      While this section attempts to highlight a broad set of security
-      considerations, it is not a complete list. Implementers are urged to seek the
-      advice of security and cryptography professionals when implementing mission
-      critical systems using the technology outlined in this specification.
-    </p>
+    <section class="informative">
+      <h2>Internationalization Considerations</h2>
 
-  </section>
+      <p>
+        There are a number of internationalization considerations implementers
+        should be aware of when publishing data described in this specification.
+        As with any web standards or protocols implementation, ignoring
+        internationalization makes it difficult for data to be produced and
+        consumed across a disparate set of languages and societies, which would
+        limit the applicability of the specification and significantly diminish
+        its value as a standard.
+      </p>
 
-  <section class="informative">
-    <h2>Accessibility Considerations</h2>
+      <p>
+        This section outlines general internationalization considerations to
+        take into account when utilizing this data model.
+      </p>
+    </section>
 
-    <p>
-      There are a number of accessibility considerations implementers should be
-      aware of when processing data described in this specification. As with any web
-      standards or protocols implementation, ignoring accessibility issues makes
-      this information unusable to a large subset of the population. It is important
-      to follow accessibility guidelines and standards, such as [[WCAG21]], to ensure
-      all people, regardless of ability, can make use of this data. This is
-      especially important when establishing systems utilizing cryptography, which
-      have historically created problems for assistive technologies.
-    </p>
-
-    <p>
-      This section details the general accessibility considerations to take into
-      account when utilizing this data model.
-    </p>
-
-  </section>
-
-  <section class="informative">
-    <h2>Internationalization Considerations</h2>
-
-    <p>
-      There are a number of internationalization considerations implementers should be
-      aware of when publishing data described in this specification. As with any web
-      standards or protocols implementation, ignoring internationalization makes it
-      difficult for data to be produced and consumed across a disparate set of
-      languages and societies, which would limit the applicability of the
-      specification and significantly diminish its value as a standard.
-    </p>
-
-    <p>
-      This section outlines general internationalization considerations to take into
-      account when utilizing this data model.
-    </p>
-
-  </section>
-
-  <script>
-    const intermediate = JSON.parse(document.getElementById('intermediate-json').innerHTML);
-    // uncomment to view the json used to build this spec.
-    // console.log(intermediate)
-    let vocabularyString = ''
-    Object.values(intermediate).forEach(classDefinition => {
-
-      let classPropertySections = ''
-      Object.values(classDefinition.classProperties).forEach((classProperty) => {
-        classPropertySections += `
+    <script>
+      const intermediate = JSON.parse(
+        document.getElementById("intermediate-json").innerHTML
+      );
+      // uncomment to view the json used to build this spec.
+      // console.log(intermediate)
+      let vocabularyString = "";
+      Object.values(intermediate).forEach((classDefinition) => {
+        let classPropertySections = "";
+        Object.values(classDefinition.classProperties).forEach(
+          (classProperty) => {
+            classPropertySections += `
                 <section>
                 <h3>${classProperty.title}</h3>
                 <p>${classProperty.description}</p>
@@ -2421,7 +791,7 @@
 <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
                         </td>
                         <td>
-            <a href="${classProperty.$comment['@id']}">${classProperty.$comment.term}</a>
+            <a href="${classProperty.$comment["@id"]}">${classProperty.$comment.term}</a>
                         </td>
                         </tr>
                         <tr>
@@ -2429,24 +799,33 @@
 <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
                         </td>
                         <td>
-            <a href="${classProperty.$comment['@id']}">${classProperty.$comment['@id']}</a>
+            <a href="${classProperty.$comment["@id"]}">${classProperty.$comment["@id"]}</a>
                         </td>
                         </tr>
                     </tbody>
                     </table>
                 </section>
-                `
-      })
+                `;
+          }
+        );
 
-      let classExamples = [classDefinition.examples[0]].map((ex) => {
-        return `
+        let classExamples = classDefinition.examples
+          ? [classDefinition.examples[0]]
+          : []
+              .map((ex) => {
+                return `
 <pre class="example">
-${JSON.stringify({ "@context": "https://w3id.org/traceability/v1", ...ex }, null, 2)}
+${JSON.stringify(
+  { "@context": "https://w3id.org/traceability/v1", ...ex },
+  null,
+  2
+)}
 </pre>
-                `
-      }).join("\n")
+                `;
+              })
+              .join("\n");
 
-      vocabularyString += `
+        vocabularyString += `
             <section>
             <h2>${classDefinition.title}</h2>
             <p>${classDefinition.description}</p>
@@ -2458,7 +837,7 @@ ${JSON.stringify({ "@context": "https://w3id.org/traceability/v1", ...ex }, null
             <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
                         </td>
                         <td>
-                            <a href="${classDefinition.$comment['@id']}">${classDefinition.$comment.term}</a>
+                            <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment.term}</a>
                         </td>
                         </tr>
                         <tr>
@@ -2466,7 +845,7 @@ ${JSON.stringify({ "@context": "https://w3id.org/traceability/v1", ...ex }, null
             <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
                         </td>
                         <td>
-                            <a href="${classDefinition.$comment['@id']}">${classDefinition.$comment['@id']}</a>
+                            <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment["@id"]}</a>
                         </td>
                         </tr>
                         <tr>
@@ -2485,20 +864,9 @@ ${JSON.stringify({ "@context": "https://w3id.org/traceability/v1", ...ex }, null
 
             ${classPropertySections}
             </section>
-            `
-    });
-    document.getElementById('vocabulary').innerHTML += vocabularyString;
-
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-</body></html>
+            `;
+      });
+      document.getElementById("vocabulary").innerHTML += vocabularyString;
+    </script>
+  </body>
+</html>
