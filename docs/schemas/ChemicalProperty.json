@@ -1,21 +1,27 @@
 {
-  "$id": "https://w3id.org/traceability/schemas/Substance.json",
+  "$id": "https://w3id.org/traceability/schemas/ChemicalProperty.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$comment": "{\"term\": \"Substance\", \"@id\": \"https://schema.org/Substance\"}",
-  "title": "Substance",
-  "description": "Any matter of defined composition that has discrete existence, whose origin may be biological, mineral or chemical.",
+  "$comment": "{\"term\": \"ChemicalProperty\", \"@id\": \"https://w3id.org/traceability/ChemicalProperty\"}",
+  "title": "Chemical Property",
+  "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
   "type": "object",
   "properties": {
-    "ingredientName": {
-      "$comment": "{\"term\": \"ingredientName\", \"@id\": \"https://www.gs1.org/voc/ingredientName\"}",
-      "title": "Ingredient Name",
-      "description": "Free text field describing an ingredient or ingredient group. Ingredients include any additives (colourings, preservatives, e-numbers, etc.) that are encompassed.",
+    "identifier": {
+      "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+      "title": "Property Identifier",
+      "description": "Identifiers for a property.",
       "type": "string"
     },
-    "ingredientContentPercentage": {
-      "$comment": "{\"term\": \"ingredientContentPercentage\", \"@id\": \"https://www.gs1.org/voc/ingredientContentPercentage\"}",
-      "title": "Ingredient Content Percentage",
-      "description": "Quantity of the ingredient contained in the product as a percentage of the total product ingredients. This is used in conjunction with ingredientName.",
+    "name": {
+      "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+      "title": "Property Name",
+      "description": "The name of the item.",
+      "type": "string"
+    },
+    "description": {
+      "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+      "title": "Property Description",
+      "description": "The description of the item.",
       "type": "string"
     },
     "formula": {

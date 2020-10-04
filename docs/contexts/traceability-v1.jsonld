@@ -9,6 +9,33 @@
       "@id": "http://schema.org/image",
       "@type": "@id"
     },
+    "ChemicalProperty": {
+      "@id": "https://w3id.org/traceability/ChemicalProperty",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "identifier": {
+          "@id": "https://schema.org/identifier"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "formula": {
+          "@id": "http://purl.obolibrary.org/obo/chebi/formula"
+        },
+        "inchi": {
+          "@id": "http://purl.obolibrary.org/obo/chebi/inchi"
+        },
+        "inchikey": {
+          "@id": "http://purl.obolibrary.org/obo/chebi/inchikey"
+        }
+      }
+    },
     "GeoCoordinates": {
       "@id": "https://gs1.org/voc/GeoCoordinates",
       "@context": {
@@ -24,36 +51,72 @@
         }
       }
     },
-    "Material": {
-      "@id": "http://semanticscience.org/resource/MaterialEntity",
+    "InspectionReport": {
+      "@id": "https://w3id.org/traceability/InspectionReport",
       "@context": {
         "@version": 1.1,
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "strength": {
-          "@id": "http://nanomine.org/ns/HardnessProperty"
-        },
-        "toughness": {
-          "@id": "http://nanomine.org/ns/FractureToughnessProperty"
+        "observation": {
+          "@id": "https://schema.org/ItemList"
         }
       }
     },
-    "MaterialHardness": {
-      "@id": "http://nanomine.org/ns/HardnessProperty",
+    "MeasuredProperty": {
+      "@id": "https://w3id.org/traceability/MeasuredProperty",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type"
+      }
+    },
+    "MeasuredValue": {
+      "@id": "https://www.gs1.org/voc/QuantitativeValue",
       "@context": {
         "@version": 1.1,
         "@protected": true,
         "id": "@id",
         "type": "@type",
-        "standard": {
-          "@id": "http://nanomine.org/ns/HardnessTestStandard"
-        },
-        "scale": {
-          "@id": "http://nanomine.org/ns/HardnessScale"
-        },
         "value": {
-          "@id": "http://nanomine.org/ns/HardnessValue"
+          "@id": "https://www.gs1.org/voc/value"
+        },
+        "unitCode": {
+          "@id": "https://www.gs1.org/voc/unitCode"
+        }
+      }
+    },
+    "MechanicalProperty": {
+      "@id": "https://w3id.org/traceability/MechanicalProperty",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "identifier": {
+          "@id": "https://schema.org/identifier"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        }
+      }
+    },
+    "Observation": {
+      "@id": "https://w3id.org/traceability/Observation",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "measuredProperty": {
+          "@id": "https://schema.org/measuredProperty"
+        },
+        "standard": {
+          "@id": "https://schema.org/measuredValue"
         }
       }
     },
@@ -108,42 +171,6 @@
         },
         "postOfficeBoxNumber": {
           "@id": "https://gs1.org/voc/postOfficeBoxNumber"
-        }
-      }
-    },
-    "Substance": {
-      "@id": "https://schema.org/Substance",
-      "@context": {
-        "@version": 1.1,
-        "@protected": true,
-        "id": "@id",
-        "type": "@type",
-        "ingredientName": {
-          "@id": "https://www.gs1.org/voc/ingredientName"
-        },
-        "ingredientContentPercentage": {
-          "@id": "https://www.gs1.org/voc/ingredientContentPercentage"
-        },
-        "formula": {
-          "@id": "http://purl.obolibrary.org/obo/chebi/formula"
-        },
-        "inchi": {
-          "@id": "http://purl.obolibrary.org/obo/chebi/inchi"
-        },
-        "inchikey": {
-          "@id": "http://purl.obolibrary.org/obo/chebi/inchikey"
-        }
-      }
-    },
-    "SubstanceRecipe": {
-      "@id": "https://schema.org/SubstanceRecipe",
-      "@context": {
-        "@version": 1.1,
-        "@protected": true,
-        "id": "@id",
-        "type": "@type",
-        "recipeIngredient": {
-          "@id": "https://schema.org/recipeIngredient"
         }
       }
     }
