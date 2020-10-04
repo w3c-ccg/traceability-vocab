@@ -462,25 +462,25 @@
       {
         "observation": [
           {
-            "measuredProperty": {
+            "property": {
               "name": "Cadmium",
               "formula": "Cd",
               "inchi": "InChI=1S/Cd",
               "inchikey": "BDOSMKKIYDKNTQ-UHFFFAOYSA-N"
             },
-            "measuredValue": {
+            "measurement": {
               "value": "17.240",
               "unitCode": "P1"
             }
           },
           {
-            "measuredProperty": {
+            "property": {
               "name": "Rhodium",
               "formula": "Rh",
               "inchi": "InChI=1S/Rh",
               "inchikey": "MHOVAHRLVXNVSD-UHFFFAOYSA-N"
             },
-            "measuredValue": {
+            "measurement": {
               "value": "82.760",
               "unitCode": "P1"
             }
@@ -490,23 +490,34 @@
       {
         "observation": [
           {
-            "measuredProperty": {
+            "property": {
               "identifier": "ISO 148",
               "name": "Charpy Impact Strength Test",
               "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
             },
-            "measuredValue": {
+            "measurement": {
               "value": "21.584",
               "unitCode": "B13"
             }
           },
           {
-            "measuredProperty": {
+            "property": {
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "value": "78.712",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "property": {
               "identifier": "ISO 1352",
               "name": "Torque-controlled fatigue testing",
               "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
             },
-            "measuredValue": {
+            "measurement": {
               "value": "00.00",
               "unitCode": "UNKNOWN"
             }
@@ -516,36 +527,47 @@
       {
         "observation": [
           {
-            "measuredProperty": {
+            "property": {
               "identifier": "ISO 3738",
               "name": "Rockwell Hardness Test (Scale A)",
               "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
             },
-            "measuredValue": {
+            "measurement": {
               "value": "00.00",
               "unitCode": "UNKNOWN"
             }
           },
           {
-            "measuredProperty": {
+            "property": {
               "name": "Tellurium",
               "formula": "Te",
               "inchi": "InChI=1S/Te",
               "inchikey": "PORWMNRCUJJQNO-UHFFFAOYSA-N"
             },
-            "measuredValue": {
+            "measurement": {
               "value": "51.230",
               "unitCode": "P1"
             }
           },
           {
-            "measuredProperty": {
+            "property": {
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "property": {
               "name": "Helium",
               "formula": "He",
               "inchi": "InChI=1S/He",
               "inchikey": "SWQJXJOGLNCZEY-UHFFFAOYSA-N"
             },
-            "measuredValue": {
+            "measurement": {
               "value": "48.770",
               "unitCode": "P1"
             }
@@ -629,7 +651,7 @@
       "@id": "https://www.gs1.org/voc/QuantitativeValue"
     },
     "title": "Measured Value",
-    "description": "The measuredValue of an Observation.",
+    "description": "The measurement of an Observation.",
     "classProperties": {
       "https://www.gs1.org/voc/value": {
         "$comment": {
@@ -667,7 +689,7 @@
       "$schema": "http://json-schema.org/draft-07/schema#",
       "$comment": "{\"term\": \"MeasuredValue\", \"@id\": \"https://www.gs1.org/voc/QuantitativeValue\"}",
       "title": "Measured Value",
-      "description": "The measuredValue of an Observation.",
+      "description": "The measurement of an Observation.",
       "type": "object",
       "properties": {
         "value": {
@@ -780,55 +802,55 @@
     "title": "Observation",
     "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
     "classProperties": {
-      "https://schema.org/measuredProperty": {
+      "https://schema.org/property": {
         "$comment": {
-          "term": "measuredProperty",
-          "@id": "https://schema.org/measuredProperty"
+          "term": "property",
+          "@id": "https://schema.org/property"
         },
         "title": "Measured Property",
-        "description": "The measuredProperty of an Observation."
+        "description": "The property of an Observation."
       },
-      "https://schema.org/measuredValue": {
+      "https://schema.org/measurement": {
         "$comment": {
           "term": "standard",
-          "@id": "https://schema.org/measuredValue"
+          "@id": "https://schema.org/measurement"
         },
         "title": "Measured Value",
-        "description": "The measuredValue of an Observation."
+        "description": "The measurement of an Observation."
       }
     },
     "examples": [
       {
-        "measuredProperty": {
+        "property": {
           "identifier": "ISO 148",
           "name": "Charpy Impact Strength Test",
           "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
         },
-        "measuredValue": {
+        "measurement": {
           "value": "89.199",
           "unitCode": "B13"
         }
       },
       {
-        "measuredProperty": {
+        "property": {
           "name": "Neon",
           "formula": "Ne",
           "inchi": "InChI=1S/Ne",
           "inchikey": "GKAOGPIIYCISHV-UHFFFAOYSA-N"
         },
-        "measuredValue": {
+        "measurement": {
           "value": "35.630",
           "unitCode": "P1"
         }
       },
       {
-        "measuredProperty": {
+        "property": {
           "name": "Iridium",
           "formula": "Ir",
           "inchi": "InChI=1S/Ir",
           "inchikey": "GKOZUEZYRPOHIO-UHFFFAOYSA-N"
         },
-        "measuredValue": {
+        "measurement": {
           "value": "53.295",
           "unitCode": "P1"
         }
@@ -842,16 +864,16 @@
       "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
       "type": "object",
       "properties": {
-        "measuredProperty": {
-          "$comment": "{\"term\": \"measuredProperty\", \"@id\": \"https://schema.org/measuredProperty\"}",
+        "property": {
+          "$comment": "{\"term\": \"property\", \"@id\": \"https://schema.org/property\"}",
           "title": "Measured Property",
-          "description": "The measuredProperty of an Observation.",
+          "description": "The property of an Observation.",
           "$ref": "https://w3id.org/traceability/schemas/MeasuredProperty.json"
         },
-        "measuredValue": {
-          "$comment": "{\"term\": \"standard\", \"@id\": \"https://schema.org/measuredValue\"}",
+        "measurement": {
+          "$comment": "{\"term\": \"standard\", \"@id\": \"https://schema.org/measurement\"}",
           "title": "Measured Value",
-          "description": "The measuredValue of an Observation.",
+          "description": "The measurement of an Observation.",
           "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
         }
       },
@@ -1156,7 +1178,7 @@
       <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Sunday, October 4, 2020 5:50 PM
+      Sunday, October 4, 2020 5:54 PM
       </span>
             </p>
     </section>

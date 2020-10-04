@@ -12,11 +12,11 @@ const getInspectionReport = () => {
     numSubstances -= 1;
   }
 
-  observation = _.uniq(observation, "measuredProperty.name");
+  observation = _.uniq(observation, "property.name");
 
   let sum = observation
     .map((r) => {
-      return r.measuredProperty.inchi ? parseFloat(r.measuredValue.value) : 0;
+      return r.property.inchi ? parseFloat(r.measurement.value) : 0;
     })
     .reduce(function (a, b) {
       return a + b;
@@ -24,15 +24,15 @@ const getInspectionReport = () => {
 
   observation = observation.map((r) => {
     let adjusted = `${(
-      (100 * parseFloat(r.measuredValue.value)) /
+      (100 * parseFloat(r.measurement.value)) /
       sum
     ).toPrecision(5)}`;
 
     return {
       ...r,
-      measuredValue: {
-        ...r.measuredValue,
-        value: r.measuredProperty.inchi ? adjusted : r.measuredValue.value,
+      measurement: {
+        ...r.measurement,
+        value: r.property.inchi ? adjusted : r.measurement.value,
       },
     };
   });

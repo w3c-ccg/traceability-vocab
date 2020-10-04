@@ -4,8 +4,8 @@ const { getMeasuredValue } = require("./MeasuredValue");
 const getObservation = () => {
   const prop = getMeasuredProperty();
   const example = {
-    measuredProperty: prop,
-    measuredValue: getMeasuredValue(prop),
+    property: prop,
+    measurement: getMeasuredValue(prop),
   };
   return example;
 };
