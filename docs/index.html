@@ -310,6 +310,132 @@
       "examples": []
     }
   },
+  "http://semanticscience.org/resource/MaterialEntity": {
+    "$id": "https://w3id.org/traceability/schemas/Material.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Material",
+      "@id": "http://semanticscience.org/resource/MaterialEntity"
+    },
+    "title": "Material",
+    "description": "A material entity is a physical entity that is spatially extended, exists as a whole at any point in time and has mass.",
+    "classProperties": {
+      "http://nanomine.org/ns/HardnessProperty": {
+        "$comment": {
+          "term": "strength",
+          "@id": "http://nanomine.org/ns/HardnessProperty"
+        },
+        "title": "Strength",
+        "description": "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry."
+      },
+      "http://nanomine.org/ns/FractureToughnessProperty": {
+        "$comment": {
+          "term": "toughness",
+          "@id": "http://nanomine.org/ns/FractureToughnessProperty"
+        },
+        "title": "Toughness",
+        "description": "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry."
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Material.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Material\", \"@id\": \"http://semanticscience.org/resource/MaterialEntity\"}",
+      "title": "Material",
+      "description": "A material entity is a physical entity that is spatially extended, exists as a whole at any point in time and has mass.",
+      "type": "object",
+      "properties": {
+        "hardness": {
+          "$comment": "{\"term\": \"hardness\", \"@id\": \"http://nanomine.org/ns/HardnessProperty\"}",
+          "title": "Hardness",
+          "description": "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry.",
+          "$ref": "https://w3id.org/traceability/schemas/MaterialHardness.json"
+        },
+        "strength": {
+          "$comment": "{\"term\": \"strength\", \"@id\": \"http://nanomine.org/ns/HardnessProperty\"}",
+          "title": "Strength",
+          "description": "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry.",
+          "$ref": "https://w3id.org/traceability/schemas/MaterialHardness.json"
+        },
+        "toughness": {
+          "$comment": "{\"term\": \"toughness\", \"@id\": \"http://nanomine.org/ns/FractureToughnessProperty\"}",
+          "title": "Toughness",
+          "description": "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry.",
+          "$ref": "https://w3id.org/traceability/schemas/MaterialHardness.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "http://nanomine.org/ns/HardnessProperty": {
+    "$id": "https://w3id.org/traceability/schemas/MaterialHardness.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "MaterialHardness",
+      "@id": "http://nanomine.org/ns/HardnessProperty"
+    },
+    "title": "Material Hardness",
+    "description": "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry.",
+    "classProperties": {
+      "http://nanomine.org/ns/HardnessTestStandard": {
+        "$comment": {
+          "term": "standard",
+          "@id": "http://nanomine.org/ns/HardnessTestStandard"
+        },
+        "title": "Standard",
+        "description": "A materials testing standard, created by a standards body such as ASTM, defining test parameters such as pre-load, load, and tip geometry of the testing apparatus."
+      },
+      "http://nanomine.org/ns/HardnessScale": {
+        "$comment": {
+          "term": "scale",
+          "@id": "http://nanomine.org/ns/HardnessScale"
+        },
+        "title": "Scale",
+        "description": "A standard numerical scale associated with a particular hardness test tip geometry."
+      },
+      "http://nanomine.org/ns/HardnessValue": {
+        "$comment": {
+          "term": "value",
+          "@id": "http://nanomine.org/ns/HardnessValue"
+        },
+        "title": "Value",
+        "description": "The numerical value of hardness output by the testing apparatus, given a particular hardness scale as input."
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/MaterialHardness.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"MaterialHardness\", \"@id\": \"http://nanomine.org/ns/HardnessProperty\"}",
+      "title": "Material Hardness",
+      "description": "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry.",
+      "type": "object",
+      "properties": {
+        "standard": {
+          "$comment": "{\"term\": \"standard\", \"@id\": \"http://nanomine.org/ns/HardnessTestStandard\"}",
+          "title": "Standard",
+          "description": "A materials testing standard, created by a standards body such as ASTM, defining test parameters such as pre-load, load, and tip geometry of the testing apparatus.",
+          "type": "string"
+        },
+        "scale": {
+          "$comment": "{\"term\": \"scale\", \"@id\": \"http://nanomine.org/ns/HardnessScale\"}",
+          "title": "Scale",
+          "description": "A standard numerical scale associated with a particular hardness test tip geometry.",
+          "type": "string"
+        },
+        "value": {
+          "$comment": "{\"term\": \"value\", \"@id\": \"http://nanomine.org/ns/HardnessValue\"}",
+          "title": "Value",
+          "description": "The numerical value of hardness output by the testing apparatus, given a particular hardness scale as input.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://gs1.org/voc/Place": {
     "$id": "https://w3id.org/traceability/schemas/Place.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -654,25 +780,25 @@
     },
     "examples": [
       {
-        "ingredientName": "Titanium",
-        "ingredientContentPercentage": "45.358",
-        "formula": "Ti",
-        "inchi": "InChI=1S/Ti",
-        "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+        "ingredientName": "Rubidium",
+        "ingredientContentPercentage": "36.837",
+        "formula": "Rb",
+        "inchi": "InChI=1S/Rb",
+        "inchikey": "IGLNJRXAVVLDKE-UHFFFAOYSA-N"
       },
       {
-        "ingredientName": "Titanium",
-        "ingredientContentPercentage": "93.790",
-        "formula": "Ti",
-        "inchi": "InChI=1S/Ti",
-        "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+        "ingredientName": "Krypton",
+        "ingredientContentPercentage": "79.333",
+        "formula": "Kr",
+        "inchi": "InChI=1S/Kr",
+        "inchikey": "DNNSSWSSYDEUBZ-UHFFFAOYSA-N"
       },
       {
-        "ingredientName": "Titanium",
-        "ingredientContentPercentage": "78.958",
-        "formula": "Ti",
-        "inchi": "InChI=1S/Ti",
-        "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+        "ingredientName": "Neptunium",
+        "ingredientContentPercentage": "96.942",
+        "formula": "Np",
+        "inchi": "InChI=1S/Np",
+        "inchikey": "LFNLGNPSGWYGGD-UHFFFAOYSA-N"
       }
     ],
     "schema": {
@@ -717,6 +843,110 @@
       "additionalProperties": false,
       "examples": []
     }
+  },
+  "https://schema.org/SubstanceRecipe": {
+    "$id": "https://w3id.org/traceability/schemas/SubstanceRecipe.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "SubstanceRecipe",
+      "@id": "https://schema.org/SubstanceRecipe"
+    },
+    "title": "Substance Recipe",
+    "description": "A recipe made from substances.",
+    "classProperties": {
+      "https://schema.org/recipeIngredient": {
+        "$comment": {
+          "term": "recipeIngredient",
+          "@id": "https://schema.org/recipeIngredient"
+        },
+        "title": "Recipe Ingredient",
+        "description": "A single ingredient used in the recipe."
+      }
+    },
+    "examples": [
+      {
+        "recipeIngredient": [
+          {
+            "ingredientName": "Gadolinium",
+            "ingredientContentPercentage": "17.881",
+            "formula": "Gd",
+            "inchi": "InChI=1S/Gd",
+            "inchikey": "UIWYJDYFSGRHKR-UHFFFAOYSA-N"
+          },
+          {
+            "ingredientName": "Ruthenium",
+            "ingredientContentPercentage": "58.269",
+            "formula": "Ru",
+            "inchi": "InChI=1S/Ru",
+            "inchikey": "KJTLSVCANCCWHF-UHFFFAOYSA-N"
+          },
+          {
+            "ingredientName": "Thorium",
+            "ingredientContentPercentage": "23.850",
+            "formula": "Th",
+            "inchi": "InChI=1S/Th",
+            "inchikey": "ZSLUVFAKFWKJRC-UHFFFAOYSA-N"
+          }
+        ]
+      },
+      {
+        "recipeIngredient": [
+          {
+            "ingredientName": "Indium",
+            "ingredientContentPercentage": "100.00",
+            "formula": "In",
+            "inchi": "InChI=1S/In",
+            "inchikey": "APFVFJFRJDLVQX-UHFFFAOYSA-N"
+          }
+        ]
+      },
+      {
+        "recipeIngredient": [
+          {
+            "ingredientName": "Niobium",
+            "ingredientContentPercentage": "10.506",
+            "formula": "Nb",
+            "inchi": "InChI=1S/Nb",
+            "inchikey": "GUCVJGMIXFAOAE-UHFFFAOYSA-N"
+          },
+          {
+            "ingredientName": "Niobium",
+            "ingredientContentPercentage": "47.347",
+            "formula": "Nb",
+            "inchi": "InChI=1S/Nb",
+            "inchikey": "GUCVJGMIXFAOAE-UHFFFAOYSA-N"
+          },
+          {
+            "ingredientName": "Einsteinium",
+            "ingredientContentPercentage": "42.148",
+            "formula": "Es",
+            "inchi": "InChI=1S/Es",
+            "inchikey": "CKBRQZNRCSJHFT-UHFFFAOYSA-N"
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/SubstanceRecipe.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"SubstanceRecipe\", \"@id\": \"https://schema.org/SubstanceRecipe\"}",
+      "title": "Substance Recipe",
+      "description": "A recipe made from substances.",
+      "type": "object",
+      "properties": {
+        "recipeIngredient": {
+          "$comment": "{\"term\": \"recipeIngredient\", \"@id\": \"https://schema.org/recipeIngredient\"}",
+          "title": "Recipe Ingredient",
+          "description": "A single ingredient used in the recipe.",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Substance.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
   }
 }
             </script>
@@ -724,7 +954,7 @@
       <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Saturday, October 3, 2020 12:44 PM
+      Sunday, October 4, 2020 2:25 PM
       </span>
             </p>
     </section>

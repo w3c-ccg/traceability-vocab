@@ -24,6 +24,39 @@
         }
       }
     },
+    "Material": {
+      "@id": "http://semanticscience.org/resource/MaterialEntity",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "strength": {
+          "@id": "http://nanomine.org/ns/HardnessProperty"
+        },
+        "toughness": {
+          "@id": "http://nanomine.org/ns/FractureToughnessProperty"
+        }
+      }
+    },
+    "MaterialHardness": {
+      "@id": "http://nanomine.org/ns/HardnessProperty",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "standard": {
+          "@id": "http://nanomine.org/ns/HardnessTestStandard"
+        },
+        "scale": {
+          "@id": "http://nanomine.org/ns/HardnessScale"
+        },
+        "value": {
+          "@id": "http://nanomine.org/ns/HardnessValue"
+        }
+      }
+    },
     "Place": {
       "@id": "https://gs1.org/voc/Place",
       "@context": {
@@ -99,6 +132,18 @@
         },
         "inchikey": {
           "@id": "http://purl.obolibrary.org/obo/chebi/inchikey"
+        }
+      }
+    },
+    "SubstanceRecipe": {
+      "@id": "https://schema.org/SubstanceRecipe",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "recipeIngredient": {
+          "@id": "https://schema.org/recipeIngredient"
         }
       }
     }
