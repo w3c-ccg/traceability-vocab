@@ -1,0 +1,1355 @@
+<!DOCTYPE html><html lang="en"><head>
+    <title>Traceability Vocabulary v0.0</title>
+    <meta http-equiv=" Content-Type" content="text/html;charset=utf-8">
+
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+    <script type="text/javascript" class="remove">
+      const respecPagesJson = {
+        name: "traceability-vocab",
+        status: "UNOFFICIAL",
+        latest: "https://transmute-industries.github.io/traceability-vocab",
+        repository:
+          "https://github.com/transmute-industries/traceability-vocab",
+        issues:
+          "https://github.com/transmute-industries/traceability-vocab/issues",
+        group: {
+          name: "Credentials Community Group",
+          url: "https://www.w3.org/community/credentials/",
+          list: "public-credentials",
+          patentUri: "https://www.w3.org/community/about/agreements/cla/",
+        },
+        editors: [
+          {
+            name: "Orie Steele",
+            url: "https://github.com/OR13",
+            company: "Transmute",
+            companyURL: "https://www.transmute.industries/",
+          },
+        ],
+        bibliography: {
+          "RDF-DATASET-NORMALIZATION": {
+            title: "RDF Dataset Normalization 1.0",
+            href: "http://json-ld.github.io/normalization/spec/",
+            authors: ["David Longley", "Manu Sporny"],
+            status: "CGDRAFT",
+            publisher: "JSON-LD Community Group",
+          },
+        },
+      };
+
+      var respecConfig = {
+        // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: respecPagesJson.status,
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: respecPagesJson.name,
+
+        // if you wish the publication date to be other than today, set this
+        // publishDate:  "2009-08-06",
+
+        // if there is a previously published draft,
+        // uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        previousPublishDate: "2020-09-30",
+        previousMaturity: "UNOFFICIAL",
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: respecPagesJson.latest,
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
+        // if you want to have extra CSS, append them to this list
+        // it is recommended that the respec.css stylesheet be kept
+        //extraCSS:             ["spec.css", "prettify.css"],
+
+        // editors, add as many as you like
+        // only "name" is required
+        editors: respecPagesJson.editors,
+
+        // extend the bibliography entries
+        //localBiblio: webpayments.localBiblio,
+        // group: "w3c-ccg",
+        // wg: respecPagesJson.group.name,
+        // // URI of the public WG page
+        // wgURI: respecPagesJson.group.url,
+        // // name (with the @w3c.org) of the public mailing to which comments are due
+        // wgPublicList: respecPagesJson.group.list,
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI: respecPagesJson.group.patentUri,
+
+        otherLinks: [
+          {
+            key: "Source Control",
+            data: [
+              {
+                value: respecPagesJson.repository,
+                href: respecPagesJson.repository,
+              },
+            ],
+          },
+          {
+            key: "Issue Tracker",
+            data: [
+              {
+                value: respecPagesJson.issues,
+                href: respecPagesJson.issues,
+              },
+            ],
+          },
+        ],
+
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI:  "",
+        maxTocLevel: 2,
+        /*preProcess: [ webpayments.preProcess ],
+      alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
+      */
+        localBiblio: respecPagesJson.bibliography,
+      };
+    </script>
+    <style>
+      table {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section id="abstract">
+      <p>
+        This specification describes a Linked Data vocabulary for asserting
+        Verifiable Credentials related to traceability information, such as
+        chemical properties, mechanical properties, country of origin, and other
+        attributes used to determine the status of a products and materials in a
+        supply chain.
+      </p>
+    </section>
+
+    <section id="sotd">
+      <p>
+        This is an experimental specification and is undergoing regular
+        revisions. It is not fit for production deployment.
+      </p>
+
+      <p>
+        Please
+        <a href="https://github.com/transmute-industries/traceability-vocab/issues/">open an issue</a>
+        , if you wish to collaborate on this specification.
+      </p>
+
+      <p>
+        You may also reach out via the mailing list:
+        <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
+        (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
+        <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
+      </p>
+    </section>
+
+    <section class="informative">
+      <h2>Introduction</h2>
+
+      <p>
+        This specification describes a Linked Data vocabulary for asserting
+        Verifiable Credentials related to traceability information, such as
+        chemical properties, mechanical properties, country of origin, and other
+        attributes used to determine the status of a products and materials in a
+        supply chain.
+      </p>
+
+      <section class="informative">
+        <h3>Use Cases and Requirements</h3>
+
+        <p>
+          The following use cases outline a number of key scenarios that readers
+          might find useful:
+        </p>
+
+        <ul>
+          <li>Certified Mill Test Report</li>
+        </ul>
+      </section>
+
+      <section class="informative">
+        <h3>Example</h3>
+
+        <p>
+          The following example is provided as a simple example of when this
+          vocabulary is useful:
+        </p>
+      </section>
+    </section>
+
+    <section id="terminology" class="informative">
+      <h2>Terminology</h2>
+      <p>
+        The following terms are used to describe concepts in this specification.
+      </p>
+
+      <dl class="termlist">
+        <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
+        <dd>
+          A thing with distinct and independent existence, such as a person,
+          organization, or device that performs one or more roles in the
+          ecosystem.
+        </dd>
+        <dt><dfn>user agent</dfn></dt>
+        <dd>
+          A program, such as a browser or other Web client, that mediates the
+          communication between the various roles in this specification.
+        </dd>
+        <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
+        <dd>An identifier as defined by [[RFC3986]].</dd>
+      </dl>
+    </section>
+
+    <section id="vocabulary" class="normative">
+      <h2>Vocabulary</h2>
+
+      <p>
+        This vocabulary assumes all terms specified in the base Verifiable
+        Credentials [[VC-DATA-MODEL]] context.
+      </p>
+
+      <p>
+        In addition, the following classes are available for specifying
+        information related to supply-chain traceability.
+      </p>
+
+      <p>
+        You may view the latest json-ld vocabulary at: <br>
+        <a href="https://w3id.org/traceability/v1">
+          https://w3id.org/traceability/v1
+        </a>
+      </p>
+
+      <p>
+        You may view the latest json-schema definition at: <br>
+        <a href="https://w3id.org/traceability/v1/PostalAddress.json">
+          https://w3id.org/traceability/v1/PostalAddress.json
+        </a>
+      </p>
+
+      <script type="application/json" id="intermediate-json">
+      {
+  "https://w3id.org/traceability/ChemicalProperty": {
+    "$id": "https://w3id.org/traceability/schemas/ChemicalProperty.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "ChemicalProperty",
+      "@id": "https://w3id.org/traceability/ChemicalProperty"
+    },
+    "title": "Chemical Property",
+    "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
+    "classProperties": {
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "identifier",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Property Identifier",
+        "description": "Identifiers for a property."
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "name",
+          "@id": "https://schema.org/name"
+        },
+        "title": "Property Name",
+        "description": "The name of the item."
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Property Description",
+        "description": "The description of the item."
+      },
+      "http://purl.obolibrary.org/obo/chebi/formula": {
+        "$comment": {
+          "term": "formula",
+          "@id": "http://purl.obolibrary.org/obo/chebi/formula"
+        },
+        "title": "Formula",
+        "description": "A <a href=\"https://en.wikipedia.org/wiki/Chemical_formula\">chemical formula</a> is a way of presenting information about the chemical proportions of atoms that constitute a particular chemical compound or molecule, using chemical element symbols, numbers, and sometimes also other symbols, such as parentheses, dashes, brackets, commas and plus and minus signs."
+      },
+      "http://purl.obolibrary.org/obo/chebi/inchi": {
+        "$comment": {
+          "term": "inchi",
+          "@id": "http://purl.obolibrary.org/obo/chebi/inchi"
+        },
+        "title": "InChI",
+        "description": "The IUPAC International Chemical Identifier (<a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier\">InChI</a>) is a textual identifier for chemical substances, designed to provide a standard way to encode molecular information and to facilitate the search for such information in databases and on the web. "
+      },
+      "http://purl.obolibrary.org/obo/chebi/inchikey": {
+        "$comment": {
+          "term": "inchikey",
+          "@id": "http://purl.obolibrary.org/obo/chebi/inchikey"
+        },
+        "title": "InChIKey",
+        "description": "The condensed, 27 character <a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier#InChIKey\">InChIKey</a> is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds."
+      }
+    },
+    "examples": [
+      {
+        "name": "Gold",
+        "formula": "Au",
+        "inchi": "InChI=1S/Au",
+        "inchikey": "PCHJSUWPFVWCPO-UHFFFAOYSA-N"
+      },
+      {
+        "name": "Praseodymium",
+        "formula": "Pr",
+        "inchi": "InChI=1S/Pr",
+        "inchikey": "PUDIUYLPXJFUGB-UHFFFAOYSA-N"
+      },
+      {
+        "name": "Lithium",
+        "formula": "Li",
+        "inchi": "InChI=1S/Li",
+        "inchikey": "WHXSMMKQMYFTQS-UHFFFAOYSA-N"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/ChemicalProperty.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"ChemicalProperty\", \"@id\": \"https://w3id.org/traceability/ChemicalProperty\"}",
+      "title": "Chemical Property",
+      "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Property Identifier",
+          "description": "Identifiers for a property.",
+          "type": "string"
+        },
+        "name": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Property Name",
+          "description": "The name of the item.",
+          "type": "string"
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Property Description",
+          "description": "The description of the item.",
+          "type": "string"
+        },
+        "formula": {
+          "$comment": "{\"term\": \"formula\", \"@id\": \"http://purl.obolibrary.org/obo/chebi/formula\"}",
+          "title": "Formula",
+          "description": "A <a href=\"https://en.wikipedia.org/wiki/Chemical_formula\">chemical formula</a> is a way of presenting information about the chemical proportions of atoms that constitute a particular chemical compound or molecule, using chemical element symbols, numbers, and sometimes also other symbols, such as parentheses, dashes, brackets, commas and plus and minus signs.",
+          "type": "string"
+        },
+        "inchi": {
+          "$comment": "{\"term\": \"inchi\", \"@id\": \"http://purl.obolibrary.org/obo/chebi/inchi\"}",
+          "title": "InChI",
+          "description": "The IUPAC International Chemical Identifier (<a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier\">InChI</a>) is a textual identifier for chemical substances, designed to provide a standard way to encode molecular information and to facilitate the search for such information in databases and on the web. ",
+          "type": "string"
+        },
+        "inchikey": {
+          "$comment": "{\"term\": \"inchikey\", \"@id\": \"http://purl.obolibrary.org/obo/chebi/inchikey\"}",
+          "title": "InChIKey",
+          "description": "The condensed, 27 character <a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier#InChIKey\">InChIKey</a> is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://gs1.org/voc/GeoCoordinates": {
+    "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "GeoCoordinates",
+      "@id": "https://gs1.org/voc/GeoCoordinates"
+    },
+    "title": "Geographic Coordinates",
+    "description": "The geographic coordinates of a place or event.",
+    "classProperties": {
+      "https://gs1.org/voc/latitude": {
+        "$comment": {
+          "term": "latitude",
+          "@id": "https://gs1.org/voc/latitude"
+        },
+        "title": "Latitude",
+        "description": "Angular distance North or South from the earth's equator measured through 90 degrees."
+      },
+      "https://gs1.org/voc/longitude": {
+        "$comment": {
+          "term": "longitude",
+          "@id": "https://gs1.org/voc/longitude"
+        },
+        "title": "Longitude",
+        "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees."
+      }
+    },
+    "examples": [
+      {
+        "latitude": "-77.4228",
+        "longitude": "134.5366"
+      },
+      {
+        "latitude": "-22.0607",
+        "longitude": "-85.3243"
+      },
+      {
+        "latitude": "30.8038",
+        "longitude": "-59.8203"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"GeoCoordinates\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
+      "title": "Geographic Coordinates",
+      "description": "The geographic coordinates of a place or event.",
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "$comment": "{\"term\": \"latitude\", \"@id\": \"https://gs1.org/voc/latitude\"}",
+          "title": "Latitude",
+          "description": "Angular distance North or South from the earth's equator measured through 90 degrees.",
+          "type": "string"
+        },
+        "longitude": {
+          "$comment": "{\"term\": \"longitude\", \"@id\": \"https://gs1.org/voc/longitude\"}",
+          "title": "Longitude",
+          "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "latitude",
+        "longitude"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/InspectionReport": {
+    "$id": "https://w3id.org/traceability/schemas/InspectionReport.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "InspectionReport",
+      "@id": "https://w3id.org/traceability/InspectionReport"
+    },
+    "title": "Inspection Report",
+    "description": "Series of observations",
+    "classProperties": {
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://schema.org/ItemList",
+          "@type": "https://schema.org/ItemList"
+        },
+        "title": "Observation List",
+        "description": "List of observations"
+      }
+    },
+    "examples": [
+      {
+        "observation": [
+          {
+            "property": {
+              "name": "Cadmium",
+              "formula": "Cd",
+              "inchi": "InChI=1S/Cd",
+              "inchikey": "BDOSMKKIYDKNTQ-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "17.240",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "property": {
+              "name": "Rhodium",
+              "formula": "Rh",
+              "inchi": "InChI=1S/Rh",
+              "inchikey": "MHOVAHRLVXNVSD-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "82.760",
+              "unitCode": "P1"
+            }
+          }
+        ]
+      },
+      {
+        "observation": [
+          {
+            "property": {
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "value": "21.584",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "property": {
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "value": "78.712",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "property": {
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          }
+        ]
+      },
+      {
+        "observation": [
+          {
+            "property": {
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "property": {
+              "name": "Tellurium",
+              "formula": "Te",
+              "inchi": "InChI=1S/Te",
+              "inchikey": "PORWMNRCUJJQNO-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "51.230",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "property": {
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "property": {
+              "name": "Helium",
+              "formula": "He",
+              "inchi": "InChI=1S/He",
+              "inchikey": "SWQJXJOGLNCZEY-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "48.770",
+              "unitCode": "P1"
+            }
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/InspectionReport.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"InspectionReport\", \"@id\": \"https://w3id.org/traceability/InspectionReport\"}",
+      "title": "Inspection Report",
+      "description": "Series of observations",
+      "type": "object",
+      "properties": {
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+          "title": "Observation List",
+          "description": "List of observations",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/MeasuredProperty": {
+    "$id": "https://w3id.org/traceability/schemas/MeasuredProperty.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "MeasuredProperty",
+      "@id": "https://w3id.org/traceability/MeasuredProperty"
+    },
+    "title": "Measured Property",
+    "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
+    "classProperties": {},
+    "examples": [
+      {
+        "identifier": "ISO 3738",
+        "name": "Rockwell Hardness Test (Scale A)",
+        "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+      },
+      {
+        "name": "Lutetium",
+        "formula": "Lu",
+        "inchi": "InChI=1S/Lu",
+        "inchikey": "OHSVLFRHMCKCQY-UHFFFAOYSA-N"
+      },
+      {
+        "name": "Promethium",
+        "formula": "Pm",
+        "inchi": "InChI=1S/Pm",
+        "inchikey": "VQMWBBYLQSCNPO-UHFFFAOYSA-N"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/MeasuredProperty.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"MeasuredProperty\", \"@id\": \"https://w3id.org/traceability/MeasuredProperty\"}",
+      "title": "Measured Property",
+      "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
+      "anyOf": [
+        {
+          "$ref": "https://w3id.org/traceability/schemas/ChemicalProperty.json"
+        },
+        {
+          "$ref": "https://w3id.org/traceability/schemas/MechanicalProperty.json"
+        }
+      ],
+      "examples": []
+    }
+  },
+  "https://www.gs1.org/voc/QuantitativeValue": {
+    "$id": "https://w3id.org/traceability/schemas/MeasuredValue.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "MeasuredValue",
+      "@id": "https://www.gs1.org/voc/QuantitativeValue"
+    },
+    "title": "Measured Value",
+    "description": "The measurement of an Observation.",
+    "classProperties": {
+      "https://www.gs1.org/voc/value": {
+        "$comment": {
+          "term": "value",
+          "@id": "https://www.gs1.org/voc/value"
+        },
+        "title": "Measurement Value",
+        "description": "A floating-point numeric value that is qualified by the corresponding measurement unit code - see gs1:unitCode."
+      },
+      "https://www.gs1.org/voc/unitCode": {
+        "$comment": {
+          "term": "unitCode",
+          "@id": "https://www.gs1.org/voc/unitCode"
+        },
+        "title": "Measurement Unit",
+        "description": "A string value indicating a Measurement Unit from UN/ECE Recommendation 20, Units of Measure used in International Trade e.g. GRM = gram - see <a href=\"http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf\">rec20_rev3</a>"
+      }
+    },
+    "examples": [
+      {
+        "value": "00.00",
+        "unitCode": "UNKNOWN"
+      },
+      {
+        "value": "42.898",
+        "unitCode": "P1"
+      },
+      {
+        "value": "75.650",
+        "unitCode": "B13"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/MeasuredValue.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"MeasuredValue\", \"@id\": \"https://www.gs1.org/voc/QuantitativeValue\"}",
+      "title": "Measured Value",
+      "description": "The measurement of an Observation.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "$comment": "{\"term\": \"value\", \"@id\": \"https://www.gs1.org/voc/value\"}",
+          "title": "Measurement Value",
+          "description": "A floating-point numeric value that is qualified by the corresponding measurement unit code - see gs1:unitCode.",
+          "type": "string"
+        },
+        "unitCode": {
+          "$comment": "{\"term\": \"unitCode\", \"@id\": \"https://www.gs1.org/voc/unitCode\"}",
+          "title": "Measurement Unit",
+          "description": "A string value indicating a Measurement Unit from UN/ECE Recommendation 20, Units of Measure used in International Trade e.g. GRM = gram - see <a href=\"http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf\">rec20_rev3</a>",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/MechanicalProperty": {
+    "$id": "https://w3id.org/traceability/schemas/MechanicalProperty.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "MechanicalProperty",
+      "@id": "https://w3id.org/traceability/MechanicalProperty"
+    },
+    "title": "Mechanical Property",
+    "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
+    "classProperties": {
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "identifier",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Property Identifier",
+        "description": "Identifiers for a property."
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "name",
+          "@id": "https://schema.org/name"
+        },
+        "title": "Property Name",
+        "description": "The name of the item."
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Property Description",
+        "description": "The description of the item."
+      }
+    },
+    "examples": [
+      {
+        "identifier": "ISO 180",
+        "name": "Izod Impact Strength Test",
+        "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+      },
+      {
+        "identifier": "ISO 3738",
+        "name": "Rockwell Hardness Test (Scale A)",
+        "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+      },
+      {
+        "identifier": "ISO 148",
+        "name": "Charpy Impact Strength Test",
+        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/MechanicalProperty.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"MechanicalProperty\", \"@id\": \"https://w3id.org/traceability/MechanicalProperty\"}",
+      "title": "Mechanical Property",
+      "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Property Identifier",
+          "description": "Identifiers for a property.",
+          "type": "string"
+        },
+        "name": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Property Name",
+          "description": "The name of the item.",
+          "type": "string"
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Property Description",
+          "description": "The description of the item.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/Observation": {
+    "$id": "https://w3id.org/traceability/schemas/Observation.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Observation",
+      "@id": "https://w3id.org/traceability/Observation"
+    },
+    "title": "Observation",
+    "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
+    "classProperties": {
+      "https://schema.org/property": {
+        "$comment": {
+          "term": "property",
+          "@id": "https://schema.org/property"
+        },
+        "title": "Measured Property",
+        "description": "The property of an Observation."
+      },
+      "https://schema.org/measurement": {
+        "$comment": {
+          "term": "standard",
+          "@id": "https://schema.org/measurement"
+        },
+        "title": "Measured Value",
+        "description": "The measurement of an Observation."
+      }
+    },
+    "examples": [
+      {
+        "property": {
+          "identifier": "ISO 148",
+          "name": "Charpy Impact Strength Test",
+          "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+        },
+        "measurement": {
+          "value": "89.199",
+          "unitCode": "B13"
+        }
+      },
+      {
+        "property": {
+          "name": "Neon",
+          "formula": "Ne",
+          "inchi": "InChI=1S/Ne",
+          "inchikey": "GKAOGPIIYCISHV-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "35.630",
+          "unitCode": "P1"
+        }
+      },
+      {
+        "property": {
+          "name": "Iridium",
+          "formula": "Ir",
+          "inchi": "InChI=1S/Ir",
+          "inchikey": "GKOZUEZYRPOHIO-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "53.295",
+          "unitCode": "P1"
+        }
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Observation.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Observation\", \"@id\": \"https://w3id.org/traceability/Observation\"}",
+      "title": "Observation",
+      "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
+      "type": "object",
+      "properties": {
+        "property": {
+          "$comment": "{\"term\": \"property\", \"@id\": \"https://schema.org/property\"}",
+          "title": "Measured Property",
+          "description": "The property of an Observation.",
+          "$ref": "https://w3id.org/traceability/schemas/MeasuredProperty.json"
+        },
+        "measurement": {
+          "$comment": "{\"term\": \"standard\", \"@id\": \"https://schema.org/measurement\"}",
+          "title": "Measured Value",
+          "description": "The measurement of an Observation.",
+          "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://gs1.org/voc/Place": {
+    "$id": "https://w3id.org/traceability/schemas/Place.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Place",
+      "@id": "https://gs1.org/voc/Place"
+    },
+    "title": "Place",
+    "description": "Entities that have a somewhat fixed, physical location.",
+    "classProperties": {
+      "https://gs1.org/voc/globalLocationNumber": {
+        "$comment": {
+          "term": "globalLocationNumber",
+          "@id": "https://gs1.org/voc/globalLocationNumber"
+        },
+        "title": "Global Location Number (GLN)",
+        "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln."
+      },
+      "https://gs1.org/voc/GeoCoordinates": {
+        "$comment": {
+          "term": "geo",
+          "@id": "https://gs1.org/voc/GeoCoordinates"
+        },
+        "title": "Geographic Coordinates",
+        "description": "Links to information about geocoordinates for a place."
+      },
+      "https://gs1.org/voc/PostalAddress": {
+        "$comment": {
+          "term": "address",
+          "@id": "https://gs1.org/voc/PostalAddress"
+        },
+        "title": "Postal Address",
+        "description": "The postal address for an organization or place."
+      }
+    },
+    "examples": [
+      {
+        "globalLocationNumber": "2387465501593",
+        "geo": {
+          "latitude": "43.2090",
+          "longitude": "134.4194"
+        },
+        "address": {
+          "organizationName": "Bogan LLC",
+          "streetAddress": "039 Electa Burgs",
+          "addressLocality": "North Vernachester",
+          "addressRegion": "Connecticut",
+          "postalCode": "26699",
+          "addressCountry": "Lao People's Democratic Republic"
+        }
+      },
+      {
+        "globalLocationNumber": "9619558244647",
+        "geo": {
+          "latitude": "-7.9108",
+          "longitude": "95.2418"
+        },
+        "address": {
+          "organizationName": "Aufderhar - Schmidt",
+          "streetAddress": "91237 Kovacek Ramp",
+          "addressLocality": "Lake Loisburgh",
+          "addressRegion": "Delaware",
+          "postalCode": "07138-3092",
+          "addressCountry": "Netherlands Antilles"
+        }
+      },
+      {
+        "globalLocationNumber": "4659762479553",
+        "geo": {
+          "latitude": "-8.7645",
+          "longitude": "38.9729"
+        },
+        "address": {
+          "organizationName": "Schamberger - Ziemann",
+          "streetAddress": "129 Rippin Grove",
+          "addressLocality": "Port Jalen",
+          "addressRegion": "Alaska",
+          "postalCode": "94501",
+          "addressCountry": "Belgium"
+        }
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Place.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Place\", \"@id\": \"https://gs1.org/voc/Place\"}",
+      "title": "Place",
+      "description": "Entities that have a somewhat fixed, physical location.",
+      "type": "object",
+      "properties": {
+        "globalLocationNumber": {
+          "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://gs1.org/voc/globalLocationNumber\"}",
+          "title": "Global Location Number (GLN)",
+          "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln.",
+          "type": "string",
+          "minLength": 13,
+          "maxLength": 13
+        },
+        "geo": {
+          "$comment": "{\"term\": \"geo\", \"@id\": \"https://gs1.org/voc/GeoCoordinates\"}",
+          "title": "Geographic Coordinates",
+          "description": "Links to information about geocoordinates for a place.",
+          "$ref": "https://w3id.org/traceability/schemas/GeoCoordinates.json"
+        },
+        "address": {
+          "$comment": "{\"term\": \"address\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
+          "title": "Postal Address",
+          "description": "The postal address for an organization or place.",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://gs1.org/voc/PostalAddress": {
+    "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "PostalAddress",
+      "@id": "https://gs1.org/voc/PostalAddress"
+    },
+    "title": "Postal Address",
+    "description": "The location at which a particular organization or person may be found or reached.",
+    "classProperties": {
+      "https://gs1.org/voc/organizationName": {
+        "$comment": {
+          "term": "organizationName",
+          "@id": "https://gs1.org/voc/organizationName"
+        },
+        "title": "Organization Name",
+        "description": "The name of the organization expressed in text."
+      },
+      "https://gs1.org/voc/streetAddress": {
+        "$comment": {
+          "term": "streetAddress",
+          "@id": "https://gs1.org/voc/streetAddress"
+        },
+        "title": "Street Address",
+        "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building."
+      },
+      "https://gs1.org/voc/addressLocality": {
+        "$comment": {
+          "term": "addressLocality",
+          "@id": "https://gs1.org/voc/addressLocality"
+        },
+        "title": "Address Locality",
+        "description": "Text specifying the name of the locality, for example a city."
+      },
+      "https://gs1.org/voc/addressRegion": {
+        "$comment": {
+          "term": "addressRegion",
+          "@id": "https://gs1.org/voc/addressRegion"
+        },
+        "title": "Address Region",
+        "description": "Text specifying a province or state in abbreviated format for example NJ."
+      },
+      "https://gs1.org/voc/addressCountry": {
+        "$comment": {
+          "term": "addressCountry",
+          "@id": "https://gs1.org/voc/addressCountry"
+        },
+        "title": "Address Country",
+        "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1."
+      },
+      "https://gs1.org/voc/crossStreet": {
+        "$comment": {
+          "term": "crossStreet",
+          "@id": "https://gs1.org/voc/crossStreet"
+        },
+        "title": "Cross Street",
+        "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it."
+      },
+      "https://gs1.org/voc/countyCode": {
+        "$comment": {
+          "term": "countyCode",
+          "@id": "https://gs1.org/voc/countyCode"
+        },
+        "title": "County Code",
+        "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state."
+      },
+      "https://gs1.org/voc/postalCode": {
+        "$comment": {
+          "term": "postalCode",
+          "@id": "https://gs1.org/voc/postalCode"
+        },
+        "title": "Postal Code",
+        "description": "Text specifying the postal code for an address."
+      },
+      "https://gs1.org/voc/postOfficeBoxNumber": {
+        "$comment": {
+          "term": "postOfficeBoxNumber",
+          "@id": "https://gs1.org/voc/postOfficeBoxNumber"
+        },
+        "title": "Post Office Box Number",
+        "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
+      }
+    },
+    "examples": [
+      {
+        "organizationName": "Kutch LLC",
+        "streetAddress": "440 Khalid Canyon",
+        "addressLocality": "Gislasonland",
+        "addressRegion": "Ohio",
+        "postalCode": "96546",
+        "addressCountry": "Liechtenstein"
+      },
+      {
+        "organizationName": "Towne - Lueilwitz",
+        "streetAddress": "89703 Alexandre Pike",
+        "addressLocality": "O'Reillyland",
+        "addressRegion": "New York",
+        "postalCode": "85934",
+        "addressCountry": "Niger"
+      },
+      {
+        "organizationName": "Will and Sons",
+        "streetAddress": "4998 Audie Freeway",
+        "addressLocality": "New Stellachester",
+        "addressRegion": "Virginia",
+        "postalCode": "03693",
+        "addressCountry": "Tajikistan"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"PostalAddress\", \"@id\": \"https://gs1.org/voc/PostalAddress\"}",
+      "title": "Postal Address",
+      "description": "The location at which a particular organization or person may be found or reached.",
+      "type": "object",
+      "properties": {
+        "organizationName": {
+          "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://gs1.org/voc/organizationName\"}",
+          "title": "Organization Name",
+          "description": "The name of the organization expressed in text.",
+          "type": "string"
+        },
+        "streetAddress": {
+          "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://gs1.org/voc/streetAddress\"}",
+          "title": "Street Address",
+          "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building.",
+          "type": "string"
+        },
+        "addressLocality": {
+          "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://gs1.org/voc/addressLocality\"}",
+          "title": "Address Locality",
+          "description": "Text specifying the name of the locality, for example a city.",
+          "type": "string"
+        },
+        "addressRegion": {
+          "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://gs1.org/voc/addressRegion\"}",
+          "title": "Address Region",
+          "description": "Text specifying a province or state in abbreviated format for example NJ.",
+          "type": "string"
+        },
+        "addressCountry": {
+          "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://gs1.org/voc/addressCountry\"}",
+          "title": "Address Country",
+          "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1.",
+          "type": "string"
+        },
+        "crossStreet": {
+          "$comment": "{\"term\": \"crossStreet\", \"@id\": \"https://gs1.org/voc/crossStreet\"}",
+          "title": "Cross Street",
+          "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it.",
+          "type": "string"
+        },
+        "countyCode": {
+          "$comment": "{\"term\": \"countyCode\", \"@id\": \"https://gs1.org/voc/countyCode\"}",
+          "title": "County Code",
+          "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state.",
+          "type": "string"
+        },
+        "postalCode": {
+          "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://gs1.org/voc/postalCode\"}",
+          "title": "Postal Code",
+          "description": "Text specifying the postal code for an address.",
+          "type": "string"
+        },
+        "postOfficeBoxNumber": {
+          "$comment": "{\"term\": \"postOfficeBoxNumber\", \"@id\": \"https://gs1.org/voc/postOfficeBoxNumber\"}",
+          "title": "Post Office Box Number",
+          "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  }
+}
+            </script>
+
+      <p id="vocab-last-generated" class="note">
+      This vocabulary was last generated
+      <span id="vocab-last-generated-date">
+      Sunday, October 4, 2020 5:54 PM
+      </span>
+            </p>
+    </section>
+
+    <section class="informative">
+      <h2>Privacy Considerations</h2>
+
+      <p>
+        This section details the general privacy considerations and specific
+        privacy implications of deploying this specification into production
+        environments.
+      </p>
+    </section>
+
+    <section class="informative">
+      <h2>Security Considerations</h2>
+
+      <p>
+        There are a number of security considerations that implementers should
+        be aware of when processing data described by this specification.
+        Ignoring or not understanding the implications of this section can
+        result in security vulnerabilities.
+      </p>
+
+      <p>
+        While this section attempts to highlight a broad set of security
+        considerations, it is not a complete list. Implementers are urged to
+        seek the advice of security and cryptography professionals when
+        implementing mission critical systems using the technology outlined in
+        this specification.
+      </p>
+    </section>
+
+    <section class="informative">
+      <h2>Accessibility Considerations</h2>
+
+      <p>
+        There are a number of accessibility considerations implementers should
+        be aware of when processing data described in this specification. As
+        with any web standards or protocols implementation, ignoring
+        accessibility issues makes this information unusable to a large subset
+        of the population. It is important to follow accessibility guidelines
+        and standards, such as [[WCAG21]], to ensure all people, regardless of
+        ability, can make use of this data. This is especially important when
+        establishing systems utilizing cryptography, which have historically
+        created problems for assistive technologies.
+      </p>
+
+      <p>
+        This section details the general accessibility considerations to take
+        into account when utilizing this data model.
+      </p>
+    </section>
+
+    <section class="informative">
+      <h2>Internationalization Considerations</h2>
+
+      <p>
+        There are a number of internationalization considerations implementers
+        should be aware of when publishing data described in this specification.
+        As with any web standards or protocols implementation, ignoring
+        internationalization makes it difficult for data to be produced and
+        consumed across a disparate set of languages and societies, which would
+        limit the applicability of the specification and significantly diminish
+        its value as a standard.
+      </p>
+
+      <p>
+        This section outlines general internationalization considerations to
+        take into account when utilizing this data model.
+      </p>
+    </section>
+
+    <script>
+      const intermediate = JSON.parse(
+        document.getElementById("intermediate-json").innerHTML
+      );
+      // uncomment to view the json used to build this spec.
+      // console.log(intermediate)
+      let vocabularyString = "";
+      Object.values(intermediate).forEach((classDefinition) => {
+        let classPropertySections = "";
+        Object.values(classDefinition.classProperties).forEach(
+          (classProperty) => {
+            classPropertySections += `
+                <section>
+                <h3>${classProperty.title}</h3>
+                <p>${classProperty.description}</p>
+
+                <table class="simple">
+                    <tbody>
+                        <tr>
+                        <td>
+<a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+            <a href="${classProperty.$comment["@id"]}">${classProperty.$comment.term}</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+<a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+            <a href="${classProperty.$comment["@id"]}">${classProperty.$comment["@id"]}</a>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </section>
+                `;
+          }
+        );
+
+        let classExamples = classDefinition.examples
+          ? classDefinition.examples
+              .map((ex) => {
+                return `
+<pre class="example">
+${JSON.stringify(
+  { "@context": "https://w3id.org/traceability/v1", ...ex },
+  null,
+  2
+)}
+</pre>
+                `;
+              })
+              .join("\n")
+          : "";
+
+        vocabularyString += `
+            <section>
+            <h2>${classDefinition.title}</h2>
+            <p>${classDefinition.description}</p>
+
+            <table class="simple">
+                    <tbody>
+                        <tr>
+                        <td>
+            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment.term}</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment["@id"]}</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+            <a href="https://json-schema.org/">JSON Schema</a>
+                        </td>
+                        <td>
+                            <a href="${classDefinition.$id}">${classDefinition.$id}</a>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+            ${classPropertySections}
+
+            ${classExamples}
+            </section>
+            `;
+      });
+      document.getElementById("vocabulary").innerHTML += vocabularyString;
+    </script>
+  
+
+</body></html>
