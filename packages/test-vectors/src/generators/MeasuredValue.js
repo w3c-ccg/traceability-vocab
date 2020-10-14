@@ -22,6 +22,7 @@ const getMeasuredValue = (prop = getMeasuredProperty()) => {
     };
   }
   const example = {
+    "@context": ['https://w3id.org/traceability/v1'],
     value: "00.00",
     unitCode: "UNKNOWN", // see also https://github.com/gs1/UnitConverterUNECERec20/blob/master/src/UnitConverterUNECERec20.js
   };

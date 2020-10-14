@@ -2,6 +2,7 @@ const faker = require('faker');
 
 const getPostalAddress = () => {
     const example = {
+        "@context": ['https://w3id.org/traceability/v1'],
         "organizationName": faker.company.companyName(),
         "streetAddress": faker.address.streetAddress(),
         "addressLocality": faker.address.city(),

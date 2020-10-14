@@ -8,6 +8,7 @@ const {
   getIntermediateFromDirectory,
   getContextFromIntermediate,
 } = require("./help");
+
 const UPDATE_RESPEC_TEST_REPORT = "YES";
 
 const specFile = path.resolve(__dirname, "../../../docs/index.html");

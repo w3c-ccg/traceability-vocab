@@ -38,6 +38,7 @@ const getInspectionReport = () => {
   });
 
   const example = {
+    "@context": ['https://w3id.org/traceability/v1'],
     observation,
   };
   return example;

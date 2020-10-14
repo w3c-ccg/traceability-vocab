@@ -4,6 +4,7 @@ const { getMeasuredValue } = require("./MeasuredValue");
 const getObservation = () => {
   const prop = getMeasuredProperty();
   const example = {
+    "@context": ['https://w3id.org/traceability/v1'],
     property: prop,
     measurement: getMeasuredValue(prop),
   };
