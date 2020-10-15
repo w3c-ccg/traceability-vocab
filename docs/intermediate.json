@@ -58,7 +58,38 @@
         "description": "The condensed, 27 character <a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier#InChIKey\">InChIKey</a> is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds."
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ChemicalProperty",
+        "name": "Silicon",
+        "formula": "Si",
+        "inchi": "InChI=1S/Si",
+        "inchikey": "XUIMIQQOPSSXEZ-UHFFFAOYSA-N"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ChemicalProperty",
+        "name": "Magnesium",
+        "formula": "Mg",
+        "inchi": "InChI=1S/Mg",
+        "inchikey": "FYYHWMGAXLPEAU-UHFFFAOYSA-N"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ChemicalProperty",
+        "name": "Germanium",
+        "formula": "Ge",
+        "inchi": "InChI=1S/Ge",
+        "inchikey": "GNPVGFCGXDBREM-UHFFFAOYSA-N"
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/ChemicalProperty.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -71,7 +102,14 @@
           "type": "array"
         },
         "type": {
-          "type": "array"
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "identifier": {
           "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
@@ -141,7 +179,32 @@
         "description": "The arc or portion of the earth's equator intersected between the meridian of a given place and the prime meridian and expressed in degrees."
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "GeoCoordinates",
+        "latitude": "26.6810",
+        "longitude": "148.1163"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "GeoCoordinates",
+        "latitude": "-42.6621",
+        "longitude": "-34.9750"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "GeoCoordinates",
+        "latitude": "-64.2275",
+        "longitude": "53.2653"
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -152,6 +215,16 @@
       "properties": {
         "@context": {
           "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "latitude": {
           "$comment": "{\"term\": \"latitude\", \"@id\": \"https://gs1.org/voc/latitude\"}",
@@ -194,7 +267,220 @@
         "description": "List of observations"
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "InspectionReport",
+        "observation": [
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "value": "26.721",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Lawrencium",
+              "formula": "Lr",
+              "inchi": "InChI=1S/Lr",
+              "inchikey": "CNQCVBJFEGMYDW-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "20.325",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Scandium",
+              "formula": "Sc",
+              "inchi": "InChI=1S/Sc",
+              "inchikey": "SIXSYDAISGFNSX-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "22.063",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 180",
+              "name": "Izod Impact Strength Test",
+              "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+            },
+            "measurement": {
+              "value": "30.464",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Neptunium",
+              "formula": "Np",
+              "inchi": "InChI=1S/Np",
+              "inchikey": "LFNLGNPSGWYGGD-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "31.576",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Lithium",
+              "formula": "Li",
+              "inchi": "InChI=1S/Li",
+              "inchikey": "WHXSMMKQMYFTQS-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "26.037",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Flerovium",
+              "formula": "Fl"
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "InspectionReport",
+        "observation": [
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Sulfur",
+              "formula": "S",
+              "inchi": "InChI=1S/S",
+              "inchikey": "NINIDFKCEFEMDL-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "50.580",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "value": "76.740",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 180",
+              "name": "Izod Impact Strength Test",
+              "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+            },
+            "measurement": {
+              "value": "63.333",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Oxygen",
+              "formula": "O",
+              "inchi": "InChI=1S/O",
+              "inchikey": "QVGXLLKOCUKJST-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "49.420",
+              "unitCode": "P1"
+            }
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "InspectionReport",
+        "observation": [
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Berkelium",
+              "formula": "Bk",
+              "inchi": "InChI=1S/Bk",
+              "inchikey": "PWVKJRSRVJTHTR-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "100.00",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          }
+        ]
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/InspectionReport.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -205,6 +491,16 @@
       "properties": {
         "@context": {
           "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "observation": {
           "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
@@ -230,7 +526,38 @@
     "title": "Measured Property",
     "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
     "classProperties": {},
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ChemicalProperty",
+        "name": "Lutetium",
+        "formula": "Lu",
+        "inchi": "InChI=1S/Lu",
+        "inchikey": "OHSVLFRHMCKCQY-UHFFFAOYSA-N"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ChemicalProperty",
+        "name": "Promethium",
+        "formula": "Pm",
+        "inchi": "InChI=1S/Pm",
+        "inchikey": "VQMWBBYLQSCNPO-UHFFFAOYSA-N"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ChemicalProperty",
+        "name": "Titanium",
+        "formula": "Ti",
+        "inchi": "InChI=1S/Ti",
+        "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/MeasuredProperty.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -275,7 +602,32 @@
         "description": "A string value indicating a Measurement Unit from UN/ECE Recommendation 20, Units of Measure used in International Trade e.g. GRM = gram - see <a href=\"http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf\">rec20_rev3</a>"
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "MeasuredValue",
+        "value": "97.9",
+        "unitCode": "B13"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "MeasuredValue",
+        "value": "25.883",
+        "unitCode": "P1"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "MeasuredValue",
+        "value": "43.353",
+        "unitCode": "B13"
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/MeasuredValue.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -288,7 +640,14 @@
           "type": "array"
         },
         "type": {
-          "type": "array"
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "value": {
           "$comment": "{\"term\": \"value\", \"@id\": \"https://www.gs1.org/voc/value\"}",
@@ -342,7 +701,35 @@
         "description": "The description of the item."
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "MechanicalProperty",
+        "identifier": "ISO 3738",
+        "name": "Rockwell Hardness Test (Scale A)",
+        "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "MechanicalProperty",
+        "identifier": "ISO 148",
+        "name": "Charpy Impact Strength Test",
+        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "MechanicalProperty",
+        "identifier": "ISO 3738",
+        "name": "Rockwell Hardness Test (Scale A)",
+        "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/MechanicalProperty.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -355,7 +742,14 @@
           "type": "array"
         },
         "type": {
-          "type": "array"
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "identifier": {
           "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
@@ -407,7 +801,59 @@
         "description": "The measurement of an Observation."
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Titanium",
+          "formula": "Ti",
+          "inchi": "InChI=1S/Ti",
+          "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "36.424",
+          "unitCode": "P1"
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Cadmium",
+          "formula": "Cd",
+          "inchi": "InChI=1S/Cd",
+          "inchikey": "BDOSMKKIYDKNTQ-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "8.747",
+          "unitCode": "P1"
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Lanthanum",
+          "formula": "La",
+          "inchi": "InChI=1S/La",
+          "inchikey": "FZLIPJUXYLNCLC-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "67.285",
+          "unitCode": "P1"
+        }
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/Observation.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -420,7 +866,14 @@
           "type": "array"
         },
         "type": {
-          "type": "array"
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "property": {
           "$comment": "{\"term\": \"property\", \"@id\": \"https://schema.org/property\"}",
@@ -474,7 +927,71 @@
         "description": "The postal address for an organization or place."
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Place",
+        "globalLocationNumber": "2387465501593",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": "43.2090",
+          "longitude": "134.4194"
+        },
+        "address": {
+          "type": "PostalAddress",
+          "organizationName": "Bogan LLC",
+          "streetAddress": "039 Electa Burgs",
+          "addressLocality": "North Vernachester",
+          "addressRegion": "Connecticut",
+          "postalCode": "26699",
+          "addressCountry": "Lao People's Democratic Republic"
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Place",
+        "globalLocationNumber": "5104458788109",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": "11.3654",
+          "longitude": "-172.5085"
+        },
+        "address": {
+          "type": "PostalAddress",
+          "organizationName": "Collier, Welch and Buckridge",
+          "streetAddress": "37644 Lois Fall",
+          "addressLocality": "East Mozell",
+          "addressRegion": "Arizona",
+          "postalCode": "13830-9269",
+          "addressCountry": "United States Minor Outlying Islands"
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Place",
+        "globalLocationNumber": "4659762479553",
+        "geo": {
+          "type": "GeoCoordinates",
+          "latitude": "-8.7645",
+          "longitude": "38.9729"
+        },
+        "address": {
+          "type": "PostalAddress",
+          "organizationName": "Schamberger - Ziemann",
+          "streetAddress": "129 Rippin Grove",
+          "addressLocality": "Port Jalen",
+          "addressRegion": "Alaska",
+          "postalCode": "94501",
+          "addressCountry": "Belgium"
+        }
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/Place.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -485,6 +1002,16 @@
       "properties": {
         "@context": {
           "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "globalLocationNumber": {
           "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://gs1.org/voc/globalLocationNumber\"}",
@@ -594,7 +1121,44 @@
         "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept."
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "PostalAddress",
+        "organizationName": "Bednar - Kutch",
+        "streetAddress": "8440 Khalid Canyon",
+        "addressLocality": "Gislasonland",
+        "addressRegion": "Ohio",
+        "postalCode": "96546",
+        "addressCountry": "Liechtenstein"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "PostalAddress",
+        "organizationName": "Lueilwitz, Durgan and Stanton",
+        "streetAddress": "703 Alexandre Pike",
+        "addressLocality": "O'Reillyland",
+        "addressRegion": "New York",
+        "postalCode": "85934",
+        "addressCountry": "Niger"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "PostalAddress",
+        "organizationName": "Bins Group",
+        "streetAddress": "4499 Pfeffer Terrace",
+        "addressLocality": "North Maureenside",
+        "addressRegion": "Ohio",
+        "postalCode": "00369-3855",
+        "addressCountry": "Namibia"
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -605,6 +1169,16 @@
       "properties": {
         "@context": {
           "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
         },
         "organizationName": {
           "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://gs1.org/voc/organizationName\"}",
