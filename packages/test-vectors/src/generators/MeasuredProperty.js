@@ -7,10 +7,13 @@ const getMeasuredProperty = () => {
   const randomType = faker.random.arrayElement(["chemical", "mechanical"]);
 
   if (randomType == "chemical") {
-    return getChemicalProperty();
+
+    const prop = getChemicalProperty();
+    return prop;
   }
 
-  return getMechanicalProperty();
+  const prop = getMechanicalProperty();
+  return prop;
 };
 
 module.exports = { getMeasuredProperty };

@@ -8,6 +8,7 @@ const getInspectionReport = () => {
 
   while (numSubstances > 0) {
     const substance = getObservation();
+    delete substance['@context'];
     observation.push(substance);
     numSubstances -= 1;
   }
@@ -39,6 +40,7 @@ const getInspectionReport = () => {
 
   const example = {
     "@context": ['https://w3id.org/traceability/v1'],
+    "type": "InspectionReport",
     observation,
   };
   return example;

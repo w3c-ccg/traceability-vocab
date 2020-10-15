@@ -70,10 +70,6 @@ const getContextFromIntermediate = (intermediate) => {
       [classDefinition.$comment.term]: {
         "@id": classDefinition.$comment["@id"],
         "@context": {
-          "@version": 1.1,
-          "@protected": true,
-          id: "@id",
-          type: "@type",
           ...propertDefinitionPartialContext,
         },
       },
@@ -82,7 +78,6 @@ const getContextFromIntermediate = (intermediate) => {
   return {
     "@context": {
       "@version": 1.1,
-      "@protected": true,
       name: "http://schema.org/name",
       description: "http://schema.org/description",
       identifier: "http://schema.org/identifier",
@@ -90,6 +85,8 @@ const getContextFromIntermediate = (intermediate) => {
         "@id": "http://schema.org/image",
         "@type": "@id",
       },
+      "id": "@id",
+      "type": "@type",
       ...partialContext,
     },
   };

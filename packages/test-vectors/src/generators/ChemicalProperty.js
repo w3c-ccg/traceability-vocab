@@ -11,6 +11,7 @@ const getChemicalProperty = () => {
   let symbol = randomElement.symbol;
   const example = {
     "@context": ['https://w3id.org/traceability/v1'],
+    type: "ChemicalProperty",
     name,
     formula: symbol,
     inchi: randomElement.inchi,
