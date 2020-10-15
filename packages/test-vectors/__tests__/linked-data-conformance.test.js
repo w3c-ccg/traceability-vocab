@@ -44,7 +44,6 @@ const intermediateJson = JSON.parse(
   intermediateJsonFile).toString()
 )
   
-
   Object.values(intermediateJson).forEach((classDefinition) => {
     if (classDefinition.$id){
         it(classDefinition.title, async () => {

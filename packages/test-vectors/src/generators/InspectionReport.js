@@ -1,6 +1,6 @@
-const faker = require("faker");
-const _ = require("lodash");
-const { getObservation } = require("./Observation");
+const faker = require('faker');
+const _ = require('lodash');
+const { getObservation } = require('./Observation');
 
 const getInspectionReport = () => {
   let numSubstances = faker.random.number({ min: 1, max: 10 });
@@ -13,20 +13,16 @@ const getInspectionReport = () => {
     numSubstances -= 1;
   }
 
-  observation = _.uniq(observation, "property.name");
+  observation = _.uniq(observation, 'property.name');
 
-  let sum = observation
-    .map((r) => {
-      return r.property.inchi ? parseFloat(r.measurement.value) : 0;
-    })
-    .reduce(function (a, b) {
-      return a + b;
-    }, 0);
+  const sum = observation
+    .map((r) => (r.property.inchi ? parseFloat(r.measurement.value) : 0))
+    .reduce((a, b) => a + b, 0);
 
   observation = observation.map((r) => {
-    let adjusted = `${(
-      (100 * parseFloat(r.measurement.value)) /
-      sum
+    const adjusted = `${(
+      (100 * parseFloat(r.measurement.value))
+      / sum
     ).toPrecision(5)}`;
 
     return {
@@ -39,8 +35,8 @@ const getInspectionReport = () => {
   });
 
   const example = {
-    "@context": ['https://w3id.org/traceability/v1'],
-    "type": "InspectionReport",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'InspectionReport',
     observation,
   };
   return example;
