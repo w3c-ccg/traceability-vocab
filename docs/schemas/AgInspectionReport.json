@@ -1,0 +1,72 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"AgInspectionReport\", \"@id\": \"https://w3id.org/traceability/AgInspectionReport\"}",
+    "title": "Agriculture Inspection Report",
+    "description": "Information on the Inspection and the observations made",
+    "type": "object",
+    "properties": {
+      "@context": {
+        "type": "array"
+      },
+      "type": {
+          "oneOf": [
+              { "type": "string" },
+              { "type": "array"}
+          ]
+      },
+      "facilityID": {
+        "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+        "title": "Facility Identifier",
+        "description": "Identifiers for an inspection facility.",
+        "type": "string"
+      },
+      "inspectorID": {
+        "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+        "title": "Inspector Identifier",
+        "description": "String of identifiers for inspectors.",
+        "type": "array"
+      },
+      "shipmentID": {
+        "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+        "title": "Shipment Identifier",
+        "description": "Identifiers for a shipment of goods.",
+        "type": "string"
+      },
+      "applicantID": {
+        "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+        "title": "Applicant Identifier",
+        "description": "Identifiers for the entity inspection applicant.",
+        "type": "string"
+      }, 
+      "inspectionLocation": {
+        "$comment": "{\"term\": \"Place\", \"@id\": \"https://schema.org/Place\"}",
+        "title": "Inspection Location",
+        "description": "Location of the inspection",
+        "$ref": "https://w3c-ccg.github.io/traceability-vocab/#place"
+      },
+      "inspectionDate": {
+        "$comment": "{\"term\": \"DateTime\", \"@id\": \"https://schema.org/DateTime\"}",
+        "title": "Inspection Date",
+        "description": "Date of the completed inspection.",
+        "type": "string"
+      },
+      "inspectionType": {
+        "$comment": "{\"term\": \"value\", \"@id\": \"https://www.gs1.org/voc/value\"}",
+        "title": "Inspection Type",
+        "description": "Type of Inspection.",
+        "type": "string"
+      },
+      "observation": {
+        "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+        "title": "Observation List",
+        "description": "List of observations",
+        "type": "array",
+        "items": {
+          "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+        }
+      }
+    },
+    "additionalProperties": false,
+    "examples": []
+  }
