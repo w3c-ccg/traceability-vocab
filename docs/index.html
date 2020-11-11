@@ -258,6 +258,146 @@
 
       <script type="application/json" id="intermediate-json">
       {
+  "https://w3id.org/traceability/AgInspectionReport": {
+    "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "AgInspectionReport",
+      "@id": "https://w3id.org/traceability/AgInspectionReport"
+    },
+    "title": "Agriculture Inspection Report",
+    "description": "Information on the Inspection and the observations made",
+    "classProperties": {
+      "https://schema.org/Place": {
+        "$comment": {
+          "term": "facility",
+          "@id": "https://schema.org/Place"
+        },
+        "title": "Facility Identifier",
+        "description": "Identifiers for an inspection facility."
+      },
+      "https://w3id.org/traceability/schemas/inspector": {
+        "$comment": {
+          "term": "inspector",
+          "@id": "https://w3id.org/traceability/schemas/inspector"
+        },
+        "title": "Inspector",
+        "description": "Inspector performing the Aggriculture Inspection"
+      },
+      "https://w3id.org/traceability/schemas/shipment": {
+        "$comment": {
+          "term": "shipment",
+          "@id": "https://w3id.org/traceability/schemas/shipment"
+        },
+        "title": "Shipment",
+        "description": "Details for a shipment of goods."
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "identifier",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Applicant Identifier",
+        "description": "Identifiers for the entity inspection applicant."
+      },
+      "https://schema.org/DateTime": {
+        "$comment": {
+          "term": "DateTime",
+          "@id": "https://schema.org/DateTime"
+        },
+        "title": "Inspection Date",
+        "description": "Date of the completed inspection."
+      },
+      "https://www.gs1.org/voc/value": {
+        "$comment": {
+          "term": "value",
+          "@id": "https://www.gs1.org/voc/value"
+        },
+        "title": "Inspection Type",
+        "description": "Type of Inspection."
+      },
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://schema.org/ItemList",
+          "@type": "https://schema.org/ItemList"
+        },
+        "title": "Observation List",
+        "description": "List of observations"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"AgInspectionReport\", \"@id\": \"https://w3id.org/traceability/AgInspectionReport\"}",
+      "title": "Agriculture Inspection Report",
+      "description": "Information on the Inspection and the observations made",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "facility": {
+          "$comment": "{\"term\": \"facility\", \"@id\": \"https://schema.org/Place\"}",
+          "title": "Facility Identifier",
+          "description": "Identifiers for an inspection facility.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "inspector": {
+          "$comment": "{\"term\": \"inspector\", \"@id\": \"https://w3id.org/traceability/schemas/inspector\"}",
+          "title": "Inspector",
+          "description": "Inspector performing the Aggriculture Inspection",
+          "$ref": "https://w3id.org/traceability/schemas/Inspector.json"
+        },
+        "shipment": {
+          "$comment": "{\"term\": \"shipment\", \"@id\": \"https://w3id.org/traceability/schemas/shipment\"}",
+          "title": "Shipment",
+          "description": "Details for a shipment of goods.",
+          "$ref": "https://schema.org/ParcelDelivery"
+        },
+        "applicantId": {
+          "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Applicant Identifier",
+          "description": "Identifiers for the entity inspection applicant.",
+          "type": "string"
+        },
+        "inspectionDate": {
+          "$comment": "{\"term\": \"DateTime\", \"@id\": \"https://schema.org/DateTime\"}",
+          "title": "Inspection Date",
+          "description": "Date of the completed inspection.",
+          "type": "string"
+        },
+        "inspectionType": {
+          "$comment": "{\"term\": \"value\", \"@id\": \"https://www.gs1.org/voc/value\"}",
+          "title": "Inspection Type",
+          "description": "Type of Inspection.",
+          "type": "string"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+          "title": "Observation List",
+          "description": "List of observations",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability/ChemicalProperty": {
     "$id": "https://w3id.org/traceability/schemas/ChemicalProperty.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -404,6 +544,72 @@
           "$comment": "{\"term\": \"inchikey\", \"@id\": \"http://purl.obolibrary.org/obo/chebi/inchikey\"}",
           "title": "InChIKey",
           "description": "The condensed, 27 character <a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier#InChIKey\">InChIKey</a> is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/Credential": {
+    "$id": "https://w3id.org/traceability/schemas/Credential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Credential",
+      "@id": "https://w3id.org/traceability/Credential"
+    },
+    "title": "Observation",
+    "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
+    "classProperties": {
+      "https://schema.org/credentialCategory": {
+        "$comment": {
+          "term": "credentialCategory",
+          "@id": "https://schema.org/credentialCategory"
+        },
+        "title": "Category of the Credential",
+        "description": "The category or type of credential being described, for example 'degree', 'certificate', 'badge', or more specific term."
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "credentialName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "Credential Name",
+        "description": "The name of the relevant credential."
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Credential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Credential\", \"@id\": \"https://w3id.org/traceability/Credential\"}",
+      "title": "Observation",
+      "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "credentialCategory": {
+          "$comment": "{\"term\": \"credentialCategory\", \"@id\": \"https://schema.org/credentialCategory\"}",
+          "title": "Category of the Credential",
+          "description": "The category or type of credential being described, for example 'degree', 'certificate', 'badge', or more specific term.",
+          "$ref": "https://schema.org/credentialCategory"
+        },
+        "credentialName": {
+          "$comment": "{\"term\": \"credentialName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Credential Name",
+          "description": "The name of the relevant credential.",
           "type": "string"
         }
       },
@@ -768,6 +974,76 @@
           "type": "array",
           "items": {
             "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/Inspector": {
+    "$id": "https://w3id.org/traceability/schemas/Inspector.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Inspector",
+      "@id": "https://w3id.org/traceability/Inspector"
+    },
+    "title": "Inspector",
+    "description": "Information on the person performing an inspection",
+    "classProperties": {
+      "https://schema.org/Person": {
+        "$comment": {
+          "term": "person",
+          "@id": "https://schema.org/Person"
+        },
+        "title": "Person",
+        "description": "Person doing the inspection."
+      },
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "credential",
+          "@id": "https://schema.org/ItemList",
+          "@type": "https://schema.org/ItemList"
+        },
+        "title": "Credential List",
+        "description": "List of credentials"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Inspector.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Inspector\", \"@id\": \"https://w3id.org/traceability/Inspector\"}",
+      "title": "Inspector",
+      "description": "Information on the person performing an inspection",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "person": {
+          "$comment": "{\"term\": \"person\", \"@id\": \"https://schema.org/Person\"}",
+          "title": "Person",
+          "description": "Person doing the inspection.",
+          "$ref": "https://schema.org/Person"
+        },
+        "credential": {
+          "$comment": "{\"term\": \"credential\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+          "title": "Credential List",
+          "description": "List of credentials",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Credential.json"
           }
         }
       },
@@ -1151,6 +1427,124 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability/Observation2": {
+    "$id": "https://w3id.org/traceability/schemas/Observation2.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Observation",
+      "@id": "https://w3id.org/traceability/Observation2"
+    },
+    "title": "Observation2",
+    "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
+    "classProperties": {
+      "https://schema.org/property": {
+        "$comment": {
+          "term": "property",
+          "@id": "https://schema.org/property"
+        },
+        "title": "Measured Property",
+        "description": "The property of an Observation."
+      },
+      "https://schema.org/measurement": {
+        "$comment": {
+          "term": "measurement",
+          "@id": "https://schema.org/measurement"
+        },
+        "title": "Measured Value",
+        "description": "The measurement of an Observation."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Titanium",
+          "formula": "Ti",
+          "inchi": "InChI=1S/Ti",
+          "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "36.424",
+          "unitCode": "P1"
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Cadmium",
+          "formula": "Cd",
+          "inchi": "InChI=1S/Cd",
+          "inchikey": "BDOSMKKIYDKNTQ-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "8.747",
+          "unitCode": "P1"
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Lanthanum",
+          "formula": "La",
+          "inchi": "InChI=1S/La",
+          "inchikey": "FZLIPJUXYLNCLC-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "value": "67.285",
+          "unitCode": "P1"
+        }
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Observation2.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Observation\", \"@id\": \"https://w3id.org/traceability/Observation2\"}",
+      "title": "Observation2",
+      "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "property": {
+          "$comment": "{\"term\": \"property\", \"@id\": \"https://schema.org/property\"}",
+          "title": "Measured Property",
+          "description": "The property of an Observation.",
+          "$ref": "https://w3id.org/traceability/schemas/MeasuredProperty.json"
+        },
+        "measurement": {
+          "$comment": "{\"term\": \"measurement\", \"@id\": \"https://schema.org/measurement\"}",
+          "title": "Measured Value",
+          "description": "The measurement of an Observation.",
+          "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://gs1.org/voc/Place": {
     "$id": "https://w3id.org/traceability/schemas/Place.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1497,6 +1891,76 @@
       "additionalProperties": false,
       "examples": []
     }
+  },
+  "https://w3id.org/traceability/Shipment": {
+    "$id": "https://w3id.org/traceability/schemas/Shipment.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Inspector",
+      "@id": "https://w3id.org/traceability/Shipment"
+    },
+    "title": "Shipment",
+    "description": "Information on a shipment of goods.",
+    "classProperties": {
+      "https://schema.org/Person": {
+        "$comment": {
+          "term": "person",
+          "@id": "https://schema.org/Person"
+        },
+        "title": "SKU",
+        "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers."
+      },
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "credential",
+          "@id": "https://schema.org/ItemList",
+          "@type": "https://schema.org/ItemList"
+        },
+        "title": "Credential List",
+        "description": "List of credentials"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Shipment.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Inspector\", \"@id\": \"https://w3id.org/traceability/Shipment\"}",
+      "title": "Shipment",
+      "description": "Information on a shipment of goods.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "sku": {
+          "$comment": "{\"term\": \"person\", \"@id\": \"https://schema.org/Person\"}",
+          "title": "SKU",
+          "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.",
+          "$ref": "https://schema.org/sku"
+        },
+        "credential": {
+          "$comment": "{\"term\": \"credential\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+          "title": "Credential List",
+          "description": "List of credentials",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Credential.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
   }
 }
             </script>
@@ -1504,7 +1968,7 @@
       <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Thursday, October 15, 2020 8:47 AM
+      Wednesday, November 11, 2020 10:42 AM
       </span>
             </p>
     </section>
