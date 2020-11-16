@@ -27,13 +27,15 @@ In order to have your contributions accepted you MUST:
 
 #### Contributing to Vocabulary
 
-All the terms, schemas and context definitions are generated from [./packages/test-vectors][./packages/test-vectors].
+All the terms, schemas and context definitions are generated from [./packages/test-vectors](./packages/test-vectors).
 
 ```
 cd ./packages/test-vectors
 npm i
 npm run test
 ```
+
+The commands above will build the spec and test vectors deterministically from source.
 
 ##### Adding a new type
 
