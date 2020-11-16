@@ -188,12 +188,57 @@
 
         <p>
           The following use cases outline a number of key scenarios that readers
-          might find useful:
+          might find useful in a variety of sectors, especially those that deal with 
+          cross border supply chain data interchange.
         </p>
 
-        <ul>
-          <li>Certified Mill Test Report</li>
-        </ul>
+        
+        <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
+        <section>
+          <h5>Steel and Metal Imports</h5>
+          <dl class="termlist">
+            <dt><dfn>Certified Mill Test Report</dfn></dt>
+            <dd>
+              
+            </dd>
+          </dl>
+        </section>
+
+        <section>
+          <h5>Food and Agriculture</h5>
+          <p>
+            Several use cases exist for common vocabulary in the food and agriculture space. Key priorities for this project
+            revolve around items that are required for the safe and succesful importation of food to various countries.
+          </p>
+          <p>
+            The top level <a href="./schemas/AgInspectionReport.json">AgInspectionReport</a> object has been created as a parent
+            object that allows for the recording of the following inspections and audits, while giving flexibility to account for
+            newly defined inspction types as needs change in the food and agricultre industry. This object can be sub-classed to
+            allow for schema level validation of specific types of inspections and audits as required by the specifics of a given
+            use case. Verifiable Credentials can be issued for this object or sub classes of this object to allow for external
+            verification by third parties that are implementing the Verifiable Credentials sepcification
+          </p>
+          <dl>
+            <dt><dfn>Farm GAP Inspection Report</dfn></dt>
+            <dd>
+              Keep track of <a href="https://www.ams.usda.gov/services/auditing/gap-ghp">Good Agricultural Practices (GAP)</a>
+              audits and share results with a vendor
+            </dd>
+            <dt><dfn>FSMA Inspection</dfn></dt>
+            <dd>
+              <a
+                href="https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma">Food
+                Safety Modernization Act</a> inspections and results for sharing with relevant parties, regulatory bodies and
+              vendors.  
+            </dd>
+            <dt><dfn>Foreign Site Certificate of Inspection and/or Treatment</dfn></dt>
+            <dd>
+              <a href="https://www.aphis.usda.gov/aphis/resources/forms/CT_PPQ_Forms">USDA APHIS PPQ FORM 203</a> that is required
+              for pre-clearance of imported food and ag goods into the US
+            </dd>
+          </dl>
+        </section>
+        
       </section>
 
       <section class="informative">
