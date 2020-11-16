@@ -6,6 +6,7 @@ const { getMechanicalProperty } = require('./MechanicalProperty');
 const { getMeasuredProperty } = require('./MeasuredProperty');
 const { getMeasuredValue } = require('./MeasuredValue');
 const { getObservation } = require('./Observation');
+const { getCredential } = require('./Credential');
 const { getInspectionReport } = require('./InspectionReport');
 
 const generatorConfig = {
@@ -17,6 +18,7 @@ const generatorConfig = {
   MeasuredProperty: getMeasuredProperty,
   MeasuredValue: getMeasuredValue,
   Observation: getObservation,
+  Credential: getCredential,
   InspectionReport: getInspectionReport,
 };
 
