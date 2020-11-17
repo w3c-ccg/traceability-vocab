@@ -36,13 +36,17 @@ const intermediateJson = JSON.parse(
 );
 
 Object.values(intermediateJson).forEach((classDefinition) => {
+
   if (classDefinition.$id) {
     it(classDefinition.title, async () => {
+
       const fixture = classDefinitionToFixtureJson(classDefinition);
       await Promise.all(fixture.good.map(async (goodExample) => {
+        //console.log(classDefinition.title);
         // console.log(goodExample)
         const resultOk = await jsonldChecker.check(goodExample, customDocumentLoader);
-        // console.log(resultOk)
+        //console.log("result")
+        //console.log(resultOk)
         return expect(resultOk.ok).toBe(true);
       }));
     });
