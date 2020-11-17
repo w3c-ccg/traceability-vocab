@@ -2,7 +2,7 @@ const GeoCoordinates = require('../../../../docs/test-vectors/GeoCoordinates.jso
 const Place = require('../../../../docs/test-vectors/Place.json');
 const PostalAddress = require('../../../../docs/test-vectors/PostalAddress.json');
 const Observation = require('../../../../docs/test-vectors/Observation.json');
-const Credential = require('../../../../docs/test-vectors/Credential.json');
+//const Credential = require('../../../../docs/test-vectors/Credential.json');
 const InspectionReport = require('../../../../docs/test-vectors/InspectionReport.json');
 const MeasuredProperty = require('../../../../docs/test-vectors/MeasuredProperty.json');
 const MeasuredValue = require('../../../../docs/test-vectors/MeasuredValue.json');
@@ -14,7 +14,7 @@ module.exports = {
   Place,
   PostalAddress,
   Observation,
-  Credential,
+  // Credential,
   InspectionReport,
   MeasuredProperty,
   MeasuredValue,

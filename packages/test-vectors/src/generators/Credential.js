@@ -4,8 +4,8 @@ const getCredential = () => {
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
         type: 'Credential',
-        credentialName: faker.company.companyName(),
-        credentialTest: faker.address.state()
+        credentialCategory: faker.person.jobTitle(),
+        credentialValue: faker.person.jobType()
     };
     return example;
 };

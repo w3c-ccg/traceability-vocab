@@ -152,6 +152,72 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability/Credential": {
+    "$id": "https://w3id.org/traceability/schemas/Credential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Credential",
+      "@id": "https://w3id.org/traceability/Credential"
+    },
+    "title": "Credential",
+    "description": "Instances of the class Credential .",
+    "classProperties": {
+      "https://schema.org/credentialCategory": {
+        "$comment": {
+          "term": "credentialCategoty",
+          "@id": "https://schema.org/credentialCategory"
+        },
+        "title": "Credential Name",
+        "description": "The type of credential the person has."
+      },
+      "https://schema.org/hasCredential": {
+        "$comment": {
+          "term": "credentialValue",
+          "@id": "https://schema.org/hasCredential"
+        },
+        "title": "Credential Value",
+        "description": "Value of the credential (if relevant), such as badge number or certification level."
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Credential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Credential\", \"@id\": \"https://w3id.org/traceability/Credential\"}",
+      "title": "Credential",
+      "description": "Instances of the class Credential .",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "credentialName": {
+          "$comment": "{\"term\": \"credentialCategoty\", \"@id\": \"https://schema.org/credentialCategory\"}",
+          "title": "Credential Name",
+          "description": "The type of credential the person has.",
+          "type": "string"
+        },
+        "credentialValue": {
+          "$comment": "{\"term\": \"credentialValue\", \"@id\": \"https://schema.org/hasCredential\"}",
+          "title": "Credential Value",
+          "description": "Value of the credential (if relevant), such as badge number or certification level.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://gs1.org/voc/GeoCoordinates": {
     "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
