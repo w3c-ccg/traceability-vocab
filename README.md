@@ -13,6 +13,47 @@ on the
 [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/)
 mailing list as well.
 
-### Other useful links
+### Getting Started
 
-- [Public group email archive](https://lists.w3.org/Archives/Public/public-credentials/)
+This repository takes a "test / code first" approach to vocabulary development and deals specifically with data types required for 
+track and trace of supply chain data, particularly in a cross border context.  Focus is especially given to schema objects that describe
+common supply chain elements, shared by multiple use cases, as well as to items for which inspections and audits may be required, and thereby
+merit creation of Verifiable Credentials to store the results of such an inspection for verification by a third party.
+
+In order to have your contributions accepted you MUST:
+
+1. Add synthetic data generation for any new data types / vocabulary terms.
+2. Add any "special case" testing you believe is helpful for your data structures.
+3. Run all tests locally and ensure they are all passing.
+4. Generate the latest version of the spec to include your changes to vocabular / data model.
+5. Open a Pull Request with your changes, a clear description of them in the description, and passing CI Tests.
+
+#### Contributing to Vocabulary
+
+All the terms, schemas and context definitions are generated from [./packages/test-vectors](./packages/test-vectors).
+
+```
+cd ./packages/test-vectors
+npm i
+npm run test
+```
+
+The commands above will build the spec and test vectors deterministically from source.
+
+##### Adding a new type
+
+1. create a [JSON Schema](https://json-schema.org/) in [./docs/schemas](./docs/schemas).
+2. add synthetic data generation for it to [./packages/test-vectors/src/generators](./packages/test-vectors/src/generators).
+3. run tests, (correct any errors or warnings).
+4. review the latest spec changes by serving docs `npx serve ./docs`.
+
+Follow the conventions established for the other properties, for example:
+
+###### Place
+
+- [JSON Schema](./docs/schemas/Place.json)
+- [Data Generator](./packages/test-vectors/src/generators/Place.js)
+- [JSON-LD Context (derrived)](./docs/contexts/traceability-v1.jsonld)
+- [Vocabular Definition (derrived)](https://w3c-ccg.github.io/traceability-vocab/#place)
+
+If you are unsure of how to do something please open an issue, and ask for help.
