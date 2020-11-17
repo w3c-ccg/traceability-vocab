@@ -24,8 +24,10 @@ Object.keys(config).forEach((classDef) => {
         badExample = help.addRandomNumberProperties(badExample);
         fixture.bad.push(badExample);
       }
-      // comment below to write changed fixtures to disk.
-      expect(fixture).toEqual(fixtures[classDef]);
+      // Check if a spec build is being run using the env variable set in the package.json
+      if (!process.env.BUILD_SPEC) {
+        expect(fixture).toEqual(fixtures[classDef]);
+      }
       help.writeFileToPublic(
         `test-vectors/${classDef}.json`,
         JSON.stringify(fixture, null, 2),

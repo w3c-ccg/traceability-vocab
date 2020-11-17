@@ -44,8 +44,31 @@ The commands above will build the spec and test vectors deterministically from s
 
 1. create a [JSON Schema](https://json-schema.org/) in [./docs/schemas](./docs/schemas).
 2. add synthetic data generation for it to [./packages/test-vectors/src/generators](./packages/test-vectors/src/generators).
-3. run tests, (correct any errors or warnings).
-4. review the latest spec changes by serving docs `npx serve ./docs`.
+3. update the config file to add the new type [./packages/test-vectors/src/generators/config.js](./packages/test-vectors/src/generators/config.js) by defining it and requiring the new type:
+    ```
+    const { getNewType } = require('./NewType');
+    ```
+    and adding to the config object:
+    ```
+    const generatorConfig = {
+        NewType: getNewType,
+        ...
+    ```
+4. run a build to generate the [test vectors](./packages/test-vectors) used in normal testing: `npm run build`
+    Fix any errors found.
+5. add the new test-vectors file to the testing process by modifying  [./packages/test-vectors/src/__fixtures__/index.js](./packages/test-vectors/src/__fixtures__/index.js)
+and adding the path:
+    ```
+    const NewType = require('../../../../docs/test-vectors/NewType.json');
+    ```
+    then adding it to the module.exports:
+    ```
+    module.exports = {
+        NewObject,
+        ...
+    ```
+6. run tests and fix any errors: `npm run test`
+5. review the latest spec changes by serving docs: `npx serve ./docs`.
 
 Follow the conventions established for the other properties, for example:
 
