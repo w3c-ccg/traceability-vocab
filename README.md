@@ -15,7 +15,10 @@ mailing list as well.
 
 ### Getting Started
 
-This repository takes a "test / code first" approach to vocabulary development.
+This repository takes a "test / code first" approach to vocabulary development and deals specifically with data types required for 
+track and trace of supply chain data, particularly in a cross border context.  Focus is especially given to schema objects that describe
+common supply chain elements, shared by multiple use cases, as well as to items for which inspections and audits may be required, and thereby
+merit creation of Verifiable Credentials to store the results of such an inspection for verification by a third party.
 
 In order to have your contributions accepted you MUST:
 
