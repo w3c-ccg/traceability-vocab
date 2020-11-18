@@ -79,4 +79,10 @@ Follow the conventions established for the other properties, for example:
 - [JSON-LD Context (derrived)](./docs/contexts/traceability-v1.jsonld)
 - [Vocabular Definition (derrived)](https://w3c-ccg.github.io/traceability-vocab/#place)
 
+##### Sample .ENV
+
+ ```
+  BUILD_SPEC=true/false // generates new files for schema when running npm run build
+ ```
+
 If you are unsure of how to do something please open an issue, and ask for help.
