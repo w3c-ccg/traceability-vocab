@@ -44,9 +44,7 @@ it('should validate using json schema', async () => {
   Object.values(intermediateJson).forEach((classDefinition) => {
     try {
       const fixture = classDefinitionToFixtureJson(classDefinition);
-
       const validate = ajv.compile(classDefinition.schema);
-
       fixture.good.forEach((goodExample) => {
         const valid = validate(goodExample);
 
@@ -64,6 +62,8 @@ it('should validate using json schema', async () => {
       classDefinition.examples = fixture.good;
     } catch (e) {
       // eslint-disable-next-line no-console
+      console.warn("error");
+      console.warn(e);
       console.warn('No test vectors for ', classDefinition.title);
     }
   });
