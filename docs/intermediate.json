@@ -1,4 +1,144 @@
 {
+  "https://w3id.org/traceability/AgInspectionReport": {
+    "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "AgInspectionReport",
+      "@id": "https://w3id.org/traceability/AgInspectionReport"
+    },
+    "title": "Agriculture Inspection Report",
+    "description": "Information on the Inspection and the observations made",
+    "classProperties": {
+      "https://schema.org/Place": {
+        "$comment": {
+          "term": "facility",
+          "@id": "https://schema.org/Place"
+        },
+        "title": "Facility Identifier",
+        "description": "Identifiers for an inspection facility."
+      },
+      "https://w3id.org/traceability/schemas/inspector": {
+        "$comment": {
+          "term": "inspector",
+          "@id": "https://w3id.org/traceability/schemas/inspector"
+        },
+        "title": "Inspector",
+        "description": "Inspector performing the Aggriculture Inspection"
+      },
+      "https://schema.org/ParcelDelivery": {
+        "$comment": {
+          "term": "shipment",
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "title": "Shipment",
+        "description": "Details for a shipment of goods."
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "applicantId",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Applicant Identifier",
+        "description": "Identifiers for the entity inspection applicant."
+      },
+      "https://schema.org/DateTime": {
+        "$comment": {
+          "term": "inspectionDate",
+          "@id": "https://schema.org/DateTime"
+        },
+        "title": "Inspection Date",
+        "description": "Date of the completed inspection."
+      },
+      "https://www.gs1.org/voc/value": {
+        "$comment": {
+          "term": "inspectionType",
+          "@id": "https://www.gs1.org/voc/value"
+        },
+        "title": "Inspection Type",
+        "description": "Type of Inspection."
+      },
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://schema.org/ItemList",
+          "@type": "https://schema.org/ItemList"
+        },
+        "title": "Observation List",
+        "description": "List of observations"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"AgInspectionReport\", \"@id\": \"https://w3id.org/traceability/AgInspectionReport\"}",
+      "title": "Agriculture Inspection Report",
+      "description": "Information on the Inspection and the observations made",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "facility": {
+          "$comment": "{\"term\": \"facility\", \"@id\": \"https://schema.org/Place\"}",
+          "title": "Facility Identifier",
+          "description": "Identifiers for an inspection facility.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "inspector": {
+          "$comment": "{\"term\": \"inspector\", \"@id\": \"https://w3id.org/traceability/schemas/inspector\"}",
+          "title": "Inspector",
+          "description": "Inspector performing the Aggriculture Inspection",
+          "$ref": "https://w3id.org/traceability/schemas/Inspector.json"
+        },
+        "shipment": {
+          "$comment": "{\"term\": \"shipment\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+          "title": "Shipment",
+          "description": "Details for a shipment of goods.",
+          "$ref": "https://schema.org/version/latest/schemaorg-current-http.jsonld#http://schema.org/ParcelDelivery"
+        },
+        "applicantId": {
+          "$comment": "{\"term\": \"applicantId\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Applicant Identifier",
+          "description": "Identifiers for the entity inspection applicant.",
+          "type": "string"
+        },
+        "inspectionDate": {
+          "$comment": "{\"term\": \"inspectionDate\", \"@id\": \"https://schema.org/DateTime\"}",
+          "title": "Inspection Date",
+          "description": "Date of the completed inspection.",
+          "type": "string"
+        },
+        "inspectionType": {
+          "$comment": "{\"term\": \"inspectionType\", \"@id\": \"https://www.gs1.org/voc/value\"}",
+          "title": "Inspection Type",
+          "description": "Type of Inspection.",
+          "type": "string"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+          "title": "Observation List",
+          "description": "List of observations",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability/ChemicalProperty": {
     "$id": "https://w3id.org/traceability/schemas/ChemicalProperty.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -152,6 +292,97 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability/Credential": {
+    "$id": "https://w3id.org/traceability/schemas/Credential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Credential",
+      "@id": "https://w3id.org/traceability/Credential"
+    },
+    "title": "Credential",
+    "description": "Instances of the class Credential .",
+    "classProperties": {
+      "https://schema.org/credentialCategory": {
+        "$comment": {
+          "term": "credentialCategory",
+          "@id": "https://schema.org/credentialCategory"
+        },
+        "title": "Credential Category",
+        "description": "The type of credential the person has."
+      },
+      "https://schema.org/hasCredential": {
+        "$comment": {
+          "term": "credentialValue",
+          "@id": "https://schema.org/hasCredential"
+        },
+        "title": "Credential Value",
+        "description": "Value of the credential (if relevant), such as badge number or certification level."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Credential",
+        "credentialCategory": "Forward Quality Officer",
+        "credentialValue": "Engineer"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Credential",
+        "credentialCategory": "International Response Specialist",
+        "credentialValue": "Architect"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Credential",
+        "credentialCategory": "Principal Infrastructure Technician",
+        "credentialValue": "Specialist"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Credential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Credential\", \"@id\": \"https://w3id.org/traceability/Credential\"}",
+      "title": "Credential",
+      "description": "Instances of the class Credential .",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "credentialCategory": {
+          "$comment": "{\"term\": \"credentialCategory\", \"@id\": \"https://schema.org/credentialCategory\"}",
+          "title": "Credential Category",
+          "description": "The type of credential the person has.",
+          "type": "string"
+        },
+        "credentialValue": {
+          "$comment": "{\"term\": \"credentialValue\", \"@id\": \"https://schema.org/hasCredential\"}",
+          "title": "Credential Value",
+          "description": "Value of the credential (if relevant), such as badge number or certification level.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://gs1.org/voc/GeoCoordinates": {
     "$id": "https://w3id.org/traceability/schemas/GeoCoordinates.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -283,7 +514,45 @@
               "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
             },
             "measurement": {
-              "value": "26.721",
+              "value": "24.720",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Nihonium",
+              "formula": "Nh"
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "value": "66.711",
               "unitCode": "B13"
             }
           },
@@ -291,27 +560,13 @@
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Lawrencium",
-              "formula": "Lr",
-              "inchi": "InChI=1S/Lr",
-              "inchikey": "CNQCVBJFEGMYDW-UHFFFAOYSA-N"
+              "name": "Thulium",
+              "formula": "Tm",
+              "inchi": "InChI=1S/Tm",
+              "inchikey": "FRNOGLGSGLTDKL-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "20.325",
-              "unitCode": "P1"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "ChemicalProperty",
-              "name": "Scandium",
-              "formula": "Sc",
-              "inchi": "InChI=1S/Sc",
-              "inchikey": "SIXSYDAISGFNSX-UHFFFAOYSA-N"
-            },
-            "measurement": {
-              "value": "22.063",
+              "value": "31.503",
               "unitCode": "P1"
             }
           },
@@ -319,27 +574,13 @@
             "type": "Observation",
             "property": {
               "type": "MechanicalProperty",
-              "identifier": "ISO 180",
-              "name": "Izod Impact Strength Test",
-              "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
             },
             "measurement": {
-              "value": "30.464",
-              "unitCode": "B13"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "ChemicalProperty",
-              "name": "Neptunium",
-              "formula": "Np",
-              "inchi": "InChI=1S/Np",
-              "inchikey": "LFNLGNPSGWYGGD-UHFFFAOYSA-N"
-            },
-            "measurement": {
-              "value": "31.576",
-              "unitCode": "P1"
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
             }
           },
           {
@@ -358,27 +599,28 @@
           {
             "type": "Observation",
             "property": {
-              "type": "ChemicalProperty",
-              "name": "Lithium",
-              "formula": "Li",
-              "inchi": "InChI=1S/Li",
-              "inchikey": "WHXSMMKQMYFTQS-UHFFFAOYSA-N"
+              "type": "MechanicalProperty",
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
             },
             "measurement": {
-              "value": "26.037",
-              "unitCode": "P1"
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
             }
           },
           {
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Flerovium",
-              "formula": "Fl"
+              "name": "Boron",
+              "formula": "B",
+              "inchi": "InChI=1S/B",
+              "inchikey": "ZOXJGFHDIHLPTG-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "00.00",
-              "unitCode": "UNKNOWN"
+              "value": "68.497",
+              "unitCode": "P1"
             }
           }
         ]
@@ -393,27 +635,118 @@
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Sulfur",
-              "formula": "S",
-              "inchi": "InChI=1S/S",
-              "inchikey": "NINIDFKCEFEMDL-UHFFFAOYSA-N"
+              "name": "Cesium",
+              "formula": "Cs",
+              "inchi": "InChI=1S/Cs",
+              "inchikey": "TVFDJXOCXUVLDH-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "50.580",
+              "value": "32.812",
               "unitCode": "P1"
             }
           },
           {
             "type": "Observation",
             "property": {
-              "type": "MechanicalProperty",
-              "identifier": "ISO 148",
-              "name": "Charpy Impact Strength Test",
-              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+              "type": "ChemicalProperty",
+              "name": "Antimony",
+              "formula": "Sb",
+              "inchi": "InChI=1S/Sb",
+              "inchikey": "WATWJIUSRGPENY-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "76.740",
-              "unitCode": "B13"
+              "value": "40.179",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Selenium",
+              "formula": "Se",
+              "inchi": "InChI=1S/Se",
+              "inchikey": "BUGBHKTXTAQXES-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "3.3154",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Nihonium",
+              "formula": "Nh"
+            },
+            "measurement": {
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Scandium",
+              "formula": "Sc",
+              "inchi": "InChI=1S/Sc",
+              "inchikey": "SIXSYDAISGFNSX-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "23.694",
+              "unitCode": "P1"
+            }
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "InspectionReport",
+        "observation": [
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Indium",
+              "formula": "In",
+              "inchi": "InChI=1S/In",
+              "inchikey": "APFVFJFRJDLVQX-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "33.267",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Francium",
+              "formula": "Fr",
+              "inchi": "InChI=1S/Fr",
+              "inchikey": "KLMCZVJOEAUDNE-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "28.949",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Krypton",
+              "formula": "Kr",
+              "inchi": "InChI=1S/Kr",
+              "inchikey": "DNNSSWSSYDEUBZ-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "value": "37.783",
+              "unitCode": "P1"
             }
           },
           {
@@ -425,44 +758,21 @@
               "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
             },
             "measurement": {
-              "value": "63.333",
+              "value": "92.316",
               "unitCode": "B13"
             }
           },
           {
             "type": "Observation",
             "property": {
-              "type": "ChemicalProperty",
-              "name": "Oxygen",
-              "formula": "O",
-              "inchi": "InChI=1S/O",
-              "inchikey": "QVGXLLKOCUKJST-UHFFFAOYSA-N"
+              "type": "MechanicalProperty",
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
             },
             "measurement": {
-              "value": "49.420",
-              "unitCode": "P1"
-            }
-          }
-        ]
-      },
-      {
-        "@context": [
-          "https://w3id.org/traceability/v1"
-        ],
-        "type": "InspectionReport",
-        "observation": [
-          {
-            "type": "Observation",
-            "property": {
-              "type": "ChemicalProperty",
-              "name": "Berkelium",
-              "formula": "Bk",
-              "inchi": "InChI=1S/Bk",
-              "inchikey": "PWVKJRSRVJTHTR-UHFFFAOYSA-N"
-            },
-            "measurement": {
-              "value": "100.00",
-              "unitCode": "P1"
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
             }
           },
           {
@@ -476,6 +786,19 @@
             "measurement": {
               "value": "00.00",
               "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 180",
+              "name": "Izod Impact Strength Test",
+              "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+            },
+            "measurement": {
+              "value": "78.265",
+              "unitCode": "B13"
             }
           }
         ]
@@ -510,6 +833,136 @@
           "items": {
             "$ref": "https://w3id.org/traceability/schemas/Observation.json"
           }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/Inspector": {
+    "$id": "https://w3id.org/traceability/schemas/Inspector.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Inspector",
+      "@id": "https://w3id.org/traceability/Inspector"
+    },
+    "title": "Inspector",
+    "description": "Information on the person performing an inspection",
+    "classProperties": {
+      "https://schema.org/Person": {
+        "$comment": {
+          "term": "person",
+          "@id": "https://schema.org/Person"
+        },
+        "title": "Person",
+        "description": "Person doing the inspection."
+      },
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "credential",
+          "@id": "https://schema.org/ItemList",
+          "@type": "https://schema.org/ItemList"
+        },
+        "title": "Credential List",
+        "description": "List of credentials"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Inspector",
+        "person": "Julius Hartmann",
+        "credential": [
+          {
+            "type": "Credential",
+            "credentialCategory": "Corporate Research Designer",
+            "credentialValue": "Architect"
+          },
+          {
+            "type": "Credential",
+            "credentialCategory": "International Security Producer",
+            "credentialValue": "Producer"
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Inspector",
+        "person": "Sheryl Heidenreich",
+        "credential": [
+          {
+            "type": "Credential",
+            "credentialCategory": "Direct Group Analyst",
+            "credentialValue": "Liaison"
+          },
+          {
+            "type": "Credential",
+            "credentialCategory": "Chief Communications Coordinator",
+            "credentialValue": "Strategist"
+          },
+          {
+            "type": "Credential",
+            "credentialCategory": "Corporate Paradigm Assistant",
+            "credentialValue": "Planner"
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Inspector",
+        "person": "Erin Considine III",
+        "credential": [
+          {
+            "type": "Credential",
+            "credentialCategory": "Dynamic Functionality Manager",
+            "credentialValue": "Strategist"
+          },
+          {
+            "type": "Credential",
+            "credentialCategory": "Corporate Research Producer",
+            "credentialValue": "Analyst"
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Inspector.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Inspector\", \"@id\": \"https://w3id.org/traceability/Inspector\"}",
+      "title": "Inspector",
+      "description": "Information on the person performing an inspection",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "person": {
+          "$comment": "{\"term\": \"person\", \"@id\": \"https://schema.org/Person\"}",
+          "title": "Person",
+          "description": "Person doing the inspection.",
+          "type": "string"
+        },
+        "credential": {
+          "$comment": "{\"term\": \"credential\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+          "title": "Credential List",
+          "description": "List of credentials",
+          "type": "array"
         }
       },
       "additionalProperties": false,
