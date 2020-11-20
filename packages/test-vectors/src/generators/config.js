@@ -6,7 +6,10 @@ const { getMechanicalProperty } = require('./MechanicalProperty');
 const { getMeasuredProperty } = require('./MeasuredProperty');
 const { getMeasuredValue } = require('./MeasuredValue');
 const { getObservation } = require('./Observation');
+const { getCredential } = require('./Credential');
+const { getInspector } = require('./Inspector');
 const { getInspectionReport } = require('./InspectionReport');
+const { getAgInspectionReport } = require('./AgInspectionReport');
 
 const generatorConfig = {
   Place: getPlace,
@@ -17,7 +20,10 @@ const generatorConfig = {
   MeasuredProperty: getMeasuredProperty,
   MeasuredValue: getMeasuredValue,
   Observation: getObservation,
+  Credential: getCredential,
+  Inspector: getInspector,
   InspectionReport: getInspectionReport,
+  AgInspectionReport: getAgInspectionReport
 };
 
 module.exports = generatorConfig;
