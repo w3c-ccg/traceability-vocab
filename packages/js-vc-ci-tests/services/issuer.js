@@ -9,7 +9,6 @@ const issue = async ({ credentialSubject }, context = [
   'https://www.w3.org/2018/credentials/v1',
 ]) => {
   const key = await Ed25519KeyPair.from(keyJson);
-
   const verifiableCredential = await vcjs.ld.issue({
     credential: {
       '@context': context,
