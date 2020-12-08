@@ -27,6 +27,10 @@ In order to have your contributions accepted you MUST:
 3. Run all tests locally and ensure they are all passing.
 4. Generate the latest version of the spec to include your changes to vocabular / data model.
 5. Open a Pull Request with your changes, a clear description of them in the description, and passing CI Tests.
+6. Any references to schemas you wish to include in your schema should be recreated locally and referenced there.  In these local schemas, only include the properties relevant to the schema you have created.  For example, [Person](https://schema.org/Person) is an existing schema on schema.org, but a Person.json schema has been added to this repo, including only the relevant and used properties for the other traceability schemas.  This is to hopefully make traceability schemas easier to understand and manage by not incorporating too many unnecessarily large schemas.  The schemas that have been made local in this way (like Person.json) should still reference the schema.org entry like so:
+```
+    "$comment": "{\"term\": \"Person\", \"@id\": \"https://schema.org/Person\"}",
+```
 
 #### Contributing to Vocabulary
 
@@ -71,6 +75,9 @@ and adding the path:
 5. review the latest spec changes by serving docs: `npx serve ./docs`.
 
 Follow the conventions established for the other properties, for example:
+
+###### Helpful Tips
+- Ensure 
 
 ###### Place
 
