@@ -5,10 +5,16 @@ const { getChemicalProperty } = require('./ChemicalProperty');
 const { getMechanicalProperty } = require('./MechanicalProperty');
 const { getMeasuredProperty } = require('./MeasuredProperty');
 const { getMeasuredValue } = require('./MeasuredValue');
+const { getInspector } = require('./Inspector');
 const { getObservation } = require('./Observation');
 const { getCredential } = require('./Credential');
-const { getInspector } = require('./Inspector');
 const { getInspectionReport } = require('./InspectionReport');
+const { getQuantitativeValue } = require('./QuantitativeValue');
+const { getOrganization } = require('./Organization');
+const { getParcelDelivery } = require('./ParcelDelivery');
+const { getPerson } = require('./Person');
+const { getEntity } = require('./Entity');
+const { getProduct } = require('./Product');
 const { getAgInspectionReport } = require('./AgInspectionReport');
 
 const generatorConfig = {
@@ -19,10 +25,16 @@ const generatorConfig = {
   MechanicalProperty: getMechanicalProperty,
   MeasuredProperty: getMeasuredProperty,
   MeasuredValue: getMeasuredValue,
-  Observation: getObservation,
-  Credential: getCredential,
   Inspector: getInspector,
+  Observation: getObservation,
+  ParcelDelivery: getParcelDelivery,
+  Credential: getCredential,
   InspectionReport: getInspectionReport,
+  QuantitativeValue: getQuantitativeValue,
+  Organization: getOrganization,
+  Person: getPerson,
+  Entity: getEntity,
+  Product: getProduct,
   AgInspectionReport: getAgInspectionReport
 };
 
