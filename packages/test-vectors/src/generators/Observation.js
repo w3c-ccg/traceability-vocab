@@ -7,7 +7,6 @@ const getObservation = () => {
 
   const measurement = getMeasuredValue(property);
   delete measurement['@context'];
-  delete measurement.type;
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'Observation',
