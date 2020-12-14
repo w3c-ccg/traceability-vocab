@@ -6,33 +6,21 @@ const { getAgInspectionReport } = require('./AgInspectionReport');
 const getppq203 = () => {
 
     // pull in outside schemas and remove the unneeded properties.  
-    //In the future a much nicer way to do this would be to pass the needed properties into the get functions, but 
-    //nested schemas and properties makes this complicated for now.
+    //Use JSON-mask (https://github.com/nemtsov/json-mask) to pull in only the properties needed for PPQ
 
-    const foreignPortExport = getPlace();
-    delete foreignPortExport['@context'];
-    delete foreignPortExport.globalLocationNumber;
-    delete foreignPortExport.geo;
-    delete foreignPortExport.address.organizationName;
-    delete foreignPortExport.address.streetAddress;
-    delete foreignPortExport.address.addressRegion;
-    delete foreignPortExport.address.postalCode;
+    const fullForeignPortExport = getPlace();
+    delete fullForeignPortExport['@context'];
+    const exportFields = 'type,address(type, addressLocality, addressCountry)';
+    const foreignPortExport = mask(fullForeignPortExport, exportFields);
 
-    const portOfEntry = getPlace();
-    delete portOfEntry['@context'];
-    delete portOfEntry.globalLocationNumber;
-    delete portOfEntry.geo;
-    delete portOfEntry.address.organizationName;
-    delete portOfEntry.address.streetAddress;
-    delete portOfEntry.address.postalCode;
-    delete portOfEntry.address.addressCountry;
+    const fullPortOfEntry = getPlace();
+    delete fullPortOfEntry['@context'];
+    const portFields = 'type,address(type, addressLocality, addressRegion)';
+    const portOfEntry = mask(fullPortOfEntry, portFields);
 
     const fullAgInspectionReport = getAgInspectionReport();
-
     const fields = 'type,facility(address),inspector(type,person(type,firstName,lastName)),shipment(type,deliveryAddress(type,*),originAddress(type,*),products(type, name, description, sizeOrAmount, weight, sku)),applicant(type,firstName,lastName,name,address,worksFor(address),inspectionDate)';
     const AgInspectionReport = mask(fullAgInspectionReport, fields);
-
-    console.log(AgInspectionReport);
 
     const sigDate = new Date(faker.date.recent());
 
