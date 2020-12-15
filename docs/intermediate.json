@@ -212,7 +212,7 @@
           "email": "Gideon4@example.com",
           "phoneNumber": "555-727-9797"
         },
-        "inspectionDate": "11-0-2020",
+        "inspectionDate": "11-1-2020",
         "inspectionType": "Food Safety",
         "observation": [
           {
@@ -426,7 +426,7 @@
           },
           "jobTitle": "Central Creative Director"
         },
-        "inspectionDate": "11-1-2020",
+        "inspectionDate": "11-2-2020",
         "inspectionType": "General",
         "observation": [
           {
@@ -3534,6 +3534,386 @@
           "title": "Value",
           "description": "Value or amount.",
           "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/ppq203": {
+    "$id": "https://w3id.org/traceability/schemas/ppq203.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "ppq203",
+      "@id": "https://w3id.org/traceability/ppq203"
+    },
+    "title": "PPQ 203 Agricultural Foreign Site Inspection",
+    "description": "United States Department of Agriculture Foreign Site Certificate of Inspection and/or Treatment.",
+    "classProperties": {
+      "https://w3id.org/traceability/schemas/ppq203.json#certificateNumber": {
+        "$comment": {
+          "term": "certificateNumber",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#certificateNumber",
+          "@type": "https://schema.org/identifier"
+        },
+        "title": "Certificate Number",
+        "description": "ID number of the certificate"
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport": {
+        "$comment": {
+          "term": "foreignPortExport",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport",
+          "@type": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "title": "Foreign Port of Export",
+        "description": "Foreign port which the shipment passed through as an export to the US"
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#carrierId": {
+        "$comment": {
+          "term": "carrierId",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#carrierId",
+          "@type": "https://schema.org/identifier"
+        },
+        "title": "Carrier ID",
+        "description": "Identifier of the carrier."
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#portOfEntry": {
+        "$comment": {
+          "term": "portOfEntry",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#portOfEntry",
+          "@type": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "title": "Port of Entry",
+        "description": "US port through which the imports passed."
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#signatureDate": {
+        "$comment": {
+          "term": "signatureDate",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#signatureDate",
+          "@type": "https://w3id.org/traceability/schemas/DateTime.json"
+        },
+        "title": "signatureDate",
+        "description": "Date when the inspection was signed by the inspection officer."
+      },
+      "https://w3id.org/traceability/schemas/AgInspectionReport": {
+        "$comment": {
+          "term": "AgInspectionReport",
+          "@id": "https://w3id.org/traceability/schemas/AgInspectionReport"
+        },
+        "title": "Agriculture Inspection Report",
+        "description": "Template for agriculture inspection reports."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ppq203",
+        "certificateNumber": "978306491099",
+        "foreignPortExport": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress"
+          }
+        },
+        "carrierId": "37591376702",
+        "portOfEntry": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress"
+          }
+        },
+        "signatureDate": "11-2-2020",
+        "AgInspectionReport": {
+          "type": "AgInspectionReport",
+          "facility": {
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "D'Amore and Sons",
+              "streetAddress": "6204 Tromp Spurs",
+              "addressLocality": "West Janae",
+              "addressRegion": "Ohio",
+              "postalCode": "89438",
+              "addressCountry": "Malawi"
+            }
+          },
+          "inspector": {
+            "type": "Inspector",
+            "person": {
+              "type": "Person",
+              "firstName": "Camden",
+              "lastName": "Crooks"
+            }
+          },
+          "shipment": {
+            "type": "ParcelDelivery",
+            "deliveryAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Wiegand LLC",
+              "streetAddress": "1162 Gwendolyn Course",
+              "addressLocality": "Boganport",
+              "addressRegion": "Florida",
+              "postalCode": "21804-4196",
+              "addressCountry": "Poland"
+            },
+            "originAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Osinski, Lockman and Heathcote",
+              "streetAddress": "63124 Kub Mountain",
+              "addressLocality": "Hassieborough",
+              "addressRegion": "Kentucky",
+              "postalCode": "63507",
+              "addressCountry": "Sri Lanka"
+            },
+            "products": [
+              {
+                "type": "Product"
+              }
+            ]
+          },
+          "applicant": {
+            "type": "Organization",
+            "name": "Kirlin, Lowe and Gleichner",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "4018 Greenholt Dale",
+              "addressLocality": "Schaeferville",
+              "addressRegion": "Indiana",
+              "postalCode": "23988",
+              "addressCountry": "Lebanon"
+            }
+          }
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ppq203",
+        "certificateNumber": "333135964786",
+        "foreignPortExport": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress"
+          }
+        },
+        "carrierId": "328530614189",
+        "portOfEntry": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress"
+          }
+        },
+        "signatureDate": "11-2-2020",
+        "AgInspectionReport": {
+          "type": "AgInspectionReport",
+          "facility": {
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "Ledner, Marks and Kutch",
+              "streetAddress": "52013 Alejandra Hills",
+              "addressLocality": "Myronport",
+              "addressRegion": "Missouri",
+              "postalCode": "49344",
+              "addressCountry": "Netherlands"
+            }
+          },
+          "inspector": {
+            "type": "Inspector",
+            "person": {
+              "type": "Person",
+              "firstName": "Leonora",
+              "lastName": "Prosacco"
+            }
+          },
+          "shipment": {
+            "type": "ParcelDelivery",
+            "deliveryAddress": {
+              "type": "PostalAddress",
+              "organizationName": "O'Conner, Wiza and Turner",
+              "streetAddress": "1646 Rohan Trail",
+              "addressLocality": "Bruenview",
+              "addressRegion": "Kansas",
+              "postalCode": "56889",
+              "addressCountry": "Uganda"
+            },
+            "originAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Kohler, Smith and Crona",
+              "streetAddress": "762 Veum Passage",
+              "addressLocality": "Creminborough",
+              "addressRegion": "South Dakota",
+              "postalCode": "70522",
+              "addressCountry": "Myanmar"
+            },
+            "products": [
+              {
+                "type": "Product"
+              }
+            ]
+          },
+          "applicant": {
+            "type": "Organization",
+            "name": "Barrows - Kutch",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "218 Sally Route",
+              "addressLocality": "Feestbury",
+              "addressRegion": "New York",
+              "postalCode": "92822-2901",
+              "addressCountry": "Honduras"
+            }
+          }
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ppq203",
+        "certificateNumber": "278042333004",
+        "foreignPortExport": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress"
+          }
+        },
+        "carrierId": "43016824295",
+        "portOfEntry": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress"
+          }
+        },
+        "signatureDate": "11-1-2020",
+        "AgInspectionReport": {
+          "type": "AgInspectionReport",
+          "facility": {
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "Schowalter and Sons",
+              "streetAddress": "888 Mraz Ville",
+              "addressLocality": "South Sandrineside",
+              "addressRegion": "Rhode Island",
+              "postalCode": "92142",
+              "addressCountry": "British Indian Ocean Territory (Chagos Archipelago)"
+            }
+          },
+          "inspector": {
+            "type": "Inspector",
+            "person": {
+              "type": "Person",
+              "firstName": "Eldridge",
+              "lastName": "Zulauf"
+            }
+          },
+          "shipment": {
+            "type": "ParcelDelivery",
+            "deliveryAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Cruickshank, Towne and Ullrich",
+              "streetAddress": "39923 Wuckert Island",
+              "addressLocality": "Claireville",
+              "addressRegion": "Alaska",
+              "postalCode": "74431",
+              "addressCountry": "Western Sahara"
+            },
+            "originAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Tremblay - Rath",
+              "streetAddress": "1735 Ariane Skyway",
+              "addressLocality": "Leschborough",
+              "addressRegion": "Nevada",
+              "postalCode": "76814",
+              "addressCountry": "Martinique"
+            },
+            "products": [
+              {
+                "type": "Product"
+              },
+              {
+                "type": "Product"
+              },
+              {
+                "type": "Product"
+              }
+            ]
+          },
+          "applicant": {
+            "type": "Person",
+            "firstName": "Krista",
+            "lastName": "Bauch",
+            "worksFor": {
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "99407 Lera Divide",
+                "addressLocality": "New Aglae",
+                "addressRegion": "Idaho",
+                "postalCode": "83433",
+                "addressCountry": "South Africa"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/ppq203.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"ppq203\", \"@id\": \"https://w3id.org/traceability/ppq203\"}",
+      "title": "PPQ 203 Agricultural Foreign Site Inspection",
+      "description": "United States Department of Agriculture Foreign Site Certificate of Inspection and/or Treatment.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "certificateNumber": {
+          "$comment": "{\"term\": \"certificateNumber\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#certificateNumber\", \"@type\": \"https://schema.org/identifier\"}",
+          "title": "Certificate Number",
+          "description": "ID number of the certificate",
+          "type": "string"
+        },
+        "foreignPortExport": {
+          "$comment": "{\"term\": \"foreignPortExport\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport\", \"@type\": \"https://w3id.org/traceability/schemas/Place.json\"}",
+          "title": "Foreign Port of Export",
+          "description": "Foreign port which the shipment passed through as an export to the US",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "carrierId": {
+          "$comment": "{\"term\": \"carrierId\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#carrierId\", \"@type\": \"https://schema.org/identifier\"}",
+          "title": "Carrier ID",
+          "description": "Identifier of the carrier.",
+          "type": "string"
+        },
+        "portOfEntry": {
+          "$comment": "{\"term\": \"portOfEntry\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#portOfEntry\", \"@type\": \"https://w3id.org/traceability/schemas/Place.json\"}",
+          "title": "Port of Entry",
+          "description": "US port through which the imports passed.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "signatureDate": {
+          "$comment": "{\"term\": \"signatureDate\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#signatureDate\", \"@type\": \"https://w3id.org/traceability/schemas/DateTime.json\"}",
+          "title": "signatureDate",
+          "description": "Date when the inspection was signed by the inspection officer.",
+          "type": "string"
+        },
+        "AgInspectionReport": {
+          "$comment": "{\"term\": \"AgInspectionReport\", \"@id\": \"https://w3id.org/traceability/schemas/AgInspectionReport\"}",
+          "title": "Agriculture Inspection Report",
+          "description": "Template for agriculture inspection reports.",
+          "$ref": "https://w3id.org/traceability/schemas/AgInspectionReport.json"
         }
       },
       "additionalProperties": false,
