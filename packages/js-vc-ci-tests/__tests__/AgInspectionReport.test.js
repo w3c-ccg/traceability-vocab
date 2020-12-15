@@ -7,60 +7,64 @@ it('can issue / verify AgInspectionReport', async () => {
         credentialSubject: {
             id: 'did:example:123',
             type: "AgInspectionReport",
-            type: "AgInspectionReport",
             facility: {
                 type: "Place",
-                globalLocationNumber: "5094112557724",
+                globalLocationNumber: "7640114717895",
                 geo: {
                     type: "GeoCoordinates",
-                    latitude: "6.9367",
-                    longitude: "70.2528"
+                    latitude: "57.3577",
+                    longitude: "11.6661"
                 },
                 address: {
                     type: "PostalAddress",
-                    organizationName: "Swift - Larkin",
-                    streetAddress: "1167 Nelle Wells",
-                    addressLocality: "Caroleville",
-                    addressRegion: "North Carolina",
-                    postalCode: "17085-4582",
-                    addressCountry: "Puerto Rico"
+                    organizationName: "Reichert, Upton and Cronin",
+                    streetAddress: "22690 O'Conner Brook",
+                    addressLocality: "New Xanderstad",
+                    addressRegion: "Georgia",
+                    postalCode: "75439-7663",
+                    addressCountry: "Azerbaijan"
                 }
             },
             inspector: {
                 type: "Inspector",
                 person: {
                     type: "Person",
-                    firstName: "Sofia",
-                    lastName: "Runolfsdottir",
-                    email: "Edgardo17@hotmail.com",
-                    phoneNumber: "(874) 571-1664 x187",
+                    firstName: "Josiane",
+                    lastName: "Kunze",
+                    email: "Earnest.Quitzon@example.net",
+                    phoneNumber: "555-872-5989",
                     worksFor: {
                         type: "Organization",
-                        name: "Conroy, Herman and Kreiger",
-                        description: "Quality-focused bifurcated moratorium",
+                        name: "Leffler, Bruen and Jenkins",
+                        description: "Progressive 4th generation protocol",
                         address: {
                             type: "PostalAddress",
-                            streetAddress: "066 Rahul Squares",
-                            addressLocality: "D'Amorefurt",
-                            addressRegion: "Delaware",
-                            postalCode: "16365-8130",
-                            addressCountry: "Croatia"
+                            streetAddress: "19578 Keon Drives",
+                            addressLocality: "North Lonie",
+                            addressRegion: "Michigan",
+                            postalCode: "69422",
+                            addressCountry: "Saudi Arabia"
                         },
-                        email: "Elinor64@gmail.com",
-                        phoneNumber: "(501) 413-3480 x274"
+                        email: "Marion.Ernser@example.org",
+                        phoneNumber: "555-728-6517"
                     },
-                    jobTitle: "Direct Mobility Officer"
+                    jobTitle: "National Data Producer"
                 },
                 credential: [
                     {
                         type: "Credential",
-                        credentialCategory: "District Infrastructure Specialist",
-                        credentialValue: "Agent"
+                        credentialCategory: "Future Usability Associate",
+                        credentialValue: "Engineer"
                     },
                     {
                         type: "Credential",
-                        credentialCategory: "National Implementation Coordinator",
-                        credentialValue: "Technician"
+                        credentialCategory: "Future Division Administrator",
+                        credentialValue: "Designer"
+                    },
+                    {
+                        type: "Credential",
+                        credentialCategory: "Dynamic Operations Analyst",
+                        credentialValue: "Officer"
                     }
                 ]
             },
@@ -68,115 +72,141 @@ it('can issue / verify AgInspectionReport', async () => {
                 type: "ParcelDelivery",
                 deliveryAddress: {
                     type: "PostalAddress",
-                    organizationName: "Ortiz, Pouros and Steuber",
-                    streetAddress: "0553 Xander Parkway",
-                    addressLocality: "South Skye",
-                    addressRegion: "Connecticut",
-                    postalCode: "86326",
-                    addressCountry: "Iraq"
+                    organizationName: "Swift, Kutch and Hyatt",
+                    streetAddress: "276 Ara Avenue",
+                    addressLocality: "Langport",
+                    addressRegion: "Texas",
+                    postalCode: "49148-8045",
+                    addressCountry: "Iceland"
                 },
                 originAddress: {
                     type: "PostalAddress",
-                    organizationName: "Boyle, Hane and Corkery",
-                    streetAddress: "987 Cameron Valley",
-                    addressLocality: "New Electaburgh",
-                    addressRegion: "Nevada",
-                    postalCode: "48332-0620",
-                    addressCountry: "Gibraltar"
+                    organizationName: "Tillman Group",
+                    streetAddress: "4538 Elna Stravenue",
+                    addressLocality: "Port Jedside",
+                    addressRegion: "Wyoming",
+                    postalCode: "64282",
+                    addressCountry: "Mayotte"
                 },
-                trackingNumber: "503164088156",
+                trackingNumber: "935690808362",
                 products: [
                     {
                         type: "Product",
                         manufacturer: {
-                            type: "Organization",
-                            name: "Heaney - Grady",
-                            description: "Reverse-engineered client-driven matrix",
-                            address: {
-                                type: "PostalAddress",
-                                streetAddress: "1870 Hintz Terrace",
-                                addressLocality: "South Abbey",
-                                addressRegion: "Iowa",
-                                postalCode: "42210",
-                                addressCountry: "Republic of Korea"
+                            type: "Person",
+                            firstName: "Lance",
+                            lastName: "Ernser",
+                            email: "Jimmy49@example.net",
+                            phoneNumber: "555-675-3201",
+                            worksFor: {
+                                type: "Organization",
+                                name: "Monahan Group",
+                                description: "Synergistic grid-enabled middleware",
+                                address: {
+                                    type: "PostalAddress",
+                                    streetAddress: "48520 Gladyce Passage",
+                                    addressLocality: "Lake Aminabury",
+                                    addressRegion: "Tennessee",
+                                    postalCode: "14017-8234",
+                                    addressCountry: "Kuwait"
+                                },
+                                email: "Kaci.Schamberger80@example.org",
+                                phoneNumber: "555-803-4773"
                             },
-                            email: "Brock.Hartmann82@yahoo.com",
-                            phoneNumber: "461-525-5187 x42208"
+                            jobTitle: "Lead Mobility Producer"
                         },
-                        name: "Small Plastic Bacon",
-                        description: "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                        name: "Rustic Granite Salad",
+                        description: "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
                         sizeOrAmount: {
                             type: "QuantitativeValue",
                             unitCode: "hg/ha",
-                            value: "6178"
+                            value: "2259"
                         },
                         weight: {
                             type: "QuantitativeValue",
                             unitCode: "hg/ha",
-                            value: "5960"
+                            value: "4192"
                         },
-                        sku: "88259203676"
+                        sku: "414883292238"
                     }
                 ]
             },
             applicant: {
-                type: "Person",
-                firstName: "Jaylon",
-                lastName: "Bradtke",
-                email: "Zane_Pollich39@yahoo.com",
-                phoneNumber: "847-262-8755",
-                worksFor: {
-                    type: "Organization",
-                    name: "Gaylord, Brown and Kunde",
-                    description: "Persevering interactive protocol",
-                    address: {
-                        type: "PostalAddress",
-                        streetAddress: "657 Beverly Hills",
-                        addressLocality: "Rogahnfurt",
-                        addressRegion: "New Mexico",
-                        postalCode: "73208",
-                        addressCountry: "Iran"
-                    },
-                    email: "Jana_Hagenes@gmail.com",
-                    phoneNumber: "1-731-783-9434 x174"
+                type: "Organization",
+                name: "Kutch, Dietrich and Reichel",
+                description: "Reduced web-enabled extranet",
+                address: {
+                    type: "PostalAddress",
+                    streetAddress: "8843 O'Kon Prairie",
+                    addressLocality: "Tyreeton",
+                    addressRegion: "New Jersey",
+                    postalCode: "27928-0035",
+                    addressCountry: "Burundi"
                 },
-                jobTitle: "Central Paradigm Facilitator"
+                email: "Gideon4@example.com",
+                phoneNumber: "555-727-9797"
             },
             inspectionDate: "11-2-2020",
-            inspectionType: "Phytosanitary",
+            inspectionType: "Food Safety",
             observation: [
                 {
                     type: "Observation",
                     property: {
-                        type: "ChemicalProperty",
-                        name: "Ruthenium",
-                        formula: "Ru",
-                        inchi: "InChI=1S/Ru",
-                        inchikey: "KJTLSVCANCCWHF-UHFFFAOYSA-N"
+                        type: "MechanicalProperty",
+                        identifier: "ISO 1352",
+                        name: "Torque-controlled fatigue testing",
+                        description: "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
                     },
                     measurement: {
                         type: "MeasuredValue",
-                        value: "88.180",
-                        unitCode: "P1"
+                        value: "00.00",
+                        unitCode: "UNKNOWN"
+                    }
+                },
+                {
+                    type: "Observation",
+                    property: {
+                        type: "MechanicalProperty",
+                        identifier: "ISO 1352",
+                        name: "Torque-controlled fatigue testing",
+                        description: "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+                    },
+                    measurement: {
+                        type: "MeasuredValue",
+                        value: "00.00",
+                        unitCode: "UNKNOWN"
                     }
                 },
                 {
                     type: "Observation",
                     property: {
                         type: "ChemicalProperty",
-                        name: "Lawrencium",
-                        formula: "Lr",
-                        inchi: "InChI=1S/Lr",
-                        inchikey: "CNQCVBJFEGMYDW-UHFFFAOYSA-N"
+                        name: "Lutetium",
+                        formula: "Lu",
+                        inchi: "InChI=1S/Lu",
+                        inchikey: "OHSVLFRHMCKCQY-UHFFFAOYSA-N"
                     },
                     measurement: {
                         type: "MeasuredValue",
-                        value: "11.820",
+                        value: "100.00",
                         unitCode: "P1"
+                    }
+                },
+                {
+                    type: "Observation",
+                    property: {
+                        type: "MechanicalProperty",
+                        identifier: "ISO 148",
+                        name: "Charpy Impact Strength Test",
+                        description: "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+                    },
+                    measurement: {
+                        type: "MeasuredValue",
+                        value: "66.502",
+                        unitCode: "B13"
                     }
                 }
             ]
-
         }
     }, [
         'https://www.w3.org/2018/credentials/v1',
