@@ -19,7 +19,7 @@ const getppq203 = () => {
     const portOfEntry = mask(fullPortOfEntry, portFields);
 
     const fullAgInspectionReport = getAgInspectionReport();
-    const fields = 'type,facility(address),inspector(type,person(type,firstName,lastName)),shipment(type,deliveryAddress(type,*),originAddress(type,*),products(type, name, description, sizeOrAmount, weight, sku)),applicant(type,firstName,lastName,name,address,worksFor(address),inspectionDate)';
+    const fields = 'type,facility(address),inspector(type,person(type,firstName,lastName)),shipment(type,deliveryAddress(type,*),originAddress(type,*),products(type,name,description,sizeOrAmount,weight,sku)),applicant(type,firstName,lastName,name,address,worksFor(address),inspectionDate)';
     const AgInspectionReport = mask(fullAgInspectionReport, fields);
 
     const sigDate = new Date(faker.date.recent());
