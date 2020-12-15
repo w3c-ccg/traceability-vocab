@@ -10,12 +10,12 @@ const getppq203 = () => {
 
     const fullForeignPortExport = getPlace();
     delete fullForeignPortExport['@context'];
-    const exportFields = 'type,address(type, addressLocality, addressCountry)';
+    const exportFields = 'type,address(type,addressLocality,addressCountry)';
     const foreignPortExport = mask(fullForeignPortExport, exportFields);
 
     const fullPortOfEntry = getPlace();
     delete fullPortOfEntry['@context'];
-    const portFields = 'type,address(type, addressLocality, addressRegion)';
+    const portFields = 'type,address(type,addressLocality,addressRegion)';
     const portOfEntry = mask(fullPortOfEntry, portFields);
 
     const fullAgInspectionReport = getAgInspectionReport();
