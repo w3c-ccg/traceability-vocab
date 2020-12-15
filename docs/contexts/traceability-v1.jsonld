@@ -14,16 +14,16 @@
       "@id": "https://w3id.org/traceability/AgInspectionReport",
       "@context": {
         "facility": {
-          "@id": "https://schema.org/Place"
+          "@id": "https://w3id.org/traceability/#facility"
         },
         "inspector": {
-          "@id": "https://w3id.org/traceability/schemas/inspector"
+          "@id": "https://w3id.org/traceability/#inspector"
         },
         "shipment": {
           "@id": "https://schema.org/ParcelDelivery"
         },
-        "applicantId": {
-          "@id": "https://schema.org/identifier"
+        "applicant": {
+          "@id": "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities"
         },
         "inspectionDate": {
           "@id": "https://schema.org/DateTime"
@@ -70,6 +70,10 @@
         }
       }
     },
+    "Entity": {
+      "@id": "https://w3id.org/traceability/#dfn-entities",
+      "@context": {}
+    },
     "GeoCoordinates": {
       "@id": "https://schema.org/GeoCoordinates",
       "@context": {
@@ -93,7 +97,7 @@
       "@id": "https://w3id.org/traceability/Inspector",
       "@context": {
         "person": {
-          "@id": "https://schema.org/Person"
+          "@id": "https://w3id.org/traceability/schemas/Person.json"
         },
         "credential": {
           "@id": "https://schema.org/ItemList"
@@ -111,7 +115,7 @@
           "@id": "https://www.schema.org/value"
         },
         "unitCode": {
-          "@id": "https://www.schema.org/unitCode"
+          "@id": "https://schema.org/unitCode"
         }
       }
     },
@@ -133,10 +137,70 @@
       "@id": "https://w3id.org/traceability/Observation",
       "@context": {
         "property": {
-          "@id": "https://schema.org/property"
+          "@id": "https://schema.org/measuredProperty"
         },
         "measurement": {
-          "@id": "https://schema.org/measurement"
+          "@id": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+        }
+      }
+    },
+    "Organization": {
+      "@id": "https://schema.org/Organization",
+      "@context": {
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "address": {
+          "@id": "https://schema.org/PostalAddress"
+        },
+        "email": {
+          "@id": "https://schema.org/email"
+        },
+        "phoneNumber": {
+          "@id": "https://schema.org/telephone"
+        }
+      }
+    },
+    "ParcelDelivery": {
+      "@id": "https://schema.org/ParcelDelivery",
+      "@context": {
+        "deliveryAddress": {
+          "@id": "https://schema.org/deliveryAddress"
+        },
+        "originAddress": {
+          "@id": "https://schema.org/originAddress"
+        },
+        "trackingNumber": {
+          "@id": "https://schema.org/trackingNumber"
+        },
+        "products": {
+          "@id": "https://schema.org/ItemList"
+        }
+      }
+    },
+    "Person": {
+      "@id": "https://schema.org/Person",
+      "@context": {
+        "firstName": {
+          "@id": "https://schema.org/givenName"
+        },
+        "lastName": {
+          "@id": "https://schema.org/familyName"
+        },
+        "email": {
+          "@id": "https://schema.org/email"
+        },
+        "phoneNumber": {
+          "@id": "https://schema.org/telephone"
+        },
+        "worksFor": {
+          "@id": "https://schema.org/worksFor"
+        },
+        "jobTitle": {
+          "@id": "https://schema.org/jobTitle"
         }
       }
     },
@@ -183,6 +247,40 @@
         },
         "postOfficeBoxNumber": {
           "@id": "https://schema.org/postOfficeBoxNumber"
+        }
+      }
+    },
+    "Product": {
+      "@id": "https://schema.org/Product",
+      "@context": {
+        "manufacturer": {
+          "@id": "https://schema.org/manufacturer"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "sizeOrAmount": {
+          "@id": "https://schema.org/size"
+        },
+        "weight": {
+          "@id": "https://schema.org/weight"
+        },
+        "sku": {
+          "@id": "https://schema.org/sku"
+        }
+      }
+    },
+    "QuantitativeValue": {
+      "@id": "https://schema.org/QuantitativeValue",
+      "@context": {
+        "unitCode": {
+          "@id": "https://schema.org/unitCode"
+        },
+        "value": {
+          "@id": "https://schema.org/value"
         }
       }
     }

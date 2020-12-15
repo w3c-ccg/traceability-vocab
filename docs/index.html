@@ -333,18 +333,18 @@
     "title": "Agriculture Inspection Report",
     "description": "Information on the Inspection and the observations made",
     "classProperties": {
-      "https://schema.org/Place": {
+      "https://w3id.org/traceability/#facility": {
         "$comment": {
           "term": "facility",
-          "@id": "https://schema.org/Place"
+          "@id": "https://w3id.org/traceability/#facility"
         },
-        "title": "Facility Identifier",
-        "description": "Identifiers for an inspection facility."
+        "title": "Facility",
+        "description": "Information on the inspection facility."
       },
-      "https://w3id.org/traceability/schemas/inspector": {
+      "https://w3id.org/traceability/#inspector": {
         "$comment": {
           "term": "inspector",
-          "@id": "https://w3id.org/traceability/schemas/inspector"
+          "@id": "https://w3id.org/traceability/#inspector"
         },
         "title": "Inspector",
         "description": "Inspector performing the Aggriculture Inspection"
@@ -357,13 +357,13 @@
         "title": "Shipment",
         "description": "Details for a shipment of goods."
       },
-      "https://schema.org/identifier": {
+      "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities": {
         "$comment": {
-          "term": "applicantId",
-          "@id": "https://schema.org/identifier"
+          "term": "applicant",
+          "@id": "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities"
         },
-        "title": "Applicant Identifier",
-        "description": "Identifiers for the entity inspection applicant."
+        "title": "Applicant",
+        "description": "Entity that is applying for the inspection."
       },
       "https://schema.org/DateTime": {
         "$comment": {
@@ -391,7 +391,580 @@
         "description": "List of observations"
       }
     },
-    "examples": [],
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "AgInspectionReport",
+        "facility": {
+          "type": "Place",
+          "globalLocationNumber": "7640114717895",
+          "geo": {
+            "type": "GeoCoordinates",
+            "latitude": "57.3577",
+            "longitude": "11.6661"
+          },
+          "address": {
+            "type": "PostalAddress",
+            "organizationName": "Reichert, Upton and Cronin",
+            "streetAddress": "22690 O'Conner Brook",
+            "addressLocality": "New Xanderstad",
+            "addressRegion": "Georgia",
+            "postalCode": "75439-7663",
+            "addressCountry": "Azerbaijan"
+          }
+        },
+        "inspector": {
+          "type": "Inspector",
+          "person": {
+            "type": "Person",
+            "firstName": "Josiane",
+            "lastName": "Kunze",
+            "email": "Earnest.Quitzon@example.net",
+            "phoneNumber": "555-872-5989",
+            "worksFor": {
+              "type": "Organization",
+              "name": "Leffler, Bruen and Jenkins",
+              "description": "Progressive 4th generation protocol",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "19578 Keon Drives",
+                "addressLocality": "North Lonie",
+                "addressRegion": "Michigan",
+                "postalCode": "69422",
+                "addressCountry": "Saudi Arabia"
+              },
+              "email": "Marion.Ernser@example.org",
+              "phoneNumber": "555-728-6517"
+            },
+            "jobTitle": "National Data Producer"
+          },
+          "credential": [
+            {
+              "type": "Credential",
+              "credentialCategory": "Future Usability Associate",
+              "credentialValue": "Engineer"
+            },
+            {
+              "type": "Credential",
+              "credentialCategory": "Future Division Administrator",
+              "credentialValue": "Designer"
+            },
+            {
+              "type": "Credential",
+              "credentialCategory": "Dynamic Operations Analyst",
+              "credentialValue": "Officer"
+            }
+          ]
+        },
+        "shipment": {
+          "type": "ParcelDelivery",
+          "deliveryAddress": {
+            "type": "PostalAddress",
+            "organizationName": "Swift, Kutch and Hyatt",
+            "streetAddress": "276 Ara Avenue",
+            "addressLocality": "Langport",
+            "addressRegion": "Texas",
+            "postalCode": "49148-8045",
+            "addressCountry": "Iceland"
+          },
+          "originAddress": {
+            "type": "PostalAddress",
+            "organizationName": "Tillman Group",
+            "streetAddress": "4538 Elna Stravenue",
+            "addressLocality": "Port Jedside",
+            "addressRegion": "Wyoming",
+            "postalCode": "64282",
+            "addressCountry": "Mayotte"
+          },
+          "trackingNumber": "935690808362",
+          "products": [
+            {
+              "type": "Product",
+              "manufacturer": {
+                "type": "Person",
+                "firstName": "Lance",
+                "lastName": "Ernser",
+                "email": "Jimmy49@example.net",
+                "phoneNumber": "555-675-3201",
+                "worksFor": {
+                  "type": "Organization",
+                  "name": "Monahan Group",
+                  "description": "Synergistic grid-enabled middleware",
+                  "address": {
+                    "type": "PostalAddress",
+                    "streetAddress": "48520 Gladyce Passage",
+                    "addressLocality": "Lake Aminabury",
+                    "addressRegion": "Tennessee",
+                    "postalCode": "14017-8234",
+                    "addressCountry": "Kuwait"
+                  },
+                  "email": "Kaci.Schamberger80@example.org",
+                  "phoneNumber": "555-803-4773"
+                },
+                "jobTitle": "Lead Mobility Producer"
+              },
+              "name": "Rustic Granite Salad",
+              "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+              "sizeOrAmount": {
+                "type": "QuantitativeValue",
+                "unitCode": "hg/ha",
+                "value": "2259"
+              },
+              "weight": {
+                "type": "QuantitativeValue",
+                "unitCode": "hg/ha",
+                "value": "4192"
+              },
+              "sku": "414883292238"
+            }
+          ]
+        },
+        "applicant": {
+          "type": "Organization",
+          "name": "Kutch, Dietrich and Reichel",
+          "description": "Reduced web-enabled extranet",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "8843 O'Kon Prairie",
+            "addressLocality": "Tyreeton",
+            "addressRegion": "New Jersey",
+            "postalCode": "27928-0035",
+            "addressCountry": "Burundi"
+          },
+          "email": "Gideon4@example.com",
+          "phoneNumber": "555-727-9797"
+        },
+        "inspectionDate": "11-0-2020",
+        "inspectionType": "Food Safety",
+        "observation": [
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Lutetium",
+              "formula": "Lu",
+              "inchi": "InChI=1S/Lu",
+              "inchikey": "OHSVLFRHMCKCQY-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "100.00",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "66.502",
+              "unitCode": "B13"
+            }
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "AgInspectionReport",
+        "facility": {
+          "type": "Place",
+          "globalLocationNumber": "2204855679314",
+          "geo": {
+            "type": "GeoCoordinates",
+            "latitude": "78.3423",
+            "longitude": "126.7635"
+          },
+          "address": {
+            "type": "PostalAddress",
+            "organizationName": "Murazik, Deckow and Stamm",
+            "streetAddress": "903 Christiansen Centers",
+            "addressLocality": "North Deja",
+            "addressRegion": "Virginia",
+            "postalCode": "53442",
+            "addressCountry": "Tuvalu"
+          }
+        },
+        "inspector": {
+          "type": "Inspector",
+          "person": {
+            "type": "Person",
+            "firstName": "Emerald",
+            "lastName": "Lehner",
+            "email": "Theodore.Walsh@example.org",
+            "phoneNumber": "555-907-3913",
+            "worksFor": {
+              "type": "Organization",
+              "name": "Stracke LLC",
+              "description": "Face to face upward-trending encryption",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "505 Gusikowski Stream",
+                "addressLocality": "East Riley",
+                "addressRegion": "Arkansas",
+                "postalCode": "57512-6789",
+                "addressCountry": "Trinidad and Tobago"
+              },
+              "email": "Katlynn_Yundt78@example.net",
+              "phoneNumber": "555-782-4955"
+            },
+            "jobTitle": "Corporate Infrastructure Liaison"
+          },
+          "credential": [
+            {
+              "type": "Credential",
+              "credentialCategory": "Customer Solutions Designer",
+              "credentialValue": "Liaison"
+            },
+            {
+              "type": "Credential",
+              "credentialCategory": "Chief Quality Planner",
+              "credentialValue": "Executive"
+            },
+            {
+              "type": "Credential",
+              "credentialCategory": "District Metrics Engineer",
+              "credentialValue": "Agent"
+            }
+          ]
+        },
+        "shipment": {
+          "type": "ParcelDelivery",
+          "deliveryAddress": {
+            "type": "PostalAddress",
+            "organizationName": "Hermann - Kuphal",
+            "streetAddress": "5434 Jaqueline Junctions",
+            "addressLocality": "Port Arielton",
+            "addressRegion": "Minnesota",
+            "postalCode": "56485-3116",
+            "addressCountry": "Saint Lucia"
+          },
+          "originAddress": {
+            "type": "PostalAddress",
+            "organizationName": "Wehner, Rohan and Mitchell",
+            "streetAddress": "26917 Kobe Center",
+            "addressLocality": "New Raoul",
+            "addressRegion": "Indiana",
+            "postalCode": "34538-3236",
+            "addressCountry": "Saint Helena"
+          },
+          "trackingNumber": "135617550070",
+          "products": [
+            {
+              "type": "Product",
+              "manufacturer": {
+                "type": "Person",
+                "firstName": "Emanuel",
+                "lastName": "Kuhn",
+                "email": "Audra.Feest89@example.net",
+                "phoneNumber": "555-242-4486",
+                "worksFor": {
+                  "type": "Organization",
+                  "name": "Bayer - Gusikowski",
+                  "description": "Networked demand-driven model",
+                  "address": {
+                    "type": "PostalAddress",
+                    "streetAddress": "6788 Parker Wells",
+                    "addressLocality": "South Brandofurt",
+                    "addressRegion": "Louisiana",
+                    "postalCode": "58130-2813",
+                    "addressCountry": "Kyrgyz Republic"
+                  },
+                  "email": "Gunnar30@example.com",
+                  "phoneNumber": "555-721-2252"
+                },
+                "jobTitle": "Legacy Metrics Specialist"
+              },
+              "name": "Licensed Metal Shirt",
+              "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+              "sizeOrAmount": {
+                "type": "QuantitativeValue",
+                "unitCode": "hg/ha",
+                "value": "2965"
+              },
+              "weight": {
+                "type": "QuantitativeValue",
+                "unitCode": "hg/ha",
+                "value": "4876"
+              },
+              "sku": "735264766124"
+            }
+          ]
+        },
+        "applicant": {
+          "type": "Person",
+          "firstName": "Cameron",
+          "lastName": "Batz",
+          "email": "Electa_Graham@example.net",
+          "phoneNumber": "555-927-6686",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Goldner - Mills",
+            "description": "Inverse user-facing artificial intelligence",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "87171 Marcellus Glens",
+              "addressLocality": "Russborough",
+              "addressRegion": "Arkansas",
+              "postalCode": "53589-4481",
+              "addressCountry": "Latvia"
+            },
+            "email": "Caitlyn_Schmidt71@example.org",
+            "phoneNumber": "555-908-6954"
+          },
+          "jobTitle": "Central Creative Director"
+        },
+        "inspectionDate": "11-1-2020",
+        "inspectionType": "General",
+        "observation": [
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Copernicium",
+              "formula": "Cn",
+              "inchi": "InChI=1S/Cn",
+              "inchikey": "NOTIIDSZELDPOP-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "100.00",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "AgInspectionReport",
+        "facility": {
+          "type": "Place",
+          "globalLocationNumber": "1546171868050",
+          "geo": {
+            "type": "GeoCoordinates",
+            "latitude": "-54.2863",
+            "longitude": "-45.6557"
+          },
+          "address": {
+            "type": "PostalAddress",
+            "organizationName": "Kihn - Abbott",
+            "streetAddress": "44221 McGlynn Camp",
+            "addressLocality": "East Nicole",
+            "addressRegion": "Florida",
+            "postalCode": "51380-8826",
+            "addressCountry": "Cambodia"
+          }
+        },
+        "inspector": {
+          "type": "Inspector",
+          "person": {
+            "type": "Person",
+            "firstName": "Jermaine",
+            "lastName": "McClure",
+            "email": "Raphaelle.Bailey@example.com",
+            "phoneNumber": "555-329-1996",
+            "worksFor": {
+              "type": "Organization",
+              "name": "Rogahn, O'Reilly and Mohr",
+              "description": "Front-line optimal extranet",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "62503 Ashlynn Squares",
+                "addressLocality": "Camrenmouth",
+                "addressRegion": "Oregon",
+                "postalCode": "78657",
+                "addressCountry": "Greenland"
+              },
+              "email": "Ambrose_Towne@example.org",
+              "phoneNumber": "555-716-2050"
+            },
+            "jobTitle": "Customer Mobility Analyst"
+          },
+          "credential": [
+            {
+              "type": "Credential",
+              "credentialCategory": "Future Operations Designer",
+              "credentialValue": "Liaison"
+            },
+            {
+              "type": "Credential",
+              "credentialCategory": "Human Data Architect",
+              "credentialValue": "Engineer"
+            }
+          ]
+        },
+        "shipment": {
+          "type": "ParcelDelivery",
+          "deliveryAddress": {
+            "type": "PostalAddress",
+            "organizationName": "Dickens LLC",
+            "streetAddress": "394 Dietrich Junction",
+            "addressLocality": "Jenkinsport",
+            "addressRegion": "Colorado",
+            "postalCode": "96673-2747",
+            "addressCountry": "Botswana"
+          },
+          "originAddress": {
+            "type": "PostalAddress",
+            "organizationName": "Flatley - Streich",
+            "streetAddress": "554 Arvel Greens",
+            "addressLocality": "North Raheemside",
+            "addressRegion": "Nevada",
+            "postalCode": "70082-2493",
+            "addressCountry": "British Indian Ocean Territory (Chagos Archipelago)"
+          },
+          "trackingNumber": "852821021888",
+          "products": [
+            {
+              "type": "Product",
+              "manufacturer": {
+                "type": "Person",
+                "firstName": "Colten",
+                "lastName": "Kreiger",
+                "email": "Jacynthe.Dickens17@example.org",
+                "phoneNumber": "555-453-4431",
+                "worksFor": {
+                  "type": "Organization",
+                  "name": "Steuber Inc",
+                  "description": "Open-architected needs-based strategy",
+                  "address": {
+                    "type": "PostalAddress",
+                    "streetAddress": "43564 Clemmie Unions",
+                    "addressLocality": "West Ada",
+                    "addressRegion": "Texas",
+                    "postalCode": "59697-7783",
+                    "addressCountry": "Kyrgyz Republic"
+                  },
+                  "email": "Orval_Rogahn49@example.org",
+                  "phoneNumber": "555-571-5880"
+                },
+                "jobTitle": "Investor Division Producer"
+              },
+              "name": "Fantastic Rubber Shirt",
+              "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+              "sizeOrAmount": {
+                "type": "QuantitativeValue",
+                "unitCode": "hg/ha",
+                "value": "9118"
+              },
+              "weight": {
+                "type": "QuantitativeValue",
+                "unitCode": "hg/ha",
+                "value": "9601"
+              },
+              "sku": "313768704353"
+            }
+          ]
+        },
+        "applicant": {
+          "type": "Person",
+          "firstName": "Citlalli",
+          "lastName": "Strosin",
+          "email": "Arlo.Wisoky22@example.com",
+          "phoneNumber": "555-305-6593",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Bosco - Beer",
+            "description": "Reduced 5th generation help-desk",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "67794 Trenton Ramp",
+              "addressLocality": "New Peggieside",
+              "addressRegion": "Vermont",
+              "postalCode": "82231",
+              "addressCountry": "Slovakia (Slovak Republic)"
+            },
+            "email": "Lamar.Hermiston93@example.com",
+            "phoneNumber": "555-974-7568"
+          },
+          "jobTitle": "Customer Branding Specialist"
+        },
+        "inspectionDate": "11-1-2020",
+        "inspectionType": "General",
+        "observation": [
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 180",
+              "name": "Izod Impact Strength Test",
+              "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "50.186",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          }
+        ]
+      }
+    ],
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
@@ -414,13 +987,13 @@
           ]
         },
         "facility": {
-          "$comment": "{\"term\": \"facility\", \"@id\": \"https://schema.org/Place\"}",
-          "title": "Facility Identifier",
-          "description": "Identifiers for an inspection facility.",
+          "$comment": "{\"term\": \"facility\", \"@id\": \"https://w3id.org/traceability/#facility\"}",
+          "title": "Facility",
+          "description": "Information on the inspection facility.",
           "$ref": "https://w3id.org/traceability/schemas/Place.json"
         },
         "inspector": {
-          "$comment": "{\"term\": \"inspector\", \"@id\": \"https://w3id.org/traceability/schemas/inspector\"}",
+          "$comment": "{\"term\": \"inspector\", \"@id\": \"https://w3id.org/traceability/#inspector\"}",
           "title": "Inspector",
           "description": "Inspector performing the Aggriculture Inspection",
           "$ref": "https://w3id.org/traceability/schemas/Inspector.json"
@@ -429,13 +1002,13 @@
           "$comment": "{\"term\": \"shipment\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
           "title": "Shipment",
           "description": "Details for a shipment of goods.",
-          "$ref": "https://schema.org/version/latest/schemaorg-current-http.jsonld#https://schema.org/ParcelDelivery"
+          "$ref": "https://w3id.org/traceability/schemas/ParcelDelivery.json"
         },
-        "applicantId": {
-          "$comment": "{\"term\": \"applicantId\", \"@id\": \"https://schema.org/identifier\"}",
-          "title": "Applicant Identifier",
-          "description": "Identifiers for the entity inspection applicant.",
-          "type": "string"
+        "applicant": {
+          "$comment": "{\"term\": \"applicant\", \"@id\": \"https://w3c-ccg.github.io/traceability-vocab/#dfn-entities\"}",
+          "title": "Applicant",
+          "description": "Entity that is applying for the inspection.",
+          "$ref": "https://w3id.org/traceability/schemas/Entity.json"
         },
         "inspectionDate": {
           "$comment": "{\"term\": \"inspectionDate\", \"@id\": \"https://schema.org/DateTime\"}",
@@ -649,24 +1222,24 @@
           "https://w3id.org/traceability/v1"
         ],
         "type": "Credential",
-        "credentialCategory": "Forward Quality Officer",
-        "credentialValue": "Engineer"
+        "credentialCategory": "Dynamic Usability Agent",
+        "credentialValue": "Technician"
       },
       {
         "@context": [
           "https://w3id.org/traceability/v1"
         ],
         "type": "Credential",
-        "credentialCategory": "International Response Specialist",
-        "credentialValue": "Architect"
+        "credentialCategory": "Chief Implementation Architect",
+        "credentialValue": "Representative"
       },
       {
         "@context": [
           "https://w3id.org/traceability/v1"
         ],
         "type": "Credential",
-        "credentialCategory": "Principal Infrastructure Technician",
-        "credentialValue": "Specialist"
+        "credentialCategory": "Investor Functionality Producer",
+        "credentialValue": "Strategist"
       }
     ],
     "schema": {
@@ -704,6 +1277,97 @@
         }
       },
       "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability/#dfn-entities": {
+    "$id": "https://w3id.org/traceability/schemas/Entity.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Entity",
+      "@id": "https://w3id.org/traceability/#dfn-entities"
+    },
+    "title": "Entity",
+    "description": "A person or organization.",
+    "classProperties": {},
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Organization",
+        "name": "Kohler, Schultz and Ziemann",
+        "description": "Switchable next generation pricing structure",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "704 Rath Drive",
+          "addressLocality": "Weissnatside",
+          "addressRegion": "Alaska",
+          "postalCode": "03585-2858",
+          "addressCountry": "Niger"
+        },
+        "email": "Conor_Windler@example.org",
+        "phoneNumber": "555-757-6938"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Person",
+        "firstName": "Misael",
+        "lastName": "Waters",
+        "email": "Cary_Thompson40@example.com",
+        "phoneNumber": "555-573-6633",
+        "worksFor": {
+          "type": "Organization",
+          "name": "Dietrich, Stehr and Veum",
+          "description": "Realigned context-sensitive synergy",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "7014 Hammes Underpass",
+            "addressLocality": "East Gia",
+            "addressRegion": "West Virginia",
+            "postalCode": "16881",
+            "addressCountry": "Belgium"
+          },
+          "email": "Percy.MacGyver44@example.org",
+          "phoneNumber": "555-494-1802"
+        },
+        "jobTitle": "Senior Intranet Director"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Organization",
+        "name": "Bartoletti, Stracke and Stracke",
+        "description": "Front-line actuating infrastructure",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "6987 Bradtke Shore",
+          "addressLocality": "West Howellhaven",
+          "addressRegion": "Georgia",
+          "postalCode": "40219-3611",
+          "addressCountry": "Nepal"
+        },
+        "email": "Hubert.Jaskolski0@example.net",
+        "phoneNumber": "555-571-8522"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Entity.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Entity\", \"@id\": \"https://w3id.org/traceability/#dfn-entities\"}",
+      "title": "Entity",
+      "description": "A person or organization.",
+      "anyOf": [
+        {
+          "$ref": "https://w3id.org/traceability/schemas/Person.json"
+        },
+        {
+          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+        }
+      ],
       "examples": []
     }
   },
@@ -833,24 +1497,12 @@
             "type": "Observation",
             "property": {
               "type": "MechanicalProperty",
-              "identifier": "ISO 148",
-              "name": "Charpy Impact Strength Test",
-              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
-            },
-            "measurement": {
-              "value": "24.720",
-              "unitCode": "B13"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "MechanicalProperty",
               "identifier": "ISO 3738",
               "name": "Rockwell Hardness Test (Scale A)",
               "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
             },
             "measurement": {
+              "type": "MeasuredValue",
               "value": "00.00",
               "unitCode": "UNKNOWN"
             }
@@ -859,91 +1511,89 @@
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Nihonium",
-              "formula": "Nh"
+              "name": "Radon",
+              "formula": "Rn",
+              "inchi": "InChI=1S/Rn",
+              "inchikey": "SYUHGPGVQRZVTB-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "00.00",
-              "unitCode": "UNKNOWN"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "MechanicalProperty",
-              "identifier": "ISO 148",
-              "name": "Charpy Impact Strength Test",
-              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
-            },
-            "measurement": {
-              "value": "66.711",
-              "unitCode": "B13"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "ChemicalProperty",
-              "name": "Thulium",
-              "formula": "Tm",
-              "inchi": "InChI=1S/Tm",
-              "inchikey": "FRNOGLGSGLTDKL-UHFFFAOYSA-N"
-            },
-            "measurement": {
-              "value": "31.503",
+              "type": "MeasuredValue",
+              "value": "12.421",
               "unitCode": "P1"
             }
           },
           {
             "type": "Observation",
             "property": {
-              "type": "MechanicalProperty",
-              "identifier": "ISO 3738",
-              "name": "Rockwell Hardness Test (Scale A)",
-              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+              "type": "ChemicalProperty",
+              "name": "Yttrium",
+              "formula": "Y",
+              "inchi": "InChI=1S/Y",
+              "inchikey": "VWQVUPCCIRVNHF-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "00.00",
-              "unitCode": "UNKNOWN"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "MechanicalProperty",
-              "identifier": "ISO 1352",
-              "name": "Torque-controlled fatigue testing",
-              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
-            },
-            "measurement": {
-              "value": "00.00",
-              "unitCode": "UNKNOWN"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "MechanicalProperty",
-              "identifier": "ISO 3738",
-              "name": "Rockwell Hardness Test (Scale A)",
-              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
-            },
-            "measurement": {
-              "value": "00.00",
-              "unitCode": "UNKNOWN"
+              "type": "MeasuredValue",
+              "value": "21.726",
+              "unitCode": "P1"
             }
           },
           {
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Boron",
-              "formula": "B",
-              "inchi": "InChI=1S/B",
-              "inchikey": "ZOXJGFHDIHLPTG-UHFFFAOYSA-N"
+              "name": "Silver",
+              "formula": "Ag",
+              "inchi": "InChI=1S/Ag",
+              "inchikey": "BQCADISMDOOEFD-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "68.497",
+              "type": "MeasuredValue",
+              "value": "13.155",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Tin",
+              "formula": "Sn",
+              "inchi": "InChI=1S/Sn",
+              "inchikey": "ATJFFYVFTNAWJD-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "25.748",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Platinum",
+              "formula": "Pt",
+              "inchi": "InChI=1S/Pt",
+              "inchikey": "BASFCYQUMIYNBI-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "18.023",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Americium",
+              "formula": "Am",
+              "inchi": "InChI=1S/Am",
+              "inchikey": "LXQXZNRPTYVCNG-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "8.9266",
               "unitCode": "P1"
             }
           }
@@ -959,52 +1609,27 @@
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Cesium",
-              "formula": "Cs",
-              "inchi": "InChI=1S/Cs",
-              "inchikey": "TVFDJXOCXUVLDH-UHFFFAOYSA-N"
+              "name": "Ytterbium",
+              "formula": "Yb",
+              "inchi": "InChI=1S/Yb",
+              "inchikey": "NAWDYIZEMPQZHO-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "32.812",
+              "type": "MeasuredValue",
+              "value": "20.708",
               "unitCode": "P1"
             }
           },
           {
             "type": "Observation",
             "property": {
-              "type": "ChemicalProperty",
-              "name": "Antimony",
-              "formula": "Sb",
-              "inchi": "InChI=1S/Sb",
-              "inchikey": "WATWJIUSRGPENY-UHFFFAOYSA-N"
+              "type": "MechanicalProperty",
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
             },
             "measurement": {
-              "value": "40.179",
-              "unitCode": "P1"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "ChemicalProperty",
-              "name": "Selenium",
-              "formula": "Se",
-              "inchi": "InChI=1S/Se",
-              "inchikey": "BUGBHKTXTAQXES-UHFFFAOYSA-N"
-            },
-            "measurement": {
-              "value": "3.3154",
-              "unitCode": "P1"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "ChemicalProperty",
-              "name": "Nihonium",
-              "formula": "Nh"
-            },
-            "measurement": {
+              "type": "MeasuredValue",
               "value": "00.00",
               "unitCode": "UNKNOWN"
             }
@@ -1012,14 +1637,88 @@
           {
             "type": "Observation",
             "property": {
-              "type": "ChemicalProperty",
-              "name": "Scandium",
-              "formula": "Sc",
-              "inchi": "InChI=1S/Sc",
-              "inchikey": "SIXSYDAISGFNSX-UHFFFAOYSA-N"
+              "type": "MechanicalProperty",
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
             },
             "measurement": {
-              "value": "23.694",
+              "type": "MeasuredValue",
+              "value": "62.126",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Strontium",
+              "formula": "Sr",
+              "inchi": "InChI=1S/Sr",
+              "inchikey": "CIOAGBVUUVVLOB-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "16.816",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Dysprosium",
+              "formula": "Dy",
+              "inchi": "InChI=1S/Dy",
+              "inchikey": "KBQHZAAAGSGFKK-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "24.057",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "97.89",
+              "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Chlorine",
+              "formula": "Cl",
+              "inchi": "InChI=1S/Cl",
+              "inchikey": "ZAMOUSCENKQFHK-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "16.212",
+              "unitCode": "P1"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Carbon",
+              "formula": "C",
+              "inchi": "InChI=1S/C",
+              "inchikey": "OKTJSMMVPCPJKN-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "22.207",
               "unitCode": "P1"
             }
           }
@@ -1035,13 +1734,14 @@
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Indium",
-              "formula": "In",
-              "inchi": "InChI=1S/In",
-              "inchikey": "APFVFJFRJDLVQX-UHFFFAOYSA-N"
+              "name": "Holmium",
+              "formula": "Ho",
+              "inchi": "InChI=1S/Ho",
+              "inchikey": "KJZYNXUDTRRSPN-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "33.267",
+              "type": "MeasuredValue",
+              "value": "5.4386",
               "unitCode": "P1"
             }
           },
@@ -1049,27 +1749,14 @@
             "type": "Observation",
             "property": {
               "type": "ChemicalProperty",
-              "name": "Francium",
-              "formula": "Fr",
-              "inchi": "InChI=1S/Fr",
-              "inchikey": "KLMCZVJOEAUDNE-UHFFFAOYSA-N"
+              "name": "Barium",
+              "formula": "Ba",
+              "inchi": "InChI=1S/Ba",
+              "inchikey": "DSAJWYNOEDNPEQ-UHFFFAOYSA-N"
             },
             "measurement": {
-              "value": "28.949",
-              "unitCode": "P1"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "ChemicalProperty",
-              "name": "Krypton",
-              "formula": "Kr",
-              "inchi": "InChI=1S/Kr",
-              "inchikey": "DNNSSWSSYDEUBZ-UHFFFAOYSA-N"
-            },
-            "measurement": {
-              "value": "37.783",
+              "type": "MeasuredValue",
+              "value": "50.985",
               "unitCode": "P1"
             }
           },
@@ -1077,13 +1764,29 @@
             "type": "Observation",
             "property": {
               "type": "MechanicalProperty",
-              "identifier": "ISO 180",
-              "name": "Izod Impact Strength Test",
-              "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+              "identifier": "ISO 148",
+              "name": "Charpy Impact Strength Test",
+              "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
             },
             "measurement": {
-              "value": "92.316",
+              "type": "MeasuredValue",
+              "value": "5.299",
               "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "ChemicalProperty",
+              "name": "Cadmium",
+              "formula": "Cd",
+              "inchi": "InChI=1S/Cd",
+              "inchikey": "BDOSMKKIYDKNTQ-UHFFFAOYSA-N"
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "43.577",
+              "unitCode": "P1"
             }
           },
           {
@@ -1095,19 +1798,7 @@
               "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
             },
             "measurement": {
-              "value": "00.00",
-              "unitCode": "UNKNOWN"
-            }
-          },
-          {
-            "type": "Observation",
-            "property": {
-              "type": "MechanicalProperty",
-              "identifier": "ISO 3738",
-              "name": "Rockwell Hardness Test (Scale A)",
-              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
-            },
-            "measurement": {
+              "type": "MeasuredValue",
               "value": "00.00",
               "unitCode": "UNKNOWN"
             }
@@ -1121,8 +1812,37 @@
               "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
             },
             "measurement": {
-              "value": "78.265",
+              "type": "MeasuredValue",
+              "value": "60.262",
               "unitCode": "B13"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 3738",
+              "name": "Rockwell Hardness Test (Scale A)",
+              "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
+            }
+          },
+          {
+            "type": "Observation",
+            "property": {
+              "type": "MechanicalProperty",
+              "identifier": "ISO 1352",
+              "name": "Torque-controlled fatigue testing",
+              "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+            },
+            "measurement": {
+              "type": "MeasuredValue",
+              "value": "00.00",
+              "unitCode": "UNKNOWN"
             }
           }
         ]
@@ -1173,10 +1893,10 @@
     "title": "Inspector",
     "description": "Information on the person performing an inspection",
     "classProperties": {
-      "https://schema.org/Person": {
+      "https://w3id.org/traceability/schemas/Person.json": {
         "$comment": {
           "term": "person",
-          "@id": "https://schema.org/Person"
+          "@id": "https://w3id.org/traceability/schemas/Person.json"
         },
         "title": "Person",
         "description": "Person doing the inspection."
@@ -1197,17 +1917,34 @@
           "https://w3id.org/traceability/v1"
         ],
         "type": "Inspector",
-        "person": "Julius Hartmann",
+        "person": {
+          "type": "Person",
+          "firstName": "Oren",
+          "lastName": "Stokes",
+          "email": "Marques72@example.net",
+          "phoneNumber": "555-798-7405",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Ortiz - Grant",
+            "description": "Switchable dedicated leverage",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "9567 Wunsch Square",
+              "addressLocality": "North Jade",
+              "addressRegion": "Alaska",
+              "postalCode": "74640",
+              "addressCountry": "Grenada"
+            },
+            "email": "Craig.McDermott@example.org",
+            "phoneNumber": "555-569-3912"
+          },
+          "jobTitle": "Regional Configuration Analyst"
+        },
         "credential": [
           {
             "type": "Credential",
-            "credentialCategory": "Corporate Research Designer",
-            "credentialValue": "Architect"
-          },
-          {
-            "type": "Credential",
-            "credentialCategory": "International Security Producer",
-            "credentialValue": "Producer"
+            "credentialCategory": "Global Identity Administrator",
+            "credentialValue": "Agent"
           }
         ]
       },
@@ -1216,41 +1953,85 @@
           "https://w3id.org/traceability/v1"
         ],
         "type": "Inspector",
-        "person": "Sheryl Heidenreich",
+        "person": {
+          "type": "Person",
+          "firstName": "Fausto",
+          "lastName": "Casper",
+          "email": "Felipe.Purdy@example.com",
+          "phoneNumber": "555-565-6520",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Kub - Conn",
+            "description": "Upgradable mobile Graphic Interface",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "01853 Little Drives",
+              "addressLocality": "New Arthur",
+              "addressRegion": "Pennsylvania",
+              "postalCode": "53633-1512",
+              "addressCountry": "Macao"
+            },
+            "email": "Chesley_Haley66@example.net",
+            "phoneNumber": "555-858-2013"
+          },
+          "jobTitle": "Regional Identity Manager"
+        },
         "credential": [
           {
             "type": "Credential",
-            "credentialCategory": "Direct Group Analyst",
+            "credentialCategory": "Forward Mobility Consultant",
+            "credentialValue": "Consultant"
+          },
+          {
+            "type": "Credential",
+            "credentialCategory": "Lead Response Technician",
+            "credentialValue": "Producer"
+          },
+          {
+            "type": "Credential",
+            "credentialCategory": "Direct Usability Designer",
+            "credentialValue": "Technician"
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Inspector",
+        "person": {
+          "type": "Person",
+          "firstName": "Gaylord",
+          "lastName": "Quitzon",
+          "email": "Carolina_Hintz1@example.com",
+          "phoneNumber": "555-479-4899",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Ullrich LLC",
+            "description": "Team-oriented impactful circuit",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "702 Kaleigh Roads",
+              "addressLocality": "Port Maia",
+              "addressRegion": "Alabama",
+              "postalCode": "72741-6569",
+              "addressCountry": "Myanmar"
+            },
+            "email": "Gideon.Franecki45@example.net",
+            "phoneNumber": "555-699-1355"
+          },
+          "jobTitle": "Dynamic Brand Manager"
+        },
+        "credential": [
+          {
+            "type": "Credential",
+            "credentialCategory": "Direct Mobility Specialist",
             "credentialValue": "Liaison"
           },
           {
             "type": "Credential",
-            "credentialCategory": "Chief Communications Coordinator",
-            "credentialValue": "Strategist"
-          },
-          {
-            "type": "Credential",
-            "credentialCategory": "Corporate Paradigm Assistant",
-            "credentialValue": "Planner"
-          }
-        ]
-      },
-      {
-        "@context": [
-          "https://w3id.org/traceability/v1"
-        ],
-        "type": "Inspector",
-        "person": "Erin Considine III",
-        "credential": [
-          {
-            "type": "Credential",
-            "credentialCategory": "Dynamic Functionality Manager",
-            "credentialValue": "Strategist"
-          },
-          {
-            "type": "Credential",
-            "credentialCategory": "Corporate Research Producer",
-            "credentialValue": "Analyst"
+            "credentialCategory": "Regional Division Supervisor",
+            "credentialValue": "Engineer"
           }
         ]
       }
@@ -1277,10 +2058,10 @@
           ]
         },
         "person": {
-          "$comment": "{\"term\": \"person\", \"@id\": \"https://schema.org/Person\"}",
+          "$comment": "{\"term\": \"person\", \"@id\": \"https://w3id.org/traceability/schemas/Person.json\"}",
           "title": "Person",
           "description": "Person doing the inspection.",
-          "type": "string"
+          "$ref": "https://w3id.org/traceability/schemas/Person.json"
         },
         "credential": {
           "$comment": "{\"term\": \"credential\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
@@ -1370,10 +2151,10 @@
         "title": "Measurement Value",
         "description": "A floating-point numeric value that is qualified by the corresponding measurement unit code - see gs1:unitCode."
       },
-      "https://www.schema.org/unitCode": {
+      "https://schema.org/unitCode": {
         "$comment": {
           "term": "unitCode",
-          "@id": "https://www.schema.org/unitCode"
+          "@id": "https://schema.org/unitCode"
         },
         "title": "Measurement Unit",
         "description": "A string value indicating a Measurement Unit from UN/ECE Recommendation 20, Units of Measure used in International Trade e.g. GRM = gram - see <a href=\"http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf\">rec20_rev3</a>"
@@ -1433,7 +2214,7 @@
           "type": "string"
         },
         "unitCode": {
-          "$comment": "{\"term\": \"unitCode\", \"@id\": \"https://www.schema.org/unitCode\"}",
+          "$comment": "{\"term\": \"unitCode\", \"@id\": \"https://schema.org/unitCode\"}",
           "title": "Measurement Unit",
           "description": "A string value indicating a Measurement Unit from UN/ECE Recommendation 20, Units of Measure used in International Trade e.g. GRM = gram - see <a href=\"http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf\">rec20_rev3</a>",
           "type": "string"
@@ -1561,18 +2342,18 @@
     "title": "Observation",
     "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
     "classProperties": {
-      "https://schema.org/property": {
+      "https://schema.org/measuredProperty": {
         "$comment": {
           "term": "property",
-          "@id": "https://schema.org/property"
+          "@id": "https://schema.org/measuredProperty"
         },
         "title": "Measured Property",
         "description": "The property of an Observation."
       },
-      "https://schema.org/measurement": {
+      "https://w3id.org/traceability/schemas/MeasuredValue.json": {
         "$comment": {
           "term": "measurement",
-          "@id": "https://schema.org/measurement"
+          "@id": "https://w3id.org/traceability/schemas/MeasuredValue.json"
         },
         "title": "Measured Value",
         "description": "The measurement of an Observation."
@@ -1585,15 +2366,15 @@
         ],
         "type": "Observation",
         "property": {
-          "type": "ChemicalProperty",
-          "name": "Titanium",
-          "formula": "Ti",
-          "inchi": "InChI=1S/Ti",
-          "inchikey": "RTAQQCXQSZGOHL-UHFFFAOYSA-N"
+          "type": "MechanicalProperty",
+          "identifier": "ISO 3738",
+          "name": "Rockwell Hardness Test (Scale A)",
+          "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
         },
         "measurement": {
-          "value": "36.424",
-          "unitCode": "P1"
+          "type": "MeasuredValue",
+          "value": "00.00",
+          "unitCode": "UNKNOWN"
         }
       },
       {
@@ -1602,15 +2383,15 @@
         ],
         "type": "Observation",
         "property": {
-          "type": "ChemicalProperty",
-          "name": "Cadmium",
-          "formula": "Cd",
-          "inchi": "InChI=1S/Cd",
-          "inchikey": "BDOSMKKIYDKNTQ-UHFFFAOYSA-N"
+          "type": "MechanicalProperty",
+          "identifier": "ISO 148",
+          "name": "Charpy Impact Strength Test",
+          "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
         },
         "measurement": {
-          "value": "8.747",
-          "unitCode": "P1"
+          "type": "MeasuredValue",
+          "value": "46.456",
+          "unitCode": "B13"
         }
       },
       {
@@ -1619,15 +2400,15 @@
         ],
         "type": "Observation",
         "property": {
-          "type": "ChemicalProperty",
-          "name": "Lanthanum",
-          "formula": "La",
-          "inchi": "InChI=1S/La",
-          "inchikey": "FZLIPJUXYLNCLC-UHFFFAOYSA-N"
+          "type": "MechanicalProperty",
+          "identifier": "ISO 180",
+          "name": "Izod Impact Strength Test",
+          "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
         },
         "measurement": {
-          "value": "67.285",
-          "unitCode": "P1"
+          "type": "MeasuredValue",
+          "value": "78.265",
+          "unitCode": "B13"
         }
       }
     ],
@@ -1653,16 +2434,759 @@
           ]
         },
         "property": {
-          "$comment": "{\"term\": \"property\", \"@id\": \"https://schema.org/property\"}",
+          "$comment": "{\"term\": \"property\", \"@id\": \"https://schema.org/measuredProperty\"}",
           "title": "Measured Property",
           "description": "The property of an Observation.",
           "$ref": "https://w3id.org/traceability/schemas/MeasuredProperty.json"
         },
         "measurement": {
-          "$comment": "{\"term\": \"measurement\", \"@id\": \"https://schema.org/measurement\"}",
+          "$comment": "{\"term\": \"measurement\", \"@id\": \"https://w3id.org/traceability/schemas/MeasuredValue.json\"}",
           "title": "Measured Value",
           "description": "The measurement of an Observation.",
           "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://schema.org/Organization": {
+    "$id": "https://w3id.org/traceability/schemas/Organization.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Organization",
+      "@id": "https://schema.org/Organization"
+    },
+    "title": "Organization",
+    "description": "An organization such as a corporation, firm, club, etc.",
+    "classProperties": {
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "name",
+          "@id": "https://schema.org/name"
+        },
+        "title": "Name",
+        "description": "Name of the organization."
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Description",
+        "description": "Description of the company."
+      },
+      "https://schema.org/PostalAddress": {
+        "$comment": {
+          "term": "address",
+          "@id": "https://schema.org/PostalAddress"
+        },
+        "title": "Postal Address",
+        "description": "The postal address for an organization or place."
+      },
+      "https://schema.org/email": {
+        "$comment": {
+          "term": "email",
+          "@id": "https://schema.org/email"
+        },
+        "title": "Email Address",
+        "description": "Organization's primary email address."
+      },
+      "https://schema.org/telephone": {
+        "$comment": {
+          "term": "phoneNumber",
+          "@id": "https://schema.org/telephone"
+        },
+        "title": "Phone Number",
+        "description": "Organization's contact phone number."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Organization",
+        "name": "Willms, Hartmann and Beatty",
+        "description": "Self-enabling value-added forecast",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "8636 Aaliyah Inlet",
+          "addressLocality": "East Helgaburgh",
+          "addressRegion": "Virginia",
+          "postalCode": "56688-9508",
+          "addressCountry": "Swaziland"
+        },
+        "email": "Maxime_West84@example.org",
+        "phoneNumber": "555-294-9369"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Organization",
+        "name": "Prohaska, Heaney and McClure",
+        "description": "Re-engineered encompassing initiative",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "36925 Hudson Meadows",
+          "addressLocality": "East Christopher",
+          "addressRegion": "Missouri",
+          "postalCode": "81936",
+          "addressCountry": "Reunion"
+        },
+        "email": "Liliane.Kuphal@example.com",
+        "phoneNumber": "555-463-5164"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Organization",
+        "name": "Kassulke, Carter and Pfeffer",
+        "description": "Optional user-facing intranet",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "5986 Anderson Ways",
+          "addressLocality": "East Amayachester",
+          "addressRegion": "Oklahoma",
+          "postalCode": "93422",
+          "addressCountry": "Barbados"
+        },
+        "email": "Dorcas.Wiza44@example.org",
+        "phoneNumber": "555-167-7168"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Organization.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Organization\", \"@id\": \"https://schema.org/Organization\"}",
+      "title": "Organization",
+      "description": "An organization such as a corporation, firm, club, etc.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "name": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Name",
+          "description": "Name of the organization.",
+          "type": "string"
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Description",
+          "description": "Description of the company.",
+          "type": "string"
+        },
+        "address": {
+          "$comment": "{\"term\": \"address\", \"@id\": \"https://schema.org/PostalAddress\"}",
+          "title": "Postal Address",
+          "description": "The postal address for an organization or place.",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "email": {
+          "$comment": "{\"term\": \"email\", \"@id\": \"https://schema.org/email\"}",
+          "title": "Email Address",
+          "description": "Organization's primary email address.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$comment": "{\"term\": \"phoneNumber\", \"@id\": \"https://schema.org/telephone\"}",
+          "title": "Phone Number",
+          "description": "Organization's contact phone number.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://schema.org/ParcelDelivery": {
+    "$id": "https://w3id.org/traceability/schemas/ParcelDelivery.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "ParcelDelivery",
+      "@id": "https://schema.org/ParcelDelivery"
+    },
+    "title": "Parcel Delivery",
+    "description": "Details on a shipment or delivery.",
+    "classProperties": {
+      "https://schema.org/deliveryAddress": {
+        "$comment": {
+          "term": "deliveryAddress",
+          "@id": "https://schema.org/deliveryAddress"
+        },
+        "title": "Delivery Address",
+        "description": "Address to which the shipment is being sent."
+      },
+      "https://schema.org/originAddress": {
+        "$comment": {
+          "term": "originAddress",
+          "@id": "https://schema.org/originAddress"
+        },
+        "title": "Origin Address",
+        "description": "Address from where the shipment was sent."
+      },
+      "https://schema.org/trackingNumber": {
+        "$comment": {
+          "term": "trackingNumber",
+          "@id": "https://schema.org/trackingNumber"
+        },
+        "title": "Tracking Number",
+        "description": "Shipper tracking number."
+      },
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "products",
+          "@id": "https://schema.org/ItemList",
+          "@type": "https://schema.org/ItemList"
+        },
+        "title": "Product List",
+        "description": "List of Products"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ParcelDelivery",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Lang, Armstrong and Kling",
+          "streetAddress": "9391 Mohr Dale",
+          "addressLocality": "Jasperview",
+          "addressRegion": "Tennessee",
+          "postalCode": "93880-8851",
+          "addressCountry": "Panama"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Veum - Hodkiewicz",
+          "streetAddress": "8813 Zemlak Drives",
+          "addressLocality": "North Taliaburgh",
+          "addressRegion": "Hawaii",
+          "postalCode": "82128",
+          "addressCountry": "Bosnia and Herzegovina"
+        },
+        "trackingNumber": "819851284242",
+        "products": [
+          {
+            "type": "Product",
+            "manufacturer": {
+              "type": "Organization",
+              "name": "Watsica - Bergnaum",
+              "description": "Synergized well-modulated Graphic Interface",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "1370 Feil Underpass",
+                "addressLocality": "Dickibury",
+                "addressRegion": "Kansas",
+                "postalCode": "19669",
+                "addressCountry": "Norfolk Island"
+              },
+              "email": "Duncan.Ritchie@example.org",
+              "phoneNumber": "555-108-9347"
+            },
+            "name": "Fantastic Soft Soap",
+            "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+            "sizeOrAmount": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "4892"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "7288"
+            },
+            "sku": "642166765400"
+          },
+          {
+            "type": "Product",
+            "manufacturer": {
+              "type": "Organization",
+              "name": "Dare, Crist and Durgan",
+              "description": "Optimized composite architecture",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "1927 Reilly Trafficway",
+                "addressLocality": "Lake Zoila",
+                "addressRegion": "Michigan",
+                "postalCode": "90289-3238",
+                "addressCountry": "France"
+              },
+              "email": "Piper.Brakus28@example.com",
+              "phoneNumber": "555-703-6533"
+            },
+            "name": "Tasty Wooden Fish",
+            "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+            "sizeOrAmount": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "1494"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "2089"
+            },
+            "sku": "115254176064"
+          },
+          {
+            "type": "Product",
+            "manufacturer": {
+              "type": "Organization",
+              "name": "Macejkovic, Langworth and Stiedemann",
+              "description": "Versatile cohesive groupware",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "829 Cronin Fork",
+                "addressLocality": "Sauerchester",
+                "addressRegion": "Florida",
+                "postalCode": "59043-6782",
+                "addressCountry": "Solomon Islands"
+              },
+              "email": "Makenzie.Schultz97@example.net",
+              "phoneNumber": "555-867-6043"
+            },
+            "name": "Small Cotton Shoes",
+            "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+            "sizeOrAmount": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "3869"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "3190"
+            },
+            "sku": "938751256475"
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ParcelDelivery",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Gorczany, Treutel and Aufderhar",
+          "streetAddress": "246 Cecilia Trail",
+          "addressLocality": "Joesphburgh",
+          "addressRegion": "New Jersey",
+          "postalCode": "02802",
+          "addressCountry": "Cote d'Ivoire"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Keeling, Watsica and Lindgren",
+          "streetAddress": "582 Carmella Grove",
+          "addressLocality": "West Immanuel",
+          "addressRegion": "Maryland",
+          "postalCode": "94818-5607",
+          "addressCountry": "Costa Rica"
+        },
+        "trackingNumber": "399967068451",
+        "products": [
+          {
+            "type": "Product",
+            "manufacturer": {
+              "type": "Person",
+              "firstName": "Laury",
+              "lastName": "Schinner",
+              "email": "Dana90@example.org",
+              "phoneNumber": "555-216-6436",
+              "worksFor": {
+                "type": "Organization",
+                "name": "Fisher, Dickens and Heaney",
+                "description": "Diverse multi-state collaboration",
+                "address": {
+                  "type": "PostalAddress",
+                  "streetAddress": "4917 Jarod Rapid",
+                  "addressLocality": "Glennieside",
+                  "addressRegion": "South Carolina",
+                  "postalCode": "01704",
+                  "addressCountry": "Slovakia (Slovak Republic)"
+                },
+                "email": "Ewald62@example.net",
+                "phoneNumber": "555-146-5840"
+              },
+              "jobTitle": "Legacy Markets Coordinator"
+            },
+            "name": "Unbranded Soft Pants",
+            "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+            "sizeOrAmount": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "1224"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "4383"
+            },
+            "sku": "201772796441"
+          },
+          {
+            "type": "Product",
+            "manufacturer": {
+              "type": "Person",
+              "firstName": "Lucius",
+              "lastName": "Pfeffer",
+              "email": "Raegan_Boehm@example.org",
+              "phoneNumber": "555-367-5642",
+              "worksFor": {
+                "type": "Organization",
+                "name": "Runolfsdottir, Hagenes and Larson",
+                "description": "Intuitive 4th generation benchmark",
+                "address": {
+                  "type": "PostalAddress",
+                  "streetAddress": "080 Magnolia Circle",
+                  "addressLocality": "West Cooper",
+                  "addressRegion": "Maryland",
+                  "postalCode": "42316",
+                  "addressCountry": "Tajikistan"
+                },
+                "email": "Rolando.Heathcote28@example.org",
+                "phoneNumber": "555-425-2006"
+              },
+              "jobTitle": "Forward Paradigm Technician"
+            },
+            "name": "Handcrafted Soft Salad",
+            "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+            "sizeOrAmount": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "9521"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "3132"
+            },
+            "sku": "346594986927"
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ParcelDelivery",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Dooley - Walsh",
+          "streetAddress": "2977 Smitham Knolls",
+          "addressLocality": "Nathenport",
+          "addressRegion": "Alaska",
+          "postalCode": "83168-1310",
+          "addressCountry": "Virgin Islands, U.S."
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Lueilwitz, Nader and Koch",
+          "streetAddress": "68620 Kaycee Highway",
+          "addressLocality": "Leannchester",
+          "addressRegion": "Mississippi",
+          "postalCode": "75576",
+          "addressCountry": "Singapore"
+        },
+        "trackingNumber": "71156415605",
+        "products": [
+          {
+            "type": "Product",
+            "manufacturer": {
+              "type": "Organization",
+              "name": "Von, Flatley and Veum",
+              "description": "Monitored 5th generation artificial intelligence",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "964 Zula Fork",
+                "addressLocality": "Port Deangelo",
+                "addressRegion": "Mississippi",
+                "postalCode": "93424-2622",
+                "addressCountry": "Lao People's Democratic Republic"
+              },
+              "email": "Ursula.Hackett@example.com",
+              "phoneNumber": "555-497-6221"
+            },
+            "name": "Ergonomic Granite Table",
+            "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+            "sizeOrAmount": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "8930"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "hg/ha",
+              "value": "6924"
+            },
+            "sku": "835154336443"
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/ParcelDelivery.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"ParcelDelivery\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+      "title": "Parcel Delivery",
+      "description": "Details on a shipment or delivery.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "deliveryAddress": {
+          "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
+          "title": "Delivery Address",
+          "description": "Address to which the shipment is being sent.",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "originAddress": {
+          "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
+          "title": "Origin Address",
+          "description": "Address from where the shipment was sent.",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "trackingNumber": {
+          "$comment": "{\"term\": \"trackingNumber\", \"@id\": \"https://schema.org/trackingNumber\"}",
+          "title": "Tracking Number",
+          "description": "Shipper tracking number.",
+          "type": "string"
+        },
+        "products": {
+          "$comment": "{\"term\": \"products\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+          "title": "Product List",
+          "description": "List of Products",
+          "type": "array"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://schema.org/Person": {
+    "$id": "https://w3id.org/traceability/schemas/Person.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Person",
+      "@id": "https://schema.org/Person"
+    },
+    "title": "Person",
+    "description": "A person",
+    "classProperties": {
+      "https://schema.org/givenName": {
+        "$comment": {
+          "term": "firstName",
+          "@id": "https://schema.org/givenName"
+        },
+        "title": "First Name",
+        "description": "Person's first name."
+      },
+      "https://schema.org/familyName": {
+        "$comment": {
+          "term": "lastName",
+          "@id": "https://schema.org/familyName"
+        },
+        "title": "Last Name",
+        "description": "Person's last name."
+      },
+      "https://schema.org/email": {
+        "$comment": {
+          "term": "email",
+          "@id": "https://schema.org/email"
+        },
+        "title": "Person's Email Address",
+        "description": "Person's email address."
+      },
+      "https://schema.org/telephone": {
+        "$comment": {
+          "term": "phoneNumber",
+          "@id": "https://schema.org/telephone"
+        },
+        "title": "Phone Number",
+        "description": "Person's contact phone number."
+      },
+      "https://schema.org/worksFor": {
+        "$comment": {
+          "term": "worksFor",
+          "@id": "https://schema.org/worksFor"
+        },
+        "title": "Works For",
+        "description": "Company which employs the person."
+      },
+      "https://schema.org/jobTitle": {
+        "$comment": {
+          "term": "jobTitle",
+          "@id": "https://schema.org/jobTitle"
+        },
+        "title": "Job Title",
+        "description": "Person's job title."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Person",
+        "firstName": "Paxton",
+        "lastName": "Goodwin",
+        "email": "Duane.Romaguera35@example.net",
+        "phoneNumber": "555-675-3069",
+        "worksFor": {
+          "type": "Organization",
+          "name": "Yost - Grady",
+          "description": "Organic non-volatile frame",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "7057 Viola River",
+            "addressLocality": "Lake Cordie",
+            "addressRegion": "Georgia",
+            "postalCode": "44842",
+            "addressCountry": "Ukraine"
+          },
+          "email": "Kristian.Gerhold@example.org",
+          "phoneNumber": "555-803-5704"
+        },
+        "jobTitle": "Human Tactics Analyst"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Person",
+        "firstName": "Osvaldo",
+        "lastName": "Stehr",
+        "email": "Reilly_Dach73@example.com",
+        "phoneNumber": "555-239-6248",
+        "worksFor": {
+          "type": "Organization",
+          "name": "Bins Group",
+          "description": "Adaptive modular support",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "243 Dooley Drives",
+            "addressLocality": "South Zoe",
+            "addressRegion": "New Mexico",
+            "postalCode": "83654-9474",
+            "addressCountry": "Republic of Korea"
+          },
+          "email": "Catharine.Parker97@example.org",
+          "phoneNumber": "555-412-2337"
+        },
+        "jobTitle": "Dynamic Group Agent"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Person",
+        "firstName": "Anabelle",
+        "lastName": "McDermott",
+        "email": "Garett_Breitenberg@example.net",
+        "phoneNumber": "555-593-8448",
+        "worksFor": {
+          "type": "Organization",
+          "name": "Pfannerstill - McClure",
+          "description": "Organic bi-directional encoding",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "6505 Ida Centers",
+            "addressLocality": "North Quinn",
+            "addressRegion": "New Mexico",
+            "postalCode": "52886",
+            "addressCountry": "Burundi"
+          },
+          "email": "Marquis.Wisozk69@example.org",
+          "phoneNumber": "555-864-9417"
+        },
+        "jobTitle": "Regional Identity Technician"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Person.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Person\", \"@id\": \"https://schema.org/Person\"}",
+      "title": "Person",
+      "description": "A person",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "firstName": {
+          "$comment": "{\"term\": \"firstName\", \"@id\": \"https://schema.org/givenName\"}",
+          "title": "First Name",
+          "description": "Person's first name.",
+          "type": "string"
+        },
+        "lastName": {
+          "$comment": "{\"term\": \"lastName\", \"@id\": \"https://schema.org/familyName\"}",
+          "title": "Last Name",
+          "description": "Person's last name.",
+          "type": "string"
+        },
+        "email": {
+          "$comment": "{\"term\": \"email\", \"@id\": \"https://schema.org/email\"}",
+          "title": "Person's Email Address",
+          "description": "Person's email address.",
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$comment": "{\"term\": \"phoneNumber\", \"@id\": \"https://schema.org/telephone\"}",
+          "title": "Phone Number",
+          "description": "Person's contact phone number.",
+          "type": "string"
+        },
+        "worksFor": {
+          "$comment": "{\"term\": \"worksFor\", \"@id\": \"https://schema.org/worksFor\"}",
+          "title": "Works For",
+          "description": "Company which employs the person.",
+          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+        },
+        "jobTitle": {
+          "$comment": "{\"term\": \"jobTitle\", \"@id\": \"https://schema.org/jobTitle\"}",
+          "title": "Job Title",
+          "description": "Person's job title.",
+          "type": "string"
         }
       },
       "additionalProperties": false,
@@ -2015,6 +3539,330 @@
       "additionalProperties": false,
       "examples": []
     }
+  },
+  "https://schema.org/Product": {
+    "$id": "https://w3id.org/traceability/schemas/Product.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Product",
+      "@id": "https://schema.org/Product"
+    },
+    "title": "Product",
+    "description": "A product",
+    "classProperties": {
+      "https://schema.org/manufacturer": {
+        "$comment": {
+          "term": "manufacturer",
+          "@id": "https://schema.org/manufacturer"
+        },
+        "title": "Manufacturer",
+        "description": "The entity manufacturing the product."
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "name",
+          "@id": "https://schema.org/name"
+        },
+        "title": "Name",
+        "description": "Name of the shipment item(s)"
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Description",
+        "description": "Description of the shipment."
+      },
+      "https://schema.org/size": {
+        "$comment": {
+          "term": "sizeOrAmount",
+          "@id": "https://schema.org/size"
+        },
+        "title": "Size or Amount",
+        "description": "The size or amount of the product"
+      },
+      "https://schema.org/weight": {
+        "$comment": {
+          "term": "weight",
+          "@id": "https://schema.org/weight"
+        },
+        "title": "Weight",
+        "description": "Weight of the product."
+      },
+      "https://schema.org/sku": {
+        "$comment": {
+          "term": "sku",
+          "@id": "https://schema.org/sku"
+        },
+        "title": "Sku Number",
+        "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Product",
+        "manufacturer": {
+          "type": "Organization",
+          "name": "Dickinson, Prosacco and Walter",
+          "description": "Operative explicit open architecture",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "7148 Cole Mountains",
+            "addressLocality": "Millermouth",
+            "addressRegion": "North Carolina",
+            "postalCode": "98569-6916",
+            "addressCountry": "Norway"
+          },
+          "email": "Susanna_Auer@example.org",
+          "phoneNumber": "555-507-1035"
+        },
+        "name": "Generic Rubber Ball",
+        "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "hg/ha",
+          "value": "5084"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "hg/ha",
+          "value": "9072"
+        },
+        "sku": "901030944132"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Product",
+        "manufacturer": {
+          "type": "Person",
+          "firstName": "Elliot",
+          "lastName": "Halvorson",
+          "email": "Richard72@example.net",
+          "phoneNumber": "555-571-2599",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Gleichner - Crist",
+            "description": "Compatible user-facing budgetary management",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "95221 Juanita Lights",
+              "addressLocality": "Port Dayanafort",
+              "addressRegion": "North Dakota",
+              "postalCode": "01502",
+              "addressCountry": "Slovenia"
+            },
+            "email": "Carleton_Glover@example.com",
+            "phoneNumber": "555-299-8766"
+          },
+          "jobTitle": "Corporate Mobility Manager"
+        },
+        "name": "Awesome Soft Pants",
+        "description": "The Football Is Good For Training And Recreational Purposes",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "hg/ha",
+          "value": "7546"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "hg/ha",
+          "value": "1764"
+        },
+        "sku": "23397841063"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "Product",
+        "manufacturer": {
+          "type": "Organization",
+          "name": "Fadel, Kuhn and Collier",
+          "description": "Open-architected secondary function",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "2711 Nikki Keys",
+            "addressLocality": "South Ryannville",
+            "addressRegion": "Alaska",
+            "postalCode": "85791",
+            "addressCountry": "Poland"
+          },
+          "email": "Mallie23@example.com",
+          "phoneNumber": "555-272-2037"
+        },
+        "name": "Intelligent Concrete Chicken",
+        "description": "The Football Is Good For Training And Recreational Purposes",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "hg/ha",
+          "value": "3037"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "hg/ha",
+          "value": "4391"
+        },
+        "sku": "632881974511"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Product.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Product\", \"@id\": \"https://schema.org/Product\"}",
+      "title": "Product",
+      "description": "A product",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "manufacturer": {
+          "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
+          "title": "Manufacturer",
+          "description": "The entity manufacturing the product.",
+          "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+        },
+        "name": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Name",
+          "description": "Name of the shipment item(s)",
+          "type": "string"
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Description",
+          "description": "Description of the shipment.",
+          "type": "string"
+        },
+        "sizeOrAmount": {
+          "$comment": "{\"term\": \"sizeOrAmount\", \"@id\": \"https://schema.org/size\"}",
+          "title": "Size or Amount",
+          "description": "The size or amount of the product",
+          "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+        },
+        "weight": {
+          "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+          "title": "Weight",
+          "description": "Weight of the product.",
+          "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+        },
+        "sku": {
+          "$comment": "{\"term\": \"sku\", \"@id\": \"https://schema.org/sku\"}",
+          "title": "Sku Number",
+          "description": "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://schema.org/QuantitativeValue": {
+    "$id": "https://w3id.org/traceability/schemas/QuantitativeValue.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "QuantitativeValue",
+      "@id": "https://schema.org/QuantitativeValue"
+    },
+    "title": "Quantitative Value",
+    "description": "A point value or interval for product characteristics and other purposes",
+    "classProperties": {
+      "https://schema.org/unitCode": {
+        "$comment": {
+          "term": "unitCode",
+          "@id": "https://schema.org/unitCode"
+        },
+        "title": "Unit Code",
+        "description": "Unit of measurement."
+      },
+      "https://schema.org/value": {
+        "$comment": {
+          "term": "value",
+          "@id": "https://schema.org/value"
+        },
+        "title": "Value",
+        "description": "Value or amount."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "QuantitativeValue",
+        "unitCode": "hg/ha",
+        "value": "5771"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "QuantitativeValue",
+        "unitCode": "hg/ha",
+        "value": "1609"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "QuantitativeValue",
+        "unitCode": "hg/ha",
+        "value": "858"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/QuantitativeValue.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"QuantitativeValue\", \"@id\": \"https://schema.org/QuantitativeValue\"}",
+      "title": "Quantitative Value",
+      "description": "A point value or interval for product characteristics and other purposes",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "unitCode": {
+          "$comment": "{\"term\": \"unitCode\", \"@id\": \"https://schema.org/unitCode\"}",
+          "title": "Unit Code",
+          "description": "Unit of measurement.",
+          "type": "string"
+        },
+        "value": {
+          "$comment": "{\"term\": \"value\", \"@id\": \"https://schema.org/value\"}",
+          "title": "Value",
+          "description": "Value or amount.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
   }
 }
             </script>
@@ -2022,7 +3870,7 @@
       <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Wednesday, November 25, 2020 1:05 PM
+      Monday, December 14, 2020 4:18 PM
       </span>
             </p>
     </section>

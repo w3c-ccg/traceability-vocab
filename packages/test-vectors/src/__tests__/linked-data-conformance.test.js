@@ -46,9 +46,10 @@ Object.values(intermediateJson).forEach((classDefinition) => {
           resultOk = await jsonldChecker.check(goodExample, customDocumentLoader);
           //Adding some slightly better error handling
           if (resultOk.error.type != '') {
+
             console.log(classDefinition.title);
-            console.log(resultOk.error.type);
-            console.log(resultOk.error.details);
+            console.log(resultOk.error);
+
           }
           return expect(resultOk.ok).toBe(true);
         }));

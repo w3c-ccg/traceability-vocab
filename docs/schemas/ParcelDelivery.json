@@ -1,0 +1,49 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/ParcelDelivery.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"ParcelDelivery\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+    "title": "Parcel Delivery",
+    "description": "Details on a shipment or delivery.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "deliveryAddress": {
+            "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
+            "title": "Delivery Address",
+            "description": "Address to which the shipment is being sent.",
+            "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "originAddress": {
+            "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
+            "title": "Origin Address",
+            "description": "Address from where the shipment was sent.",
+            "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "trackingNumber": {
+            "$comment": "{\"term\": \"trackingNumber\", \"@id\": \"https://schema.org/trackingNumber\"}",
+            "title": "Tracking Number",
+            "description": "Shipper tracking number.",
+            "type": "string"
+        },
+        "products": {
+            "$comment": "{\"term\": \"products\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+            "title": "Product List",
+            "description": "List of Products",
+            "type": "array"
+        }
+    },
+    "additionalProperties": false,
+    "examples": []
+}
