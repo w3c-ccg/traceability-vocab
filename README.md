@@ -76,9 +76,6 @@ and adding the path:
 
 Follow the conventions established for the other properties, for example:
 
-###### Helpful Tips
-- Ensure 
-
 ###### Place
 
 - [JSON Schema](./docs/schemas/Place.json)
