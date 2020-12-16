@@ -16,6 +16,7 @@ const { getPerson } = require('./Person');
 const { getEntity } = require('./Entity');
 const { getProduct } = require('./Product');
 const { getAgInspectionReport } = require('./AgInspectionReport');
+const { getppq203 } = require('./ppq203');
 
 const generatorConfig = {
   Place: getPlace,
@@ -35,7 +36,8 @@ const generatorConfig = {
   Person: getPerson,
   Entity: getEntity,
   Product: getProduct,
-  AgInspectionReport: getAgInspectionReport
+  AgInspectionReport: getAgInspectionReport,
+  ppq203: getppq203
 };
 
 module.exports = generatorConfig;

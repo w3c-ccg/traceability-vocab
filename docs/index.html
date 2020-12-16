@@ -1,327 +1,336 @@
 <!DOCTYPE html><html lang="en"><head>
-    <title>Traceability Vocabulary v0.0</title>
-    <meta http-equiv=" Content-Type" content="text/html;charset=utf-8">
+  <title>Traceability Vocabulary v0.0</title>
+  <meta http-equiv=" Content-Type" content="text/html;charset=utf-8">
 
-    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
-    <script type="text/javascript" class="remove">
-      const respecPagesJson = {
-        name: "traceability-vocab",
-        status: "UNOFFICIAL",
-        latest: "https://w3c-ccg.github.io/traceability-vocab",
-        repository:
-          "https://github.com/w3c-ccg/traceability-vocab",
-        issues:
-          "https://github.com/w3c-ccg/traceability-vocab/issues",
-        group: {
-          name: "Credentials Community Group",
-          url: "https://www.w3.org/community/credentials/",
-          list: "public-credentials",
-          patentUri: "https://www.w3.org/community/about/agreements/cla/",
+  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+  <script type="text/javascript" class="remove">
+    const respecPagesJson = {
+      name: "traceability-vocab",
+      status: "UNOFFICIAL",
+      latest: "https://w3c-ccg.github.io/traceability-vocab",
+      repository:
+        "https://github.com/w3c-ccg/traceability-vocab",
+      issues:
+        "https://github.com/w3c-ccg/traceability-vocab/issues",
+      group: {
+        name: "Credentials Community Group",
+        url: "https://www.w3.org/community/credentials/",
+        list: "public-credentials",
+        patentUri: "https://www.w3.org/community/about/agreements/cla/",
+      },
+      editors: [
+        {
+          name: "Orie Steele",
+          url: "https://github.com/OR13",
+          company: "Transmute",
+          companyURL: "https://www.transmute.industries/",
         },
-        editors: [
-          {
-            name: "Orie Steele",
-            url: "https://github.com/OR13",
-            company: "Transmute",
-            companyURL: "https://www.transmute.industries/",
-          },
-          {
-            name: "Michael Prorock",
-            url: "https://github.com/mprorock",
-            company: "Mesur.io",
-            companyURL: "https://www.mesur.io/",
-          },
-          {
-            name: "Brian Munz",
-            url: "https://github.com/brianwmunz",
-            company: "Mesur.io",
-            companyURL: "https://www.mesur.io/",
-          },
-          {
-            name: "Mahmoud Alkhraishi",
-            url: "https://github.com/mkhraisha",
-            company: "Mavennet",
-            companyURL: "https://www.mavennet.com/",
-          },
-        ],
-        bibliography: {
-          "RDF-DATASET-NORMALIZATION": {
-            title: "RDF Dataset Normalization 1.0",
-            href: "http://json-ld.github.io/normalization/spec/",
-            authors: ["David Longley", "Manu Sporny"],
-            status: "CGDRAFT",
-            publisher: "JSON-LD Community Group",
-          },
+        {
+          name: "Michael Prorock",
+          url: "https://github.com/mprorock",
+          company: "Mesur.io",
+          companyURL: "https://www.mesur.io/",
         },
-      };
+        {
+          name: "Brian Munz",
+          url: "https://github.com/brianwmunz",
+          company: "Mesur.io",
+          companyURL: "https://www.mesur.io/",
+        },
+        {
+          name: "Mahmoud Alkhraishi",
+          url: "https://github.com/mkhraisha",
+          company: "Mavennet",
+          companyURL: "https://www.mavennet.com/",
+        },
+      ],
+      bibliography: {
+        "RDF-DATASET-NORMALIZATION": {
+          title: "RDF Dataset Normalization 1.0",
+          href: "http://json-ld.github.io/normalization/spec/",
+          authors: ["David Longley", "Manu Sporny"],
+          status: "CGDRAFT",
+          publisher: "JSON-LD Community Group",
+        },
+      },
+    };
 
-      var respecConfig = {
-        // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-        specStatus: respecPagesJson.status,
+    var respecConfig = {
+      // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+      specStatus: respecPagesJson.status,
 
-        // the specification's short name, as in http://www.w3.org/TR/short-name/
-        shortName: respecPagesJson.name,
+      // the specification's short name, as in http://www.w3.org/TR/short-name/
+      shortName: respecPagesJson.name,
 
-        // if you wish the publication date to be other than today, set this
-        // publishDate:  "2009-08-06",
+      // if you wish the publication date to be other than today, set this
+      // publishDate:  "2009-08-06",
 
-        // if there is a previously published draft,
-        // uncomment this and set its YYYY-MM-DD date
-        // and its maturity status
-        previousPublishDate: "2020-09-30",
-        previousMaturity: "UNOFFICIAL",
+      // if there is a previously published draft,
+      // uncomment this and set its YYYY-MM-DD date
+      // and its maturity status
+      previousPublishDate: "2020-09-30",
+      previousMaturity: "UNOFFICIAL",
 
-        // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: respecPagesJson.latest,
+      // if there a publicly available Editor's Draft, this is the link
+      edDraftURI: respecPagesJson.latest,
 
-        // if this is a LCWD, uncomment and set the end of its review period
-        // lcEnd: "2009-08-05",
+      // if this is a LCWD, uncomment and set the end of its review period
+      // lcEnd: "2009-08-05",
 
-        // if you want to have extra CSS, append them to this list
-        // it is recommended that the respec.css stylesheet be kept
-        //extraCSS:             ["spec.css", "prettify.css"],
+      // if you want to have extra CSS, append them to this list
+      // it is recommended that the respec.css stylesheet be kept
+      //extraCSS:             ["spec.css", "prettify.css"],
 
-        // editors, add as many as you like
-        // only "name" is required
-        editors: respecPagesJson.editors,
+      // editors, add as many as you like
+      // only "name" is required
+      editors: respecPagesJson.editors,
 
-        // extend the bibliography entries
-        //localBiblio: webpayments.localBiblio,
-        // group: "w3c-ccg",
-        // wg: respecPagesJson.group.name,
-        // // URI of the public WG page
-        // wgURI: respecPagesJson.group.url,
-        // // name (with the @w3c.org) of the public mailing to which comments are due
-        // wgPublicList: respecPagesJson.group.list,
-        // URI of the patent status for this WG, for Rec-track documents
-        // !!!! IMPORTANT !!!!
-        // This is important for Rec-track documents, do not copy a patent URI from a random
-        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-        // Team Contact.
-        // wgPatentURI: respecPagesJson.group.patentUri,
+      // extend the bibliography entries
+      //localBiblio: webpayments.localBiblio,
+      // group: "w3c-ccg",
+      // wg: respecPagesJson.group.name,
+      // // URI of the public WG page
+      // wgURI: respecPagesJson.group.url,
+      // // name (with the @w3c.org) of the public mailing to which comments are due
+      // wgPublicList: respecPagesJson.group.list,
+      // URI of the patent status for this WG, for Rec-track documents
+      // !!!! IMPORTANT !!!!
+      // This is important for Rec-track documents, do not copy a patent URI from a random
+      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+      // Team Contact.
+      // wgPatentURI: respecPagesJson.group.patentUri,
 
-        otherLinks: [
-          {
-            key: "Source Control",
-            data: [
-              {
-                value: respecPagesJson.repository,
-                href: respecPagesJson.repository,
-              },
-            ],
-          },
-          {
-            key: "Issue Tracker",
-            data: [
-              {
-                value: respecPagesJson.issues,
-                href: respecPagesJson.issues,
-              },
-            ],
-          },
-        ],
+      otherLinks: [
+        {
+          key: "Source Control",
+          data: [
+            {
+              value: respecPagesJson.repository,
+              href: respecPagesJson.repository,
+            },
+          ],
+        },
+        {
+          key: "Issue Tracker",
+          data: [
+            {
+              value: respecPagesJson.issues,
+              href: respecPagesJson.issues,
+            },
+          ],
+        },
+      ],
 
-        // URI of the patent status for this WG, for Rec-track documents
-        // !!!! IMPORTANT !!!!
-        // This is important for Rec-track documents, do not copy a patent URI from a random
-        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-        // Team Contact.
-        // wgPatentURI:  "",
-        maxTocLevel: 2,
-        /*preProcess: [ webpayments.preProcess ],
-      alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
-      */
-        localBiblio: respecPagesJson.bibliography,
-      };
-    </script>
-    <style>
-      table {
-        width: 100%;
-      }
-    </style>
-  </head>
+      // URI of the patent status for this WG, for Rec-track documents
+      // !!!! IMPORTANT !!!!
+      // This is important for Rec-track documents, do not copy a patent URI from a random
+      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+      // Team Contact.
+      // wgPatentURI:  "",
+      maxTocLevel: 2,
+      /*preProcess: [ webpayments.preProcess ],
+    alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
+    */
+      localBiblio: respecPagesJson.bibliography,
+    };
+  </script>
+  <style>
+    table {
+      width: 100%;
+    }
+  </style>
+</head>
 
-  <body>
-    <section id="abstract">
+<body>
+  <section id="abstract">
+    <p>
+      This specification describes a Linked Data vocabulary for asserting
+      Verifiable Credentials related to traceability information, such as
+      chemical properties, mechanical properties, country of origin, and other
+      attributes used to determine the status of a products and materials in a
+      supply chain.
+    </p>
+  </section>
+
+  <section id="sotd">
+    <p>
+      This is an experimental specification and is undergoing regular
+      revisions. It is not fit for production deployment.
+    </p>
+
+    <p>
+      Please
+      <a href="https://github.com/w3c-ccg/traceability-vocab/issues/">open an issue</a>
+      , if you wish to collaborate on this specification.
+    </p>
+
+    <p>
+      You may also reach out via the mailing list:
+      <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
+      (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
+      <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
+    </p>
+  </section>
+
+  <section class="informative">
+    <h2>Introduction</h2>
+
+    <p>
+      This specification describes a Linked Data vocabulary for asserting
+      Verifiable Credentials related to traceability information, such as
+      chemical properties, mechanical properties, country of origin, and other
+      attributes used to determine the status of a products and materials in a
+      supply chain.
+    </p>
+
+    <section class="informative">
+      <h3>Use Cases and Requirements</h3>
+
       <p>
-        This specification describes a Linked Data vocabulary for asserting
-        Verifiable Credentials related to traceability information, such as
-        chemical properties, mechanical properties, country of origin, and other
-        attributes used to determine the status of a products and materials in a
-        supply chain.
-      </p>
-    </section>
-
-    <section id="sotd">
-      <p>
-        This is an experimental specification and is undergoing regular
-        revisions. It is not fit for production deployment.
+        The following use cases outline a number of key scenarios that readers
+        might find useful in a variety of sectors, especially those that deal with
+        cross border supply chain data interchange.
       </p>
 
-      <p>
-        Please
-        <a href="https://github.com/w3c-ccg/traceability-vocab/issues/">open an issue</a>
-        , if you wish to collaborate on this specification.
-      </p>
 
-      <p>
-        You may also reach out via the mailing list:
-        <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
-        (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
-        <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
-      </p>
+      <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
+      <section>
+        <h5>Steel and Metal Imports</h5>
+        <dl class="termlist">
+          <dt><dfn>Certified Mill Test Report</dfn></dt>
+          <dd>
+
+          </dd>
+        </dl>
+      </section>
+
+      <section>
+        <h5>Food and Agriculture</h5>
+        <p>
+          Several use cases exist for common vocabulary in the food and agriculture space. Key priorities for this
+          project
+          revolve around items that are required for the safe and succesful importation of food to various countries.
+        </p>
+        <p>
+          The top level <a href="./schemas/AgInspectionReport.json">AgInspectionReport</a> object has been created as a
+          parent
+          object that allows for the recording of the following inspections and audits, while giving flexibility to
+          account for
+          newly defined inspction types as needs change in the food and agricultre industry. This object can be
+          sub-classed to
+          allow for schema level validation of specific types of inspections and audits as required by the specifics of
+          a given
+          use case. Verifiable Credentials can be issued for this object or sub classes of this object to allow for
+          external
+          verification by third parties that are implementing the Verifiable Credentials sepcification
+        </p>
+        <dl>
+          <dt><dfn>Farm GAP Inspection Report</dfn></dt>
+          <dd>
+            Keep track of <a href="https://www.ams.usda.gov/services/auditing/gap-ghp">Good Agricultural Practices
+              (GAP)</a>
+            audits and share results with a vendor
+          </dd>
+          <dt><dfn>FSMA Inspection</dfn></dt>
+          <dd>
+            <a href="https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma">Food
+              Safety Modernization Act</a> inspections and results for sharing with relevant parties, regulatory bodies
+            and
+            vendors.
+          </dd>
+          <dt><dfn>Foreign Site Certificate of Inspection and/or Treatment</dfn></dt>
+          <dd>
+            <a href="https://www.aphis.usda.gov/aphis/resources/forms/CT_PPQ_Forms">USDA APHIS PPQ FORM 203</a> that is
+            required
+            for pre-clearance of imported food and ag goods into the US
+          </dd>
+        </dl>
+      </section>
+      <section>
+        <h5>Oil and Gas Imports</h5>
+        <dl class="termlist">
+          <p>
+            A common traceability vocabulary will enable creation of a common
+            digital representation of an oil and gas assets and a variety of
+            use cases. The main priority of this project is the border
+            clearance and regulatory compliance use cases, that enable
+            industry players to rely on the asset history, origin, and
+            composition recorded as Verifiable credentials to be used in these
+            processes.
+          </p>
+          <p>
+            The asset-specific CrudeOil VC (and NaturalGas VC) object serves
+            as a root object that stores the key attributes of the asset as
+            well as origin and composition. In addition to the asset VC, we
+            are planning to represent key events in the asset&#x2019;s lifecycle
+            (inspection, transportation, transfer of ownership) as Verifiable
+            Credentials.
+          </p>
+        </dl>
+      </section>
     </section>
 
     <section class="informative">
-      <h2>Introduction</h2>
+      <h3>Example</h3>
 
       <p>
-        This specification describes a Linked Data vocabulary for asserting
-        Verifiable Credentials related to traceability information, such as
-        chemical properties, mechanical properties, country of origin, and other
-        attributes used to determine the status of a products and materials in a
-        supply chain.
+        The following example is provided as a simple example of when this
+        vocabulary is useful:
       </p>
-
-      <section class="informative">
-        <h3>Use Cases and Requirements</h3>
-
-        <p>
-          The following use cases outline a number of key scenarios that readers
-          might find useful in a variety of sectors, especially those that deal with 
-          cross border supply chain data interchange.
-        </p>
-
-        
-        <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
-        <section>
-          <h5>Steel and Metal Imports</h5>
-          <dl class="termlist">
-            <dt><dfn>Certified Mill Test Report</dfn></dt>
-            <dd>
-              
-            </dd>
-          </dl>
-        </section>
-
-        <section>
-          <h5>Food and Agriculture</h5>
-          <p>
-            Several use cases exist for common vocabulary in the food and agriculture space. Key priorities for this project
-            revolve around items that are required for the safe and succesful importation of food to various countries.
-          </p>
-          <p>
-            The top level <a href="./schemas/AgInspectionReport.json">AgInspectionReport</a> object has been created as a parent
-            object that allows for the recording of the following inspections and audits, while giving flexibility to account for
-            newly defined inspction types as needs change in the food and agricultre industry. This object can be sub-classed to
-            allow for schema level validation of specific types of inspections and audits as required by the specifics of a given
-            use case. Verifiable Credentials can be issued for this object or sub classes of this object to allow for external
-            verification by third parties that are implementing the Verifiable Credentials sepcification
-          </p>
-          <dl>
-            <dt><dfn>Farm GAP Inspection Report</dfn></dt>
-            <dd>
-              Keep track of <a href="https://www.ams.usda.gov/services/auditing/gap-ghp">Good Agricultural Practices (GAP)</a>
-              audits and share results with a vendor
-            </dd>
-            <dt><dfn>FSMA Inspection</dfn></dt>
-            <dd>
-              <a href="https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma">Food
-                Safety Modernization Act</a> inspections and results for sharing with relevant parties, regulatory bodies and
-              vendors.  
-            </dd>
-            <dt><dfn>Foreign Site Certificate of Inspection and/or Treatment</dfn></dt>
-            <dd>
-              <a href="https://www.aphis.usda.gov/aphis/resources/forms/CT_PPQ_Forms">USDA APHIS PPQ FORM 203</a> that is required
-              for pre-clearance of imported food and ag goods into the US
-            </dd>
-          </dl>
-        </section>
-        <section>
-          <h5>Oil and Gas Imports</h5>
-          <dl class="termlist">
-            <p>
-              A common traceability vocabulary will enable creation of a common
-              digital representation of an oil and gas assets and a variety of
-              use cases. The main priority of this project is the border
-              clearance and regulatory compliance use cases, that enable
-              industry players to rely on the asset history, origin, and
-              composition recorded as Verifiable credentials to be used in these
-              processes.
-            </p>
-            <p>
-              The asset-specific CrudeOil VC (and NaturalGas VC) object serves
-              as a root object that stores the key attributes of the asset as
-              well as origin and composition. In addition to the asset VC, we
-              are planning to represent key events in the asset&#x2019;s lifecycle
-              (inspection, transportation, transfer of ownership) as Verifiable
-              Credentials.
-            </p>
-          </dl>
-        </section>        
-      </section>
-
-      <section class="informative">
-        <h3>Example</h3>
-
-        <p>
-          The following example is provided as a simple example of when this
-          vocabulary is useful:
-        </p>
-      </section>
     </section>
+  </section>
 
-    <section id="terminology" class="informative">
-      <h2>Terminology</h2>
-      <p>
-        The following terms are used to describe concepts in this specification.
-      </p>
+  <section id="terminology" class="informative">
+    <h2>Terminology</h2>
+    <p>
+      The following terms are used to describe concepts in this specification.
+    </p>
 
-      <dl class="termlist">
-        <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
-        <dd>
-          A thing with distinct and independent existence, such as a person,
-          organization, or device that performs one or more roles in the
-          ecosystem.
-        </dd>
-        <dt><dfn>user agent</dfn></dt>
-        <dd>
-          A program, such as a browser or other Web client, that mediates the
-          communication between the various roles in this specification.
-        </dd>
-        <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
-        <dd>An identifier as defined by [[RFC3986]].</dd>
-      </dl>
-    </section>
+    <dl class="termlist">
+      <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
+      <dd>
+        A thing with distinct and independent existence, such as a person,
+        organization, or device that performs one or more roles in the
+        ecosystem.
+      </dd>
+      <dt><dfn>user agent</dfn></dt>
+      <dd>
+        A program, such as a browser or other Web client, that mediates the
+        communication between the various roles in this specification.
+      </dd>
+      <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
+      <dd>An identifier as defined by [[RFC3986]].</dd>
+    </dl>
+  </section>
 
-    <section id="vocabulary" class="normative">
-      <h2>Vocabulary</h2>
+  <section id="vocabulary" class="normative">
+    <h2>Vocabulary</h2>
 
-      <p>
-        This vocabulary assumes all terms specified in the base Verifiable
-        Credentials [[VC-DATA-MODEL]] context.
-      </p>
+    <p>
+      This vocabulary assumes all terms specified in the base Verifiable
+      Credentials [[VC-DATA-MODEL]] context.
+    </p>
 
-      <p>
-        In addition, the following classes are available for specifying
-        information related to supply-chain traceability.
-      </p>
+    <p>
+      In addition, the following classes are available for specifying
+      information related to supply-chain traceability.
+    </p>
 
-      <p>
-        You may view the latest json-ld vocabulary at: <br>
-        <a href="https://w3id.org/traceability/v1">
-          https://w3id.org/traceability/v1
-        </a>
-      </p>
+    <p>
+      You may view the latest json-ld vocabulary at: <br>
+      <a href="https://w3id.org/traceability/v1">
+        https://w3id.org/traceability/v1
+      </a>
+    </p>
 
-      <p>
-        You may view the latest json-schema definition at: <br>
-        <a href="https://w3id.org/traceability/v1/PostalAddress.json">
-          https://w3id.org/traceability/v1/PostalAddress.json
-        </a>
-      </p>
+    <p>
+      You may view the latest json-schema definition at: <br>
+      <a href="https://w3id.org/traceability/v1/PostalAddress.json">
+        https://w3id.org/traceability/v1/PostalAddress.json
+      </a>
+    </p>
 
-      <script type="application/json" id="intermediate-json">
+    <script type="application/json" id="intermediate-json">
       {
   "https://w3id.org/traceability/AgInspectionReport": {
     "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
@@ -536,7 +545,7 @@
           "email": "Gideon4@example.com",
           "phoneNumber": "555-727-9797"
         },
-        "inspectionDate": "11-0-2020",
+        "inspectionDate": "11-1-2020",
         "inspectionType": "Food Safety",
         "observation": [
           {
@@ -750,7 +759,7 @@
           },
           "jobTitle": "Central Creative Director"
         },
-        "inspectionDate": "11-1-2020",
+        "inspectionDate": "11-2-2020",
         "inspectionType": "General",
         "observation": [
           {
@@ -3863,99 +3872,556 @@
       "additionalProperties": false,
       "examples": []
     }
+  },
+  "https://w3id.org/traceability/ppq203": {
+    "$id": "https://w3id.org/traceability/schemas/ppq203.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "ppq203",
+      "@id": "https://w3id.org/traceability/ppq203"
+    },
+    "title": "PPQ 203 Agricultural Foreign Site Inspection",
+    "description": "United States Department of Agriculture Foreign Site Certificate of Inspection and/or Treatment.",
+    "classProperties": {
+      "https://w3id.org/traceability/schemas/ppq203.json#certificateNumber": {
+        "$comment": {
+          "term": "certificateNumber",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#certificateNumber",
+          "@type": "https://schema.org/identifier"
+        },
+        "title": "Certificate Number",
+        "description": "ID number of the certificate"
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport": {
+        "$comment": {
+          "term": "foreignPortExport",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport",
+          "@type": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "title": "Foreign Port of Export",
+        "description": "Foreign port which the shipment passed through as an export to the US"
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#carrierId": {
+        "$comment": {
+          "term": "carrierId",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#carrierId",
+          "@type": "https://schema.org/identifier"
+        },
+        "title": "Carrier ID",
+        "description": "Identifier of the carrier."
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#portOfEntry": {
+        "$comment": {
+          "term": "portOfEntry",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#portOfEntry",
+          "@type": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "title": "Port of Entry",
+        "description": "US port through which the imports passed."
+      },
+      "https://w3id.org/traceability/schemas/ppq203.json#signatureDate": {
+        "$comment": {
+          "term": "signatureDate",
+          "@id": "https://w3id.org/traceability/schemas/ppq203.json#signatureDate",
+          "@type": "https://w3id.org/traceability/schemas/DateTime.json"
+        },
+        "title": "signatureDate",
+        "description": "Date when the inspection was signed by the inspection officer."
+      },
+      "https://w3id.org/traceability/schemas/AgInspectionReport": {
+        "$comment": {
+          "term": "AgInspectionReport",
+          "@id": "https://w3id.org/traceability/schemas/AgInspectionReport"
+        },
+        "title": "Agriculture Inspection Report",
+        "description": "Template for agriculture inspection reports."
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ppq203",
+        "certificateNumber": "978306491099",
+        "foreignPortExport": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress",
+            "addressLocality": "Stoltenbergshire",
+            "addressCountry": "Bosnia and Herzegovina"
+          }
+        },
+        "carrierId": "37591376702",
+        "portOfEntry": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress",
+            "addressLocality": "Katherinechester",
+            "addressRegion": "Michigan"
+          }
+        },
+        "signatureDate": "11-2-2020",
+        "AgInspectionReport": {
+          "type": "AgInspectionReport",
+          "facility": {
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "D'Amore and Sons",
+              "streetAddress": "6204 Tromp Spurs",
+              "addressLocality": "West Janae",
+              "addressRegion": "Ohio",
+              "postalCode": "89438",
+              "addressCountry": "Malawi"
+            }
+          },
+          "inspector": {
+            "type": "Inspector",
+            "person": {
+              "type": "Person",
+              "firstName": "Camden",
+              "lastName": "Crooks"
+            }
+          },
+          "shipment": {
+            "type": "ParcelDelivery",
+            "deliveryAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Wiegand LLC",
+              "streetAddress": "1162 Gwendolyn Course",
+              "addressLocality": "Boganport",
+              "addressRegion": "Florida",
+              "postalCode": "21804-4196",
+              "addressCountry": "Poland"
+            },
+            "originAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Osinski, Lockman and Heathcote",
+              "streetAddress": "63124 Kub Mountain",
+              "addressLocality": "Hassieborough",
+              "addressRegion": "Kentucky",
+              "postalCode": "63507",
+              "addressCountry": "Sri Lanka"
+            },
+            "products": [
+              {
+                "type": "Product",
+                "name": "Fantastic Granite Salad",
+                "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                "sizeOrAmount": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "4701"
+                },
+                "weight": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "1760"
+                },
+                "sku": "792931816447"
+              }
+            ]
+          },
+          "applicant": {
+            "type": "Organization",
+            "name": "Kirlin, Lowe and Gleichner",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "4018 Greenholt Dale",
+              "addressLocality": "Schaeferville",
+              "addressRegion": "Indiana",
+              "postalCode": "23988",
+              "addressCountry": "Lebanon"
+            }
+          }
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ppq203",
+        "certificateNumber": "333135964786",
+        "foreignPortExport": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress",
+            "addressLocality": "Donnellyside",
+            "addressCountry": "Niger"
+          }
+        },
+        "carrierId": "328530614189",
+        "portOfEntry": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress",
+            "addressLocality": "Hershelside",
+            "addressRegion": "Arkansas"
+          }
+        },
+        "signatureDate": "11-2-2020",
+        "AgInspectionReport": {
+          "type": "AgInspectionReport",
+          "facility": {
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "Ledner, Marks and Kutch",
+              "streetAddress": "52013 Alejandra Hills",
+              "addressLocality": "Myronport",
+              "addressRegion": "Missouri",
+              "postalCode": "49344",
+              "addressCountry": "Netherlands"
+            }
+          },
+          "inspector": {
+            "type": "Inspector",
+            "person": {
+              "type": "Person",
+              "firstName": "Leonora",
+              "lastName": "Prosacco"
+            }
+          },
+          "shipment": {
+            "type": "ParcelDelivery",
+            "deliveryAddress": {
+              "type": "PostalAddress",
+              "organizationName": "O'Conner, Wiza and Turner",
+              "streetAddress": "1646 Rohan Trail",
+              "addressLocality": "Bruenview",
+              "addressRegion": "Kansas",
+              "postalCode": "56889",
+              "addressCountry": "Uganda"
+            },
+            "originAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Kohler, Smith and Crona",
+              "streetAddress": "762 Veum Passage",
+              "addressLocality": "Creminborough",
+              "addressRegion": "South Dakota",
+              "postalCode": "70522",
+              "addressCountry": "Myanmar"
+            },
+            "products": [
+              {
+                "type": "Product",
+                "name": "Unbranded Cotton Keyboard",
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "sizeOrAmount": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "3227"
+                },
+                "weight": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "2019"
+                },
+                "sku": "270402554488"
+              }
+            ]
+          },
+          "applicant": {
+            "type": "Organization",
+            "name": "Barrows - Kutch",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "218 Sally Route",
+              "addressLocality": "Feestbury",
+              "addressRegion": "New York",
+              "postalCode": "92822-2901",
+              "addressCountry": "Honduras"
+            }
+          }
+        }
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ppq203",
+        "certificateNumber": "278042333004",
+        "foreignPortExport": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress",
+            "addressLocality": "Jenkinsmouth",
+            "addressCountry": "New Caledonia"
+          }
+        },
+        "carrierId": "43016824295",
+        "portOfEntry": {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress",
+            "addressLocality": "Batzville",
+            "addressRegion": "Delaware"
+          }
+        },
+        "signatureDate": "11-1-2020",
+        "AgInspectionReport": {
+          "type": "AgInspectionReport",
+          "facility": {
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "Schowalter and Sons",
+              "streetAddress": "888 Mraz Ville",
+              "addressLocality": "South Sandrineside",
+              "addressRegion": "Rhode Island",
+              "postalCode": "92142",
+              "addressCountry": "British Indian Ocean Territory (Chagos Archipelago)"
+            }
+          },
+          "inspector": {
+            "type": "Inspector",
+            "person": {
+              "type": "Person",
+              "firstName": "Eldridge",
+              "lastName": "Zulauf"
+            }
+          },
+          "shipment": {
+            "type": "ParcelDelivery",
+            "deliveryAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Cruickshank, Towne and Ullrich",
+              "streetAddress": "39923 Wuckert Island",
+              "addressLocality": "Claireville",
+              "addressRegion": "Alaska",
+              "postalCode": "74431",
+              "addressCountry": "Western Sahara"
+            },
+            "originAddress": {
+              "type": "PostalAddress",
+              "organizationName": "Tremblay - Rath",
+              "streetAddress": "1735 Ariane Skyway",
+              "addressLocality": "Leschborough",
+              "addressRegion": "Nevada",
+              "postalCode": "76814",
+              "addressCountry": "Martinique"
+            },
+            "products": [
+              {
+                "type": "Product",
+                "name": "Generic Soft Sausages",
+                "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+                "sizeOrAmount": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "7876"
+                },
+                "weight": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "2402"
+                },
+                "sku": "536376592859"
+              },
+              {
+                "type": "Product",
+                "name": "Incredible Concrete Sausages",
+                "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                "sizeOrAmount": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "7587"
+                },
+                "weight": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "9029"
+                },
+                "sku": "82560046841"
+              },
+              {
+                "type": "Product",
+                "name": "Gorgeous Concrete Keyboard",
+                "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+                "sizeOrAmount": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "1247"
+                },
+                "weight": {
+                  "type": "QuantitativeValue",
+                  "unitCode": "hg/ha",
+                  "value": "5870"
+                },
+                "sku": "575843358778"
+              }
+            ]
+          },
+          "applicant": {
+            "type": "Person",
+            "firstName": "Krista",
+            "lastName": "Bauch",
+            "worksFor": {
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "99407 Lera Divide",
+                "addressLocality": "New Aglae",
+                "addressRegion": "Idaho",
+                "postalCode": "83433",
+                "addressCountry": "South Africa"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/ppq203.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"ppq203\", \"@id\": \"https://w3id.org/traceability/ppq203\"}",
+      "title": "PPQ 203 Agricultural Foreign Site Inspection",
+      "description": "United States Department of Agriculture Foreign Site Certificate of Inspection and/or Treatment.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "certificateNumber": {
+          "$comment": "{\"term\": \"certificateNumber\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#certificateNumber\", \"@type\": \"https://schema.org/identifier\"}",
+          "title": "Certificate Number",
+          "description": "ID number of the certificate",
+          "type": "string"
+        },
+        "foreignPortExport": {
+          "$comment": "{\"term\": \"foreignPortExport\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport\", \"@type\": \"https://w3id.org/traceability/schemas/Place.json\"}",
+          "title": "Foreign Port of Export",
+          "description": "Foreign port which the shipment passed through as an export to the US",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "carrierId": {
+          "$comment": "{\"term\": \"carrierId\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#carrierId\", \"@type\": \"https://schema.org/identifier\"}",
+          "title": "Carrier ID",
+          "description": "Identifier of the carrier.",
+          "type": "string"
+        },
+        "portOfEntry": {
+          "$comment": "{\"term\": \"portOfEntry\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#portOfEntry\", \"@type\": \"https://w3id.org/traceability/schemas/Place.json\"}",
+          "title": "Port of Entry",
+          "description": "US port through which the imports passed.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "signatureDate": {
+          "$comment": "{\"term\": \"signatureDate\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#signatureDate\", \"@type\": \"https://w3id.org/traceability/schemas/DateTime.json\"}",
+          "title": "signatureDate",
+          "description": "Date when the inspection was signed by the inspection officer.",
+          "type": "string"
+        },
+        "AgInspectionReport": {
+          "$comment": "{\"term\": \"AgInspectionReport\", \"@id\": \"https://w3id.org/traceability/schemas/AgInspectionReport\"}",
+          "title": "Agriculture Inspection Report",
+          "description": "Template for agriculture inspection reports.",
+          "$ref": "https://w3id.org/traceability/schemas/AgInspectionReport.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
   }
 }
             </script>
 
-      <p id="vocab-last-generated" class="note">
+    <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Monday, December 14, 2020 4:18 PM
+      Tuesday, December 15, 2020 3:15 PM
       </span>
             </p>
-    </section>
+  </section>
 
-    <section class="informative">
-      <h2>Privacy Considerations</h2>
+  <section class="informative">
+    <h2>Privacy Considerations</h2>
 
-      <p>
-        This section details the general privacy considerations and specific
-        privacy implications of deploying this specification into production
-        environments.
-      </p>
-    </section>
+    <p>
+      This section details the general privacy considerations and specific
+      privacy implications of deploying this specification into production
+      environments.
+    </p>
+  </section>
 
-    <section class="informative">
-      <h2>Security Considerations</h2>
+  <section class="informative">
+    <h2>Security Considerations</h2>
 
-      <p>
-        There are a number of security considerations that implementers should
-        be aware of when processing data described by this specification.
-        Ignoring or not understanding the implications of this section can
-        result in security vulnerabilities.
-      </p>
+    <p>
+      There are a number of security considerations that implementers should
+      be aware of when processing data described by this specification.
+      Ignoring or not understanding the implications of this section can
+      result in security vulnerabilities.
+    </p>
 
-      <p>
-        While this section attempts to highlight a broad set of security
-        considerations, it is not a complete list. Implementers are urged to
-        seek the advice of security and cryptography professionals when
-        implementing mission critical systems using the technology outlined in
-        this specification.
-      </p>
-    </section>
+    <p>
+      While this section attempts to highlight a broad set of security
+      considerations, it is not a complete list. Implementers are urged to
+      seek the advice of security and cryptography professionals when
+      implementing mission critical systems using the technology outlined in
+      this specification.
+    </p>
+  </section>
 
-    <section class="informative">
-      <h2>Accessibility Considerations</h2>
+  <section class="informative">
+    <h2>Accessibility Considerations</h2>
 
-      <p>
-        There are a number of accessibility considerations implementers should
-        be aware of when processing data described in this specification. As
-        with any web standards or protocols implementation, ignoring
-        accessibility issues makes this information unusable to a large subset
-        of the population. It is important to follow accessibility guidelines
-        and standards, such as [[WCAG21]], to ensure all people, regardless of
-        ability, can make use of this data. This is especially important when
-        establishing systems utilizing cryptography, which have historically
-        created problems for assistive technologies.
-      </p>
+    <p>
+      There are a number of accessibility considerations implementers should
+      be aware of when processing data described in this specification. As
+      with any web standards or protocols implementation, ignoring
+      accessibility issues makes this information unusable to a large subset
+      of the population. It is important to follow accessibility guidelines
+      and standards, such as [[WCAG21]], to ensure all people, regardless of
+      ability, can make use of this data. This is especially important when
+      establishing systems utilizing cryptography, which have historically
+      created problems for assistive technologies.
+    </p>
 
-      <p>
-        This section details the general accessibility considerations to take
-        into account when utilizing this data model.
-      </p>
-    </section>
+    <p>
+      This section details the general accessibility considerations to take
+      into account when utilizing this data model.
+    </p>
+  </section>
 
-    <section class="informative">
-      <h2>Internationalization Considerations</h2>
+  <section class="informative">
+    <h2>Internationalization Considerations</h2>
 
-      <p>
-        There are a number of internationalization considerations implementers
-        should be aware of when publishing data described in this specification.
-        As with any web standards or protocols implementation, ignoring
-        internationalization makes it difficult for data to be produced and
-        consumed across a disparate set of languages and societies, which would
-        limit the applicability of the specification and significantly diminish
-        its value as a standard.
-      </p>
+    <p>
+      There are a number of internationalization considerations implementers
+      should be aware of when publishing data described in this specification.
+      As with any web standards or protocols implementation, ignoring
+      internationalization makes it difficult for data to be produced and
+      consumed across a disparate set of languages and societies, which would
+      limit the applicability of the specification and significantly diminish
+      its value as a standard.
+    </p>
 
-      <p>
-        This section outlines general internationalization considerations to
-        take into account when utilizing this data model.
-      </p>
-    </section>
+    <p>
+      This section outlines general internationalization considerations to
+      take into account when utilizing this data model.
+    </p>
+  </section>
 
-    <script>
-      const intermediate = JSON.parse(
-        document.getElementById("intermediate-json").innerHTML
-      );
-      // uncomment to view the json used to build this spec.
-      // console.log(intermediate)
-      let vocabularyString = "";
-      Object.values(intermediate).forEach((classDefinition) => {
-        let classPropertySections = "";
-        Object.values(classDefinition.classProperties).forEach(
-          (classProperty) => {
-            classPropertySections += `
+  <script>
+    const intermediate = JSON.parse(
+      document.getElementById("intermediate-json").innerHTML
+    );
+    // uncomment to view the json used to build this spec.
+    // console.log(intermediate)
+    let vocabularyString = "";
+    Object.values(intermediate).forEach((classDefinition) => {
+      let classPropertySections = "";
+      Object.values(classDefinition.classProperties).forEach(
+        (classProperty) => {
+          classPropertySections += `
                 <section>
                 <h3>${classProperty.title}</h3>
                 <p>${classProperty.description}</p>
@@ -3982,26 +4448,26 @@
                     </table>
                 </section>
                 `;
-          }
-        );
+        }
+      );
 
-        let classExamples = classDefinition.examples
-          ? classDefinition.examples
-              .map((ex) => {
-                return `
+      let classExamples = classDefinition.examples
+        ? classDefinition.examples
+          .map((ex) => {
+            return `
 <pre class="example">
 ${JSON.stringify(
-  { ...ex },
-  null,
-  2
-)}
+              { ...ex },
+              null,
+              2
+            )}
 </pre>
                 `;
-              })
-              .join("\n")
-          : "";
+          })
+          .join("\n")
+        : "";
 
-        vocabularyString += `
+      vocabularyString += `
             <section>
             <h2>${classDefinition.title}</h2>
             <p>${classDefinition.description}</p>
@@ -4039,9 +4505,11 @@ ${JSON.stringify(
             ${classExamples}
             </section>
             `;
-      });
-      document.getElementById("vocabulary").innerHTML += vocabularyString;
-    </script>
-  
+    });
+    document.getElementById("vocabulary").innerHTML += vocabularyString;
+  </script>
+
+
+
 
 </body></html>

@@ -16,6 +16,7 @@ const MeasuredValue = require('../../../../docs/test-vectors/MeasuredValue.json'
 const ChemicalProperty = require('../../../../docs/test-vectors/ChemicalProperty.json');
 const MechanicalProperty = require('../../../../docs/test-vectors/MechanicalProperty.json');
 const Product = require('../../../../docs/test-vectors/Product.json');
+const ppq203 = require('../../../../docs/test-vectors/ppq203.json');
 
 
 module.exports = {
@@ -36,5 +37,6 @@ module.exports = {
   MeasuredValue,
   ChemicalProperty,
   MechanicalProperty,
-  Product
+  Product,
+  ppq203
 };
