@@ -33,12 +33,12 @@ const getAgPackage = () => {
 
     //get agProducts
     let agProduct = [];
-    let numCreds = faker.random.number({ min: 1, max: 3 });
-    while (numCreds > 0) {
+    let numProds = faker.random.number({ min: 1, max: 3 });
+    while (numProds > 0) {
         const prod = getAgProduct();
         delete prod['@context'];
         agProduct.push(prod);
-        numCreds -= 1;
+        numProds -= 1;
     }
 
     const example = {
