@@ -212,7 +212,7 @@
           "email": "Gideon4@example.com",
           "phoneNumber": "555-727-9797"
         },
-        "inspectionDate": "11-1-2020",
+        "inspectionDate": "11-3-2020",
         "inspectionType": "Food Safety",
         "observation": [
           {
@@ -426,7 +426,7 @@
           },
           "jobTitle": "Central Creative Director"
         },
-        "inspectionDate": "11-2-2020",
+        "inspectionDate": "11-3-2020",
         "inspectionType": "General",
         "observation": [
           {
@@ -607,7 +607,7 @@
           },
           "jobTitle": "Customer Branding Specialist"
         },
-        "inspectionDate": "11-1-2020",
+        "inspectionDate": "11-3-2020",
         "inspectionType": "General",
         "observation": [
           {
@@ -1748,6 +1748,817 @@
       },
       "additionalProperties": false,
       "examples": []
+    }
+  },
+  "https://w3id.org/traceability/LEIevidenceDocument": {
+    "$id": "https://w3id.org/traceability/schemas/LEIevidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "LEIevidenceDocument",
+      "@id": "https://w3id.org/traceability/LEIevidenceDocument"
+    },
+    "title": "LEIevidenceDocument",
+    "description": "GLEIF LEI Redord Level 1 Schema",
+    "classProperties": {},
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/LEIevidenceDocument.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"LEIevidenceDocument\", \"@id\": \"https://w3id.org/traceability/LEIevidenceDocument\"}",
+      "title": "LEIevidenceDocument",
+      "description": "GLEIF LEI Redord Level 1 Schema",
+      "type": "object",
+      "required": [
+        "data"
+      ],
+      "properties": {
+        "data": {
+          "$id": "LEIevidenceDocument/data",
+          "title": "Data",
+          "type": "object",
+          "required": [
+            "type",
+            "id",
+            "attributes",
+            "relationships",
+            "links"
+          ],
+          "properties": {
+            "type": {
+              "$id": "LEIevidenceDocument/data/type",
+              "title": "Type",
+              "type": "string",
+              "default": "",
+              "pattern": "^.*$"
+            },
+            "id": {
+              "$id": "LEIevidenceDocument/data/id",
+              "title": "Id",
+              "type": "string",
+              "default": "",
+              "pattern": "^.*$"
+            },
+            "attributes": {
+              "$id": "LEIevidenceDocument/data/attributes",
+              "title": "Attributes",
+              "type": "object",
+              "required": [
+                "lei",
+                "entity",
+                "registration",
+                "bic"
+              ],
+              "properties": {
+                "lei": {
+                  "$id": "LEIevidenceDocument/data/attributes/lei",
+                  "title": "Lei",
+                  "type": "string",
+                  "default": "",
+                  "pattern": "^.*$"
+                },
+                "entity": {
+                  "$id": "LEIevidenceDocument/data/attributes/entity",
+                  "title": "Entity",
+                  "type": "object",
+                  "required": [
+                    "legalName",
+                    "otherNames",
+                    "transliteratedOtherNames",
+                    "legalAddress",
+                    "headquartersAddress",
+                    "registeredAt",
+                    "registeredAs",
+                    "jurisdiction",
+                    "category",
+                    "legalForm",
+                    "associatedEntity",
+                    "status",
+                    "expiration",
+                    "successorEntity",
+                    "otherAddresses"
+                  ],
+                  "properties": {
+                    "legalName": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/legalName",
+                      "title": "Legalname",
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "language"
+                      ],
+                      "properties": {
+                        "name": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalName/name",
+                          "title": "Name",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "language": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalName/language",
+                          "title": "Language",
+                          "type": "null",
+                          "default": null
+                        }
+                      }
+                    },
+                    "otherNames": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/otherNames",
+                      "title": "Othernames",
+                      "type": "array",
+                      "default": []
+                    },
+                    "transliteratedOtherNames": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/transliteratedOtherNames",
+                      "title": "Transliteratedothernames",
+                      "type": "array",
+                      "default": []
+                    },
+                    "legalAddress": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress",
+                      "title": "Legaladdress",
+                      "type": "object",
+                      "required": [
+                        "language",
+                        "addressLines",
+                        "addressNumber",
+                        "addressNumberWithinBuilding",
+                        "mailRouting",
+                        "city",
+                        "region",
+                        "country",
+                        "postalCode"
+                      ],
+                      "properties": {
+                        "language": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/language",
+                          "title": "Language",
+                          "type": "null",
+                          "default": null
+                        },
+                        "addressLines": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/addressLines",
+                          "title": "Addresslines",
+                          "type": "array",
+                          "default": [],
+                          "items": {
+                            "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/addressLines/items",
+                            "title": "Items",
+                            "type": "string",
+                            "default": "",
+                            "pattern": "^.*$"
+                          }
+                        },
+                        "addressNumber": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/addressNumber",
+                          "title": "Addressnumber",
+                          "type": "null",
+                          "default": null
+                        },
+                        "addressNumberWithinBuilding": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/addressNumberWithinBuilding",
+                          "title": "Addressnumberwithinbuilding",
+                          "type": "null",
+                          "default": null
+                        },
+                        "mailRouting": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/mailRouting",
+                          "title": "Mailrouting",
+                          "type": "null",
+                          "default": null
+                        },
+                        "city": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/city",
+                          "title": "City",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "region": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/region",
+                          "title": "Region",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "country": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/country",
+                          "title": "Country",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "postalCode": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/postalCode",
+                          "title": "Postalcode",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    },
+                    "headquartersAddress": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress",
+                      "title": "Headquartersaddress",
+                      "type": "object",
+                      "required": [
+                        "language",
+                        "addressLines",
+                        "addressNumber",
+                        "addressNumberWithinBuilding",
+                        "mailRouting",
+                        "city",
+                        "region",
+                        "country",
+                        "postalCode"
+                      ],
+                      "properties": {
+                        "language": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/language",
+                          "title": "Language",
+                          "type": "null",
+                          "default": null
+                        },
+                        "addressLines": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/addressLines",
+                          "title": "Addresslines",
+                          "type": "array",
+                          "default": [],
+                          "items": {
+                            "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/addressLines/items",
+                            "title": "Items",
+                            "type": "string",
+                            "default": "",
+                            "pattern": "^.*$"
+                          }
+                        },
+                        "addressNumber": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/addressNumber",
+                          "title": "Addressnumber",
+                          "type": "null",
+                          "default": null
+                        },
+                        "addressNumberWithinBuilding": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/addressNumberWithinBuilding",
+                          "title": "Addressnumberwithinbuilding",
+                          "type": "null",
+                          "default": null
+                        },
+                        "mailRouting": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/mailRouting",
+                          "title": "Mailrouting",
+                          "type": "null",
+                          "default": null
+                        },
+                        "city": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/city",
+                          "title": "City",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "region": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/region",
+                          "title": "Region",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "country": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/country",
+                          "title": "Country",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "postalCode": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/postalCode",
+                          "title": "Postalcode",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    },
+                    "registeredAt": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/registeredAt",
+                      "title": "Registeredat",
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "other"
+                      ],
+                      "properties": {
+                        "id": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/registeredAt/id",
+                          "title": "Id",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "other": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/registeredAt/other",
+                          "title": "Other",
+                          "type": "null",
+                          "default": null
+                        }
+                      }
+                    },
+                    "registeredAs": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/registeredAs",
+                      "title": "Registeredas",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "jurisdiction": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/jurisdiction",
+                      "title": "Jurisdiction",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "category": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/category",
+                      "title": "Category",
+                      "type": "null",
+                      "default": null
+                    },
+                    "legalForm": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/legalForm",
+                      "title": "Legalform",
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "other"
+                      ],
+                      "properties": {
+                        "id": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalForm/id",
+                          "title": "Id",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "other": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/legalForm/other",
+                          "title": "Other",
+                          "type": "null",
+                          "default": null
+                        }
+                      }
+                    },
+                    "associatedEntity": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/associatedEntity",
+                      "title": "Associatedentity",
+                      "type": "object",
+                      "required": [
+                        "lei",
+                        "name"
+                      ],
+                      "properties": {
+                        "lei": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/associatedEntity/lei",
+                          "title": "Lei",
+                          "type": "null",
+                          "default": null
+                        },
+                        "name": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/associatedEntity/name",
+                          "title": "Name",
+                          "type": "null",
+                          "default": null
+                        }
+                      }
+                    },
+                    "status": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/status",
+                      "title": "Status",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "expiration": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/expiration",
+                      "title": "Expiration",
+                      "type": "object",
+                      "required": [
+                        "date",
+                        "reason"
+                      ],
+                      "properties": {
+                        "date": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/expiration/date",
+                          "title": "Date",
+                          "type": "null",
+                          "default": null
+                        },
+                        "reason": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/expiration/reason",
+                          "title": "Reason",
+                          "type": "null",
+                          "default": null
+                        }
+                      }
+                    },
+                    "successorEntity": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/successorEntity",
+                      "title": "Successorentity",
+                      "type": "object",
+                      "required": [
+                        "lei",
+                        "name"
+                      ],
+                      "properties": {
+                        "lei": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/successorEntity/lei",
+                          "title": "Lei",
+                          "type": "null",
+                          "default": null
+                        },
+                        "name": {
+                          "$id": "LEIevidenceDocument/data/attributes/entity/successorEntity/name",
+                          "title": "Name",
+                          "type": "null",
+                          "default": null
+                        }
+                      }
+                    },
+                    "otherAddresses": {
+                      "$id": "LEIevidenceDocument/data/attributes/entity/otherAddresses",
+                      "title": "Otheraddresses",
+                      "type": "array",
+                      "default": []
+                    }
+                  }
+                },
+                "registration": {
+                  "$id": "LEIevidenceDocument/data/attributes/registration",
+                  "title": "Registration",
+                  "type": "object",
+                  "required": [
+                    "initialRegistrationDate",
+                    "lastUpdateDate",
+                    "status",
+                    "nextRenewalDate",
+                    "managingLou",
+                    "corroborationLevel",
+                    "validatedAt",
+                    "validatedAs",
+                    "otherValidationAuthorities"
+                  ],
+                  "properties": {
+                    "initialRegistrationDate": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/initialRegistrationDate",
+                      "title": "Initialregistrationdate",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "lastUpdateDate": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/lastUpdateDate",
+                      "title": "Lastupdatedate",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "status": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/status",
+                      "title": "Status",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "nextRenewalDate": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/nextRenewalDate",
+                      "title": "Nextrenewaldate",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "managingLou": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/managingLou",
+                      "title": "Managinglou",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "corroborationLevel": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/corroborationLevel",
+                      "title": "Corroborationlevel",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "validatedAt": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/validatedAt",
+                      "title": "Validatedat",
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "other"
+                      ],
+                      "properties": {
+                        "id": {
+                          "$id": "LEIevidenceDocument/data/attributes/registration/validatedAt/id",
+                          "title": "Id",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "other": {
+                          "$id": "LEIevidenceDocument/data/attributes/registration/validatedAt/other",
+                          "title": "Other",
+                          "type": "null",
+                          "default": null
+                        }
+                      }
+                    },
+                    "validatedAs": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/validatedAs",
+                      "title": "Validatedas",
+                      "type": "string",
+                      "default": "",
+                      "pattern": "^.*$"
+                    },
+                    "otherValidationAuthorities": {
+                      "$id": "LEIevidenceDocument/data/attributes/registration/otherValidationAuthorities",
+                      "title": "Othervalidationauthorities",
+                      "type": "array",
+                      "default": [],
+                      "items": {
+                        "$id": "LEIevidenceDocument/data/attributes/registration/otherValidationAuthorities/items",
+                        "title": "Items",
+                        "type": "object",
+                        "required": [
+                          "validatedAt",
+                          "validatedAs"
+                        ],
+                        "properties": {
+                          "validatedAt": {
+                            "$id": "LEIevidenceDocument/data/attributes/registration/otherValidationAuthorities/items/validatedAt",
+                            "title": "Validatedat",
+                            "type": "object",
+                            "required": [
+                              "id"
+                            ],
+                            "properties": {
+                              "id": {
+                                "$id": "LEIevidenceDocument/data/attributes/registration/otherValidationAuthorities/items/validatedAt/id",
+                                "title": "Id",
+                                "type": "string",
+                                "default": "",
+                                "pattern": "^.*$"
+                              }
+                            }
+                          },
+                          "validatedAs": {
+                            "$id": "LEIevidenceDocument/data/attributes/registration/otherValidationAuthorities/items/validatedAs",
+                            "title": "Validatedas",
+                            "type": "string",
+                            "default": "",
+                            "pattern": "^.*$"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "bic": {
+                  "$id": "LEIevidenceDocument/data/attributes/bic",
+                  "title": "Bic",
+                  "type": "array",
+                  "default": [],
+                  "items": {
+                    "$id": "LEIevidenceDocument/data/attributes/bic/items",
+                    "title": "Items",
+                    "type": "string",
+                    "default": "",
+                    "pattern": "^.*$"
+                  }
+                }
+              }
+            },
+            "relationships": {
+              "$id": "LEIevidenceDocument/data/relationships",
+              "title": "Relationships",
+              "type": "object",
+              "required": [
+                "managing-lou",
+                "lei-issuer",
+                "direct-parent",
+                "ultimate-parent",
+                "direct-children",
+                "isins"
+              ],
+              "properties": {
+                "managing-lou": {
+                  "$id": "LEIevidenceDocument/data/relationships/managing-lou",
+                  "title": "Managing-lou",
+                  "type": "object",
+                  "required": [
+                    "links"
+                  ],
+                  "properties": {
+                    "links": {
+                      "$id": "LEIevidenceDocument/data/relationships/managing-lou/links",
+                      "title": "Links",
+                      "type": "object",
+                      "required": [
+                        "related"
+                      ],
+                      "properties": {
+                        "related": {
+                          "$id": "LEIevidenceDocument/data/relationships/managing-lou/links/related",
+                          "title": "Related",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+                },
+                "lei-issuer": {
+                  "$id": "LEIevidenceDocument/data/relationships/lei-issuer",
+                  "title": "Lei-issuer",
+                  "type": "object",
+                  "required": [
+                    "links"
+                  ],
+                  "properties": {
+                    "links": {
+                      "$id": "LEIevidenceDocument/data/relationships/lei-issuer/links",
+                      "title": "Links",
+                      "type": "object",
+                      "required": [
+                        "related"
+                      ],
+                      "properties": {
+                        "related": {
+                          "$id": "LEIevidenceDocument/data/relationships/lei-issuer/links/related",
+                          "title": "Related",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+                },
+                "direct-parent": {
+                  "$id": "LEIevidenceDocument/data/relationships/direct-parent",
+                  "title": "Direct-parent",
+                  "type": "object",
+                  "required": [
+                    "links"
+                  ],
+                  "properties": {
+                    "links": {
+                      "$id": "LEIevidenceDocument/data/relationships/direct-parent/links",
+                      "title": "Links",
+                      "type": "object",
+                      "required": [
+                        "relationship-record",
+                        "lei-record"
+                      ],
+                      "properties": {
+                        "relationship-record": {
+                          "$id": "LEIevidenceDocument/data/relationships/direct-parent/links/relationship-record",
+                          "title": "Relationship-record",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "lei-record": {
+                          "$id": "LEIevidenceDocument/data/relationships/direct-parent/links/lei-record",
+                          "title": "Lei-record",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+                },
+                "ultimate-parent": {
+                  "$id": "LEIevidenceDocument/data/relationships/ultimate-parent",
+                  "title": "Ultimate-parent",
+                  "type": "object",
+                  "required": [
+                    "links"
+                  ],
+                  "properties": {
+                    "links": {
+                      "$id": "LEIevidenceDocument/data/relationships/ultimate-parent/links",
+                      "title": "Links",
+                      "type": "object",
+                      "required": [
+                        "relationship-record",
+                        "lei-record"
+                      ],
+                      "properties": {
+                        "relationship-record": {
+                          "$id": "LEIevidenceDocument/data/relationships/ultimate-parent/links/relationship-record",
+                          "title": "Relationship-record",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "lei-record": {
+                          "$id": "LEIevidenceDocument/data/relationships/ultimate-parent/links/lei-record",
+                          "title": "Lei-record",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+                },
+                "direct-children": {
+                  "$id": "LEIevidenceDocument/data/relationships/direct-children",
+                  "title": "Direct-children",
+                  "type": "object",
+                  "required": [
+                    "links"
+                  ],
+                  "properties": {
+                    "links": {
+                      "$id": "LEIevidenceDocument/data/relationships/direct-children/links",
+                      "title": "Links",
+                      "type": "object",
+                      "required": [
+                        "relationship-records",
+                        "related"
+                      ],
+                      "properties": {
+                        "relationship-records": {
+                          "$id": "LEIevidenceDocument/data/relationships/direct-children/links/relationship-records",
+                          "title": "Relationship-records",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        },
+                        "related": {
+                          "$id": "LEIevidenceDocument/data/relationships/direct-children/links/related",
+                          "title": "Related",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+                },
+                "isins": {
+                  "$id": "LEIevidenceDocument/data/relationships/isins",
+                  "title": "Isins",
+                  "type": "object",
+                  "required": [
+                    "links"
+                  ],
+                  "properties": {
+                    "links": {
+                      "$id": "LEIevidenceDocument/data/relationships/isins/links",
+                      "title": "Links",
+                      "type": "object",
+                      "required": [
+                        "related"
+                      ],
+                      "properties": {
+                        "related": {
+                          "$id": "LEIevidenceDocument/data/relationships/isins/links/related",
+                          "title": "Related",
+                          "type": "string",
+                          "default": "",
+                          "pattern": "^.*$"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "links": {
+              "$id": "LEIevidenceDocument/data/links",
+              "title": "Links",
+              "type": "object",
+              "required": [
+                "self"
+              ],
+              "properties": {
+                "self": {
+                  "$id": "LEIevidenceDocument/data/links/self",
+                  "title": "Self",
+                  "type": "string",
+                  "default": "",
+                  "pattern": "^.*$"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "https://w3id.org/traceability/MeasuredProperty": {
@@ -3449,6 +4260,523 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability/ProductRegistrationEvidenceDocument": {
+    "$id": "https://w3id.org/traceability/schemas/ProductRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "ProductRegistrationEvidenceDocument",
+      "@id": "https://w3id.org/traceability/ProductRegistrationEvidenceDocument"
+    },
+    "title": "Product Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Product",
+    "classProperties": {
+      "https://schema.org/category": {
+        "$comment": {
+          "term": "category",
+          "@id": "https://schema.org/category"
+        },
+        "title": "A category for the product item."
+      },
+      "https://schema.org/inProductGroupWithID": {
+        "$comment": {
+          "term": "inProductGroupWithID",
+          "@id": "https://schema.org/inProductGroupWithID"
+        },
+        "title": "Indicates the productGroupID for a ProductGroup"
+      },
+      "https://schema.org/productID": {
+        "$comment": {
+          "term": "productID",
+          "@id": "https://schema.org/productID"
+        },
+        "title": "Product ID"
+      },
+      "https://schema.org/mpn": {
+        "$comment": {
+          "term": "mpn",
+          "@id": "https://schema.org/mpn"
+        },
+        "title": "Manufacturer Part Number (MPN)"
+      },
+      "https://schema.org/gtin": {
+        "$comment": {
+          "term": "gtin",
+          "@id": "https://schema.org/gtin"
+        },
+        "title": "Global Trade Item Number (GTIN)"
+      },
+      "https://schema.org/isAccessoryOrSparePartFor": {
+        "$comment": {
+          "term": "isAccessoryOrSparePartFor",
+          "@id": "https://schema.org/isAccessoryOrSparePartFor"
+        },
+        "title": "Is accessory or sparepart for"
+      },
+      "https://schema.org/releaseDate": {
+        "$comment": {
+          "term": "releaseDate",
+          "@id": "https://schema.org/releaseDate"
+        },
+        "title": "Release date of a product or product model"
+      },
+      "https://schema.org/manufacturer": {
+        "$comment": {
+          "term": "manufacturer",
+          "@id": "https://schema.org/manufacturer"
+        },
+        "title": "Manufacturer name or brand of the product"
+      },
+      "https://schema.org/globalLocationNumber": {
+        "$comment": {
+          "term": "globalLocationNumber",
+          "@id": "https://schema.org/globalLocationNumber"
+        },
+        "title": "Global Location Number (GLN)",
+        "description": "A Global Location Number of the manufacturer issued by GS1 (required), for more information see http://www.gs1.org/gln."
+      },
+      "https://schema.org/leiCode": {
+        "$comment": {
+          "term": "leiCode",
+          "@id": "https://schema.org/leiCode"
+        },
+        "title": "Global Location Number (GLN)",
+        "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "name",
+          "@id": "https://schema.org/name"
+        },
+        "title": "Name of the product item"
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Description of the product item"
+      },
+      "https://schema.org/model": {
+        "$comment": {
+          "term": "model",
+          "@id": "https://schema.org/model"
+        },
+        "title": "Model of the product"
+      },
+      "https://schema.org/color": {
+        "$comment": {
+          "term": "color",
+          "@id": "https://schema.org/color"
+        },
+        "title": "Color of the product"
+      },
+      "https://schema.org/material": {
+        "$comment": {
+          "term": "material",
+          "@id": "https://schema.org/material"
+        },
+        "title": "Material the product is made from"
+      },
+      "https://schema.org/weight": {
+        "$comment": {
+          "term": "weight",
+          "@id": "https://schema.org/weight"
+        },
+        "title": "Weight of the product"
+      },
+      "https://schema.org/height": {
+        "$comment": {
+          "term": "height",
+          "@id": "https://schema.org/height"
+        },
+        "title": "Height of the product"
+      },
+      "https://schema.org/width": {
+        "$comment": {
+          "term": "width",
+          "@id": "https://schema.org/width"
+        },
+        "title": "Width of the product"
+      },
+      "https://schema.org/depth": {
+        "$comment": {
+          "term": "depth",
+          "@id": "https://schema.org/depth"
+        },
+        "title": "Depth of the Product"
+      },
+      "https://schema.org/url": {
+        "$comment": {
+          "term": "url",
+          "@id": "https://schema.org/url"
+        },
+        "title": "Url or the product item"
+      },
+      "https://schema.org/isBasedOn": {
+        "$comment": {
+          "term": "isBasedOn",
+          "@id": "https://schema.org/isBasedOn"
+        },
+        "title": "Is based on"
+      },
+      "https://schema.org/image": {
+        "$comment": {
+          "term": "image",
+          "@id": "https://schema.org/image"
+        },
+        "title": "Image of the product"
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "HTScode",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "HTS code for product categorisation "
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ProductRegistrationEvidenceDocument",
+        "category": "Optio explicabo itaque exercitationem nemo consequuntur molestiae voluptas eveniet ut.",
+        "inProductGroupWithID": "Deserunt velit aut sit odio.",
+        "productID": "a80e040a-2835-4a35-b3e3-9b770b51450b",
+        "mpn": "et",
+        "gtin": "http://berta.info",
+        "isAccessoryOrSparePartFor": "Dolores cum dicta aut dolor.",
+        "releaseDate": "2020-07-06T20:21:05.336Z",
+        "manufacturer": "velit",
+        "globalLocationNumber": "Suite 445",
+        "leiCode": "Apt. 520",
+        "name": "suscipit",
+        "description": "Aut quo aliquid. Ab consectetur velit quia placeat. Ab eum molestiae qui officia. Cumque tenetur illum quae qui impedit et. Dicta ipsum provident est explicabo.",
+        "model": "59a0a9a7-60eb-4b30-b2a8-9c4ea20bb1c4",
+        "color": "#70102d",
+        "material": "enim",
+        "weight": "47791 kg",
+        "height": "63212 m",
+        "width": "27818 m",
+        "depth": "57337 m",
+        "url": "http://edmond.org",
+        "isBasedOn": "https://merle.org",
+        "image": "http://placeimg.com/640/480",
+        "HTScode": "635b40d4-94dc-45cc-8911-291210b2484d"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ProductRegistrationEvidenceDocument",
+        "category": "Esse qui magnam ad et iure suscipit error ipsum.",
+        "inProductGroupWithID": "Magnam laudantium error explicabo repellat doloremque officiis vel sit molestias.",
+        "productID": "a95d57fb-a5a1-4d4b-9fb8-fadbb452116b",
+        "mpn": "id",
+        "gtin": "https://philip.info",
+        "isAccessoryOrSparePartFor": "Quidem fuga sunt in rerum animi magni.",
+        "releaseDate": "2019-12-25T00:41:36.479Z",
+        "manufacturer": "ea",
+        "globalLocationNumber": "Suite 849",
+        "leiCode": "Apt. 240",
+        "name": "illum",
+        "description": "Ut et soluta sit illum omnis. Accusantium aut est quo omnis eum enim voluptatem voluptas. Qui enim nostrum odit pariatur. Temporibus placeat id.",
+        "model": "a23270b7-2fb9-4d02-bd64-0963d35c3602",
+        "color": "#785a1a",
+        "material": "ea",
+        "weight": "49937 kg",
+        "height": "48771 m",
+        "width": "65794 m",
+        "depth": "20928 m",
+        "url": "https://orie.name",
+        "isBasedOn": "https://beverly.net",
+        "image": "http://placeimg.com/640/480",
+        "HTScode": "582493a2-4752-40ca-beab-f879d6fffdbb"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ProductRegistrationEvidenceDocument",
+        "category": "Omnis explicabo tempora ipsa dolorem nobis ea fuga tempore.",
+        "inProductGroupWithID": "Quam itaque aut quisquam molestiae nemo consectetur voluptas odio magni.",
+        "productID": "f17ab7c0-a35e-4e3b-9619-5be5b0c2f39f",
+        "mpn": "sequi",
+        "gtin": "https://korbin.biz",
+        "isAccessoryOrSparePartFor": "Reiciendis et et aut aut rerum eos accusamus a.",
+        "releaseDate": "2020-11-12T16:12:09.196Z",
+        "manufacturer": "ut",
+        "globalLocationNumber": "Apt. 806",
+        "leiCode": "Apt. 720",
+        "name": "eos",
+        "description": "Aut commodi suscipit ut cumque id. Necessitatibus ut qui eveniet vel blanditiis iure ut ipsa est. Recusandae velit corrupti perspiciatis dolorem ad. Temporibus assumenda libero eligendi et qui voluptas aut minus.",
+        "model": "87048f82-e156-4d88-9007-bc5a4722ac31",
+        "color": "#0c1470",
+        "material": "est",
+        "weight": "27384 kg",
+        "height": "96514 m",
+        "width": "91681 m",
+        "depth": "91264 m",
+        "url": "https://malika.org",
+        "isBasedOn": "https://eulah.org",
+        "image": "http://placeimg.com/640/480",
+        "HTScode": "82c76a3e-cdbb-4662-9206-2019112e55cb"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/ProductRegistrationEvidenceDocument.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"ProductRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability/ProductRegistrationEvidenceDocument\"}",
+      "title": "Product Registration Evidence Document",
+      "description": "Evidence data for a registered eCommerce Product",
+      "type": "object",
+      "required": [
+        "@context",
+        "category",
+        "inProductGroupWithID",
+        "productID",
+        "mpn",
+        "gtin",
+        "isAccessoryOrSparePartFor",
+        "releaseDate",
+        "manufacturer",
+        "globalLocationNumber",
+        "leiCode",
+        "name",
+        "description",
+        "model",
+        "color",
+        "material",
+        "weight",
+        "height",
+        "width",
+        "depth",
+        "url",
+        "isBasedOn",
+        "image",
+        "HTScode"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "category": {
+          "$comment": "{\"term\": \"category\", \"@id\": \"https://schema.org/category\"}",
+          "title": "A category for the product item.",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Example Product Category (required)"
+          ]
+        },
+        "inProductGroupWithID": {
+          "$comment": "{\"term\": \"inProductGroupWithID\", \"@id\": \"https://schema.org/inProductGroupWithID\"}",
+          "title": "Indicates the productGroupID for a ProductGroup",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "valid Product Group ID number per schema.org, could be NULL (required)"
+          ]
+        },
+        "productID": {
+          "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "Product ID",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Product number of registering Legal Entity such as an ISBN (required)"
+          ]
+        },
+        "mpn": {
+          "$comment": "{\"term\": \"mpn\", \"@id\": \"https://schema.org/mpn\"}",
+          "title": "Manufacturer Part Number (MPN)",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Manufacturer part number (required)"
+          ]
+        },
+        "gtin": {
+          "$comment": "{\"term\": \"gtin\", \"@id\": \"https://schema.org/gtin\"}",
+          "title": "Global Trade Item Number (GTIN)",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "valid GTIN as number or URL per GS1 spec(required)"
+          ]
+        },
+        "isAccessoryOrSparePartFor": {
+          "$comment": "{\"term\": \"isAccessoryOrSparePartFor\", \"@id\": \"https://schema.org/isAccessoryOrSparePartFor\"}",
+          "title": "Is accessory or sparepart for",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "A pointer to another product (or multiple products) for which this product is an accessory or spare part; may be empty (required)"
+          ]
+        },
+        "releaseDate": {
+          "$comment": "{\"term\": \"releaseDate\", \"@id\": \"https://schema.org/releaseDate\"}",
+          "title": "Release date of a product or product model",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "date when product (version) was 1st released (required)"
+          ]
+        },
+        "manufacturer": {
+          "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
+          "title": "Manufacturer name or brand of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "name of the manufacturer (required)"
+          ]
+        },
+        "globalLocationNumber": {
+          "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
+          "title": "Global Location Number (GLN)",
+          "default": "",
+          "description": "A Global Location Number of the manufacturer issued by GS1 (required), for more information see http://www.gs1.org/gln.",
+          "type": "string"
+        },
+        "leiCode": {
+          "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+          "title": "Global Location Number (GLN)",
+          "default": "",
+          "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org",
+          "type": "string"
+        },
+        "name": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Name of the product item",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "short name of product (required)"
+          ]
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Description of the product item",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Description of product (required)"
+          ]
+        },
+        "model": {
+          "$comment": "{\"term\": \"model\", \"@id\": \"https://schema.org/model\"}",
+          "title": "Model of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "produdct model name, a URL is also allowed (required)"
+          ]
+        },
+        "color": {
+          "$comment": "{\"term\": \"color\", \"@id\": \"https://schema.org/color\"}",
+          "title": "Color of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "color of product -- 'mix' is allowed (required)"
+          ]
+        },
+        "material": {
+          "$comment": "{\"term\": \"material\", \"@id\": \"https://schema.org/material\"}",
+          "title": "Material the product is made from",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Material the product is made from, could specified as 'composits' (required)"
+          ]
+        },
+        "weight": {
+          "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+          "title": "Weight of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (kg) (required)"
+          ]
+        },
+        "height": {
+          "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+          "title": "Height of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (meter) (required)"
+          ]
+        },
+        "width": {
+          "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+          "title": "Width of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (meter) (required)"
+          ]
+        },
+        "depth": {
+          "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+          "title": "Depth of the Product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (meter)(required)"
+          ]
+        },
+        "url": {
+          "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+          "title": "Url or the product item",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "URL of the product; could be empty (required)"
+          ]
+        },
+        "isBasedOn": {
+          "$comment": "{\"term\": \"isBasedOn\", \"@id\": \"https://schema.org/isBasedOn\"}",
+          "title": "Is based on",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "URI for the resource from which this work is derived e.g. patent or from which it is a modification or adaption; could be empty (required)"
+          ]
+        },
+        "image": {
+          "$comment": "{\"term\": \"image\", \"@id\": \"https://schema.org/image\"}",
+          "title": "Image of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "encoded picture of the product as a URI/URL (required)"
+          ]
+        },
+        "HTScode": {
+          "$comment": "{\"term\": \"HTScode\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "HTS code for product categorisation ",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "HTS code for product categorisation in accordance to Harmonized Tariff Schedule of the United States (required)"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
   "https://schema.org/QuantitativeValue": {
     "$id": "https://w3id.org/traceability/schemas/QuantitativeValue.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3628,7 +4956,7 @@
             "addressRegion": "Michigan"
           }
         },
-        "signatureDate": "11-2-2020",
+        "signatureDate": "11-3-2020",
         "AgInspectionReport": {
           "type": "AgInspectionReport",
           "facility": {
@@ -3726,7 +5054,7 @@
             "addressRegion": "Arkansas"
           }
         },
-        "signatureDate": "11-2-2020",
+        "signatureDate": "11-3-2020",
         "AgInspectionReport": {
           "type": "AgInspectionReport",
           "facility": {
@@ -3824,7 +5152,7 @@
             "addressRegion": "Delaware"
           }
         },
-        "signatureDate": "11-1-2020",
+        "signatureDate": "11-3-2020",
         "AgInspectionReport": {
           "type": "AgInspectionReport",
           "facility": {
@@ -3995,6 +5323,57 @@
       },
       "additionalProperties": false,
       "examples": []
+    }
+  },
+  "https://w3id.org/traceability/vLEIIdentityCredential": {
+    "$id": "https://w3id.org/traceability/schemas/vLEIIdentityCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "vLEIIdentityCredentia",
+      "@id": "https://w3id.org/traceability/vLEIIdentityCredential"
+    },
+    "title": "vLEIIdentityCredential",
+    "description": "GLEIF verifiable Legal Entity Identifier Credential (verifiable leiCode Credential)",
+    "classProperties": {
+      "https://schema.org/leiCode": {
+        "$comment": {
+          "term": "leiCode",
+          "@id": "https://schema.org/leiCode"
+        },
+        "title": "leiCode",
+        "description": "leiCode - An organization identifier that uniquely identifies a legal entity as defined in ISO 17442"
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/vLEIIdentityCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"vLEIIdentityCredentia\", \"@id\": \"https://w3id.org/traceability/vLEIIdentityCredential\"}",
+      "title": "vLEIIdentityCredential",
+      "description": "GLEIF verifiable Legal Entity Identifier Credential (verifiable leiCode Credential)",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "vLEIIdentityCredential": {
+          "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+          "title": "leiCode",
+          "description": "leiCode - An organization identifier that uniquely identifies a legal entity as defined in ISO 17442",
+          "type": "string"
+        },
+        "additionalProperties": false,
+        "examples": []
+      }
     }
   }
 }

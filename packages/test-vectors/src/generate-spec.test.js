@@ -44,6 +44,7 @@ it('should validate using json schema', async () => {
   Object.values(intermediateJson).forEach((classDefinition) => {
     try {
       const fixture = classDefinitionToFixtureJson(classDefinition);
+      console.log('====>   ',fixture);
       const validate = ajv.compile(classDefinition.schema);
       fixture.good.forEach((goodExample) => {
         const valid = validate(goodExample);

@@ -17,6 +17,9 @@ const { getEntity } = require('./Entity');
 const { getProduct } = require('./Product');
 const { getAgInspectionReport } = require('./AgInspectionReport');
 const { getppq203 } = require('./ppq203');
+const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
+const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
+const { getvLEIIdentityCredential } = require('./vLEIIdentityCredential');
 
 const generatorConfig = {
   Place: getPlace,
@@ -37,7 +40,10 @@ const generatorConfig = {
   Entity: getEntity,
   Product: getProduct,
   AgInspectionReport: getAgInspectionReport,
-  ppq203: getppq203
+  ppq203: getppq203,
+  LEIevidenceDocument: getLEIevidenceDocument,
+  ProductRegistrationEvidenceDocument: getProductRegistrationEvidenceDocument,
+  vLEIIdentityCredential: getvLEIIdentityCredential,
 };
 
 module.exports = generatorConfig;
