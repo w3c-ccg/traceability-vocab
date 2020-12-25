@@ -17,7 +17,9 @@ const ChemicalProperty = require('../../../../docs/test-vectors/ChemicalProperty
 const MechanicalProperty = require('../../../../docs/test-vectors/MechanicalProperty.json');
 const Product = require('../../../../docs/test-vectors/Product.json');
 const ppq203 = require('../../../../docs/test-vectors/ppq203.json');
-
+const LEIevidenceDocument = require('../../../../docs/test-vectors/LEIevidenceDocument.json');
+const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vectors/ProductRegistrationEvidenceDocument.json');
+const vLEIIdentityCredential = require('../../../../docs/test-vectors/vLEIIdentityCredential.json');
 
 module.exports = {
   GeoCoordinates,
@@ -38,5 +40,8 @@ module.exports = {
   ChemicalProperty,
   MechanicalProperty,
   Product,
-  ppq203
+  ppq203,
+  LEIevidenceDocument,
+  ProductRegistrationEvidenceDocument,
+  vLEIIdentityCredential
 };
