@@ -2015,6 +2015,523 @@
       "additionalProperties": false,
       "examples": []
     }
+  },
+  "https://w3id.org/traceability#ProductRegistrationEvidenceDocument": {
+    "$id": "https://w3id.org/traceability/schemas/ProductRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "ProductRegistrationEvidenceDocument",
+      "@id": "https://w3id.org/traceability#ProductRegistrationEvidenceDocument"
+    },
+    "title": "Product Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Product",
+    "classProperties": {
+      "https://schema.org/category": {
+        "$comment": {
+          "term": "category",
+          "@id": "https://schema.org/category"
+        },
+        "title": "A category for the product item."
+      },
+      "https://schema.org/inProductGroupWithID": {
+        "$comment": {
+          "term": "inProductGroupWithID",
+          "@id": "https://schema.org/inProductGroupWithID"
+        },
+        "title": "Indicates the productGroupID for a ProductGroup"
+      },
+      "https://schema.org/productID": {
+        "$comment": {
+          "term": "productID",
+          "@id": "https://schema.org/productID"
+        },
+        "title": "Product ID"
+      },
+      "https://schema.org/mpn": {
+        "$comment": {
+          "term": "mpn",
+          "@id": "https://schema.org/mpn"
+        },
+        "title": "Manufacturer Part Number (MPN)"
+      },
+      "https://schema.org/gtin": {
+        "$comment": {
+          "term": "gtin",
+          "@id": "https://schema.org/gtin"
+        },
+        "title": "Global Trade Item Number (GTIN)"
+      },
+      "https://schema.org/isAccessoryOrSparePartFor": {
+        "$comment": {
+          "term": "isAccessoryOrSparePartFor",
+          "@id": "https://schema.org/isAccessoryOrSparePartFor"
+        },
+        "title": "Is accessory or sparepart for"
+      },
+      "https://schema.org/releaseDate": {
+        "$comment": {
+          "term": "releaseDate",
+          "@id": "https://schema.org/releaseDate"
+        },
+        "title": "Release date of a product or product model"
+      },
+      "https://schema.org/manufacturer": {
+        "$comment": {
+          "term": "manufacturer",
+          "@id": "https://schema.org/manufacturer"
+        },
+        "title": "Manufacturer name or brand of the product"
+      },
+      "https://schema.org/globalLocationNumber": {
+        "$comment": {
+          "term": "globalLocationNumber",
+          "@id": "https://schema.org/globalLocationNumber"
+        },
+        "title": "Global Location Number (GLN)",
+        "description": "A Global Location Number of the manufacturer issued by GS1 (required), for more information see http://www.gs1.org/gln."
+      },
+      "https://schema.org/leiCode": {
+        "$comment": {
+          "term": "leiCode",
+          "@id": "https://schema.org/leiCode"
+        },
+        "title": "Global Location Number (GLN)",
+        "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "name",
+          "@id": "https://schema.org/name"
+        },
+        "title": "Name of the product item"
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Description of the product item"
+      },
+      "https://schema.org/model": {
+        "$comment": {
+          "term": "model",
+          "@id": "https://schema.org/model"
+        },
+        "title": "Model of the product"
+      },
+      "https://schema.org/color": {
+        "$comment": {
+          "term": "color",
+          "@id": "https://schema.org/color"
+        },
+        "title": "Color of the product"
+      },
+      "https://schema.org/material": {
+        "$comment": {
+          "term": "material",
+          "@id": "https://schema.org/material"
+        },
+        "title": "Material the product is made from"
+      },
+      "https://schema.org/weight": {
+        "$comment": {
+          "term": "weight",
+          "@id": "https://schema.org/weight"
+        },
+        "title": "Weight of the product"
+      },
+      "https://schema.org/height": {
+        "$comment": {
+          "term": "height",
+          "@id": "https://schema.org/height"
+        },
+        "title": "Height of the product"
+      },
+      "https://schema.org/width": {
+        "$comment": {
+          "term": "width",
+          "@id": "https://schema.org/width"
+        },
+        "title": "Width of the product"
+      },
+      "https://schema.org/depth": {
+        "$comment": {
+          "term": "depth",
+          "@id": "https://schema.org/depth"
+        },
+        "title": "Depth of the Product"
+      },
+      "https://schema.org/url": {
+        "$comment": {
+          "term": "url",
+          "@id": "https://schema.org/url"
+        },
+        "title": "Url or the product item"
+      },
+      "https://schema.org/isBasedOn": {
+        "$comment": {
+          "term": "isBasedOn",
+          "@id": "https://schema.org/isBasedOn"
+        },
+        "title": "Is based on"
+      },
+      "https://schema.org/image": {
+        "$comment": {
+          "term": "image",
+          "@id": "https://schema.org/image"
+        },
+        "title": "Image of the product"
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "HTScode",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "HTS code for product categorisation "
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ProductRegistrationEvidenceDocument",
+        "category": "Non molestiae molestiae recusandae ut.",
+        "inProductGroupWithID": "Provident dolorem quis corporis eum nesciunt autem consequatur dignissimos.",
+        "productID": "6ce6d3d8-b0c3-473e-bfc6-6e2baa786fc5",
+        "mpn": "explicabo",
+        "gtin": "http://percival.com",
+        "isAccessoryOrSparePartFor": "Consequatur ab sed et labore consectetur.",
+        "releaseDate": "10-0-2020",
+        "manufacturer": "nisi",
+        "globalLocationNumber": "Apt. 617",
+        "leiCode": "Apt. 006",
+        "name": "magni",
+        "description": "Quibusdam quia modi suscipit neque voluptates placeat. Iure et quia sit iusto rerum. Aliquid ut sed velit ut voluptas sit et debitis. Eos accusantium et. Distinctio ex eum quia vel alias ducimus ut consequatur.",
+        "model": "29d51bc4-8602-43d5-b544-8ab1c178c4aa",
+        "color": "#7a2428",
+        "material": "soluta",
+        "weight": "78659 kg",
+        "height": "87994 m",
+        "width": "70554 m",
+        "depth": "34658 m",
+        "url": "http://desmond.com",
+        "isBasedOn": "https://asha.com",
+        "image": "http://placeimg.com/640/480",
+        "HTScode": "a83e84fc-c66d-4bb7-8de5-29e2620fe8a7"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ProductRegistrationEvidenceDocument",
+        "category": "Distinctio aut beatae possimus et dicta vitae exercitationem est.",
+        "inProductGroupWithID": "Et rem aliquam est repellat quam vero et voluptatum placeat.",
+        "productID": "f56363b4-4779-4ae3-a701-6f4922e8b187",
+        "mpn": "iure",
+        "gtin": "https://antonetta.name",
+        "isAccessoryOrSparePartFor": "In neque facilis dolor molestiae.",
+        "releaseDate": "5-6-2020",
+        "manufacturer": "consequuntur",
+        "globalLocationNumber": "Apt. 986",
+        "leiCode": "Apt. 764",
+        "name": "ratione",
+        "description": "Quis rerum adipisci qui recusandae qui. Voluptatum sequi inventore cupiditate deleniti est voluptatem est ut. Temporibus voluptatem rerum ea culpa itaque. Accusantium eveniet ullam laudantium optio mollitia est exercitationem dignissimos quam.",
+        "model": "407bf557-c62d-4a4a-953c-46bc836a4e1c",
+        "color": "#045f69",
+        "material": "sunt",
+        "weight": "68699 kg",
+        "height": "86351 m",
+        "width": "76506 m",
+        "depth": "6495 m",
+        "url": "https://brandt.com",
+        "isBasedOn": "http://mariane.com",
+        "image": "http://placeimg.com/640/480",
+        "HTScode": "2bf7f2f1-60ab-413e-bba5-b8734a0fb4e0"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "ProductRegistrationEvidenceDocument",
+        "category": "Dolorum quia animi voluptatem excepturi cum cupiditate asperiores explicabo.",
+        "inProductGroupWithID": "Laudantium sunt ut omnis iure id in laboriosam repellendus ut.",
+        "productID": "b835de86-27ac-4e79-ad0d-8dc1d5635fba",
+        "mpn": "quia",
+        "gtin": "https://freddy.name",
+        "isAccessoryOrSparePartFor": "Ut consectetur aut id.",
+        "releaseDate": "3-3-2020",
+        "manufacturer": "qui",
+        "globalLocationNumber": "Suite 636",
+        "leiCode": "Apt. 901",
+        "name": "non",
+        "description": "Repudiandae quibusdam occaecati harum soluta. Pariatur voluptates molestias vitae dolorem at numquam non nihil sapiente. Ab et rerum ut ratione. Rerum dolorem dolor voluptas et dolore quia asperiores.",
+        "model": "008635af-397b-4653-a70d-2f5ab67bb59b",
+        "color": "#2b3f3e",
+        "material": "dolorum",
+        "weight": "49694 kg",
+        "height": "57515 m",
+        "width": "17025 m",
+        "depth": "47469 m",
+        "url": "https://devyn.org",
+        "isBasedOn": "http://levi.name",
+        "image": "http://placeimg.com/640/480",
+        "HTScode": "d3fa03ab-68ed-49f5-8120-bb7f663411ab"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/ProductRegistrationEvidenceDocument.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"ProductRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#ProductRegistrationEvidenceDocument\"}",
+      "title": "Product Registration Evidence Document",
+      "description": "Evidence data for a registered eCommerce Product",
+      "type": "object",
+      "required": [
+        "@context",
+        "category",
+        "inProductGroupWithID",
+        "productID",
+        "mpn",
+        "gtin",
+        "isAccessoryOrSparePartFor",
+        "releaseDate",
+        "manufacturer",
+        "globalLocationNumber",
+        "leiCode",
+        "name",
+        "description",
+        "model",
+        "color",
+        "material",
+        "weight",
+        "height",
+        "width",
+        "depth",
+        "url",
+        "isBasedOn",
+        "image",
+        "HTScode"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "category": {
+          "$comment": "{\"term\": \"category\", \"@id\": \"https://schema.org/category\"}",
+          "title": "A category for the product item.",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Example Product Category (required)"
+          ]
+        },
+        "inProductGroupWithID": {
+          "$comment": "{\"term\": \"inProductGroupWithID\", \"@id\": \"https://schema.org/inProductGroupWithID\"}",
+          "title": "Indicates the productGroupID for a ProductGroup",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "valid Product Group ID number per schema.org, could be NULL (required)"
+          ]
+        },
+        "productID": {
+          "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "Product ID",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Product number of registering Legal Entity such as an ISBN (required)"
+          ]
+        },
+        "mpn": {
+          "$comment": "{\"term\": \"mpn\", \"@id\": \"https://schema.org/mpn\"}",
+          "title": "Manufacturer Part Number (MPN)",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Manufacturer part number (required)"
+          ]
+        },
+        "gtin": {
+          "$comment": "{\"term\": \"gtin\", \"@id\": \"https://schema.org/gtin\"}",
+          "title": "Global Trade Item Number (GTIN)",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "valid GTIN as number or URL per GS1 spec(required)"
+          ]
+        },
+        "isAccessoryOrSparePartFor": {
+          "$comment": "{\"term\": \"isAccessoryOrSparePartFor\", \"@id\": \"https://schema.org/isAccessoryOrSparePartFor\"}",
+          "title": "Is accessory or sparepart for",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "A pointer to another product (or multiple products) for which this product is an accessory or spare part; may be empty (required)"
+          ]
+        },
+        "releaseDate": {
+          "$comment": "{\"term\": \"releaseDate\", \"@id\": \"https://schema.org/releaseDate\"}",
+          "title": "Release date of a product or product model",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "date when product (version) was 1st released (required)"
+          ]
+        },
+        "manufacturer": {
+          "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
+          "title": "Manufacturer name or brand of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "name of the manufacturer (required)"
+          ]
+        },
+        "globalLocationNumber": {
+          "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
+          "title": "Global Location Number (GLN)",
+          "default": "",
+          "description": "A Global Location Number of the manufacturer issued by GS1 (required), for more information see http://www.gs1.org/gln.",
+          "type": "string"
+        },
+        "leiCode": {
+          "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+          "title": "Global Location Number (GLN)",
+          "default": "",
+          "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org",
+          "type": "string"
+        },
+        "name": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Name of the product item",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "short name of product (required)"
+          ]
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Description of the product item",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Description of product (required)"
+          ]
+        },
+        "model": {
+          "$comment": "{\"term\": \"model\", \"@id\": \"https://schema.org/model\"}",
+          "title": "Model of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "produdct model name, a URL is also allowed (required)"
+          ]
+        },
+        "color": {
+          "$comment": "{\"term\": \"color\", \"@id\": \"https://schema.org/color\"}",
+          "title": "Color of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "color of product -- 'mix' is allowed (required)"
+          ]
+        },
+        "material": {
+          "$comment": "{\"term\": \"material\", \"@id\": \"https://schema.org/material\"}",
+          "title": "Material the product is made from",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Material the product is made from, could specified as 'composits' (required)"
+          ]
+        },
+        "weight": {
+          "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+          "title": "Weight of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (kg) (required)"
+          ]
+        },
+        "height": {
+          "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+          "title": "Height of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (meter) (required)"
+          ]
+        },
+        "width": {
+          "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+          "title": "Width of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (meter) (required)"
+          ]
+        },
+        "depth": {
+          "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+          "title": "Depth of the Product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "floating point metric system value plus unit measrure (meter)(required)"
+          ]
+        },
+        "url": {
+          "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+          "title": "Url or the product item",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "URL of the product; could be empty (required)"
+          ]
+        },
+        "isBasedOn": {
+          "$comment": "{\"term\": \"isBasedOn\", \"@id\": \"https://schema.org/isBasedOn\"}",
+          "title": "Is based on",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "URI for the resource from which this work is derived e.g. patent or from which it is a modification or adaption; could be empty (required)"
+          ]
+        },
+        "image": {
+          "$comment": "{\"term\": \"image\", \"@id\": \"https://schema.org/image\"}",
+          "title": "Image of the product",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "encoded picture of the product as a URI/URL (required)"
+          ]
+        },
+        "HTScode": {
+          "$comment": "{\"term\": \"HTScode\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "HTS code for product categorisation ",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "HTS code for product categorisation in accordance to Harmonized Tariff Schedule of the United States (required)"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
   }
 }
             </script>
@@ -2022,7 +2539,7 @@
       <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Wednesday, November 25, 2020 1:05 PM
+      Sunday, December 27, 2020 6:39 PM
       </span>
             </p>
     </section>

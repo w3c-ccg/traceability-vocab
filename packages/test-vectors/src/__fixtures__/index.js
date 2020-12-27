@@ -10,6 +10,7 @@ const MeasuredProperty = require('../../../../docs/test-vectors/MeasuredProperty
 const MeasuredValue = require('../../../../docs/test-vectors/MeasuredValue.json');
 const ChemicalProperty = require('../../../../docs/test-vectors/ChemicalProperty.json');
 const MechanicalProperty = require('../../../../docs/test-vectors/MechanicalProperty.json');
+const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vectors/ProductRegistrationEvidenceDocument.json');
 
 module.exports = {
   GeoCoordinates,
@@ -24,4 +25,5 @@ module.exports = {
   MeasuredValue,
   ChemicalProperty,
   MechanicalProperty,
+  ProductRegistrationEvidenceDocument
 };

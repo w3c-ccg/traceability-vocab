@@ -10,6 +10,7 @@ const { getCredential } = require('./Credential');
 const { getInspector } = require('./Inspector');
 const { getInspectionReport } = require('./InspectionReport');
 const { getAgInspectionReport } = require('./AgInspectionReport');
+const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
 
 const generatorConfig = {
   Place: getPlace,
@@ -23,7 +24,8 @@ const generatorConfig = {
   Credential: getCredential,
   Inspector: getInspector,
   InspectionReport: getInspectionReport,
-  AgInspectionReport: getAgInspectionReport
+  AgInspectionReport: getAgInspectionReport,
+  ProductRegistrationEvidenceDocument: getProductRegistrationEvidenceDocument,
 };
 
 module.exports = generatorConfig;
