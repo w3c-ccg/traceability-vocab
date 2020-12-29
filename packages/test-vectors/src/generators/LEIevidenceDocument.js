@@ -1,6 +1,8 @@
 const faker = require('faker');
 
 const getLEIevidenceDocument = () => {
+  const pastDate = new Date(faker.date.past());
+
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'LEIevidenceDocument',
@@ -65,10 +67,10 @@ const getLEIevidenceDocument = () => {
           "otherAddresses": []
         },
         "registration": {
-          "initialRegistrationDate": faker.date.past(),
-          "lastUpdateDate": faker.date.past(),
+          "initialRegistrationDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
+          "lastUpdateDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
           "status": faker.lorem.word(),
-          "nextRenewalDate": faker.date.future(),
+          "nextRenewalDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
           "managingLou":  faker.lorem.word(),
           "corroborationLevel": faker.lorem.word(),
           "validatedAt": {
@@ -76,14 +78,47 @@ const getLEIevidenceDocument = () => {
             "other": null
           },
           "validatedAs": faker.random.uuid(),
-          "otherValidationAuthorities": {
-            "validatedAt": {
-              "id": faker.random.uuid(),
-            },
-            "validatedAs": faker.random.uuid(),
-          }
+          "otherValidationAuthorities": []
         },
         "bic": []
+      },
+      "relationships": {
+        "managing-lou": {
+          "links": {
+            "related": faker.lorem.word(),
+          }
+        },
+        "lei-issuer":  {
+          "links": {
+            "related": faker.lorem.word(),
+          }
+        },
+        "direct-parent":  {
+          "links": {
+            "relationship-record": faker.lorem.word(),
+            "lei-record": faker.lorem.word(),
+          }
+        },
+        "ultimate-parent": {
+          "links": {
+            "relationship-record": faker.lorem.word(),
+            "lei-record": faker.lorem.word(),
+          }
+        },
+        "direct-children": {
+          "links": {
+            "relationship-records": faker.lorem.word(),
+            "related": faker.lorem.word(),
+          }
+        },
+        "isins": {
+          "links": {
+            "related": faker.lorem.word(),
+          }
+        },
+      },
+      "links": {
+        "self": faker.lorem.word(),
       }
     }
   };
