@@ -31,7 +31,7 @@
 			]
 		},
 		"@type": {
-			"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/????\"}", 
+			"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/DigitalDocument\"}", 
 			"title": "@type", 
 			"type": "string",
 			"default": "",
@@ -77,7 +77,7 @@
 			],
 			"properties": {
 				"@type": {
-					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/????\"}", 
+					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}", 
 					"title": "@type", 
 					"type": "string",
 					"default": "",
@@ -106,7 +106,7 @@
 			}
 		},
 		"accountId": {
-			"$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/accountId\"}",  
+			"$comment": "{\"term\": \"accountId\", \"@id\": \"https://schema.org/accountId\"}",  
 			"title": "Accountid", 
 			"type": "string",
 			"default": "",
@@ -127,7 +127,7 @@
 			],
 			"properties": {
 				"@type": {
-					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/????\"}", 
+					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}", 
 					"title": "@type", 
 					"type": "string",
 					"default": "",
@@ -157,7 +157,7 @@
 					],
 					"properties": {
 						"@type": {
-							"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/????\"}",
+							"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/DigitalDocument\"}",
 							"title": "@type", 
 							"type": "string",
 							"default": "",
@@ -243,7 +243,7 @@
 			],
 			"properties": {
 				"@type": {
-					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/????\"}", 
+					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/DigitalDocument\"}", 
 					"title": "@type", 
 					"type": "string",
 					"default": "",
@@ -278,8 +278,7 @@
 			"default": "",
 			"examples": [
 				"https://schema.org/PaymentComplete"
-			],
-			"pattern": "^.*$"
+			]
 		},
 		"provider": {
 			"$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}", 
@@ -292,7 +291,7 @@
 			],
 			"properties": {
 				"@type": {
-					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/????\"}", 
+					"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}", 
 					"title": "@type", 
 					"type": "string",
 					"default": "",
@@ -325,7 +324,7 @@
 			"title": "Referencesorder", 
 			"type": "array",
 			"default": [],
-			"item(s)":{
+			"items":{
 				"$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}", 
 				"title": "Item", 
 				"type": "object",
@@ -340,61 +339,56 @@
 				],
 				"properties": {
 					"@type": {
-						"$id": "#root/referencesOrder/items/@type", 
+						"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/DigitalDocument\"}", 
 						"title": "@type", 
 						"type": "string",
 						"default": "",
 						"examples": [
 							"Order"
-						],
-						"pattern": "^.*$"
+						]
 					},
 					"description": {
-						"$id": "#root/referencesOrder/items/description", 
+						"$comment": "{\"term\": \"@description\", \"@id\": \"https://schema.org/description\"}", 
 						"title": "Description", 
 						"type": "string",
 						"default": "",
 						"examples": [
 							"ACME Laptop"
-						],
-						"pattern": "^.*$"
+						]
 					},
 					"orderDate": {
-						"$id": "#root/referencesOrder/items/orderDate", 
+						"$comment": "{\"term\": \"@orderDate\", \"@id\": \"https://schema.org/orderDate\"}", 
 						"title": "Orderdate", 
 						"type": "string",
 						"default": "",
 						"examples": [
 							"2021-12-01"
-						],
-						"pattern": "^.*$"
+						]
 					},
 					"orderNumber": {
-						"$id": "#root/referencesOrder/items/orderNumber", 
+						"$comment": "{\"term\": \"@orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}", 
 						"title": "Ordernumber", 
 						"type": "string",
 						"default": "",
 						"examples": [
 							"123ABC"
-						],
-						"pattern": "^.*$"
+						]
 					},
 					"paymentMethod": {
-						"$id": "#root/referencesOrder/items/paymentMethod", 
+						"$comment": "{\"term\": \"@paymentMethod\", \"@id\": \"https://schema.org/paymentMethod\"}", 
 						"title": "Paymentmethod", 
 						"type": "string",
 						"default": "",
 						"examples": [
 							"http://purl.org/goodrelations/v1#PayPal"
-						],
-						"pattern": "^.*$"
+						]
 					},
 					"orderedItem": {
 						"$comment": "{\"term\": \"orderedItem\", \"@id\": \"https://schema.org/orderedItem\"}",
 						"title": "Ordered Item", 
 						"type": "array",
 						"default": [],
-						"item":{
+						"items":{
 							"$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
 							"title": "Item(s)", 
 							"type": "object",
@@ -402,16 +396,18 @@
 								"@type",
 								"name",
 								"productID",
-								"orderQuantity"
+								"UnitPriceSpecification",
+								"orderQuantity",
+								"PriceSpecification"
 							],
 							"properties": {
 								"@type": {
-									"$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}", 
+									"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/DigitalDocument\"}", 
 									"title": "@type", 
 									"type": "string",
 									"default": "",
 									"examples": [
-										"Product"
+										"Productorder"
 									]
 								},
 								"name": {
@@ -432,6 +428,45 @@
 										"Product VC ID Laptop"
 									]
 								},
+								"UnitPriceSpecification": {
+									"$comment": "{\"term\": \"UnitPriceSpecification\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
+									"title": "UnitPriceSpecification", 
+									"type": "object",
+									"required": [
+										"@type",
+										"price",
+										"priceCurrency"
+									],
+									"properties": {
+										"@type": {
+											"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/DigitalDocument\"}", 
+											"title": "@type", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"UnitPriceSpecification"
+											]
+										},
+										"price": {
+											"$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+											"title": "Price", 
+											"type": "integer",
+											"examples": [
+												200
+											],
+											"default": 0
+										},
+										"priceCurrency": {
+											"$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+											"title": "Pricecurrency", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"USD"
+											]
+										}
+									}
+								},
 								"orderQuantity": {
 									"$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
 									"title": "Qrder Quantity", 
@@ -440,7 +475,46 @@
 									"examples": [
 										5
 									]
-								}
+								},
+								"PriceSpecification": {
+									"$comment": "{\"term\": \"PriceSpecification\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
+									"title": "PriceSpecification", 
+									"type": "object",
+									"required": [
+										"@type",
+										"price",
+										"priceCurrency"
+									],
+									"properties": {
+										"@type": {
+											"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/DigitalDocument\"}", 
+											"title": "@type", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"PriceSpecification"
+											]
+										},
+										"price": {
+											"$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+											"title": "Price", 
+											"type": "integer",
+											"examples": [
+												200
+											],
+											"default": 0
+										},
+										"priceCurrency": {
+											"$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+											"title": "Pricecurrency", 
+											"type": "string",
+											"default": "",
+											"examples": [
+												"USD"
+											]
+										}
+									}
+								},
 							}
 					},
 					"seller": {
@@ -454,7 +528,7 @@
 						],
 						"properties": {
 							"@type": {
-								"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/????\"}", 
+								"$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}", 
 								"title": "@type", 
 								"type": "string",
 								"default": "",
