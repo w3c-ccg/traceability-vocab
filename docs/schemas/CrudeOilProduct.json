@@ -1,0 +1,39 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"CrudeOilProduct\", \"@id\": \"https://w3id.org/traceability/CrudeOilProduct\"}",
+  "title": "Crude Oil Product",
+  "description": "Tombstone information regarding a crude oil product",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "product": {
+      "$comment": "{\"term\": \"product\", \"@id\": \"https://www.gs1.org/voc/Product\"}",
+      "title": "Product",
+      "description": "Product details as outlined in the Product.json schema",
+      "$ref": "https://w3id.org/traceability/schemas/Product.json"
+    },
+    "commodity": {
+      "$comment": "{\"term\": \"commodity\", \"@id\": \"https://w3c-ccg.github.io/traceability-vocab/#dfn-entities\"}",
+      "title": "Category",
+      "description": "Defines the commodity of oil being produced.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "hscode": {},
+    "manufactureLocation": {}
+  },
+  "additionalProperties": false,
+  "examples": []
+}
