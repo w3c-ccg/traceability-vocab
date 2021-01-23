@@ -2,6 +2,8 @@ const faker = require('faker');
 const _ = require('lodash');
 const { getPlace } = require('./Place');
 const { getInspector } = require('./Inspector');
+const { getParcelDelivery } = require('./ParcelDelivery');
+const { getEntity } = require('./Entity');
 const { getObservation } = require('./Observation');
 //Include test data for inspection type.  This data is very rudimentary for now, and it is probably overkill to have a separate file, but it might be useful in the future across multiple Ag schemas.
 const agTypes = require('../../data/generated/AgInspection-types.json');
@@ -60,18 +62,18 @@ const getAgInspectionReport = () => {
     const inspector = getInspector();
     delete inspector['@context'];
     const inspectDate = new Date(faker.date.recent());
+    const shipment = getParcelDelivery();
+    delete shipment['@context'];
+    const applicant = getEntity();
+    delete applicant['@context'];
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
         type: 'AgInspectionReport',
         facility,
         inspector,
-        shipment: {
-            sku: faker.random.number({ min: 10000000, max: 999999999999 }),
-            itemShipped,
-            provider: faker.company.companyName()
-        },
-        applicantId: faker.random.number({ min: 100000, max: 9999999 }),
+        shipment,
+        applicant,
         inspectionDate: inspectDate.getMonth() + "-" + inspectDate.getDay() + "-" + inspectDate.getFullYear(),
         inspectionType,
         observation,

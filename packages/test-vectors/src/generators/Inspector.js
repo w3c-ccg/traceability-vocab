@@ -1,7 +1,9 @@
 const faker = require('faker');
 const { getCredential } = require('./Credential');
+const { getPerson } = require('./Person');
 
 const getInspector = () => {
+  //get credentials
   let credential = [];
   let numCreds = faker.random.number({ min: 1, max: 3 });
   while (numCreds > 0) {
@@ -10,10 +12,15 @@ const getInspector = () => {
     credential.push(cred);
     numCreds -= 1;
   }
+
+  //Get Person 
+  const person = getPerson();
+  delete person['@context'];
+
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'Inspector',
-    person: faker.name.findName(),
+    person,
     credential
   };
   return example;
