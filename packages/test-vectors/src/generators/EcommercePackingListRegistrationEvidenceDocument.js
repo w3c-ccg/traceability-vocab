@@ -1,5 +1,4 @@
 const faker = require('faker');
-const _ = require('lodash');
 const { getPostalAddress } = require('./PostalAddress');
 //Include test data for ecom products.
 const prods = require('../../data/generated/EcomProducts.json');

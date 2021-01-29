@@ -5,7 +5,9 @@ const { getInspector } = require('./Inspector');
 const { getParcelDelivery } = require('./ParcelDelivery');
 const { getEntity } = require('./Entity');
 const { getObservation } = require('./Observation');
-//Include test data for inspection type.  This data is very rudimentary for now, and it is probably overkill to have a separate file, but it might be useful in the future across multiple Ag schemas.
+//Include test data for inspection type.  This data is very rudimentary for now, 
+//and it is probably overkill to have a separate file, but it might be useful in the future 
+//across multiple Ag schemas.
 const agTypes = require('../../data/generated/AgInspection-types.json');
 //Include test data for Ag products.
 const prods = require('../../data/generated/AgProducts.json');
@@ -21,7 +23,6 @@ const getAgInspectionReport = () => {
     const randomProd = Object.keys(prods)[
         faker.random.number(Object.keys(prods).length - 1)
     ];
-    const itemShipped = prods[randomProd].Item;
 
     // Start observation data prep
     let numSubstances = faker.random.number({ min: 1, max: 4 });

@@ -1,5 +1,4 @@
 const faker = require('faker');
-const _ = require('lodash');
 const { getPostalAddress } = require('./PostalAddress');
 const { getPerson } = require('./Person');
 //Include test data for order statuses

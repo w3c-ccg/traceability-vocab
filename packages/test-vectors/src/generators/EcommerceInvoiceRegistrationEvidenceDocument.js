@@ -1,5 +1,4 @@
 const faker = require('faker');
-const _ = require('lodash');
 const { getPostalAddress } = require('./PostalAddress');
 const { getPerson } = require('./Person');
 //Include test data for ecom products.
@@ -63,7 +62,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
 
     //check if invoice has already been paid, if yes set payment amount to 0
 
-    if (paymentStatus == "PaymentAutomaticallyApplied" || paymentStatus == "PaymentComplete") {
+    if (paymentStatus === "PaymentAutomaticallyApplied" || paymentStatus === "PaymentComplete") {
         totalPrice = 0;
     };
     // End ordered products list in invoice
@@ -110,7 +109,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         "seller": seller
     };
 
-    const invoiceNumber = `Invoice#${faker.random.number({ min: 1, max: 999 })}`
+    const invoiceNumber = `Invoice#${faker.random.number({ min: 1, max: 999 })}`;
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
