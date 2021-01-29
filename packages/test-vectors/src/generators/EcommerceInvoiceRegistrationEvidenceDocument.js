@@ -60,7 +60,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         numItemsinOrder -= 1;
     };
 
-    //check if invoice has already been paid, if yes set payment amount to 0 and construct total price
+    //check if invoice has already been paid, if yes set payment amount to 0 & construct total price
 
     if (paymentStatus === "PaymentAutomaticallyApplied" || paymentStatus === "PaymentComplete") {
         totalPrice = 0;
