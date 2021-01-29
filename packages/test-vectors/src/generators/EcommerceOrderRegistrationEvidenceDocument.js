@@ -68,12 +68,13 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
     const orderDate = new Date(faker.date.recent());
     const paymentDate = new Date(faker.date.future());
     const orderNumber = `Order#${faker.random.number({ min: 1, max: 999 })}`;
+    const orderdate = orderDate.getMonth() + "-" + orderDate.getDay() + "-" + orderDate.getFullYear();
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
         "type": "EcommerceOrderRegistrationEvidenceDocument",
         "orderNumber": orderNumber,
-        "orderDate": orderDate.getMonth() + "-" + orderDate.getDay() + "-" + orderDate.getFullYear(),
+        "orderDate": orderdate,
         "orderStatus": OrderStatus,
         "description": `New Order For ${person.firstName} ${person.lastName}`,
         "url": `${faker.internet.url()}\?queryid=${orderNumber}`,

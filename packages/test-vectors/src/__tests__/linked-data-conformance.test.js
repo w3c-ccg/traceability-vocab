@@ -45,6 +45,7 @@ Object.values(intermediateJson).forEach((classDefinition) => {
         const fixture = classDefinitionToFixtureJson(classDefinition);
         await Promise.all(fixture.good.map(async (goodExample) => {
           let resultOk = {};
+          let res = false;
           resultOk = await jsonldChecker.check(goodExample, customDocumentLoader);
           //Adding some slightly better error handling
           if (resultOk.error.type !== '') {
@@ -53,7 +54,10 @@ Object.values(intermediateJson).forEach((classDefinition) => {
             console.log(resultOk.error);
 
           }
-          return expect(resultOk.ok).toBe(true);
+          if (expect(resultOk.ok).toBe(true)) {
+            res = true;
+          }
+          return res;
         }));
       } else {
         // we're building so don't worry about it.
