@@ -71,7 +71,7 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
-        type: 'EcommerceOrderRegistrationEvidenceDocument',
+        "type": "EcommerceOrderRegistrationEvidenceDocument",
         "orderNumber": orderNumber,
         "orderDate": orderDate.getMonth() + "-" + orderDate.getDay() + "-" + orderDate.getFullYear(),
         "orderStatus": orderStatus,

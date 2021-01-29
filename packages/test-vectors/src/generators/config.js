@@ -21,7 +21,7 @@ const { getAgPackage } = require('./AgPackage');
 const { getppq203 } = require('./ppq203');
 const { getEcommerceOrderRegistrationEvidenceDocument } = require('./EcommerceOrderRegistrationEvidenceDocument');
 const { getEcommerceInvoiceRegistrationEvidenceDocument } = require('./EcommerceInvoiceRegistrationEvidenceDocument');
-const { getEcommercePackingListRegistrationEvidenceDocument } = require('./EcommercePackingListRegistrationEvidenceDocument');
+const { getEcommercePackingListRegistrationEvidenceDoc } = require('./EcommercePackingListRegistrationEvidenceDocument');
 
 const generatorConfig = {
   Place: getPlace,
@@ -47,7 +47,7 @@ const generatorConfig = {
   ppq203: getppq203,
   EcommerceOrderRegistrationEvidenceDocument: getEcommerceOrderRegistrationEvidenceDocument,
   EcommerceInvoiceRegistrationEvidenceDocument: getEcommerceInvoiceRegistrationEvidenceDocument,
-  EcommercePackingListRegistrationEvidenceDocument: getEcommercePackingListRegistrationEvidenceDocument
+  EcommercePackingListRegistrationEvidenceDocument: getEcommercePackingListRegistrationEvidenceDoc
 };
 
 module.exports = generatorConfig;

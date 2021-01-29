@@ -113,7 +113,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
-        type: 'EcommerceInvoiceRegistrationEvidenceDocument',
+        "type": "EcommerceInvoiceRegistrationEvidenceDocument",
         "identifier": invoiceNumber,
         "description": `Invoice For ${person.firstName} ${person.lastName} for ${orderNumber}`,
         "url": `${faker.internet.url()}\?queryid=${invoiceNumber}`,

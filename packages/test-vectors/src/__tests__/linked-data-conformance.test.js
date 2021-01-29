@@ -38,9 +38,9 @@ const intermediateJson = JSON.parse(
 Object.values(intermediateJson).forEach((classDefinition) => {
   if (classDefinition.$id) {
     it(classDefinition.title, async () => {
-      //if we're running the build, this process won't find the test-vector that has yet to be built.  
-      //So we'll save this test for the actual testing.  This isn't the best way to do it by any means, 
-      //but it works and can be cleaned up later.
+      //if we're running the build, this process won't find the test-vector   
+      //that has yet to be built. So we'll save this test for the actual testing. 
+      //This isn't the best way to do it by any means, but it works and can be cleaned up later.
       if (!process.env.BUILD_SPEC) {
         const fixture = classDefinitionToFixtureJson(classDefinition);
         await Promise.all(fixture.good.map(async (goodExample) => {

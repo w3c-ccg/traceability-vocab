@@ -19,11 +19,6 @@ const getAgInspectionReport = () => {
     ];
     const inspectionType = agTypes[randomType].name;
 
-    //get a product
-    const randomProd = Object.keys(prods)[
-        faker.random.number(Object.keys(prods).length - 1)
-    ];
-
     // Start observation data prep
     let numSubstances = faker.random.number({ min: 1, max: 4 });
     let observation = [];

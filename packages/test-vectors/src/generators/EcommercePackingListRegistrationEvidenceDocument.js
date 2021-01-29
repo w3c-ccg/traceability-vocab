@@ -7,7 +7,7 @@ const deliverytype = require('../../data/generated/delivery-methods.json');
 //Include delivery Status
 const deliverystatus = require('../../data/generated/event-status.json');
 
-const getEcommercePackingListRegistrationEvidenceDocument = () => {
+const getEcommercePackingListRegistrationEvidenceDoc = () => {
 
     //get a delivery method
     const randomDelivery =
@@ -73,7 +73,7 @@ const getEcommercePackingListRegistrationEvidenceDocument = () => {
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
-        type: 'EcommercePackingListRegistrationEvidenceDocument',
+        "type": "EcommercePackingListRegistrationEvidenceDocument",
         "deliveryStatus": deliveryStatus,
         "expectedArrivalFrom": futureDate,
         "hasDeliveryMethod": deliveryMethod,
@@ -85,4 +85,4 @@ const getEcommercePackingListRegistrationEvidenceDocument = () => {
     return example;
 };
 
-module.exports = { getEcommercePackingListRegistrationEvidenceDocument };
+module.exports = { getEcommercePackingListRegistrationEvidenceDoc };
