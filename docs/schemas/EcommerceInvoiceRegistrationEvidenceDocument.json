@@ -143,7 +143,7 @@
                     "title": "Address of the Customer",
                     "type": "object",
                     "required": [
-                        "@type",
+                        "type",
                         "streetAddress",
                         "addressLocality",
                         "addressRegion",
@@ -152,8 +152,8 @@
                     ],
                     "properties": {
                         "@type": {
-                            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
-                            "title": "@type",
+                            "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                            "title": "type",
                             "type": "string",
                             "default": "PostalAddress"
                         },
@@ -253,10 +253,10 @@
                     "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
                     "title": "Price",
                     "type": "number",
+                    "default": 0.00,
                     "examples": [
                         200.00
-                    ],
-                    "default": 0
+                    ]
                 },
                 "priceCurrency": {
                     "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
@@ -499,41 +499,41 @@
                                     }
                                 }
                             }
-                        },
-                        "seller": {
-                            "$comment": "{\"term\": \"seller\", \"@id\": \"https://schema.org/seller\"}",
-                            "title": "Seller",
-                            "type": "object",
-                            "required": [
-                                "@type",
-                                "name",
-                                "leiCode"
-                            ],
-                            "properties": {
-                                "@type": {
-                                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
-                                    "title": "@type",
-                                    "type": "string",
-                                    "default": "Corporation"
-                                },
-                                "name": {
-                                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
-                                    "title": "Name of the Broker",
-                                    "type": "string",
-                                    "default": "",
-                                    "examples": [
-                                        "Broker XYZ"
-                                    ]
-                                },
-                                "leiCode": {
-                                    "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
-                                    "title": "Leicode of the Broker",
-                                    "type": "string",
-                                    "default": "",
-                                    "examples": [
-                                        "vLei code, e.g. Y87794H0US1R65VBXU25"
-                                    ]
-                                }
+                        }
+                    },
+                    "seller": {
+                        "$comment": "{\"term\": \"seller\", \"@id\": \"https://schema.org/seller\"}",
+                        "title": "Seller",
+                        "type": "object",
+                        "required": [
+                            "@type",
+                            "name",
+                            "leiCode"
+                        ],
+                        "properties": {
+                            "@type": {
+                                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+                                "title": "@type",
+                                "type": "string",
+                                "default": "Corporation"
+                            },
+                            "name": {
+                                "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                                "title": "Name of the Broker",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "Broker XYZ"
+                                ]
+                            },
+                            "leiCode": {
+                                "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+                                "title": "Leicode of the Broker",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "vLei code, e.g. Y87794H0US1R65VBXU25"
+                                ]
                             }
                         }
                     }

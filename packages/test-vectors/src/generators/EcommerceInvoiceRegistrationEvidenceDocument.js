@@ -60,11 +60,18 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         numItemsinOrder -= 1;
     };
 
-    //check if invoice has already been paid, if yes set payment amount to 0
+    //check if invoice has already been paid, if yes set payment amount to 0 and construct total price
 
     if (paymentStatus === "PaymentAutomaticallyApplied" || paymentStatus === "PaymentComplete") {
         totalPrice = 0;
     };
+
+    const totalpaymentdue = {
+        "@type": "PriceSpecification",
+        "price": totalPrice,
+        "priceCurrency": currency
+    };
+
     // End ordered products list in invoice
 
     // create seller, broker, customer, seller = provider for simplicity
@@ -99,6 +106,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     const paymentDate = new Date(faker.date.future());
     const orderNumber = `Order#${faker.random.number({ min: 1, max: 999 })}`;
 
+    let referencesOrderNew = [];
     const referencesOrder = {
         "@type": "Order",
         "description": `New Order For ${person.firstName} ${person.lastName}`,
@@ -108,6 +116,8 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         "orderedItem": orderlist,
         "seller": Seller
     };
+
+    referencesOrderNew.push(referencesOrder);
 
     const invoiceNumber = `Invoice#${faker.random.number({ min: 1, max: 999 })}`;
 
@@ -121,10 +131,10 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         "accountId": `xxxx-xxxx-xxxx-${faker.random.number({ min: 1000, max: 9999 })}`,
         "customer": customer,
         "paymentDueDate": paymentDate.getMonth() + "-" + paymentDate.getDay() + "-" + paymentDate.getFullYear(),
-        "totalPaymentDue": totalPrice,
+        "totalPaymentDue": totalpaymentdue,
         "paymentStatus": paymentStatus,
         "provider": Seller,
-        "referencesOrder": referencesOrder
+        "referencesOrder": referencesOrderNew
     };
     return example;
 };
