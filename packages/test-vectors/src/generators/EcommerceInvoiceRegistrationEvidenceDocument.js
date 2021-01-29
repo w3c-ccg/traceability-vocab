@@ -116,7 +116,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         "type": "EcommerceInvoiceRegistrationEvidenceDocument",
         "identifier": invoiceNumber,
         "description": `Invoice For ${person.firstName} ${person.lastName} for ${orderNumber}`,
-        "url": `${faker.internet.url()}\?queryid=${invoiceNumber}`,
+        "url": `${faker.internet.url()}?queryid=${invoiceNumber}`,
         "broker": broker,
         "accountId": `xxxx-xxxx-xxxx-${faker.random.number({ min: 1000, max: 9999 })}`,
         "customer": customer,

@@ -43,7 +43,7 @@ Object.values(intermediateJson).forEach((classDefinition) => {
       //This isn't the best way to do it by any means, but it works and can be cleaned up later.
       if (!process.env.BUILD_SPEC) {
         const fixture = classDefinitionToFixtureJson(classDefinition);
-        return await Promise.all(fixture.good.map(async (goodExample) => {
+        await Promise.all(fixture.good.map(async (goodExample) => {
           let resultOk = {};
           let res = false;
           resultOk = await jsonldChecker.check(goodExample, customDocumentLoader);
@@ -59,6 +59,7 @@ Object.values(intermediateJson).forEach((classDefinition) => {
           }
           return res;
         }));
+        return true;
       } else {
         // we're building so don't worry about it.
         return true;

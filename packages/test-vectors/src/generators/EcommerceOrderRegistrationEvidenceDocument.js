@@ -77,7 +77,7 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
         "orderDate": orderdate,
         "orderStatus": OrderStatus,
         "description": `New Order For ${person.firstName} ${person.lastName}`,
-        "url": `${faker.internet.url()}\?queryid=${orderNumber}`,
+        "url": `${faker.internet.url()}?queryid=${orderNumber}`,
         "seller": seller,
         "broker": broker,
         "customer": customer,
