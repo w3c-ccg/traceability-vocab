@@ -72,7 +72,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     const lei1 = `2345${faker.random.number({ min: 1000000000000000, max: 1999999999999999 })}`;
     const name2 = faker.company.companyName();
     const lei2 = `5432${faker.random.number({ min: 1000000000000000, max: 1999999999999999 })}`;
-    const seller = {
+    const Seller = {
         "@type": "Corporation",
         "name": name1,
         "leiCode": lei1
@@ -106,7 +106,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         "orderNumber": orderNumber,
         "paymentMethod": paymentMethod,
         "orderedItem": orderlist,
-        "seller": seller
+        "seller": Seller
     };
 
     const invoiceNumber = `Invoice#${faker.random.number({ min: 1, max: 999 })}`;
@@ -123,7 +123,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
         "paymentDueDate": paymentDate.getMonth() + "-" + paymentDate.getDay() + "-" + paymentDate.getFullYear(),
         "totalPaymentDue": totalPrice,
         "paymentStatus": paymentStatus,
-        "provider": seller,
+        "provider": Seller,
         "referencesOrder": referencesOrder
     };
     return example;

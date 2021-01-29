@@ -10,7 +10,7 @@ const { getObservation } = require('./Observation');
 //across multiple Ag schemas.
 const agTypes = require('../../data/generated/AgInspection-types.json');
 //Include test data for Ag products.
-const prods = require('../../data/generated/AgProducts.json');
+//const prods = require('../../data/generated/AgProducts.json');
 
 const getAgInspectionReport = () => {
     //get an inspection type

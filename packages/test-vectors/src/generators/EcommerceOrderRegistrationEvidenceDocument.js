@@ -12,7 +12,7 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
     //get an order status
     const randomStatus =
         faker.random.number({ min: 1, max: orderstatus.status.length });
-    const orderStatus = orderstatus.status[randomStatus - 1];
+    const OrderStatus = orderstatus.status[randomStatus - 1];
 
     //get a payment method
     const randomPayment =
@@ -74,7 +74,7 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
         "type": "EcommerceOrderRegistrationEvidenceDocument",
         "orderNumber": orderNumber,
         "orderDate": orderDate.getMonth() + "-" + orderDate.getDay() + "-" + orderDate.getFullYear(),
-        "orderStatus": orderStatus,
+        "orderStatus": OrderStatus,
         "description": `New Order For ${person.firstName} ${person.lastName}`,
         "url": `${faker.internet.url()}\?queryid=${orderNumber}`,
         "seller": seller,
