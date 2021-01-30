@@ -2,15 +2,25 @@ const faker = require('faker');
 
 const getLEIevidenceDocument = () => {
   const pastDate = new Date(faker.date.past());
+  const getDataType = () => {
+    const types = ['document', 'registration request', 'contract']
+    return faker.random.arrayElement(types);
+  }
+
+  const getStatus = () => {
+    const types = ['REQUESTED', 'CONFIRMED', 'REJECTED', 'IN PROGRESS']
+    return faker.random.arrayElement(types);
+  }
+
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'LEIevidenceDocument',
     "data": {
-      "type": faker.lorem.word(),
+      "type": getDataType(),
       "id": faker.random.uuid(),
       "attributes": {
-        "lei": faker.lorem.word(),
+        "lei": faker.random.alphaNumeric({count: 20}),
         "entity": {
           "legalName":  {
             "name": faker.company.companyName(),
@@ -55,7 +65,7 @@ const getLEIevidenceDocument = () => {
             "lei": null,
             "name": null
           },
-          "status": faker.lorem.word(),
+          "status": getStatus(),
           "expiration": {
             "date": null,
             "reason": null
@@ -69,7 +79,7 @@ const getLEIevidenceDocument = () => {
         "registration": {
           "initialRegistrationDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
           "lastUpdateDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
-          "status": faker.lorem.word(),
+          "status": getStatus(),
           "nextRenewalDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
           "managingLou":  faker.lorem.word(),
           "corroborationLevel": faker.lorem.word(),
