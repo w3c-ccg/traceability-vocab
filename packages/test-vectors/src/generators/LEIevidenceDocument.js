@@ -1,133 +1,158 @@
 const faker = require('faker');
 
 const getLEIevidenceDocument = () => {
-  const pastDate = new Date(faker.date.past());
-  const getDataType = () => {
-    const types = ['document', 'registration request', 'contract']
-    return faker.random.arrayElement(types);
-  }
+  const pastDate = (new Date(faker.date.past())).toISOString();
+  const futureDate = (new Date(faker.date.future())).toISOString();
 
   const getStatus = () => {
     const types = ['REQUESTED', 'CONFIRMED', 'REJECTED', 'IN PROGRESS']
     return faker.random.arrayElement(types);
   }
 
+  const getCategory = () => {
+    const types = ['Grocery', 'Industrial', 'Jewelery', 'Finance']
+    return faker.random.arrayElement(types);
+  }
+
+  const getLegalForm = () => {
+    const types = ['CORPORATION', 'LLC']
+    return faker.random.arrayElement(types);
+  }
+
+  const getCorroborationLevel = () => {
+    const types = ['FULLY_CORROBORATED', 'PARTIALLY_CORROBORATED', 'NOT_CORROBORATED']
+    return faker.random.arrayElement(types);
+  }
+
+  const baseUrl = 'https://api.gleif.example.org/api/v1/lei-records'
+  const shortId = `${faker.random.alpha({count: 4}).toUpperCase()}`
+  const lei = faker.random.alphaNumeric({count: 20}).toUpperCase()
+  const id = faker.random.alphaNumeric({count: 8}).toUpperCase()
+  const language = faker.random.locale()
+  const otherNames = Math.random() > 0.5 ? [faker.company.companyName(), faker.company.companyName()] : []
+  const companyName = faker.company.companyName()
+  const country = faker.address.country()
+  const region = faker.address.county()
+  const addressNumber = `${faker.random.number({min: 1, max: 500})}`
+  const addressNumberWithinBuilding = `${faker.random.number({min: 1, max: 10})}`
+
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'LEIevidenceDocument',
     "data": {
-      "type": getDataType(),
-      "id": faker.random.uuid(),
+      "type": 'lei-records',
+      "id": lei,
       "attributes": {
-        "lei": faker.random.alphaNumeric({count: 20}),
+        "lei": lei,
         "entity": {
           "legalName":  {
-            "name": faker.company.companyName(),
-            "language": null
+            "name": companyName,
+            "language": language
           },
-          "otherNames": [],
-          "transliteratedOtherNames": [],
+          "otherNames": otherNames,
+          "transliteratedOtherNames": otherNames,
           "legalAddress":  {
-            "language":  null,
-            "addressLines": [],
-            "addressNumber": null,
-            "addressNumberWithinBuilding": null,
-            "mailRouting": null,
+            "language":  language,
+            "addressLines": [companyName, faker.address.streetAddress()],
+            "addressNumber": addressNumber,
+            "addressNumberWithinBuilding": addressNumberWithinBuilding,
+            "mailRouting": `${faker.address.streetAddress()}, ${faker.address.zipCode()}`,
             "city": faker.address.city(),
-            "region": faker.address.county(),
-            "country":  faker.address.country(),
+            "region": region,
+            "country":  country,
             "postalCode": faker.address.zipCode()
           },
           "headquartersAddress": {
-            "language": null,
-            "addressLines": [],
-            "addressNumber": null,
-            "addressNumberWithinBuilding": null,
-            "mailRouting": null,
+            "language": language,
+            "addressLines": [faker.address.streetAddress()],
+            "addressNumber": addressNumber,
+            "addressNumberWithinBuilding": addressNumberWithinBuilding,
+            "mailRouting": `${faker.address.streetAddress()}, ${faker.address.zipCode()}`,
             "city": faker.address.city(),
             "region": faker.address.county(),
-            "country":  faker.address.country(),
+            "country":  country,
             "postalCode": faker.address.zipCode()
           },
           "registeredAt": {
-            "id": faker.random.uuid(),
-            "other": null
+            "id": id,
+            "other": faker.random.alphaNumeric({count: 8}).toUpperCase()
           },
-          "registeredAs": faker.address.city(),
-          "jurisdiction":  faker.lorem.word(),
-          "category": null,
+          "registeredAs": id,
+          "jurisdiction":  region,
+          "category": getCategory(),
           "legalForm": {
-            "id": faker.random.uuid(),
-            "other": null
+            "id": shortId,
+            "other": getLegalForm()
           },
           "associatedEntity": {
-            "lei": null,
-            "name": null
+            "lei": lei,
+            "name": faker.company.companyName()
           },
           "status": getStatus(),
           "expiration": {
-            "date": null,
-            "reason": null
+            "date": futureDate,
+            "reason": faker.company.bs()
           },
           "successorEntity": {
-            "lei": null,
-            "name": null
+            "lei": lei,
+            "name": faker.company.companyName()
           },
           "otherAddresses": []
         },
         "registration": {
-          "initialRegistrationDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
-          "lastUpdateDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
+          "initialRegistrationDate": pastDate,
+          "lastUpdateDate": pastDate,
           "status": getStatus(),
-          "nextRenewalDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
-          "managingLou":  faker.lorem.word(),
-          "corroborationLevel": faker.lorem.word(),
+          "nextRenewalDate": futureDate,
+          "managingLou":  faker.random.alpha({count: 20}).toUpperCase(),
+          "corroborationLevel": getCorroborationLevel(),
           "validatedAt": {
-            "id": faker.random.uuid(),
-            "other": null
+            "id": id,
+            "other": faker.random.alphaNumeric({count: 8}).toUpperCase()
           },
-          "validatedAs": faker.random.uuid(),
-          "otherValidationAuthorities": []
+          "validatedAs": id,
+          "otherValidationAuthorities": [{
+            validatedAt: { id },
+            validatedAs: id
+          }]
         },
-        "bic": []
+        "bic": [`${faker.random.alpha({count: 4}).toUpperCase()}${faker.address.countryCode()}${shortId}`]
       },
       "relationships": {
         "managing-lou": {
           "links": {
-            "related": faker.lorem.word(),
+            "related": `${baseUrl}/${lei}/managing-lou`,
           }
         },
         "lei-issuer":  {
           "links": {
-            "related": faker.lorem.word(),
+            "related": `${baseUrl}/${lei}/lei-issuer`,
           }
         },
         "direct-parent":  {
           "links": {
-            "relationship-record": faker.lorem.word(),
-            "lei-record": faker.lorem.word(),
+            "reporting-exception": `${baseUrl}/${lei}/direct-parent-reporting-exception`,
           }
         },
         "ultimate-parent": {
           "links": {
-            "relationship-record": faker.lorem.word(),
-            "lei-record": faker.lorem.word(),
+            "reporting-exception": `${baseUrl}/${lei}/ultimate-parent-reporting-exception`,
           }
         },
         "direct-children": {
           "links": {
-            "relationship-records": faker.lorem.word(),
-            "related": faker.lorem.word(),
+            "relationship-records": `${baseUrl}/${lei}/direct-child-relationship`,
+            "related": `${baseUrl}/${lei}/direct-children`,
           }
         },
         "isins": {
           "links": {
-            "related": faker.lorem.word(),
+            "related": `${baseUrl}/${lei}/isins`,
           }
         },
       },
       "links": {
-        "self": faker.lorem.word(),
+        "self": `${baseUrl}/${lei}`,
       }
     }
   };

@@ -79,7 +79,6 @@
 								"registeredAt",
 								"registeredAs",
 								"jurisdiction",
-								"category",
 								"legalForm",
 								"associatedEntity",
 								"status",
@@ -93,8 +92,7 @@
 									"title": "Legalname",
 									"type": "object",
 									"required": [
-										"name",
-										"language"
+										"name"
 									],
 									"properties": {
 										"name": {
@@ -107,12 +105,11 @@
 										"language": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/legalName/language",
 											"title": "Language",
-											"type": "null",
+											"type": "string",
 											"default": null
 										}
 									}
-								}
-,
+								},
 								"otherNames": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/otherNames",
 									"title": "Othernames",
@@ -130,11 +127,7 @@
 									"title": "Legaladdress",
 									"type": "object",
 									"required": [
-										"language",
 										"addressLines",
-										"addressNumber",
-										"addressNumberWithinBuilding",
-										"mailRouting",
 										"city",
 										"region",
 										"country",
@@ -144,7 +137,7 @@
 										"language": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/language",
 											"title": "Language",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"addressLines": {
@@ -163,19 +156,19 @@
 										"addressNumber": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/addressNumber",
 											"title": "Addressnumber",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"addressNumberWithinBuilding": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/addressNumberWithinBuilding",
 											"title": "Addressnumberwithinbuilding",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"mailRouting": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/legalAddress/mailRouting",
 											"title": "Mailrouting",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"city": {
@@ -207,18 +200,13 @@
 											"pattern": "^.*$"
 										}
 									}
-								}
-,
+								},
 								"headquartersAddress": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress",
 									"title": "Headquartersaddress",
 									"type": "object",
 									"required": [
-										"language",
 										"addressLines",
-										"addressNumber",
-										"addressNumberWithinBuilding",
-										"mailRouting",
 										"city",
 										"region",
 										"country",
@@ -228,7 +216,7 @@
 										"language": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/language",
 											"title": "Language",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"addressLines": {
@@ -247,19 +235,19 @@
 										"addressNumber": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/addressNumber",
 											"title": "Addressnumber",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"addressNumberWithinBuilding": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/addressNumberWithinBuilding",
 											"title": "Addressnumberwithinbuilding",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"mailRouting": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/headquartersAddress/mailRouting",
 											"title": "Mailrouting",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"city": {
@@ -291,15 +279,13 @@
 											"pattern": "^.*$"
 										}
 									}
-								}
-,
+								},
 								"registeredAt": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/registeredAt",
 									"title": "Registeredat",
 									"type": "object",
 									"required": [
-										"id",
-										"other"
+										"id"
 									],
 									"properties": {
 										"id": {
@@ -312,12 +298,11 @@
 										"other": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/registeredAt/other",
 											"title": "Other",
-											"type": "null",
+											"type": "string",
 											"default": null
 										}
 									}
-								}
-,
+								},
 								"registeredAs": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/registeredAs",
 									"title": "Registeredas",
@@ -335,17 +320,13 @@
 								"category": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/category",
 									"title": "Category",
-									"type": "null",
+									"type": "string",
 									"default": null
 								},
 								"legalForm": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/legalForm",
 									"title": "Legalform",
 									"type": "object",
-									"required": [
-										"id",
-										"other"
-									],
 									"properties": {
 										"id": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/legalForm/id",
@@ -357,36 +338,30 @@
 										"other": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/legalForm/other",
 											"title": "Other",
-											"type": "null",
+											"type": "string",
 											"default": null
 										}
 									}
-								}
-,
+								},
 								"associatedEntity": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/associatedEntity",
 									"title": "Associatedentity",
 									"type": "object",
-									"required": [
-										"lei",
-										"name"
-									],
 									"properties": {
 										"lei": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/associatedEntity/lei",
 											"title": "Lei",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"name": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/associatedEntity/name",
 											"title": "Name",
-											"type": "null",
+											"type": "string",
 											"default": null
 										}
 									}
-								}
-,
+								},
 								"status": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/status",
 									"title": "Status",
@@ -398,50 +373,40 @@
 									"$id": "LEIevidenceDocument/data/attributes/entity/expiration",
 									"title": "Expiration",
 									"type": "object",
-									"required": [
-										"date",
-										"reason"
-									],
 									"properties": {
 										"date": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/expiration/date",
 											"title": "Date",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"reason": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/expiration/reason",
 											"title": "Reason",
-											"type": "null",
+											"type": "string",
 											"default": null
 										}
 									}
-								}
-,
+								},
 								"successorEntity": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/successorEntity",
 									"title": "Successorentity",
 									"type": "object",
-									"required": [
-										"lei",
-										"name"
-									],
 									"properties": {
 										"lei": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/successorEntity/lei",
 											"title": "Lei",
-											"type": "null",
+											"type": "string",
 											"default": null
 										},
 										"name": {
 											"$id": "LEIevidenceDocument/data/attributes/entity/successorEntity/name",
 											"title": "Name",
-											"type": "null",
+											"type": "string",
 											"default": null
 										}
 									}
-								}
-,
+								},
 								"otherAddresses": {
 									"$id": "LEIevidenceDocument/data/attributes/entity/otherAddresses",
 									"title": "Otheraddresses",
@@ -449,8 +414,7 @@
 									"default": []
 								}
 							}
-						}
-,
+						},
 						"registration": {
 							"$id": "LEIevidenceDocument/data/attributes/registration",
 							"title": "Registration",
@@ -514,8 +478,7 @@
 									"title": "Validatedat",
 									"type": "object",
 									"required": [
-										"id",
-										"other"
+										"id"
 									],
 									"properties": {
 										"id": {
@@ -528,12 +491,11 @@
 										"other": {
 											"$id": "LEIevidenceDocument/data/attributes/registration/validatedAt/other",
 											"title": "Other",
-											"type": "null",
+											"type": "string",
 											"default": null
 										}
 									}
-								}
-,
+								},
 								"validatedAs": {
 									"$id": "LEIevidenceDocument/data/attributes/registration/validatedAs",
 									"title": "Validatedas",
@@ -571,8 +533,7 @@
 														"pattern": "^.*$"
 													}
 												}
-											}
-,
+											},
 											"validatedAs": {
 												"$id": "LEIevidenceDocument/data/attributes/registration/otherValidationAuthorities/items/validatedAs",
 												"title": "Validatedas",
@@ -585,8 +546,7 @@
 
 								}
 							}
-						}
-,
+						},
 						"bic": {
 							"$id": "LEIevidenceDocument/data/attributes/bic",
 							"title": "Bic",
@@ -642,8 +602,7 @@
 								}
 
 							}
-						}
-,
+						},
 						"lei-issuer": {
 							"$id": "LEIevidenceDocument/data/relationships/lei-issuer",
 							"title": "Lei-issuer",
@@ -671,8 +630,7 @@
 								}
 
 							}
-						}
-,
+						},
 						"direct-parent": {
 							"$id": "LEIevidenceDocument/data/relationships/direct-parent",
 							"title": "Direct-parent",
@@ -686,20 +644,12 @@
 									"title": "Links",
 									"type": "object",
 									"required": [
-										"relationship-record",
-										"lei-record"
+										"reporting-exception"
 									],
 									"properties": {
-										"relationship-record": {
-											"$id": "LEIevidenceDocument/data/relationships/direct-parent/links/relationship-record",
-											"title": "Relationship-record",
-											"type": "string",
-											"default": "",
-											"pattern": "^.*$"
-										},
-										"lei-record": {
-											"$id": "LEIevidenceDocument/data/relationships/direct-parent/links/lei-record",
-											"title": "Lei-record",
+										"reporting-exception": {
+											"$id": "LEIevidenceDocument/data/relationships/direct-parent/links/reporting-exception",
+											"title": "Reporting-exception",
 											"type": "string",
 											"default": "",
 											"pattern": "^.*$"
@@ -708,8 +658,7 @@
 								}
 
 							}
-						}
-,
+						},
 						"ultimate-parent": {
 							"$id": "LEIevidenceDocument/data/relationships/ultimate-parent",
 							"title": "Ultimate-parent",
@@ -723,20 +672,12 @@
 									"title": "Links",
 									"type": "object",
 									"required": [
-										"relationship-record",
-										"lei-record"
+										"reporting-exception"
 									],
 									"properties": {
-										"relationship-record": {
-											"$id": "LEIevidenceDocument/data/relationships/ultimate-parent/links/relationship-record",
-											"title": "Relationship-record",
-											"type": "string",
-											"default": "",
-											"pattern": "^.*$"
-										},
-										"lei-record": {
-											"$id": "LEIevidenceDocument/data/relationships/ultimate-parent/links/lei-record",
-											"title": "Lei-record",
+										"reporting-exception": {
+											"$id": "LEIevidenceDocument/data/relationships/ultimate-parent/links/reporting-exception",
+											"title": "Reporting-exception",
 											"type": "string",
 											"default": "",
 											"pattern": "^.*$"
@@ -745,8 +686,7 @@
 								}
 
 							}
-						}
-,
+						},
 						"direct-children": {
 							"$id": "LEIevidenceDocument/data/relationships/direct-children",
 							"title": "Direct-children",
@@ -782,8 +722,7 @@
 								}
 
 							}
-						}
-,
+						},
 						"isins": {
 							"$id": "LEIevidenceDocument/data/relationships/isins",
 							"title": "Isins",
