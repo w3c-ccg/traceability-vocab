@@ -16,6 +16,8 @@ const { getPerson } = require('./Person');
 const { getEntity } = require('./Entity');
 const { getProduct } = require('./Product');
 const { getAgInspectionReport } = require('./AgInspectionReport');
+const { getAgProduct } = require('./AgProduct');
+const { getAgPackage } = require('./AgPackage');
 const { getppq203 } = require('./ppq203');
 const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
 const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
@@ -39,6 +41,8 @@ const generatorConfig = {
   Person: getPerson,
   Entity: getEntity,
   Product: getProduct,
+  AgProduct: getAgProduct,
+  AgPackage: getAgPackage,
   AgInspectionReport: getAgInspectionReport,
   ppq203: getppq203,
   LEIevidenceDocument: getLEIevidenceDocument,

@@ -14,10 +14,10 @@
       "@id": "https://w3id.org/traceability/AgInspectionReport",
       "@context": {
         "facility": {
-          "@id": "https://w3id.org/traceability/#facility"
+          "@id": "https://www.gs1.org/voc/Place"
         },
         "inspector": {
-          "@id": "https://w3id.org/traceability/#inspector"
+          "@id": "https://www.lawinsider.com/dictionary/food-inspector"
         },
         "shipment": {
           "@id": "https://schema.org/ParcelDelivery"
@@ -33,6 +33,58 @@
         },
         "observation": {
           "@id": "https://schema.org/ItemList"
+        }
+      }
+    },
+    "AgPackage": {
+      "@id": "http://www.fao.org/3/x5016e/X5016E04.htm",
+      "@context": {
+        "packageName": {
+          "@id": "https://schema.org/name"
+        },
+        "grade": {
+          "@id": "https://www.ams.usda.gov/grades-standards"
+        },
+        "responsibleParty": {
+          "@id": "https://schema.org/Entity"
+        },
+        "voicePickCode": {
+          "@id": "https://www.produceinventory.com/files/newsroom/Voice-Pick-Code.pdf"
+        },
+        "date": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "labelImageUrl": {
+          "@id": "https://schema.org/url"
+        },
+        "labelImageHash": {
+          "@id": "https://cybersecurityglossary.com/hashing"
+        },
+        "agProduct": {
+          "@id": "https://schema.org/ItemList"
+        }
+      }
+    },
+    "AgProduct": {
+      "@id": "https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf",
+      "@context": {
+        "upc": {
+          "@id": "https://www.gs1.org/standards/barcodes/ean-upc"
+        },
+        "plu": {
+          "@id": "https://www.pma.com/content/articles/2014/05/plu-codes"
+        },
+        "gtin": {
+          "@id": "https://www.gs1.org/voc/gtin"
+        },
+        "product": {
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "labelImageUrl": {
+          "@id": "https://schema.org/url"
+        },
+        "labelImageHash": {
+          "@id": "https://cybersecurityglossary.com/hashing"
         }
       }
     },
@@ -97,7 +149,7 @@
       "@id": "https://w3id.org/traceability/Inspector",
       "@context": {
         "person": {
-          "@id": "https://w3id.org/traceability/schemas/Person.json"
+          "@id": "https://schema.org/Person.json"
         },
         "credential": {
           "@id": "https://schema.org/ItemList"
@@ -385,7 +437,7 @@
         }
       }
     },
-    "vLEIIdentityCredentia": {
+    "vLEIIdentityCredential": {
       "@id": "https://w3id.org/traceability/vLEIIdentityCredential",
       "@context": {
         "leiCode": {
