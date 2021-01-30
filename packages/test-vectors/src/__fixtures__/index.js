@@ -16,6 +16,8 @@ const MeasuredValue = require('../../../../docs/test-vectors/MeasuredValue.json'
 const ChemicalProperty = require('../../../../docs/test-vectors/ChemicalProperty.json');
 const MechanicalProperty = require('../../../../docs/test-vectors/MechanicalProperty.json');
 const Product = require('../../../../docs/test-vectors/Product.json');
+const AgProduct = require('../../../../docs/test-vectors/AgProduct.json');
+const AgPackage = require('../../../../docs/test-vectors/AgPackage.json');
 const ppq203 = require('../../../../docs/test-vectors/ppq203.json');
 
 
@@ -38,5 +40,7 @@ module.exports = {
   ChemicalProperty,
   MechanicalProperty,
   Product,
+  AgProduct,
+  AgPackage,
   ppq203
 };
