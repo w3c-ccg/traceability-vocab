@@ -1,8 +1,10 @@
 const faker = require('faker');
 
 const getLEIevidenceDocument = () => {
-  const pastDate = (new Date(faker.date.past())).toISOString();
-  const futureDate = (new Date(faker.date.future())).toISOString();
+  const fakePast = new Date(faker.date.past())
+  const fakeFuture = new Date(faker.date.future())
+  const pastDate = fakePast.getMonth() + "-" + fakePast.getDay() + "-" + fakePast.getFullYear();
+  const futureDate = fakeFuture.getMonth() + "-" + fakeFuture.getDay() + "-" + fakeFuture.getFullYear();
 
   const getStatus = () => {
     const types = ['REQUESTED', 'CONFIRMED', 'REJECTED', 'IN PROGRESS']
@@ -26,10 +28,10 @@ const getLEIevidenceDocument = () => {
 
   const baseUrl = 'https://api.gleif.example.org/api/v1/lei-records'
   const shortId = `${faker.random.alpha({count: 4}).toUpperCase()}`
-  const lei = faker.random.alphaNumeric({count: 20}).toUpperCase()
-  const id = faker.random.alphaNumeric({count: 8}).toUpperCase()
+  const lei = faker.random.alphaNumeric(20).toUpperCase()
+  const id = faker.random.alphaNumeric(8).toUpperCase()
   const language = faker.random.locale()
-  const otherNames = Math.random() > 0.5 ? [faker.company.companyName(), faker.company.companyName()] : []
+  const otherNames = [faker.company.companyName(), faker.company.companyName()]
   const companyName = faker.company.companyName()
   const country = faker.address.country()
   const region = faker.address.county()
@@ -75,7 +77,7 @@ const getLEIevidenceDocument = () => {
           },
           "registeredAt": {
             "id": id,
-            "other": faker.random.alphaNumeric({count: 8}).toUpperCase()
+            "other": faker.random.alphaNumeric(8).toUpperCase()
           },
           "registeredAs": id,
           "jurisdiction":  region,
@@ -108,7 +110,7 @@ const getLEIevidenceDocument = () => {
           "corroborationLevel": getCorroborationLevel(),
           "validatedAt": {
             "id": id,
-            "other": faker.random.alphaNumeric({count: 8}).toUpperCase()
+            "other": faker.random.alphaNumeric(8).toUpperCase()
           },
           "validatedAs": id,
           "otherValidationAuthorities": [{

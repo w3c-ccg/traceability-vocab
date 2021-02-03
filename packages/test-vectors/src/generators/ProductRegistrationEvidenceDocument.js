@@ -1,7 +1,7 @@
 const faker = require('faker');
 
 const getProductRegistrationEvidenceDocument = () => {
-  const pastDate = (new Date(faker.date.past())).toISOString();
+  const pastDate = new Date(faker.date.past());
 
   const getCategory = () => {
     const types = ['Dietary Supplement', 'Convenience Goods', 'Specialty Goods']
@@ -16,11 +16,11 @@ const getProductRegistrationEvidenceDocument = () => {
     type: 'ProductRegistrationEvidenceDocument',
     "category": getCategory(),
     "inProductGroupWithID": `Group${faker.random.number({min: 100, max: 999})}`,
-    "productID": `${faker.random.alphaNumeric({count: 10}).toUpperCase()}`,
-    "mpn": `${faker.random.alphaNumeric({count: 10}).toUpperCase()}`,
+    "productID": `${faker.random.alphaNumeric(10).toUpperCase()}`,
+    "mpn": `${faker.random.alphaNumeric(10).toUpperCase()}`,
     "gtin": `${faker.random.number({min: 100000000000, max: 99999999999999})}`, // 13-14 numeric characters
     "isAccessoryOrSparePartFor": "n/a",
-    "releaseDate": pastDate,
+    "releaseDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
     "manufacturer": faker.company.companyName(),
     "globalLocationNumber": `${faker.random.number({min: 1000000000000, max: 9999999999999})}`, // 13 numeric characters
     "leiCode": lei,
