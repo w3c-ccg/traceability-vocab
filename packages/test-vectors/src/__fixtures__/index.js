@@ -22,6 +22,7 @@ const ppq203 = require('../../../../docs/test-vectors/ppq203.json');
 const LEIevidenceDocument = require('../../../../docs/test-vectors/LEIevidenceDocument.json');
 const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vectors/ProductRegistrationEvidenceDocument.json');
 const LegalEntityIdentifierCredential = require('../../../../docs/test-vectors/LegalEntityIdentifierCredential.json');
+const IntentToSell = require('../../../../docs/test-vectors/IntentToSell.json');
 
 module.exports = {
   GeoCoordinates,
@@ -47,5 +48,6 @@ module.exports = {
   LegalEntityIdentifierCredential,
   AgProduct,
   AgPackage,
-  ppq203
+  ppq203,
+  IntentToSell
 };
