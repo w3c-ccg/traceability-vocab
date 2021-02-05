@@ -22,7 +22,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     const paymentStatus = payments.payment[randomPaymentStatus - 1];
     //get a currency
     const randomCurrency = Object.keys(currencies)[
-        faker.random.number(Object.keys(currencies).length - 1)
+        faker.random.number(Object.keys(currencies).length)
     ];
     const currency = currencies[randomCurrency].code;
 
@@ -31,7 +31,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     let orderlist = [];
     let totalPrice = 0;
     while (numItemsinOrder > 0) {
-        const randomProd = faker.random.number({ min: 1, max: Object.keys(prods).length - 1 });
+        const randomProd = faker.random.number({ min: 0, max: Object.keys(prods).length - 1 });
         const quantity = faker.random.number({ min: 1, max: 10 });
         const itemOrderedName = prods[randomProd].name;
         const itemOrderedProduct = prods[randomProd].productID;

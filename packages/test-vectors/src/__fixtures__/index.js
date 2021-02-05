@@ -22,6 +22,13 @@ const ppq203 = require('../../../../docs/test-vectors/ppq203.json');
 const LEIevidenceDocument = require('../../../../docs/test-vectors/LEIevidenceDocument.json');
 const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vectors/ProductRegistrationEvidenceDocument.json');
 const LegalEntityIdentifierCredential = require('../../../../docs/test-vectors/LegalEntityIdentifierCredential.json');
+const EcommerceOrderRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommerceOrderRegistrationEvidenceDocument.json');
+const EcommerceInvoiceRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommerceInvoiceRegistrationEvidenceDocument.json');
+const EcommercePackingListRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommercePackingListRegistrationEvidenceDocument.json');
+const EcommerceProductRegistrationCredential = require('../../../../docs/test-vectors/EcommerceProductRegistrationCredential.json');
+const EcommerceOrderRegistrationCredential = require('../../../../docs/test-vectors/EcommerceOrderRegistrationCredential.json');
+const EcommerceInvoiceRegistrationCredential = require('../../../../docs/test-vectors/EcommerceInvoiceRegistrationCredential.json');
+const EcommercePackingListRegistrationCredential = require('../../../../docs/test-vectors/EcommercePackingListRegistrationCredential.json');
 
 module.exports = {
   GeoCoordinates,
@@ -47,5 +54,12 @@ module.exports = {
   LegalEntityIdentifierCredential,
   AgProduct,
   AgPackage,
-  ppq203
+  ppq203,
+  EcommerceOrderRegistrationEvidenceDocument,
+  EcommerceInvoiceRegistrationEvidenceDocument,
+  EcommercePackingListRegistrationEvidenceDocument,
+  EcommerceProductRegistrationCredential,
+  EcommerceOrderRegistrationCredential,
+  EcommerceInvoiceRegistrationCredential,
+  EcommercePackingListRegistrationCredential
 };

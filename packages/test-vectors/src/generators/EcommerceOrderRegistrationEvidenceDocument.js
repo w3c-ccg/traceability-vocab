@@ -23,7 +23,7 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
     let numItemsinOrder = faker.random.number({ min: 1, max: 4 });
     let orderlist = [];
     while (numItemsinOrder > 0) {
-        const randomProd = faker.random.number({ min: 1, max: Object.keys(prods).length - 1 });
+        const randomProd = faker.random.number({ min: 0, max: Object.keys(prods).length - 1 });
         const quantity = faker.random.number({ min: 1, max: 10 });
         const itemOrderedName = prods[randomProd].name;
         const itemOrderedProduct = prods[randomProd].productID;
