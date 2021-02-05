@@ -1,0 +1,544 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/EcommerceInvoiceRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"EcommerceInvoiceRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability/EcommerceInvoiceRegistrationEvidenceDocument\"}",
+    "title": "Invoice Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Invoice",
+    "type": "object",
+    "required": [
+        "@context",
+        "identifier",
+        "description",
+        "url",
+        "broker",
+        "accountId",
+        "customer",
+        "paymentDueDate",
+        "totalPaymentDue",
+        "paymentStatus",
+        "provider",
+        "referencesOrder"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "@type": {
+            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Invoice\"}",
+            "title": "@type",
+            "type": "string",
+            "default": "Invoice"
+        },
+        "identifier": {
+            "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+            "title": "Identifier",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "Invoice#-1234"
+            ]
+        },
+        "description": {
+            "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+            "title": "Description of customer invoice",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "Example Invoice Description"
+            ]
+        },
+        "url": {
+            "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+            "title": "Url or the order",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "http://acme.com/invoice.pdf"
+            ]
+        },
+        "broker": {
+            "$comment": "{\"term\": \"broker\", \"@id\": \"https://schema.org/broker\"}",
+            "title": "Broker",
+            "type": "object",
+            "required": [
+                "@type",
+                "name",
+                "leiCode"
+            ],
+            "properties": {
+                "@type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+                    "title": "@type",
+                    "type": "string",
+                    "default": "Corporation"
+                },
+                "name": {
+                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                    "title": "Name of the Broker",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Broker XYZ"
+                    ]
+                },
+                "leiCode": {
+                    "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+                    "title": "Leicode of the Broker",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "vLei code, e.g. Y87794H0US1R65VBXU25"
+                    ]
+                }
+            }
+        },
+        "accountId": {
+            "$comment": "{\"term\": \"accountId\", \"@id\": \"https://schema.org/accountId\"}",
+            "title": "Accountid",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "xxxx-xxxx-xxxx-1234"
+            ]
+        },
+        "customer": {
+            "$comment": "{\"term\": \"customer\", \"@id\": \"https://schema.org/customer\"}",
+            "title": "Customer",
+            "type": "object",
+            "required": [
+                "@type",
+                "name",
+                "address",
+                "telephone",
+                "email"
+            ],
+            "properties": {
+                "@type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Person\"}",
+                    "title": "@type",
+                    "type": "string",
+                    "default": "Person"
+                },
+                "name": {
+                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                    "title": "Name of the Customer",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Jane Doe"
+                    ]
+                },
+                "address": {
+                    "$comment": "{\"term\": \"address\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                    "title": "Address of the Customer",
+                    "type": "object",
+                    "required": [
+                        "type",
+                        "streetAddress",
+                        "addressLocality",
+                        "addressRegion",
+                        "postalCode",
+                        "addressCountry"
+                    ],
+                    "properties": {
+                        "@type": {
+                            "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                            "title": "type",
+                            "type": "string",
+                            "default": "PostalAddress"
+                        },
+                        "streetAddress": {
+                            "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+                            "title": "Streetaddress",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "20341 Whitworth Institute 405 N. Whitworth"
+                            ]
+                        },
+                        "addressLocality": {
+                            "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+                            "title": "Addresslocality",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "Seattle"
+                            ]
+                        },
+                        "addressRegion": {
+                            "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+                            "title": "Addressregion",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "WA"
+                            ]
+                        },
+                        "postalCode": {
+                            "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+                            "title": "Postalcode",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "98052"
+                            ]
+                        },
+                        "addressCountry": {
+                            "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+                            "title": "Address Country",
+                            "type": "string",
+                            "default": "",
+                            "examples": [
+                                "USA"
+                            ]
+                        }
+                    }
+                },
+                "telephone": {
+                    "$comment": "{\"term\": \"telephone\", \"@id\": \"https://schema.org/telephone\"}",
+                    "title": "Telephone",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "(425) 123-4567"
+                    ]
+                },
+                "email": {
+                    "$comment": "{\"term\": \"email\", \"@id\": \"https://schema.org/email\"}",
+                    "title": "Email",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "mailto:jane-doe@xyz.edu"
+                    ]
+                }
+            }
+        },
+        "paymentDueDate": {
+            "$comment": "{\"term\": \"paymentDueDate\", \"@id\": \"https://schema.org/paymentDueDate\"}",
+            "title": "Paymentduedate",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "2021-01-30T12:00:00"
+            ]
+        },
+        "totalPaymentDue": {
+            "$comment": "{\"term\": \"totalPaymentDue\", \"@id\": \"https://schema.org/totalPaymentDue\"}",
+            "title": "Totalpaymentdue",
+            "type": "object",
+            "required": [
+                "@type",
+                "price",
+                "priceCurrency"
+            ],
+            "properties": {
+                "@type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+                    "title": "@type",
+                    "type": "string",
+                    "default": "PriceSpecification"
+                },
+                "price": {
+                    "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+                    "title": "Price",
+                    "type": "number",
+                    "default": 0.00,
+                    "examples": [
+                        200.00
+                    ]
+                },
+                "priceCurrency": {
+                    "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+                    "title": "Pricecurrency",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "USD"
+                    ]
+                }
+            }
+        },
+        "paymentStatus": {
+            "$comment": "{\"term\": \"paymentStatus\", \"@id\": \"https://schema.org/paymentStatus\"}",
+            "title": "Paymentstatus",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "https://schema.org/PaymentComplete"
+            ]
+        },
+        "provider": {
+            "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
+            "title": "Provider",
+            "type": "object",
+            "required": [
+                "@type",
+                "name",
+                "leiCode"
+            ],
+            "properties": {
+                "@type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+                    "title": "@type",
+                    "type": "string",
+                    "default": "Corporation"
+                },
+                "name": {
+                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                    "title": "Name of the Provider",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Provider XYZ"
+                    ]
+                },
+                "leiCode": {
+                    "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+                    "title": "Leicode of the Provider",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "vLei code, e.g. Y87794H0US1R65VBXU25"
+                    ]
+                }
+            }
+        },
+        "referencesOrder": {
+            "$comment": "{\"term\": \"referencesOrder\", \"@id\": \"https://schema.org/referencesOrder\"}",
+            "title": "Referencesorder",
+            "type": "array",
+            "default": [],
+            "items": {
+                "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+                "title": "Item",
+                "type": "object",
+                "required": [
+                    "@type",
+                    "description",
+                    "orderDate",
+                    "orderNumber",
+                    "paymentMethod",
+                    "orderedItem",
+                    "seller"
+                ],
+                "properties": {
+                    "@type": {
+                        "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
+                        "title": "@type",
+                        "type": "string",
+                        "default": "Order"
+                    },
+                    "description": {
+                        "$comment": "{\"term\": \"@description\", \"@id\": \"https://schema.org/description\"}",
+                        "title": "Description",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                            "ACME Laptop"
+                        ]
+                    },
+                    "orderDate": {
+                        "$comment": "{\"term\": \"@orderDate\", \"@id\": \"https://schema.org/orderDate\"}",
+                        "title": "Orderdate",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                            "2021-12-01"
+                        ]
+                    },
+                    "orderNumber": {
+                        "$comment": "{\"term\": \"@orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+                        "title": "Ordernumber",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                            "123ABC"
+                        ]
+                    },
+                    "paymentMethod": {
+                        "$comment": "{\"term\": \"@paymentMethod\", \"@id\": \"https://schema.org/paymentMethod\"}",
+                        "title": "Paymentmethod",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                            "http://purl.org/goodrelations/v1#PayPal"
+                        ]
+                    },
+                    "orderedItem": {
+                        "$comment": "{\"term\": \"orderedItem\", \"@id\": \"https://schema.org/orderedItem\"}",
+                        "title": "Ordered Item",
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+                            "title": "Item(s)",
+                            "type": "object",
+                            "required": [
+                                "@type",
+                                "name",
+                                "productID",
+                                "unitPriceSpecification",
+                                "orderQuantity",
+                                "priceSpecification"
+                            ],
+                            "properties": {
+                                "@type": {
+                                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Productorder\"}",
+                                    "title": "@type",
+                                    "type": "string",
+                                    "default": "Productorder"
+                                },
+                                "name": {
+                                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                                    "title": "Name",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "ACME Laptop 3000"
+                                    ]
+                                },
+                                "productID": {
+                                    "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+                                    "title": "Product Id",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "Product VC ID Laptop"
+                                    ]
+                                },
+                                "unitPriceSpecification": {
+                                    "$comment": "{\"term\": \"UnitPriceSpecification\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
+                                    "title": "UnitPriceSpecification",
+                                    "type": "object",
+                                    "required": [
+                                        "@type",
+                                        "price",
+                                        "priceCurrency"
+                                    ],
+                                    "properties": {
+                                        "@type": {
+                                            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
+                                            "title": "@type",
+                                            "type": "string",
+                                            "default": "UnitPriceSpecification"
+                                        },
+                                        "price": {
+                                            "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+                                            "title": "Price",
+                                            "type": "number",
+                                            "examples": [
+                                                200.00
+                                            ],
+                                            "default": 0
+                                        },
+                                        "priceCurrency": {
+                                            "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+                                            "title": "Pricecurrency",
+                                            "type": "string",
+                                            "default": "",
+                                            "examples": [
+                                                "USD"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "orderQuantity": {
+                                    "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
+                                    "title": "Qrder Quantity",
+                                    "type": "number",
+                                    "default": "",
+                                    "examples": [
+                                        5
+                                    ]
+                                },
+                                "priceSpecification": {
+                                    "$comment": "{\"term\": \"PriceSpecification\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+                                    "title": "PriceSpecification",
+                                    "type": "object",
+                                    "required": [
+                                        "@type",
+                                        "price",
+                                        "priceCurrency"
+                                    ],
+                                    "properties": {
+                                        "@type": {
+                                            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+                                            "title": "@type",
+                                            "type": "string",
+                                            "default": "PriceSpecification"
+                                        },
+                                        "price": {
+                                            "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+                                            "title": "Price",
+                                            "type": "number",
+                                            "examples": [
+                                                200.00
+                                            ],
+                                            "default": 0
+                                        },
+                                        "priceCurrency": {
+                                            "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+                                            "title": "Pricecurrency",
+                                            "type": "string",
+                                            "default": "",
+                                            "examples": [
+                                                "USD"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "seller": {
+                        "$comment": "{\"term\": \"seller\", \"@id\": \"https://schema.org/seller\"}",
+                        "title": "Seller",
+                        "type": "object",
+                        "required": [
+                            "@type",
+                            "name",
+                            "leiCode"
+                        ],
+                        "properties": {
+                            "@type": {
+                                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+                                "title": "@type",
+                                "type": "string",
+                                "default": "Corporation"
+                            },
+                            "name": {
+                                "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                                "title": "Name of the Broker",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "Broker XYZ"
+                                ]
+                            },
+                            "leiCode": {
+                                "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+                                "title": "Leicode of the Broker",
+                                "type": "string",
+                                "default": "",
+                                "examples": [
+                                    "vLei code, e.g. Y87794H0US1R65VBXU25"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

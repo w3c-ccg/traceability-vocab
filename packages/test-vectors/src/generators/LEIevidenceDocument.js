@@ -1,8 +1,10 @@
 const faker = require('faker');
 
 const getLEIevidenceDocument = () => {
-  const pastDate = (new Date(faker.date.past())).toISOString();
-  const futureDate = (new Date(faker.date.future())).toISOString();
+  const fakePast = new Date(faker.date.past())
+  const fakeFuture = new Date(faker.date.future())
+  const pastDate = fakePast.getMonth() + "-" + fakePast.getDay() + "-" + fakePast.getFullYear();
+  const futureDate = fakeFuture.getMonth() + "-" + fakeFuture.getDay() + "-" + fakeFuture.getFullYear();
 
   const getStatus = () => {
     const types = ['REQUESTED', 'CONFIRMED', 'REJECTED', 'IN PROGRESS']
@@ -25,16 +27,16 @@ const getLEIevidenceDocument = () => {
   }
 
   const baseUrl = 'https://api.gleif.example.org/api/v1/lei-records'
-  const shortId = `${faker.random.alpha({count: 4}).toUpperCase()}`
-  const lei = faker.random.alphaNumeric({count: 20}).toUpperCase()
-  const id = faker.random.alphaNumeric({count: 8}).toUpperCase()
+  const shortId = `${faker.random.alpha({ count: 4 }).toUpperCase()}`
+  const lei = faker.random.alphaNumeric(20).toUpperCase()
+  const id = faker.random.alphaNumeric(8).toUpperCase()
   const language = faker.random.locale()
-  const otherNames = Math.random() > 0.5 ? [faker.company.companyName(), faker.company.companyName()] : []
+  const otherNames = [faker.company.companyName(), faker.company.companyName()]
   const companyName = faker.company.companyName()
   const country = faker.address.country()
   const region = faker.address.county()
-  const addressNumber = `${faker.random.number({min: 1, max: 500})}`
-  const addressNumberWithinBuilding = `${faker.random.number({min: 1, max: 10})}`
+  const addressNumber = `${faker.random.number({ min: 1, max: 500 })}`
+  const addressNumberWithinBuilding = `${faker.random.number({ min: 1, max: 10 })}`
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -45,21 +47,21 @@ const getLEIevidenceDocument = () => {
       "attributes": {
         "lei": lei,
         "entity": {
-          "legalName":  {
+          "legalName": {
             "name": companyName,
             "language": language
           },
           "otherNames": otherNames,
           "transliteratedOtherNames": otherNames,
-          "legalAddress":  {
-            "language":  language,
+          "legalAddress": {
+            "language": language,
             "addressLines": [companyName, faker.address.streetAddress()],
             "addressNumber": addressNumber,
             "addressNumberWithinBuilding": addressNumberWithinBuilding,
             "mailRouting": `${faker.address.streetAddress()}, ${faker.address.zipCode()}`,
             "city": faker.address.city(),
             "region": region,
-            "country":  country,
+            "country": country,
             "postalCode": faker.address.zipCode()
           },
           "headquartersAddress": {
@@ -70,15 +72,15 @@ const getLEIevidenceDocument = () => {
             "mailRouting": `${faker.address.streetAddress()}, ${faker.address.zipCode()}`,
             "city": faker.address.city(),
             "region": faker.address.county(),
-            "country":  country,
+            "country": country,
             "postalCode": faker.address.zipCode()
           },
           "registeredAt": {
             "id": id,
-            "other": faker.random.alphaNumeric({count: 8}).toUpperCase()
+            "other": faker.random.alphaNumeric(8).toUpperCase()
           },
           "registeredAs": id,
-          "jurisdiction":  region,
+          "jurisdiction": region,
           "category": getCategory(),
           "legalForm": {
             "id": shortId,
@@ -104,11 +106,11 @@ const getLEIevidenceDocument = () => {
           "lastUpdateDate": pastDate,
           "status": getStatus(),
           "nextRenewalDate": futureDate,
-          "managingLou":  faker.random.alpha({count: 20}).toUpperCase(),
+          "managingLou": faker.random.alpha({ count: 20 }).toUpperCase(),
           "corroborationLevel": getCorroborationLevel(),
           "validatedAt": {
             "id": id,
-            "other": faker.random.alphaNumeric({count: 8}).toUpperCase()
+            "other": faker.random.alphaNumeric({ count: 8 }).toUpperCase()
           },
           "validatedAs": id,
           "otherValidationAuthorities": [{
@@ -116,7 +118,7 @@ const getLEIevidenceDocument = () => {
             validatedAs: id
           }]
         },
-        "bic": [`${faker.random.alpha({count: 4}).toUpperCase()}${faker.address.countryCode()}${shortId}`]
+        "bic": [`${faker.random.alpha({ count: 4 }).toUpperCase()}${faker.address.countryCode()}${shortId}`]
       },
       "relationships": {
         "managing-lou": {
@@ -124,12 +126,12 @@ const getLEIevidenceDocument = () => {
             "related": `${baseUrl}/${lei}/managing-lou`,
           }
         },
-        "lei-issuer":  {
+        "lei-issuer": {
           "links": {
             "related": `${baseUrl}/${lei}/lei-issuer`,
           }
         },
-        "direct-parent":  {
+        "direct-parent": {
           "links": {
             "reporting-exception": `${baseUrl}/${lei}/direct-parent-reporting-exception`,
           }
