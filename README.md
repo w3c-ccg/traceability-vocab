@@ -98,8 +98,10 @@ If you plan on using a type that you have added as a [Verifiable Credential](htt
 ####  Additional notes
 Please follow the conventions established for the other properties, for example:
 
-###### General Formatting
+###### General Formatting and Guidelines
 UTF-8 should be used as the standard encoding for all assets in this repository, and any services utilizing these objects as schemas should support UTF-8
+
+Wherever possible JSON-LD in use as a Verifiable Credential should be ["small in size"](https://www.w3.org/TR/vc-imp-guide/#pf4a).  Some harder limits will likely be established based on common and broadly distributed VC libraries but at this time be aware that a VC could be rejected from this repo for exceeding reasonable size limits
 
 ###### Date / Time
 Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`.
