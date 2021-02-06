@@ -98,6 +98,12 @@ If you plan on using a type that you have added as a [Verifiable Credential](htt
 ####  Additional notes
 Please follow the conventions established for the other properties, for example:
 
+###### General Formatting
+UTF-8 should be used as the standard encoding for all assets in this repository, and any services utilizing these objects as schemas should support UTF-8
+
+###### Date / Time
+Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`.
+
 ###### Place
 
 - [JSON Schema](./docs/schemas/Place.json)
