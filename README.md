@@ -2,16 +2,9 @@
 
 ![CI](https://github.com/w3c-ccg/traceability-vocab/workflows/CI/badge.svg)
 
-This specification describes a Linked Data vocabulary for asserting
-Verifiable Credentials related to traceability information, such as chemical properties, mechanical properties, country of origin, and other
-attributes used to determine the status of a products and materials in a supply chain.
+This specification describes a Linked Data vocabulary for asserting Verifiable Credentials related to traceability information, such as chemical properties, mechanical properties, country of origin, and other attributes used to determine the status of a products and materials in a supply chain.
 
-We encourage contributions meeting the [Contribution
-Guidelines](CONTRIBUTING.md). While we prefer the creation of issues
-and Pull Requests in the GitHub repository, discussions often occur
-on the
-[public-credentials](http://lists.w3.org/Archives/Public/public-credentials/)
-mailing list as well.
+We encourage contributions meeting the [Contribution Guidelines](CONTRIBUTING.md). While we prefer the creation of issues and Pull Requests in the GitHub repository, discussions often occur on the [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/) mailing list as well.
 
 ### Versioning
 
@@ -48,6 +41,8 @@ In order to have your contributions accepted you MUST:
 Pull requests will not as a rule be merged if any conflicts exist, or if testing is incomplete.
 
 Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponing issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
+
+A one week (7 day) period will be provided for review of pull requests prior to merge to allow suffient review time.
 
 #### Contributing to Vocabulary
 
