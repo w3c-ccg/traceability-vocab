@@ -61,9 +61,11 @@ it('should validate using json schema', async () => {
       // eslint-disable-next-line no-param-reassign
       classDefinition.examples = fixture.good;
     } catch (e) {
-      // eslint-disable-next-line no-console
-      console.warn("error");
+      // eslint-disable-next-line
+      console.warn('error');
+      // eslint-disable-next-line
       console.warn(e);
+      // eslint-disable-next-line
       console.warn('No test vectors for ', classDefinition.title);
     }
   });

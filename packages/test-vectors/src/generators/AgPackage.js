@@ -5,7 +5,8 @@ const { getAgProduct } = require('./AgProduct');
 const { getEntity } = require('./Entity');
 
 const getAgPackage = () => {
-  // load image and convert to binary for hashing.  this is an actual working image so the hash should be valid.
+  // load image and convert to binary for hashing.
+  // this is an actual working image so the hash should be valid.
   let binaryImg = '';
   imageToBase64('https://raw.githubusercontent.com/mesur-io/openfoodtrust/main/docs/img/oft-logo-dark-bg.pngpath/to/file.jpg') // Path to the image
     .then(
@@ -15,6 +16,7 @@ const getAgPackage = () => {
     )
     .catch(
       (error) => {
+        // eslint-disable-next-line
         console.log(error);
       },
     );

@@ -42,20 +42,21 @@ Object.values(intermediateJson).forEach((classDefinition) => {
       // This isn't the best way to do it by any means, but it works and can be cleaned up later.
       if (!process.env.BUILD_SPEC) {
         const fixture = classDefinitionToFixtureJson(classDefinition);
-        await Promise.all(fixture.good.map(async (goodExample) => {
+        return Promise.all(fixture.good.map(async (goodExample) => {
           let resultOk = {};
           resultOk = await jsonldChecker.check(goodExample, customDocumentLoader);
           // Adding some slightly better error handling
-          if (resultOk.error.type != '') {
+          if (resultOk.error.type !== '') {
+            // eslint-disable-next-line
             console.log(classDefinition.title);
+            // eslint-disable-next-line
             console.log(resultOk.error);
           }
           return expect(resultOk.ok).toBe(true);
         }));
-      } else {
-        // we're building so don't worry about it.
-        return true;
       }
+      // we're building so don't worry about it.
+      return true;
     });
   }
 });
