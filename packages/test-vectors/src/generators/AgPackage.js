@@ -50,7 +50,7 @@ const getAgPackage = () => {
     grade: foodGrades[faker.random.number({ min: 0, max: 4 })],
     responsibleParty,
     voicePickCode: faker.random.number({ min: 1000, max: 9999 }).toString(),
-    date: `${thisDate.getMonth()}-${thisDate.getDay() + 1}-${thisDate.getFullYear()}`,
+    date: `${thisDate.getFullYear()}-${thisDate.getMonth()}-${thisDate.getDay() + 1}`,
     labelImageUrl: faker.image.imageUrl(),
     labelImageHash,
     agProduct,
