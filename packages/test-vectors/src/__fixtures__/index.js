@@ -49,5 +49,5 @@ module.exports = {
   AgProduct,
   AgPackage,
   ppq203,
-  IntentToSell
+  IntentToSell,
 };
