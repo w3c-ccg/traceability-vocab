@@ -3,7 +3,7 @@ const faker = require('faker');
 const getLEIevidenceDocument = () => {
   const fakePast = new Date(faker.date.past());
   const fakeFuture = new Date(faker.date.future());
-  const pastDate = `${fakePast.getMonth()}-${fakePast.getDay()}-${fakePast.getFullYear()}`;
+  const pastDate = `${fakePast.getFullYear()}-${fakePast.getMonth()}-${fakePast.getDay()}`;
   const futureDate = `${fakeFuture.getMonth()}-${fakeFuture.getDay()}-${fakeFuture.getFullYear()}`;
 
   const getStatus = () => {
