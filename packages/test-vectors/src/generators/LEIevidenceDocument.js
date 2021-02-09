@@ -27,7 +27,8 @@ const getLEIevidenceDocument = () => {
   }
 
   const baseUrl = 'https://api.gleif.example.org/api/v1/lei-records'
-  const shortId = `${faker.random.alpha({ count: 4 }).toUpperCase()}`
+
+  const shortId = `${faker.random.alpha({count: 4}).toUpperCase()}`
   const lei = faker.random.alphaNumeric(20).toUpperCase()
   const id = faker.random.alphaNumeric(8).toUpperCase()
   const language = faker.random.locale()
@@ -110,7 +111,7 @@ const getLEIevidenceDocument = () => {
           "corroborationLevel": getCorroborationLevel(),
           "validatedAt": {
             "id": id,
-            "other": faker.random.alphaNumeric({ count: 8 }).toUpperCase()
+            "other": faker.random.alphaNumeric(8).toUpperCase()
           },
           "validatedAs": id,
           "otherValidationAuthorities": [{
