@@ -3,8 +3,8 @@ const { getCredential } = require('./Credential');
 const { getPerson } = require('./Person');
 
 const getInspector = () => {
-  //get credentials
-  let credential = [];
+  // get credentials
+  const credential = [];
   let numCreds = faker.random.number({ min: 1, max: 3 });
   while (numCreds > 0) {
     const cred = getCredential();
@@ -13,7 +13,7 @@ const getInspector = () => {
     numCreds -= 1;
   }
 
-  //Get Person 
+  // Get Person
   const person = getPerson();
   delete person['@context'];
 
@@ -21,7 +21,7 @@ const getInspector = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'Inspector',
     person,
-    credential
+    credential,
   };
   return example;
 };
