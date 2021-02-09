@@ -22,7 +22,7 @@ const getIntentToSell = () => {
     purchaser,
     product,
     declarationDate: `${dDate.getFullYear()}-${dDate.getMonth()}-${dDate.getDay()}`,
-    sellByDate: `${fDate.getFullYear()-${fDate.getMonth()}-${fDate.getDay()}}`,
+    sellByDate: `${fDate.getFullYear()}-${fDate.getMonth()}-${fDate.getDay()}}`,
   };
 
   return example;
