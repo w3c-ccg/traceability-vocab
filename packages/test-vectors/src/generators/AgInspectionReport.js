@@ -78,7 +78,7 @@ const getAgInspectionReport = () => {
     inspector,
     shipment,
     applicant,
-    inspectionDate: `${inspectDate.getMonth()}-${inspectDate.getDay()}-${inspectDate.getFullYear()}`,
+    inspectionDate: `${inspectDate.getFullYear()}-${inspectDate.getMonth()}-${inspectDate.getDay()}`,
     inspectionType,
     observation,
   };
