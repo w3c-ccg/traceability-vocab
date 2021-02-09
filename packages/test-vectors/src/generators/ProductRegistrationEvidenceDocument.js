@@ -20,7 +20,7 @@ const getProductRegistrationEvidenceDocument = () => {
     mpn: `${faker.random.alphaNumeric(10).toUpperCase()}`,
     gtin: `${faker.random.number({ min: 100000000000, max: 99999999999999 })}`, // 13-14 numeric characters
     isAccessoryOrSparePartFor: 'n/a',
-    releaseDate: `${pastDate.getMonth()}-${pastDate.getDay()}-${pastDate.getFullYear()}`,
+    releaseDate: `${pastDate.getFullYear()}-${pastDate.getMonth()}-${pastDate.getDay()}`,
     manufacturer: faker.company.companyName(),
     globalLocationNumber: `${faker.random.number({ min: 1000000000000, max: 9999999999999 })}`, // 13 numeric characters
     leiCode: lei,
