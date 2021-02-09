@@ -42,7 +42,25 @@ Pull requests will not as a rule be merged if any conflicts exist, or if testing
 
 Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponing issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
 
-A one week (7 day) period will be provided for review of pull requests prior to merge to allow suffient review time.
+A one week (7 day) period will be provided for review of pull requests related to data schemas or project functionality prior to merge to allow suffient review time.  Execptions may be made for essential documentation, or to allow for immediate hotfix of security issues.
+
+#### Project Structure
+
+This project uses [lerna](https://github.com/lerna/lerna) to manage packages and dependencies as a single project.
+
+There are two primary packages managed by lerna: 
+
+- [test-vectors](./packages/test-vectors) which contains the tests and assets related to the vocabulary itself 
+- [js-vc-ci-tests](./packages/js-vc-ci-tests) which manages the continuous integration tests related to various VCs
+
+In addition the following key areas in the repo should be noted for understanding how to add schemas and understand the code layout:
+
+- The index file in [docs](./docs/index.html) is the master public facing documentation page
+- JSON Schema for each object to be referenced is stored in the [schemas](.docs/schemas) folder
+- Code Generation to create synthetic test data is located in [generators](./packages/test-vectors/src/generators)
+- Test Vectors are located in the [test vectors](./packages/test-vectors) folder, and correspond to the defined schemas
+- [Contexts](./docs/contexts) stores the interim combined json-ld vocabulary for test and verification
+- Verifiable Credential Examples are located in the appropriately named [credential](./docs/credentials/) folder
 
 #### Contributing to Vocabulary
 
