@@ -4,7 +4,7 @@ const getLEIevidenceDocument = () => {
   const fakePast = new Date(faker.date.past());
   const fakeFuture = new Date(faker.date.future());
   const pastDate = `${fakePast.getFullYear()}-${fakePast.getMonth()}-${fakePast.getDay()}`;
-  const futureDate = `${fakeFuture.getMonth()}-${fakeFuture.getDay()}-${fakeFuture.getFullYear()}`;
+  const futureDate = `${fakeFuture.getFullYear()}-${fakeFuture.getMonth()}-${fakeFuture.getDay()}`;
 
   const getStatus = () => {
     const types = ['REQUESTED', 'CONFIRMED', 'REJECTED', 'IN PROGRESS'];
