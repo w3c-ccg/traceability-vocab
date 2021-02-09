@@ -124,7 +124,7 @@ Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directl
 - [JSON Schema](./docs/schemas/Place.json)
 - [Data Generator](./packages/test-vectors/src/generators/Place.js)
 - [JSON-LD Context (derrived)](./docs/contexts/traceability-v1.jsonld)
-- [Vocabular Definition (derrived)](https://w3c-ccg.github.io/traceability-vocab/#place)
+- [Vocabular Definition (derrived)](https://w3id.org/traceability##place)
 
 ##### Sample .ENV
 
