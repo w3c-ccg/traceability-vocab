@@ -6,6 +6,81 @@ This specification describes a Linked Data vocabulary for asserting Verifiable C
 
 We encourage contributions meeting the [Contribution Guidelines](CONTRIBUTING.md). While we prefer the creation of issues and Pull Requests in the GitHub repository, discussions often occur on the [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/) mailing list as well.
 
+## Ontology Structure
+
+This repository hosts both [json-schema](https://json-schema.org/) and [jsonld](https://json-ld.org/).
+
+All JSON Schema must have an `$id` property, and it must resolve to the JSON-Schema Document.
+
+For example see [https://w3id.org/traceability/schemas/Person.json](https://w3id.org/traceability/schemas/Person.json).
+
+We are currently 🚧 EXPERIMENTING 🚧 with injecting JSON-LD concepts like `@id` and `@type` in JSON Schema using `$comment`.
+
+For example see:
+
+```json
+"$id": "https://w3id.org/traceability/schemas/Person.json",
+"$schema": "http://json-schema.org/draft-07/schema#",
+"$comment": "{\"term\": \"Person\", \"@id\": \"https://schema.org/Person\"}",
+"title": "Person",
+"description": "A person",
+```
+
+These attributes are then used to determinstically build a JSON-LD context hosted at:
+
+[https://w3id.org/traceability/v1](https://w3id.org/traceability/v1)
+
+
+This context can then be used to produce verifiable credentials for supply chain traceability, for example:
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "https://example.com/123",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuer": {
+    "id": "did:key:z6MkoTHsgNNrby8JzCNQ1iRLyW5QQ6R8Xuu6AA8igGrMVPUM"
+  },
+  "issuanceDate": "2020-03-10T04:24:12.164Z",
+  "expirationDate": "2029-03-10T04:24:12.164Z",
+  "credentialSubject": {
+    "id": "did:example:123",
+    "type": "Place",
+    "address": {
+      "type": "PostalAddress",
+      "organizationName": "Bednar - Kutch",
+      "streetAddress": "8440 Khalid Canyon",
+      "addressLocality": "Gislasonland",
+      "addressRegion": "Ohio",
+      "postalCode": "96546",
+      "addressCountry": "Liechtenstein"
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2021-02-09T21:54:29.223Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..1Xba7-B-YTstwnbIewQFpbMgGfOdRuoDLEBezZlb4M1qMwI9GCUAbeTCsGCPd62XLwyNjPqb9aJGj_xk7iUiBw",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MkoTHsgNNrby8JzCNQ1iRLyW5QQ6R8Xuu6AA8igGrMVPUM#z6MkoTHsgNNrby8JzCNQ1iRLyW5QQ6R8Xuu6AA8igGrMVPUM"
+  }
+}
+```
+
+Inside JSON Schema you will see things like:
+
+```json
+ "$ref": "https://w3id.org/traceability/schemas/Product.json"
+```
+
+These are JSON Schema reference tags and they allow for nesting of types that are defined in JSON Schema.
+
+In general, you should strive to model concepts as types that are defined in JSON Schema and composed from smaller types.
+
 ### Versioning
 
 This repository will be versioned at periodic points in time with a Q1 Calendar Year target for major releases.  Versioning tags will follow a pattern of `[MAJOR].[MINOR].[PATCH]` 
