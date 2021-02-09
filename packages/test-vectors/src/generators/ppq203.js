@@ -30,7 +30,7 @@ const getppq203 = () => {
     foreignPortExport,
     carrierId: faker.random.number({ min: 10000000, max: 999999999999 }).toString(),
     portOfEntry,
-    signatureDate: `${sigDate.getMonth()}-${sigDate.getDay()}-${sigDate.getFullYear()}`,
+    signatureDate: `${sigDate.getFullYear()}-${sigDate.getMonth()}-${sigDate.getDay() + 1}`,
     AgInspectionReport,
   };
   return example;
