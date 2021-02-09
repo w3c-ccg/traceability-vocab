@@ -134,7 +134,7 @@ const writeFileToPublic = (targetSubDirectory, fileData) => {
 
 const classDefinitionToFixtureJson = (classDefinition) => {
   const relativePathToFixture = classDefinition.$id
-    .split('https://w3id.org/traceability#schemas/')
+    .split('https://w3id.org/traceability#')
     .pop();
   const fixture = fs
     .readFileSync(
