@@ -16,8 +16,12 @@ jobs:
       - name: Lint
         run: npm run lint 
 
+      # must run first to build schemas.
+      - name: Build
+        run: npm run build 
+
+      # must run second to test schemas.
       - name: Test
         run: npm run test 
 
-      - name: Build
-        run: npm run build 
+      
