@@ -29,6 +29,7 @@ const EcommerceProductRegistrationCredential = require('../../../../docs/test-ve
 const EcommerceOrderRegistrationCredential = require('../../../../docs/test-vectors/EcommerceOrderRegistrationCredential.json');
 const EcommerceInvoiceRegistrationCredential = require('../../../../docs/test-vectors/EcommerceInvoiceRegistrationCredential.json');
 const EcommercePackingListRegistrationCredential = require('../../../../docs/test-vectors/EcommercePackingListRegistrationCredential.json');
+const IntentToSell = require('../../../../docs/test-vectors/IntentToSell.json');
 
 module.exports = {
   GeoCoordinates,
@@ -61,5 +62,6 @@ module.exports = {
   EcommerceProductRegistrationCredential,
   EcommerceOrderRegistrationCredential,
   EcommerceInvoiceRegistrationCredential,
-  EcommercePackingListRegistrationCredential
+  EcommercePackingListRegistrationCredential,
+  IntentToSell
 };

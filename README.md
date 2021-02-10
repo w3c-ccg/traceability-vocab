@@ -2,23 +2,29 @@
 
 ![CI](https://github.com/w3c-ccg/traceability-vocab/workflows/CI/badge.svg)
 
-This specification describes a Linked Data vocabulary for asserting
-Verifiable Credentials related to traceability information, such as chemical properties, mechanical properties, country of origin, and other
-attributes used to determine the status of a products and materials in a supply chain.
+This specification describes a Linked Data vocabulary for asserting Verifiable Credentials related to traceability information, such as chemical properties, mechanical properties, country of origin, and other attributes used to determine the status of a products and materials in a supply chain.
 
-We encourage contributions meeting the [Contribution
-Guidelines](CONTRIBUTING.md). While we prefer the creation of issues
-and Pull Requests in the GitHub repository, discussions often occur
-on the
-[public-credentials](http://lists.w3.org/Archives/Public/public-credentials/)
-mailing list as well.
+We encourage contributions meeting the [Contribution Guidelines](CONTRIBUTING.md). While we prefer the creation of issues and Pull Requests in the GitHub repository, discussions often occur on the [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/) mailing list as well.
+
+### Versioning
+
+This repository will be versioned at periodic points in time with a Q1 Calendar Year target for major releases.  Versioning tags will follow a pattern of `[MAJOR].[MINOR].[PATCH]` 
+Version Definitions:
+
+- MAJOR - significant changes rolled forward from the previous major version.  Major versions MAY include breaking or non-backwards compatible changes
+- MINOR - backwards compatible changes that may introduce new functionality or extensions of objects that are backwards compatible
+- PATCH - minor changes that are non breaking and resolve discovered issues or bugs
+
+As a rule, versioning will follow the specification outlined in the [Semantic Versioning 2.0](https://semver.org/) spec
+
+This approach to versioning gives the ability to integrate with and provided automated testing and validation against defined types without worry of instability or breaking changes being introduced, while also limiting the frequency of possibly breaking changes to prevent a large number of incompatible versions.
 
 ### Getting Started
 
 This repository takes a "test / code first" approach to vocabulary development and deals specifically with data types required for 
 track and trace of supply chain data, particularly in a cross border context.  Focus is especially given to schema objects that describe
 common supply chain elements, shared by multiple use cases, as well as to items for which inspections and audits may be required, and thereby
-merit creation of Verifiable Credentials to store the results of such an inspection for verification by a third party.
+merit creation of Verifiable Credentials to store the results of such an inspection for verification by a third party.  
 
 In order to have your contributions accepted you MUST:
 
@@ -31,6 +37,12 @@ In order to have your contributions accepted you MUST:
 ```
     "$comment": "{\"term\": \"Person\", \"@id\": \"https://schema.org/Person\"}",
 ```
+
+Pull requests will not as a rule be merged if any conflicts exist, or if testing is incomplete.
+
+Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponing issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
+
+A one week (7 day) period will be provided for review of pull requests prior to merge to allow suffient review time.
 
 #### Contributing to Vocabulary
 
@@ -74,7 +86,20 @@ and adding the path:
 6. run tests and fix any errors: `npm run test`
 5. review the latest spec changes by serving docs: `npx serve ./docs`.
 
-Follow the conventions established for the other properties, for example:
+##### Adding a new type for use as a Verifiable Credential
+If you plan on using a type that you have added as a [Verifiable Credential](https://www.w3.org/TR/vc-data-model/) you should also add a valid VC example in json format to the [credentials](./docs/credentials/) folder.  See [Ag Inspection Report](./docs/credentials/AgInspectionReport.json) for a basic example.  Credential examples SHOULD use Ed25519 and MAY include credential status as in [Legal Entity Identifier](./docs/credentials/LegalEntityIdentifierCredential.json)
+
+
+####  Additional notes
+Please follow the conventions established for the other properties, for example:
+
+###### General Formatting and Guidelines
+UTF-8 should be used as the standard encoding for all assets in this repository, and any services utilizing these objects as schemas should support UTF-8
+
+Wherever possible JSON-LD in use as a Verifiable Credential should be ["small in size"](https://www.w3.org/TR/vc-imp-guide/#pf4a).  Some harder limits will likely be established based on common and broadly distributed VC libraries but at this time be aware that a VC could be rejected from this repo for exceeding reasonable size limits
+
+###### Date / Time
+Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`.
 
 ###### Place
 
