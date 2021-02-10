@@ -12,8 +12,9 @@ const getIntentToSell = () => {
   const product = getProduct();
   delete product['@context'];
 
-  const dDate = new Date(faker.date.recent());
-  const fDate = new Date(faker.date.future());
+  //pulling auto date gen for use in test vectors for this object to reduce merge conflicts in the future
+  // const dDate = new Date(faker.date.recent());
+  // const fDate = new Date(faker.date.future());
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -21,8 +22,8 @@ const getIntentToSell = () => {
     seller,
     purchaser,
     product,
-    declarationDate: `${dDate.getFullYear()}-03-21`,
-    sellByDate: `${fDate.getFullYear()}-06-30`,
+    declarationDate: "2020-03-21",
+    sellByDate: "2021-06-30",
   };
 
   return example;
