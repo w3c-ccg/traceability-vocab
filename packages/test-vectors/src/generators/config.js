@@ -29,6 +29,10 @@ const { getEcommerceProductRegistrationCredential } = require('./EcommerceProduc
 const { getEcommerceOrderRegistrationCredential } = require('./EcommerceOrderRegistrationCredential');
 const { getEcommerceInvoiceRegistrationCredential } = require('./EcommerceInvoiceRegistrationCredential');
 const { getEcommercePackingListRegistrationCredential } = require('./EcommercePackingListRegistrationCredential');
+const { getEcommerceProductReceiptRegistrationCredential } = require('./EcommerceProductReceiptRegistrationCredential');
+const { getEcommerceAddProductCodeRegistrationCredential } = require('./EcommerceAdditionalProductCodeRegistrationCredential');
+const { getEcommercePackageRegistrationEvidenceDoc } = require('./EcommercePackageRegistrationEvidenceDocument');
+const { getEcommercePackageRegistrationCredential } = require('./EcommercePackageRegistrationCredential');
 
 const generatorConfig = {
   Place: getPlace,
@@ -62,6 +66,10 @@ const generatorConfig = {
   EcommerceOrderRegistrationCredential: getEcommerceOrderRegistrationCredential,
   EcommerceInvoiceRegistrationCredential: getEcommerceInvoiceRegistrationCredential,
   EcommercePackingListRegistrationCredential: getEcommercePackingListRegistrationCredential,
+  EcommerceProductReceiptRegistrationCredential: getEcommerceProductReceiptRegistrationCredential,
+  EcommerceAdditionalProductCodeRegistrationCredential: getEcommerceAddProductCodeRegistrationCredential,
+  EcommercePackageRegistrationEvidenceDocument: getEcommercePackageRegistrationEvidenceDoc,
+  EcommercePackageRegistrationCredential: getEcommercePackageRegistrationCredential,
 };
 
 module.exports = generatorConfig;
