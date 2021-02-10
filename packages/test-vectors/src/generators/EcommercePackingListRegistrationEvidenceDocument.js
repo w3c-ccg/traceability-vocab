@@ -69,13 +69,13 @@ const getEcommercePackingListRegistrationEvidenceDoc = () => {
     const originaddress = getPostalAddress();
     delete originaddress['@context'];
 
-    const futureDate = new Date(faker.date.future());
+    const futureDate = new Date(`${faker.random.number({ min: 2030, max: 2040 })}`);
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
         "type": "EcommercePackingListRegistrationEvidenceDocument",
         "deliveryStatus": deliveryStatus,
-        "expectedArrivalFrom": futureDate,
+        "expectedArrivalFrom": `${futureDate}`,
         "hasDeliveryMethod": deliveryMethod,
         "deliveryAddress": deliveryaddress,
         "provider": provider,
