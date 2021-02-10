@@ -78,7 +78,7 @@ const getAgInspectionReport = () => {
     inspector,
     shipment,
     applicant,
-    inspectionDate: `${inspectDate.getFullYear()}-03-15`,
+    inspectionDate: '2020-03-15',
     inspectionType,
     observation,
   };
