@@ -9,7 +9,6 @@ const { getInspector } = require('./Inspector');
 const { getObservation } = require('./Observation');
 const { getCredential } = require('./Credential');
 const { getInspectionReport } = require('./InspectionReport');
-const { getIntentToSell } = require('./IntentToSell');
 const { getQuantitativeValue } = require('./QuantitativeValue');
 const { getOrganization } = require('./Organization');
 const { getParcelDelivery } = require('./ParcelDelivery');
@@ -44,7 +43,6 @@ const generatorConfig = {
   ParcelDelivery: getParcelDelivery,
   Credential: getCredential,
   InspectionReport: getInspectionReport,
-  IntentToSell: getIntentToSell,
   QuantitativeValue: getQuantitativeValue,
   Organization: getOrganization,
   Person: getPerson,
