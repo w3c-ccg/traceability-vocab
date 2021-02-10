@@ -9,6 +9,7 @@ const { getInspector } = require('./Inspector');
 const { getObservation } = require('./Observation');
 const { getCredential } = require('./Credential');
 const { getInspectionReport } = require('./InspectionReport');
+const { getIntentToSell } = require('./IntentToSell');
 const { getQuantitativeValue } = require('./QuantitativeValue');
 const { getOrganization } = require('./Organization');
 const { getParcelDelivery } = require('./ParcelDelivery');
@@ -29,6 +30,10 @@ const { getEcommerceProductRegistrationCredential } = require('./EcommerceProduc
 const { getEcommerceOrderRegistrationCredential } = require('./EcommerceOrderRegistrationCredential');
 const { getEcommerceInvoiceRegistrationCredential } = require('./EcommerceInvoiceRegistrationCredential');
 const { getEcommercePackingListRegistrationCredential } = require('./EcommercePackingListRegistrationCredential');
+const { getEcommerceProductReceiptRegistrationCredential } = require('./EcommerceProductReceiptRegistrationCredential');
+const { getEcommerceAddProductCodeRegistrationCredential } = require('./EcommerceAdditionalProductCodeRegistrationCredential');
+const { getEcommercePackageRegistrationEvidenceDoc } = require('./EcommercePackageRegistrationEvidenceDocument');
+const { getEcommercePackageRegistrationCredential } = require('./EcommercePackageRegistrationCredential');
 
 const generatorConfig = {
   Place: getPlace,
@@ -43,6 +48,7 @@ const generatorConfig = {
   ParcelDelivery: getParcelDelivery,
   Credential: getCredential,
   InspectionReport: getInspectionReport,
+  IntentToSell: getIntentToSell,
   QuantitativeValue: getQuantitativeValue,
   Organization: getOrganization,
   Person: getPerson,
@@ -62,6 +68,10 @@ const generatorConfig = {
   EcommerceOrderRegistrationCredential: getEcommerceOrderRegistrationCredential,
   EcommerceInvoiceRegistrationCredential: getEcommerceInvoiceRegistrationCredential,
   EcommercePackingListRegistrationCredential: getEcommercePackingListRegistrationCredential,
+  EcommerceProductReceiptRegistrationCredential: getEcommerceProductReceiptRegistrationCredential,
+  EcommerceAdditionalProductCodeRegistrationCredential: getEcommerceAddProductCodeRegistrationCredential,
+  EcommercePackageRegistrationEvidenceDocument: getEcommercePackageRegistrationEvidenceDoc,
+  EcommercePackageRegistrationCredential: getEcommercePackageRegistrationCredential,
 };
 
 module.exports = generatorConfig;

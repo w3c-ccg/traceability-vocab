@@ -7,7 +7,7 @@ const deliverytype = require('../../data/generated/delivery-methods.json');
 //Include delivery Status
 const deliverystatus = require('../../data/generated/event-status.json');
 
-const getEcommercePackingListRegistrationEvidenceDoc = () => {
+const getEcommercePackageRegistrationEvidenceDoc = () => {
 
     //get a delivery method
     const randomDelivery =
@@ -69,20 +69,22 @@ const getEcommercePackingListRegistrationEvidenceDoc = () => {
     const originaddress = getPostalAddress();
     delete originaddress['@context'];
 
-    const futureDate = new Date(`${faker.random.number({ min: 2030, max: 2040 })}`);
+    const futureDate = new Date(`${faker.random.number({ min: 2021, max: 2022 })}`);
+    const trackingnumber = faker.random.number({ min: 100000000000, max: 999999999999 });
 
     const example = {
         '@context': ['https://w3id.org/traceability/v1'],
-        "type": "EcommercePackingListRegistrationEvidenceDocument",
+        "type": "EcommercePackageRegistrationEvidenceDocument",
         "deliveryStatus": deliveryStatus,
-        "expectedArrivalFrom": `${futureDate}`,
+        "expectedArrivalFrom": futureDate,
         "hasDeliveryMethod": deliveryMethod,
         "deliveryAddress": deliveryaddress,
         "provider": provider,
         "originAddress": originaddress,
+        "trackingNumber": `${trackingnumber}`,
         "partOfOrder": partoforder
     };
     return example;
 };
 
-module.exports = { getEcommercePackingListRegistrationEvidenceDoc };
+module.exports = { getEcommercePackageRegistrationEvidenceDoc };
