@@ -31,7 +31,7 @@ const getppq203 = () => {
   AgInspectionReport.foreignPortExport = foreignPortExport;
   AgInspectionReport.carrierId = faker.random.number({ min: 10000000, max: 999999999999 }).toString();
   AgInspectionReport.portOfEntry = portOfEntry;
-  AgInspectionReport.signatureDate = (sigDate.getMonth() + 1) + "-" + sigDate.getDay() + "-" + sigDate.getFullYear();
+  AgInspectionReport.signatureDate = sigDate.getFullYear() + "-02-16";;
   return AgInspectionReport;
 };
 

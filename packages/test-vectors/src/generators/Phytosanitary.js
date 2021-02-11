@@ -40,13 +40,13 @@ const getPhytosanitary = () => {
     AgInspectionReport.distinguishingMarks = faker.lorem.sentence();
     AgInspectionReport.portOfEntry = portOfEntry;
     AgInspectionReport.additionalDeclaration = faker.lorem.sentence();
-    AgInspectionReport.disinfectionDate = (disDate.getMonth() + 1) + "-" + disDate.getDay() + "-" + disDate.getFullYear();
+    AgInspectionReport.disinfectionDate = disDate.getFullYear() + "-02-22";
     AgInspectionReport.disinfectionTreatment = disinfectionTreatment;
     AgInspectionReport.disinfectionChemical = disinfectionChemical;
     AgInspectionReport.disinfectionDuration = faker.random.number({ min: 30, max: 200 }).toString() + " minutes";
     AgInspectionReport.disinfectionTemperature = faker.random.number({ min: 0, max: 25 }).toString() + " Celsius";
     AgInspectionReport.disinfectionConcentration = faker.random.number({ min: 15, max: 50 }).toString();
-    AgInspectionReport.signatureDate = (sigDate.getMonth() + 1) + "-" + sigDate.getDay() + "-" + sigDate.getFullYear();
+    AgInspectionReport.signatureDate = disDate.getFullYear() + "-03-12";;
     return AgInspectionReport;
 };
 
