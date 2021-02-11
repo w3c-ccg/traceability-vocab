@@ -1,4 +1,5 @@
 const faker = require('faker');
+
 faker.seed(42);
 const CryptoJS = require('crypto-js');
 const imageToBase64 = require('image-to-base64');
@@ -25,7 +26,7 @@ const getAgPackage = () => {
   const labelImageHash = CryptoJS.SHA256(binaryImg).toString();
 
   // some example food grades
-  const foodGrades = ['A', 'B', 'No. 1', 'AA', 'U.S. Extra Grade'];
+  // const foodGrades = ['A', 'B', 'No. 1', 'AA', 'U.S. Extra Grade'];
 
   // Get Entity
   const responsibleParty = getEntity();
@@ -47,12 +48,12 @@ const getAgPackage = () => {
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'AgPackage',
-    packageName: "Avocados, Bulk",
-    grade: "AA",
+    packageName: 'Avocados, Bulk',
+    grade: 'AA',
     responsibleParty,
-    voicePickCode: "4642",
+    voicePickCode: '4642',
     date: `${thisDate.getFullYear()}-03-14`,
-    labelImageUrl: "https://img.example.org/640/480/",
+    labelImageUrl: 'https://img.example.org/640/480/',
     labelImageHash,
     agProduct,
   };
