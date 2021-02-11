@@ -9,9 +9,22 @@ const {
   getContextFromIntermediate,
 } = require('./help');
 
+const openAPISpec = {
+  "openapi": "3.0.0",
+  "info": {
+      "title": "Traceability Schemas",
+      "description": "Traceability Schemas in OpenAPI format for use with redoc and similar",
+      "version": "0.0.1"
+  },
+  "components": {
+    "schemas": {}
+  }
+}
+
 const UPDATE_RESPEC_TEST_REPORT = 'YES';
 
 const specFile = path.resolve(__dirname, '../../../docs/index.html');
+const openAPISpecFile = path.resolve(__dirname, '../../../docs/traceability-openapi-v1.json');
 const vocabularyFile = path.resolve(
   __dirname,
   '../../../docs/contexts/traceability-v1.jsonld',
@@ -60,6 +73,16 @@ it('should validate using json schema', async () => {
 
       // eslint-disable-next-line no-param-reassign
       classDefinition.examples = fixture.good;
+
+      //only if everything validated with no errors should this add to the OpenAPI spec
+      try {
+        openAPISpec.components.schemas[classDefinition.title] = classDefinition.schema 
+      } catch (oe) {
+        // eslint-disable-next-line
+        console.warn('openapi spec addition error:', classDefinition);
+        // eslint-disable-next-line
+        console.warn(oe);
+      }
     } catch (e) {
       // eslint-disable-next-line
       console.warn('error');
@@ -104,5 +127,8 @@ it('should write changes to disk', async () => {
       JSON.stringify(vocabularyContext, null, 2),
     );
     fs.writeFileSync(specFile, updatedSpec);
+    fs.writeFileSync(openAPISpecFile, JSON.stringify(openAPISpec, null, 2))
   }
 });
+
+
