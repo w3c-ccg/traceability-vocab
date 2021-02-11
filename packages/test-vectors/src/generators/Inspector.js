@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const { getQualification } = require('./Qualification');
 const { getPerson } = require('./Person');
 

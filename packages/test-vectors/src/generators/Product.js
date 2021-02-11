@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const { getEntity } = require('./Entity');
 const { getQuantitativeValue } = require('./QuantitativeValue');
 

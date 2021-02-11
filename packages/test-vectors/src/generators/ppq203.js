@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const mask = require('json-mask');
 const { getPlace } = require('./Place');
 const { getAgInspectionReport } = require('./AgInspectionReport');

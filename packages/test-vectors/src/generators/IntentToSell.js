@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const { getProduct } = require('./Product');
 const { getEntity } = require('./Entity');
 

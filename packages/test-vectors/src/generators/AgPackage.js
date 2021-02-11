@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const CryptoJS = require('crypto-js');
 const imageToBase64 = require('image-to-base64');
 const { getAgProduct } = require('./AgProduct');
