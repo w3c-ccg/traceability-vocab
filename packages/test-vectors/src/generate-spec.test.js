@@ -14,14 +14,16 @@ const openAPISpec = {
   openapi: '3.0.0',
   info: {
     title: 'Traceability Vocabulary Specification',
-    description: 'Traceability Schemas in OpenAPI format for use with redoc and similar',
+    description: "Traceability Schemas in OpenAPI format for use with swagger, " +
+      "redoc and similar\n\nDemonstrates how to utilize the schemas over OpenAPI " +
+      "as there is not a direct 1:1 translation between OpenAPI and JSON Schema",
     contact: {
-      name: "W3C Traceability Vocabulary",
-      url: "https://github.com/w3c-ccg/traceability-vocab/issues",
+      name: 'W3C Traceability Vocabulary',
+      url: 'https://github.com/w3c-ccg/traceability-vocab/issues',
     },
     license: {
-      "name": "Apache 2.0",
-      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+      name: 'Apache 2.0',
+      url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
     },
     version: '0.0.1',
   },
@@ -88,29 +90,29 @@ it('should validate using json schema', async () => {
       try {
         const $classComment = JSON.parse(classDefinition.schema.$comment);
         openAPISpec.components.schemas[$classComment.term] = toOpenApi(classDefinition.schema);
-        openAPISpec.paths["/" + $classComment.term] = {
-          "get": {
-            "description": $classComment.term,
-            "responses": {
-              "200": {
-                "description": "A list of all " + $classComment.term + " objects "+
-                    "from the system that the user has access to",
-                "content": {
-                  "application/json": {
-                    "schema": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/" + $classComment.term
-                      }
-                    }
-                  }
-                }
+        openAPISpec.paths[`/${$classComment.term}`] = {
+          get: {
+            description: $classComment.term,
+            responses: {
+              200: {
+                description: `A list of all ${$classComment.term} objects `
+                    + 'from the system that the user has access to',
+                content: {
+                  'application/json': {
+                    schema: {
+                      type: 'array',
+                      items: {
+                        $ref: `#/components/schemas/${$classComment.term}`,
+                      },
+                    },
+                  },
+                },
               },
-              "500": "Internal Server error"
-            }
-          }
-        }
-        delete openAPISpec.components.schemas[$classComment.term].$comment
+              500: 'Internal Server error',
+            },
+          },
+        };
+        delete openAPISpec.components.schemas[$classComment.term].$comment;
       } catch (oe) {
         // eslint-disable-next-line
         console.warn('openapi spec addition error:', classDefinition);
