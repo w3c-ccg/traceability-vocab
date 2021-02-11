@@ -1,7 +1,7 @@
 {
   "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$comment": "{\"term\": \"CrudeOilProduct\", \"@id\": \"https://w3id.org/traceability/CrudeOilProduct\"}",
+  "$comment": "{\"term\": \"CrudeOilProduct\", \"@id\": \"https://w3id.org/traceability#CrudeOilProduct\"}",
   "title": "Crude Oil Product",
   "description": "Tombstone information regarding a crude oil product",
   "type": "object",
@@ -25,17 +25,38 @@
       "description": "Product details as outlined in the Product.json schema",
       "$ref": "https://w3id.org/traceability/schemas/Product.json"
     },
-    "commodity": {
-      "$comment": "{\"term\": \"commodity\", \"@id\": \"https://w3c-ccg.github.io/traceability-vocab/#dfn-entities\"}",
-      "title": "Category",
-      "description": "Defines the commodity of oil being produced.",
-      "$ref": "https://w3id.org/traceability/schemas/Commodity.json"
+    "UWI": {
+      "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier\"}",
+      "title": "Unique Well Identifier",
+      "description": "Unique Well Identifier used for individual well identification.",
+      "type": "string"
     },
-    "hscode": {
-      "$comment": "{\"term\": \"HScode\", \"@id\": \"https://w3c-ccg.github.io/traceability-vocab/#dfn-entities\"}",
+    "HSCode": {
+      "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier\"}",
       "title": "HSCode",
-      "description": "Defines the HSCODE",
-      "$ref": "https://w3id.org/traceability/schemas/HScode.json"
+      "description": "Defines the Harmonized System Code for the Commodity",
+      "type": "string"
+    },
+    "manufactureLocation": {
+      "$comment": "{\"term\": \"manufactureLocation\", \"@id\": \"https://www.gs1.org/voc/Place\"}",
+      "title": "Facility",
+      "description": "Information on the manufacture location.",
+      "$ref": "https://w3id.org/traceability/schemas/Place.json"
+    },
+    "productionDate": {
+      "$comment": "{\"term\": \"productionDate\", \"@id\": \"https://schema.org/DateTime#v2\"}",
+      "title": "Production Date",
+      "description": "Date when the product was created",
+      "type": "string"
+    },
+    "observation": {
+      "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+      "title": "Observation List",
+      "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+      "type": "array",
+      "items": {
+        "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+      }
     }
   },
   "additionalProperties": false,

@@ -1911,6 +1911,131 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability#CrudeOilProduct": {
+    "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "CrudeOilProduct",
+      "@id": "https://w3id.org/traceability#CrudeOilProduct"
+    },
+    "title": "Crude Oil Product",
+    "description": "Tombstone information regarding a crude oil product",
+    "classProperties": {
+      "https://www.gs1.org/voc/Product": {
+        "$comment": {
+          "term": "product",
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "title": "Product",
+        "description": "Product details as outlined in the Product.json schema"
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "UWI",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Unique Well Identifier",
+        "description": "Unique Well Identifier used for individual well identification."
+      },
+      "https://w3id.org/identifier": {
+        "$comment": {
+          "term": "HSCode",
+          "@id": "https://w3id.org/identifier"
+        },
+        "title": "HSCode",
+        "description": "Defines the Harmonized System Code for the Commodity"
+      },
+      "https://www.gs1.org/voc/Place": {
+        "$comment": {
+          "term": "manufactureLocation",
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "title": "Facility",
+        "description": "Information on the manufacture location."
+      },
+      "https://schema.org/DateTime#v2": {
+        "$comment": {
+          "term": "productionDate",
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "title": "Production Date",
+        "description": "Date when the product was created"
+      },
+      "https://w3id.org/traceability#observation": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://w3id.org/traceability#observation"
+        },
+        "title": "Observation List",
+        "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"CrudeOilProduct\", \"@id\": \"https://w3id.org/traceability#CrudeOilProduct\"}",
+      "title": "Crude Oil Product",
+      "description": "Tombstone information regarding a crude oil product",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "product": {
+          "$comment": "{\"term\": \"product\", \"@id\": \"https://www.gs1.org/voc/Product\"}",
+          "title": "Product",
+          "description": "Product details as outlined in the Product.json schema",
+          "$ref": "https://w3id.org/traceability/schemas/Product.json"
+        },
+        "UWI": {
+          "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Unique Well Identifier",
+          "description": "Unique Well Identifier used for individual well identification.",
+          "type": "string"
+        },
+        "HSCode": {
+          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier\"}",
+          "title": "HSCode",
+          "description": "Defines the Harmonized System Code for the Commodity",
+          "type": "string"
+        },
+        "manufactureLocation": {
+          "$comment": "{\"term\": \"manufactureLocation\", \"@id\": \"https://www.gs1.org/voc/Place\"}",
+          "title": "Facility",
+          "description": "Information on the manufacture location.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "productionDate": {
+          "$comment": "{\"term\": \"productionDate\", \"@id\": \"https://schema.org/DateTime#v2\"}",
+          "title": "Production Date",
+          "description": "Date when the product was created",
+          "type": "string"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+          "title": "Observation List",
+          "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability#Entity": {
     "$id": "https://w3id.org/traceability/schemas/Entity.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -8021,7 +8146,7 @@
     <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Thursday, February 11, 2021 10:29 AM
+      Thursday, February 11, 2021 1:39 PM
       </span>
             </p>
   </section>
