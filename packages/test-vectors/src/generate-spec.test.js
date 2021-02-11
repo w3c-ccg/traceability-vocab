@@ -14,9 +14,9 @@ const openAPISpec = {
   openapi: '3.0.0',
   info: {
     title: 'Traceability Vocabulary Specification',
-    description: "Traceability Schemas in OpenAPI format for use with swagger, " +
-      "redoc and similar\n\nDemonstrates how to utilize the schemas over OpenAPI " +
-      "as there is not a direct 1:1 translation between OpenAPI and JSON Schema",
+    description: 'Traceability Schemas in OpenAPI format for use with swagger, '
+      + 'redoc and similar\n\nDemonstrates how to utilize the schemas over OpenAPI '
+      + 'as there is not a direct 1:1 translation between OpenAPI and JSON Schema',
     contact: {
       name: 'W3C Traceability Vocabulary',
       url: 'https://github.com/w3c-ccg/traceability-vocab/issues',
