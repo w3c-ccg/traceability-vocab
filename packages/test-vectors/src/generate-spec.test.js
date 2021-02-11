@@ -3,6 +3,7 @@ const path = require('path');
 const Ajv = require('ajv');
 const cheerio = require('cheerio');
 const moment = require('moment');
+const toOpenApi = require('json-schema-to-openapi-schema');
 const {
   classDefinitionToFixtureJson,
   getIntermediateFromDirectory,
@@ -10,16 +11,25 @@ const {
 } = require('./help');
 
 const openAPISpec = {
-  "openapi": "3.0.0",
-  "info": {
-      "title": "Traceability Schemas",
-      "description": "Traceability Schemas in OpenAPI format for use with redoc and similar",
-      "version": "0.0.1"
+  openapi: '3.0.0',
+  info: {
+    title: 'Traceability Vocabulary Specification',
+    description: 'Traceability Schemas in OpenAPI format for use with redoc and similar',
+    contact: {
+      name: "W3C Traceability Vocabulary",
+      url: "https://github.com/w3c-ccg/traceability-vocab/issues",
+    },
+    license: {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    version: '0.0.1',
   },
-  "components": {
-    "schemas": {}
-  }
-}
+  paths: {},
+  components: {
+    schemas: {},
+  },
+};
 
 const UPDATE_RESPEC_TEST_REPORT = 'YES';
 
@@ -74,9 +84,33 @@ it('should validate using json schema', async () => {
       // eslint-disable-next-line no-param-reassign
       classDefinition.examples = fixture.good;
 
-      //only if everything validated with no errors should this add to the OpenAPI spec
+      // only if everything validated with no errors should this add to the OpenAPI spec
       try {
-        openAPISpec.components.schemas[classDefinition.title] = classDefinition.schema 
+        const $classComment = JSON.parse(classDefinition.schema.$comment);
+        openAPISpec.components.schemas[$classComment.term] = toOpenApi(classDefinition.schema);
+        openAPISpec.paths["/" + $classComment.term] = {
+          "get": {
+            "description": $classComment.term,
+            "responses": {
+              "200": {
+                "description": "A list of all " + $classComment.term + " objects "+
+                    "from the system that the user has access to",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/" + $classComment.term
+                      }
+                    }
+                  }
+                }
+              },
+              "500": "Internal Server error"
+            }
+          }
+        }
+        delete openAPISpec.components.schemas[$classComment.term].$comment
       } catch (oe) {
         // eslint-disable-next-line
         console.warn('openapi spec addition error:', classDefinition);
@@ -127,8 +161,6 @@ it('should write changes to disk', async () => {
       JSON.stringify(vocabularyContext, null, 2),
     );
     fs.writeFileSync(specFile, updatedSpec);
-    fs.writeFileSync(openAPISpecFile, JSON.stringify(openAPISpec, null, 2))
+    fs.writeFileSync(openAPISpecFile, JSON.stringify(openAPISpec, null, 2));
   }
 });
-
-
