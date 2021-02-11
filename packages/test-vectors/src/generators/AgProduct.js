@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const CryptoJS = require('crypto-js');
 const imageToBase64 = require('image-to-base64');
 const { getProduct } = require('./Product');
@@ -23,6 +24,9 @@ const getAgProduct = () => {
   // Get Product
   const product = getProduct();
   delete product['@context'];
+  product.name = "Avocados"
+  product.description = "Avocados, 4 pack boxes"
+
 
   // hash the image binary
   const labelImageHash = CryptoJS.SHA256(binaryImg).toString();
@@ -30,11 +34,11 @@ const getAgProduct = () => {
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'AgProduct',
-    upc: faker.random.number({ min: 100000000000, max: 999999999999 }).toString(),
-    plu: faker.random.number({ min: 1000, max: 9999 }).toString(),
-    gtin: faker.random.number({ min: 10000000000000, max: 99999999999999 }).toString(),
+    upc: "033383401508", //faker.random.number({ min: 100000000000, max: 999999999999 }).toString(),
+    plu: "94225", //faker.random.number({ min: 1000, max: 9999 }).toString(),
+    gtin: "033383401508", //faker.random.number({ min: 10000000000000, max: 99999999999999 }).toString(),
     product,
-    labelImageUrl: faker.image.imageUrl(),
+    labelImageUrl: "https://img.example.org/033383401508/640/480/",//faker.image.imageUrl(),
     labelImageHash,
   };
   return example;

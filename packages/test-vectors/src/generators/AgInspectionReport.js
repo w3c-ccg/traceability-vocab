@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const _ = require('lodash');
 const { getPlace } = require('./Place');
 const { getInspector } = require('./Inspector');
@@ -47,7 +48,7 @@ const getAgInspectionReport = () => {
   observation = observation.map((r) => {
     const adjusted = `${(
       (100 * parseFloat(r.measurement.value))
-            / sum
+      / sum
     ).toPrecision(5)}`;
 
     return {
@@ -78,7 +79,7 @@ const getAgInspectionReport = () => {
     inspector,
     shipment,
     applicant,
-    inspectionDate: `${inspectDate.getFullYear()}-${inspectDate.getMonth()}-${inspectDate.getDay()}`,
+    inspectionDate: '2020-03-15',
     inspectionType,
     observation,
   };

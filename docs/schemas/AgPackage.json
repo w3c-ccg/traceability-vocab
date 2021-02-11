@@ -1,9 +1,9 @@
 {
     "$id": "https://w3id.org/traceability/schemas/AgPackage.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$comment": "{\"term\": \"AgPackage\", \"@id\": \"http://www.fao.org/3/x5016e/X5016E04.htm\"}",
+    "$comment": "{\"term\": \"AgPackage\", \"@id\": \"https://w3id.org/traceability#grade\"}",
     "title": "AgPackage",
-    "description": "An package (container, crate, etc.) which holds agricultural products. The contents or the package itself should meet the requirements as specified here: https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf",
+    "description": "A package (container, crate, etc.) which holds agricultural products. The contents or the package itself should meet the requirements as specified here: https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf",
     "type": "object",
     "properties": {
         "@context": {
@@ -26,21 +26,21 @@
             "type": "string"
         },
         "grade": {
-            "$comment": "{\"term\": \"grade\", \"@id\": \"https://www.ams.usda.gov/grades-standards\"}",
+            "$comment": "{\"term\": \"grade\", \"@id\": \"https://w3id.org/traceability#grade\"}",
             "title": "Food Grade",
-            "description": "Grade of the agricultural products contained within the package.",
+            "description": "Grade of the agricultural products contained within the package.  The following link contains more information on USDA food grading: https://www.ams.usda.gov/grades-standards",
             "type": "string"
         },
         "responsibleParty": {
-            "$comment": "{\"term\": \"responsibleParty\", \"@id\": \"https://schema.org/Entity\"}",
+            "$comment": "{\"term\": \"responsibleParty\", \"@id\": \"https://w3id.org/traceability#responsibleParty\"}",
             "title": "Responsible Party",
             "description": "Entity that produced and packaged the products.",
             "$ref": "https://w3id.org/traceability/schemas/Entity.json"
         },
         "voicePickCode": {
-            "$comment": "{\"term\": \"voicePickCode\", \"@id\": \"https://www.produceinventory.com/files/newsroom/Voice-Pick-Code.pdf\"}",
+            "$comment": "{\"term\": \"voicePickCode\", \"@id\": \"https://w3id.org/traceability#voicePickCode\"}",
             "title": "Voice Pick Code",
-            "description": "A four digit code digest of the GTIN code and Lot Code for use in integrating with voice picking systems.",
+            "description": "A four digit code digest of the GTIN code and Lot Code for use in integrating with voice picking systems. See the following PDF for more information: https://www.produceinventory.com/files/newsroom/Voice-Pick-Code.pdf",
             "type": "string"
         },
         "date": {
@@ -56,7 +56,7 @@
             "type": "string"
         },
         "labelImageHash": {
-            "$comment": "{\"term\": \"labelImageHash\", \"@id\": \"https://cybersecurityglossary.com/hashing\"}",
+            "$comment": "{\"term\": \"labelImageHash\", \"@id\": \"https://w3id.org/traceability#labelImageHash\"}",
             "title": "Label Image Hash",
             "description": "Hash value for securely identifying the label image",
             "type": "string"

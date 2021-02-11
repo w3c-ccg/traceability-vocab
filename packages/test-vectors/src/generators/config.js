@@ -7,7 +7,7 @@ const { getMeasuredProperty } = require('./MeasuredProperty');
 const { getMeasuredValue } = require('./MeasuredValue');
 const { getInspector } = require('./Inspector');
 const { getObservation } = require('./Observation');
-const { getCredential } = require('./Credential');
+const { getQualification } = require('./Qualification');
 const { getInspectionReport } = require('./InspectionReport');
 const { getIntentToSell } = require('./IntentToSell');
 const { getQuantitativeValue } = require('./QuantitativeValue');
@@ -20,6 +20,7 @@ const { getAgInspectionReport } = require('./AgInspectionReport');
 const { getAgProduct } = require('./AgProduct');
 const { getAgPackage } = require('./AgPackage');
 const { getppq203 } = require('./ppq203');
+const { getPhytosanitary } = require('./Phytosanitary');
 const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
 const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
 const { getLegalEntityIdentifierCredential } = require('./LegalEntityIdentifierCredential');
@@ -35,7 +36,7 @@ const generatorConfig = {
   Inspector: getInspector,
   Observation: getObservation,
   ParcelDelivery: getParcelDelivery,
-  Credential: getCredential,
+  Qualification: getQualification,
   InspectionReport: getInspectionReport,
   IntentToSell: getIntentToSell,
   QuantitativeValue: getQuantitativeValue,
@@ -46,6 +47,7 @@ const generatorConfig = {
   AgProduct: getAgProduct,
   AgPackage: getAgPackage,
   AgInspectionReport: getAgInspectionReport,
+  Phytosanitary: getPhytosanitary,
   ppq203: getppq203,
   LEIevidenceDocument: getLEIevidenceDocument,
   ProductRegistrationEvidenceDocument: getProductRegistrationEvidenceDocument,

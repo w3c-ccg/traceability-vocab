@@ -1,4 +1,5 @@
 const faker = require('faker');
+faker.seed(42);
 const CryptoJS = require('crypto-js');
 const imageToBase64 = require('image-to-base64');
 const { getAgProduct } = require('./AgProduct');
@@ -46,12 +47,12 @@ const getAgPackage = () => {
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'AgPackage',
-    packageName: faker.commerce.productName(),
-    grade: foodGrades[faker.random.number({ min: 0, max: 4 })],
+    packageName: "Avocados, Bulk",
+    grade: "AA",
     responsibleParty,
-    voicePickCode: faker.random.number({ min: 1000, max: 9999 }).toString(),
-    date: `${thisDate.getFullYear()}-${thisDate.getMonth()}-${thisDate.getDay() + 1}`,
-    labelImageUrl: faker.image.imageUrl(),
+    voicePickCode: "4642",
+    date: `${thisDate.getFullYear()}-03-14`,
+    labelImageUrl: "https://img.example.org/640/480/",
     labelImageHash,
     agProduct,
   };

@@ -3,7 +3,7 @@ const Inspector = require('../../../../docs/test-vectors/Inspector.json');
 const Place = require('../../../../docs/test-vectors/Place.json');
 const PostalAddress = require('../../../../docs/test-vectors/PostalAddress.json');
 const Observation = require('../../../../docs/test-vectors/Observation.json');
-const Credential = require('../../../../docs/test-vectors/Credential.json');
+const Qualification = require('../../../../docs/test-vectors/Qualification.json');
 const InspectionReport = require('../../../../docs/test-vectors/InspectionReport.json');
 const ParcelDelivery = require('../../../../docs/test-vectors/ParcelDelivery.json');
 const QuantitativeValue = require('../../../../docs/test-vectors/QuantitativeValue.json');
@@ -19,6 +19,7 @@ const Product = require('../../../../docs/test-vectors/Product.json');
 const AgProduct = require('../../../../docs/test-vectors/AgProduct.json');
 const AgPackage = require('../../../../docs/test-vectors/AgPackage.json');
 const ppq203 = require('../../../../docs/test-vectors/ppq203.json');
+const Phytosanitary = require('../../../../docs/test-vectors/Phytosanitary.json');
 const LEIevidenceDocument = require('../../../../docs/test-vectors/LEIevidenceDocument.json');
 const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vectors/ProductRegistrationEvidenceDocument.json');
 const LegalEntityIdentifierCredential = require('../../../../docs/test-vectors/LegalEntityIdentifierCredential.json');
@@ -30,7 +31,7 @@ module.exports = {
   Place,
   PostalAddress,
   Observation,
-  Credential,
+  Qualification,
   InspectionReport,
   ParcelDelivery,
   QuantitativeValue,
@@ -49,5 +50,6 @@ module.exports = {
   AgProduct,
   AgPackage,
   ppq203,
+  Phytosanitary,
   IntentToSell,
 };
