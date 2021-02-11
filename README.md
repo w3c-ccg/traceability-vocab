@@ -176,8 +176,8 @@ and adding the path:
         NewObject,
         ...
     ```
-6. run tests and fix any errors: `npm run test`
-5. review the latest spec changes by serving docs: `npx serve ./docs`.
+6. run tests from root directory and fix any errors.  First run `npm run lint` for javascript linting then run `npm run test` for the full test suite.
+7. review the latest spec changes by serving docs: `npx serve ./docs`.
 
 ##### Adding a new type for use as a Verifiable Credential
 If you plan on using a type that you have added as a [Verifiable Credential](https://www.w3.org/TR/vc-data-model/) you should also add a valid VC example in json format to the [credentials](./docs/credentials/) folder.  See [Ag Inspection Report](./docs/credentials/AgInspectionReport.json) for a basic example.  Credential examples SHOULD use Ed25519 and MAY include credential status as in [Legal Entity Identifier](./docs/credentials/LegalEntityIdentifierCredential.json)
