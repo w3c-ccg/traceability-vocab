@@ -25,9 +25,19 @@ const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
 const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
 const { getLegalEntityIdentifierCredential } = require('./LegalEntityIdentifierCredential');
 const { getLinkRole } = require('./LinkRole');
+const { getSteelProduct } = require('./SteelProduct');
+const { getPurchase } = require('./Purchase');
+const { getContactPoint } = require('./ContactPoint');
+const { getInvoice } = require('./Invoice');
+const { getBrand } = require('./Brand');
 
 const generatorConfig = {
+  Brand: getBrand,
+  Invoice: getInvoice,
+  ContactPoint: getContactPoint,
+  Purchase: getPurchase,
   LinkRole: getLinkRole,
+  SteelProduct: getSteelProduct,
   Place: getPlace,
   PostalAddress: getPostalAddress,
   GeoCoordinates: getGeoCoordinates,

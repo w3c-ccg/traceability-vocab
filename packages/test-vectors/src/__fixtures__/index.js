@@ -27,7 +27,19 @@ const IntentToSell = require('../../../../docs/test-vectors/IntentToSell.json');
 
 const LinkRole = require('../../../../docs/test-vectors/LinkRole.json');
 
+const Purchase = require('../../../../docs/test-vectors/Purchase.json');
+const SteelProduct = require('../../../../docs/test-vectors/SteelProduct.json');
+
+const ContactPoint = require('../../../../docs/test-vectors/ContactPoint.json');
+const Invoice = require('../../../../docs/test-vectors/Invoice.json');
+const Brand = require('../../../../docs/test-vectors/Brand.json');
+const CertifiedMillTestReport = require('../../../../docs/test-vectors/CertifiedMillTestReport.json');
+
 module.exports = {
+  CertifiedMillTestReport,
+  Brand,
+  Invoice,
+  ContactPoint,
   GeoCoordinates,
   Inspector,
   Place,
@@ -55,4 +67,6 @@ module.exports = {
   Phytosanitary,
   IntentToSell,
   LinkRole,
+  Purchase,
+  SteelProduct,
 };

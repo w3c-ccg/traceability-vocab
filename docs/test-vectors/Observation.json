@@ -7,14 +7,32 @@
       "type": "Observation",
       "property": {
         "type": "MechanicalProperty",
-        "identifier": "ISO 3738",
-        "name": "Rockwell Hardness Test (Scale A)",
-        "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+        "identifier": "ISO 148",
+        "name": "Charpy Impact Strength Test",
+        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
       },
       "measurement": {
         "type": "MeasuredValue",
-        "value": "00.00",
-        "unitCode": "UNKNOWN"
+        "value": "51.449",
+        "unitCode": "B13"
+      }
+    },
+    {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "type": "Observation",
+      "property": {
+        "type": "ChemicalProperty",
+        "name": "Tungsten",
+        "formula": "W",
+        "inchi": "InChI=1S/W",
+        "inchikey": "WFKWXMTUELFFGS-UHFFFAOYSA-N"
+      },
+      "measurement": {
+        "type": "MeasuredValue",
+        "value": "97.897",
+        "unitCode": "P1"
       }
     },
     {
@@ -30,24 +48,7 @@
       },
       "measurement": {
         "type": "MeasuredValue",
-        "value": "46.456",
-        "unitCode": "B13"
-      }
-    },
-    {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "type": "Observation",
-      "property": {
-        "type": "MechanicalProperty",
-        "identifier": "ISO 180",
-        "name": "Izod Impact Strength Test",
-        "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
-      },
-      "measurement": {
-        "type": "MeasuredValue",
-        "value": "78.265",
+        "value": "45.932",
         "unitCode": "B13"
       }
     }
@@ -55,25 +56,31 @@
   "bad": [
     {
       "type": "Observation",
-      "feed": "override",
-      "card": "generate"
+      "property": {
+        "type": "MechanicalProperty",
+        "identifier": "ISO 148",
+        "name": "Charpy Impact Strength Test",
+        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+      },
+      "array": "index",
+      "panel": "calculate",
+      "microchip": "reboot"
     },
     {
-      "type": "Observation",
-      "bus": "connect",
-      "circuit": "copy",
-      "capacitor": "transmit",
-      "hard drive": "synthesize"
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "panel": "navigate",
+      "sensor": "copy"
     },
     {
       "property": {
         "type": "MechanicalProperty",
-        "identifier": "ISO 180",
-        "name": "Izod Impact Strength Test",
-        "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+        "identifier": "ISO 148",
+        "name": "Charpy Impact Strength Test",
+        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
       },
-      "driver": "hack",
-      "panel": "quantify"
+      "firewall": "connect"
     }
   ]
 }
