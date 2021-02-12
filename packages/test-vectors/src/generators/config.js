@@ -24,8 +24,10 @@ const { getPhytosanitary } = require('./Phytosanitary');
 const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
 const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
 const { getLegalEntityIdentifierCredential } = require('./LegalEntityIdentifierCredential');
+const { getLinkRole } = require('./LinkRole');
 
 const generatorConfig = {
+  LinkRole: getLinkRole,
   Place: getPlace,
   PostalAddress: getPostalAddress,
   GeoCoordinates: getGeoCoordinates,
