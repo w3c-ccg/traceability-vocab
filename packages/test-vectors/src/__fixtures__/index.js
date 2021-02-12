@@ -25,6 +25,8 @@ const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vecto
 const LegalEntityIdentifierCredential = require('../../../../docs/test-vectors/LegalEntityIdentifierCredential.json');
 const IntentToSell = require('../../../../docs/test-vectors/IntentToSell.json');
 
+const LinkRole = require('../../../../docs/test-vectors/LinkRole.json');
+
 module.exports = {
   GeoCoordinates,
   Inspector,
@@ -52,4 +54,5 @@ module.exports = {
   ppq203,
   Phytosanitary,
   IntentToSell,
+  LinkRole,
 };

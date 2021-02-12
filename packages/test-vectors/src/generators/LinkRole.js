@@ -5,7 +5,6 @@ const getLinkRole = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'LinkRole',
     target: faker.internet.url(),
-    inLanguage: 'jp',
     linkRelationship: 'alternate',
   };
   return example;
