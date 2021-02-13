@@ -7,6 +7,7 @@ const identifiers = require('../../test-vectors/data/generated/orderVCIDs.json')
 let Randnum = faker.random.number({ min: 1, max: 3 });
 let itemVCID = '';
 let certname = '';
+let ProductCodeType = '';
 if (Randnum === 1) {
     ProductCodeType = 'UPC';
     itemVCID = identifiers.order[0];
