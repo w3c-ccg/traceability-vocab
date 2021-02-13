@@ -38,13 +38,13 @@ while (numItemsinOrder > 0) {
 it('can issue / verify Ecommerce Product Receipt Registration', async () => {
     const { verified, verifiableCredential } = await issuer.issue({
         credentialSubject: {
-            id: 'did:web:www.fedex.com',
+            id: 'did:web:www.acmecarrier.com',
             type: 'EcommerceProductReceiptRegistrationCredential',
             receiptID: receiptNumber,
             packingListID: plslist,
             orderID: orderlist,
             productInOrder: productlist,
-            certificateName: 'FedEx Ecommerce Product Receipt Registration Certificate',
+            certificateName: 'ACME Carrier Ecommerce Product Receipt Registration Certificate',
         },
     }, [
         'https://www.w3.org/2018/credentials/v1',

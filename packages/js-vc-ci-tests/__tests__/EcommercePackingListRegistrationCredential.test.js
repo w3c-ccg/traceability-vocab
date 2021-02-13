@@ -30,16 +30,14 @@ while (numOrdersinPackage > 0) {
 it('can issue / verify Ecommerce Packing List Registration', async () => {
     const { verified, verifiableCredential } = await issuer.issue({
         credentialSubject: {
-            id: 'did:web:www.amazon.com',
+            id: 'did:web:www.acme.com',
             type: 'EcommercePackingListRegistrationCredential',
             packageItems: packagelist,
-            certificateName: 'Amazon Ecommerce Packing List Registration Credential'
+            certificateName: 'ACME Ecommerce Packing List Registration Credential'
         },
     }, [
         'https://www.w3.org/2018/credentials/v1',
-        'https://w3id.org/traceability/v1',
-        { "orderNumber": "https://schema.org/orderNumber" },
-        { "productInOrder": "https://schema.orgproductID" }
+        'https://w3id.org/traceability/v1'
     ]);
     expect(verified).toBe(true);
     fs.writeFileSync(path.resolve(__dirname, '../../../docs/credentials/EcommercePackingListRegistrationCredential.json'), JSON.stringify(verifiableCredential, null, 2));

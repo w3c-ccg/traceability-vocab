@@ -29,12 +29,12 @@ while (numItemsinOrder > 0) {
 it('can issue / verify Ecommerce Invoice Registration', async () => {
     const { verified, verifiableCredential } = await issuer.issue({
         credentialSubject: {
-            id: 'did:web:www.amazon.com',
+            id: 'did:web:www.acme.com',
             type: 'EcommerceInvoiceRegistrationCredential',
             invoiceID: invoiceNumber,
             orderID: orderlist,
             productInOrder: productlist,
-            certificateName: 'Amazon Ecommerce Invoice Registration Credential'
+            certificateName: 'ACME Ecommerce Invoice Registration Credential'
         },
     }, [
         'https://www.w3.org/2018/credentials/v1',

@@ -9,23 +9,23 @@ let Randnum = faker.random.number({ min: 1, max: 3 });
 if (Randnum === 1) {
     ProductCodeType = 'UPC';
     itemVCID = identifiers.order[0];
-    certname = 'Amazon Ecommerce Universal Product Code Product Registration Certificate';
+    certname = 'ACME Ecommerce Universal Product Code Product Registration Certificate';
 };
 if (Randnum === 2) {
     ProductCodeType = 'CO';
     itemVCID = identifiers.order[1];
-    certname = 'Amazon Ecommerce Country of Origin Code Product Registration Certificate';
+    certname = 'ACME Ecommerce Country of Origin Code Product Registration Certificate';
 };
 if (Randnum === 3) {
     ProductCodeType = 'HTS';
     itemVCID = identifiers.order[0];
-    certname = 'Amazon Ecommerce HTS Code Product Registration Certificate';
+    certname = 'ACME Ecommerce HTS Code Product Registration Certificate';
 };
 
 it('can issue / verify Ecommerce Additional Product Code Registration', async () => {
     const { verified, verifiableCredential } = await issuer.issue({
         credentialSubject: {
-            id: 'did:web:www.amazon.com',
+            id: 'did:web:www.acme.com',
             type: 'EcommerceAdditionalProductCodeRegistrationCredential',
             productVCid: itemVCID,
             addProductCode: faker.random.number(14),

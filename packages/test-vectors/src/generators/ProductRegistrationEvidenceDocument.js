@@ -15,10 +15,10 @@ const getProductRegistrationEvidenceDocument = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'ProductRegistrationEvidenceDocument',
     "category": getCategory(),
-    "inProductGroupWithID": `Group${faker.random.number({min: 100, max: 999})}`,
+    "inProductGroupWithID": `Group${faker.random.number({ min: 100, max: 999 })}`,
     "productID": `${faker.random.alphaNumeric(10).toUpperCase()}`,
     "mpn": `${faker.random.alphaNumeric(10).toUpperCase()}`,
-    "gtin": `${faker.random.number({min: 100000000000, max: 99999999999999})}`, // 13-14 numeric characters
+    "gtin": `${faker.random.number({ min: 100000000000, max: 99999999999999 })}`, // 13-14 numeric characters
     "isAccessoryOrSparePartFor": "n/a",
     "releaseDate": pastDate.getMonth() + "-" + pastDate.getDay() + "-" + pastDate.getFullYear(),
     "manufacturer": faker.company.companyName(),
