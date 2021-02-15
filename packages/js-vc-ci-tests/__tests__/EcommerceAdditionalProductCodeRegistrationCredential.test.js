@@ -30,7 +30,7 @@ it('can issue / verify Ecommerce Additional Product Code Registration', async ()
             id: 'did:web:www.acme.com',
             type: 'EcommerceAdditionalProductCodeRegistrationCredential',
             productVCid: itemVCID,
-            addProductCode: faker.random.number(14),
+            addProductCode: faker.random.number({ min: 10000000000000, max: 99999999999999 }),
             addProductCodeType: ProductCodeType,
             certificateName: certname,
         },
