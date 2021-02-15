@@ -43,7 +43,7 @@ const getEcommerceProductReceiptRegistrationCredential = () => {
         packingListID: plslist,
         orderID: orderlist,
         productInOrder: productlist,
-        certificateName: 'FedEx Ecommerce Product Receipt Registration Certificate',
+        certificateName: 'ACME Carrier Ecommerce Product Receipt Registration Certificate',
     };
 
     return example;

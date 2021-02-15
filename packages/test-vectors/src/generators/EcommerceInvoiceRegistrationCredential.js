@@ -33,7 +33,7 @@ const getEcommerceInvoiceRegistrationCredential = () => {
         invoiceID: invoiceNumber,
         orderID: orderlist,
         productInOrder: productlist,
-        certificateName: 'Amazon Ecommerce Invoice Registration Certificate',
+        certificateName: 'ACME Ecommerce Invoice Registration Certificate',
     };
 
     return example;

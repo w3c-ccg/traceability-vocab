@@ -12,7 +12,7 @@ const getEcommerceProductRegistrationCredential = () => {
         type: 'EcommerceProductRegistrationCredential',
         productCode: faker.random.number(14),
         productCodeType: ProductCodeType,
-        certificateName: 'Amazon Ecommerce Product Registration Certificate',
+        certificateName: 'ACME Ecommerce Product Registration Certificate',
     };
 
     return example;

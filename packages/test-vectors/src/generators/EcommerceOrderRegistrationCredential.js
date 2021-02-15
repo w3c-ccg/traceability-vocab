@@ -22,7 +22,7 @@ const getEcommerceOrderRegistrationCredential = () => {
         type: 'EcommerceOrderRegistrationCredential',
         orderID: orderNumber,
         productInOrder: orderlist,
-        certificateName: 'Amazon Ecommerce Order Registration Certificate',
+        certificateName: 'ACME Ecommerce Order Registration Certificate',
     };
 
     return example;

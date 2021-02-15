@@ -6,7 +6,7 @@ const faker = require('faker');
 it('can issue / verify LegalEntityIdentfier', async () => {
     const { verified, verifiableCredential } = await issuer.issue({
         credentialSubject: {
-            id: 'did:web:www.amazon.com',
+            id: 'did:web:www.acme.com',
             type: 'LegalEntityIdentifierCredential',
             leiCode: faker.random.alphaNumeric(20).toUpperCase(),
             certificateName: 'US Legal Entity Certificate'

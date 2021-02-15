@@ -41,7 +41,7 @@ it('can issue / verify Ecommerce Package Registration', async () => {
     }, [
         'https://www.w3.org/2018/credentials/v1',
         'https://w3id.org/traceability/v1',
-        { "productReceiptID": "https://w3id.org/traceability/EcommerceProductReceiptRegistrationCredential#receiptID" },
+        { "productReceiptID": "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential#receiptID" },
         { "packingListID": "https://schema.org/identifier" },
         { "orderNumber": "https://schema.org/orderNumber" },
         { "productInOrder": "https://schema.orgproductID" }

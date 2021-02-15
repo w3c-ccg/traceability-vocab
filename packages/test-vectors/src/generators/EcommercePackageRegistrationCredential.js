@@ -20,8 +20,8 @@ const getEcommercePackageRegistrationCredential = () => {
             numItemsinOrder -= 1;
         };
         let item = {
-            "productReceiptID": `https://example.VC_url.com/?queryID=${faker.random.hexaDecimal(64)}`,
-            "packingListID": `https://example.VC_url.com/?queryID=${faker.random.hexaDecimal(64)}`,
+            "productReceiptID": `https://vc.example.com/?queryID=${faker.random.hexaDecimal(64)}`,
+            "packingListID": `https://vc.example.com/?queryID=${faker.random.hexaDecimal(64)}`,
             "orderNumber": itemOrder,
             "productInOrder": productlist
         };
@@ -35,7 +35,7 @@ const getEcommercePackageRegistrationCredential = () => {
         type: 'EcommercePackageRegistrationCredential',
         trackingID: `${faker.random.number({ min: 100000000000, max: 999999999999 })}`,
         packageItems: packagelist,
-        certificateName: 'Fedex Ecommerce Package Registration Certificate',
+        certificateName: 'ACME Carrier Ecommerce Package Registration Certificate',
     };
 
     return example;

@@ -6,11 +6,11 @@ const faker = require('faker');
 it('can issue / verify Ecommerce Product Registration', async () => {
     const { verified, verifiableCredential } = await issuer.issue({
         credentialSubject: {
-            id: 'did:web:www.amazon.com',
+            id: 'did:web:www.acme.com',
             type: 'EcommerceProductRegistrationCredential',
             productCode: faker.random.number(14),
             productCodeType: 'GTIN',
-            certificateName: 'Amazon Ecommerce Product Registration Credential'
+            certificateName: 'ACME Ecommerce Product Registration Credential'
         },
     }, [
         'https://www.w3.org/2018/credentials/v1',

@@ -32,7 +32,7 @@ const getEcommercePackingListRegistrationCredential = () => {
         '@context': ['https://w3id.org/traceability/v1'],
         type: 'EcommercePackingListRegistrationCredential',
         packageItems: packagelist,
-        certificateName: 'Amazon Ecommerce Packing List Registration Certificate',
+        certificateName: 'ACME Ecommerce Packing List Registration Certificate',
     };
 
     return example;
