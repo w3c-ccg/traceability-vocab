@@ -9,6 +9,25 @@
     "@context": {
       "type": "array"
     },
+    "id": {
+      "type": "string"
+    },
+    "issuanceDate": {
+      "type": "string"
+    },
+    "credentialSubject": {
+      "type": "object"
+    },
+    "issuer": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
     "type": {
       "oneOf": [
         {
@@ -19,6 +38,7 @@
         }
       ]
     },
+
     "product": {
       "$comment": "{\"term\": \"product\", \"@id\": \"https://www.gs1.org/voc/Product\"}",
       "title": "Product",
