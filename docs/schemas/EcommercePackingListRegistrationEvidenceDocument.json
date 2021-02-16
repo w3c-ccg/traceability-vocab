@@ -1,0 +1,399 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/EcommercePackingListRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"EcommercePackingListRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument\"}",
+    "title": "Packing List Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Packing List",
+    "type": "object",
+    "required": [
+        "@context",
+        "deliveryStatus",
+        "expectedArrivalFrom",
+        "hasDeliveryMethod",
+        "deliveryAddress",
+        "provider",
+        "originAddress",
+        "partOfOrder"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "@type": {
+            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+            "title": "@type",
+            "type": "string",
+            "default": "ParcelDelievry"
+        },
+        "deliveryStatus": {
+            "$comment": "{\"term\": \"deliveryStatus\", \"@id\": \"https://schema.org/deliveryStatus\"}",
+            "title": "DeliveryStatus",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "EventScheduled"
+            ]
+        },
+        "expectedArrivalFrom": {
+            "$comment": "{\"term\": \"expectedArrivalFrom\", \"@id\": \"https://schema.org/expectedArrivalFrom\"}",
+            "title": "Earliest Expected arrival date of parcel",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "01-12-2021"
+            ]
+        },
+        "hasDeliveryMethod": {
+            "$comment": "{\"term\": \"hasDeliveryMethod\", \"@id\": \"https://schema.org/hasDeliveryMethod\"}",
+            "title": "Method of Parcel Delivery",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "http://purl.org/goodrelations/v1#FederalExpress"
+            ]
+        },
+        "deliveryAddress": {
+            "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
+            "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment",
+            "type": "object",
+            "required": [
+                "type",
+                "organizationName",
+                "streetAddress",
+                "addressLocality",
+                "addressRegion",
+                "postalCode",
+                "addressCountry"
+            ],
+            "properties": {
+                "type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                    "title": "type",
+                    "type": "string",
+                    "default": "PostalAddress"
+                },
+                "organizationName": {
+                    "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
+                    "title": "Organization Name",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "ACME Corporation"
+                    ]
+                },
+                "streetAddress": {
+                    "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+                    "title": "Streetaddress",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "20341 Whitworth Institute 405 N. Whitworth"
+                    ]
+                },
+                "addressLocality": {
+                    "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+                    "title": "Addresslocality",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Seattle"
+                    ]
+                },
+                "addressRegion": {
+                    "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+                    "title": "Addressregion",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "WA"
+                    ]
+                },
+                "postalCode": {
+                    "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+                    "title": "Postalcode",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "98052"
+                    ]
+                },
+                "addressCountry": {
+                    "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+                    "title": "Address Country",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "USA"
+                    ]
+                }
+            }
+        },
+        "provider": {
+            "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
+            "title": "Provider",
+            "type": "object",
+            "required": [
+                "@type",
+                "name",
+                "leiCode"
+            ],
+            "properties": {
+                "@type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+                    "title": "@type",
+                    "type": "string",
+                    "default": "Corporation"
+                },
+                "name": {
+                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                    "title": "Name of the Provider",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Provider XYZ"
+                    ]
+                },
+                "leiCode": {
+                    "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+                    "title": "Leicode of the Provider",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "vLei code, e.g. Y87794H0US1R65VBXU25"
+                    ]
+                }
+            }
+        },
+        "originAddress": {
+            "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
+            "title": "Address of the Manufacturer/Packer of Parcel",
+            "type": "object",
+            "required": [
+                "type",
+                "organizationName",
+                "streetAddress",
+                "addressLocality",
+                "addressRegion",
+                "postalCode",
+                "addressCountry"
+            ],
+            "properties": {
+                "type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                    "title": "type",
+                    "type": "string",
+                    "default": "PostalAddress"
+                },
+                "organizationName": {
+                    "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
+                    "title": "Organization Name",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "ACME Corporation"
+                    ]
+                },
+                "streetAddress": {
+                    "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+                    "title": "Streetaddress",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "20341 Whitworth Institute 405 N. Whitworth"
+                    ]
+                },
+                "addressLocality": {
+                    "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+                    "title": "Addresslocality",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Seattle"
+                    ]
+                },
+                "addressRegion": {
+                    "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+                    "title": "Addressregion",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "WA"
+                    ]
+                },
+                "postalCode": {
+                    "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+                    "title": "Postalcode",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "98052"
+                    ]
+                },
+                "addressCountry": {
+                    "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+                    "title": "Address Country",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "USA"
+                    ]
+                }
+            }
+        },
+        "partOfOrder": {
+            "$comment": "{\"term\": \"partOfOrder\", \"@id\": \"https://schema.org/partOfOrder\"}",
+            "title": "Products in Parcel that are Part of one or more Orders",
+            "type": "array",
+            "default": [],
+            "items": {
+                "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+                "title": "Item",
+                "type": "object",
+                "required": [
+                    "@type",
+                    "orderNumber",
+                    "itemShipped"
+                ],
+                "properties": {
+                    "@type": {
+                        "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
+                        "title": "@type",
+                        "type": "string",
+                        "default": "Order"
+                    },
+                    "orderNumber": {
+                        "$comment": "{\"term\": \"@orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+                        "title": "Ordernumber",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                            "123ABC"
+                        ]
+                    },
+                    "itemShipped": {
+                        "$comment": "{\"term\": \"itemShipped\", \"@id\": \"https://schema.org/itemShipped\"}",
+                        "title": "Products to be shipped",
+                        "type": "array",
+                        "default": [],
+                        "items": {
+                            "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+                            "title": "Item(s)",
+                            "type": "object",
+                            "required": [
+                                "@type",
+                                "manufacturer",
+                                "name",
+                                "description",
+                                "productID",
+                                "weight",
+                                "height",
+                                "width",
+                                "depth",
+                                "orderQuantity"
+                            ],
+                            "properties": {
+                                "@type": {
+                                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Product\"}",
+                                    "title": "@type",
+                                    "type": "string",
+                                    "default": "Product"
+                                },
+                                "manufacturer": {
+                                    "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
+                                    "title": "Manufacturer",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "ACME Corp"
+                                    ]
+                                },
+                                "name": {
+                                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                                    "title": "Name",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "ACME Laptop 3000"
+                                    ]
+                                },
+                                "description": {
+                                    "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+                                    "title": "Description of product",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "Example Product Description"
+                                    ]
+                                },
+                                "productID": {
+                                    "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+                                    "title": "Product ID",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "Product number of registering Legal Entity such as an ISBN (required)"
+                                    ]
+                                },
+                                "weight": {
+                                    "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+                                    "title": "Weight of the product",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "floating point metric system value plus unit measrure (kg) (required)"
+                                    ]
+                                },
+                                "height": {
+                                    "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+                                    "title": "Height of the product",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "floating point metric system value plus unit measrure (meter) (required)"
+                                    ]
+                                },
+                                "width": {
+                                    "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+                                    "title": "Width of the product",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "floating point metric system value plus unit measrure (meter) (required)"
+                                    ]
+                                },
+                                "depth": {
+                                    "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+                                    "title": "Depth of the Product",
+                                    "type": "string",
+                                    "default": "",
+                                    "examples": [
+                                        "floating point metric system value plus unit measrure (meter)(required)"
+                                    ]
+                                },
+                                "orderQuantity": {
+                                    "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
+                                    "title": "Qrder Quantity",
+                                    "type": "number",
+                                    "default": "",
+                                    "examples": [
+                                        5
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

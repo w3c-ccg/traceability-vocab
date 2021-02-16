@@ -156,7 +156,7 @@
     <p>
       This repository will be versioned at periodic points in time with a Q1 Calendar Year target for major releases.  
       Versioning tags will follow a pattern of `[MAJOR].[MINOR].[PATCH]` 
-      <br /><br />
+      <br><br>
       Version Definitions:
       </p><ul>
         <li>MAJOR - significant changes rolled forward from the previous major version.  Major versions MAY include breaking or non-backwards compatible changes</li>
@@ -376,14 +376,14 @@
     </p>
 
     <p>
-      You may view the latest json-ld vocabulary at: <br />
+      You may view the latest json-ld vocabulary at: <br>
       <a href="https://w3id.org/traceability/v1">
         https://w3id.org/traceability/v1
       </a>
     </p>
 
     <p>
-      You may view the latest json-schema definitions at: <br />
+      You may view the latest json-schema definitions at: <br>
       <a href="https://github.com/w3c-ccg/traceability-vocab/tree/main/docs/schemas">
         https://github.com/w3c-ccg/traceability-vocab/tree/main/docs/schemas
       </a>
@@ -1911,6 +1911,3987 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential": {
+    "$id": "https://w3id.org/traceability/schemas/EcommerceAdditionalProductCodeRegistrationCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommerceAdditionalProductCodeRegistrationCredential",
+      "@id": "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential"
+    },
+    "title": "EcommerceAdditionalProductCodeRegistrationCredential",
+    "description": "Ecommerce Additional Product Code Registration Credential",
+    "classProperties": {
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "productVCid",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "productVCid",
+        "description": "Product VC ID of the registered product"
+      },
+      "https://schema.org/productID": {
+        "$comment": {
+          "term": "addProductCode",
+          "@id": "https://schema.org/productID"
+        },
+        "title": "addProductCode",
+        "description": "Additional Product ID number"
+      },
+      "https://schema.org/additionalType": {
+        "$comment": {
+          "term": "addProductCodeType",
+          "@id": "https://schema.org/additionalType"
+        },
+        "title": "addProductCodeType",
+        "description": "Product ID Type either HTS, UPC or CO"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued additional product code registration certificate"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceAdditionalProductCodeRegistrationCredential",
+        "productVCid": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+        "addProductCode": 13654272826388,
+        "addProductCodeType": "UPC",
+        "certificateName": "ACME Ecommerce Universal Product Code Product Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceAdditionalProductCodeRegistrationCredential",
+        "productVCid": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+        "addProductCode": 87952944438438,
+        "addProductCodeType": "HTS",
+        "certificateName": "ACME Ecommerce HTS Code Product Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceAdditionalProductCodeRegistrationCredential",
+        "productVCid": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+        "addProductCode": 30363363425713,
+        "addProductCodeType": "CO",
+        "certificateName": "ACME Ecommerce Country of Origin Code Product Registration Certificate"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommerceAdditionalProductCodeRegistrationCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommerceAdditionalProductCodeRegistrationCredential\", \"@id\": \"https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential\"}",
+      "title": "EcommerceAdditionalProductCodeRegistrationCredential",
+      "description": "Ecommerce Additional Product Code Registration Credential",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "productVCid": {
+          "$comment": "{\"term\": \"productVCid\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "productVCid",
+          "description": "Product VC ID of the registered product",
+          "type": "string"
+        },
+        "addProductCode": {
+          "$comment": "{\"term\": \"addProductCode\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "addProductCode",
+          "description": "Additional Product ID number",
+          "type": "number"
+        },
+        "addProductCodeType": {
+          "$comment": "{\"term\": \"addProductCodeType\", \"@id\": \"https://schema.org/additionalType\"}",
+          "title": "addProductCodeType",
+          "description": "Product ID Type either HTS, UPC or CO",
+          "type": "string"
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued additional product code registration certificate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "productVCid",
+        "addProductCode",
+        "addProductCodeType",
+        "certificateName"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#EcommerceInvoiceRegistrationCredential": {
+    "$id": "https://w3id.org/traceability/schemas/EcommerceInvoiceRegistrationCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommerceInvoiceRegistrationCredential",
+      "@id": "https://w3id.org/traceability#EcommerceInvoiceRegistrationCredential"
+    },
+    "title": "EcommerceInvoiceRegistrationCredential",
+    "description": "Ecommerce Invoice Registration Credential",
+    "classProperties": {
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "invoiceID",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "invoiceID",
+        "description": "The seller specific Invoice number"
+      },
+      "https://schema.org/orderNumber": {
+        "$comment": {
+          "term": "orderID",
+          "@id": "https://schema.org/orderNumber"
+        },
+        "title": "orderID",
+        "description": "The seller specific Order VC IDs"
+      },
+      "https://schema.org/productID": {
+        "$comment": {
+          "term": "productInOrder",
+          "@id": "https://schema.org/productID"
+        },
+        "title": "productInOrder",
+        "description": "Product VC IDs included in the invoice"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued invoice registration certificate"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceInvoiceRegistrationCredential",
+        "invoiceID": "Invoice#679",
+        "orderID": [],
+        "productInOrder": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Ecommerce Invoice Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceInvoiceRegistrationCredential",
+        "invoiceID": "Invoice#698",
+        "orderID": [],
+        "productInOrder": [
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Ecommerce Invoice Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceInvoiceRegistrationCredential",
+        "invoiceID": "Invoice#144",
+        "orderID": [],
+        "productInOrder": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Ecommerce Invoice Registration Certificate"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommerceInvoiceRegistrationCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommerceInvoiceRegistrationCredential\", \"@id\": \"https://w3id.org/traceability#EcommerceInvoiceRegistrationCredential\"}",
+      "title": "EcommerceInvoiceRegistrationCredential",
+      "description": "Ecommerce Invoice Registration Credential",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "invoiceID": {
+          "$comment": "{\"term\": \"invoiceID\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "invoiceID",
+          "description": "The seller specific Invoice number",
+          "type": "string"
+        },
+        "orderID": {
+          "$comment": "{\"term\": \"orderID\", \"@id\": \"https://schema.org/orderNumber\"}",
+          "title": "orderID",
+          "description": "The seller specific Order VC IDs",
+          "type": "array"
+        },
+        "productInOrder": {
+          "$comment": "{\"term\": \"productInOrder\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "productInOrder",
+          "description": "Product VC IDs included in the invoice",
+          "type": "array"
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued invoice registration certificate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "invoiceID",
+        "orderID",
+        "productInOrder",
+        "certificateName"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument": {
+    "$id": "https://w3id.org/traceability/schemas/EcommerceInvoiceRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommerceInvoiceRegistrationEvidenceDocument",
+      "@id": "https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument"
+    },
+    "title": "Invoice Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Invoice",
+    "classProperties": {
+      "https://schema.org/Invoice": {
+        "$comment": {
+          "term": "@type",
+          "@id": "https://schema.org/Invoice"
+        },
+        "title": "@type"
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "identifier",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Identifier"
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Description of customer invoice"
+      },
+      "https://schema.org/url": {
+        "$comment": {
+          "term": "url",
+          "@id": "https://schema.org/url"
+        },
+        "title": "Url or the order"
+      },
+      "https://schema.org/broker": {
+        "$comment": {
+          "term": "broker",
+          "@id": "https://schema.org/broker"
+        },
+        "title": "Broker"
+      },
+      "https://schema.org/accountId": {
+        "$comment": {
+          "term": "accountId",
+          "@id": "https://schema.org/accountId"
+        },
+        "title": "Accountid"
+      },
+      "https://schema.org/customer": {
+        "$comment": {
+          "term": "customer",
+          "@id": "https://schema.org/customer"
+        },
+        "title": "Customer"
+      },
+      "https://schema.org/paymentDueDate": {
+        "$comment": {
+          "term": "paymentDueDate",
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "title": "Paymentduedate"
+      },
+      "https://schema.org/totalPaymentDue": {
+        "$comment": {
+          "term": "totalPaymentDue",
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "title": "Totalpaymentdue"
+      },
+      "https://schema.org/paymentStatus": {
+        "$comment": {
+          "term": "paymentStatus",
+          "@id": "https://schema.org/paymentStatus"
+        },
+        "title": "Paymentstatus"
+      },
+      "https://schema.org/provider": {
+        "$comment": {
+          "term": "provider",
+          "@id": "https://schema.org/provider"
+        },
+        "title": "Provider"
+      },
+      "https://schema.org/referencesOrder": {
+        "$comment": {
+          "term": "referencesOrder",
+          "@id": "https://schema.org/referencesOrder"
+        },
+        "title": "Referencesorder"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceInvoiceRegistrationEvidenceDocument",
+        "identifier": "Invoice#789",
+        "description": "Invoice For Osvaldo Kirlin for Order#432",
+        "url": "http://jared.info?queryid=Invoice#789",
+        "broker": {
+          "@type": "Corporation",
+          "name": "Collier - Kessler",
+          "leiCode": "54321640213947044685"
+        },
+        "accountId": "xxxx-xxxx-xxxx-6864",
+        "customer": {
+          "@type": "Person",
+          "name": "Osvaldo Kirlin",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "0647 Predovic Extensions",
+            "addressLocality": "Richieton",
+            "addressRegion": "South Carolina",
+            "postalCode": "91289",
+            "addressCountry": "Saint Vincent and the Grenadines"
+          },
+          "telephone": "555-738-8726",
+          "email": "Adam77@example.com"
+        },
+        "paymentDueDate": "4-1-2021",
+        "totalPaymentDue": {
+          "@type": "PriceSpecification",
+          "price": 5099.85,
+          "priceCurrency": "EUR"
+        },
+        "paymentStatus": "http://purl.org/goodrelations/v1#ByInvoice",
+        "provider": {
+          "@type": "Corporation",
+          "name": "Mayer, Fahey and Goyette",
+          "leiCode": "23451943687367020175"
+        },
+        "referencesOrder": [
+          {
+            "@type": "Order",
+            "description": "New Order For Osvaldo Kirlin",
+            "orderDate": "1-2-2021",
+            "orderNumber": "Order#432",
+            "paymentMethod": "http://purl.org/goodrelations/v1#GoogleCheckout",
+            "orderedItem": [
+              {
+                "@type": "Product",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 12.99,
+                  "priceCurrency": "EUR"
+                },
+                "orderQuantity": 6,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 77.94,
+                  "priceCurrency": "EUR"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 12.99,
+                  "priceCurrency": "EUR"
+                },
+                "orderQuantity": 5,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 64.95,
+                  "priceCurrency": "EUR"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "ACME Laptop 3000",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 545,
+                  "priceCurrency": "EUR"
+                },
+                "orderQuantity": 9,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 4905,
+                  "priceCurrency": "EUR"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 12.99,
+                  "priceCurrency": "EUR"
+                },
+                "orderQuantity": 4,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 51.96,
+                  "priceCurrency": "EUR"
+                }
+              }
+            ],
+            "seller": {
+              "@type": "Corporation",
+              "name": "Mayer, Fahey and Goyette",
+              "leiCode": "23451943687367020175"
+            }
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceInvoiceRegistrationEvidenceDocument",
+        "identifier": "Invoice#141",
+        "description": "Invoice For Patrick Strosin for Order#568",
+        "url": "http://victor.net?queryid=Invoice#141",
+        "broker": {
+          "@type": "Corporation",
+          "name": "Littel - Goyette",
+          "leiCode": "54321182263156166300"
+        },
+        "accountId": "xxxx-xxxx-xxxx-3470",
+        "customer": {
+          "@type": "Person",
+          "name": "Patrick Strosin",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "860 Koelpin Walk",
+            "addressLocality": "Thompsonland",
+            "addressRegion": "Rhode Island",
+            "postalCode": "10768",
+            "addressCountry": "Slovenia"
+          },
+          "telephone": "555-489-3707",
+          "email": "Filiberto91@example.org"
+        },
+        "paymentDueDate": "11-0-2021",
+        "totalPaymentDue": {
+          "@type": "PriceSpecification",
+          "price": 1206.91,
+          "priceCurrency": "HNL"
+        },
+        "paymentStatus": "http://purl.org/goodrelations/v1#COD",
+        "provider": {
+          "@type": "Corporation",
+          "name": "Schimmel LLC",
+          "leiCode": "23451244410713203251"
+        },
+        "referencesOrder": [
+          {
+            "@type": "Order",
+            "description": "New Order For Patrick Strosin",
+            "orderDate": "1-2-2021",
+            "orderNumber": "Order#568",
+            "paymentMethod": "http://purl.org/goodrelations/v1#ByInvoice",
+            "orderedItem": [
+              {
+                "@type": "Product",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 12.99,
+                  "priceCurrency": "HNL"
+                },
+                "orderQuantity": 8,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 103.92,
+                  "priceCurrency": "HNL"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "ACME Laptop 3000",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 545,
+                  "priceCurrency": "HNL"
+                },
+                "orderQuantity": 2,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 1090,
+                  "priceCurrency": "HNL"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 12.99,
+                  "priceCurrency": "HNL"
+                },
+                "orderQuantity": 1,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 12.99,
+                  "priceCurrency": "HNL"
+                }
+              }
+            ],
+            "seller": {
+              "@type": "Corporation",
+              "name": "Schimmel LLC",
+              "leiCode": "23451244410713203251"
+            }
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceInvoiceRegistrationEvidenceDocument",
+        "identifier": "Invoice#818",
+        "description": "Invoice For Boyd Reynolds for Order#595",
+        "url": "http://pedro.org?queryid=Invoice#818",
+        "broker": {
+          "@type": "Corporation",
+          "name": "Bernier, Schaden and Becker",
+          "leiCode": "54321674936126451939"
+        },
+        "accountId": "xxxx-xxxx-xxxx-9403",
+        "customer": {
+          "@type": "Person",
+          "name": "Boyd Reynolds",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "7506 Orie Views",
+            "addressLocality": "Lednerside",
+            "addressRegion": "North Dakota",
+            "postalCode": "72895-8348",
+            "addressCountry": "Saint Martin"
+          },
+          "telephone": "555-156-5212",
+          "email": "Gladys47@example.org"
+        },
+        "paymentDueDate": "4-2-2021",
+        "totalPaymentDue": {
+          "@type": "PriceSpecification",
+          "price": 155.89000000000001,
+          "priceCurrency": "ALL"
+        },
+        "paymentStatus": "http://purl.org/goodrelations/v1#ByBankTransferInAdvance",
+        "provider": {
+          "@type": "Corporation",
+          "name": "Gerhold, Fritsch and Waelchi",
+          "leiCode": "23451605782586382702"
+        },
+        "referencesOrder": [
+          {
+            "@type": "Order",
+            "description": "New Order For Boyd Reynolds",
+            "orderDate": "1-2-2021",
+            "orderNumber": "Order#595",
+            "paymentMethod": "http://purl.org/goodrelations/v1#CheckInAdvance",
+            "orderedItem": [
+              {
+                "@type": "Product",
+                "name": "ACME Bluetooth Computer Keyboard 3801-1",
+                "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 25.99,
+                  "priceCurrency": "ALL"
+                },
+                "orderQuantity": 1,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 25.99,
+                  "priceCurrency": "ALL"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "unitPriceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": 12.99,
+                  "priceCurrency": "ALL"
+                },
+                "orderQuantity": 10,
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": 129.9,
+                  "priceCurrency": "ALL"
+                }
+              }
+            ],
+            "seller": {
+              "@type": "Corporation",
+              "name": "Gerhold, Fritsch and Waelchi",
+              "leiCode": "23451605782586382702"
+            }
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommerceInvoiceRegistrationEvidenceDocument.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommerceInvoiceRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument\"}",
+      "title": "Invoice Registration Evidence Document",
+      "description": "Evidence data for a registered eCommerce Invoice",
+      "type": "object",
+      "required": [
+        "@context",
+        "identifier",
+        "description",
+        "url",
+        "broker",
+        "accountId",
+        "customer",
+        "paymentDueDate",
+        "totalPaymentDue",
+        "paymentStatus",
+        "provider",
+        "referencesOrder"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "@type": {
+          "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Invoice\"}",
+          "title": "@type",
+          "type": "string",
+          "default": "Invoice"
+        },
+        "identifier": {
+          "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Identifier",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Invoice#-1234"
+          ]
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Description of customer invoice",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Example Invoice Description"
+          ]
+        },
+        "url": {
+          "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+          "title": "Url or the order",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "http://acme.com/invoice.pdf"
+          ]
+        },
+        "broker": {
+          "$comment": "{\"term\": \"broker\", \"@id\": \"https://schema.org/broker\"}",
+          "title": "Broker",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "leiCode"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Corporation"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Broker",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Broker XYZ"
+              ]
+            },
+            "leiCode": {
+              "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+              "title": "Leicode of the Broker",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "vLei code, e.g. Y87794H0US1R65VBXU25"
+              ]
+            }
+          }
+        },
+        "accountId": {
+          "$comment": "{\"term\": \"accountId\", \"@id\": \"https://schema.org/accountId\"}",
+          "title": "Accountid",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "xxxx-xxxx-xxxx-1234"
+          ]
+        },
+        "customer": {
+          "$comment": "{\"term\": \"customer\", \"@id\": \"https://schema.org/customer\"}",
+          "title": "Customer",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "address",
+            "telephone",
+            "email"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Person\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Person"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Customer",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Jane Doe"
+              ]
+            },
+            "address": {
+              "$comment": "{\"term\": \"address\", \"@id\": \"https://schema.org/PostalAddress\"}",
+              "title": "Address of the Customer",
+              "type": "object",
+              "required": [
+                "type",
+                "streetAddress",
+                "addressLocality",
+                "addressRegion",
+                "postalCode",
+                "addressCountry"
+              ],
+              "properties": {
+                "@type": {
+                  "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                  "title": "type",
+                  "type": "string",
+                  "default": "PostalAddress"
+                },
+                "streetAddress": {
+                  "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+                  "title": "Streetaddress",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "20341 Whitworth Institute 405 N. Whitworth"
+                  ]
+                },
+                "addressLocality": {
+                  "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+                  "title": "Addresslocality",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "Seattle"
+                  ]
+                },
+                "addressRegion": {
+                  "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+                  "title": "Addressregion",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "WA"
+                  ]
+                },
+                "postalCode": {
+                  "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+                  "title": "Postalcode",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "98052"
+                  ]
+                },
+                "addressCountry": {
+                  "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+                  "title": "Address Country",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "USA"
+                  ]
+                }
+              }
+            },
+            "telephone": {
+              "$comment": "{\"term\": \"telephone\", \"@id\": \"https://schema.org/telephone\"}",
+              "title": "Telephone",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "(425) 123-4567"
+              ]
+            },
+            "email": {
+              "$comment": "{\"term\": \"email\", \"@id\": \"https://schema.org/email\"}",
+              "title": "Email",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "mailto:jane-doe@xyz.edu"
+              ]
+            }
+          }
+        },
+        "paymentDueDate": {
+          "$comment": "{\"term\": \"paymentDueDate\", \"@id\": \"https://schema.org/paymentDueDate\"}",
+          "title": "Paymentduedate",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "2021-01-30T12:00:00"
+          ]
+        },
+        "totalPaymentDue": {
+          "$comment": "{\"term\": \"totalPaymentDue\", \"@id\": \"https://schema.org/totalPaymentDue\"}",
+          "title": "Totalpaymentdue",
+          "type": "object",
+          "required": [
+            "@type",
+            "price",
+            "priceCurrency"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "PriceSpecification"
+            },
+            "price": {
+              "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+              "title": "Price",
+              "type": "number",
+              "default": 0,
+              "examples": [
+                200
+              ]
+            },
+            "priceCurrency": {
+              "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+              "title": "Pricecurrency",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "USD"
+              ]
+            }
+          }
+        },
+        "paymentStatus": {
+          "$comment": "{\"term\": \"paymentStatus\", \"@id\": \"https://schema.org/paymentStatus\"}",
+          "title": "Paymentstatus",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "https://schema.org/PaymentComplete"
+          ]
+        },
+        "provider": {
+          "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
+          "title": "Provider",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "leiCode"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Corporation"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Provider",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Provider XYZ"
+              ]
+            },
+            "leiCode": {
+              "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+              "title": "Leicode of the Provider",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "vLei code, e.g. Y87794H0US1R65VBXU25"
+              ]
+            }
+          }
+        },
+        "referencesOrder": {
+          "$comment": "{\"term\": \"referencesOrder\", \"@id\": \"https://schema.org/referencesOrder\"}",
+          "title": "Referencesorder",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+            "title": "Item",
+            "type": "object",
+            "required": [
+              "@type",
+              "description",
+              "orderDate",
+              "orderNumber",
+              "paymentMethod",
+              "orderedItem",
+              "seller"
+            ],
+            "properties": {
+              "@type": {
+                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
+                "title": "@type",
+                "type": "string",
+                "default": "Order"
+              },
+              "description": {
+                "$comment": "{\"term\": \"@description\", \"@id\": \"https://schema.org/description\"}",
+                "title": "Description",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "ACME Laptop"
+                ]
+              },
+              "orderDate": {
+                "$comment": "{\"term\": \"@orderDate\", \"@id\": \"https://schema.org/orderDate\"}",
+                "title": "Orderdate",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "2021-12-01"
+                ]
+              },
+              "orderNumber": {
+                "$comment": "{\"term\": \"@orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+                "title": "Ordernumber",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "123ABC"
+                ]
+              },
+              "paymentMethod": {
+                "$comment": "{\"term\": \"@paymentMethod\", \"@id\": \"https://schema.org/paymentMethod\"}",
+                "title": "Paymentmethod",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "http://purl.org/goodrelations/v1#PayPal"
+                ]
+              },
+              "orderedItem": {
+                "$comment": "{\"term\": \"orderedItem\", \"@id\": \"https://schema.org/orderedItem\"}",
+                "title": "Ordered Item",
+                "type": "array",
+                "default": [],
+                "items": {
+                  "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+                  "title": "Item(s)",
+                  "type": "object",
+                  "required": [
+                    "@type",
+                    "name",
+                    "productID",
+                    "unitPriceSpecification",
+                    "orderQuantity",
+                    "priceSpecification"
+                  ],
+                  "properties": {
+                    "@type": {
+                      "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Productorder\"}",
+                      "title": "@type",
+                      "type": "string",
+                      "default": "Productorder"
+                    },
+                    "name": {
+                      "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                      "title": "Name",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ACME Laptop 3000"
+                      ]
+                    },
+                    "productID": {
+                      "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+                      "title": "Product Id",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "Product VC ID Laptop"
+                      ]
+                    },
+                    "unitPriceSpecification": {
+                      "$comment": "{\"term\": \"UnitPriceSpecification\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
+                      "title": "UnitPriceSpecification",
+                      "type": "object",
+                      "required": [
+                        "@type",
+                        "price",
+                        "priceCurrency"
+                      ],
+                      "properties": {
+                        "@type": {
+                          "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
+                          "title": "@type",
+                          "type": "string",
+                          "default": "UnitPriceSpecification"
+                        },
+                        "price": {
+                          "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+                          "title": "Price",
+                          "type": "number",
+                          "examples": [
+                            200
+                          ],
+                          "default": 0
+                        },
+                        "priceCurrency": {
+                          "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+                          "title": "Pricecurrency",
+                          "type": "string",
+                          "default": "",
+                          "examples": [
+                            "USD"
+                          ]
+                        }
+                      }
+                    },
+                    "orderQuantity": {
+                      "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
+                      "title": "Qrder Quantity",
+                      "type": "number",
+                      "default": "",
+                      "examples": [
+                        5
+                      ]
+                    },
+                    "priceSpecification": {
+                      "$comment": "{\"term\": \"PriceSpecification\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+                      "title": "PriceSpecification",
+                      "type": "object",
+                      "required": [
+                        "@type",
+                        "price",
+                        "priceCurrency"
+                      ],
+                      "properties": {
+                        "@type": {
+                          "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+                          "title": "@type",
+                          "type": "string",
+                          "default": "PriceSpecification"
+                        },
+                        "price": {
+                          "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+                          "title": "Price",
+                          "type": "number",
+                          "examples": [
+                            200
+                          ],
+                          "default": 0
+                        },
+                        "priceCurrency": {
+                          "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+                          "title": "Pricecurrency",
+                          "type": "string",
+                          "default": "",
+                          "examples": [
+                            "USD"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "seller": {
+                "$comment": "{\"term\": \"seller\", \"@id\": \"https://schema.org/seller\"}",
+                "title": "Seller",
+                "type": "object",
+                "required": [
+                  "@type",
+                  "name",
+                  "leiCode"
+                ],
+                "properties": {
+                  "@type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+                    "title": "@type",
+                    "type": "string",
+                    "default": "Corporation"
+                  },
+                  "name": {
+                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                    "title": "Name of the Broker",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "Broker XYZ"
+                    ]
+                  },
+                  "leiCode": {
+                    "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+                    "title": "Leicode of the Broker",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                      "vLei code, e.g. Y87794H0US1R65VBXU25"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "https://w3id.org/traceability#EcommerceOrderRegistrationCredential": {
+    "$id": "https://w3id.org/traceability/schemas/EcommerceOrderRegistrationCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommerceOrderRegistrationCredential",
+      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationCredential"
+    },
+    "title": "EcommerceOrderRegistrationCredential",
+    "description": "Ecommerce Order Registration Credential",
+    "classProperties": {
+      "https://schema.org/orderNumber": {
+        "$comment": {
+          "term": "orderID",
+          "@id": "https://schema.org/orderNumber"
+        },
+        "title": "orderID",
+        "description": "The seller specific Order number"
+      },
+      "https://schema.org/productID": {
+        "$comment": {
+          "term": "productInOrder",
+          "@id": "https://schema.org/productID"
+        },
+        "title": "productInOrder",
+        "description": "Product VC IDs included in the order"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued order registration certificate"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceOrderRegistrationCredential",
+        "orderID": "Order#297",
+        "productInOrder": [
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Ecommerce Order Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceOrderRegistrationCredential",
+        "orderID": "Order#539",
+        "productInOrder": [
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
+        ],
+        "certificateName": "ACME Ecommerce Order Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceOrderRegistrationCredential",
+        "orderID": "Order#453",
+        "productInOrder": [
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Ecommerce Order Registration Certificate"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommerceOrderRegistrationCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommerceOrderRegistrationCredential\", \"@id\": \"https://w3id.org/traceability#EcommerceOrderRegistrationCredential\"}",
+      "title": "EcommerceOrderRegistrationCredential",
+      "description": "Ecommerce Order Registration Credential",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "orderID": {
+          "$comment": "{\"term\": \"orderID\", \"@id\": \"https://schema.org/orderNumber\"}",
+          "title": "orderID",
+          "description": "The seller specific Order number",
+          "type": "string"
+        },
+        "productInOrder": {
+          "$comment": "{\"term\": \"productInOrder\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "productInOrder",
+          "description": "Product VC IDs included in the order",
+          "type": "array"
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued order registration certificate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "orderID",
+        "productInOrder",
+        "certificateName"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument": {
+    "$id": "https://w3id.org/traceability/schemas/EcommerceOrderRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommerceOrderRegistrationEvidenceDocument",
+      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument"
+    },
+    "title": "Order Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Order",
+    "classProperties": {
+      "https://schema.org/Order": {
+        "$comment": {
+          "term": "@type",
+          "@id": "https://schema.org/Order"
+        },
+        "title": "@type"
+      },
+      "https://schema.org/orderNumber": {
+        "$comment": {
+          "term": "orderNumber",
+          "@id": "https://schema.org/orderNumber"
+        },
+        "title": "Number for eCommerce Order"
+      },
+      "https://schema.org/DateTime": {
+        "$comment": {
+          "term": "orderDate",
+          "@id": "https://schema.org/DateTime"
+        },
+        "title": "Date of eCommerce Order"
+      },
+      "https://schema.org/OrderStatus": {
+        "$comment": {
+          "term": "orderStatus",
+          "@id": "https://schema.org/OrderStatus"
+        },
+        "title": "Status of eCommerce Order"
+      },
+      "https://schema.org/description": {
+        "$comment": {
+          "term": "description",
+          "@id": "https://schema.org/description"
+        },
+        "title": "Description of the customer order"
+      },
+      "https://schema.org/url": {
+        "$comment": {
+          "term": "url",
+          "@id": "https://schema.org/url"
+        },
+        "title": "Url or the order"
+      },
+      "https://schema.org/seller": {
+        "$comment": {
+          "term": "seller",
+          "@id": "https://schema.org/seller"
+        },
+        "title": "Seller"
+      },
+      "https://schema.org/broker": {
+        "$comment": {
+          "term": "broker",
+          "@id": "https://schema.org/broker"
+        },
+        "title": "Broker"
+      },
+      "https://schema.org/customer": {
+        "$comment": {
+          "term": "customer",
+          "@id": "https://schema.org/customer"
+        },
+        "title": "Customer"
+      },
+      "https://schema.org/paymentDueDate": {
+        "$comment": {
+          "term": "paymentDueDate",
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "title": "Paymentduedate"
+      },
+      "https://schema.org/paymentMethod": {
+        "$comment": {
+          "term": "paymentMethod",
+          "@id": "https://schema.org/paymentMethod"
+        },
+        "title": "Paymentmethod"
+      },
+      "https://schema.org/orderedItem": {
+        "$comment": {
+          "term": "orderedItem",
+          "@id": "https://schema.org/orderedItem"
+        },
+        "title": "Ordered Item"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceOrderRegistrationEvidenceDocument",
+        "orderNumber": "Order#256",
+        "orderDate": "1-1-2021",
+        "orderStatus": "OrderInTransit",
+        "description": "New Order For Henry Predovic",
+        "url": "https://kobe.com?queryid=Order#256",
+        "seller": {
+          "@type": "Corporation",
+          "name": "Bailey and Sons",
+          "leiCode": "23451367488803109154"
+        },
+        "broker": {
+          "@type": "Corporation",
+          "name": "Jast, Schinner and O'Connell",
+          "leiCode": "54321837976095499471"
+        },
+        "customer": {
+          "@type": "Person",
+          "name": "Henry Predovic",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "676 General Prairie",
+            "addressLocality": "Lake Aditya",
+            "addressRegion": "Rhode Island",
+            "postalCode": "30333-3978",
+            "addressCountry": "Tokelau"
+          },
+          "telephone": "555-303-6758",
+          "email": "Mable71@example.com"
+        },
+        "paymentDueDate": "5-6-2021",
+        "paymentMethod": "http://purl.org/goodrelations/v1#COD",
+        "orderedItem": [
+          {
+            "@type": "Product",
+            "name": "ACME Bluetooth Computer Mouse 3000-1",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "orderQuantity": 4
+          },
+          {
+            "@type": "Product",
+            "name": "ACME Bluetooth Computer Keyboard 3801-1",
+            "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "orderQuantity": 4
+          },
+          {
+            "@type": "Product",
+            "name": "ACME Bluetooth Computer Keyboard 3801-1",
+            "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "orderQuantity": 5
+          },
+          {
+            "@type": "Product",
+            "name": "ACME Bluetooth Computer Mouse 3000-1",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "orderQuantity": 9
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceOrderRegistrationEvidenceDocument",
+        "orderNumber": "Order#300",
+        "orderDate": "1-2-2021",
+        "orderStatus": "OrderCancelled",
+        "description": "New Order For Vincent Fahey",
+        "url": "https://hillary.com?queryid=Order#300",
+        "seller": {
+          "@type": "Corporation",
+          "name": "Witting Group",
+          "leiCode": "23451838891472900286"
+        },
+        "broker": {
+          "@type": "Corporation",
+          "name": "Jast, Hane and Wisozk",
+          "leiCode": "54321101488232379779"
+        },
+        "customer": {
+          "@type": "Person",
+          "name": "Vincent Fahey",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "11537 Ludwig Valley",
+            "addressLocality": "West Brandyn",
+            "addressRegion": "Utah",
+            "postalCode": "03917-4988",
+            "addressCountry": "Papua New Guinea"
+          },
+          "telephone": "555-351-2497",
+          "email": "Morton.Gleichner29@example.org"
+        },
+        "paymentDueDate": "0-4-2022",
+        "paymentMethod": "http://purl.org/goodrelations/v1#ByInvoice",
+        "orderedItem": [
+          {
+            "@type": "Product",
+            "name": "ACME Bluetooth Computer Mouse 3000-1",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "orderQuantity": 1
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceOrderRegistrationEvidenceDocument",
+        "orderNumber": "Order#204",
+        "orderDate": "1-1-2021",
+        "orderStatus": "OrderCancelled",
+        "description": "New Order For Carmen McCullough",
+        "url": "https://ebba.name?queryid=Order#204",
+        "seller": {
+          "@type": "Corporation",
+          "name": "Ernser - Senger",
+          "leiCode": "23451641109533607959"
+        },
+        "broker": {
+          "@type": "Corporation",
+          "name": "Walter, Lueilwitz and Mertz",
+          "leiCode": "54321480434640543535"
+        },
+        "customer": {
+          "@type": "Person",
+          "name": "Carmen McCullough",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "692 Willms Greens",
+            "addressLocality": "Wendellborough",
+            "addressRegion": "Oklahoma",
+            "postalCode": "28206-3927",
+            "addressCountry": "Pitcairn Islands"
+          },
+          "telephone": "555-683-1811",
+          "email": "Daphney_Harber33@example.net"
+        },
+        "paymentDueDate": "8-0-2021",
+        "paymentMethod": "http://purl.org/goodrelations/v1#Cash",
+        "orderedItem": [
+          {
+            "@type": "Product",
+            "name": "ACME Bluetooth Computer Mouse 3000-1",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "orderQuantity": 4
+          },
+          {
+            "@type": "Product",
+            "name": "ACME Laptop 3000",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+            "orderQuantity": 6
+          },
+          {
+            "@type": "Product",
+            "name": "ACME Laptop 3000",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+            "orderQuantity": 8
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommerceOrderRegistrationEvidenceDocument.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommerceOrderRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument\"}",
+      "title": "Order Registration Evidence Document",
+      "description": "Evidence data for a registered eCommerce Order",
+      "type": "object",
+      "required": [
+        "@context",
+        "orderNumber",
+        "orderDate",
+        "orderStatus",
+        "description",
+        "url",
+        "seller",
+        "broker",
+        "customer",
+        "paymentDueDate",
+        "paymentMethod",
+        "orderedItem"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "@type": {
+          "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
+          "title": "@type",
+          "type": "string",
+          "default": "Order"
+        },
+        "orderNumber": {
+          "$comment": "{\"term\": \"orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+          "title": "Number for eCommerce Order",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Order#1234"
+          ]
+        },
+        "orderDate": {
+          "$comment": "{\"term\": \"orderDate\", \"@id\": \"https://schema.org/DateTime\"}",
+          "title": "Date of eCommerce Order",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "2021-12-01"
+          ]
+        },
+        "orderStatus": {
+          "$comment": "{\"term\": \"orderStatus\", \"@id\": \"https://schema.org/OrderStatus\"}",
+          "title": "Status of eCommerce Order",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "OrderInTransit"
+          ]
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Description of the customer order",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "Order Description"
+          ]
+        },
+        "url": {
+          "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+          "title": "Url or the order",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "http://acme.com/order.pdf"
+          ]
+        },
+        "seller": {
+          "$comment": "{\"term\": \"seller\", \"@id\": \"https://schema.org/seller\"}",
+          "title": "Seller",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "leiCode"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Corporation"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Seller",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Seller XYZ"
+              ]
+            },
+            "leiCode": {
+              "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+              "title": "Leicode of the Seller",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "vLei code, e.g. Y87794H0US1R65VBXU25"
+              ]
+            }
+          }
+        },
+        "broker": {
+          "$comment": "{\"term\": \"broker\", \"@id\": \"https://schema.org/broker\"}",
+          "title": "Broker",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "leiCode"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Corporation"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Broker",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Broker XYZ"
+              ]
+            },
+            "leiCode": {
+              "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+              "title": "Leicode of the Broker",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "vLei code, e.g. Y87794H0US1R65VBXU25"
+              ]
+            }
+          }
+        },
+        "customer": {
+          "$comment": "{\"term\": \"customer\", \"@id\": \"https://schema.org/customer\"}",
+          "title": "Customer",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "address",
+            "telephone",
+            "email"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Person\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Person"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Customer",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Jane Doe"
+              ]
+            },
+            "address": {
+              "$comment": "{\"term\": \"address\", \"@id\": \"https://schema.org/PostalAddress\"}",
+              "title": "Address of the Customer",
+              "type": "object",
+              "required": [
+                "type",
+                "streetAddress",
+                "addressLocality",
+                "addressRegion",
+                "postalCode",
+                "addressCountry"
+              ],
+              "properties": {
+                "type": {
+                  "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                  "title": "type",
+                  "type": "string",
+                  "default": "PostalAddress"
+                },
+                "addressLocality": {
+                  "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+                  "title": "Addresslocality",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "Seattle"
+                  ]
+                },
+                "addressRegion": {
+                  "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+                  "title": "Addressregion",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "WA"
+                  ]
+                },
+                "postalCode": {
+                  "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+                  "title": "Postalcode",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "98052"
+                  ]
+                },
+                "streetAddress": {
+                  "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+                  "title": "Streetaddress",
+                  "type": "string",
+                  "default": "",
+                  "examples": [
+                    "20341 Whitworth Institute 405 N. Whitworth"
+                  ]
+                }
+              }
+            },
+            "telephone": {
+              "$comment": "{\"term\": \"telephone\", \"@id\": \"https://schema.org/telephone\"}",
+              "title": "Telephone",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "(425) 123-4567"
+              ]
+            },
+            "email": {
+              "$comment": "{\"term\": \"email\", \"@id\": \"https://schema.org/email\"}",
+              "title": "Email",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "mailto:jane-doe@xyz.edu"
+              ]
+            }
+          }
+        },
+        "paymentDueDate": {
+          "$comment": "{\"term\": \"paymentDueDate\", \"@id\": \"https://schema.org/paymentDueDate\"}",
+          "title": "Paymentduedate",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "2021-01-30T12:00:00"
+          ]
+        },
+        "paymentMethod": {
+          "$comment": "{\"term\": \"paymentMethod\", \"@id\": \"https://schema.org/paymentMethod\"}",
+          "title": "Paymentmethod",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "http://purl.org/goodrelations/v1#PayPal"
+          ]
+        },
+        "orderedItem": {
+          "$comment": "{\"term\": \"orderedItem\", \"@id\": \"https://schema.org/orderedItem\"}",
+          "title": "Ordered Item",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+            "title": "Item(s)",
+            "type": "object",
+            "required": [
+              "@type",
+              "name",
+              "productID",
+              "orderQuantity"
+            ],
+            "properties": {
+              "@type": {
+                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Productorder\"}",
+                "title": "@type",
+                "type": "string",
+                "default": "Productorder"
+              },
+              "name": {
+                "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                "title": "Name",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "ACME Laptop 3000"
+                ]
+              },
+              "productID": {
+                "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+                "title": "Product Id",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "Product VC ID Laptop"
+                ]
+              },
+              "orderQuantity": {
+                "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
+                "title": "Qrder Quantity",
+                "type": "number",
+                "default": "",
+                "examples": [
+                  5
+                ]
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "https://w3id.org/traceability#EcommercePackageRegistrationCredential": {
+    "$id": "https://w3id.org/traceability/schemas/EcommercePackageRegistrationCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommercePackageRegistrationCredential",
+      "@id": "https://w3id.org/traceability#EcommercePackageRegistrationCredential"
+    },
+    "title": "EEcommercePackageRegistrationCredential",
+    "description": "Ecommerce Package Registration Credential",
+    "classProperties": {
+      "https://schema.org/trackingNumber": {
+        "$comment": {
+          "term": "trackingID",
+          "@id": "https://schema.org/trackingNumber"
+        },
+        "title": "Tracking Number of the Carrier"
+      },
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "packageItems",
+          "@id": "https://schema.org/ItemList"
+        },
+        "title": "packageItems"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued package registration certificate"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackageRegistrationCredential",
+        "trackingID": "995073366258",
+        "packageItems": [
+          {
+            "productReceiptID": "https://vc.example.com/?queryID=0x8FfDb6B1D3FD7bd1E1Dad3DFF731e2eb4e30B30ad8e3d0Aebd576A7D27bD5A1C",
+            "packingListID": "https://vc.example.com/?queryID=0x5A15C82Cf72028E6d37Ee9Fa88AAD04a4AAdA5fBDc45DbF6D3bA16aAb69877Ae",
+            "orderNumber": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+            "productInOrder": [
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
+            ]
+          }
+        ],
+        "certificateName": "ACME Carrier Ecommerce Package Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackageRegistrationCredential",
+        "trackingID": "186757230549",
+        "packageItems": [
+          {
+            "productReceiptID": "https://vc.example.com/?queryID=0x4fc6b63b1aD0fE05aDF5bC7aaDFacf091e7E3156A783caEDe99EBdb2f6F88F2A",
+            "packingListID": "https://vc.example.com/?queryID=0x8dc5EA9DaBB5baA9BB1ccBfAdd8624Ca2134fBB0A6FEa5d9D717197e4A52aAAC",
+            "orderNumber": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+            "productInOrder": [
+              "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+            ]
+          }
+        ],
+        "certificateName": "ACME Carrier Ecommerce Package Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackageRegistrationCredential",
+        "trackingID": "529657970927",
+        "packageItems": [
+          {
+            "productReceiptID": "https://vc.example.com/?queryID=0x9EDe3deeF688D456e61dE04ABBFEa00029fe4A7dDDFBCAdC1D1C44dECC79cF64",
+            "packingListID": "https://vc.example.com/?queryID=0xBde3Ec441EfCcd3F665f56fB7FfCAa941abdB3e5aD20AbAAd62Bd9018ECa1aC0",
+            "orderNumber": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+            "productInOrder": [
+              "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+            ]
+          }
+        ],
+        "certificateName": "ACME Carrier Ecommerce Package Registration Certificate"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommercePackageRegistrationCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommercePackageRegistrationCredential\", \"@id\": \"https://w3id.org/traceability#EcommercePackageRegistrationCredential\"}",
+      "title": "EEcommercePackageRegistrationCredential",
+      "description": "Ecommerce Package Registration Credential",
+      "type": "object",
+      "required": [
+        "@context",
+        "trackingID",
+        "packageItems",
+        "certificateName"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "trackingID": {
+          "$comment": "{\"term\": \"trackingID\", \"@id\": \"https://schema.org/trackingNumber\"}",
+          "title": "Tracking Number of the Carrier",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "9988 1234 8677"
+          ]
+        },
+        "packageItems": {
+          "$comment": "{\"term\": \"packageItems\", \"@id\": \"https://schema.org/ItemList\"}",
+          "title": "packageItems",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "productReceiptID": {
+                "$comment": "{\"term\": \"productReceiptID\", \"@id\": \"https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential#receiptID\"}",
+                "title": "productReceiptID",
+                "description": "The receipt VC ID issued by a shipper/carrier receiving product to be packaged and shipped",
+                "type": "string"
+              },
+              "packingListID": {
+                "$comment": "{\"term\": \"packingListID\", \"@id\": \"https://schema.org/identifier\"}",
+                "title": "packingListID",
+                "description": "The packing list VC IDs issues by the seller",
+                "type": "string"
+              },
+              "orderID": {
+                "$comment": "{\"term\": \"orderID\", \"@id\": \"https://schema.org/orderNumber\"}",
+                "title": "orderNumber",
+                "description": "The seller specific Order VC ID",
+                "type": "string"
+              },
+              "productInOrder": {
+                "$comment": "{\"term\": \"productInOrder\", \"@id\": \"https://schema.org/productID\"}",
+                "title": "productInOrder",
+                "description": "Product VC IDs included in the order",
+                "type": "array"
+              }
+            }
+          }
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued package registration certificate",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument": {
+    "$id": "https://w3id.org/traceability/schemas/EcommercePackageRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommercePackageRegistrationEvidenceDocument",
+      "@id": "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument"
+    },
+    "title": "Package Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Package",
+    "classProperties": {
+      "https://schema.org/ParcelDelivery": {
+        "$comment": {
+          "term": "@type",
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "title": "@type"
+      },
+      "https://schema.org/deliveryStatus": {
+        "$comment": {
+          "term": "deliveryStatus",
+          "@id": "https://schema.org/deliveryStatus"
+        },
+        "title": "DeliveryStatus"
+      },
+      "https://schema.org/expectedArrivalFrom": {
+        "$comment": {
+          "term": "expectedArrivalFrom",
+          "@id": "https://schema.org/expectedArrivalFrom"
+        },
+        "title": "Earliest Expected arrival date of parcel"
+      },
+      "https://schema.org/hasDeliveryMethod": {
+        "$comment": {
+          "term": "hasDeliveryMethod",
+          "@id": "https://schema.org/hasDeliveryMethod"
+        },
+        "title": "Method of Parcel Delivery"
+      },
+      "https://schema.org/deliveryAddress": {
+        "$comment": {
+          "term": "deliveryAddress",
+          "@id": "https://schema.org/deliveryAddress"
+        },
+        "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
+      },
+      "https://schema.org/provider": {
+        "$comment": {
+          "term": "provider",
+          "@id": "https://schema.org/provider"
+        },
+        "title": "Provider"
+      },
+      "https://schema.org/originAddress": {
+        "$comment": {
+          "term": "originAddress",
+          "@id": "https://schema.org/originAddress"
+        },
+        "title": "Address of the Manufacturer/Packer of Parcel"
+      },
+      "https://schema.org/trackingNumber": {
+        "$comment": {
+          "term": "trackingNumber",
+          "@id": "https://schema.org/trackingNumber"
+        },
+        "title": "Tracking Number of the Carrier"
+      },
+      "https://schema.org/partOfOrder": {
+        "$comment": {
+          "term": "partOfOrder",
+          "@id": "https://schema.org/partOfOrder"
+        },
+        "title": "Products in Parcel that are Part of one or more Orders"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackageRegistrationEvidenceDocument",
+        "deliveryStatus": "EventCancelled",
+        "expectedArrivalFrom": "Sat Jan 01 2022 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModePickUp",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Barrows Inc",
+          "streetAddress": "024 Terry Place",
+          "addressLocality": "Uptonville",
+          "addressRegion": "Virginia",
+          "postalCode": "23070",
+          "addressCountry": "Croatia"
+        },
+        "provider": {
+          "@type": "Corporation",
+          "name": "Feeney - Hoppe",
+          "leiCode": "23451276933024637401"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Purdy, Stoltenberg and Windler",
+          "streetAddress": "216 Tremblay Coves",
+          "addressLocality": "East Jaydefurt",
+          "addressRegion": "Missouri",
+          "postalCode": "08863-6257",
+          "addressCountry": "Thailand"
+        },
+        "trackingNumber": "696662566787",
+        "partOfOrder": [
+          {
+            "@type": "Order",
+            "orderNumber": "Order#464",
+            "itemShipped": [
+              {
+                "@type": "Product",
+                "manufacturer": "Cartwright Inc",
+                "name": "ACME Laptop 3000",
+                "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 1
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Padberg Inc",
+                "name": "ACME Laptop 3000",
+                "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 6
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackageRegistrationEvidenceDocument",
+        "deliveryStatus": "EventScheduled",
+        "expectedArrivalFrom": "Sat Jan 01 2022 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeDirectDownload",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Wuckert, Little and Fadel",
+          "streetAddress": "69721 Wyman Roads",
+          "addressLocality": "Kathrynehaven",
+          "addressRegion": "Alabama",
+          "postalCode": "26403-4439",
+          "addressCountry": "Chile"
+        },
+        "provider": {
+          "@type": "Corporation",
+          "name": "Bernhard, D'Amore and Parker",
+          "leiCode": "23451349644314032048"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Abbott - Mann",
+          "streetAddress": "956 Sporer Groves",
+          "addressLocality": "Eugeneview",
+          "addressRegion": "Missouri",
+          "postalCode": "36495",
+          "addressCountry": "Belize"
+        },
+        "trackingNumber": "756798806227",
+        "partOfOrder": [
+          {
+            "@type": "Order",
+            "orderNumber": "Order#118",
+            "itemShipped": [
+              {
+                "@type": "Product",
+                "manufacturer": "Hackett LLC",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.2 lb",
+                "height": "2.1 in",
+                "width": "3.2 in",
+                "depth": "4.8 in",
+                "orderQuantity": 8
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Bogan - Kshlerin",
+                "name": "ACME Laptop 3000",
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 6
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Maggio and Sons",
+                "name": "ACME Laptop 3000",
+                "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 2
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Champlin Group",
+                "name": "ACME Bluetooth Computer Keyboard 3801-1",
+                "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+                "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.5 lb",
+                "height": "0.9 in",
+                "width": "16.2 in",
+                "depth": "13.8 in",
+                "orderQuantity": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackageRegistrationEvidenceDocument",
+        "deliveryStatus": "EventRescheduled",
+        "expectedArrivalFrom": "Sat Jan 01 2022 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeMail",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Hintz Group",
+          "streetAddress": "93267 Verna Expressway",
+          "addressLocality": "Port Briantown",
+          "addressRegion": "Louisiana",
+          "postalCode": "38142",
+          "addressCountry": "Namibia"
+        },
+        "provider": {
+          "@type": "Corporation",
+          "name": "Gerlach, Bechtelar and Kuhn",
+          "leiCode": "23451220286159310490"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Steuber, O'Hara and Emmerich",
+          "streetAddress": "6640 Abernathy Land",
+          "addressLocality": "East Kailee",
+          "addressRegion": "Rhode Island",
+          "postalCode": "14939-3952",
+          "addressCountry": "Kiribati"
+        },
+        "trackingNumber": "164381661033",
+        "partOfOrder": [
+          {
+            "@type": "Order",
+            "orderNumber": "Order#166",
+            "itemShipped": [
+              {
+                "@type": "Product",
+                "manufacturer": "Fritsch Inc",
+                "name": "ACME Laptop 3000",
+                "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 7
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Willms - Hahn",
+                "name": "ACME Laptop 3000",
+                "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 9
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Kozey - Harris",
+                "name": "ACME Laptop 3000",
+                "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 3
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Steuber, Treutel and Deckow",
+                "name": "ACME Laptop 3000",
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 4
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommercePackageRegistrationEvidenceDocument.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommercePackageRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument\"}",
+      "title": "Package Registration Evidence Document",
+      "description": "Evidence data for a registered eCommerce Package",
+      "type": "object",
+      "required": [
+        "@context",
+        "deliveryStatus",
+        "expectedArrivalFrom",
+        "hasDeliveryMethod",
+        "deliveryAddress",
+        "provider",
+        "originAddress",
+        "trackingNumber",
+        "partOfOrder"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "@type": {
+          "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+          "title": "@type",
+          "type": "string",
+          "default": "ParcelDelievry"
+        },
+        "deliveryStatus": {
+          "$comment": "{\"term\": \"deliveryStatus\", \"@id\": \"https://schema.org/deliveryStatus\"}",
+          "title": "DeliveryStatus",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "EventScheduled"
+          ]
+        },
+        "expectedArrivalFrom": {
+          "$comment": "{\"term\": \"expectedArrivalFrom\", \"@id\": \"https://schema.org/expectedArrivalFrom\"}",
+          "title": "Earliest Expected arrival date of parcel",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "01-12-2021"
+          ]
+        },
+        "hasDeliveryMethod": {
+          "$comment": "{\"term\": \"hasDeliveryMethod\", \"@id\": \"https://schema.org/hasDeliveryMethod\"}",
+          "title": "Method of Parcel Delivery",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "http://purl.org/goodrelations/v1#FederalExpress"
+          ]
+        },
+        "deliveryAddress": {
+          "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
+          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment",
+          "type": "object",
+          "required": [
+            "type",
+            "organizationName",
+            "streetAddress",
+            "addressLocality",
+            "addressRegion",
+            "postalCode",
+            "addressCountry"
+          ],
+          "properties": {
+            "type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+              "title": "type",
+              "type": "string",
+              "default": "PostalAddress"
+            },
+            "organizationName": {
+              "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
+              "title": "Organization Name",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "ACME Corporation"
+              ]
+            },
+            "streetAddress": {
+              "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+              "title": "Streetaddress",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "20341 Whitworth Institute 405 N. Whitworth"
+              ]
+            },
+            "addressLocality": {
+              "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+              "title": "Addresslocality",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Seattle"
+              ]
+            },
+            "addressRegion": {
+              "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+              "title": "Addressregion",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "WA"
+              ]
+            },
+            "postalCode": {
+              "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+              "title": "Postalcode",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "98052"
+              ]
+            },
+            "addressCountry": {
+              "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+              "title": "Address Country",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "USA"
+              ]
+            }
+          }
+        },
+        "provider": {
+          "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
+          "title": "Provider",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "leiCode"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Corporation"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Provider",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Provider XYZ"
+              ]
+            },
+            "leiCode": {
+              "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+              "title": "Leicode of the Provider",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "vLei code, e.g. Y87794H0US1R65VBXU25"
+              ]
+            }
+          }
+        },
+        "originAddress": {
+          "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
+          "title": "Address of the Manufacturer/Packer of Parcel",
+          "type": "object",
+          "required": [
+            "type",
+            "organizationName",
+            "streetAddress",
+            "addressLocality",
+            "addressRegion",
+            "postalCode",
+            "addressCountry"
+          ],
+          "properties": {
+            "type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+              "title": "type",
+              "type": "string",
+              "default": "PostalAddress"
+            },
+            "organizationName": {
+              "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
+              "title": "Organization Name",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "ACME Corporation"
+              ]
+            },
+            "streetAddress": {
+              "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+              "title": "Streetaddress",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "20341 Whitworth Institute 405 N. Whitworth"
+              ]
+            },
+            "addressLocality": {
+              "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+              "title": "Addresslocality",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Seattle"
+              ]
+            },
+            "addressRegion": {
+              "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+              "title": "Addressregion",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "WA"
+              ]
+            },
+            "postalCode": {
+              "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+              "title": "Postalcode",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "98052"
+              ]
+            },
+            "addressCountry": {
+              "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+              "title": "Address Country",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "USA"
+              ]
+            }
+          }
+        },
+        "trackingNumber": {
+          "$comment": "{\"term\": \"trackingNumber\", \"@id\": \"https://schema.org/trackingNumber\"}",
+          "title": "Tracking Number of the Carrier",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "9988 1234 8677"
+          ]
+        },
+        "partOfOrder": {
+          "$comment": "{\"term\": \"partOfOrder\", \"@id\": \"https://schema.org/partOfOrder\"}",
+          "title": "Products in Parcel that are Part of one or more Orders",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+            "title": "Item",
+            "type": "object",
+            "required": [
+              "@type",
+              "orderNumber",
+              "itemShipped"
+            ],
+            "properties": {
+              "@type": {
+                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
+                "title": "@type",
+                "type": "string",
+                "default": "Order"
+              },
+              "orderNumber": {
+                "$comment": "{\"term\": \"@orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+                "title": "Ordernumber",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "123ABC"
+                ]
+              },
+              "itemShipped": {
+                "$comment": "{\"term\": \"itemShipped\", \"@id\": \"https://schema.org/itemShipped\"}",
+                "title": "Products to be shipped",
+                "type": "array",
+                "default": [],
+                "items": {
+                  "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+                  "title": "Item(s)",
+                  "type": "object",
+                  "required": [
+                    "@type",
+                    "manufacturer",
+                    "name",
+                    "description",
+                    "productID",
+                    "weight",
+                    "height",
+                    "width",
+                    "depth",
+                    "orderQuantity"
+                  ],
+                  "properties": {
+                    "@type": {
+                      "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Product\"}",
+                      "title": "@type",
+                      "type": "string",
+                      "default": "Product"
+                    },
+                    "manufacturer": {
+                      "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
+                      "title": "Manufacturer",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ACME Corp"
+                      ]
+                    },
+                    "name": {
+                      "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                      "title": "Name",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ACME Laptop 3000"
+                      ]
+                    },
+                    "description": {
+                      "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+                      "title": "Description of product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "Example Product Description"
+                      ]
+                    },
+                    "productID": {
+                      "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+                      "title": "Product ID",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "Product number of registering Legal Entity such as an ISBN (required)"
+                      ]
+                    },
+                    "weight": {
+                      "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+                      "title": "Weight of the product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (kg) (required)"
+                      ]
+                    },
+                    "height": {
+                      "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+                      "title": "Height of the product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (meter) (required)"
+                      ]
+                    },
+                    "width": {
+                      "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+                      "title": "Width of the product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (meter) (required)"
+                      ]
+                    },
+                    "depth": {
+                      "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+                      "title": "Depth of the Product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (meter)(required)"
+                      ]
+                    },
+                    "orderQuantity": {
+                      "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
+                      "title": "Qrder Quantity",
+                      "type": "number",
+                      "default": "",
+                      "examples": [
+                        5
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "https://w3id.org/traceability#EcommercePackingListRegistrationCredential": {
+    "$id": "https://w3id.org/traceability/schemas/EcommercePackingListRegistrationCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommercePackingListRegistrationCredential",
+      "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationCredential"
+    },
+    "title": "EcommercePackingListRegistrationCredential",
+    "description": "Ecommerce Packing List Registration Credential",
+    "classProperties": {
+      "https://schema.org/ItemList": {
+        "$comment": {
+          "term": "packageItems",
+          "@id": "https://schema.org/ItemList"
+        },
+        "title": "packageItems"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued packing list registration certificate"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackingListRegistrationCredential",
+        "packageItems": [
+          {
+            "orderNumber": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+            "productInOrder": [
+              "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+            ]
+          }
+        ],
+        "certificateName": "ACME Ecommerce Packing List Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackingListRegistrationCredential",
+        "packageItems": [
+          {
+            "orderNumber": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+            "productInOrder": [
+              "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+            ]
+          }
+        ],
+        "certificateName": "ACME Ecommerce Packing List Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackingListRegistrationCredential",
+        "packageItems": [
+          {
+            "orderNumber": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+            "productInOrder": [
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+              "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
+            ]
+          }
+        ],
+        "certificateName": "ACME Ecommerce Packing List Registration Certificate"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommercePackingListRegistrationCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommercePackingListRegistrationCredential\", \"@id\": \"https://w3id.org/traceability#EcommercePackingListRegistrationCredential\"}",
+      "title": "EcommercePackingListRegistrationCredential",
+      "description": "Ecommerce Packing List Registration Credential",
+      "definitions": {
+        "packinglistorder": {
+          "$id": "#packinglistorder",
+          "type": "object",
+          "properties": {
+            "orderNumber": {
+              "$comment": "{\"term\": \"orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+              "title": "orderNumber",
+              "description": "The seller specific Order VC ID",
+              "type": "string"
+            },
+            "productInOrder": {
+              "$comment": "{\"term\": \"productInOrder\", \"@id\": \"https://schema.org/productID\"}",
+              "title": "productInOrder",
+              "description": "Product VC IDs included in the order",
+              "type": "array"
+            }
+          },
+          "required": [
+            "orderNumber",
+            "productInOrder"
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "packageItems": {
+          "$comment": "{\"term\": \"packageItems\", \"@id\": \"https://schema.org/ItemList\"}",
+          "title": "packageItems",
+          "type": "array",
+          "items": {
+            "$ref": "#packinglistorder"
+          }
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued packing list registration certificate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@context",
+        "type",
+        "packageItems",
+        "certificateName"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument": {
+    "$id": "https://w3id.org/traceability/schemas/EcommercePackingListRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommercePackingListRegistrationEvidenceDocument",
+      "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument"
+    },
+    "title": "Packing List Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Packing List",
+    "classProperties": {
+      "https://schema.org/ParcelDelivery": {
+        "$comment": {
+          "term": "@type",
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "title": "@type"
+      },
+      "https://schema.org/deliveryStatus": {
+        "$comment": {
+          "term": "deliveryStatus",
+          "@id": "https://schema.org/deliveryStatus"
+        },
+        "title": "DeliveryStatus"
+      },
+      "https://schema.org/expectedArrivalFrom": {
+        "$comment": {
+          "term": "expectedArrivalFrom",
+          "@id": "https://schema.org/expectedArrivalFrom"
+        },
+        "title": "Earliest Expected arrival date of parcel"
+      },
+      "https://schema.org/hasDeliveryMethod": {
+        "$comment": {
+          "term": "hasDeliveryMethod",
+          "@id": "https://schema.org/hasDeliveryMethod"
+        },
+        "title": "Method of Parcel Delivery"
+      },
+      "https://schema.org/deliveryAddress": {
+        "$comment": {
+          "term": "deliveryAddress",
+          "@id": "https://schema.org/deliveryAddress"
+        },
+        "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
+      },
+      "https://schema.org/provider": {
+        "$comment": {
+          "term": "provider",
+          "@id": "https://schema.org/provider"
+        },
+        "title": "Provider"
+      },
+      "https://schema.org/originAddress": {
+        "$comment": {
+          "term": "originAddress",
+          "@id": "https://schema.org/originAddress"
+        },
+        "title": "Address of the Manufacturer/Packer of Parcel"
+      },
+      "https://schema.org/partOfOrder": {
+        "$comment": {
+          "term": "partOfOrder",
+          "@id": "https://schema.org/partOfOrder"
+        },
+        "title": "Products in Parcel that are Part of one or more Orders"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackingListRegistrationEvidenceDocument",
+        "deliveryStatus": "EventRescheduled",
+        "expectedArrivalFrom": "Tue Jan 01 2030 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "hasDeliveryMethod": "http://purl.org/goodrelations/v1#FederalExpress",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Stokes - Lowe",
+          "streetAddress": "1806 Carolina Estates",
+          "addressLocality": "South Bennieshire",
+          "addressRegion": "Indiana",
+          "postalCode": "99779",
+          "addressCountry": "Hong Kong"
+        },
+        "provider": {
+          "@type": "Corporation",
+          "name": "Heathcote - Mann",
+          "leiCode": "23451722490228712558"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Kreiger Inc",
+          "streetAddress": "4896 Kovacek Prairie",
+          "addressLocality": "Scottieburgh",
+          "addressRegion": "Oklahoma",
+          "postalCode": "53089-6000",
+          "addressCountry": "Guyana"
+        },
+        "partOfOrder": [
+          {
+            "@type": "Order",
+            "orderNumber": "Order#673",
+            "itemShipped": [
+              {
+                "@type": "Product",
+                "manufacturer": "Volkman Inc",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "description": "The Football Is Good For Training And Recreational Purposes",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.2 lb",
+                "height": "2.1 in",
+                "width": "3.2 in",
+                "depth": "4.8 in",
+                "orderQuantity": 3
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Lakin, Gleichner and Dickinson",
+                "name": "ACME Bluetooth Computer Keyboard 3801-1",
+                "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.5 lb",
+                "height": "0.9 in",
+                "width": "16.2 in",
+                "depth": "13.8 in",
+                "orderQuantity": 3
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Williamson LLC",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.2 lb",
+                "height": "2.1 in",
+                "width": "3.2 in",
+                "depth": "4.8 in",
+                "orderQuantity": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackingListRegistrationEvidenceDocument",
+        "deliveryStatus": "EventMovedOnline",
+        "expectedArrivalFrom": "Thu Jan 01 2037 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "hasDeliveryMethod": "http://purl.org/goodrelations/v1#FederalExpress",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Strosin Group",
+          "streetAddress": "9660 Erica Skyway",
+          "addressLocality": "North Murray",
+          "addressRegion": "Hawaii",
+          "postalCode": "40932-3391",
+          "addressCountry": "Switzerland"
+        },
+        "provider": {
+          "@type": "Corporation",
+          "name": "McKenzie Inc",
+          "leiCode": "23451905930650187656"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Gottlieb, Durgan and Herman",
+          "streetAddress": "109 Elmira Crossing",
+          "addressLocality": "Blicktown",
+          "addressRegion": "Colorado",
+          "postalCode": "25938-9618",
+          "addressCountry": "Guadeloupe"
+        },
+        "partOfOrder": [
+          {
+            "@type": "Order",
+            "orderNumber": "Order#947",
+            "itemShipped": [
+              {
+                "@type": "Product",
+                "manufacturer": "Powlowski, Buckridge and Hettinger",
+                "name": "ACME Laptop 3000",
+                "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 2
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Kling and Sons",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.2 lb",
+                "height": "2.1 in",
+                "width": "3.2 in",
+                "depth": "4.8 in",
+                "orderQuantity": 7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommercePackingListRegistrationEvidenceDocument",
+        "deliveryStatus": "EventCancelled",
+        "expectedArrivalFrom": "Tue Jan 01 2036 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "hasDeliveryMethod": "http://purl.org/goodrelations/v1#FederalExpress",
+        "deliveryAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Weimann - Konopelski",
+          "streetAddress": "317 Fay Fall",
+          "addressLocality": "Bettieton",
+          "addressRegion": "Oregon",
+          "postalCode": "14232-4628",
+          "addressCountry": "Italy"
+        },
+        "provider": {
+          "@type": "Corporation",
+          "name": "Koss and Sons",
+          "leiCode": "23451709379155188799"
+        },
+        "originAddress": {
+          "type": "PostalAddress",
+          "organizationName": "Blanda Group",
+          "streetAddress": "743 Jerad Road",
+          "addressLocality": "North Rosanna",
+          "addressRegion": "Hawaii",
+          "postalCode": "84418",
+          "addressCountry": "Cook Islands"
+        },
+        "partOfOrder": [
+          {
+            "@type": "Order",
+            "orderNumber": "Order#800",
+            "itemShipped": [
+              {
+                "@type": "Product",
+                "manufacturer": "O'Reilly - Pfannerstill",
+                "name": "ACME Bluetooth Computer Keyboard 3801-1",
+                "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+                "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.5 lb",
+                "height": "0.9 in",
+                "width": "16.2 in",
+                "depth": "13.8 in",
+                "orderQuantity": 9
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Rippin - Block",
+                "name": "ACME Bluetooth Computer Mouse 3000-1",
+                "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.2 lb",
+                "height": "2.1 in",
+                "width": "3.2 in",
+                "depth": "4.8 in",
+                "orderQuantity": 4
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "Rowe Group",
+                "name": "ACME Bluetooth Computer Keyboard 3801-1",
+                "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+                "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+                "weight": "0.5 lb",
+                "height": "0.9 in",
+                "width": "16.2 in",
+                "depth": "13.8 in",
+                "orderQuantity": 5
+              },
+              {
+                "@type": "Product",
+                "manufacturer": "White Inc",
+                "name": "ACME Laptop 3000",
+                "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+                "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+                "weight": "3.2 lb",
+                "height": "2.1 in",
+                "width": "16.2 in",
+                "depth": "17.8 in",
+                "orderQuantity": 8
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommercePackingListRegistrationEvidenceDocument.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommercePackingListRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument\"}",
+      "title": "Packing List Registration Evidence Document",
+      "description": "Evidence data for a registered eCommerce Packing List",
+      "type": "object",
+      "required": [
+        "@context",
+        "deliveryStatus",
+        "expectedArrivalFrom",
+        "hasDeliveryMethod",
+        "deliveryAddress",
+        "provider",
+        "originAddress",
+        "partOfOrder"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "@type": {
+          "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+          "title": "@type",
+          "type": "string",
+          "default": "ParcelDelievry"
+        },
+        "deliveryStatus": {
+          "$comment": "{\"term\": \"deliveryStatus\", \"@id\": \"https://schema.org/deliveryStatus\"}",
+          "title": "DeliveryStatus",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "EventScheduled"
+          ]
+        },
+        "expectedArrivalFrom": {
+          "$comment": "{\"term\": \"expectedArrivalFrom\", \"@id\": \"https://schema.org/expectedArrivalFrom\"}",
+          "title": "Earliest Expected arrival date of parcel",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "01-12-2021"
+          ]
+        },
+        "hasDeliveryMethod": {
+          "$comment": "{\"term\": \"hasDeliveryMethod\", \"@id\": \"https://schema.org/hasDeliveryMethod\"}",
+          "title": "Method of Parcel Delivery",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "http://purl.org/goodrelations/v1#FederalExpress"
+          ]
+        },
+        "deliveryAddress": {
+          "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
+          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment",
+          "type": "object",
+          "required": [
+            "type",
+            "organizationName",
+            "streetAddress",
+            "addressLocality",
+            "addressRegion",
+            "postalCode",
+            "addressCountry"
+          ],
+          "properties": {
+            "type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+              "title": "type",
+              "type": "string",
+              "default": "PostalAddress"
+            },
+            "organizationName": {
+              "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
+              "title": "Organization Name",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "ACME Corporation"
+              ]
+            },
+            "streetAddress": {
+              "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+              "title": "Streetaddress",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "20341 Whitworth Institute 405 N. Whitworth"
+              ]
+            },
+            "addressLocality": {
+              "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+              "title": "Addresslocality",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Seattle"
+              ]
+            },
+            "addressRegion": {
+              "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+              "title": "Addressregion",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "WA"
+              ]
+            },
+            "postalCode": {
+              "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+              "title": "Postalcode",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "98052"
+              ]
+            },
+            "addressCountry": {
+              "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+              "title": "Address Country",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "USA"
+              ]
+            }
+          }
+        },
+        "provider": {
+          "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
+          "title": "Provider",
+          "type": "object",
+          "required": [
+            "@type",
+            "name",
+            "leiCode"
+          ],
+          "properties": {
+            "@type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+              "title": "@type",
+              "type": "string",
+              "default": "Corporation"
+            },
+            "name": {
+              "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+              "title": "Name of the Provider",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Provider XYZ"
+              ]
+            },
+            "leiCode": {
+              "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+              "title": "Leicode of the Provider",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "vLei code, e.g. Y87794H0US1R65VBXU25"
+              ]
+            }
+          }
+        },
+        "originAddress": {
+          "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
+          "title": "Address of the Manufacturer/Packer of Parcel",
+          "type": "object",
+          "required": [
+            "type",
+            "organizationName",
+            "streetAddress",
+            "addressLocality",
+            "addressRegion",
+            "postalCode",
+            "addressCountry"
+          ],
+          "properties": {
+            "type": {
+              "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+              "title": "type",
+              "type": "string",
+              "default": "PostalAddress"
+            },
+            "organizationName": {
+              "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
+              "title": "Organization Name",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "ACME Corporation"
+              ]
+            },
+            "streetAddress": {
+              "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+              "title": "Streetaddress",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "20341 Whitworth Institute 405 N. Whitworth"
+              ]
+            },
+            "addressLocality": {
+              "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+              "title": "Addresslocality",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Seattle"
+              ]
+            },
+            "addressRegion": {
+              "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+              "title": "Addressregion",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "WA"
+              ]
+            },
+            "postalCode": {
+              "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+              "title": "Postalcode",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "98052"
+              ]
+            },
+            "addressCountry": {
+              "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+              "title": "Address Country",
+              "type": "string",
+              "default": "",
+              "examples": [
+                "USA"
+              ]
+            }
+          }
+        },
+        "partOfOrder": {
+          "$comment": "{\"term\": \"partOfOrder\", \"@id\": \"https://schema.org/partOfOrder\"}",
+          "title": "Products in Parcel that are Part of one or more Orders",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+            "title": "Item",
+            "type": "object",
+            "required": [
+              "@type",
+              "orderNumber",
+              "itemShipped"
+            ],
+            "properties": {
+              "@type": {
+                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
+                "title": "@type",
+                "type": "string",
+                "default": "Order"
+              },
+              "orderNumber": {
+                "$comment": "{\"term\": \"@orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+                "title": "Ordernumber",
+                "type": "string",
+                "default": "",
+                "examples": [
+                  "123ABC"
+                ]
+              },
+              "itemShipped": {
+                "$comment": "{\"term\": \"itemShipped\", \"@id\": \"https://schema.org/itemShipped\"}",
+                "title": "Products to be shipped",
+                "type": "array",
+                "default": [],
+                "items": {
+                  "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
+                  "title": "Item(s)",
+                  "type": "object",
+                  "required": [
+                    "@type",
+                    "manufacturer",
+                    "name",
+                    "description",
+                    "productID",
+                    "weight",
+                    "height",
+                    "width",
+                    "depth",
+                    "orderQuantity"
+                  ],
+                  "properties": {
+                    "@type": {
+                      "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Product\"}",
+                      "title": "@type",
+                      "type": "string",
+                      "default": "Product"
+                    },
+                    "manufacturer": {
+                      "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
+                      "title": "Manufacturer",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ACME Corp"
+                      ]
+                    },
+                    "name": {
+                      "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                      "title": "Name",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "ACME Laptop 3000"
+                      ]
+                    },
+                    "description": {
+                      "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+                      "title": "Description of product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "Example Product Description"
+                      ]
+                    },
+                    "productID": {
+                      "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+                      "title": "Product ID",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "Product number of registering Legal Entity such as an ISBN (required)"
+                      ]
+                    },
+                    "weight": {
+                      "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+                      "title": "Weight of the product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (kg) (required)"
+                      ]
+                    },
+                    "height": {
+                      "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+                      "title": "Height of the product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (meter) (required)"
+                      ]
+                    },
+                    "width": {
+                      "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+                      "title": "Width of the product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (meter) (required)"
+                      ]
+                    },
+                    "depth": {
+                      "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+                      "title": "Depth of the Product",
+                      "type": "string",
+                      "default": "",
+                      "examples": [
+                        "floating point metric system value plus unit measrure (meter)(required)"
+                      ]
+                    },
+                    "orderQuantity": {
+                      "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
+                      "title": "Qrder Quantity",
+                      "type": "number",
+                      "default": "",
+                      "examples": [
+                        5
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential": {
+    "$id": "https://w3id.org/traceability/schemas/EcommerceProductReceiptRegistrationCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommerceProductReceiptRegistrationCredential",
+      "@id": "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential"
+    },
+    "title": "EcommerceProductReceiptRegistrationCredential",
+    "description": "Ecommerce Product Receipt Registration Credential",
+    "classProperties": {
+      "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential": {
+        "$comment": {
+          "term": "receiptID",
+          "@id": "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential"
+        },
+        "title": "receiptID",
+        "description": "The receipt number issued by a shipper/carrier receiving product to be packaged and shipped"
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "packingListID",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "packingListID",
+        "description": "The packing list VC IDs issues by the seller"
+      },
+      "https://schema.org/orderNumber": {
+        "$comment": {
+          "term": "orderID",
+          "@id": "https://schema.org/orderNumber"
+        },
+        "title": "orderID",
+        "description": "The seller specific Order VC IDs"
+      },
+      "https://schema.org/productID": {
+        "$comment": {
+          "term": "productInOrder",
+          "@id": "https://schema.org/productID"
+        },
+        "title": "productInOrder",
+        "description": "Product VC IDs included in the packing list"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued invoice registration certificate"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceProductReceiptRegistrationCredential",
+        "receiptID": "Receipt#327",
+        "packingListID": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
+        ],
+        "orderID": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
+        ],
+        "productInOrder": [
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Carrier Ecommerce Product Receipt Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceProductReceiptRegistrationCredential",
+        "receiptID": "Receipt#847",
+        "packingListID": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
+        ],
+        "orderID": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
+        ],
+        "productInOrder": [
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Carrier Ecommerce Product Receipt Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceProductReceiptRegistrationCredential",
+        "receiptID": "Receipt#778",
+        "packingListID": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
+        ],
+        "orderID": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
+        ],
+        "productInOrder": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+        ],
+        "certificateName": "ACME Carrier Ecommerce Product Receipt Registration Certificate"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommerceProductReceiptRegistrationCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommerceProductReceiptRegistrationCredential\", \"@id\": \"https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential\"}",
+      "title": "EcommerceProductReceiptRegistrationCredential",
+      "description": "Ecommerce Product Receipt Registration Credential",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "receiptID": {
+          "$comment": "{\"term\": \"receiptID\", \"@id\": \"https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential\"}",
+          "title": "receiptID",
+          "description": "The receipt number issued by a shipper/carrier receiving product to be packaged and shipped",
+          "type": "string"
+        },
+        "packingListID": {
+          "$comment": "{\"term\": \"packingListID\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "packingListID",
+          "description": "The packing list VC IDs issues by the seller",
+          "type": "array"
+        },
+        "orderID": {
+          "$comment": "{\"term\": \"orderID\", \"@id\": \"https://schema.org/orderNumber\"}",
+          "title": "orderID",
+          "description": "The seller specific Order VC IDs",
+          "type": "array"
+        },
+        "productInOrder": {
+          "$comment": "{\"term\": \"productInOrder\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "productInOrder",
+          "description": "Product VC IDs included in the packing list",
+          "type": "array"
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued invoice registration certificate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "receiptID",
+        "packingListID",
+        "orderID",
+        "productInOrder",
+        "certificateName"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#EcommerceProductRegistrationCredential": {
+    "$id": "https://w3id.org/traceability/schemas/EcommerceProductRegistrationCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "EcommerceProductRegistrationCredential",
+      "@id": "https://w3id.org/traceability#EcommerceProductRegistrationCredential"
+    },
+    "title": "EcommerceProductRegistrationCredential",
+    "description": "Ecommerce Product Registration Credential",
+    "classProperties": {
+      "https://schema.org/productID": {
+        "$comment": {
+          "term": "productCode",
+          "@id": "https://schema.org/productID"
+        },
+        "title": "productCode",
+        "description": "Product ID either GTIN or UPC"
+      },
+      "https://schema.org/additionalType": {
+        "$comment": {
+          "term": "productCodeType",
+          "@id": "https://schema.org/additionalType"
+        },
+        "title": "productCodeType",
+        "description": "Product ID Type either GTIN or UPC"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued product registration certificate"
+      }
+    },
+    "examples": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceProductRegistrationCredential",
+        "productCode": 13,
+        "productCodeType": "GTIN",
+        "certificateName": "ACME Ecommerce Product Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceProductRegistrationCredential",
+        "productCode": 1,
+        "productCodeType": "GTIN",
+        "certificateName": "ACME Ecommerce Product Registration Certificate"
+      },
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "EcommerceProductRegistrationCredential",
+        "productCode": 5,
+        "productCodeType": "UPC",
+        "certificateName": "ACME Ecommerce Product Registration Certificate"
+      }
+    ],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/EcommerceProductRegistrationCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"EcommerceProductRegistrationCredential\", \"@id\": \"https://w3id.org/traceability#EcommerceProductRegistrationCredential\"}",
+      "title": "EcommerceProductRegistrationCredential",
+      "description": "Ecommerce Product Registration Credential",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "productCode": {
+          "$comment": "{\"term\": \"productCode\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "productCode",
+          "description": "Product ID either GTIN or UPC",
+          "type": "number"
+        },
+        "productCodeType": {
+          "$comment": "{\"term\": \"productCodeType\", \"@id\": \"https://schema.org/additionalType\"}",
+          "title": "productCodeType",
+          "description": "Product ID Type either GTIN or UPC",
+          "type": "string"
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued product registration certificate",
+          "type": "string"
+        }
+      },
+      "required": [
+        "productCode",
+        "productCodeType",
+        "certificateName"
+      ],
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability#Entity": {
     "$id": "https://w3id.org/traceability/schemas/Entity.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3091,7 +7072,7 @@
               },
               "status": "IN PROGRESS",
               "expiration": {
-                "date": "2022-0-2",
+                "date": "2022-0-0",
                 "reason": "architect granular models"
               },
               "successorEntity": {
@@ -3101,10 +7082,10 @@
               "otherAddresses": []
             },
             "registration": {
-              "initialRegistrationDate": "2020-5-1",
-              "lastUpdateDate": "2020-5-1",
+              "initialRegistrationDate": "2020-11-0",
+              "lastUpdateDate": "2020-11-0",
               "status": "REJECTED",
-              "nextRenewalDate": "2022-0-2",
+              "nextRenewalDate": "2022-0-0",
               "managingLou": "PYSUYBPCRAHDEKICIMXT",
               "corroborationLevel": "PARTIALLY_CORROBORATED",
               "validatedAt": {
@@ -3230,7 +7211,7 @@
               },
               "status": "CONFIRMED",
               "expiration": {
-                "date": "2022-0-3",
+                "date": "2022-0-2",
                 "reason": "seize cross-platform e-commerce"
               },
               "successorEntity": {
@@ -3240,10 +7221,10 @@
               "otherAddresses": []
             },
             "registration": {
-              "initialRegistrationDate": "2020-6-4",
-              "lastUpdateDate": "2020-6-4",
+              "initialRegistrationDate": "2020-6-2",
+              "lastUpdateDate": "2020-6-2",
               "status": "REJECTED",
-              "nextRenewalDate": "2022-0-3",
+              "nextRenewalDate": "2022-0-2",
               "managingLou": "PQDOUUGBGRUNSSQHYRAA",
               "corroborationLevel": "PARTIALLY_CORROBORATED",
               "validatedAt": {
@@ -3369,7 +7350,7 @@
               },
               "status": "REQUESTED",
               "expiration": {
-                "date": "2021-3-5",
+                "date": "2021-3-3",
                 "reason": "facilitate seamless supply-chains"
               },
               "successorEntity": {
@@ -3379,10 +7360,10 @@
               "otherAddresses": []
             },
             "registration": {
-              "initialRegistrationDate": "2020-2-5",
-              "lastUpdateDate": "2020-2-5",
+              "initialRegistrationDate": "2020-3-3",
+              "lastUpdateDate": "2020-3-3",
               "status": "REJECTED",
-              "nextRenewalDate": "2021-3-5",
+              "nextRenewalDate": "2021-3-3",
               "managingLou": "AYQIRXGHDQIRVJODFGNU",
               "corroborationLevel": "PARTIALLY_CORROBORATED",
               "validatedAt": {
@@ -3450,6 +7431,7 @@
       "description": "GLEIF LEI Redord Level 1 Schema",
       "type": "object",
       "required": [
+        "@context",
         "data"
       ],
       "properties": {
@@ -4232,6 +8214,14 @@
         },
         "title": "leiCode",
         "description": "leiCode - An organization identifier that uniquely identifies a legal entity as defined in ISO 17442"
+      },
+      "https://schema.org/name": {
+        "$comment": {
+          "term": "certificateName",
+          "@id": "https://schema.org/name"
+        },
+        "title": "certificateName",
+        "description": "Specific name of issued legal entity certificate"
       }
     },
     "examples": [
@@ -4240,21 +8230,24 @@
           "https://w3id.org/traceability/v1"
         ],
         "type": "LegalEntityIdentifierCredential",
-        "leiCode": "PKPQ9G66CD56V4WDISKI"
+        "leiCode": "PKPQ9G66CD56V4WDISKI",
+        "certificateName": "US Legal Entity Certificate"
       },
       {
         "@context": [
           "https://w3id.org/traceability/v1"
         ],
         "type": "LegalEntityIdentifierCredential",
-        "leiCode": "HD5QGUVEANPBLXZJ4ZOL"
+        "leiCode": "HD5QGUVEANPBLXZJ4ZOL",
+        "certificateName": "US Legal Entity Certificate"
       },
       {
         "@context": [
           "https://w3id.org/traceability/v1"
         ],
         "type": "LegalEntityIdentifierCredential",
-        "leiCode": "AYIWFE5F4LY2GWOT79YV"
+        "leiCode": "ZE9AYIWFE5F4LY2GWOT7",
+        "certificateName": "US Legal Entity Certificate"
       }
     ],
     "schema": {
@@ -4283,10 +8276,17 @@
           "title": "leiCode",
           "description": "leiCode - An organization identifier that uniquely identifies a legal entity as defined in ISO 17442",
           "type": "string"
+        },
+        "certificateName": {
+          "$comment": "{\"term\": \"certificateName\", \"@id\": \"https://schema.org/name\"}",
+          "title": "certificateName",
+          "description": "Specific name of issued legal entity certificate",
+          "type": "string"
         }
       },
       "required": [
-        "leiCode"
+        "leiCode",
+        "certificateName"
       ],
       "additionalProperties": false,
       "examples": []
@@ -5205,15 +9205,15 @@
       "examples": []
     }
   },
-  "https://w3id.org/traceability/Phytosanitary": {
+  "https://w3id.org/traceability#Phytosanitary": {
     "$id": "https://w3id.org/traceability/schemas/Phytosanitary.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$comment": {
       "term": "Phytosanitary",
-      "@id": "https://w3id.org/traceability/Phytosanitary"
+      "@id": "https://w3id.org/traceability#Phytosanitary"
     },
     "title": "Phytosanitary",
-    "description": "Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas unless it seems like the properties are more universal and should be added to this schema.",
+    "description": "Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas, unless it seems like the properties are more universal and should be added to this schema.",
     "classProperties": {
       "https://schema.org/identifier": {
         "$comment": {
@@ -5254,7 +9254,7 @@
           "@id": "https://schema.org/Comment#v2"
         },
         "title": "Additional Declaration",
-        "description": "Addition declaration for the plants being shipped and inspected."
+        "description": "Additional declaration for the plants being shipped and inspected."
       },
       "https://schema.org/validFrom": {
         "$comment": {
@@ -5302,7 +9302,7 @@
           "@id": "https://w3id.org/traceability#disinfectionConcentration"
         },
         "title": "Disinfection Concentration",
-        "description": "Chemical concentration at which it was applied in the disinfection process. More information can be found at the following link: https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/04._Reactions_in_Aqueous_Solution/4.5%3A_Concentration_of_Solutions"
+        "description": "Chemical concentration at which the disinfection chemical was applied in the disinfection process. More information can be found at the following link: https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/04._Reactions_in_Aqueous_Solution/4.5%3A_Concentration_of_Solutions"
       },
       "https://schema.org/DateTime#v2": {
         "$comment": {
@@ -5342,7 +9342,7 @@
           "@id": "https://w3id.org/traceability#AgPackage"
         },
         "title": "Agriculture Package",
-        "description": "Package, crate, or generally container holding an agricultural product or products for inspection."
+        "description": "Package, crate, or other container holding an agricultural product or products for inspection."
       },
       "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities": {
         "$comment": {
@@ -5921,9 +9921,9 @@
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/Phytosanitary.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"Phytosanitary\", \"@id\": \"https://w3id.org/traceability/Phytosanitary\"}",
+      "$comment": "{\"term\": \"Phytosanitary\", \"@id\": \"https://w3id.org/traceability#Phytosanitary\"}",
       "title": "Phytosanitary",
-      "description": "Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas unless it seems like the properties are more universal and should be added to this schema.",
+      "description": "Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas, unless it seems like the properties are more universal and should be added to this schema.",
       "type": "object",
       "properties": {
         "@context": {
@@ -5966,7 +9966,7 @@
         "additionalDeclaration": {
           "$comment": "{\"term\": \"additionalDeclaration\", \"@id\": \"https://schema.org/Comment#v2\"}",
           "title": "Additional Declaration",
-          "description": "Addition declaration for the plants being shipped and inspected.",
+          "description": "Additional declaration for the plants being shipped and inspected.",
           "type": "string"
         },
         "disinfectionDate": {
@@ -6002,7 +10002,7 @@
         "disinfectionConcentration": {
           "$comment": "{\"term\": \"disinfectionConcentration\", \"@id\": \"https://w3id.org/traceability#disinfectionConcentration\"}",
           "title": "Disinfection Concentration",
-          "description": "Chemical concentration at which it was applied in the disinfection process. More information can be found at the following link: https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/04._Reactions_in_Aqueous_Solution/4.5%3A_Concentration_of_Solutions",
+          "description": "Chemical concentration at which the disinfection chemical was applied in the disinfection process. More information can be found at the following link: https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/04._Reactions_in_Aqueous_Solution/4.5%3A_Concentration_of_Solutions",
           "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
         },
         "signatureDate": {
@@ -6032,7 +10032,7 @@
         "agPackage": {
           "$comment": "{\"term\": \"agPackage\", \"@id\": \"https://w3id.org/traceability#AgPackage\"}",
           "title": "Agriculture Package",
-          "description": "Package, crate, or generally container holding an agricultural product or products for inspection.",
+          "description": "Package, crate, or other container holding an agricultural product or products for inspection.",
           "$ref": "https://w3id.org/traceability/schemas/AgPackage.json"
         },
         "applicant": {
@@ -6089,7 +10089,7 @@
           "@id": "https://schema.org/globalLocationNumber"
         },
         "title": "Global Location Number (GLN)",
-        "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln."
+        "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information, see http://www.gs1.org/gln."
       },
       "https://schema.org/GeoCoordinates": {
         "$comment": {
@@ -6197,7 +10197,7 @@
         "globalLocationNumber": {
           "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
           "title": "Global Location Number (GLN)",
-          "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information see http://www.gs1.org/gln.",
+          "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information, see http://www.gs1.org/gln.",
           "type": "string",
           "minLength": 13,
           "maxLength": 13
@@ -6251,7 +10251,7 @@
           "@id": "https://schema.org/addressLocality"
         },
         "title": "Address Locality",
-        "description": "Text specifying the name of the locality, for example a city."
+        "description": "Text specifying the name of the locality; for example, a city."
       },
       "https://schema.org/addressRegion": {
         "$comment": {
@@ -6259,7 +10259,7 @@
           "@id": "https://schema.org/addressRegion"
         },
         "title": "Address Region",
-        "description": "Text specifying a province or state in abbreviated format for example NJ."
+        "description": "Text specifying a province or state in abbreviated format; for example, NJ."
       },
       "https://schema.org/addressCountry": {
         "$comment": {
@@ -6376,13 +10376,13 @@
         "addressLocality": {
           "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
           "title": "Address Locality",
-          "description": "Text specifying the name of the locality, for example a city.",
+          "description": "Text specifying the name of the locality; for example, a city.",
           "type": "string"
         },
         "addressRegion": {
           "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
           "title": "Address Region",
-          "description": "Text specifying a province or state in abbreviated format for example NJ.",
+          "description": "Text specifying a province or state in abbreviated format; for example, NJ.",
           "type": "string"
         },
         "addressCountry": {
@@ -6476,7 +10476,7 @@
           "@id": "https://schema.org/sku"
         },
         "title": "Sku Number",
-        "description": "The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a product or service, or the product to which the offer refers."
+        "description": "The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a product or service, or for the product to which the offer refers."
       }
     },
     "examples": [
@@ -6637,7 +10637,7 @@
         "sku": {
           "$comment": "{\"term\": \"sku\", \"@id\": \"https://schema.org/sku\"}",
           "title": "Sku Number",
-          "description": "The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a product or service, or the product to which the offer refers.",
+          "description": "The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a product or service, or for the product to which the offer refers.",
           "type": "string"
         }
       },
@@ -6824,7 +10824,7 @@
         "mpn": "FBVH3CZR88",
         "gtin": "22590039380663",
         "isAccessoryOrSparePartFor": "n/a",
-        "releaseDate": "2020-1-3",
+        "releaseDate": "2020-1-1",
         "manufacturer": "Ryan LLC",
         "globalLocationNumber": "6191549076233",
         "leiCode": "",
@@ -6852,7 +10852,7 @@
         "mpn": "4DNNA5J0ZN",
         "gtin": "63566610322799",
         "isAccessoryOrSparePartFor": "n/a",
-        "releaseDate": "2020-6-5",
+        "releaseDate": "2020-7-3",
         "manufacturer": "Medhurst - Batz",
         "globalLocationNumber": "4228013456100",
         "leiCode": "",
@@ -6880,7 +10880,7 @@
         "mpn": "PBC1N4H4G2",
         "gtin": "54178631347161",
         "isAccessoryOrSparePartFor": "n/a",
-        "releaseDate": "2020-7-2",
+        "releaseDate": "2020-7-0",
         "manufacturer": "Littel, Schmidt and Harvey",
         "globalLocationNumber": "1298620134359",
         "leiCode": "",
@@ -6986,7 +10986,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "valid GTIN as number or URL per GS1 spec(required)"
+            "valid GTIN as number or URL per GS1 spec (required)"
           ]
         },
         "isAccessoryOrSparePartFor": {
@@ -7004,7 +11004,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "date when product (version) was 1st released (required)"
+            "date when product (version) was first released (required)"
           ]
         },
         "manufacturer": {
@@ -7072,7 +11072,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "Material the product is made from, could specified as 'composits' (required)"
+            "Material the product is made from, could be specified as 'composites' (required)"
           ]
         },
         "weight": {
@@ -7081,7 +11081,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "floating point metric system value plus unit measrure (kg) (required)"
+            "floating point metric system value plus unit measure (kg) (required)"
           ]
         },
         "height": {
@@ -7090,7 +11090,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "floating point metric system value plus unit measrure (meter) (required)"
+            "floating point metric system value plus unit measure (meter) (required)"
           ]
         },
         "width": {
@@ -7099,7 +11099,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "floating point metric system value plus unit measrure (meter) (required)"
+            "floating point metric system value plus unit measure (meter) (required)"
           ]
         },
         "depth": {
@@ -7108,7 +11108,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "floating point metric system value plus unit measrure (meter)(required)"
+            "floating point metric system value plus unit measure (meter) (required)"
           ]
         },
         "url": {
@@ -7126,7 +11126,7 @@
           "type": "string",
           "default": "",
           "examples": [
-            "URI for the resource (e.g., patent) from which this work is derived or from which it is a modification or adaption; could be empty (required)"
+            "URI for the resource, e.g., patent, from which this work is derived or from which it is a modification or adaption; could be empty (required)"
           ]
         },
         "image": {
@@ -7150,7 +11150,7 @@
       "@id": "https://schema.org/qualifications"
     },
     "title": "Qualification",
-    "description": "Required skills, certifications, etc. to perform a job properly.",
+    "description": "Skills, certifications, etc., required to perform a job properly.",
     "classProperties": {
       "https://schema.org/credentialCategory": {
         "$comment": {
@@ -7200,7 +11200,7 @@
       "$schema": "http://json-schema.org/draft-07/schema#",
       "$comment": "{\"term\": \"Qualification\", \"@id\": \"https://schema.org/qualifications\"}",
       "title": "Qualification",
-      "description": "Required skills, certifications, etc. to perform a job properly.",
+      "description": "Skills, certifications, etc., required to perform a job properly.",
       "type": "object",
       "properties": {
         "@context": {
@@ -7434,7 +11434,7 @@
           "@type": "https://schema.org/ItemList"
         },
         "title": "Observation List",
-        "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport"
+        "description": "List of observations as seen and specified in the Inspection Report schema, https://w3id.org/traceability?#InspectionReport"
       }
     },
     "examples": [
@@ -8004,7 +12004,7 @@
         "observation": {
           "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
           "title": "Observation List",
-          "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+          "description": "List of observations as seen and specified in the Inspection Report schema, https://w3id.org/traceability?#InspectionReport",
           "type": "array",
           "items": {
             "$ref": "https://w3id.org/traceability/schemas/Observation.json"
@@ -8021,7 +12021,7 @@
     <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Thursday, February 11, 2021 10:29 AM
+      Tuesday, February 16, 2021 3:32 PM
       </span>
             </p>
   </section>
@@ -8193,6 +12193,7 @@ ${JSON.stringify(
     });
     document.getElementById("vocabulary").innerHTML += vocabularyString;
   </script>
+
 
 
 
