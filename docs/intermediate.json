@@ -1519,6 +1519,131 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability#CrudeOilProduct": {
+    "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "CrudeOilProduct",
+      "@id": "https://w3id.org/traceability#CrudeOilProduct"
+    },
+    "title": "Crude Oil Product",
+    "description": "Tombstone information regarding a crude oil product",
+    "classProperties": {
+      "https://www.gs1.org/voc/Product": {
+        "$comment": {
+          "term": "product",
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "title": "Product",
+        "description": "Product details as outlined in the Product.json schema"
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "UWI",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Unique Well Identifier",
+        "description": "Unique Well Identifier used for individual well identification."
+      },
+      "https://w3id.org/identifier": {
+        "$comment": {
+          "term": "HSCode",
+          "@id": "https://w3id.org/identifier"
+        },
+        "title": "HSCode",
+        "description": "Defines the Harmonized System Code for the Commodity"
+      },
+      "https://www.gs1.org/voc/Place": {
+        "$comment": {
+          "term": "manufactureLocation",
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "title": "Facility",
+        "description": "Information on the manufacture location."
+      },
+      "https://schema.org/DateTime#v2": {
+        "$comment": {
+          "term": "productionDate",
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "title": "Production Date",
+        "description": "Date when the product was created"
+      },
+      "https://w3id.org/traceability#observation": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://w3id.org/traceability#observation"
+        },
+        "title": "Observation List",
+        "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"CrudeOilProduct\", \"@id\": \"https://w3id.org/traceability#CrudeOilProduct\"}",
+      "title": "Crude Oil Product",
+      "description": "Tombstone information regarding a crude oil product",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "product": {
+          "$comment": "{\"term\": \"product\", \"@id\": \"https://www.gs1.org/voc/Product\"}",
+          "title": "Product",
+          "description": "Product details as outlined in the Product.json schema",
+          "$ref": "https://w3id.org/traceability/schemas/Product.json"
+        },
+        "UWI": {
+          "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Unique Well Identifier",
+          "description": "Unique Well Identifier used for individual well identification.",
+          "type": "string"
+        },
+        "HSCode": {
+          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier\"}",
+          "title": "HSCode",
+          "description": "Defines the Harmonized System Code for the Commodity",
+          "type": "string"
+        },
+        "manufactureLocation": {
+          "$comment": "{\"term\": \"manufactureLocation\", \"@id\": \"https://www.gs1.org/voc/Place\"}",
+          "title": "Facility",
+          "description": "Information on the manufacture location.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "productionDate": {
+          "$comment": "{\"term\": \"productionDate\", \"@id\": \"https://schema.org/DateTime#v2\"}",
+          "title": "Production Date",
+          "description": "Date when the product was created",
+          "type": "string"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+          "title": "Observation List",
+          "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential": {
     "$id": "https://w3id.org/traceability/schemas/EcommerceAdditionalProductCodeRegistrationCredential.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -1933,7 +2058,7 @@
           {
             "@type": "Order",
             "description": "New Order For Osvaldo Kirlin",
-            "orderDate": "1-2-2021",
+            "orderDate": "1-1-2021",
             "orderNumber": "Order#432",
             "paymentMethod": "http://purl.org/goodrelations/v1#GoogleCheckout",
             "orderedItem": [
@@ -2038,7 +2163,7 @@
           "telephone": "555-489-3707",
           "email": "Filiberto91@example.org"
         },
-        "paymentDueDate": "11-0-2021",
+        "paymentDueDate": "11-6-2021",
         "totalPaymentDue": {
           "@type": "PriceSpecification",
           "price": 1206.91,
@@ -2143,7 +2268,7 @@
           "telephone": "555-156-5212",
           "email": "Gladys47@example.org"
         },
-        "paymentDueDate": "4-2-2021",
+        "paymentDueDate": "4-1-2021",
         "totalPaymentDue": {
           "@type": "PriceSpecification",
           "price": 155.89000000000001,
@@ -3110,7 +3235,7 @@
           "telephone": "555-683-1811",
           "email": "Daphney_Harber33@example.net"
         },
-        "paymentDueDate": "8-0-2021",
+        "paymentDueDate": "8-6-2021",
         "paymentMethod": "http://purl.org/goodrelations/v1#Cash",
         "orderedItem": [
           {
@@ -3726,7 +3851,7 @@
         ],
         "type": "EcommercePackageRegistrationEvidenceDocument",
         "deliveryStatus": "EventCancelled",
-        "expectedArrivalFrom": "Sat Jan 01 2022 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "expectedArrivalFrom": "Fri Dec 31 2021 19:00:00 GMT-0500 (Eastern Standard Time)",
         "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModePickUp",
         "deliveryAddress": {
           "type": "PostalAddress",
@@ -3791,7 +3916,7 @@
         ],
         "type": "EcommercePackageRegistrationEvidenceDocument",
         "deliveryStatus": "EventScheduled",
-        "expectedArrivalFrom": "Sat Jan 01 2022 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "expectedArrivalFrom": "Fri Dec 31 2021 19:00:00 GMT-0500 (Eastern Standard Time)",
         "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeDirectDownload",
         "deliveryAddress": {
           "type": "PostalAddress",
@@ -3880,7 +4005,7 @@
         ],
         "type": "EcommercePackageRegistrationEvidenceDocument",
         "deliveryStatus": "EventRescheduled",
-        "expectedArrivalFrom": "Sat Jan 01 2022 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "expectedArrivalFrom": "Fri Dec 31 2021 19:00:00 GMT-0500 (Eastern Standard Time)",
         "hasDeliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeMail",
         "deliveryAddress": {
           "type": "PostalAddress",
@@ -4595,7 +4720,7 @@
         ],
         "type": "EcommercePackingListRegistrationEvidenceDocument",
         "deliveryStatus": "EventRescheduled",
-        "expectedArrivalFrom": "Tue Jan 01 2030 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "expectedArrivalFrom": "Mon Dec 31 2029 19:00:00 GMT-0500 (Eastern Standard Time)",
         "hasDeliveryMethod": "http://purl.org/goodrelations/v1#FederalExpress",
         "deliveryAddress": {
           "type": "PostalAddress",
@@ -4671,7 +4796,7 @@
         ],
         "type": "EcommercePackingListRegistrationEvidenceDocument",
         "deliveryStatus": "EventMovedOnline",
-        "expectedArrivalFrom": "Thu Jan 01 2037 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "expectedArrivalFrom": "Wed Dec 31 2036 19:00:00 GMT-0500 (Eastern Standard Time)",
         "hasDeliveryMethod": "http://purl.org/goodrelations/v1#FederalExpress",
         "deliveryAddress": {
           "type": "PostalAddress",
@@ -4735,7 +4860,7 @@
         ],
         "type": "EcommercePackingListRegistrationEvidenceDocument",
         "deliveryStatus": "EventCancelled",
-        "expectedArrivalFrom": "Tue Jan 01 2036 02:00:00 GMT+0200 (Eastern European Standard Time)",
+        "expectedArrivalFrom": "Mon Dec 31 2035 19:00:00 GMT-0500 (Eastern Standard Time)",
         "hasDeliveryMethod": "http://purl.org/goodrelations/v1#FederalExpress",
         "deliveryAddress": {
           "type": "PostalAddress",
@@ -6819,7 +6944,7 @@
               },
               "status": "CONFIRMED",
               "expiration": {
-                "date": "2022-0-2",
+                "date": "2022-0-1",
                 "reason": "seize cross-platform e-commerce"
               },
               "successorEntity": {
@@ -6832,7 +6957,7 @@
               "initialRegistrationDate": "2020-6-2",
               "lastUpdateDate": "2020-6-2",
               "status": "REJECTED",
-              "nextRenewalDate": "2022-0-2",
+              "nextRenewalDate": "2022-0-1",
               "managingLou": "PQDOUUGBGRUNSSQHYRAA",
               "corroborationLevel": "PARTIALLY_CORROBORATED",
               "validatedAt": {
