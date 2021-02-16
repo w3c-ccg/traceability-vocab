@@ -24,6 +24,7 @@ const { getPhytosanitary } = require('./Phytosanitary');
 const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
 const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
 const { getLegalEntityIdentifierCredential } = require('./LegalEntityIdentifierCredential');
+
 const { getEcommerceOrderRegistrationEvidenceDocument } = require('./EcommerceOrderRegistrationEvidenceDocument');
 const { getEcommerceInvoiceRegistrationEvidenceDocument } = require('./EcommerceInvoiceRegistrationEvidenceDocument');
 const { getEcommercePackingListRegistrationEvidenceDoc } = require('./EcommercePackingListRegistrationEvidenceDocument');
@@ -35,8 +36,20 @@ const { getEcommerceProductReceiptRegistrationCredential } = require('./Ecommerc
 const { getEcommerceAddProductCodeRegistrationCredential } = require('./EcommerceAdditionalProductCodeRegistrationCredential');
 const { getEcommercePackageRegistrationEvidenceDoc } = require('./EcommercePackageRegistrationEvidenceDocument');
 const { getEcommercePackageRegistrationCredential } = require('./EcommercePackageRegistrationCredential');
+const { getLinkRole } = require('./LinkRole');
+const { getSteelProduct } = require('./SteelProduct');
+const { getPurchase } = require('./Purchase');
+const { getContactPoint } = require('./ContactPoint');
+const { getInvoice } = require('./Invoice');
+const { getBrand } = require('./Brand');
 
 const generatorConfig = {
+  Brand: getBrand,
+  Invoice: getInvoice,
+  ContactPoint: getContactPoint,
+  Purchase: getPurchase,
+  LinkRole: getLinkRole,
+  SteelProduct: getSteelProduct,
   Place: getPlace,
   PostalAddress: getPostalAddress,
   GeoCoordinates: getGeoCoordinates,
@@ -71,6 +84,7 @@ const generatorConfig = {
   EcommerceInvoiceRegistrationCredential: getEcommerceInvoiceRegistrationCredential,
   EcommercePackingListRegistrationCredential: getEcommercePackingListRegistrationCredential,
   EcommerceProductReceiptRegistrationCredential: getEcommerceProductReceiptRegistrationCredential,
+  // eslint-disable-next-line
   EcommerceAdditionalProductCodeRegistrationCredential: getEcommerceAddProductCodeRegistrationCredential,
   EcommercePackageRegistrationEvidenceDocument: getEcommercePackageRegistrationEvidenceDoc,
   EcommercePackageRegistrationCredential: getEcommercePackageRegistrationCredential,

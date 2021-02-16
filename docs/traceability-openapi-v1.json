@@ -77,6 +77,48 @@
         }
       }
     },
+    "/Brand": {
+      "get": {
+        "description": "Brand",
+        "responses": {
+          "200": {
+            "description": "A list of all Brand objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Brand"
+                  }
+                }
+              }
+            }
+          },
+          "500": "Internal Server error"
+        }
+      }
+    },
+    "/CertifiedMillTestReport": {
+      "get": {
+        "description": "CertifiedMillTestReport",
+        "responses": {
+          "200": {
+            "description": "A list of all CertifiedMillTestReport objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CertifiedMillTestReport"
+                  }
+                }
+              }
+            }
+          },
+          "500": "Internal Server error"
+        }
+      }
+    },
     "/ChemicalProperty": {
       "get": {
         "description": "ChemicalProperty",
@@ -89,6 +131,27 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ChemicalProperty"
+                  }
+                }
+              }
+            }
+          },
+          "500": "Internal Server error"
+        }
+      }
+    },
+    "/ContactPoint": {
+      "get": {
+        "description": "ContactPoint",
+        "responses": {
+          "200": {
+            "description": "A list of all ContactPoint objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContactPoint"
                   }
                 }
               }
@@ -266,27 +329,6 @@
         }
       }
     },
-    "/EcommercePackingListRegistrationEvidenceDocument": {
-      "get": {
-        "description": "EcommercePackingListRegistrationEvidenceDocument",
-        "responses": {
-          "200": {
-            "description": "A list of all EcommercePackingListRegistrationEvidenceDocument objects from the system that the user has access to",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EcommercePackingListRegistrationEvidenceDocument"
-                  }
-                }
-              }
-            }
-          },
-          "500": "Internal Server error"
-        }
-      }
-    },
     "/EcommerceProductReceiptRegistrationCredential": {
       "get": {
         "description": "EcommerceProductReceiptRegistrationCredential",
@@ -434,6 +476,27 @@
         }
       }
     },
+    "/Invoice": {
+      "get": {
+        "description": "Invoice",
+        "responses": {
+          "200": {
+            "description": "A list of all Invoice objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              }
+            }
+          },
+          "500": "Internal Server error"
+        }
+      }
+    },
     "/LEIevidenceDocument": {
       "get": {
         "description": "LEIevidenceDocument",
@@ -467,6 +530,27 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/LegalEntityIdentifierCredential"
+                  }
+                }
+              }
+            }
+          },
+          "500": "Internal Server error"
+        }
+      }
+    },
+    "/LinkRole": {
+      "get": {
+        "description": "LinkRole",
+        "responses": {
+          "200": {
+            "description": "A list of all LinkRole objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LinkRole"
                   }
                 }
               }
@@ -728,6 +812,27 @@
         }
       }
     },
+    "/Purchase": {
+      "get": {
+        "description": "Purchase",
+        "responses": {
+          "200": {
+            "description": "A list of all Purchase objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Purchase"
+                  }
+                }
+              }
+            }
+          },
+          "500": "Internal Server error"
+        }
+      }
+    },
     "/Qualification": {
       "get": {
         "description": "Qualification",
@@ -761,6 +866,27 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/QuantitativeValue"
+                  }
+                }
+              }
+            }
+          },
+          "500": "Internal Server error"
+        }
+      }
+    },
+    "/SteelProduct": {
+      "get": {
+        "description": "SteelProduct",
+        "responses": {
+          "200": {
+            "description": "A list of all SteelProduct objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SteelProduct"
                   }
                 }
               }
@@ -995,6 +1121,97 @@
         },
         "additionalProperties": false
       },
+      "Brand": {
+        "title": "Brand",
+        "description": "Brand information for entities.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "logo": {
+            "$comment": "{\"term\": \"logo\", \"@id\": \"https://schema.org/logo\"}",
+            "title": "Logo",
+            "description": "Logo of the entity.",
+            "type": "string"
+          },
+          "url": {
+            "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+            "title": "URL",
+            "description": "URL of the entity.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertifiedMillTestReport": {
+        "title": "Certified Mill Test Report",
+        "description": "Certifications made by a manufacturer of a metal product.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "issuanceDate": {
+            "type": "string"
+          },
+          "issuer": {
+            "type": "object"
+          },
+          "credentialSubject": {
+            "type": "object"
+          },
+          "proof": {
+            "type": "object"
+          },
+          "relatedLink": {
+            "$comment": "{\"term\": \"relatedLink\", \"@id\": \"https://schema.org/relatedLink\"}",
+            "title": "Related Link",
+            "description": "Links related to this verifiable credential",
+            "type": "array",
+            "items": {
+              "$ref": "https://w3id.org/traceability/schemas/LinkRole.json"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "proof"
+        ]
+      },
       "ChemicalProperty": {
         "title": "Chemical Property",
         "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
@@ -1049,6 +1266,53 @@
             "$comment": "{\"term\": \"inchikey\", \"@id\": \"http://purl.obolibrary.org/obo/chebi/inchikey\"}",
             "title": "InChIKey",
             "description": "The condensed, 27 character <a href=\"https://en.wikipedia.org/wiki/International_Chemical_Identifier#InChIKey\">InChIKey</a> is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ContactPoint": {
+        "title": "Contact Point",
+        "description": "Contact information for entities.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "name": {
+            "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+            "title": "Name",
+            "description": "Name of the entity.",
+            "type": "string"
+          },
+          "address": {
+            "$comment": "{\"term\": \"address\", \"@id\": \"https://schema.org/PostalAddress\"}",
+            "title": "Postal Address",
+            "description": "The postal address for an organization or place.",
+            "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+          },
+          "email": {
+            "$comment": "{\"term\": \"email\", \"@id\": \"https://schema.org/email\"}",
+            "title": "Email Address",
+            "description": "Contact email address.",
+            "type": "string"
+          },
+          "phoneNumber": {
+            "$comment": "{\"term\": \"phoneNumber\", \"@id\": \"https://schema.org/telephone\"}",
+            "title": "Phone Number",
+            "description": "Contact phone number.",
             "type": "string"
           }
         },
@@ -2474,350 +2738,6 @@
         ],
         "additionalProperties": false
       },
-      "EcommercePackingListRegistrationEvidenceDocument": {
-        "title": "Packing List Registration Evidence Document",
-        "description": "Evidence data for a registered eCommerce Packing List",
-        "type": "object",
-        "required": [
-          "@context",
-          "deliveryStatus",
-          "expectedArrivalFrom",
-          "hasDeliveryMethod",
-          "deliveryAddress",
-          "provider",
-          "originAddress",
-          "partOfOrder"
-        ],
-        "properties": {
-          "@context": {
-            "type": "array",
-            "items": {}
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {}
-              }
-            ]
-          },
-          "@type": {
-            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
-            "title": "@type",
-            "type": "string",
-            "default": "ParcelDelievry"
-          },
-          "deliveryStatus": {
-            "$comment": "{\"term\": \"deliveryStatus\", \"@id\": \"https://schema.org/deliveryStatus\"}",
-            "title": "DeliveryStatus",
-            "type": "string",
-            "default": "",
-            "example": "EventScheduled"
-          },
-          "expectedArrivalFrom": {
-            "$comment": "{\"term\": \"expectedArrivalFrom\", \"@id\": \"https://schema.org/expectedArrivalFrom\"}",
-            "title": "Earliest Expected arrival date of parcel",
-            "type": "string",
-            "default": "",
-            "example": "01-12-2021"
-          },
-          "hasDeliveryMethod": {
-            "$comment": "{\"term\": \"hasDeliveryMethod\", \"@id\": \"https://schema.org/hasDeliveryMethod\"}",
-            "title": "Method of Parcel Delivery",
-            "type": "string",
-            "default": "",
-            "example": "http://purl.org/goodrelations/v1#FederalExpress"
-          },
-          "deliveryAddress": {
-            "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
-            "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment",
-            "type": "object",
-            "required": [
-              "type",
-              "organizationName",
-              "streetAddress",
-              "addressLocality",
-              "addressRegion",
-              "postalCode",
-              "addressCountry"
-            ],
-            "properties": {
-              "type": {
-                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
-                "title": "type",
-                "type": "string",
-                "default": "PostalAddress"
-              },
-              "organizationName": {
-                "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
-                "title": "Organization Name",
-                "type": "string",
-                "default": "",
-                "example": "ACME Corporation"
-              },
-              "streetAddress": {
-                "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
-                "title": "Streetaddress",
-                "type": "string",
-                "default": "",
-                "example": "20341 Whitworth Institute 405 N. Whitworth"
-              },
-              "addressLocality": {
-                "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
-                "title": "Addresslocality",
-                "type": "string",
-                "default": "",
-                "example": "Seattle"
-              },
-              "addressRegion": {
-                "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
-                "title": "Addressregion",
-                "type": "string",
-                "default": "",
-                "example": "WA"
-              },
-              "postalCode": {
-                "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
-                "title": "Postalcode",
-                "type": "string",
-                "default": "",
-                "example": "98052"
-              },
-              "addressCountry": {
-                "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
-                "title": "Address Country",
-                "type": "string",
-                "default": "",
-                "example": "USA"
-              }
-            }
-          },
-          "provider": {
-            "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
-            "title": "Provider",
-            "type": "object",
-            "required": [
-              "@type",
-              "name",
-              "leiCode"
-            ],
-            "properties": {
-              "@type": {
-                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
-                "title": "@type",
-                "type": "string",
-                "default": "Corporation"
-              },
-              "name": {
-                "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
-                "title": "Name of the Provider",
-                "type": "string",
-                "default": "",
-                "example": "Provider XYZ"
-              },
-              "leiCode": {
-                "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
-                "title": "Leicode of the Provider",
-                "type": "string",
-                "default": "",
-                "example": "vLei code, e.g. Y87794H0US1R65VBXU25"
-              }
-            }
-          },
-          "originAddress": {
-            "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
-            "title": "Address of the Manufacturer/Packer of Parcel",
-            "type": "object",
-            "required": [
-              "type",
-              "organizationName",
-              "streetAddress",
-              "addressLocality",
-              "addressRegion",
-              "postalCode",
-              "addressCountry"
-            ],
-            "properties": {
-              "type": {
-                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PostalAddress\"}",
-                "title": "type",
-                "type": "string",
-                "default": "PostalAddress"
-              },
-              "organizationName": {
-                "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://schema.org/organizationName\"}",
-                "title": "Organization Name",
-                "type": "string",
-                "default": "",
-                "example": "ACME Corporation"
-              },
-              "streetAddress": {
-                "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
-                "title": "Streetaddress",
-                "type": "string",
-                "default": "",
-                "example": "20341 Whitworth Institute 405 N. Whitworth"
-              },
-              "addressLocality": {
-                "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
-                "title": "Addresslocality",
-                "type": "string",
-                "default": "",
-                "example": "Seattle"
-              },
-              "addressRegion": {
-                "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
-                "title": "Addressregion",
-                "type": "string",
-                "default": "",
-                "example": "WA"
-              },
-              "postalCode": {
-                "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
-                "title": "Postalcode",
-                "type": "string",
-                "default": "",
-                "example": "98052"
-              },
-              "addressCountry": {
-                "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
-                "title": "Address Country",
-                "type": "string",
-                "default": "",
-                "example": "USA"
-              }
-            }
-          },
-          "partOfOrder": {
-            "$comment": "{\"term\": \"partOfOrder\", \"@id\": \"https://schema.org/partOfOrder\"}",
-            "title": "Products in Parcel that are Part of one or more Orders",
-            "type": "array",
-            "default": [],
-            "items": {
-              "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
-              "title": "Item",
-              "type": "object",
-              "required": [
-                "@type",
-                "orderNumber",
-                "itemShipped"
-              ],
-              "properties": {
-                "@type": {
-                  "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
-                  "title": "@type",
-                  "type": "string",
-                  "default": "Order"
-                },
-                "orderNumber": {
-                  "$comment": "{\"term\": \"@orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
-                  "title": "Ordernumber",
-                  "type": "string",
-                  "default": "",
-                  "example": "123ABC"
-                },
-                "itemShipped": {
-                  "$comment": "{\"term\": \"itemShipped\", \"@id\": \"https://schema.org/itemShipped\"}",
-                  "title": "Products to be shipped",
-                  "type": "array",
-                  "default": [],
-                  "items": {
-                    "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/item\"}",
-                    "title": "Item(s)",
-                    "type": "object",
-                    "required": [
-                      "@type",
-                      "manufacturer",
-                      "name",
-                      "description",
-                      "productID",
-                      "weight",
-                      "height",
-                      "width",
-                      "depth",
-                      "orderQuantity"
-                    ],
-                    "properties": {
-                      "@type": {
-                        "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Product\"}",
-                        "title": "@type",
-                        "type": "string",
-                        "default": "Product"
-                      },
-                      "manufacturer": {
-                        "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
-                        "title": "Manufacturer",
-                        "type": "string",
-                        "default": "",
-                        "example": "ACME Corp"
-                      },
-                      "name": {
-                        "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
-                        "title": "Name",
-                        "type": "string",
-                        "default": "",
-                        "example": "ACME Laptop 3000"
-                      },
-                      "description": {
-                        "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
-                        "title": "Description of product",
-                        "type": "string",
-                        "default": "",
-                        "example": "Example Product Description"
-                      },
-                      "productID": {
-                        "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
-                        "title": "Product ID",
-                        "type": "string",
-                        "default": "",
-                        "example": "Product number of registering Legal Entity such as an ISBN (required)"
-                      },
-                      "weight": {
-                        "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
-                        "title": "Weight of the product",
-                        "type": "string",
-                        "default": "",
-                        "example": "floating point metric system value plus unit measrure (kg) (required)"
-                      },
-                      "height": {
-                        "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
-                        "title": "Height of the product",
-                        "type": "string",
-                        "default": "",
-                        "example": "floating point metric system value plus unit measrure (meter) (required)"
-                      },
-                      "width": {
-                        "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
-                        "title": "Width of the product",
-                        "type": "string",
-                        "default": "",
-                        "example": "floating point metric system value plus unit measrure (meter) (required)"
-                      },
-                      "depth": {
-                        "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
-                        "title": "Depth of the Product",
-                        "type": "string",
-                        "default": "",
-                        "example": "floating point metric system value plus unit measrure (meter)(required)"
-                      },
-                      "orderQuantity": {
-                        "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
-                        "title": "Qrder Quantity",
-                        "type": "number",
-                        "default": "",
-                        "example": 5
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "EcommerceProductReceiptRegistrationCredential": {
         "title": "EcommerceProductReceiptRegistrationCredential",
         "description": "Ecommerce Product Receipt Registration Credential",
@@ -2998,6 +2918,12 @@
               }
             ]
           },
+          "comment": {
+            "$comment": "{\"term\": \"comment\", \"@id\": \"https://schema.org/comment\"}",
+            "title": "Comment",
+            "description": "Comments, typically from users.",
+            "type": "string"
+          },
           "observation": {
             "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
             "title": "Observation List",
@@ -3099,12 +3025,40 @@
         },
         "additionalProperties": false
       },
+      "Invoice": {
+        "title": "Invoice",
+        "description": "A statement of the money due for goods or services; a bill.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "identifier": {
+            "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+            "title": "Property Identifier",
+            "description": "Identifiers for a property.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "LEIevidenceDocument": {
         "title": "LEIevidenceDocument",
         "description": "GLEIF LEI Redord Level 1 Schema",
         "type": "object",
         "required": [
-          "@context",
           "data"
         ],
         "properties": {
@@ -3819,6 +3773,41 @@
         ],
         "additionalProperties": false
       },
+      "LinkRole": {
+        "title": "Link Role",
+        "description": "A Role that represents a Web link e.g. as expressed via the 'url' property.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "target": {
+            "$comment": "{\"term\": \"target\", \"@id\": \"https://schema.org/target\", \"@type\": \"https://schema.org/EntryPoint\"}",
+            "title": "Target",
+            "description": "An entry point, within some Web-based protocol.",
+            "type": "string"
+          },
+          "linkRelationship": {
+            "$comment": "{\"term\": \"linkRelationship\", \"@id\": \"https://schema.org/linkRelationship\", \"@type\": \"@value\"}",
+            "title": "Link Relationship",
+            "description": "Indicates the relationship type of a link.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "MeasuredProperty": {
         "title": "Measured Property",
         "description": "A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.",
@@ -3968,10 +3957,22 @@
             "description": "Name of the organization.",
             "type": "string"
           },
+          "url": {
+            "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+            "title": "URL",
+            "description": "URL of the organization.",
+            "type": "string"
+          },
           "description": {
             "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
             "title": "Description",
             "description": "Description of the company.",
+            "type": "string"
+          },
+          "globalLocationNumber": {
+            "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
+            "title": "Global Location Number",
+            "description": "The GS1 GLN of the organization.",
             "type": "string"
           },
           "address": {
@@ -3991,6 +3992,18 @@
             "title": "Phone Number",
             "description": "Organization's contact phone number.",
             "type": "string"
+          },
+          "brand": {
+            "$comment": "{\"term\": \"brand\", \"@id\": \"https://schema.org/Brand\"}",
+            "title": "Brand",
+            "description": "Branding for this organization",
+            "$ref": "https://w3id.org/traceability/schemas/Brand.json"
+          },
+          "contactPoint": {
+            "$comment": "{\"term\": \"contactPoint\", \"@id\": \"https://schema.org/ContactPoint\"}",
+            "title": "Contact Point",
+            "description": "Points of contact for this organization",
+            "$ref": "https://w3id.org/traceability/schemas/ContactPoint.json"
           }
         },
         "additionalProperties": false
@@ -4411,6 +4424,12 @@
             "description": "Description of the shipment.",
             "type": "string"
           },
+          "category": {
+            "$comment": "{\"term\": \"category\", \"@id\": \"https://schema.org/category\"}",
+            "title": "Category",
+            "description": "A category for the item.",
+            "type": "string"
+          },
           "sizeOrAmount": {
             "$comment": "{\"term\": \"sizeOrAmount\", \"@id\": \"https://schema.org/size\"}",
             "title": "Size or Amount",
@@ -4544,7 +4563,7 @@
             "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
             "title": "Global Location Number (GLN)",
             "default": "",
-            "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org",
+            "description": "A Legal Entity Identifier of the manufacturer issued by GLEIF (required), for more information see https://gleif.org",
             "type": "string"
           },
           "name": {
@@ -4634,6 +4653,47 @@
         },
         "additionalProperties": false
       },
+      "Purchase": {
+        "title": "Purchase",
+        "description": "A purchase of a Product",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "customer": {
+            "$comment": "{\"term\": \"customer\", \"@id\": \"https://w3id.org/traceability#Entity?v4\"}",
+            "title": "Customer",
+            "description": "The buying party of a purchase",
+            "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+          },
+          "invoice": {
+            "$comment": "{\"term\": \"invoice\", \"@id\": \"https://w3id.org/traceability#Invoice\"}",
+            "title": "Invoice",
+            "description": "The invoice associated with a purchase",
+            "$ref": "https://w3id.org/traceability/schemas/Invoice.json"
+          },
+          "purchaseOrder": {
+            "$comment": "{\"term\": \"purchaseOrder\", \"@id\": \"https://schema.org/identifier\"}",
+            "title": "Purchase Order",
+            "description": "The purchase order associated with a purchase",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "Qualification": {
         "title": "Qualification",
         "description": "Skills, certifications, etc., required to perform a job properly.",
@@ -4700,6 +4760,77 @@
             "title": "Value",
             "description": "Value or amount.",
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SteelProduct": {
+        "title": "Steel Product",
+        "description": "A finished or unfinisheed manufactured steel product",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "heatNumber": {
+            "$comment": "{\"term\": \"heatNumber\", \"@id\": \"https://schema.org/identifier\"}",
+            "title": "Heat Number",
+            "description": "The only way to trace a steel plate back to its mill sheet is the heat number",
+            "type": "string"
+          },
+          "specification": {
+            "$comment": "{\"term\": \"specification\", \"@id\": \"https://schema.org/identifier?v=1\"}",
+            "title": "Specification",
+            "description": "The specification of the product",
+            "type": "string"
+          },
+          "grade": {
+            "$comment": "{\"term\": \"grade\", \"@id\": \"https://schema.org/Rating\"}",
+            "title": "Grade",
+            "description": "The grade of the product",
+            "type": "string"
+          },
+          "size": {
+            "$comment": "{\"term\": \"size\", \"@id\": \"https://schema.org/size\"}",
+            "title": "Size",
+            "description": "The size of the product",
+            "type": "string"
+          },
+          "originalCountryOfMeltAndPour": {
+            "$comment": "{\"term\": \"originalCountryOfMeltAndPour\", \"@id\": \"https://schema.org/addressCountry\"}",
+            "title": "Original Country Of Melt and Pour",
+            "description": "The country where the product was first melted and poured.",
+            "type": "string"
+          },
+          "inspection": {
+            "$comment": "{\"term\": \"inspection\", \"@id\": \"https://w3id.org/traceability#InspectionReport\"}",
+            "title": "Inspection",
+            "description": "Observations of chemical and mechanical properties of the product",
+            "$ref": "https://w3id.org/traceability/schemas/InspectionReport.json"
+          },
+          "purchase": {
+            "$comment": "{\"term\": \"purchase\", \"@id\": \"https://w3id.org/traceability#Purchase\"}",
+            "title": "Purchase",
+            "description": "Purchase details about a product and its customer",
+            "$ref": "https://w3id.org/traceability/schemas/Purchase.json"
+          },
+          "shipment": {
+            "$comment": "{\"term\": \"shipment\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+            "title": "Parcel Delivery",
+            "description": "Shipment details about a product",
+            "$ref": "https://w3id.org/traceability/schemas/ParcelDelivery.json"
           }
         },
         "additionalProperties": false

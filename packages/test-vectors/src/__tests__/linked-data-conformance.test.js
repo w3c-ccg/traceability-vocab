@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsonldChecker = require('jsonld-checker');
+const credentialsContexts = require('@transmute/credentials-context');
 
 const context = JSON.parse(
   fs.readFileSync(
@@ -14,6 +15,21 @@ const {
 } = require('../help');
 
 const customDocumentLoader = async (url) => {
+  if (credentialsContexts.contexts.has(url)) {
+    return {
+      documentUrl: url,
+      document: credentialsContexts.contexts.get(url),
+    };
+  }
+
+  if (url === 'https://w3id.org/traceability/v1') {
+    return {
+      contextUrl: null,
+      document: context,
+      documentUrl: url,
+    };
+  }
+
   if (url === 'https://w3id.org/traceability/v1') {
     return {
       contextUrl: null,
@@ -48,9 +64,7 @@ Object.values(intermediateJson).forEach((classDefinition) => {
           // Adding some slightly better error handling
           if (resultOk.error.type !== '') {
             // eslint-disable-next-line
-            console.log(classDefinition.title);
-            // eslint-disable-next-line
-            console.log(resultOk.error);
+            console.error(classDefinition.title, resultOk.error, goodExample);
           }
           return expect(resultOk.ok).toBe(true);
         }));
