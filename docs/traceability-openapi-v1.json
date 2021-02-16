@@ -2918,6 +2918,12 @@
               }
             ]
           },
+          "comment": {
+            "$comment": "{\"term\": \"comment\", \"@id\": \"https://schema.org/comment\"}",
+            "title": "Comment",
+            "description": "Comments, typically from users.",
+            "type": "string"
+          },
           "observation": {
             "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
             "title": "Observation List",
@@ -3053,7 +3059,6 @@
         "description": "GLEIF LEI Redord Level 1 Schema",
         "type": "object",
         "required": [
-          "@context",
           "data"
         ],
         "properties": {
@@ -3952,10 +3957,22 @@
             "description": "Name of the organization.",
             "type": "string"
           },
+          "url": {
+            "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+            "title": "URL",
+            "description": "URL of the organization.",
+            "type": "string"
+          },
           "description": {
             "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
             "title": "Description",
             "description": "Description of the company.",
+            "type": "string"
+          },
+          "globalLocationNumber": {
+            "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
+            "title": "Global Location Number",
+            "description": "The GS1 GLN of the organization.",
             "type": "string"
           },
           "address": {
@@ -3975,6 +3992,18 @@
             "title": "Phone Number",
             "description": "Organization's contact phone number.",
             "type": "string"
+          },
+          "brand": {
+            "$comment": "{\"term\": \"brand\", \"@id\": \"https://schema.org/Brand\"}",
+            "title": "Brand",
+            "description": "Branding for this organization",
+            "$ref": "https://w3id.org/traceability/schemas/Brand.json"
+          },
+          "contactPoint": {
+            "$comment": "{\"term\": \"contactPoint\", \"@id\": \"https://schema.org/ContactPoint\"}",
+            "title": "Contact Point",
+            "description": "Points of contact for this organization",
+            "$ref": "https://w3id.org/traceability/schemas/ContactPoint.json"
           }
         },
         "additionalProperties": false
@@ -4395,6 +4424,12 @@
             "description": "Description of the shipment.",
             "type": "string"
           },
+          "category": {
+            "$comment": "{\"term\": \"category\", \"@id\": \"https://schema.org/category\"}",
+            "title": "Category",
+            "description": "A category for the item.",
+            "type": "string"
+          },
           "sizeOrAmount": {
             "$comment": "{\"term\": \"sizeOrAmount\", \"@id\": \"https://schema.org/size\"}",
             "title": "Size or Amount",
@@ -4528,7 +4563,7 @@
             "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
             "title": "Global Location Number (GLN)",
             "default": "",
-            "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org",
+            "description": "A Legal Entity Identifier of the manufacturer issued by GLEIF (required), for more information see https://gleif.org",
             "type": "string"
           },
           "name": {

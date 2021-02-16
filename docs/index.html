@@ -6306,6 +6306,14 @@
     "title": "Inspection Report",
     "description": "Series of observations",
     "classProperties": {
+      "https://schema.org/comment": {
+        "$comment": {
+          "term": "comment",
+          "@id": "https://schema.org/comment"
+        },
+        "title": "Comment",
+        "description": "Comments, typically from users."
+      },
       "https://schema.org/ItemList": {
         "$comment": {
           "term": "observation",
@@ -6653,6 +6661,12 @@
               "type": "array"
             }
           ]
+        },
+        "comment": {
+          "$comment": "{\"term\": \"comment\", \"@id\": \"https://schema.org/comment\"}",
+          "title": "Comment",
+          "description": "Comments, typically from users.",
+          "type": "string"
         },
         "observation": {
           "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
@@ -7738,7 +7752,6 @@
       "description": "GLEIF LEI Redord Level 1 Schema",
       "type": "object",
       "required": [
-        "@context",
         "data"
       ],
       "properties": {
@@ -9089,6 +9102,14 @@
         "title": "Name",
         "description": "Name of the organization."
       },
+      "https://schema.org/url": {
+        "$comment": {
+          "term": "url",
+          "@id": "https://schema.org/url"
+        },
+        "title": "URL",
+        "description": "URL of the organization."
+      },
       "https://schema.org/description": {
         "$comment": {
           "term": "description",
@@ -9096,6 +9117,14 @@
         },
         "title": "Description",
         "description": "Description of the company."
+      },
+      "https://schema.org/globalLocationNumber": {
+        "$comment": {
+          "term": "globalLocationNumber",
+          "@id": "https://schema.org/globalLocationNumber"
+        },
+        "title": "Global Location Number",
+        "description": "The GS1 GLN of the organization."
       },
       "https://schema.org/PostalAddress": {
         "$comment": {
@@ -9120,6 +9149,22 @@
         },
         "title": "Phone Number",
         "description": "Organization's contact phone number."
+      },
+      "https://schema.org/Brand": {
+        "$comment": {
+          "term": "brand",
+          "@id": "https://schema.org/Brand"
+        },
+        "title": "Brand",
+        "description": "Branding for this organization"
+      },
+      "https://schema.org/ContactPoint": {
+        "$comment": {
+          "term": "contactPoint",
+          "@id": "https://schema.org/ContactPoint"
+        },
+        "title": "Contact Point",
+        "description": "Points of contact for this organization"
       }
     },
     "examples": [
@@ -9205,10 +9250,22 @@
           "description": "Name of the organization.",
           "type": "string"
         },
+        "url": {
+          "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+          "title": "URL",
+          "description": "URL of the organization.",
+          "type": "string"
+        },
         "description": {
           "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
           "title": "Description",
           "description": "Description of the company.",
+          "type": "string"
+        },
+        "globalLocationNumber": {
+          "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
+          "title": "Global Location Number",
+          "description": "The GS1 GLN of the organization.",
           "type": "string"
         },
         "address": {
@@ -9228,6 +9285,18 @@
           "title": "Phone Number",
           "description": "Organization's contact phone number.",
           "type": "string"
+        },
+        "brand": {
+          "$comment": "{\"term\": \"brand\", \"@id\": \"https://schema.org/Brand\"}",
+          "title": "Brand",
+          "description": "Branding for this organization",
+          "$ref": "https://w3id.org/traceability/schemas/Brand.json"
+        },
+        "contactPoint": {
+          "$comment": "{\"term\": \"contactPoint\", \"@id\": \"https://schema.org/ContactPoint\"}",
+          "title": "Contact Point",
+          "description": "Points of contact for this organization",
+          "$ref": "https://w3id.org/traceability/schemas/ContactPoint.json"
         }
       },
       "additionalProperties": false,
@@ -9608,12 +9677,12 @@
       "examples": []
     }
   },
-  "https://w3id.org/traceability#Phytosanitary": {
+  "https://w3id.org/traceability/Phytosanitary": {
     "$id": "https://w3id.org/traceability/schemas/Phytosanitary.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$comment": {
       "term": "Phytosanitary",
-      "@id": "https://w3id.org/traceability#Phytosanitary"
+      "@id": "https://w3id.org/traceability/Phytosanitary"
     },
     "title": "Phytosanitary",
     "description": "Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas, unless it seems like the properties are more universal and should be added to this schema.",
@@ -10322,7 +10391,7 @@
     "schema": {
       "$id": "https://w3id.org/traceability/schemas/Phytosanitary.json",
       "$schema": "http://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"Phytosanitary\", \"@id\": \"https://w3id.org/traceability#Phytosanitary\"}",
+      "$comment": "{\"term\": \"Phytosanitary\", \"@id\": \"https://w3id.org/traceability/Phytosanitary\"}",
       "title": "Phytosanitary",
       "description": "Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas, unless it seems like the properties are more universal and should be added to this schema.",
       "type": "object",
@@ -10855,6 +10924,14 @@
         "title": "Description",
         "description": "Description of the shipment."
       },
+      "https://schema.org/category": {
+        "$comment": {
+          "term": "category",
+          "@id": "https://schema.org/category"
+        },
+        "title": "Category",
+        "description": "A category for the item."
+      },
       "https://schema.org/size": {
         "$comment": {
           "term": "sizeOrAmount",
@@ -11031,6 +11108,12 @@
           "description": "Description of the shipment.",
           "type": "string"
         },
+        "category": {
+          "$comment": "{\"term\": \"category\", \"@id\": \"https://schema.org/category\"}",
+          "title": "Category",
+          "description": "A category for the item.",
+          "type": "string"
+        },
         "sizeOrAmount": {
           "$comment": "{\"term\": \"sizeOrAmount\", \"@id\": \"https://schema.org/size\"}",
           "title": "Size or Amount",
@@ -11134,7 +11217,7 @@
           "@id": "https://schema.org/leiCode"
         },
         "title": "Global Location Number (GLN)",
-        "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org"
+        "description": "A Legal Entity Identifier of the manufacturer issued by GLEIF (required), for more information see https://gleif.org"
       },
       "https://schema.org/name": {
         "$comment": {
@@ -11436,7 +11519,7 @@
           "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
           "title": "Global Location Number (GLN)",
           "default": "",
-          "description": "A Legal Entity Identifier of the manufacturer issued bei GLEIF (required), for more information see https://gleif.org",
+          "description": "A Legal Entity Identifier of the manufacturer issued by GLEIF (required), for more information see https://gleif.org",
           "type": "string"
         },
         "name": {
@@ -13061,7 +13144,7 @@
     <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Tuesday, February 16, 2021 11:30 AM
+      Tuesday, February 16, 2021 11:41 AM
       </span>
             </p>
   </section>
