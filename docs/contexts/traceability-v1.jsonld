@@ -94,6 +94,25 @@
         }
       }
     },
+    "Brand": {
+      "@id": "https://schema.org/Brand",
+      "@context": {
+        "logo": {
+          "@id": "https://schema.org/logo"
+        },
+        "url": {
+          "@id": "https://schema.org/url"
+        }
+      }
+    },
+    "CertifiedMillTestReport": {
+      "@id": "https://w3id.org/traceability#CertifiedMillTestReport",
+      "@context": {
+        "relatedLink": {
+          "@id": "https://schema.org/relatedLink"
+        }
+      }
+    },
     "ChemicalProperty": {
       "@id": "https://w3id.org/traceability#ChemicalProperty",
       "@context": {
@@ -114,6 +133,23 @@
         },
         "inchikey": {
           "@id": "http://purl.obolibrary.org/obo/chebi/inchikey"
+        }
+      }
+    },
+    "ContactPoint": {
+      "@id": "https://schema.org/ContactPoint",
+      "@context": {
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "address": {
+          "@id": "https://schema.org/PostalAddress"
+        },
+        "email": {
+          "@id": "https://schema.org/email"
+        },
+        "phoneNumber": {
+          "@id": "https://schema.org/telephone"
         }
       }
     },
@@ -421,6 +457,14 @@
         }
       }
     },
+    "Invoice": {
+      "@id": "https://schema.org/Invoice",
+      "@context": {
+        "identifier": {
+          "@id": "https://schema.org/identifier"
+        }
+      }
+    },
     "LEIevidenceDocument": {
       "@id": "https://w3id.org/traceability#LEIevidenceDocument",
       "@context": {
@@ -437,6 +481,17 @@
         },
         "certificateName": {
           "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "LinkRole": {
+      "@id": "https://schema.org/LinkRole",
+      "@context": {
+        "target": {
+          "@id": "https://schema.org/target"
+        },
+        "linkRelationship": {
+          "@id": "https://schema.org/linkRelationship"
         }
       }
     },
@@ -748,6 +803,20 @@
         }
       }
     },
+    "Purchase": {
+      "@id": "https://w3id.org/traceability#Purchase",
+      "@context": {
+        "customer": {
+          "@id": "https://w3id.org/traceability#Entity?v4"
+        },
+        "invoice": {
+          "@id": "https://w3id.org/traceability#Invoice"
+        },
+        "purchaseOrder": {
+          "@id": "https://schema.org/identifier"
+        }
+      }
+    },
     "Qualification": {
       "@id": "https://schema.org/qualifications",
       "@context": {
@@ -767,6 +836,35 @@
         },
         "value": {
           "@id": "https://schema.org/value"
+        }
+      }
+    },
+    "SteelProduct": {
+      "@id": "https://w3id.org/traceability#SteelProduct",
+      "@context": {
+        "heatNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "specification": {
+          "@id": "https://schema.org/identifier?v=1"
+        },
+        "grade": {
+          "@id": "https://schema.org/Rating"
+        },
+        "size": {
+          "@id": "https://schema.org/size"
+        },
+        "originalCountryOfMeltAndPour": {
+          "@id": "https://schema.org/addressCountry"
+        },
+        "inspection": {
+          "@id": "https://w3id.org/traceability#InspectionReport"
+        },
+        "purchase": {
+          "@id": "https://w3id.org/traceability#Purchase"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
         }
       }
     },
