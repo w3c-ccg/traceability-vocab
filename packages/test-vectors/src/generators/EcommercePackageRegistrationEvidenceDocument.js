@@ -76,7 +76,7 @@ const getEcommercePackageRegistrationEvidenceDoc = () => {
         '@context': ['https://w3id.org/traceability/v1'],
         "type": "EcommercePackageRegistrationEvidenceDocument",
         "deliveryStatus": deliveryStatus,
-        "expectedArrivalFrom": futureDate,
+        "expectedArrivalFrom": `${futureDate}`,
         "hasDeliveryMethod": deliveryMethod,
         "deliveryAddress": deliveryaddress,
         "provider": provider,

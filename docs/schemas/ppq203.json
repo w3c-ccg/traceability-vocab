@@ -1,7 +1,7 @@
 {
     "$id": "https://w3id.org/traceability/schemas/ppq203.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$comment": "{\"term\": \"ppq203\", \"@id\": \"https://w3id.org/traceability/ppq203\"}",
+    "$comment": "{\"term\": \"ppq203\", \"@id\": \"https://w3id.org/traceability#ppq203\"}",
     "title": "PPQ 203 Agricultural Foreign Site Inspection",
     "description": "United States Department of Agriculture Foreign Site Certificate of Inspection and/or Treatment.",
     "type": "object",
@@ -20,40 +20,79 @@
             ]
         },
         "certificateNumber": {
-            "$comment": "{\"term\": \"certificateNumber\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#certificateNumber\", \"@type\": \"https://schema.org/identifier\"}",
+            "$comment": "{\"term\": \"certificateNumber\", \"@id\": \"https://w3id.org/traceability#certificateNumber\", \"@type\": \"https://schema.org/identifier\"}",
             "title": "Certificate Number",
             "description": "ID number of the certificate",
             "type": "string"
         },
         "foreignPortExport": {
-            "$comment": "{\"term\": \"foreignPortExport\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport\", \"@type\": \"https://w3id.org/traceability/schemas/Place.json\"}",
+            "$comment": "{\"term\": \"foreignPortExport\", \"@id\": \"https://w3id.org/traceability#foreignPortExport\", \"@type\": \"https://w3id.org/traceability#Place\"}",
             "title": "Foreign Port of Export",
             "description": "Foreign port which the shipment passed through as an export to the US",
             "$ref": "https://w3id.org/traceability/schemas/Place.json"
         },
         "carrierId": {
-            "$comment": "{\"term\": \"carrierId\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#carrierId\", \"@type\": \"https://schema.org/identifier\"}",
+            "$comment": "{\"term\": \"carrierId\", \"@id\": \"https://w3id.org/traceability#carrierId\", \"@type\": \"https://schema.org/identifier\"}",
             "title": "Carrier ID",
             "description": "Identifier of the carrier.",
             "type": "string"
         },
         "portOfEntry": {
-            "$comment": "{\"term\": \"portOfEntry\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#portOfEntry\", \"@type\": \"https://w3id.org/traceability/schemas/Place.json\"}",
+            "$comment": "{\"term\": \"portOfEntry\", \"@id\": \"https://w3id.org/traceability#portOfEntry\", \"@type\": \"https://w3id.org/traceability#Place\"}",
             "title": "Port of Entry",
             "description": "US port through which the imports passed.",
             "$ref": "https://w3id.org/traceability/schemas/Place.json"
         },
         "signatureDate": {
-            "$comment": "{\"term\": \"signatureDate\", \"@id\": \"https://w3id.org/traceability/schemas/ppq203.json#signatureDate\", \"@type\": \"https://w3id.org/traceability/schemas/DateTime.json\"}",
+            "$comment": "{\"term\": \"signatureDate\", \"@id\": \"https://w3id.org/traceability#signatureDate\", \"@type\": \"https://w3id.org/traceability#DateTime\"}",
             "title": "signatureDate",
             "description": "Date when the inspection was signed by the inspection officer.",
             "type": "string"
         },
-        "AgInspectionReport": {
-            "$comment": "{\"term\": \"AgInspectionReport\", \"@id\": \"https://w3id.org/traceability/schemas/AgInspectionReport\"}",
-            "title": "Agriculture Inspection Report",
-            "description": "Template for agriculture inspection reports.",
-            "$ref": "https://w3id.org/traceability/schemas/AgInspectionReport.json"
+        "facility": {
+            "$comment": "{\"term\": \"facility\", \"@id\": \"https://www.gs1.org/voc/Place\"}",
+            "title": "Facility",
+            "description": "Information on the inspection facility.",
+            "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "inspector": {
+            "$comment": "{\"term\": \"inspector\", \"@id\": \"https://w3id.org/traceability?v2#Inspector\"}",
+            "title": "Inspector",
+            "description": "Inspector performing the Agriculture Inspection.  The following link provides further insight: https://www.lawinsider.com/dictionary/food-inspector",
+            "$ref": "https://w3id.org/traceability/schemas/Inspector.json"
+        },
+        "shipment": {
+            "$comment": "{\"term\": \"shipment\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+            "title": "Shipment",
+            "description": "Details for a shipment of goods.",
+            "$ref": "https://w3id.org/traceability/schemas/ParcelDelivery.json"
+        },
+        "applicant": {
+            "$comment": "{\"term\": \"applicant\", \"@id\": \"https://w3id.org/traceability#dfn-entities\"}",
+            "title": "Applicant",
+            "description": "Entity that is applying for the inspection.",
+            "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+        },
+        "inspectionDate": {
+            "$comment": "{\"term\": \"inspectionDate\", \"@id\": \"https://schema.org/DateTime\"}",
+            "title": "Inspection Date",
+            "description": "Date of the completed inspection.",
+            "type": "string"
+        },
+        "inspectionType": {
+            "$comment": "{\"term\": \"inspectionType\", \"@id\": \"https://www.schema.org/value\"}",
+            "title": "Inspection Type",
+            "description": "Type of Inspection.",
+            "type": "string"
+        },
+        "observation": {
+            "$comment": "{\"term\": \"observation\", \"@id\": \"https://schema.org/ItemList\", \"@type\": \"https://schema.org/ItemList\"}",
+            "title": "Observation List",
+            "description": "List of observations as seen and specified in the Inspection Report schema, https://w3id.org/traceability?#InspectionReport",
+            "type": "array",
+            "items": {
+                "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+            }
         }
     },
     "additionalProperties": false,

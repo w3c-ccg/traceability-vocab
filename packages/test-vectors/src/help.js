@@ -142,13 +142,16 @@ const classDefinitionToFixtureJson = (classDefinition) => {
   const relativePathToFixture = classDefinition.$id
     .split('https://w3id.org/traceability/schemas/')
     .pop();
+
+  const fixtureDataPath = path.resolve(
+    __dirname,
+    '../../../docs/test-vectors/',
+    relativePathToFixture,
+  );
+
   const fixture = fs
     .readFileSync(
-      path.resolve(
-        __dirname,
-        '../../../docs/test-vectors/',
-        relativePathToFixture,
-      ),
+      fixtureDataPath,
     )
     .toString();
   return JSON.parse(fixture);
