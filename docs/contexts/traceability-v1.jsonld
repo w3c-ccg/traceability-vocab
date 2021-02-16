@@ -17,19 +17,19 @@
     "id": "@id",
     "type": "@type",
     "AgInspectionReport": {
-      "@id": "https://w3id.org/traceability/AgInspectionReport",
+      "@id": "https://w3id.org/traceability#AgInspectionReport",
       "@context": {
         "facility": {
           "@id": "https://www.gs1.org/voc/Place"
         },
         "inspector": {
-          "@id": "https://www.lawinsider.com/dictionary/food-inspector"
+          "@id": "https://w3id.org/traceability?v1#Inspector"
         },
         "shipment": {
           "@id": "https://schema.org/ParcelDelivery"
         },
         "applicant": {
-          "@id": "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities"
+          "@id": "https://w3id.org/traceability#dfn-entities"
         },
         "inspectionDate": {
           "@id": "https://schema.org/DateTime"
@@ -38,24 +38,24 @@
           "@id": "https://www.schema.org/value"
         },
         "observation": {
-          "@id": "https://schema.org/ItemList"
+          "@id": "https://w3id.org/traceability#observation"
         }
       }
     },
     "AgPackage": {
-      "@id": "http://www.fao.org/3/x5016e/X5016E04.htm",
+      "@id": "https://w3id.org/traceability#grade",
       "@context": {
         "packageName": {
           "@id": "https://schema.org/name"
         },
         "grade": {
-          "@id": "https://www.ams.usda.gov/grades-standards"
+          "@id": "https://w3id.org/traceability#grade"
         },
         "responsibleParty": {
-          "@id": "https://schema.org/Entity"
+          "@id": "https://w3id.org/traceability#responsibleParty"
         },
         "voicePickCode": {
-          "@id": "https://www.produceinventory.com/files/newsroom/Voice-Pick-Code.pdf"
+          "@id": "https://w3id.org/traceability#voicePickCode"
         },
         "date": {
           "@id": "https://schema.org/DateTime"
@@ -64,7 +64,7 @@
           "@id": "https://schema.org/url"
         },
         "labelImageHash": {
-          "@id": "https://cybersecurityglossary.com/hashing"
+          "@id": "https://w3id.org/traceability#labelImageHash"
         },
         "agProduct": {
           "@id": "https://schema.org/ItemList"
@@ -72,13 +72,13 @@
       }
     },
     "AgProduct": {
-      "@id": "https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf",
+      "@id": "https://w3id.org/traceability#AgProduct",
       "@context": {
         "upc": {
           "@id": "https://www.gs1.org/standards/barcodes/ean-upc"
         },
         "plu": {
-          "@id": "https://www.pma.com/content/articles/2014/05/plu-codes"
+          "@id": "https://w3id.org/traceability#plu"
         },
         "gtin": {
           "@id": "https://www.gs1.org/voc/gtin"
@@ -90,12 +90,31 @@
           "@id": "https://schema.org/url"
         },
         "labelImageHash": {
-          "@id": "https://cybersecurityglossary.com/hashing"
+          "@id": "https://w3id.org/traceability#labelImageHash"
+        }
+      }
+    },
+    "Brand": {
+      "@id": "https://schema.org/Brand",
+      "@context": {
+        "logo": {
+          "@id": "https://schema.org/logo"
+        },
+        "url": {
+          "@id": "https://schema.org/url"
+        }
+      }
+    },
+    "CertifiedMillTestReport": {
+      "@id": "https://w3id.org/traceability#CertifiedMillTestReport",
+      "@context": {
+        "relatedLink": {
+          "@id": "https://schema.org/relatedLink"
         }
       }
     },
     "ChemicalProperty": {
-      "@id": "https://w3id.org/traceability/ChemicalProperty",
+      "@id": "https://w3id.org/traceability#ChemicalProperty",
       "@context": {
         "identifier": {
           "@id": "https://schema.org/identifier"
@@ -117,14 +136,20 @@
         }
       }
     },
-    "Credential": {
-      "@id": "https://w3id.org/traceability/Credential",
+    "ContactPoint": {
+      "@id": "https://schema.org/ContactPoint",
       "@context": {
-        "credentialCategory": {
-          "@id": "https://schema.org/credentialCategory"
+        "name": {
+          "@id": "https://schema.org/name"
         },
-        "credentialValue": {
-          "@id": "https://schema.org/hasCredential"
+        "address": {
+          "@id": "https://schema.org/PostalAddress"
+        },
+        "email": {
+          "@id": "https://schema.org/email"
+        },
+        "phoneNumber": {
+          "@id": "https://schema.org/telephone"
         }
       }
     },
@@ -379,7 +404,7 @@
       }
     },
     "Entity": {
-      "@id": "https://w3id.org/traceability/#dfn-entities",
+      "@id": "https://w3id.org/traceability#Entity",
       "@context": {}
     },
     "GeoCoordinates": {
@@ -394,32 +419,35 @@
       }
     },
     "InspectionReport": {
-      "@id": "https://w3id.org/traceability/InspectionReport",
+      "@id": "https://w3id.org/traceability#InspectionReport",
       "@context": {
+        "comment": {
+          "@id": "https://schema.org/comment"
+        },
         "observation": {
           "@id": "https://schema.org/ItemList"
         }
       }
     },
     "Inspector": {
-      "@id": "https://w3id.org/traceability/Inspector",
+      "@id": "https://w3id.org/traceability#Inspector",
       "@context": {
         "person": {
           "@id": "https://schema.org/Person.json"
         },
-        "credential": {
-          "@id": "https://schema.org/ItemList"
+        "qualification": {
+          "@id": "https://w3id.org/traceability#qualification"
         }
       }
     },
     "IntentToSell": {
-      "@id": "https://w3id.org/traceability/schemas/IntentToSell",
+      "@id": "https://w3id.org/traceability#IntentToSell",
       "@context": {
         "seller": {
-          "@id": "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities?v=1"
+          "@id": "https://w3id.org/traceability?1#Entity"
         },
         "purchaser": {
-          "@id": "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities?v=2"
+          "@id": "https://w3id.org/traceability?2#Entity"
         },
         "product": {
           "@id": "https://www.gs1.org/voc/Product"
@@ -429,6 +457,22 @@
         },
         "sellByDate": {
           "@id": "https://schema.org/DateTime?v=2"
+        }
+      }
+    },
+    "Invoice": {
+      "@id": "https://schema.org/Invoice",
+      "@context": {
+        "identifier": {
+          "@id": "https://schema.org/identifier"
+        }
+      }
+    },
+    "LEIevidenceDocument": {
+      "@id": "https://w3id.org/traceability#LEIevidenceDocument",
+      "@context": {
+        "data": {
+          "@id": "https://w3id.org/traceability#LEIevidenceDocument#data"
         }
       }
     },
@@ -443,16 +487,19 @@
         }
       }
     },
-    "LEIevidenceDocument": {
-      "@id": "https://w3id.org/traceability#LEIevidenceDocument",
+    "LinkRole": {
+      "@id": "https://schema.org/LinkRole",
       "@context": {
-        "data": {
-          "@id": "https://w3id.org/traceability/LEIevidenceDocument#data"
+        "target": {
+          "@id": "https://schema.org/target"
+        },
+        "linkRelationship": {
+          "@id": "https://schema.org/linkRelationship"
         }
       }
     },
     "MeasuredProperty": {
-      "@id": "https://w3id.org/traceability/MeasuredProperty",
+      "@id": "https://w3id.org/traceability#MeasuredProperty",
       "@context": {}
     },
     "MeasuredValue": {
@@ -467,7 +514,7 @@
       }
     },
     "MechanicalProperty": {
-      "@id": "https://w3id.org/traceability/MechanicalProperty",
+      "@id": "https://w3id.org/traceability#MechanicalProperty",
       "@context": {
         "identifier": {
           "@id": "https://schema.org/identifier"
@@ -481,13 +528,13 @@
       }
     },
     "Observation": {
-      "@id": "https://w3id.org/traceability/Observation",
+      "@id": "https://w3id.org/traceability#Observation",
       "@context": {
         "property": {
           "@id": "https://schema.org/measuredProperty"
         },
         "measurement": {
-          "@id": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+          "@id": "https://w3id.org/traceability#MeasuredValue"
         }
       }
     },
@@ -497,8 +544,14 @@
         "name": {
           "@id": "https://schema.org/name"
         },
+        "url": {
+          "@id": "https://schema.org/url"
+        },
         "description": {
           "@id": "https://schema.org/description"
+        },
+        "globalLocationNumber": {
+          "@id": "https://schema.org/globalLocationNumber"
         },
         "address": {
           "@id": "https://schema.org/PostalAddress"
@@ -508,6 +561,12 @@
         },
         "phoneNumber": {
           "@id": "https://schema.org/telephone"
+        },
+        "brand": {
+          "@id": "https://schema.org/Brand"
+        },
+        "contactPoint": {
+          "@id": "https://schema.org/ContactPoint"
         }
       }
     },
@@ -520,11 +579,11 @@
         "originAddress": {
           "@id": "https://schema.org/originAddress"
         },
+        "deliveryMethod": {
+          "@id": "https://schema.org/DeliveryMethod"
+        },
         "trackingNumber": {
           "@id": "https://schema.org/trackingNumber"
-        },
-        "products": {
-          "@id": "https://schema.org/ItemList"
         }
       }
     },
@@ -548,6 +607,74 @@
         },
         "jobTitle": {
           "@id": "https://schema.org/jobTitle"
+        }
+      }
+    },
+    "Phytosanitary": {
+      "@id": "https://w3id.org/traceability/Phytosanitary",
+      "@context": {
+        "certificateNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "plantOrg": {
+          "@id": "https://www.gs1.org/voc/Organization"
+        },
+        "distinguishingMarks": {
+          "@id": "https://www.gs1.org/voc/variantDescription"
+        },
+        "portOfEntry": {
+          "@id": "https://w3id.org/traceability#portOfEntry"
+        },
+        "additionalDeclaration": {
+          "@id": "https://schema.org/Comment#v2"
+        },
+        "disinfectionDate": {
+          "@id": "https://schema.org/validFrom"
+        },
+        "disinfectionTreatment": {
+          "@id": "https://w3id.org/traceability#disinfectionTreatment"
+        },
+        "disinfectionChemical": {
+          "@id": "https://schema.org/activeIngredient"
+        },
+        "disinfectionDuration": {
+          "@id": "https://schema.org/duration"
+        },
+        "disinfectionTemperature": {
+          "@id": "https://schema.org/MeasuredValue"
+        },
+        "disinfectionConcentration": {
+          "@id": "https://w3id.org/traceability#disinfectionConcentration"
+        },
+        "signatureDate": {
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "facility": {
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "inspector": {
+          "@id": "https://w3id.org/traceability?v3#Inspector"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "agPackage": {
+          "@id": "https://w3id.org/traceability#AgPackage"
+        },
+        "applicant": {
+          "@id": "https://w3c-ccg.github.io/traceability-vocab/#dfn-entities"
+        },
+        "inspectionDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "inspectionType": {
+          "@id": "https://www.schema.org/value"
+        },
+        "notes": {
+          "@id": "https://schema.org/Comment"
+        },
+        "observation": {
+          "@id": "https://schema.org/ItemList"
         }
       }
     },
@@ -597,29 +724,6 @@
         }
       }
     },
-    "ppq203": {
-      "@id": "https://w3id.org/traceability/ppq203",
-      "@context": {
-        "certificateNumber": {
-          "@id": "https://w3id.org/traceability/schemas/ppq203.json#certificateNumber"
-        },
-        "foreignPortExport": {
-          "@id": "https://w3id.org/traceability/schemas/ppq203.json#foreignPortExport"
-        },
-        "carrierId": {
-          "@id": "https://w3id.org/traceability/schemas/ppq203.json#carrierId"
-        },
-        "portOfEntry": {
-          "@id": "https://w3id.org/traceability/schemas/ppq203.json#portOfEntry"
-        },
-        "signatureDate": {
-          "@id": "https://w3id.org/traceability/schemas/ppq203.json#signatureDate"
-        },
-        "AgInspectionReport": {
-          "@id": "https://w3id.org/traceability/schemas/AgInspectionReport"
-        }
-      }
-    },
     "Product": {
       "@id": "https://schema.org/Product",
       "@context": {
@@ -631,6 +735,9 @@
         },
         "description": {
           "@id": "https://schema.org/description"
+        },
+        "category": {
+          "@id": "https://schema.org/category"
         },
         "sizeOrAmount": {
           "@id": "https://schema.org/size"
@@ -714,6 +821,31 @@
         }
       }
     },
+    "Purchase": {
+      "@id": "https://w3id.org/traceability#Purchase",
+      "@context": {
+        "customer": {
+          "@id": "https://w3id.org/traceability#Entity?v4"
+        },
+        "invoice": {
+          "@id": "https://w3id.org/traceability#Invoice"
+        },
+        "purchaseOrder": {
+          "@id": "https://schema.org/identifier"
+        }
+      }
+    },
+    "Qualification": {
+      "@id": "https://schema.org/qualifications",
+      "@context": {
+        "qualificationCategory": {
+          "@id": "https://schema.org/credentialCategory"
+        },
+        "qualificationValue": {
+          "@id": "https://schema.org/hasCredential"
+        }
+      }
+    },
     "QuantitativeValue": {
       "@id": "https://schema.org/QuantitativeValue",
       "@context": {
@@ -722,6 +854,76 @@
         },
         "value": {
           "@id": "https://schema.org/value"
+        }
+      }
+    },
+    "SteelProduct": {
+      "@id": "https://w3id.org/traceability#SteelProduct",
+      "@context": {
+        "heatNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "specification": {
+          "@id": "https://schema.org/identifier?v=1"
+        },
+        "grade": {
+          "@id": "https://schema.org/Rating"
+        },
+        "size": {
+          "@id": "https://schema.org/size"
+        },
+        "originalCountryOfMeltAndPour": {
+          "@id": "https://schema.org/addressCountry"
+        },
+        "inspection": {
+          "@id": "https://w3id.org/traceability#InspectionReport"
+        },
+        "purchase": {
+          "@id": "https://w3id.org/traceability#Purchase"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        }
+      }
+    },
+    "ppq203": {
+      "@id": "https://w3id.org/traceability#ppq203",
+      "@context": {
+        "certificateNumber": {
+          "@id": "https://w3id.org/traceability#certificateNumber"
+        },
+        "foreignPortExport": {
+          "@id": "https://w3id.org/traceability#foreignPortExport"
+        },
+        "carrierId": {
+          "@id": "https://w3id.org/traceability#carrierId"
+        },
+        "portOfEntry": {
+          "@id": "https://w3id.org/traceability#portOfEntry"
+        },
+        "signatureDate": {
+          "@id": "https://w3id.org/traceability#signatureDate"
+        },
+        "facility": {
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "inspector": {
+          "@id": "https://w3id.org/traceability?v2#Inspector"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "applicant": {
+          "@id": "https://w3id.org/traceability#dfn-entities"
+        },
+        "inspectionDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "inspectionType": {
+          "@id": "https://www.schema.org/value"
+        },
+        "observation": {
+          "@id": "https://schema.org/ItemList"
         }
       }
     }

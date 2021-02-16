@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const jsonldChecker = require('jsonld-checker');
+const credentialsContexts = require('@transmute/credentials-context');
 
 const context = JSON.parse(
   fs.readFileSync(
@@ -12,9 +13,23 @@ const context = JSON.parse(
 const {
   classDefinitionToFixtureJson,
 } = require('../help');
-//const { type } = require('os');
 
 const customDocumentLoader = async (url) => {
+  if (credentialsContexts.contexts.has(url)) {
+    return {
+      documentUrl: url,
+      document: credentialsContexts.contexts.get(url),
+    };
+  }
+
+  if (url === 'https://w3id.org/traceability/v1') {
+    return {
+      contextUrl: null,
+      document: context,
+      documentUrl: url,
+    };
+  }
+
   if (url === 'https://w3id.org/traceability/v1') {
     return {
       contextUrl: null,
@@ -38,29 +53,24 @@ const intermediateJson = JSON.parse(
 Object.values(intermediateJson).forEach((classDefinition) => {
   if (classDefinition.$id) {
     it(classDefinition.title, async () => {
-      //if we're running the build, this process won't find the test-vector   
-      //that has yet to be built. So we'll save this test for the actual testing. 
-      //This isn't the best way to do it by any means, but it works and can be cleaned up later.
+      // if we're running the build, this process won't find the test-vector
+      // that has yet to be built.  So we'll save this test for the actual testing.
+      // This isn't the best way to do it by any means, but it works and can be cleaned up later.
       if (!process.env.BUILD_SPEC) {
         const fixture = classDefinitionToFixtureJson(classDefinition);
-        await Promise.all(fixture.good.map(async (goodExample) => {
+        return Promise.all(fixture.good.map(async (goodExample) => {
           let resultOk = {};
           resultOk = await jsonldChecker.check(goodExample, customDocumentLoader);
-          //Adding some slightly better error handling
+          // Adding some slightly better error handling
           if (resultOk.error.type !== '') {
-
-            console.log(classDefinition.title);
-            console.log(resultOk.error);
-
+            // eslint-disable-next-line
+            console.error(classDefinition.title, resultOk.error, goodExample);
           }
           return expect(resultOk.ok).toBe(true);
-        }
-        ));
-        return true;
-      } else {
-        // we're building so don't worry about it.
-        return true;
+        }));
       }
+      // we're building so don't worry about it.
+      return true;
     });
   }
 });
