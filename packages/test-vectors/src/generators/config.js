@@ -24,6 +24,18 @@ const { getPhytosanitary } = require('./Phytosanitary');
 const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
 const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
 const { getLegalEntityIdentifierCredential } = require('./LegalEntityIdentifierCredential');
+
+const { getEcommerceOrderRegistrationEvidenceDocument } = require('./EcommerceOrderRegistrationEvidenceDocument');
+const { getEcommerceInvoiceRegistrationEvidenceDocument } = require('./EcommerceInvoiceRegistrationEvidenceDocument');
+const { getEcommercePackingListRegistrationEvidenceDoc } = require('./EcommercePackingListRegistrationEvidenceDocument');
+const { getEcommerceProductRegistrationCredential } = require('./EcommerceProductRegistrationCredential');
+const { getEcommerceOrderRegistrationCredential } = require('./EcommerceOrderRegistrationCredential');
+const { getEcommerceInvoiceRegistrationCredential } = require('./EcommerceInvoiceRegistrationCredential');
+const { getEcommercePackingListRegistrationCredential } = require('./EcommercePackingListRegistrationCredential');
+const { getEcommerceProductReceiptRegistrationCredential } = require('./EcommerceProductReceiptRegistrationCredential');
+const { getEcommerceAddProductCodeRegistrationCredential } = require('./EcommerceAdditionalProductCodeRegistrationCredential');
+const { getEcommercePackageRegistrationEvidenceDoc } = require('./EcommercePackageRegistrationEvidenceDocument');
+const { getEcommercePackageRegistrationCredential } = require('./EcommercePackageRegistrationCredential');
 const { getLinkRole } = require('./LinkRole');
 const { getSteelProduct } = require('./SteelProduct');
 const { getPurchase } = require('./Purchase');
@@ -64,6 +76,18 @@ const generatorConfig = {
   LEIevidenceDocument: getLEIevidenceDocument,
   ProductRegistrationEvidenceDocument: getProductRegistrationEvidenceDocument,
   LegalEntityIdentifierCredential: getLegalEntityIdentifierCredential,
+  EcommerceOrderRegistrationEvidenceDocument: getEcommerceOrderRegistrationEvidenceDocument,
+  EcommerceInvoiceRegistrationEvidenceDocument: getEcommerceInvoiceRegistrationEvidenceDocument,
+  EcommercePackingListRegistrationEvidenceDocument: getEcommercePackingListRegistrationEvidenceDoc,
+  EcommerceProductRegistrationCredential: getEcommerceProductRegistrationCredential,
+  EcommerceOrderRegistrationCredential: getEcommerceOrderRegistrationCredential,
+  EcommerceInvoiceRegistrationCredential: getEcommerceInvoiceRegistrationCredential,
+  EcommercePackingListRegistrationCredential: getEcommercePackingListRegistrationCredential,
+  EcommerceProductReceiptRegistrationCredential: getEcommerceProductReceiptRegistrationCredential,
+  // eslint-disable-next-line
+  EcommerceAdditionalProductCodeRegistrationCredential: getEcommerceAddProductCodeRegistrationCredential,
+  EcommercePackageRegistrationEvidenceDocument: getEcommercePackageRegistrationEvidenceDoc,
+  EcommercePackageRegistrationCredential: getEcommercePackageRegistrationCredential,
 };
 
 module.exports = generatorConfig;

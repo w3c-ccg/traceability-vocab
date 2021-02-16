@@ -8,6 +8,12 @@
       "@id": "http://schema.org/image",
       "@type": "@id"
     },
+    "orderNumber": {
+      "@id": "https://schema.org/orderNumber"
+    },
+    "productInOrder": {
+      "@id": "https://schema.org/productID"
+    },
     "id": "@id",
     "type": "@type",
     "AgInspectionReport": {
@@ -88,25 +94,6 @@
         }
       }
     },
-    "Brand": {
-      "@id": "https://schema.org/Brand",
-      "@context": {
-        "logo": {
-          "@id": "https://schema.org/logo"
-        },
-        "url": {
-          "@id": "https://schema.org/url"
-        }
-      }
-    },
-    "CertifiedMillTestReport": {
-      "@id": "https://w3id.org/traceability#CertifiedMillTestReport",
-      "@context": {
-        "relatedLink": {
-          "@id": "https://schema.org/relatedLink"
-        }
-      }
-    },
     "ChemicalProperty": {
       "@id": "https://w3id.org/traceability#ChemicalProperty",
       "@context": {
@@ -130,20 +117,253 @@
         }
       }
     },
-    "ContactPoint": {
-      "@id": "https://schema.org/ContactPoint",
+    "EcommerceAdditionalProductCodeRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential",
       "@context": {
-        "name": {
+        "productVCid": {
+          "@id": "https://schema.org/identifier"
+        },
+        "addProductCode": {
+          "@id": "https://schema.org/productID"
+        },
+        "addProductCodeType": {
+          "@id": "https://schema.org/additionalType"
+        },
+        "certificateName": {
           "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommerceInvoiceRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommerceInvoiceRegistrationCredential",
+      "@context": {
+        "invoiceID": {
+          "@id": "https://schema.org/identifier"
         },
-        "address": {
-          "@id": "https://schema.org/PostalAddress"
+        "orderID": {
+          "@id": "https://schema.org/orderNumber"
         },
-        "email": {
-          "@id": "https://schema.org/email"
+        "productInOrder": {
+          "@id": "https://schema.org/productID"
         },
-        "phoneNumber": {
-          "@id": "https://schema.org/telephone"
+        "certificateName": {
+          "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommerceInvoiceRegistrationEvidenceDocument": {
+      "@id": "https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument",
+      "@context": {
+        "@type": {
+          "@id": "https://schema.org/Invoice"
+        },
+        "identifier": {
+          "@id": "https://schema.org/identifier"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "url": {
+          "@id": "https://schema.org/url"
+        },
+        "broker": {
+          "@id": "https://schema.org/broker"
+        },
+        "accountId": {
+          "@id": "https://schema.org/accountId"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
+        },
+        "paymentDueDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "totalPaymentDue": {
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "paymentStatus": {
+          "@id": "https://schema.org/paymentStatus"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
+        },
+        "referencesOrder": {
+          "@id": "https://schema.org/referencesOrder"
+        }
+      }
+    },
+    "EcommerceOrderRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationCredential",
+      "@context": {
+        "orderID": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "productInOrder": {
+          "@id": "https://schema.org/productID"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommerceOrderRegistrationEvidenceDocument": {
+      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument",
+      "@context": {
+        "@type": {
+          "@id": "https://schema.org/Order"
+        },
+        "orderNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "orderDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "orderStatus": {
+          "@id": "https://schema.org/OrderStatus"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "url": {
+          "@id": "https://schema.org/url"
+        },
+        "seller": {
+          "@id": "https://schema.org/seller"
+        },
+        "broker": {
+          "@id": "https://schema.org/broker"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
+        },
+        "paymentDueDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "paymentMethod": {
+          "@id": "https://schema.org/paymentMethod"
+        },
+        "orderedItem": {
+          "@id": "https://schema.org/orderedItem"
+        }
+      }
+    },
+    "EcommercePackageRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommercePackageRegistrationCredential",
+      "@context": {
+        "trackingID": {
+          "@id": "https://schema.org/trackingNumber"
+        },
+        "packageItems": {
+          "@id": "https://schema.org/ItemList"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommercePackageRegistrationEvidenceDocument": {
+      "@id": "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument",
+      "@context": {
+        "@type": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "deliveryStatus": {
+          "@id": "https://schema.org/deliveryStatus"
+        },
+        "expectedArrivalFrom": {
+          "@id": "https://schema.org/expectedArrivalFrom"
+        },
+        "hasDeliveryMethod": {
+          "@id": "https://schema.org/hasDeliveryMethod"
+        },
+        "deliveryAddress": {
+          "@id": "https://schema.org/deliveryAddress"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
+        },
+        "originAddress": {
+          "@id": "https://schema.org/originAddress"
+        },
+        "trackingNumber": {
+          "@id": "https://schema.org/trackingNumber"
+        },
+        "partOfOrder": {
+          "@id": "https://schema.org/partOfOrder"
+        }
+      }
+    },
+    "EcommercePackingListRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationCredential",
+      "@context": {
+        "packageItems": {
+          "@id": "https://schema.org/ItemList"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommercePackingListRegistrationEvidenceDocument": {
+      "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument",
+      "@context": {
+        "@type": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "deliveryStatus": {
+          "@id": "https://schema.org/deliveryStatus"
+        },
+        "expectedArrivalFrom": {
+          "@id": "https://schema.org/expectedArrivalFrom"
+        },
+        "hasDeliveryMethod": {
+          "@id": "https://schema.org/hasDeliveryMethod"
+        },
+        "deliveryAddress": {
+          "@id": "https://schema.org/deliveryAddress"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
+        },
+        "originAddress": {
+          "@id": "https://schema.org/originAddress"
+        },
+        "partOfOrder": {
+          "@id": "https://schema.org/partOfOrder"
+        }
+      }
+    },
+    "EcommerceProductReceiptRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential",
+      "@context": {
+        "receiptID": {
+          "@id": "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential"
+        },
+        "packingListID": {
+          "@id": "https://schema.org/identifier"
+        },
+        "orderID": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "productInOrder": {
+          "@id": "https://schema.org/productID"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommerceProductRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommerceProductRegistrationCredential",
+      "@context": {
+        "productCode": {
+          "@id": "https://schema.org/productID"
+        },
+        "productCodeType": {
+          "@id": "https://schema.org/additionalType"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
         }
       }
     },
@@ -165,9 +385,6 @@
     "InspectionReport": {
       "@id": "https://w3id.org/traceability#InspectionReport",
       "@context": {
-        "comment": {
-          "@id": "https://schema.org/comment"
-        },
         "observation": {
           "@id": "https://schema.org/ItemList"
         }
@@ -204,14 +421,6 @@
         }
       }
     },
-    "Invoice": {
-      "@id": "https://schema.org/Invoice",
-      "@context": {
-        "identifier": {
-          "@id": "https://schema.org/identifier"
-        }
-      }
-    },
     "LEIevidenceDocument": {
       "@id": "https://w3id.org/traceability#LEIevidenceDocument",
       "@context": {
@@ -225,17 +434,9 @@
       "@context": {
         "leiCode": {
           "@id": "https://schema.org/leiCode"
-        }
-      }
-    },
-    "LinkRole": {
-      "@id": "https://schema.org/LinkRole",
-      "@context": {
-        "target": {
-          "@id": "https://schema.org/target"
         },
-        "linkRelationship": {
-          "@id": "https://schema.org/linkRelationship"
+        "certificateName": {
+          "@id": "https://schema.org/name"
         }
       }
     },
@@ -285,14 +486,8 @@
         "name": {
           "@id": "https://schema.org/name"
         },
-        "url": {
-          "@id": "https://schema.org/url"
-        },
         "description": {
           "@id": "https://schema.org/description"
-        },
-        "globalLocationNumber": {
-          "@id": "https://schema.org/globalLocationNumber"
         },
         "address": {
           "@id": "https://schema.org/PostalAddress"
@@ -302,12 +497,6 @@
         },
         "phoneNumber": {
           "@id": "https://schema.org/telephone"
-        },
-        "brand": {
-          "@id": "https://schema.org/Brand"
-        },
-        "contactPoint": {
-          "@id": "https://schema.org/ContactPoint"
         }
       }
     },
@@ -352,7 +541,7 @@
       }
     },
     "Phytosanitary": {
-      "@id": "https://w3id.org/traceability/Phytosanitary",
+      "@id": "https://w3id.org/traceability#Phytosanitary",
       "@context": {
         "certificateNumber": {
           "@id": "https://schema.org/identifier"
@@ -477,9 +666,6 @@
         "description": {
           "@id": "https://schema.org/description"
         },
-        "category": {
-          "@id": "https://schema.org/category"
-        },
         "sizeOrAmount": {
           "@id": "https://schema.org/size"
         },
@@ -562,20 +748,6 @@
         }
       }
     },
-    "Purchase": {
-      "@id": "https://w3id.org/traceability#Purchase",
-      "@context": {
-        "customer": {
-          "@id": "https://w3id.org/traceability#Entity?v4"
-        },
-        "invoice": {
-          "@id": "https://w3id.org/traceability#Invoice"
-        },
-        "purchaseOrder": {
-          "@id": "https://schema.org/identifier"
-        }
-      }
-    },
     "Qualification": {
       "@id": "https://schema.org/qualifications",
       "@context": {
@@ -595,35 +767,6 @@
         },
         "value": {
           "@id": "https://schema.org/value"
-        }
-      }
-    },
-    "SteelProduct": {
-      "@id": "https://w3id.org/traceability#SteelProduct",
-      "@context": {
-        "heatNumber": {
-          "@id": "https://schema.org/identifier"
-        },
-        "specification": {
-          "@id": "https://schema.org/identifier?v=1"
-        },
-        "grade": {
-          "@id": "https://schema.org/Rating"
-        },
-        "size": {
-          "@id": "https://schema.org/size"
-        },
-        "originalCountryOfMeltAndPour": {
-          "@id": "https://schema.org/addressCountry"
-        },
-        "inspection": {
-          "@id": "https://w3id.org/traceability#InspectionReport"
-        },
-        "purchase": {
-          "@id": "https://w3id.org/traceability#Purchase"
-        },
-        "shipment": {
-          "@id": "https://schema.org/ParcelDelivery"
         }
       }
     },

@@ -23,7 +23,18 @@ const Phytosanitary = require('../../../../docs/test-vectors/Phytosanitary.json'
 const LEIevidenceDocument = require('../../../../docs/test-vectors/LEIevidenceDocument.json');
 const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vectors/ProductRegistrationEvidenceDocument.json');
 const LegalEntityIdentifierCredential = require('../../../../docs/test-vectors/LegalEntityIdentifierCredential.json');
-const IntentToSell = require('../../../../docs/test-vectors/IntentToSell.json');
+const IntentToSell = require('../../../../docs/test-vectors/IntentToSell.json')
+const EcommerceOrderRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommerceOrderRegistrationEvidenceDocument.json');
+const EcommerceInvoiceRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommerceInvoiceRegistrationEvidenceDocument.json');
+const EcommercePackingListRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommercePackingListRegistrationEvidenceDocument.json');
+const EcommerceProductRegistrationCredential = require('../../../../docs/test-vectors/EcommerceProductRegistrationCredential.json');
+const EcommerceOrderRegistrationCredential = require('../../../../docs/test-vectors/EcommerceOrderRegistrationCredential.json');
+const EcommerceInvoiceRegistrationCredential = require('../../../../docs/test-vectors/EcommerceInvoiceRegistrationCredential.json');
+const EcommercePackingListRegistrationCredential = require('../../../../docs/test-vectors/EcommercePackingListRegistrationCredential.json');
+const EcommerceAdditionalProductCodeRegistrationCredential = require('../../../../docs/test-vectors/EcommerceAdditionalProductCodeRegistrationCredential.json');
+const EcommerceProductReceiptRegistrationCredential = require('../../../../docs/test-vectors/EcommerceProductReceiptRegistrationCredential.json');
+const EcommercePackageRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommercePackageRegistrationEvidenceDocument.json');
+const EcommercePackageRegistrationCredential = require('../../../../docs/test-vectors/EcommercePackageRegistrationCredential.json');
 
 const LinkRole = require('../../../../docs/test-vectors/LinkRole.json');
 
@@ -64,6 +75,17 @@ module.exports = {
   AgProduct,
   AgPackage,
   ppq203,
+  EcommerceOrderRegistrationEvidenceDocument,
+  EcommerceInvoiceRegistrationEvidenceDocument,
+  EcommercePackingListRegistrationEvidenceDocument,
+  EcommerceProductRegistrationCredential,
+  EcommerceOrderRegistrationCredential,
+  EcommerceInvoiceRegistrationCredential,
+  EcommercePackingListRegistrationCredential,
+  EcommerceAdditionalProductCodeRegistrationCredential,
+  EcommerceProductReceiptRegistrationCredential,
+  EcommercePackageRegistrationEvidenceDocument,
+  EcommercePackageRegistrationCredential,
   Phytosanitary,
   IntentToSell,
   LinkRole,
