@@ -26,18 +26,18 @@ const getLEIevidenceDocument = () => {
     return faker.random.arrayElement(types);
   };
 
-  const baseUrl = 'https://api.gleif.example.org/api/v1/lei-records'
+  const baseUrl = 'https://api.gleif.example.org/api/v1/lei-records';
 
-  const shortId = `${faker.random.alpha({count: 4}).toUpperCase()}`
-  const lei = faker.random.alphaNumeric(20).toUpperCase()
-  const id = faker.random.alphaNumeric(8).toUpperCase()
-  const language = faker.random.locale()
-  const otherNames = [faker.company.companyName(), faker.company.companyName()]
-  const companyName = faker.company.companyName()
-  const country = faker.address.country()
-  const region = faker.address.county()
-  const addressNumber = `${faker.random.number({ min: 1, max: 500 })}`
-  const addressNumberWithinBuilding = `${faker.random.number({ min: 1, max: 10 })}`
+  const shortId = `${faker.random.alpha({ count: 4 }).toUpperCase()}`;
+  const lei = faker.random.alphaNumeric(20).toUpperCase();
+  const id = faker.random.alphaNumeric(8).toUpperCase();
+  const language = faker.random.locale();
+  const otherNames = [faker.company.companyName(), faker.company.companyName()];
+  const companyName = faker.company.companyName();
+  const country = faker.address.country();
+  const region = faker.address.county();
+  const addressNumber = `${faker.random.number({ min: 1, max: 500 })}`;
+  const addressNumberWithinBuilding = `${faker.random.number({ min: 1, max: 10 })}`;
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
