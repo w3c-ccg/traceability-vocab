@@ -7,6 +7,7 @@ const { getInspector } = require('./Inspector');
 const { getParcelDelivery } = require('./ParcelDelivery');
 const { getEntity } = require('./Entity');
 const { getObservation } = require('./Observation');
+
 // Include test data for inspection type.
 // This data is very rudimentary for now, and it is
 // probably overkill to have a separate file, but it might
