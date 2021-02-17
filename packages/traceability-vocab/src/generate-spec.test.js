@@ -115,7 +115,7 @@ it('should validate using json schema', async () => {
                   },
                 },
               },
-              500: 'Internal Server error',
+              500: { description: 'Internal Server error', }
             },
           },
         };
