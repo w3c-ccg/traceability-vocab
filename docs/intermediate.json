@@ -1199,6 +1199,196 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability#BillOfLading": {
+    "$id": "https://w3id.org/traceability/schemas/BillOfLading.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "BillOfLading",
+      "@id": "https://w3id.org/traceability#BillOfLading"
+    },
+    "title": "Bill Of Lading",
+    "description": "Bill Of Lading",
+    "classProperties": {
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "billOfLadingNumber",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Bill Of Lading Number",
+        "description": "This identifeir might not be globally unique."
+      },
+      "https://schema.org/Purchase": {
+        "$comment": {
+          "term": "relatedDocuments",
+          "@id": "https://schema.org/Purchase"
+        },
+        "title": "Purchase ",
+        "description": "Purchase documents related to a bill of lading"
+      },
+      "https://schema.org/ParcelDelivery": {
+        "$comment": {
+          "term": "freight",
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "title": "Freight ",
+        "description": "Content described by the bill of lading"
+      },
+      "https://w3id.org/traceability#nmfcFreightClass": {
+        "$comment": {
+          "term": "nmfcFreightClass",
+          "@id": "https://w3id.org/traceability#nmfcFreightClass"
+        },
+        "title": "NMFC Freight Class",
+        "description": "The National Motor Freight Classification® (NMFC®) is a standard that allows for determining of freight classes for the comparison of different commodities and products being shipped."
+      },
+      "https://w3id.org/traceability#hazardCode": {
+        "$comment": {
+          "term": "hazardCode",
+          "@id": "https://w3id.org/traceability#hazardCode"
+        },
+        "title": "Hazard Code",
+        "description": "The Department of Transportation (DOT) hazard code associated with the shipment."
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/BillOfLading.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"BillOfLading\", \"@id\": \"https://w3id.org/traceability#BillOfLading\"}",
+      "title": "Bill Of Lading",
+      "description": "Bill Of Lading",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "billOfLadingNumber": {
+          "$comment": "{\"term\": \"billOfLadingNumber\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Bill Of Lading Number",
+          "description": "This identifeir might not be globally unique.",
+          "type": "string"
+        },
+        "relatedDocuments": {
+          "$comment": "{\"term\": \"relatedDocuments\", \"@id\": \"https://schema.org/Purchase\"}",
+          "title": "Purchase ",
+          "description": "Purchase documents related to a bill of lading",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Purchase.json"
+          }
+        },
+        "freight": {
+          "$comment": "{\"term\": \"freight\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+          "title": "Freight ",
+          "description": "Content described by the bill of lading",
+          "$ref": "https://w3id.org/traceability/schemas/ParcelDelivery.json"
+        },
+        "nmfcFreightClass": {
+          "$comment": "{\"term\": \"nmfcFreightClass\", \"@id\": \"https://w3id.org/traceability#nmfcFreightClass\"}",
+          "title": "NMFC Freight Class",
+          "description": "The National Motor Freight Classification® (NMFC®) is a standard that allows for determining of freight classes for the comparison of different commodities and products being shipped.",
+          "type": "string"
+        },
+        "hazardCode": {
+          "$comment": "{\"term\": \"hazardCode\", \"@id\": \"https://w3id.org/traceability#hazardCode\"}",
+          "title": "Hazard Code",
+          "description": "The Department of Transportation (DOT) hazard code associated with the shipment.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#BillOfLadingCredential": {
+    "$id": "https://w3id.org/traceability/schemas/BillOfLadingCredential.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "BillOfLadingCredential",
+      "@id": "https://w3id.org/traceability#BillOfLadingCredential"
+    },
+    "title": "Bill Of Lading Credential",
+    "description": "Bill Of Lading Credential",
+    "classProperties": {
+      "https://schema.org/relatedLink": {
+        "$comment": {
+          "term": "relatedLink",
+          "@id": "https://schema.org/relatedLink"
+        },
+        "title": "Related Link",
+        "description": "Links related to this verifiable credential"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/BillOfLadingCredential.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"BillOfLadingCredential\", \"@id\": \"https://w3id.org/traceability#BillOfLadingCredential\"}",
+      "title": "Bill Of Lading Credential",
+      "description": "Bill Of Lading Credential",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "issuanceDate": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "object"
+        },
+        "credentialSubject": {
+          "type": "object"
+        },
+        "proof": {
+          "type": "object"
+        },
+        "relatedLink": {
+          "$comment": "{\"term\": \"relatedLink\", \"@id\": \"https://schema.org/relatedLink\"}",
+          "title": "Related Link",
+          "description": "Links related to this verifiable credential",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/LinkRole.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "proof"
+      ],
+      "examples": []
+    }
+  },
   "https://schema.org/Brand": {
     "$id": "https://w3id.org/traceability/schemas/Brand.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -3332,7 +3522,7 @@
           "telephone": "555-488-8101",
           "email": "Maci83@example.com"
         },
-        "paymentDueDate": "2-6-2021",
+        "paymentDueDate": "2-0-2021",
         "paymentMethod": "http://purl.org/goodrelations/v1#Cash",
         "orderedItem": [
           {
@@ -3361,7 +3551,7 @@
         ],
         "type": "EcommerceOrderRegistrationEvidenceDocument",
         "orderNumber": "Order#612",
-        "orderDate": "1-2-2021",
+        "orderDate": "1-3-2021",
         "orderStatus": "OrderProcessing",
         "description": "New Order For Elmo Gaylord",
         "url": "http://stewart.name?queryid=Order#612",
@@ -8761,6 +8951,38 @@
         },
         "title": "Tracking Number",
         "description": "Shipper tracking number."
+      },
+      "https://schema.org/expectedArrivalFrom": {
+        "$comment": {
+          "term": "expectedArrival",
+          "@id": "https://schema.org/expectedArrivalFrom"
+        },
+        "title": "Expected Arrival",
+        "description": "The earliest date the package may arrive."
+      },
+      "https://schema.org/comment": {
+        "$comment": {
+          "term": "specialInstructions",
+          "@id": "https://schema.org/comment"
+        },
+        "title": "Special Instructions",
+        "description": "Instructions for freight handlers"
+      },
+      "https://schema.org/Organization": {
+        "$comment": {
+          "term": "consignee",
+          "@id": "https://schema.org/Organization"
+        },
+        "title": "Consignee",
+        "description": "The consignee is the entity who is financially responsible for the receipt of a shipment."
+      },
+      "https://schema.org/itemShipped": {
+        "$comment": {
+          "term": "item",
+          "@id": "https://schema.org/itemShipped"
+        },
+        "title": "Items Shipped",
+        "description": "Item(s) being shipped."
       }
     },
     "examples": [
@@ -8887,6 +9109,33 @@
           "title": "Tracking Number",
           "description": "Shipper tracking number.",
           "type": "string"
+        },
+        "expectedArrival": {
+          "$comment": "{\"term\": \"expectedArrival\", \"@id\": \"https://schema.org/expectedArrivalFrom\"}",
+          "title": "Expected Arrival",
+          "description": "The earliest date the package may arrive.",
+          "type": "string"
+        },
+        "specialInstructions": {
+          "$comment": "{\"term\": \"specialInstructions\", \"@id\": \"https://schema.org/comment\"}",
+          "title": "Special Instructions",
+          "description": "Instructions for freight handlers",
+          "type": "string"
+        },
+        "consignee": {
+          "$comment": "{\"term\": \"consignee\", \"@id\": \"https://schema.org/Organization\"}",
+          "title": "Consignee",
+          "description": "The consignee is the entity who is financially responsible for the receipt of a shipment.",
+          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+        },
+        "item": {
+          "$comment": "{\"term\": \"item\", \"@id\": \"https://schema.org/itemShipped\"}",
+          "title": "Items Shipped",
+          "description": "Item(s) being shipped.",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Product.json"
+          }
         }
       },
       "additionalProperties": false,
@@ -10365,6 +10614,46 @@
         "title": "Weight",
         "description": "Weight of the product."
       },
+      "https://schema.org/depth": {
+        "$comment": {
+          "term": "depth",
+          "@id": "https://schema.org/depth"
+        },
+        "title": "Depth",
+        "description": "The depth of the item."
+      },
+      "https://schema.org/width": {
+        "$comment": {
+          "term": "width",
+          "@id": "https://schema.org/width"
+        },
+        "title": "Width",
+        "description": "The width of the item."
+      },
+      "https://schema.org/height": {
+        "$comment": {
+          "term": "height",
+          "@id": "https://schema.org/height"
+        },
+        "title": "Height",
+        "description": "The height of the item."
+      },
+      "https://www.gs1.org/voc/netContent": {
+        "$comment": {
+          "term": "quantity",
+          "@id": "https://www.gs1.org/voc/netContent"
+        },
+        "title": "Quantity",
+        "description": "The quantity of the product contained by a package."
+      },
+      "https://www.gs1.org/voc/packagingMaterial": {
+        "$comment": {
+          "term": "packagingType",
+          "@id": "https://www.gs1.org/voc/packagingMaterial"
+        },
+        "title": "Packaging Type",
+        "description": "Links to details about packaging material type, quantity and thickness"
+      },
       "https://schema.org/sku": {
         "$comment": {
           "term": "sku",
@@ -10542,6 +10831,36 @@
           "title": "Weight",
           "description": "Weight of the product.",
           "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+        },
+        "depth": {
+          "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+          "title": "Depth",
+          "description": "The depth of the item.",
+          "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+        },
+        "width": {
+          "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+          "title": "Width",
+          "description": "The width of the item.",
+          "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+        },
+        "height": {
+          "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+          "title": "Height",
+          "description": "The height of the item.",
+          "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+        },
+        "quantity": {
+          "$comment": "{\"term\": \"quantity\", \"@id\": \"https://www.gs1.org/voc/netContent\"}",
+          "title": "Quantity",
+          "description": "The quantity of the product contained by a package.",
+          "type": "string"
+        },
+        "packagingType": {
+          "$comment": "{\"term\": \"packagingType\", \"@id\": \"https://www.gs1.org/voc/packagingMaterial\"}",
+          "title": "Packaging Type",
+          "description": "Links to details about packaging material type, quantity and thickness",
+          "type": "string"
         },
         "sku": {
           "$comment": "{\"term\": \"sku\", \"@id\": \"https://schema.org/sku\"}",
@@ -10733,7 +11052,7 @@
         "mpn": "PTFDM1X6PV",
         "gtin": "66716306370473",
         "isAccessoryOrSparePartFor": "n/a",
-        "releaseDate": "2020-10-1",
+        "releaseDate": "2020-10-2",
         "manufacturer": "Hirthe - Cronin",
         "globalLocationNumber": "7531564087141",
         "leiCode": "",
