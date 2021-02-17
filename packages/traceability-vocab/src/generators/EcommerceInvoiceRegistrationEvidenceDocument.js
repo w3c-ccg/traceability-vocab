@@ -12,10 +12,16 @@ const currencies = require('../../data/generated/currency-format.json');
 
 const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   // get a payment method
-  const randomPayment = faker.random.number({ min: 1, max: payments.payment.length });
+  const randomPayment = faker.random.number({
+    min: 1,
+    max: payments.payment.length,
+  });
   const paymentMethod = payments.payment[randomPayment - 1];
   // get a payment status
-  const randomPaymentStatus = faker.random.number({ min: 1, max: paymentstatus.status.length });
+  const randomPaymentStatus = faker.random.number({
+    min: 1,
+    max: paymentstatus.status.length,
+  });
   const paymentStatus = payments.payment[randomPaymentStatus - 1];
   // get a currency
   const randomCurrency = Object.keys(currencies)[
@@ -28,24 +34,27 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   const orderlist = [];
   let totalPrice = 0;
   while (numItemsinOrder > 0) {
-    const randomProd = faker.random.number({ min: 0, max: Object.keys(prods).length - 1 });
+    const randomProd = faker.random.number({
+      min: 0,
+      max: Object.keys(prods).length - 1,
+    });
     const quantity = faker.random.number({ min: 1, max: 10 });
     const itemOrderedName = prods[randomProd].name;
     const itemOrderedProduct = prods[randomProd].productID;
     const itemOrderedProductUnitPrice = prods[randomProd].price;
     const itemOrderedProductPrice = quantity * itemOrderedProductUnitPrice;
     const unitPriceSpecification = {
-      '@type': 'UnitPriceSpecification',
+      type: 'UnitPriceSpecification',
       price: itemOrderedProductUnitPrice,
       priceCurrency: currency,
     };
     const priceSpecification = {
-      '@type': 'PriceSpecification',
+      type: 'PriceSpecification',
       price: itemOrderedProductPrice,
       priceCurrency: currency,
     };
     const item = {
-      '@type': 'Product',
+      type: 'Product',
       name: itemOrderedName,
       productID: itemOrderedProduct,
       unitPriceSpecification,
@@ -59,12 +68,15 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
 
   // check if invoice has already been paid, if yes set payment amount to 0 & construct total price
 
-  if (paymentStatus === 'PaymentAutomaticallyApplied' || paymentStatus === 'PaymentComplete') {
+  if (
+    paymentStatus === 'PaymentAutomaticallyApplied'
+    || paymentStatus === 'PaymentComplete'
+  ) {
     totalPrice = 0;
   }
 
   const totalpaymentdue = {
-    '@type': 'PriceSpecification',
+    type: 'PriceSpecification',
     price: totalPrice,
     priceCurrency: currency,
   };
@@ -73,16 +85,22 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
 
   // create seller, broker, customer, seller = provider for simplicity
   const name1 = faker.company.companyName();
-  const lei1 = `2345${faker.random.number({ min: 1000000000000000, max: 1999999999999999 })}`;
+  const lei1 = `2345${faker.random.number({
+    min: 1000000000000000,
+    max: 1999999999999999,
+  })}`;
   const name2 = faker.company.companyName();
-  const lei2 = `5432${faker.random.number({ min: 1000000000000000, max: 1999999999999999 })}`;
+  const lei2 = `5432${faker.random.number({
+    min: 1000000000000000,
+    max: 1999999999999999,
+  })}`;
   const Seller = {
-    '@type': 'Corporation',
+    type: 'Organization',
     name: name1,
     leiCode: lei1,
   };
   const broker = {
-    '@type': 'Corporation',
+    type: 'Organization',
     name: name2,
     leiCode: lei2,
   };
@@ -92,7 +110,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   delete address['@context'];
   delete address.organizationName;
   const customer = {
-    '@type': 'Person',
+    type: 'Person',
     name: `${person.firstName} ${person.lastName}`,
     address,
     telephone: person.phoneNumber,
@@ -105,7 +123,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
 
   const referencesOrderNew = [];
   const referencesOrder = {
-    '@type': 'Order',
+    type: 'Order',
     description: `New Order For ${person.firstName} ${person.lastName}`,
     orderDate: `${orderDate.getMonth()}-${orderDate.getDay()}-${orderDate.getFullYear()}`,
     orderNumber,
@@ -125,7 +143,10 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     description: `Invoice For ${person.firstName} ${person.lastName} for ${orderNumber}`,
     url: `${faker.internet.url()}?queryid=${invoiceNumber}`,
     broker,
-    accountId: `xxxx-xxxx-xxxx-${faker.random.number({ min: 1000, max: 9999 })}`,
+    accountId: `xxxx-xxxx-xxxx-${faker.random.number({
+      min: 1000,
+      max: 9999,
+    })}`,
     customer,
     paymentDueDate: `${paymentDate.getMonth()}-${paymentDate.getDay()}-${paymentDate.getFullYear()}`,
     totalPaymentDue: totalpaymentdue,
