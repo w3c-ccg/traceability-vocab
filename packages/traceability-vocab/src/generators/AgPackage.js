@@ -10,7 +10,7 @@ const getAgPackage = () => {
   // load image and convert to binary for hashing.
   // this is an actual working image so the hash should be valid.
   let binaryImg = '';
-  imageToBase64('https://raw.githubusercontent.com/mesur-io/openfoodtrust/main/docs/img/oft-logo-dark-bg.pngpath/to/file.jpg') // Path to the image
+  imageToBase64('https://raw.githubusercontent.com/mesur-io/openfoodtrust/main/docs/img/oft-logo-dark-bg.png') // Path to the image
     .then(
       (response) => {
         binaryImg = response;
