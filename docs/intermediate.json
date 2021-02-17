@@ -1968,6 +1968,150 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability#CrudeOilProduct": {
+    "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "CrudeOilProduct",
+      "@id": "https://w3id.org/traceability#CrudeOilProduct"
+    },
+    "title": "Crude Oil Product",
+    "description": "Tombstone information regarding a crude oil product",
+    "classProperties": {
+      "https://www.gs1.org/voc/Product": {
+        "$comment": {
+          "term": "product",
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "title": "Product",
+        "description": "Product details as outlined in the Product.json schema"
+      },
+      "https://www.gs1.org/voc/Place": {
+        "$comment": {
+          "term": "facility",
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "title": "Manufacture Facility",
+        "description": "Information on the manufacture facility."
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "UWI",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Unique Well Identifier",
+        "description": "Unique Well Identifier used for individual well identification."
+      },
+      "https://w3id.org/identifier": {
+        "$comment": {
+          "term": "HSCode",
+          "@id": "https://w3id.org/identifier"
+        },
+        "title": "HSCode",
+        "description": "Defines the Harmonized System Code for the Commodity"
+      },
+      "https://schema.org/DateTime#v2": {
+        "$comment": {
+          "term": "productionDate",
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "title": "Production Date",
+        "description": "Date when the product was created"
+      },
+      "https://w3id.org/traceability#observation": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://w3id.org/traceability#observation"
+        },
+        "title": "Observation List",
+        "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"CrudeOilProduct\", \"@id\": \"https://w3id.org/traceability#CrudeOilProduct\"}",
+      "title": "Crude Oil Product",
+      "description": "Tombstone information regarding a crude oil product",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "issuanceDate": {
+          "type": "string"
+        },
+        "credentialSubject": {
+          "type": "object"
+        },
+        "issuer": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "product": {
+          "$comment": "{\"term\": \"product\", \"@id\": \"https://www.gs1.org/voc/Product\"}",
+          "title": "Product",
+          "description": "Product details as outlined in the Product.json schema",
+          "$ref": "https://w3id.org/traceability/schemas/Product.json"
+        },
+        "facility": {
+          "$comment": "{\"term\": \"facility\", \"@id\": \"https://www.gs1.org/voc/Place\"}",
+          "title": "Manufacture Facility",
+          "description": "Information on the manufacture facility.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "UWI": {
+          "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Unique Well Identifier",
+          "description": "Unique Well Identifier used for individual well identification.",
+          "type": "string"
+        },
+        "HSCode": {
+          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier\"}",
+          "title": "HSCode",
+          "description": "Defines the Harmonized System Code for the Commodity",
+          "type": "string"
+        },
+        "productionDate": {
+          "$comment": "{\"term\": \"productionDate\", \"@id\": \"https://schema.org/DateTime#v2\"}",
+          "title": "Production Date",
+          "description": "Date when the product was created",
+          "type": "string"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+          "title": "Observation List",
+          "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential": {
     "$id": "https://w3id.org/traceability/schemas/EcommerceAdditionalProductCodeRegistrationCredential.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2604,7 +2748,7 @@
           {
             "@type": "Order",
             "description": "New Order For Jamir Veum",
-            "orderDate": "1-1-2021",
+            "orderDate": "1-2-2021",
             "orderNumber": "Order#437",
             "paymentMethod": "http://purl.org/goodrelations/v1#DirectDebit",
             "orderedItem": [
@@ -3537,7 +3681,7 @@
           "telephone": "555-488-8101",
           "email": "Maci83@example.com"
         },
-        "paymentDueDate": "2-5-2021",
+        "paymentDueDate": "2-6-2021",
         "paymentMethod": "http://purl.org/goodrelations/v1#Cash",
         "orderedItem": [
           {
@@ -3566,7 +3710,7 @@
         ],
         "type": "EcommerceOrderRegistrationEvidenceDocument",
         "orderNumber": "Order#612",
-        "orderDate": "1-1-2021",
+        "orderDate": "1-2-2021",
         "orderStatus": "OrderProcessing",
         "description": "New Order For Elmo Gaylord",
         "url": "http://stewart.name?queryid=Order#612",
@@ -6947,7 +7091,7 @@
             "entity": {
               "legalName": {
                 "name": "Mills, Farrell and Auer",
-                "language": "id_ID"
+                "language": "hr"
               },
               "otherNames": [
                 "Kuphal, Pagac and Sporer",
@@ -6958,7 +7102,7 @@
                 "Mosciski, Conroy and Hane"
               ],
               "legalAddress": {
-                "language": "id_ID",
+                "language": "hr",
                 "addressLines": [
                   "Mills, Farrell and Auer",
                   "43556 Ora Crest"
@@ -6972,7 +7116,7 @@
                 "postalCode": "66266"
               },
               "headquartersAddress": {
-                "language": "id_ID",
+                "language": "hr",
                 "addressLines": [
                   "6367 Littel Springs"
                 ],
@@ -7225,7 +7369,7 @@
             "entity": {
               "legalName": {
                 "name": "Kirlin, Kunze and Farrell",
-                "language": "en_AU"
+                "language": "en_AU_ocker"
               },
               "otherNames": [
                 "Pacocha, King and Carroll",
@@ -7236,7 +7380,7 @@
                 "Orn, Terry and Walter"
               ],
               "legalAddress": {
-                "language": "en_AU",
+                "language": "en_AU_ocker",
                 "addressLines": [
                   "Kirlin, Kunze and Farrell",
                   "50910 Colleen Landing"
@@ -7250,7 +7394,7 @@
                 "postalCode": "69314-7523"
               },
               "headquartersAddress": {
-                "language": "en_AU",
+                "language": "en_AU_ocker",
                 "addressLines": [
                   "28134 Mossie Forest"
                 ],
@@ -10924,7 +11068,7 @@
         "mpn": "PTFDM1X6PV",
         "gtin": "66716306370473",
         "isAccessoryOrSparePartFor": "n/a",
-        "releaseDate": "2020-10-0",
+        "releaseDate": "2020-10-1",
         "manufacturer": "Hirthe - Cronin",
         "globalLocationNumber": "7531564087141",
         "leiCode": "",

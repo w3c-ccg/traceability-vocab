@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "postinstall": "lerna bootstrap",
+    "clean:lock": "npx lerna exec 'rm -rf package-lock.json node_modules'",
+    "install:clean": "npx lerna clean -y && rm -rf node_modules && npm i",
     "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/main --include-dependencies",
     "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
