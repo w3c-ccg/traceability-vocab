@@ -93,9 +93,21 @@ it('should validate using json schema', async () => {
       // only if everything validated with no errors should this add to the OpenAPI spec
       try {
         const $classComment = JSON.parse(classDefinition.schema.$comment);
+        
         openAPISpec.components.schemas[$classComment.term] = toOpenApi(
           classDefinition.schema,
         );
+        
+        const removeComments = function(obj) {
+          for(prop in obj) {
+            if (prop === '$comment')
+              delete obj[prop];
+            else if (typeof obj[prop] === 'object')
+              removeComments(obj[prop]);
+          }
+        };
+        removeComments(openAPISpec.components.schemas[$classComment.term])
+        
         openAPISpec.paths[`/${$classComment.term}`] = {
           get: {
             description: $classComment.term,
@@ -119,7 +131,6 @@ it('should validate using json schema', async () => {
             },
           },
         };
-        delete openAPISpec.components.schemas[$classComment.term].$comment;
       } catch (oe) {
         // eslint-disable-next-line
         console.warn("openapi spec addition error:", classDefinition);
