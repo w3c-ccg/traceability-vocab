@@ -1,0 +1,361 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/EcommerceWayBillRegistrationEvidenceDocument.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"EcommerceWayBillRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommerceWayBillRegistrationEvidenceDocument\"}",
+    "title": "Way Bill Registration Evidence Document",
+    "description": "Evidence data for a registered eCommerce Way Bill based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls",
+    "definitions": {
+        "address": {
+            "$id": "#address",
+            "$comment": "{\"term\": \"address\", \"@id\": \"https://schema.org/PostalAddress\"}",
+            "title": "Business Address",
+            "type": "object",
+            "required": [
+                "type",
+                "streetAddress",
+                "addressLocality",
+                "addressRegion",
+                "postalCode",
+                "addressCountry"
+            ],
+            "properties": {
+                "@type": {
+                    "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                    "title": "type",
+                    "type": "string",
+                    "default": "PostalAddress"
+                },
+                "streetAddress": {
+                    "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+                    "title": "Streetaddress",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "20341 Whitworth Institute 405 N. Whitworth"
+                    ]
+                },
+                "addressLocality": {
+                    "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+                    "title": "Addresslocality",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Seattle"
+                    ]
+                },
+                "addressRegion": {
+                    "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+                    "title": "Addressregion",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "WA"
+                    ]
+                },
+                "postalCode": {
+                    "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+                    "title": "Postalcode",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "98052"
+                    ]
+                },
+                "addressCountry": {
+                    "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+                    "title": "Address Country",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "USA"
+                    ]
+                }
+            }
+        },
+        "entity": {
+            "$id": "#entity",
+            "$comment": "{\"term\": \"broker\", \"@id\": \"https://schema.org/broker\"}",
+            "title": "Entity",
+            "type": "object",
+            "required": [
+                "@type",
+                "name",
+                "leiCode",
+                "leiVC"
+            ],
+            "properties": {
+                "@type": {
+                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
+                    "title": "@type",
+                    "type": "string",
+                    "default": "Corporation"
+                },
+                "name": {
+                    "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+                    "title": "Name of the entity",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "Entity XYZ"
+                    ]
+                },
+                "leiCode": {
+                    "$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+                    "title": "Leicode of the entity",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "vLei code, e.g. Y87794H0US1R65VBXU25"
+                    ]
+                },
+                "leiVC": {
+                    "$comment": "{\"term\": \"leiVC\", \"@id\": \"https://schema.org/identifier\"}",
+                    "title": "Legal Entity VC ID",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
+                    ]
+                }
+            }
+        },
+        "chargeSpecification": {
+            "$id": "#chargeSpecification",
+            "$comment": "{\"term\": \"ChargeSpecification\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+            "title": "ChargeSpecification",
+            "type": "object",
+            "required": [
+                "price",
+                "priceCurrency"
+            ],
+            "properties": {
+                "price": {
+                    "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+                    "title": "Price",
+                    "type": "number",
+                    "examples": [
+                        200.00
+                    ],
+                    "default": 0
+                },
+                "priceCurrency": {
+                    "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+                    "title": "Pricecurrency",
+                    "type": "string",
+                    "default": "",
+                    "examples": [
+                        "USD"
+                    ]
+                }
+            }
+        },
+        "identifier": {
+            "$id": "#identifier",
+            "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+            "title": "Identifier",
+            "type": "string"
+        },
+        "paymentStatus": {
+            "$id": "#paymentStatus",
+            "$comment": "{\"term\": \"paymentStatus\", \"@id\": \"https://schema.org/paymentStatus\"}",
+            "title": "Paymentstatus",
+            "type": "string"
+        },
+        "description": {
+            "$id": "#description",
+            "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+            "title": "Informative Instructions",
+            "type": "string"
+        },
+        "shippingStop": {
+            "$id": "#shippingStop",
+            "$comment": "{\"term\": \"shippingStop\", \"@id\": \"https://w3id.org/traceability#EcommerceWayBillRegistrationEvidenceDocument\"}",
+            "type": "object",
+            "required": [
+                "shippingStopAddress",
+                "carrier",
+                "vesselNumber",
+                "arrivalDate",
+                "stopType"
+            ],
+            "properties": {
+                "shippingStopAddress": {
+                    "$ref": "#address"
+                },
+                "carrier": {
+                    "$ref": "#entity"
+                },
+                "vesselNumber": {
+                    "$ref": "#identifier"
+                },
+                "arrivalDate": {
+                    "$comment": "{\"term\": \"arrivalDate\", \"@id\": \"https://schema.org/Date\"}",
+                    "title": "arrivalDate",
+                    "type": "string"
+                },
+                "stopType": {
+                    "$comment": "{\"term\": \"stopType\", \"@id\": \"https://schema.org/description\"}",
+                    "title": "Type of Vessel Stop",
+                    "type": "string",
+                    "examples": [
+                        "Departure",
+                        "Destination",
+                        "Stopover"
+                    ]
+                }
+            }
+        }
+    },
+    "type": "object",
+    "required": [
+        "@context",
+        "issuanceDate",
+        "waybillNumber",
+        "waybillType",
+        "issuer",
+        "shipper",
+        "consignee",
+        "issuerAgent",
+        "shippingRoute",
+        "handlingInstructions",
+        "handlingInstructionsSCI"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "@type": {
+            "$comment": "{\"term\": \"@type\", \"@id\": \"https://w3id.org/traceability#EcommerceWayBillRegistrationEvidenceDocument\"}",
+            "title": "@type",
+            "type": "string",
+            "default": "Ecommerce Way Bill"
+        },
+        "issuanceDate": {
+            "$comment": "{\"term\": \"issuanceDate\", \"@id\": \"https://schema.org/dateIssued\"}",
+            "title": "IssuanceDate",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "2021-01-30T12:00:00"
+            ]
+        },
+        "waybillNumber": {
+            "$comment": "{\"term\": \"WayBillNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+            "title": "Number of a Way Bill",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "WayBill#-123"
+            ]
+        },
+        "waybillType": {
+            "$comment": "{\"term\": \"WayBillType\", \"@id\": \"https://schema.org/DigitalDocument\"}",
+            "title": "Type of Way Bill",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "Single",
+                "Master"
+            ]
+        },
+        "issuer": {
+            "$comment": "{\"term\": \"issuer\", \"@id\": \"https://schema.org/Organization\"}",
+            "issuerAddress": {
+                "$ref": "#address"
+            },
+            "issuerName": {
+                "$ref": "#entity"
+            }
+        },
+        "shipper": {
+            "$comment": "{\"term\": \"shipper\", \"@id\": \"https://schema.org/broker\"}",
+            "shipperAddress": {
+                "$ref": "#address"
+            },
+            "shipperName": {
+                "$ref": "#entity"
+            },
+            "sid": {
+                "$ref": "#identifier"
+            }
+        },
+        "consignee": {
+            "$comment": "{\"term\": \"consignee\", \"@id\": \"https://schema.org/Corporation\"}",
+            "consigneeAddress": {
+                "$ref": "#address"
+            },
+            "consigneeName": {
+                "$ref": "#entity"
+            },
+            "cidNumber": {
+                "$ref": "#identifier"
+            }
+        },
+        "issuerAgent": {
+            "$comment": "{\"term\": \"issuerAgent\", \"@id\": \"https://schema.org/Organization\"}",
+            "issuerAgentAddress": {
+                "$ref": "#address"
+            },
+            "issuerAgentName": {
+                "$ref": "#entity"
+            },
+            "iataCode": {
+                "$ref": "#identifier"
+            },
+            "accountNumber": {
+                "$comment": "{\"term\": \"accountNumber\", \"@id\": \"https://schema.org/accountId\"}",
+                "title": "AccountNumber",
+                "type": "string",
+                "default": "",
+                "examples": [
+                    "xxxx-xxxx-xxxx-1234"
+                ]
+            },
+            "accountingInformation": {
+                "$ref": "#description"
+            },
+            "charge": {
+                "$ref": "#chargeSpecification"
+            },
+            "declaredValueCarriage": {
+                "$ref": "#chargeSpecification"
+            },
+            "declaredValueCarriagePaymentStatus": {
+                "$ref": "#paymentStatus"
+            },
+            "declaredValueCustoms": {
+                "$ref": "#chargeSpecification"
+            },
+            "declaredValueCustomsPaymentStatus": {
+                "$ref": "#paymentStatus"
+            },
+            "amountInsurance": {
+                "$ref": "#chargeSpecification"
+            }
+        },
+        "shippingRoute": {
+            "$comment": "{\"term\": \"shippingRoute\", \"@id\": \"https://schema.org/Trip\"}",
+            "title": "shippingRoute",
+            "type": "array",
+            "items": {
+                "$ref": "#shippingStop"
+            }
+        },
+        "handlingInstructions": {
+            "$ref": "#description"
+        },
+        "handlingInstructionsSCI": {
+            "$ref": "#identifier"
+        }
+    }
+}
