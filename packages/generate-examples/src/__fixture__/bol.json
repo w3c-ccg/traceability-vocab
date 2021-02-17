@@ -1,0 +1,64 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "https://example.com/credentials/47210186-ae43-47a9-b19e-b64e9ba01f33",
+  "type": ["VerifiableCredential", "BillOfLadingCredential"],
+  "relatedLink": [
+    {
+      "type": "LinkRole",
+      "target": "did:example:789",
+      "linkRelationship": "commercialInvoiceLink"
+    },
+    {
+      "type": "LinkRole",
+      "target": "https://www.example.com/template/123",
+      "linkRelationship": "millTestReportLink"
+    }
+  ],
+  "name": "Bill of Lading",
+  "description": "A bill of lading.",
+  "issuanceDate": "2021-02-04T20:29:37+00:00",
+  "issuer": {
+    "id": "did:example:123",
+    "shipper": {
+      "type": ["Organization"],
+      "address": {
+        "type": ["PostalAddress"],
+        "organizationName": "Steel Inc.",
+        "streetAddress": "9391 Mohr Dale",
+        "addressLocality": "Jasperview",
+        "addressRegion": "Tennessee",
+        "postalCode": "93880-8851",
+        "addressCountry": "Panama"
+      }
+    }
+  },
+  "credentialSubject": {
+    "id": "http://example.org/bol/456",
+    "type": ["BillOfLading"],
+    "billOfLadingNumber": "991205182",
+    "relatedDocuments": {
+      "type": ["Purchase"],
+      "orderNumber": "PO:33321235",
+      "invoiceNumber": "8019223-135189"
+    },
+    "freight": {
+      "type": ["ParcelDelivery"],
+      "expectedArrival": "2021-02-21",
+      "consignee": {
+        "type": "Organization",
+        "address": {
+          "type": ["PostalAddress"],
+          "organizationName": "Hodkiewicz, Huels and Schuppe",
+          "streetAddress": "131 Cynthia Corner",
+          "addressLocality": "Port Elvaville",
+          "addressRegion": "Massachusetts",
+          "postalCode": "21281-6812",
+          "addressCountry": "Lichtenstein"
+        }
+      }
+    }
+  }
+}

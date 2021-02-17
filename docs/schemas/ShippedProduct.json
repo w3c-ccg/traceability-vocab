@@ -1,0 +1,31 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/ShippedProduct.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"ShippedProduct\", \"@id\": \"https://w3id.org/traceability#ShippedProduct\"}",
+  "title": "Shipped Product",
+  "description": "Product included in a bill of lading",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "nmfcFreightClass": {
+      "$comment": "{\"term\": \"nmfcFreightClass\", \"@id\": \"https://schema.org/identifier\"}",
+      "title": "NMFC Freight Class",
+      "description": "Freight class details",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}
