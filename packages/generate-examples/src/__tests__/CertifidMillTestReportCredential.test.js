@@ -2,6 +2,8 @@ const { Ed25519KeyPair } = require("@transmute/did-key-ed25519");
 const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
+const fs = require("fs");
+const path = require("path");
 
 describe("Generate", () => {
   it("can issue and verify", async () => {
