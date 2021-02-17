@@ -93,21 +93,38 @@ it('should validate using json schema', async () => {
       // only if everything validated with no errors should this add to the OpenAPI spec
       try {
         const $classComment = JSON.parse(classDefinition.schema.$comment);
-        
-        openAPISpec.components.schemas[$classComment.term] = toOpenApi(
-          classDefinition.schema,
-        );
-        
-        const removeComments = function(obj) {
-          for(prop in obj) {
-            if (prop === '$comment')
+
+        /* eslint-disable no-param-reassign, func-names, no-restricted-syntax */
+        const removeComments = function (obj) {
+          for (const prop in obj) {
+            // definitions and nested refs may also be an issue
+            if (prop === '$comment') {
               delete obj[prop];
-            else if (typeof obj[prop] === 'object')
+            } else if (prop === 'definitions') {
+              delete obj[prop];
+            } else if (prop === '$ref' && typeof obj[prop] === 'string') {
+              // in schema all refs must be resolvable
+              if (!obj[prop].startsWith('#/') || !obj[prop].startsWith('https://')) {
+                delete obj[prop];
+              }
+            } else if (typeof obj[prop] === 'object') {
               removeComments(obj[prop]);
+            }
           }
         };
-        removeComments(openAPISpec.components.schemas[$classComment.term])
-        
+        // json wrapper clones nicely, and makes sure everything parses fine
+        const schemaObj = JSON.parse(JSON.stringify(
+          toOpenApi(
+            classDefinition.schema,
+          ),
+        ));
+        removeComments(schemaObj);
+        // we can also include all examples at some point in the future should this be needed
+        // eslint-disable-next-line prefer-destructuring
+        schemaObj.example = classDefinition.examples[0];
+        openAPISpec.components.schemas[$classComment.term] = schemaObj;
+        /* eslint-enable no-param-reassign, func-names, no-restricted-syntax */
+
         openAPISpec.paths[`/${$classComment.term}`] = {
           get: {
             description: $classComment.term,
@@ -127,7 +144,7 @@ it('should validate using json schema', async () => {
                   },
                 },
               },
-              500: { description: 'Internal Server error', }
+              500: { description: 'Internal Server error' },
             },
           },
         };
