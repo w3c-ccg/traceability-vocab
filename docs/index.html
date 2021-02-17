@@ -1,395 +1,428 @@
 <!DOCTYPE html><html lang="en"><head>
-  <title>Traceability Vocabulary v0.0</title>
-  <meta http-equiv=" Content-Type" content="text/html;charset=utf-8">
+    <title>Traceability Vocabulary v0.0</title>
+    <meta http-equiv=" Content-Type" content="text/html;charset=utf-8">
 
-  <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
-  <script type="text/javascript" class="remove">
-    const respecPagesJson = {
-      name: "traceability-vocab",
-      status: "UNOFFICIAL",
-      latest: "https://w3c-ccg.github.io/traceability-vocab",
-      repository:
-        "https://github.com/w3c-ccg/traceability-vocab",
-      issues:
-        "https://github.com/w3c-ccg/traceability-vocab/issues",
-      group: {
-        name: "Credentials Community Group",
-        url: "https://www.w3.org/community/credentials/",
-        list: "public-credentials",
-        patentUri: "https://www.w3.org/community/about/agreements/cla/",
-      },
-      editors: [
-        {
-          name: "Orie Steele",
-          url: "https://github.com/OR13",
-          company: "Transmute",
-          companyURL: "https://www.transmute.industries/",
+    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script>
+    <script type="text/javascript" class="remove">
+      const respecPagesJson = {
+        name: "traceability-vocab",
+        status: "UNOFFICIAL",
+        latest: "https://w3c-ccg.github.io/traceability-vocab",
+        repository: "https://github.com/w3c-ccg/traceability-vocab",
+        issues: "https://github.com/w3c-ccg/traceability-vocab/issues",
+        group: {
+          name: "Credentials Community Group",
+          url: "https://www.w3.org/community/credentials/",
+          list: "public-credentials",
+          patentUri: "https://www.w3.org/community/about/agreements/cla/",
         },
-        {
-          name: "Michael Prorock",
-          url: "https://github.com/mprorock",
-          company: "Mesur.io",
-          companyURL: "https://www.mesur.io/",
+        editors: [
+          {
+            name: "Orie Steele",
+            url: "https://github.com/OR13",
+            company: "Transmute",
+            companyURL: "https://www.transmute.industries/",
+          },
+          {
+            name: "Michael Prorock",
+            url: "https://github.com/mprorock",
+            company: "Mesur.io",
+            companyURL: "https://www.mesur.io/",
+          },
+          {
+            name: "Brian Munz",
+            url: "https://github.com/brianwmunz",
+            company: "Mesur.io",
+            companyURL: "https://www.mesur.io/",
+          },
+          {
+            name: "Mahmoud Alkhraishi",
+            url: "https://github.com/mkhraisha",
+            company: "Mavennet",
+            companyURL: "https://www.mavennet.com/",
+          },
+        ],
+        bibliography: {
+          "RDF-DATASET-NORMALIZATION": {
+            title: "RDF Dataset Normalization 1.0",
+            href: "http://json-ld.github.io/normalization/spec/",
+            authors: ["David Longley", "Manu Sporny"],
+            status: "CGDRAFT",
+            publisher: "JSON-LD Community Group",
+          },
         },
-        {
-          name: "Brian Munz",
-          url: "https://github.com/brianwmunz",
-          company: "Mesur.io",
-          companyURL: "https://www.mesur.io/",
-        },
-        {
-          name: "Mahmoud Alkhraishi",
-          url: "https://github.com/mkhraisha",
-          company: "Mavennet",
-          companyURL: "https://www.mavennet.com/",
-        },
-      ],
-      bibliography: {
-        "RDF-DATASET-NORMALIZATION": {
-          title: "RDF Dataset Normalization 1.0",
-          href: "http://json-ld.github.io/normalization/spec/",
-          authors: ["David Longley", "Manu Sporny"],
-          status: "CGDRAFT",
-          publisher: "JSON-LD Community Group",
-        },
-      },
-    };
+      };
 
-    var respecConfig = {
-      // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
-      specStatus: respecPagesJson.status,
+      var respecConfig = {
+        // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: respecPagesJson.status,
 
-      // the specification's short name, as in http://www.w3.org/TR/short-name/
-      shortName: respecPagesJson.name,
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: respecPagesJson.name,
 
-      // if you wish the publication date to be other than today, set this
-      // publishDate:  "2009-08-06",
+        // if you wish the publication date to be other than today, set this
+        // publishDate:  "2009-08-06",
 
-      // if there is a previously published draft,
-      // uncomment this and set its YYYY-MM-DD date
-      // and its maturity status
-      previousPublishDate: "2020-09-30",
-      previousMaturity: "UNOFFICIAL",
+        // if there is a previously published draft,
+        // uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        previousPublishDate: "2020-09-30",
+        previousMaturity: "UNOFFICIAL",
 
-      // if there a publicly available Editor's Draft, this is the link
-      edDraftURI: respecPagesJson.latest,
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: respecPagesJson.latest,
 
-      // if this is a LCWD, uncomment and set the end of its review period
-      // lcEnd: "2009-08-05",
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
 
-      // if you want to have extra CSS, append them to this list
-      // it is recommended that the respec.css stylesheet be kept
-      //extraCSS:             ["spec.css", "prettify.css"],
+        // if you want to have extra CSS, append them to this list
+        // it is recommended that the respec.css stylesheet be kept
+        //extraCSS:             ["spec.css", "prettify.css"],
 
-      // editors, add as many as you like
-      // only "name" is required
-      editors: respecPagesJson.editors,
+        // editors, add as many as you like
+        // only "name" is required
+        editors: respecPagesJson.editors,
 
-      // extend the bibliography entries
-      //localBiblio: webpayments.localBiblio,
-      // group: "w3c-ccg",
-      // wg: respecPagesJson.group.name,
-      // // URI of the public WG page
-      // wgURI: respecPagesJson.group.url,
-      // // name (with the @w3c.org) of the public mailing to which comments are due
-      // wgPublicList: respecPagesJson.group.list,
-      // URI of the patent status for this WG, for Rec-track documents
-      // !!!! IMPORTANT !!!!
-      // This is important for Rec-track documents, do not copy a patent URI from a random
-      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-      // Team Contact.
-      // wgPatentURI: respecPagesJson.group.patentUri,
+        // extend the bibliography entries
+        //localBiblio: webpayments.localBiblio,
+        // group: "w3c-ccg",
+        // wg: respecPagesJson.group.name,
+        // // URI of the public WG page
+        // wgURI: respecPagesJson.group.url,
+        // // name (with the @w3c.org) of the public mailing to which comments are due
+        // wgPublicList: respecPagesJson.group.list,
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI: respecPagesJson.group.patentUri,
 
-      otherLinks: [
-        {
-          key: "Source Control",
-          data: [
-            {
-              value: respecPagesJson.repository,
-              href: respecPagesJson.repository,
-            },
-          ],
-        },
-        {
-          key: "Issue Tracker",
-          data: [
-            {
-              value: respecPagesJson.issues,
-              href: respecPagesJson.issues,
-            },
-          ],
-        },
-      ],
+        otherLinks: [
+          {
+            key: "Source Control",
+            data: [
+              {
+                value: respecPagesJson.repository,
+                href: respecPagesJson.repository,
+              },
+            ],
+          },
+          {
+            key: "Issue Tracker",
+            data: [
+              {
+                value: respecPagesJson.issues,
+                href: respecPagesJson.issues,
+              },
+            ],
+          },
+        ],
 
-      // URI of the patent status for this WG, for Rec-track documents
-      // !!!! IMPORTANT !!!!
-      // This is important for Rec-track documents, do not copy a patent URI from a random
-      // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-      // Team Contact.
-      // wgPatentURI:  "",
-      maxTocLevel: 2,
-      /*preProcess: [ webpayments.preProcess ],
-    alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
-    */
-      localBiblio: respecPagesJson.bibliography,
-    };
-  </script>
-  <style>
-    table {
-      width: 100%;
-    }
-  </style>
-</head>
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        // wgPatentURI:  "",
+        maxTocLevel: 2,
+        /*preProcess: [ webpayments.preProcess ],
+      alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
+      */
+        localBiblio: respecPagesJson.bibliography,
+      };
+    </script>
+    <style>
+      table {
+        width: 100%;
+      }
+    </style>
+  </head>
 
-<body>
-  <section id="abstract">
-    <p>
-      This specification describes a Linked Data vocabulary for asserting
-      Verifiable Credentials related to traceability information, such as
-      chemical properties, mechanical properties, country of origin, and other
-      attributes used to determine the status of a products and materials in a
-      supply chain.
-    </p>
-  </section>
+  <body>
+    <section id="abstract">
+      <p>
+        This specification describes a Linked Data vocabulary for asserting
+        Verifiable Credentials related to traceability information, such as
+        chemical properties, mechanical properties, country of origin, and other
+        attributes used to determine the status of a products and materials in a
+        supply chain.
+      </p>
+    </section>
 
-  <section id="sotd">
-    <p>
-      This repository will be versioned at periodic points in time with a Q1 Calendar Year target for major releases.  
-      Versioning tags will follow a pattern of `[MAJOR].[MINOR].[PATCH]` 
-      <br><br>
-      Version Definitions:
-      </p><ul>
-        <li>MAJOR - significant changes rolled forward from the previous major version.  Major versions MAY include breaking or non-backwards compatible changes</li>
-        <li>MINOR - backwards compatible changes that may introduce new functionality or extensions of objects that are backwards compatible</li>
-        <li>PATCH - minor changes that are non breaking and resolve discovered issues or bugs</li>
+    <section id="sotd">
+      <p>
+        This repository will be versioned at periodic points in time with a Q1
+        Calendar Year target for major releases. Versioning tags will follow a
+        pattern of `[MAJOR].[MINOR].[PATCH]`
+        <br><br>
+        Version Definitions:
+      </p>
+      <ul>
+        <li>
+          MAJOR - significant changes rolled forward from the previous major
+          version. Major versions MAY include breaking or non-backwards
+          compatible changes
+        </li>
+        <li>
+          MINOR - backwards compatible changes that may introduce new
+          functionality or extensions of objects that are backwards compatible
+        </li>
+        <li>
+          PATCH - minor changes that are non breaking and resolve discovered
+          issues or bugs
+        </li>
       </ul>
-      As a rule, versioning will follow the specification outlined in the <a href="https://semver.org/">Semantic Versioning 2.0</a> spec
-
-      This approach to versioning gives the ability to integrate with and provided automated testing and validation against defined types without worry of instability or breaking changes being introduced, while also limiting the frequency of possibly breaking changes to prevent a large number of incompatible versions.
-    <p></p>
-
-    <p>
-      To contribue to this vocabulary or reference technical details related to the project,
-      please reference the primary README located on 
-      <a href="https://github.com/w3c-ccg/traceability-vocab/">github</a>
-    </p>
-
-    <p>
-      Please
-      <a href="https://github.com/w3c-ccg/traceability-vocab/issues/">open an issue</a>
-      , if you wish to collaborate on this specification.
-    </p>
-
-    <p>
-      You may also reach out via the mailing list:
-      <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
-      (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
-      <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
-    </p>
-  </section>
-
-  <section class="informative">
-    <h2>Introduction</h2>
-
-    <p>
-      This specification describes a Linked Data vocabulary for asserting
-      Verifiable Credentials related to traceability information, such as
-      chemical properties, mechanical properties, country of origin, and other
-      attributes used to determine the status of a products and materials in a
-      supply chain.
-    </p>
-
-    <section class="informative">
-      <h3>Use Cases and Requirements</h3>
+      As a rule, versioning will follow the specification outlined in the
+      <a href="https://semver.org/">Semantic Versioning 2.0</a> spec This
+      approach to versioning gives the ability to integrate with and provided
+      automated testing and validation against defined types without worry of
+      instability or breaking changes being introduced, while also limiting the
+      frequency of possibly breaking changes to prevent a large number of
+      incompatible versions.
+      <p></p>
 
       <p>
-        The following use cases outline a number of key scenarios that readers
-        might find useful in a variety of sectors, especially those that deal with
-        cross border supply chain data interchange.
+        To contribue to this vocabulary or reference technical details related
+        to the project, please reference the primary README located on
+        <a href="https://github.com/w3c-ccg/traceability-vocab/">github</a>
       </p>
 
+      <p>
+        Please
+        <a href="https://github.com/w3c-ccg/traceability-vocab/issues/">open an issue</a>
+        , if you wish to collaborate on this specification.
+      </p>
 
-      <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
-      <section>
-        <h5>Steel and Metal Imports</h5>
-        <dl class="termlist">
-              <p>The global steel industry relies on cross-party communication of product and business information to
-                successfully move materials from mines, to manufacturers, through customs, to end customers (such as
-                automotive and construction companies). Today this information exists primarily in siloed paper
-                documents. In the current format it is very difficult to make data comparisons across a small number of
-                parties, let alone across millions of shipments over time. It can also be difficult to catch forged
-                documents in the absence of digital signatures and clearly defined organization data attributes.</p>
+      <p>
+        You may also reach out via the mailing list:
+        <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a>
+        (<a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
+        <a href="https://lists.w3.org/Archives/Public/public-credentials/">archives</a>)
+      </p>
+    </section>
 
-              <p>A shared vocabulary creates opportunities for steel trading partners to work from a common digital
-                representation of trade information. Take the example of a mill report for a steel product. This
-                document provides important information about the chemical make-up of steel materials, helping to ensure
-                the desired specification and grade have been met. It also acts as evidence about the origins of steel
-                materials. Unambiguous representation of mill report fields is critical for assessing appropriate
-                duties, meeting customer requirements, and ultimately ensuring consumer safely.</p>
+    <section class="informative">
+      <h2>Introduction</h2>
 
-              <p>By defining the schema for each field, importers can now answer questions like &#x201C;How many pipes of
-                specification XYZ did we purchase last year?&#x201D; (i.e., 
-                <a href="https://w3id.org/traceability#schemas/ChemicalProperty.json">ChemicalProperty</a>).
-                The mill report can also be linked to
-                other trade documentation such as commercial invoices and bills of lading when those credentials are
-                specified and defined. Regulators can also ask questions
-                across a large number of mill reports to help catch transshipment issues, such as &#x201C;How much steel
-                product imported last month specified Vietnam as the country of origin?&#x201D; (i.e., 
-                <a href="https://schema.org/addressCountry">addressCountry</a>).</p>
-        </dl>
-      </section>
+      <p>
+        This specification describes a Linked Data vocabulary for asserting
+        Verifiable Credentials related to traceability information, such as
+        chemical properties, mechanical properties, country of origin, and other
+        attributes used to determine the status of a products and materials in a
+        supply chain.
+      </p>
 
-      <section>
-        <h5>Food and Agriculture</h5>
+      <section class="informative">
+        <h3>Use Cases and Requirements</h3>
+
         <p>
-          Several use cases exist for common vocabulary in the food and agriculture space. Key priorities for this
-          project
-          revolve around items that are required for the safe and succesful importation of food to various countries.
+          The following use cases outline a number of key scenarios that readers
+          might find useful in a variety of sectors, especially those that deal
+          with cross border supply chain data interchange.
         </p>
-        <p>
-          The top level <a href="./schemas/AgInspectionReport.json">AgInspectionReport</a> object has been created as a
-          parent
-          object that allows for the recording of the following inspections and audits, while giving flexibility to
-          account for
-          newly defined inspction types as needs change in the food and agricultre industry. This object can be
-          sub-classed to
-          allow for schema level validation of specific types of inspections and audits as required by the specifics of
-          a given
-          use case. Verifiable Credentials can be issued for this object or sub classes of this object to allow for
-          external
-          verification by third parties that are implementing the Verifiable Credentials sepcification
-        </p>
-        <dl>
-          <dt><dfn>Farm GAP Inspection Report</dfn></dt>
-          <dd>
-            Keep track of <a href="https://www.ams.usda.gov/services/auditing/gap-ghp">Good Agricultural Practices
-              (GAP)</a>
-            audits and share results with a vendor
-          </dd>
-          <dt><dfn>FSMA Inspection</dfn></dt>
-          <dd>
-            <a href="https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma">Food
-              Safety Modernization Act</a> inspections and results for sharing with relevant parties, regulatory bodies
-            and
-            vendors.
-          </dd>
-          <dt><dfn>Foreign Site Certificate of Inspection and/or Treatment</dfn></dt>
-          <dd>
-            <a href="https://www.aphis.usda.gov/aphis/resources/forms/CT_PPQ_Forms">USDA APHIS PPQ FORM 203</a> that is
-            required
-            for pre-clearance of imported food and ag goods into the US
-          </dd>
-        </dl>
-      </section>
-      <section>
-        <h5>Oil and Gas Imports</h5>
-        <dl class="termlist">
+
+        <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
+        <section>
+          <h5>Steel and Metal Imports</h5>
+          <dl class="termlist">
+            <p>
+              The global steel industry relies on cross-party communication of
+              product and business information to successfully move materials
+              from mines, to manufacturers, through customs, to end customers
+              (such as automotive and construction companies). Today this
+              information exists primarily in siloed paper documents. In the
+              current format it is very difficult to make data comparisons
+              across a small number of parties, let alone across millions of
+              shipments over time. It can also be difficult to catch forged
+              documents in the absence of digital signatures and clearly defined
+              organization data attributes.
+            </p>
+
+            <p>
+              A shared vocabulary creates opportunities for steel trading
+              partners to work from a common digital representation of trade
+              information. Take the example of a mill report for a steel
+              product. This document provides important information about the
+              chemical make-up of steel materials, helping to ensure the desired
+              specification and grade have been met. It also acts as evidence
+              about the origins of steel materials. Unambiguous representation
+              of mill report fields is critical for assessing appropriate
+              duties, meeting customer requirements, and ultimately ensuring
+              consumer safely.
+            </p>
+
+            <p>
+              By defining the schema for each field, importers can now answer
+              questions like “How many pipes of specification XYZ did we
+              purchase last year?” (i.e.,
+              <a href="https://w3id.org/traceability#schemas/ChemicalProperty.json">ChemicalProperty</a>). The mill report can also be linked to other trade
+              documentation such as commercial invoices and bills of lading when
+              those credentials are specified and defined. Regulators can also
+              ask questions across a large number of mill reports to help catch
+              transshipment issues, such as “How much steel product
+              imported last month specified Vietnam as the country of
+              origin?” (i.e.,
+              <a href="https://schema.org/addressCountry">addressCountry</a>).
+            </p>
+          </dl>
+        </section>
+
+        <section>
+          <h5>Food and Agriculture</h5>
           <p>
-            A common traceability vocabulary will enable creation of a common
-            digital representation of an oil and gas assets and a variety of
-            use cases. The main priority of this project is the border
-            clearance and regulatory compliance use cases, that enable
-            industry players to rely on the asset history, origin, and
-            composition recorded as Verifiable credentials to be used in these
-            processes.
+            Several use cases exist for common vocabulary in the food and
+            agriculture space. Key priorities for this project revolve around
+            items that are required for the safe and succesful importation of
+            food to various countries.
           </p>
           <p>
-            The asset-specific CrudeOil VC (and NaturalGas VC) object serves
-            as a root object that stores the key attributes of the asset as
-            well as origin and composition. In addition to the asset VC, we
-            are planning to represent key events in the asset&#x2019;s lifecycle
-            (inspection, transportation, transfer of ownership) as Verifiable
-            Credentials.
+            The top level
+            <a href="./schemas/AgInspectionReport.json">AgInspectionReport</a>
+            object has been created as a parent object that allows for the
+            recording of the following inspections and audits, while giving
+            flexibility to account for newly defined inspction types as needs
+            change in the food and agricultre industry. This object can be
+            sub-classed to allow for schema level validation of specific types
+            of inspections and audits as required by the specifics of a given
+            use case. Verifiable Credentials can be issued for this object or
+            sub classes of this object to allow for external verification by
+            third parties that are implementing the Verifiable Credentials
+            sepcification
           </p>
-        </dl>
-      </section>
-      <section>
-        <h5>E-Commerce Registration and Pre-Registration</h5>
-        <dl class="termlist">
-          <p>
-            A common traceability vocabulary will allow complex supply chains
-            that import goods to US-resident customers to register individual
-            packages and pre-register products intended for sale to the US with
-            US Customs. For the data needs of Customs to be met by highly
-            heterogenous supply chains that might require much &quot;internal
-            confidentiality&quot; (between supply chain actors), a highly sharded
-            data model is required, whereby many different actors can each
-            submit data points separately that get combined at time of customs
-            processing.
-          </p>
-          <p>
-            Without strong identification of legal entities (i.e.,
-            legally defined and registered supply chain actors) and of products,
-            and without high levels of semantic flexibility, the shards can be
-            quite hard to combine usefully. Linking the registration of individual
-            packages together with the pre-registration of commercial products
-            and actors is the key value-add of this system, but could also be a
-            burdensome request on importers, retailers, and freight forwarders.
-            To minimize this burden, we are aligning wherever possible with the
-            ontology work of GS1 (GTINs and vLEIs), and with shipping and 
-            tracking semantics already adopted today by international
-            logistics consortia. We distinguish between the VCs that are
-            issued in relation to a specific package and the contextual information
-            that needs to be queried to validate package information, as well as
-            to make valuable assessments, inferences, and data quality remediation
-            on Customs pre-entry data.
-          </p>
-        </dl>
+          <dl>
+            <dt><dfn>Farm GAP Inspection Report</dfn></dt>
+            <dd>
+              Keep track of
+              <a href="https://www.ams.usda.gov/services/auditing/gap-ghp">Good Agricultural Practices (GAP)</a>
+              audits and share results with a vendor
+            </dd>
+            <dt><dfn>FSMA Inspection</dfn></dt>
+            <dd>
+              <a href="https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma">Food Safety Modernization Act</a>
+              inspections and results for sharing with relevant parties,
+              regulatory bodies and vendors.
+            </dd>
+            <dt>
+              <dfn>Foreign Site Certificate of Inspection and/or Treatment</dfn>
+            </dt>
+            <dd>
+              <a href="https://www.aphis.usda.gov/aphis/resources/forms/CT_PPQ_Forms">USDA APHIS PPQ FORM 203</a>
+              that is required for pre-clearance of imported food and ag goods
+              into the US
+            </dd>
+          </dl>
+        </section>
+        <section>
+          <h5>Oil and Gas Imports</h5>
+          <dl class="termlist">
+            <p>
+              A common traceability vocabulary will enable creation of a common
+              digital representation of an oil and gas assets and a variety of
+              use cases. The main priority of this project is the border
+              clearance and regulatory compliance use cases, that enable
+              industry players to rely on the asset history, origin, and
+              composition recorded as Verifiable credentials to be used in these
+              processes.
+            </p>
+            <p>
+              The asset-specific CrudeOil VC (and NaturalGas VC) object serves
+              as a root object that stores the key attributes of the asset as
+              well as origin and composition. In addition to the asset VC, we
+              are planning to represent key events in the asset’s
+              lifecycle (inspection, transportation, transfer of ownership) as
+              Verifiable Credentials.
+            </p>
+          </dl>
+        </section>
+        <section>
+          <h5>E-Commerce Registration and Pre-Registration</h5>
+          <dl class="termlist">
+            <p>
+              A common traceability vocabulary will allow complex supply chains
+              that import goods to US-resident customers to register individual
+              packages and pre-register products intended for sale to the US
+              with US Customs. For the data needs of Customs to be met by highly
+              heterogenous supply chains that might require much "internal
+              confidentiality" (between supply chain actors), a highly
+              sharded data model is required, whereby many different actors can
+              each submit data points separately that get combined at time of
+              customs processing.
+            </p>
+            <p>
+              Without strong identification of legal entities (i.e., legally
+              defined and registered supply chain actors) and of products, and
+              without high levels of semantic flexibility, the shards can be
+              quite hard to combine usefully. Linking the registration of
+              individual packages together with the pre-registration of
+              commercial products and actors is the key value-add of this
+              system, but could also be a burdensome request on importers,
+              retailers, and freight forwarders. To minimize this burden, we are
+              aligning wherever possible with the ontology work of GS1 (GTINs
+              and vLEIs), and with shipping and tracking semantics already
+              adopted today by international logistics consortia. We distinguish
+              between the VCs that are issued in relation to a specific package
+              and the contextual information that needs to be queried to
+              validate package information, as well as to make valuable
+              assessments, inferences, and data quality remediation on Customs
+              pre-entry data.
+            </p>
+          </dl>
+        </section>
       </section>
     </section>
-  </section>
 
-  <section id="terminology" class="informative">
-    <h2>Terminology</h2>
-    <p>
-      The following terms are used to describe concepts in this specification.
-    </p>
+    <section id="terminology" class="informative">
+      <h2>Terminology</h2>
+      <p>
+        The following terms are used to describe concepts in this specification.
+      </p>
 
-    <dl class="termlist">
-      <dt><dfn data-lt="entities|entity&apos;s">entity</dfn></dt>
-      <dd>
-        A thing with distinct and independent existence, such as a person,
-        organization, or device that performs one or more roles in the
-        ecosystem.
-      </dd>
-      <dt><dfn>user agent</dfn></dt>
-      <dd>
-        A program, such as a browser or other Web client, that mediates the
-        communication between the various roles in this specification.
-      </dd>
-      <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
-      <dd>An identifier as defined by [[RFC3986]].</dd>
-    </dl>
-  </section>
+      <dl class="termlist">
+        <dt><dfn data-lt="entities|entity's">entity</dfn></dt>
+        <dd>
+          A thing with distinct and independent existence, such as a person,
+          organization, or device that performs one or more roles in the
+          ecosystem.
+        </dd>
+        <dt><dfn>user agent</dfn></dt>
+        <dd>
+          A program, such as a browser or other Web client, that mediates the
+          communication between the various roles in this specification.
+        </dd>
+        <dt><dfn data-lt="URI|URIs">URI</dfn></dt>
+        <dd>An identifier as defined by [[RFC3986]].</dd>
+      </dl>
+    </section>
 
-  <section id="vocabulary" class="normative">
-    <h2>Vocabulary</h2>
+    <section id="vocabulary" class="normative">
+      <h2>Vocabulary</h2>
 
-    <p>
-      This vocabulary assumes all terms specified in the base Verifiable
-      Credentials [[VC-DATA-MODEL]] context.
-    </p>
+      <p>
+        This vocabulary assumes all terms specified in the base Verifiable
+        Credentials [[VC-DATA-MODEL]] context.
+      </p>
 
-    <p>
-      In addition, the following classes are available for specifying
-      information related to supply-chain traceability.
-    </p>
+      <p>
+        In addition, the following classes are available for specifying
+        information related to supply-chain traceability.
+      </p>
 
-    <p>
-      You may view the latest json-ld vocabulary at: <br>
-      <a href="https://w3id.org/traceability/v1">
-        https://w3id.org/traceability/v1
-      </a>
-    </p>
+      <p>
+        You may view the latest json-ld vocabulary at: <br>
+        <a href="https://w3id.org/traceability/v1">
+          https://w3id.org/traceability/v1
+        </a>
+      </p>
 
-    <p>
-      You may view the latest json-schema definitions at: <br>
-      <a href="https://github.com/w3c-ccg/traceability-vocab/tree/main/docs/schemas">
-        https://github.com/w3c-ccg/traceability-vocab/tree/main/docs/schemas
-      </a>
-    </p>
+      <p>
+        You may view the latest json-schema definitions at: <br>
+        <a href="https://github.com/w3c-ccg/traceability-vocab/tree/main/docs/schemas">
+          https://github.com/w3c-ccg/traceability-vocab/tree/main/docs/schemas
+        </a>
+      </p>
 
-    <script type="application/json" id="intermediate-json">
+      <script type="application/json" id="intermediate-json">
       {
   "https://w3id.org/traceability#AgInspectionReport": {
     "$id": "https://w3id.org/traceability/schemas/AgInspectionReport.json",
@@ -2360,6 +2393,150 @@
       "examples": []
     }
   },
+  "https://w3id.org/traceability#CrudeOilProduct": {
+    "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "CrudeOilProduct",
+      "@id": "https://w3id.org/traceability#CrudeOilProduct"
+    },
+    "title": "Crude Oil Product",
+    "description": "Tombstone information regarding a crude oil product",
+    "classProperties": {
+      "https://www.gs1.org/voc/Product": {
+        "$comment": {
+          "term": "product",
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "title": "Product",
+        "description": "Product details as outlined in the Product.json schema"
+      },
+      "https://www.gs1.org/voc/Place": {
+        "$comment": {
+          "term": "facility",
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "title": "Manufacture Facility",
+        "description": "Information on the manufacture facility."
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "UWI",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Unique Well Identifier",
+        "description": "Unique Well Identifier used for individual well identification."
+      },
+      "https://w3id.org/identifier": {
+        "$comment": {
+          "term": "HSCode",
+          "@id": "https://w3id.org/identifier"
+        },
+        "title": "HSCode",
+        "description": "Defines the Harmonized System Code for the Commodity"
+      },
+      "https://schema.org/DateTime#v2": {
+        "$comment": {
+          "term": "productionDate",
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "title": "Production Date",
+        "description": "Date when the product was created"
+      },
+      "https://w3id.org/traceability#observation": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://w3id.org/traceability#observation"
+        },
+        "title": "Observation List",
+        "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/CrudeOilProduct.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"CrudeOilProduct\", \"@id\": \"https://w3id.org/traceability#CrudeOilProduct\"}",
+      "title": "Crude Oil Product",
+      "description": "Tombstone information regarding a crude oil product",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "issuanceDate": {
+          "type": "string"
+        },
+        "credentialSubject": {
+          "type": "object"
+        },
+        "issuer": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "product": {
+          "$comment": "{\"term\": \"product\", \"@id\": \"https://www.gs1.org/voc/Product\"}",
+          "title": "Product",
+          "description": "Product details as outlined in the Product.json schema",
+          "$ref": "https://w3id.org/traceability/schemas/Product.json"
+        },
+        "facility": {
+          "$comment": "{\"term\": \"facility\", \"@id\": \"https://www.gs1.org/voc/Place\"}",
+          "title": "Manufacture Facility",
+          "description": "Information on the manufacture facility.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "UWI": {
+          "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Unique Well Identifier",
+          "description": "Unique Well Identifier used for individual well identification.",
+          "type": "string"
+        },
+        "HSCode": {
+          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier\"}",
+          "title": "HSCode",
+          "description": "Defines the Harmonized System Code for the Commodity",
+          "type": "string"
+        },
+        "productionDate": {
+          "$comment": "{\"term\": \"productionDate\", \"@id\": \"https://schema.org/DateTime#v2\"}",
+          "title": "Production Date",
+          "description": "Date when the product was created",
+          "type": "string"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+          "title": "Observation List",
+          "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential": {
     "$id": "https://w3id.org/traceability/schemas/EcommerceAdditionalProductCodeRegistrationCredential.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
@@ -2996,7 +3173,7 @@
           {
             "@type": "Order",
             "description": "New Order For Jamir Veum",
-            "orderDate": "1-1-2021",
+            "orderDate": "1-2-2021",
             "orderNumber": "Order#437",
             "paymentMethod": "http://purl.org/goodrelations/v1#DirectDebit",
             "orderedItem": [
@@ -3929,7 +4106,7 @@
           "telephone": "555-488-8101",
           "email": "Maci83@example.com"
         },
-        "paymentDueDate": "2-5-2021",
+        "paymentDueDate": "2-6-2021",
         "paymentMethod": "http://purl.org/goodrelations/v1#Cash",
         "orderedItem": [
           {
@@ -3958,7 +4135,7 @@
         ],
         "type": "EcommerceOrderRegistrationEvidenceDocument",
         "orderNumber": "Order#612",
-        "orderDate": "1-1-2021",
+        "orderDate": "1-2-2021",
         "orderStatus": "OrderProcessing",
         "description": "New Order For Elmo Gaylord",
         "url": "http://stewart.name?queryid=Order#612",
@@ -7339,7 +7516,7 @@
             "entity": {
               "legalName": {
                 "name": "Mills, Farrell and Auer",
-                "language": "id_ID"
+                "language": "hr"
               },
               "otherNames": [
                 "Kuphal, Pagac and Sporer",
@@ -7350,7 +7527,7 @@
                 "Mosciski, Conroy and Hane"
               ],
               "legalAddress": {
-                "language": "id_ID",
+                "language": "hr",
                 "addressLines": [
                   "Mills, Farrell and Auer",
                   "43556 Ora Crest"
@@ -7364,7 +7541,7 @@
                 "postalCode": "66266"
               },
               "headquartersAddress": {
-                "language": "id_ID",
+                "language": "hr",
                 "addressLines": [
                   "6367 Littel Springs"
                 ],
@@ -7617,7 +7794,7 @@
             "entity": {
               "legalName": {
                 "name": "Kirlin, Kunze and Farrell",
-                "language": "en_AU"
+                "language": "en_AU_ocker"
               },
               "otherNames": [
                 "Pacocha, King and Carroll",
@@ -7628,7 +7805,7 @@
                 "Orn, Terry and Walter"
               ],
               "legalAddress": {
-                "language": "en_AU",
+                "language": "en_AU_ocker",
                 "addressLines": [
                   "Kirlin, Kunze and Farrell",
                   "50910 Colleen Landing"
@@ -7642,7 +7819,7 @@
                 "postalCode": "69314-7523"
               },
               "headquartersAddress": {
-                "language": "en_AU",
+                "language": "en_AU_ocker",
                 "addressLines": [
                   "28134 Mossie Forest"
                 ],
@@ -11316,7 +11493,7 @@
         "mpn": "PTFDM1X6PV",
         "gtin": "66716306370473",
         "isAccessoryOrSparePartFor": "n/a",
-        "releaseDate": "2020-10-0",
+        "releaseDate": "2020-10-1",
         "manufacturer": "Hirthe - Cronin",
         "globalLocationNumber": "7531564087141",
         "leiCode": "",
@@ -13141,186 +13318,177 @@
 }
             </script>
 
-    <p id="vocab-last-generated" class="note">
+      <p id="vocab-last-generated" class="note">
       This vocabulary was last generated
       <span id="vocab-last-generated-date">
-      Tuesday, February 16, 2021 11:41 AM
+      Tuesday, February 16, 2021 4:48 PM
       </span>
             </p>
-  </section>
+    </section>
 
-  <section class="informative">
-    <h2>Privacy Considerations</h2>
+    <section class="informative">
+      <h2>Privacy Considerations</h2>
 
-    <p>
-      This section details the general privacy considerations and specific
-      privacy implications of deploying this specification into production
-      environments.
-    </p>
-  </section>
+      <p>
+        This section details the general privacy considerations and specific
+        privacy implications of deploying this specification into production
+        environments.
+      </p>
+    </section>
 
-  <section class="informative">
-    <h2>Security Considerations</h2>
+    <section class="informative">
+      <h2>Security Considerations</h2>
 
-    <p>
-      There are a number of security considerations that implementers should
-      be aware of when processing data described by this specification.
-      Ignoring or not understanding the implications of this section can
-      result in security vulnerabilities.
-    </p>
+      <p>
+        There are a number of security considerations that implementers should
+        be aware of when processing data described by this specification.
+        Ignoring or not understanding the implications of this section can
+        result in security vulnerabilities.
+      </p>
 
-    <p>
-      While this section attempts to highlight a broad set of security
-      considerations, it is not a complete list. Implementers are urged to
-      seek the advice of security and cryptography professionals when
-      implementing mission critical systems using the technology outlined in
-      this specification.
-    </p>
-  </section>
+      <p>
+        While this section attempts to highlight a broad set of security
+        considerations, it is not a complete list. Implementers are urged to
+        seek the advice of security and cryptography professionals when
+        implementing mission critical systems using the technology outlined in
+        this specification.
+      </p>
+    </section>
 
-  <section class="informative">
-    <h2>Accessibility Considerations</h2>
+    <section class="informative">
+      <h2>Accessibility Considerations</h2>
 
-    <p>
-      There are a number of accessibility considerations implementers should
-      be aware of when processing data described in this specification. As
-      with any web standards or protocols implementation, ignoring
-      accessibility issues makes this information unusable to a large subset
-      of the population. It is important to follow accessibility guidelines
-      and standards, such as [[WCAG21]], to ensure all people, regardless of
-      ability, can make use of this data. This is especially important when
-      establishing systems utilizing cryptography, which have historically
-      created problems for assistive technologies.
-    </p>
+      <p>
+        There are a number of accessibility considerations implementers should
+        be aware of when processing data described in this specification. As
+        with any web standards or protocols implementation, ignoring
+        accessibility issues makes this information unusable to a large subset
+        of the population. It is important to follow accessibility guidelines
+        and standards, such as [[WCAG21]], to ensure all people, regardless of
+        ability, can make use of this data. This is especially important when
+        establishing systems utilizing cryptography, which have historically
+        created problems for assistive technologies.
+      </p>
 
-    <p>
-      This section details the general accessibility considerations to take
-      into account when utilizing this data model.
-    </p>
-  </section>
+      <p>
+        This section details the general accessibility considerations to take
+        into account when utilizing this data model.
+      </p>
+    </section>
 
-  <section class="informative">
-    <h2>Internationalization Considerations</h2>
+    <section class="informative">
+      <h2>Internationalization Considerations</h2>
 
-    <p>
-      There are a number of internationalization considerations implementers
-      should be aware of when publishing data described in this specification.
-      As with any web standards or protocols implementation, ignoring
-      internationalization makes it difficult for data to be produced and
-      consumed across a disparate set of languages and societies, which would
-      limit the applicability of the specification and significantly diminish
-      its value as a standard.
-    </p>
+      <p>
+        There are a number of internationalization considerations implementers
+        should be aware of when publishing data described in this specification.
+        As with any web standards or protocols implementation, ignoring
+        internationalization makes it difficult for data to be produced and
+        consumed across a disparate set of languages and societies, which would
+        limit the applicability of the specification and significantly diminish
+        its value as a standard.
+      </p>
 
-    <p>
-      This section outlines general internationalization considerations to
-      take into account when utilizing this data model.
-    </p>
-  </section>
+      <p>
+        This section outlines general internationalization considerations to
+        take into account when utilizing this data model.
+      </p>
+    </section>
 
-  <script>
-    const intermediate = JSON.parse(
-      document.getElementById("intermediate-json").innerHTML
-    );
-    // uncomment to view the json used to build this spec.
-    // console.log(intermediate)
-    let vocabularyString = "";
-    Object.values(intermediate).forEach((classDefinition) => {
-      let classPropertySections = "";
-      Object.values(classDefinition.classProperties).forEach(
-        (classProperty) => {
-          classPropertySections += `
-                <section id="${classProperty.$comment.term}">
-                <h3>${classProperty.title}</h3>
-                <p>${classProperty.description}</p>
-
-                <table class="simple">
-                    <tbody>
-                        <tr>
-                        <td>
-<a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
-                        </td>
-                        <td>
-            <a href="${classProperty.$comment["@id"]}">${classProperty.$comment.term}</a>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-<a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
-                        </td>
-                        <td>
-            <a href="${classProperty.$comment["@id"]}">${classProperty.$comment["@id"]}</a>
-                        </td>
-                        </tr>
-                    </tbody>
-                    </table>
-                </section>
-                `;
-        }
+    <script>
+      const intermediate = JSON.parse(
+        document.getElementById("intermediate-json").innerHTML
       );
+      // uncomment to view the json used to build this spec.
+      // console.log(intermediate)
+      let vocabularyString = "";
+      Object.values(intermediate).forEach((classDefinition) => {
+        let classPropertySections = "";
+        Object.values(classDefinition.classProperties).forEach(
+          (classProperty) => {
+            classPropertySections += `
+                  <section id="${classProperty.$comment.term}">
+                  <h3>${classProperty.title}</h3>
+                  <p>${classProperty.description}</p>
+  
+                  <table class="simple">
+                      <tbody>
+                          <tr>
+                          <td>
+  <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                          </td>
+                          <td>
+              <a href="${classProperty.$comment["@id"]}">${classProperty.$comment.term}</a>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
+  <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                          </td>
+                          <td>
+              <a href="${classProperty.$comment["@id"]}">${classProperty.$comment["@id"]}</a>
+                          </td>
+                          </tr>
+                      </tbody>
+                      </table>
+                  </section>
+                  `;
+          }
+        );
 
-      let classExamples = classDefinition.examples
-        ? classDefinition.examples
-          .map((ex) => {
-            return `
-<pre class="example">
-${JSON.stringify(
-              { ...ex },
-              null,
-              2
-            )}
-</pre>
-                `;
-          })
-          .join("\n")
-        : "";
+        let classExamples = classDefinition.examples
+          ? classDefinition.examples
+              .map((ex) => {
+                return `
+  <pre class="example">
+  ${JSON.stringify({ ...ex }, null, 2)}
+  </pre>
+                  `;
+              })
+              .join("\n")
+          : "";
 
-      vocabularyString += `
-            <section id="${classDefinition.$comment.term}">
-            <h2>${classDefinition.title}</h2>
-            <p>${classDefinition.description}</p>
-
-            <table class="simple">
-                    <tbody>
-                        <tr>
-                        <td>
-            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
-                        </td>
-                        <td>
-                            <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment.term}</a>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
-                        </td>
-                        <td>
-                            <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment["@id"]}</a>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-            <a href="https://json-schema.org/">JSON Schema</a>
-                        </td>
-                        <td>
-                            <a href="${classDefinition.$id}">${classDefinition.$id}</a>
-                        </td>
-                        </tr>
-                    </tbody>
-                    </table>
-            ${classPropertySections}
-
-            ${classExamples}
-            </section>
-            `;
-    });
-    document.getElementById("vocabulary").innerHTML += vocabularyString;
-  </script>
-
-
-
-
-
-
+        vocabularyString += `
+              <section id="${classDefinition.$comment.term}">
+              <h2>${classDefinition.title}</h2>
+              <p>${classDefinition.description}</p>
+  
+              <table class="simple">
+                      <tbody>
+                          <tr>
+                          <td>
+              <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                          </td>
+                          <td>
+                              <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment.term}</a>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
+              <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                          </td>
+                          <td>
+                              <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment["@id"]}</a>
+                          </td>
+                          </tr>
+                          <tr>
+                          <td>
+              <a href="https://json-schema.org/">JSON Schema</a>
+                          </td>
+                          <td>
+                              <a href="${classDefinition.$id}">${classDefinition.$id}</a>
+                          </td>
+                          </tr>
+                      </tbody>
+                      </table>
+              ${classPropertySections}
+  
+              ${classExamples}
+              </section>
+              `;
+      });
+      document.getElementById("vocabulary").innerHTML += vocabularyString;
+    </script>
+  
 
 </body></html>
