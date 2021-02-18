@@ -44,10 +44,10 @@ const SteelProduct = require('../../../../docs/test-vectors/SteelProduct.json');
 const ContactPoint = require('../../../../docs/test-vectors/ContactPoint.json');
 const Invoice = require('../../../../docs/test-vectors/Invoice.json');
 const Brand = require('../../../../docs/test-vectors/Brand.json');
-const CertifiedMillTestReport = require('../../../../docs/test-vectors/CertifiedMillTestReport.json');
+const CertifidMillTestReportCredential = require('../../../../docs/test-vectors/CertifidMillTestReportCredential.json');
 
 module.exports = {
-  CertifiedMillTestReport,
+  CertifidMillTestReportCredential,
   Brand,
   Invoice,
   ContactPoint,
