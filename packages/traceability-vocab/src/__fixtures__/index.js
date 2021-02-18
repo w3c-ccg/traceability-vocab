@@ -45,8 +45,10 @@ const ContactPoint = require('../../../../docs/test-vectors/ContactPoint.json');
 const Invoice = require('../../../../docs/test-vectors/Invoice.json');
 const Brand = require('../../../../docs/test-vectors/Brand.json');
 const CertifidMillTestReportCredential = require('../../../../docs/test-vectors/CertifidMillTestReportCredential.json');
+const GlobalLocationNumber = require('../../../../docs/test-vectors/GlobalLocationNumber.json');
 
 module.exports = {
+  GlobalLocationNumber,
   CertifidMillTestReportCredential,
   Brand,
   Invoice,

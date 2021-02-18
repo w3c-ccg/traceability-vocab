@@ -1,6 +1,6 @@
 const { getPostalAddress } = require('./PostalAddress');
 const { getGeoCoordinates } = require('./GeoCoordinates');
-const { getGlobalLocationNumber } = require('./GS1');
+const { getGlobalLocationNumber } = require('./GlobalLocationNumber');
 
 const getPlace = () => {
   const globalLocationNumber = getGlobalLocationNumber();

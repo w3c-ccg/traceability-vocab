@@ -7,19 +7,28 @@ const deliverytype = require('../../data/generated/delivery-methods.json');
 // Include delivery Status
 const deliverystatus = require('../../data/generated/event-status.json');
 
-const getEcommercePackageRegistrationEvidenceDoc = () => {
+const getEcommercePackageRegistrationEvidenceDocument = () => {
   // get a delivery method
-  const randomDelivery = faker.random.number({ min: 1, max: deliverytype.methods.length });
+  const randomDelivery = faker.random.number({
+    min: 1,
+    max: deliverytype.methods.length,
+  });
   const deliveryMethod = deliverytype.methods[randomDelivery - 1];
   // get a delivery status
-  const randomDeliveryStatus = faker.random.number({ min: 1, max: deliverystatus.status.length });
+  const randomDeliveryStatus = faker.random.number({
+    min: 1,
+    max: deliverystatus.status.length,
+  });
   const deliveryStatus = deliverystatus.status[randomDeliveryStatus - 1];
   // create a list of ordered products in packing
   const orderNumber = `Order#${faker.random.number({ min: 1, max: 999 })}`;
   let numItemsinOrder = faker.random.number({ min: 1, max: 4 });
   const productlist = [];
   while (numItemsinOrder > 0) {
-    const randomProd = faker.random.number({ min: 0, max: Object.keys(prods).length - 1 });
+    const randomProd = faker.random.number({
+      min: 0,
+      max: Object.keys(prods).length - 1,
+    });
     const quantity = faker.random.number({ min: 1, max: 10 });
     const itemOrderedName = prods[randomProd].name;
     const itemOrderedProduct = prods[randomProd].productID;
@@ -53,7 +62,10 @@ const getEcommercePackageRegistrationEvidenceDoc = () => {
 
   // create provider
   const name1 = faker.company.companyName();
-  const lei1 = `2345${faker.random.number({ min: 1000000000000000, max: 1999999999999999 })}`;
+  const lei1 = `2345${faker.random.number({
+    min: 1000000000000000,
+    max: 1999999999999999,
+  })}`;
   const provider = {
     '@type': 'Corporation',
     name: name1,
@@ -66,8 +78,13 @@ const getEcommercePackageRegistrationEvidenceDoc = () => {
   const originaddress = getPostalAddress();
   delete originaddress['@context'];
 
-  const futureDate = new Date(`${faker.random.number({ min: 2021, max: 2022 })}`);
-  const trackingnumber = faker.random.number({ min: 100000000000, max: 999999999999 });
+  const futureDate = new Date(
+    `${faker.random.number({ min: 2021, max: 2022 })}`,
+  );
+  const trackingnumber = faker.random.number({
+    min: 100000000000,
+    max: 999999999999,
+  });
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -84,4 +101,4 @@ const getEcommercePackageRegistrationEvidenceDoc = () => {
   return example;
 };
 
-module.exports = { getEcommercePackageRegistrationEvidenceDoc };
+module.exports = { getEcommercePackageRegistrationEvidenceDocument };
