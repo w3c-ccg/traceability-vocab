@@ -1,11 +1,11 @@
-const faker = require("faker");
-const { getPostalAddress } = require("./PostalAddress");
+const faker = require('faker');
+const { getPostalAddress } = require('./PostalAddress');
 // Include test data for ecom products.
-const prods = require("../../data/generated/EcomProducts.json");
+const prods = require('../../data/generated/EcomProducts.json');
 // Include delivery methods
-const deliverytype = require("../../data/generated/delivery-methods.json");
+const deliverytype = require('../../data/generated/delivery-methods.json');
 // Include delivery Status
-const deliverystatus = require("../../data/generated/event-status.json");
+const deliverystatus = require('../../data/generated/event-status.json');
 
 const getEcommercePackageRegistrationEvidenceDocument = () => {
   // get a delivery method
@@ -34,7 +34,7 @@ const getEcommercePackageRegistrationEvidenceDocument = () => {
     const itemOrderedProduct = prods[randomProd].productID;
     const itemOrderedDescription = faker.commerce.productDescription();
     const item = {
-      "@type": "Product",
+      '@type': 'Product',
       manufacturer: `${faker.company.companyName()}`,
       name: itemOrderedName,
       description: itemOrderedDescription,
@@ -54,7 +54,7 @@ const getEcommercePackageRegistrationEvidenceDocument = () => {
 
   const partoforder = [];
   const partofordernew = {
-    "@type": "Order",
+    '@type': 'Order',
     orderNumber,
     itemShipped: productlist,
   };
@@ -67,19 +67,19 @@ const getEcommercePackageRegistrationEvidenceDocument = () => {
     max: 1999999999999999,
   })}`;
   const provider = {
-    "@type": "Corporation",
+    '@type': 'Corporation',
     name: name1,
     leiCode: lei1,
   };
 
   // create the required addresses
   const deliveryaddress = getPostalAddress();
-  delete deliveryaddress["@context"];
+  delete deliveryaddress['@context'];
   const originaddress = getPostalAddress();
-  delete originaddress["@context"];
+  delete originaddress['@context'];
 
   const futureDate = new Date(
-    `${faker.random.number({ min: 2021, max: 2022 })}`
+    `${faker.random.number({ min: 2021, max: 2022 })}`,
   );
   const trackingnumber = faker.random.number({
     min: 100000000000,
@@ -87,8 +87,8 @@ const getEcommercePackageRegistrationEvidenceDocument = () => {
   });
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommercePackageRegistrationEvidenceDocument",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommercePackageRegistrationEvidenceDocument',
     deliveryStatus,
     expectedArrivalFrom: `${futureDate}`,
     hasDeliveryMethod: deliveryMethod,

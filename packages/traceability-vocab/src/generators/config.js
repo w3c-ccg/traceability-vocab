@@ -1,2 +1,3 @@
-const { buildGeneratorConfigFromFs } = require("../buildGeneratorConfigFromFs");
+const { buildGeneratorConfigFromFs } = require('../buildGeneratorConfigFromFs');
+
 module.exports = buildGeneratorConfigFromFs();

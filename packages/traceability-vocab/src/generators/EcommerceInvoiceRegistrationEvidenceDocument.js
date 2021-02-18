@@ -1,12 +1,12 @@
-const faker = require("faker");
-const { getPostalAddress } = require("./PostalAddress");
-const { getPerson } = require("./Person");
+const faker = require('faker');
+const { getPostalAddress } = require('./PostalAddress');
+const { getPerson } = require('./Person');
 // Include test data for ecom products.
-const prods = require("../../data/generated/EcomProducts.json");
+const prods = require('../../data/generated/EcomProducts.json');
 // Include payment methods
-const payments = require("../../data/generated/payment-types.json");
+const payments = require('../../data/generated/payment-types.json');
 // Include Payment Status
-const paymentstatus = require("../../data/generated/payment-status.json");
+const paymentstatus = require('../../data/generated/payment-status.json');
 // Include currencies
 // const currencies = require("../../data/generated/currency-format.json");
 
@@ -30,7 +30,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   // ];
 
   // const currency = currencies[randomCurrency].code;
-  const currency = "USD";
+  const currency = 'USD';
 
   // create a list of ordered products in invoice
   let numItemsinOrder = faker.random.number({ min: 1, max: 4 });
@@ -47,17 +47,17 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     const itemOrderedProductUnitPrice = prods[randomProd].price;
     const itemOrderedProductPrice = quantity * itemOrderedProductUnitPrice;
     const unitPriceSpecification = {
-      type: "UnitPriceSpecification",
+      type: 'UnitPriceSpecification',
       price: itemOrderedProductUnitPrice,
       priceCurrency: currency,
     };
     const priceSpecification = {
-      type: "PriceSpecification",
+      type: 'PriceSpecification',
       price: itemOrderedProductPrice,
       priceCurrency: currency,
     };
     const item = {
-      type: "Product",
+      type: 'Product',
       name: itemOrderedName,
       productID: itemOrderedProduct,
       unitPriceSpecification,
@@ -72,14 +72,14 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   // check if invoice has already been paid, if yes set payment amount to 0 & construct total price
 
   if (
-    paymentStatus === "PaymentAutomaticallyApplied" ||
-    paymentStatus === "PaymentComplete"
+    paymentStatus === 'PaymentAutomaticallyApplied'
+    || paymentStatus === 'PaymentComplete'
   ) {
     totalPrice = 0;
   }
 
   const totalpaymentdue = {
-    type: "PriceSpecification",
+    type: 'PriceSpecification',
     price: totalPrice,
     priceCurrency: currency,
   };
@@ -98,22 +98,22 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     max: 1999999999999999,
   })}`;
   const Seller = {
-    type: "Organization",
+    type: 'Organization',
     name: name1,
     leiCode: lei1,
   };
   const broker = {
-    type: "Organization",
+    type: 'Organization',
     name: name2,
     leiCode: lei2,
   };
   const person = getPerson();
-  delete person["@context"];
+  delete person['@context'];
   const address = getPostalAddress();
-  delete address["@context"];
+  delete address['@context'];
   delete address.organizationName;
   const customer = {
-    type: "Person",
+    type: 'Person',
     name: `${person.firstName} ${person.lastName}`,
     address,
     telephone: person.phoneNumber,
@@ -126,7 +126,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
 
   const referencesOrderNew = [];
   const referencesOrder = {
-    type: "Order",
+    type: 'Order',
     description: `New Order For ${person.firstName} ${person.lastName}`,
     orderDate: `${orderDate.getMonth()}-${orderDate.getDay()}-${orderDate.getFullYear()}`,
     orderNumber,
@@ -140,8 +140,8 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   const invoiceNumber = `Invoice#${faker.random.number({ min: 1, max: 999 })}`;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommerceInvoiceRegistrationEvidenceDocument",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceInvoiceRegistrationEvidenceDocument',
     identifier: invoiceNumber,
     description: `Invoice For ${person.firstName} ${person.lastName} for ${orderNumber}`,
     url: `${faker.internet.url()}?queryid=${invoiceNumber}`,
