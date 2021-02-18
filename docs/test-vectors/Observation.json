@@ -6,6 +6,23 @@
       ],
       "type": "Observation",
       "property": {
+        "type": "MechanicalProperty",
+        "identifier": "ISO 180",
+        "name": "Izod Impact Strength Test",
+        "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+      },
+      "measurement": {
+        "type": "MeasuredValue",
+        "value": "74.22",
+        "unitCode": "B13"
+      }
+    },
+    {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "type": "Observation",
+      "property": {
         "type": "ChemicalProperty",
         "name": "Iron",
         "formula": "Fe",
@@ -35,27 +52,15 @@
         "value": "36.335",
         "unitCode": "P1"
       }
-    },
-    {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "type": "Observation",
-      "property": {
-        "type": "ChemicalProperty",
-        "name": "Neptunium",
-        "formula": "Np",
-        "inchi": "InChI=1S/Np",
-        "inchikey": "LFNLGNPSGWYGGD-UHFFFAOYSA-N"
-      },
-      "measurement": {
-        "type": "MeasuredValue",
-        "value": "44.934",
-        "unitCode": "P1"
-      }
     }
   ],
   "bad": [
+    {
+      "panel": "input",
+      "hard drive": "copy",
+      "application": "parse",
+      "bus": "reboot"
+    },
     {
       "protocol": "quantify",
       "array": "transmit",
@@ -74,26 +79,6 @@
       "circuit": "compress",
       "panel": "reboot",
       "interface": "compress"
-    },
-    {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "property": {
-        "type": "ChemicalProperty",
-        "name": "Neptunium",
-        "formula": "Np",
-        "inchi": "InChI=1S/Np",
-        "inchikey": "LFNLGNPSGWYGGD-UHFFFAOYSA-N"
-      },
-      "measurement": {
-        "type": "MeasuredValue",
-        "value": "44.934",
-        "unitCode": "P1"
-      },
-      "transmitter": "compress",
-      "bus": "transmit",
-      "application": "synthesize"
     }
   ]
 }
