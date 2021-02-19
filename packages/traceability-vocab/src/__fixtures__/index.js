@@ -1,3 +1,3 @@
-const { buildFixturesFromFs } = require("./buildFixturesFromFs");
+const { buildFixturesFromFs } = require('./buildFixturesFromFs');
 
 module.exports = buildFixturesFromFs();

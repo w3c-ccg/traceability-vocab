@@ -1,9 +1,9 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const buildFixturesFromFs = () => {
   const files = fs.readdirSync(
-    path.resolve(__dirname, "../../../../docs/test-vectors")
+    path.resolve(__dirname, '../../../../docs/test-vectors'),
   );
 
   const fixtures = {};
@@ -14,10 +14,10 @@ const buildFixturesFromFs = () => {
       fs.readFileSync(
         path
           .resolve(__dirname, `../../../../docs/test-vectors/${fname}`)
-          .toString()
-      )
+          .toString(),
+      ),
     );
-    fixtures[fname.replace(".json", "")] = fixture;
+    fixtures[fname.replace('.json', '')] = fixture;
   });
 
   return fixtures;
