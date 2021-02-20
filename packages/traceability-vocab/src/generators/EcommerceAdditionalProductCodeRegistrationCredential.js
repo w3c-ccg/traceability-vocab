@@ -1,7 +1,7 @@
 const faker = require('faker');
 const identifiers = require('../../data/generated/orderVCIDs.json');
 
-const getEcommerceAddProductCodeRegistrationCredential = () => {
+const getEcommerceAdditionalProductCodeRegistrationCredential = () => {
   const Randnum = faker.random.number({ min: 1, max: 3 });
 
   let ProductCodeType = '';
@@ -42,4 +42,4 @@ const getEcommerceAddProductCodeRegistrationCredential = () => {
   return example;
 };
 
-module.exports = { getEcommerceAddProductCodeRegistrationCredential };
+module.exports = { getEcommerceAdditionalProductCodeRegistrationCredential };
