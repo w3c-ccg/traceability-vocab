@@ -1,5 +1,3 @@
-const faker = require('faker');
-// Include test data for ecom products.
 const { getEcommercePackingListItem } = require('./EcommercePackingListItem');
 
 const getEcommercePackingListRegistrationCredential = () => {
