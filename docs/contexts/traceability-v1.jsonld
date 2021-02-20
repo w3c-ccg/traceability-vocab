@@ -8,12 +8,6 @@
       "@id": "http://schema.org/image",
       "@type": "@id"
     },
-    "orderNumber": {
-      "@id": "https://schema.org/orderNumber"
-    },
-    "productInOrder": {
-      "@id": "https://schema.org/productID"
-    },
     "id": "@id",
     "type": "@type",
     "AgInspectionReport": {
@@ -241,9 +235,6 @@
     "EcommerceInvoiceRegistrationEvidenceDocument": {
       "@id": "https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument",
       "@context": {
-        "@type": {
-          "@id": "https://schema.org/Invoice"
-        },
         "identifier": {
           "@id": "https://schema.org/identifier"
         },
@@ -334,6 +325,23 @@
         }
       }
     },
+    "EcommercePackageItem": {
+      "@id": "https://w3id.org/traceability#EcommercePackageItem",
+      "@context": {
+        "productReceiptID": {
+          "@id": "https://w3id.org/traceability#EcommercePackageItem"
+        },
+        "packingListID": {
+          "@id": "https://schema.org/identifier"
+        },
+        "orderID": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "productInOrder": {
+          "@id": "https://schema.org/productID"
+        }
+      }
+    },
     "EcommercePackageRegistrationCredential": {
       "@id": "https://w3id.org/traceability#EcommercePackageRegistrationCredential",
       "@context": {
@@ -341,7 +349,7 @@
           "@id": "https://schema.org/trackingNumber"
         },
         "packageItems": {
-          "@id": "https://schema.org/ItemList"
+          "@id": "https://w3id.org/traceability#EcommercePackageItem"
         },
         "certificateName": {
           "@id": "https://schema.org/name"
@@ -380,11 +388,22 @@
         }
       }
     },
+    "EcommercePackingListItem": {
+      "@id": "https://w3id.org/traceability#EcommercePackingListItem",
+      "@context": {
+        "orderID": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "productInOrder": {
+          "@id": "https://schema.org/productID"
+        }
+      }
+    },
     "EcommercePackingListRegistrationCredential": {
       "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationCredential",
       "@context": {
         "packageItems": {
-          "@id": "https://schema.org/ItemList"
+          "@id": "https://w3id.org/traceability#EcommercePackingListItem"
         },
         "certificateName": {
           "@id": "https://schema.org/name"
@@ -519,14 +538,6 @@
         }
       }
     },
-    "LEIevidenceDocument": {
-      "@id": "https://w3id.org/traceability#LEIevidenceDocument",
-      "@context": {
-        "data": {
-          "@id": "https://w3id.org/traceability#LEIevidenceDocument#data"
-        }
-      }
-    },
     "LegalEntityIdentifierCredential": {
       "@id": "https://w3id.org/traceability#LegalEntityIdentifierCredential",
       "@context": {
@@ -535,6 +546,148 @@
         },
         "certificateName": {
           "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "LEIaddress": {
+      "@id": "https://w3id.org/traceability#LEIaddress",
+      "@context": {
+        "language": {
+          "@id": "https://schema.org/Language"
+        },
+        "addressLines": {
+          "@id": "https://schema.org/streetAddress"
+        },
+        "addressNumber": {
+          "@id": "https://schema.org/Number"
+        },
+        "addressNumberWithinBuilding": {
+          "@id": "https://schema.org/value"
+        },
+        "mailRouting": {
+          "@id": "https://schema.org/Trip"
+        },
+        "city": {
+          "@id": "https://schema.org/addressLocality"
+        },
+        "region": {
+          "@id": "https://schema.org/addressRegion"
+        },
+        "country": {
+          "@id": "https://schema.org/addressCountry"
+        },
+        "postalCode": {
+          "@id": "https://schema.org/postalCode"
+        }
+      }
+    },
+    "LEIauthority": {
+      "@id": "https://w3id.org/traceability#LEIauthority",
+      "@context": {
+        "validationAuthorityID": {
+          "@id": "https://schema.org/identifier"
+        },
+        "otherValidationAuthorityID": {
+          "@id": "https://schema.org/taxID"
+        },
+        "validationAuthorityEntityID": {
+          "@id": "https://schema.org/leiCode"
+        }
+      }
+    },
+    "LEIentity": {
+      "@id": "https://w3id.org/traceability#LEIentity",
+      "@context": {
+        "legalName": {
+          "@id": "https://schema.org/legalName"
+        },
+        "legalNameLanguage": {
+          "@id": "https://schema.org/Language"
+        },
+        "otherNames": {
+          "@id": "https://schema.org/alternateName"
+        },
+        "transliteratedOtherNames": {
+          "@id": "https://schema.org/name"
+        },
+        "legalAddress": {
+          "@id": "https://w3id.org/traceability#LEIaddress"
+        },
+        "headquartersAddress": {
+          "@id": "https://schema.org/PostalAddress"
+        },
+        "registrationAuthority": {
+          "@id": "https://w3id.org/traceability#LEIauthority"
+        },
+        "legalJurisdiction": {
+          "@id": "https://schema.org/countryOfOrigin"
+        },
+        "entityCategory": {
+          "@id": "https://schema.org/category"
+        },
+        "legalForm": {
+          "@id": "https://schema.org/additionalType"
+        },
+        "associatedEntity": {
+          "@id": "https://schema.org/Organization"
+        },
+        "status": {
+          "@id": "https://schema.org/status"
+        },
+        "expirationDate": {
+          "@id": "https://schema.org/expires"
+        },
+        "expirationReason": {
+          "@id": "https://schema.org/Answer"
+        },
+        "successorEntity": {
+          "@id": "https://schema.org/Corporation"
+        },
+        "otherAddresses": {
+          "@id": "https://schema.org/Place"
+        }
+      }
+    },
+    "LEIevidenceDocument": {
+      "@id": "https://w3id.org/traceability#LEIevidenceDocument",
+      "@context": {
+        "lei": {
+          "@id": "https://www.gleif.org/en/about-lei/iso-17442-the-lei-code-structure#"
+        },
+        "entity": {
+          "@id": "https://w3id.org/traceability#LEIentity"
+        },
+        "registration": {
+          "@id": "https://w3id.org/traceability#LEIregistration"
+        },
+        "bic": {
+          "@id": "https://www.iso.org/obp/ui/#iso:std:60390:en"
+        }
+      }
+    },
+    "LEIregistration": {
+      "@id": "https://w3id.org/traceability#LEIregistration",
+      "@context": {
+        "initialRegistrationDate": {
+          "@id": "https://schema.org/dateIssued"
+        },
+        "lastUpdateDate": {
+          "@id": "https://schema.org/dateModified"
+        },
+        "status": {
+          "@id": "https://schema.org/status"
+        },
+        "nextRenewalDate": {
+          "@id": "https://schema.org/validThrough"
+        },
+        "managingLou": {
+          "@id": "https://www.gleif.org/en/about-lei/iso-17442-the-lei-code-structure#"
+        },
+        "validationSources": {
+          "@id": "https://schema.org/eventStatus"
+        },
+        "validationAuthority": {
+          "@id": "https://w3id.org/traceability#LEIauthority"
         }
       }
     },
@@ -790,6 +943,47 @@
         }
       }
     },
+    "ppq203": {
+      "@id": "https://w3id.org/traceability#ppq203",
+      "@context": {
+        "certificateNumber": {
+          "@id": "https://w3id.org/traceability#certificateNumber"
+        },
+        "foreignPortExport": {
+          "@id": "https://w3id.org/traceability#foreignPortExport"
+        },
+        "carrierId": {
+          "@id": "https://w3id.org/traceability#carrierId"
+        },
+        "portOfEntry": {
+          "@id": "https://w3id.org/traceability#portOfEntry"
+        },
+        "signatureDate": {
+          "@id": "https://w3id.org/traceability#signatureDate"
+        },
+        "facility": {
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "inspector": {
+          "@id": "https://w3id.org/traceability?v2#Inspector"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "applicant": {
+          "@id": "https://w3id.org/traceability#dfn-entities"
+        },
+        "inspectionDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "inspectionType": {
+          "@id": "https://www.schema.org/value"
+        },
+        "observation": {
+          "@id": "https://schema.org/ItemList"
+        }
+      }
+    },
     "Product": {
       "@id": "https://schema.org/Product",
       "@context": {
@@ -964,47 +1158,6 @@
         },
         "shipment": {
           "@id": "https://schema.org/ParcelDelivery"
-        }
-      }
-    },
-    "ppq203": {
-      "@id": "https://w3id.org/traceability#ppq203",
-      "@context": {
-        "certificateNumber": {
-          "@id": "https://w3id.org/traceability#certificateNumber"
-        },
-        "foreignPortExport": {
-          "@id": "https://w3id.org/traceability#foreignPortExport"
-        },
-        "carrierId": {
-          "@id": "https://w3id.org/traceability#carrierId"
-        },
-        "portOfEntry": {
-          "@id": "https://w3id.org/traceability#portOfEntry"
-        },
-        "signatureDate": {
-          "@id": "https://w3id.org/traceability#signatureDate"
-        },
-        "facility": {
-          "@id": "https://www.gs1.org/voc/Place"
-        },
-        "inspector": {
-          "@id": "https://w3id.org/traceability?v2#Inspector"
-        },
-        "shipment": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
-        "applicant": {
-          "@id": "https://w3id.org/traceability#dfn-entities"
-        },
-        "inspectionDate": {
-          "@id": "https://schema.org/DateTime"
-        },
-        "inspectionType": {
-          "@id": "https://www.schema.org/value"
-        },
-        "observation": {
-          "@id": "https://schema.org/ItemList"
         }
       }
     }
