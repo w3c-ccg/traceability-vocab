@@ -2,8 +2,10 @@ const { Ed25519KeyPair } = require("@transmute/did-key-ed25519");
 const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
+const fs = require("fs");
+const path = require("path");
 
-describe("Generate CMTR", () => {
+describe("Generate", () => {
   it("can issue and verify", async () => {
     const key = await Ed25519KeyPair.from(require("../keypair.json"));
     const verifiableCredential = await vcjs.ld.issue({
@@ -21,5 +23,12 @@ describe("Generate CMTR", () => {
     });
     // console.log(result)
     expect(result.verified).toBe(true);
+    fs.writeFileSync(
+      path.resolve(
+        __dirname,
+        "../../../../docs/credentials/CertifidMillTestReportCredential.json"
+      ),
+      JSON.stringify(verifiableCredential, null, 2)
+    );
   });
 });
