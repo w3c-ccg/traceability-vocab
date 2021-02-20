@@ -21,6 +21,10 @@ const { getAgProduct } = require('./AgProduct');
 const { getAgPackage } = require('./AgPackage');
 const { getppq203 } = require('./ppq203');
 const { getPhytosanitary } = require('./Phytosanitary');
+const { getLEIaddress } = require('./LEIaddress');
+const { getLEIauthority } = require('./LEIauthority');
+const { getLEIregistration } = require('./LEIregistration');
+const { getLEIentity } = require('./LEIentity');
 const { getLEIevidenceDocument } = require('./LEIevidenceDocument');
 const { getProductRegistrationEvidenceDocument } = require('./ProductRegistrationEvidenceDocument');
 const { getLegalEntityIdentifierCredential } = require('./LegalEntityIdentifierCredential');
@@ -31,10 +35,12 @@ const { getEcommercePackingListRegistrationEvidenceDoc } = require('./EcommerceP
 const { getEcommerceProductRegistrationCredential } = require('./EcommerceProductRegistrationCredential');
 const { getEcommerceOrderRegistrationCredential } = require('./EcommerceOrderRegistrationCredential');
 const { getEcommerceInvoiceRegistrationCredential } = require('./EcommerceInvoiceRegistrationCredential');
+const { getEcommercePackingListItem } = require('./EcommercePackingListItem');
 const { getEcommercePackingListRegistrationCredential } = require('./EcommercePackingListRegistrationCredential');
 const { getEcommerceProductReceiptRegistrationCredential } = require('./EcommerceProductReceiptRegistrationCredential');
 const { getEcommerceAddProductCodeRegistrationCredential } = require('./EcommerceAdditionalProductCodeRegistrationCredential');
 const { getEcommercePackageRegistrationEvidenceDoc } = require('./EcommercePackageRegistrationEvidenceDocument');
+const { getEcommercePackageItem } = require('./EcommercePackageItem');
 const { getEcommercePackageRegistrationCredential } = require('./EcommercePackageRegistrationCredential');
 const { getLinkRole } = require('./LinkRole');
 const { getSteelProduct } = require('./SteelProduct');
@@ -73,6 +79,10 @@ const generatorConfig = {
   AgInspectionReport: getAgInspectionReport,
   Phytosanitary: getPhytosanitary,
   ppq203: getppq203,
+  LEIaddress: getLEIaddress,
+  LEIauthority: getLEIauthority,
+  LEIregistration: getLEIregistration,
+  LEIentity: getLEIentity,
   LEIevidenceDocument: getLEIevidenceDocument,
   ProductRegistrationEvidenceDocument: getProductRegistrationEvidenceDocument,
   LegalEntityIdentifierCredential: getLegalEntityIdentifierCredential,
@@ -82,8 +92,10 @@ const generatorConfig = {
   EcommerceProductRegistrationCredential: getEcommerceProductRegistrationCredential,
   EcommerceOrderRegistrationCredential: getEcommerceOrderRegistrationCredential,
   EcommerceInvoiceRegistrationCredential: getEcommerceInvoiceRegistrationCredential,
+  EcommercePackingListItem: getEcommercePackingListItem,
   EcommercePackingListRegistrationCredential: getEcommercePackingListRegistrationCredential,
   EcommerceProductReceiptRegistrationCredential: getEcommerceProductReceiptRegistrationCredential,
+  EcommercePackageItem: getEcommercePackageItem,
   // eslint-disable-next-line
   EcommerceAdditionalProductCodeRegistrationCredential: getEcommerceAddProductCodeRegistrationCredential,
   EcommercePackageRegistrationEvidenceDocument: getEcommercePackageRegistrationEvidenceDoc,

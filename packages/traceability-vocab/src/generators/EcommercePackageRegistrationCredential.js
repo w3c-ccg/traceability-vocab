@@ -19,9 +19,10 @@ const getEcommercePackageRegistrationCredential = () => {
       numItemsinOrder -= 1;
     }
     const item = {
+      type: 'EcommercePackageItem',
       productReceiptID: `https://vc.example.com/?queryID=${faker.random.hexaDecimal(64)}`,
       packingListID: `https://vc.example.com/?queryID=${faker.random.hexaDecimal(64)}`,
-      orderNumber: itemOrder,
+      orderID: itemOrder,
       productInOrder: productlist,
     };
     packagelist.push(item);

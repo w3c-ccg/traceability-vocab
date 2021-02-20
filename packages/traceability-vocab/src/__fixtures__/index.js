@@ -20,6 +20,10 @@ const AgProduct = require('../../../../docs/test-vectors/AgProduct.json');
 const AgPackage = require('../../../../docs/test-vectors/AgPackage.json');
 const ppq203 = require('../../../../docs/test-vectors/ppq203.json');
 const Phytosanitary = require('../../../../docs/test-vectors/Phytosanitary.json');
+const LEIaddress = require('../../../../docs/test-vectors/LEIaddress.json');
+const LEIauthority = require('../../../../docs/test-vectors/LEIauthority.json');
+const LEIregistration = require('../../../../docs/test-vectors/LEIregistration.json');
+const LEIentity = require('../../../../docs/test-vectors/LEIentity.json');
 const LEIevidenceDocument = require('../../../../docs/test-vectors/LEIevidenceDocument.json');
 const ProductRegistrationEvidenceDocument = require('../../../../docs/test-vectors/ProductRegistrationEvidenceDocument.json');
 const LegalEntityIdentifierCredential = require('../../../../docs/test-vectors/LegalEntityIdentifierCredential.json');
@@ -35,6 +39,7 @@ const EcommerceAdditionalProductCodeRegistrationCredential = require('../../../.
 const EcommerceProductReceiptRegistrationCredential = require('../../../../docs/test-vectors/EcommerceProductReceiptRegistrationCredential.json');
 const EcommercePackageRegistrationEvidenceDocument = require('../../../../docs/test-vectors/EcommercePackageRegistrationEvidenceDocument.json');
 const EcommercePackageRegistrationCredential = require('../../../../docs/test-vectors/EcommercePackageRegistrationCredential.json');
+const EcommercePackageItem = require('../../../../docs/test-vectors/EcommercePackageItem.json');
 
 const LinkRole = require('../../../../docs/test-vectors/LinkRole.json');
 
@@ -69,6 +74,10 @@ module.exports = {
   ChemicalProperty,
   MechanicalProperty,
   Product,
+  LEIaddress,
+  LEIauthority,
+  LEIregistration,
+  LEIentity,
   LEIevidenceDocument,
   ProductRegistrationEvidenceDocument,
   LegalEntityIdentifierCredential,
@@ -84,6 +93,7 @@ module.exports = {
   EcommercePackingListRegistrationCredential,
   EcommerceAdditionalProductCodeRegistrationCredential,
   EcommerceProductReceiptRegistrationCredential,
+  EcommercePackageItem,
   EcommercePackageRegistrationEvidenceDocument,
   EcommercePackageRegistrationCredential,
   Phytosanitary,
