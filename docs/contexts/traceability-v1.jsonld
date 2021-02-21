@@ -359,9 +359,6 @@
     "EcommercePackageRegistrationEvidenceDocument": {
       "@id": "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument",
       "@context": {
-        "@type": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
         "deliveryStatus": {
           "@id": "https://schema.org/deliveryStatus"
         },
@@ -413,9 +410,6 @@
     "EcommercePackingListRegistrationEvidenceDocument": {
       "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument",
       "@context": {
-        "@type": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
         "deliveryStatus": {
           "@id": "https://schema.org/deliveryStatus"
         },
@@ -535,6 +529,38 @@
       "@context": {
         "identifier": {
           "@id": "https://schema.org/identifier"
+        }
+      }
+    },
+    "ItemShipped": {
+      "@id": "https://w3id.org/traceability#itemShipped",
+      "@context": {
+        "manufacturer": {
+          "@id": "https://schema.org/manufacturer"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "productID": {
+          "@id": "https://schema.org/productID"
+        },
+        "weight": {
+          "@id": "https://schema.org/weight"
+        },
+        "height": {
+          "@id": "https://schema.org/height"
+        },
+        "width": {
+          "@id": "https://schema.org/width"
+        },
+        "depth": {
+          "@id": "https://schema.org/depth"
+        },
+        "orderQuantity": {
+          "@id": "https://schema.org/orderQuantity"
         }
       }
     },
@@ -802,6 +828,17 @@
           "@id": "https://schema.org/Organization"
         },
         "item": {
+          "@id": "https://schema.org/itemShipped"
+        }
+      }
+    },
+    "PartOfOrder": {
+      "@id": "https://w3id.org/traceability#PartOfOrder",
+      "@context": {
+        "orderNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "itemShipped": {
           "@id": "https://schema.org/itemShipped"
         }
       }
