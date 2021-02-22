@@ -31,6 +31,7 @@ while (numOrdersinPackage > 0) {
     numItemsinOrder -= 1;
   }
   const item = {
+    type: 'EcommercePackingListItem',
     orderID: itemOrder,
     productInOrder: productlist,
   };
