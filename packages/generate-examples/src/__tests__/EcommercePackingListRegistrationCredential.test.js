@@ -31,7 +31,7 @@ while (numOrdersinPackage > 0) {
     numItemsinOrder -= 1;
   }
   const item = {
-    orderNumber: itemOrder,
+    orderID: itemOrder,
     productInOrder: productlist,
   };
   packagelist.push(item);
