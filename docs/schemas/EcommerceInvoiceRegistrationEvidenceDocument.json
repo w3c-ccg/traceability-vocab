@@ -33,12 +33,6 @@
                 }
             ]
         },
-        "@type": {
-            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Invoice\"}",
-            "title": "@type",
-            "type": "string",
-            "default": "Invoice"
-        },
         "identifier": {
             "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
             "title": "Identifier",
@@ -71,14 +65,14 @@
             "title": "Broker",
             "type": "object",
             "required": [
-                "@type",
+                "type",
                 "name",
                 "leiCode"
             ],
             "properties": {
-                "@type": {
-                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
-                    "title": "@type",
+                "type": {
+                    "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/Organization\"}",
+                    "title": "type",
                     "type": "string",
                     "default": "Corporation"
                 },
@@ -116,16 +110,16 @@
             "title": "Customer",
             "type": "object",
             "required": [
-                "@type",
+                "type",
                 "name",
                 "address",
                 "telephone",
                 "email"
             ],
             "properties": {
-                "@type": {
-                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Person\"}",
-                    "title": "@type",
+                "type": {
+                    "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/Person\"}",
+                    "title": "type",
                     "type": "string",
                     "default": "Person"
                 },
@@ -151,7 +145,7 @@
                         "addressCountry"
                     ],
                     "properties": {
-                        "@type": {
+                        "type": {
                             "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/PostalAddress\"}",
                             "title": "type",
                             "type": "string",
@@ -238,14 +232,14 @@
             "title": "Totalpaymentdue",
             "type": "object",
             "required": [
-                "@type",
+                "type",
                 "price",
                 "priceCurrency"
             ],
             "properties": {
-                "@type": {
-                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
-                    "title": "@type",
+                "type": {
+                    "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+                    "title": "type",
                     "type": "string",
                     "default": "PriceSpecification"
                 },
@@ -283,14 +277,14 @@
             "title": "Provider",
             "type": "object",
             "required": [
-                "@type",
+                "type",
                 "name",
                 "leiCode"
             ],
             "properties": {
-                "@type": {
-                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
-                    "title": "@type",
+                "type": {
+                    "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/Organization\"}",
+                    "title": "type",
                     "type": "string",
                     "default": "Corporation"
                 },
@@ -324,7 +318,7 @@
                 "title": "Item",
                 "type": "object",
                 "required": [
-                    "@type",
+                    "type",
                     "description",
                     "orderDate",
                     "orderNumber",
@@ -333,9 +327,9 @@
                     "seller"
                 ],
                 "properties": {
-                    "@type": {
-                        "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Order\"}",
-                        "title": "@type",
+                    "type": {
+                        "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/Order\"}",
+                        "title": "type",
                         "type": "string",
                         "default": "Order"
                     },
@@ -385,7 +379,7 @@
                             "title": "Item(s)",
                             "type": "object",
                             "required": [
-                                "@type",
+                                "type",
                                 "name",
                                 "productID",
                                 "unitPriceSpecification",
@@ -393,9 +387,9 @@
                                 "priceSpecification"
                             ],
                             "properties": {
-                                "@type": {
-                                    "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Productorder\"}",
-                                    "title": "@type",
+                                "type": {
+                                    "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/Productorder\"}",
+                                    "title": "type",
                                     "type": "string",
                                     "default": "Productorder"
                                 },
@@ -422,14 +416,14 @@
                                     "title": "UnitPriceSpecification",
                                     "type": "object",
                                     "required": [
-                                        "@type",
+                                        "type",
                                         "price",
                                         "priceCurrency"
                                     ],
                                     "properties": {
-                                        "@type": {
-                                            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
-                                            "title": "@type",
+                                        "type": {
+                                            "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/UnitPriceSpecification\"}",
+                                            "title": "type",
                                             "type": "string",
                                             "default": "UnitPriceSpecification"
                                         },
@@ -467,14 +461,14 @@
                                     "title": "PriceSpecification",
                                     "type": "object",
                                     "required": [
-                                        "@type",
+                                        "type",
                                         "price",
                                         "priceCurrency"
                                     ],
                                     "properties": {
-                                        "@type": {
-                                            "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
-                                            "title": "@type",
+                                        "type": {
+                                            "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+                                            "title": "type",
                                             "type": "string",
                                             "default": "PriceSpecification"
                                         },
@@ -506,14 +500,14 @@
                         "title": "Seller",
                         "type": "object",
                         "required": [
-                            "@type",
+                            "type",
                             "name",
                             "leiCode"
                         ],
                         "properties": {
-                            "@type": {
-                                "$comment": "{\"term\": \"@type\", \"@id\": \"https://schema.org/Organization\"}",
-                                "title": "@type",
+                            "type": {
+                                "$comment": "{\"term\": \"type\", \"@id\": \"https://schema.org/Organization\"}",
+                                "title": "type",
                                 "type": "string",
                                 "default": "Corporation"
                             },
