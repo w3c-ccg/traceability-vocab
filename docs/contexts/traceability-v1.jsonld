@@ -198,6 +198,44 @@
         }
       }
     },
+    "EcommerceOrderRegistrationEvidenceDocument": {
+      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument",
+      "@context": {
+        "orderNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "orderDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "orderStatus": {
+          "@id": "https://schema.org/OrderStatus"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "url": {
+          "@id": "https://schema.org/url"
+        },
+        "seller": {
+          "@id": "https://schema.org/seller"
+        },
+        "broker": {
+          "@id": "https://schema.org/broker"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
+        },
+        "paymentDueDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "paymentMethod": {
+          "@id": "https://schema.org/paymentMethod"
+        },
+        "orderedItem": {
+          "@id": "https://schema.org/orderedItem"
+        }
+      }
+    },
     "EcommerceAdditionalProductCodeRegistrationCredential": {
       "@id": "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential",
       "@context": {
@@ -284,47 +322,6 @@
         }
       }
     },
-    "EcommerceOrderRegistrationEvidenceDocument": {
-      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument",
-      "@context": {
-        "@type": {
-          "@id": "https://schema.org/Order"
-        },
-        "orderNumber": {
-          "@id": "https://schema.org/orderNumber"
-        },
-        "orderDate": {
-          "@id": "https://schema.org/DateTime"
-        },
-        "orderStatus": {
-          "@id": "https://schema.org/OrderStatus"
-        },
-        "description": {
-          "@id": "https://schema.org/description"
-        },
-        "url": {
-          "@id": "https://schema.org/url"
-        },
-        "seller": {
-          "@id": "https://schema.org/seller"
-        },
-        "broker": {
-          "@id": "https://schema.org/broker"
-        },
-        "customer": {
-          "@id": "https://schema.org/customer"
-        },
-        "paymentDueDate": {
-          "@id": "https://schema.org/paymentDueDate"
-        },
-        "paymentMethod": {
-          "@id": "https://schema.org/paymentMethod"
-        },
-        "orderedItem": {
-          "@id": "https://schema.org/orderedItem"
-        }
-      }
-    },
     "EcommercePackageItem": {
       "@id": "https://w3id.org/traceability#EcommercePackageItem",
       "@context": {
@@ -359,9 +356,6 @@
     "EcommercePackageRegistrationEvidenceDocument": {
       "@id": "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument",
       "@context": {
-        "@type": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
         "deliveryStatus": {
           "@id": "https://schema.org/deliveryStatus"
         },
@@ -413,9 +407,6 @@
     "EcommercePackingListRegistrationEvidenceDocument": {
       "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument",
       "@context": {
-        "@type": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
         "deliveryStatus": {
           "@id": "https://schema.org/deliveryStatus"
         },
@@ -535,6 +526,38 @@
       "@context": {
         "identifier": {
           "@id": "https://schema.org/identifier"
+        }
+      }
+    },
+    "ItemShipped": {
+      "@id": "https://w3id.org/traceability#itemShipped",
+      "@context": {
+        "manufacturer": {
+          "@id": "https://schema.org/manufacturer"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "productID": {
+          "@id": "https://schema.org/productID"
+        },
+        "weight": {
+          "@id": "https://schema.org/weight"
+        },
+        "height": {
+          "@id": "https://schema.org/height"
+        },
+        "width": {
+          "@id": "https://schema.org/width"
+        },
+        "depth": {
+          "@id": "https://schema.org/depth"
+        },
+        "orderQuantity": {
+          "@id": "https://schema.org/orderQuantity"
         }
       }
     },
@@ -742,6 +765,20 @@
         }
       }
     },
+    "OrderedItem": {
+      "@id": "https://w3id.org/traceability#OrderedItem",
+      "@context": {
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "productID": {
+          "@id": "https://schema.org/productID"
+        },
+        "orderQuantity": {
+          "@id": "https://schema.org/orderQuantity"
+        }
+      }
+    },
     "Organization": {
       "@id": "https://schema.org/Organization",
       "@context": {
@@ -802,6 +839,17 @@
           "@id": "https://schema.org/Organization"
         },
         "item": {
+          "@id": "https://schema.org/itemShipped"
+        }
+      }
+    },
+    "PartOfOrder": {
+      "@id": "https://w3id.org/traceability#PartOfOrder",
+      "@context": {
+        "orderNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "itemShipped": {
           "@id": "https://schema.org/itemShipped"
         }
       }
