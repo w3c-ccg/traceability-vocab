@@ -1,8 +1,8 @@
 const faker = require('faker');
-const { getPostalAddress } = require('./PostalAddress');
-const { getPerson } = require('./Person');
-// Include test data for ecom products.
-const prods = require('../../data/generated/EcomProducts.json');
+const { getCustomer } = require('./Customer');
+const { getOrderedItem } = require('./OrderedItem');
+// Include test data for order statuses
+const orderstatus = require('../../data/generated/orderstatus-types.json');
 // Include payment methods
 const payments = require('../../data/generated/payment-types.json');
 // Include Payment Status
@@ -33,39 +33,15 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   const currency = 'USD';
 
   // create a list of ordered products in invoice
+  
   let numItemsinOrder = faker.random.number({ min: 1, max: 4 });
   const orderlist = [];
   let totalPrice = 0;
   while (numItemsinOrder > 0) {
-    const randomProd = faker.random.number({
-      min: 0,
-      max: Object.keys(prods).length - 1,
-    });
-    const quantity = faker.random.number({ min: 1, max: 10 });
-    const itemOrderedName = prods[randomProd].name;
-    const itemOrderedProduct = prods[randomProd].productID;
-    const itemOrderedProductUnitPrice = prods[randomProd].price;
-    const itemOrderedProductPrice = quantity * itemOrderedProductUnitPrice;
-    const unitPriceSpecification = {
-      type: 'UnitPriceSpecification',
-      price: itemOrderedProductUnitPrice,
-      priceCurrency: currency,
-    };
-    const priceSpecification = {
-      type: 'PriceSpecification',
-      price: itemOrderedProductPrice,
-      priceCurrency: currency,
-    };
-    const item = {
-      type: 'Product',
-      name: itemOrderedName,
-      productID: itemOrderedProduct,
-      unitPriceSpecification,
-      orderQuantity: quantity,
-      priceSpecification,
-    };
+    let item = getOrderedItem();
+    delete item['@context'];
     orderlist.push(item);
-    totalPrice += itemOrderedProductPrice;
+    totalPrice += item.price;
     numItemsinOrder -= 1;
   }
 
@@ -78,11 +54,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     totalPrice = 0;
   }
 
-  const totalpaymentdue = {
-    type: 'PriceSpecification',
-    price: totalPrice,
-    priceCurrency: currency,
-  };
+  const totalpaymentdue = totalPrice;
 
   // End ordered products list in invoice
 
@@ -107,32 +79,32 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     name: name2,
     leiCode: lei2,
   };
-  const person = getPerson();
-  delete person['@context'];
-  const address = getPostalAddress();
-  delete address['@context'];
-  delete address.organizationName;
-  const customer = {
-    type: 'Person',
-    name: `${person.firstName} ${person.lastName}`,
-    address,
-    telephone: person.phoneNumber,
-    email: person.email,
-  };
+  const customer = getCustomer();
+  
 
   const orderDate = new Date(faker.date.recent());
   const paymentDate = new Date(faker.date.future());
+  const paymentDueDate = `${paymentDate.getMonth()}-${paymentDate.getDay()}-${paymentDate.getFullYear()}`
   const orderNumber = `Order#${faker.random.number({ min: 1, max: 999 })}`;
+  // get an order status
+  const randomStatus = faker.random.number({ min: 1, max: orderstatus.status.length });
+  const OrderStatus = orderstatus.status[randomStatus - 1];
 
   const referencesOrderNew = [];
   const referencesOrder = {
-    type: 'Order',
-    description: `New Order For ${person.firstName} ${person.lastName}`,
-    orderDate: `${orderDate.getMonth()}-${orderDate.getDay()}-${orderDate.getFullYear()}`,
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceOrderRegistrationEvidenceDocument',
+    description: `New Order For ${customer.name}`,
+    url: `${faker.internet.url()}?queryid=${orderNumber}`,
     orderNumber,
-    paymentMethod,
-    orderedItem: orderlist,
+    orderDate: `${orderDate.getMonth()}-${orderDate.getDay()}-${orderDate.getFullYear()}`,
+    orderStatus: OrderStatus,
     seller: Seller,
+    broker,
+    customer,
+    paymentMethod,
+    paymentDueDate,
+    orderedItem: orderlist,
   };
 
   referencesOrderNew.push(referencesOrder);
@@ -143,7 +115,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'EcommerceInvoiceRegistrationEvidenceDocument',
     identifier: invoiceNumber,
-    description: `Invoice For ${person.firstName} ${person.lastName} for ${orderNumber}`,
+    description: `Invoice For ${customer.name} for ${orderNumber}`,
     url: `${faker.internet.url()}?queryid=${invoiceNumber}`,
     broker,
     accountId: `xxxx-xxxx-xxxx-${faker.random.number({
@@ -151,8 +123,9 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
       max: 9999,
     })}`,
     customer,
-    paymentDueDate: `${paymentDate.getMonth()}-${paymentDate.getDay()}-${paymentDate.getFullYear()}`,
+    paymentDueDate,
     totalPaymentDue: totalpaymentdue,
+    totalPaymentDueCurrency: currency,
     paymentStatus,
     provider: Seller,
     referencesOrder: referencesOrderNew,

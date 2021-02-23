@@ -26,7 +26,9 @@ const getEcommercePackingListRegistrationEvidenceDocument = () => {
   const partoforder = [];
   let numorders = faker.random.number({ min: 1, max: 2 });
   while (numorders > 0) {
-    partoforder.push(getPartOfOrder());
+    let partorder = getPartOfOrder();
+    delete partorder['@context'];
+    partoforder.push(partorder);
     numorders -= 1;
   }
 

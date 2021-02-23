@@ -131,7 +131,7 @@
       "@id": "https://w3id.org/traceability#CertifidMillTestReportCredential",
       "@context": {
         "relatedLink": {
-          "@id": "https://schema.org/relatedLink"
+          "@id": "https://w3id.org/traceability#LinkRole"
         }
       }
     },
@@ -198,41 +198,20 @@
         }
       }
     },
-    "EcommerceOrderRegistrationEvidenceDocument": {
-      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument",
+    "Customer": {
+      "@id": "https://w3id.org/traceability#Customer",
       "@context": {
-        "orderNumber": {
-          "@id": "https://schema.org/orderNumber"
+        "name": {
+          "@id": "https://schema.org/name"
         },
-        "orderDate": {
-          "@id": "https://schema.org/DateTime"
+        "address": {
+          "@id": "https://schema.org/PostalAddress"
         },
-        "orderStatus": {
-          "@id": "https://schema.org/OrderStatus"
+        "telephone": {
+          "@id": "https://schema.org/telephone"
         },
-        "description": {
-          "@id": "https://schema.org/description"
-        },
-        "url": {
-          "@id": "https://schema.org/url"
-        },
-        "seller": {
-          "@id": "https://schema.org/seller"
-        },
-        "broker": {
-          "@id": "https://schema.org/broker"
-        },
-        "customer": {
-          "@id": "https://schema.org/customer"
-        },
-        "paymentDueDate": {
-          "@id": "https://schema.org/paymentDueDate"
-        },
-        "paymentMethod": {
-          "@id": "https://schema.org/paymentMethod"
-        },
-        "orderedItem": {
-          "@id": "https://schema.org/orderedItem"
+        "email": {
+          "@id": "https://schema.org/email"
         }
       }
     },
@@ -297,6 +276,9 @@
         "totalPaymentDue": {
           "@id": "https://schema.org/totalPaymentDue"
         },
+        "totalPaymentDueCurrency": {
+          "@id": "https://schema.org/currency"
+        },
         "paymentStatus": {
           "@id": "https://schema.org/paymentStatus"
         },
@@ -319,6 +301,44 @@
         },
         "certificateName": {
           "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommerceOrderRegistrationEvidenceDocument": {
+      "@id": "https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument",
+      "@context": {
+        "orderNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "orderDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "orderStatus": {
+          "@id": "https://schema.org/OrderStatus"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "url": {
+          "@id": "https://schema.org/url"
+        },
+        "seller": {
+          "@id": "https://schema.org/seller"
+        },
+        "broker": {
+          "@id": "https://schema.org/broker"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
+        },
+        "paymentDueDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "paymentMethod": {
+          "@id": "https://schema.org/paymentMethod"
+        },
+        "orderedItem": {
+          "@id": "https://schema.org/orderedItem"
         }
       }
     },
@@ -530,7 +550,7 @@
       }
     },
     "ItemShipped": {
-      "@id": "https://w3id.org/traceability#itemShipped",
+      "@id": "https://w3id.org/traceability#ItemShipped",
       "@context": {
         "manufacturer": {
           "@id": "https://schema.org/manufacturer"
@@ -774,8 +794,14 @@
         "productID": {
           "@id": "https://schema.org/productID"
         },
+        "unitPrice": {
+          "@id": "https://schema.org/PriceSpecification"
+        },
         "orderQuantity": {
           "@id": "https://schema.org/orderQuantity"
+        },
+        "price": {
+          "@id": "https://schema.org/Price"
         }
       }
     },
@@ -849,7 +875,7 @@
         "orderNumber": {
           "@id": "https://schema.org/orderNumber"
         },
-        "itemShipped": {
+        "itemsShipped": {
           "@id": "https://schema.org/itemShipped"
         }
       }

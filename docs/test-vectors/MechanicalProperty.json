@@ -5,9 +5,9 @@
         "https://w3id.org/traceability/v1"
       ],
       "type": "MechanicalProperty",
-      "identifier": "ISO 3738",
-      "name": "Rockwell Hardness Test (Scale A)",
-      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+      "identifier": "ISO 1352",
+      "name": "Torque-controlled fatigue testing",
+      "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
     },
     {
       "@context": [
@@ -30,29 +30,33 @@
   ],
   "bad": [
     {
-      "type": "MechanicalProperty",
-      "identifier": "ISO 3738",
-      "name": "Rockwell Hardness Test (Scale A)",
-      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials.",
-      "panel": "override",
-      "sensor": "navigate",
-      "monitor": "quantify",
-      "capacitor": "connect"
-    },
-    {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
       "type": "MechanicalProperty",
       "identifier": "ISO 1352",
-      "name": "Torque-controlled fatigue testing",
-      "port": "compress"
+      "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis.",
+      "pixel": "quantify",
+      "program": "reboot"
     },
     {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "identifier": "ISO 1352",
+      "port": "generate",
+      "sensor": "input",
+      "system": "transmit",
+      "transmitter": "bypass"
+    },
+    {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
       "type": "MechanicalProperty",
-      "identifier": "ISO 3738",
-      "name": "Rockwell Hardness Test (Scale A)",
-      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials.",
-      "pixel": "hack",
-      "system": "compress",
-      "card": "copy"
+      "pixel": "navigate",
+      "port": "bypass",
+      "program": "transmit"
     }
   ]
 }
