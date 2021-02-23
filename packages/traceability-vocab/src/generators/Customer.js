@@ -1,4 +1,3 @@
-const faker = require('faker');
 const { getPostalAddress } = require('./PostalAddress');
 const { getPerson } = require('./Person');
 

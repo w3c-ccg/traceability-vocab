@@ -4,8 +4,6 @@ const {getOrderedItem} = require('./OrderedItem');
 const { getPerson } = require('./Person');
 // Include test data for order statuses
 const orderstatus = require('../../data/generated/orderstatus-types.json');
-// Include test data for ecom products.
-const prods = require('../../data/generated/EcomProducts.json');
 // Include payment methods
 const payments = require('../../data/generated/payment-types.json');
 
