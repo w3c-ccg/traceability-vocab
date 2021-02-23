@@ -80,12 +80,6 @@ const getContextFromIntermediate = (intermediate) => {
         '@id': 'http://schema.org/image',
         '@type': '@id',
       },
-      orderNumber: {
-        '@id': 'https://schema.org/orderNumber',
-      },
-      productInOrder: {
-        '@id': 'https://schema.org/productID',
-      },
       id: '@id',
       type: '@type',
       ...partialContext,
