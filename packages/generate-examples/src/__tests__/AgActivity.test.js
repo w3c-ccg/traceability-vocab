@@ -10,7 +10,7 @@ describe("Generate AgActivity", () => {
   it("can issue and verify", async () => {
     const key = await Ed25519KeyPair.from(require("../keypair.json"));
     const verifiableCredential = await vcjs.ld.issue({
-      credential: require("../__fixture__/ag-inspection-report.json"),
+      credential: require("../__fixture__/ag-activity.json"),
       suite: new Ed25519Signature2018({
         key,
       }),
@@ -27,7 +27,7 @@ describe("Generate AgActivity", () => {
     fs.writeFileSync(
       path.resolve(
         __dirname,
-        "../../../../docs/credentials/AgInspectionReport.json"
+        "../../../../docs/credentials/AgActivity.json"
       ),
       JSON.stringify(verifiableCredential, null, 2)
     );
