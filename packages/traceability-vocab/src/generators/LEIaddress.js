@@ -1,7 +1,6 @@
 const faker = require('faker');
 
 const getLEIaddress = () => {
-
   const language = faker.random.locale();
   const companyName = faker.company.companyName();
   const country = faker.address.country();
@@ -21,7 +20,7 @@ const getLEIaddress = () => {
     region,
     country,
     postalCode: faker.address.zipCode(),
-         
+
   };
   return example;
 };
