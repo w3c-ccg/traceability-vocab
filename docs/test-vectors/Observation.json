@@ -6,9 +6,10 @@
       ],
       "type": "Observation",
       "property": {
-        "type": "ChemicalProperty",
-        "name": "Nitrogen",
-        "formula": "N"
+        "type": "MechanicalProperty",
+        "identifier": "ISO 3738",
+        "name": "Rockwell Hardness Test (Scale A)",
+        "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
       },
       "measurement": {
         "type": "MeasuredValue",
@@ -22,15 +23,16 @@
       ],
       "type": "Observation",
       "property": {
-        "type": "MechanicalProperty",
-        "identifier": "ISO 148",
-        "name": "Charpy Impact Strength Test",
-        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+        "type": "ChemicalProperty",
+        "name": "Chlorine",
+        "formula": "Cl",
+        "inchi": "InChI=1S/Cl",
+        "inchikey": "ZAMOUSCENKQFHK-UHFFFAOYSA-N"
       },
       "measurement": {
         "type": "MeasuredValue",
-        "value": "77.294",
-        "unitCode": "B13"
+        "value": "48.411",
+        "unitCode": "P1"
       }
     },
     {
@@ -40,51 +42,61 @@
       "type": "Observation",
       "property": {
         "type": "ChemicalProperty",
-        "name": "Neon",
-        "formula": "Ne",
-        "inchi": "InChI=1S/Ne",
-        "inchikey": "GKAOGPIIYCISHV-UHFFFAOYSA-N"
+        "name": "Oxygen",
+        "formula": "O",
+        "inchi": "InChI=1S/O",
+        "inchikey": "QVGXLLKOCUKJST-UHFFFAOYSA-N"
       },
       "measurement": {
         "type": "MeasuredValue",
-        "value": "36.671",
+        "value": "74.746",
         "unitCode": "P1"
       }
     }
   ],
   "bad": [
     {
-      "type": "Observation",
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
       "property": {
-        "type": "ChemicalProperty",
-        "name": "Nitrogen",
-        "formula": "N"
+        "type": "MechanicalProperty",
+        "identifier": "ISO 3738",
+        "name": "Rockwell Hardness Test (Scale A)",
+        "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
       },
-      "measurement": {
-        "type": "MeasuredValue",
-        "value": "00.00",
-        "unitCode": "UNKNOWN"
-      },
-      "monitor": "transmit"
-    },
-    {
-      "circuit": "navigate",
-      "protocol": "navigate"
+      "array": "synthesize",
+      "system": "navigate",
+      "bandwidth": "generate"
     },
     {
       "@context": [
         "https://w3id.org/traceability/v1"
       ],
+      "measurement": {
+        "type": "MeasuredValue",
+        "value": "48.411",
+        "unitCode": "P1"
+      },
+      "bandwidth": "reboot"
+    },
+    {
       "type": "Observation",
       "property": {
         "type": "ChemicalProperty",
-        "name": "Neon",
-        "formula": "Ne",
-        "inchi": "InChI=1S/Ne",
-        "inchikey": "GKAOGPIIYCISHV-UHFFFAOYSA-N"
+        "name": "Oxygen",
+        "formula": "O",
+        "inchi": "InChI=1S/O",
+        "inchikey": "QVGXLLKOCUKJST-UHFFFAOYSA-N"
       },
-      "panel": "connect",
-      "application": "input"
+      "measurement": {
+        "type": "MeasuredValue",
+        "value": "74.746",
+        "unitCode": "P1"
+      },
+      "bandwidth": "calculate",
+      "interface": "parse",
+      "driver": "hack"
     }
   ]
 }

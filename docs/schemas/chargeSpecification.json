@@ -1,0 +1,46 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/chargeSpecification.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"chargeSpecification\", \"@id\": \"https://schema.org/PriceSpecification\"}",
+    "title": "ChargeSpecification",
+    "type": "object",
+    "required": [
+        "type",
+        "price",
+        "priceCurrency"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "price": {
+            "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Price",
+            "type": "number",
+            "examples": [
+                200.00
+            ],
+            "default": 0
+        },
+        "priceCurrency": {
+            "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+            "title": "Pricecurrency",
+            "type": "string",
+            "default": "",
+            "examples": [
+                "USD"
+            ]
+        }
+    },
+    "additionalProperties": false
+}
