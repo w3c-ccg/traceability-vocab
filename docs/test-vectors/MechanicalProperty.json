@@ -14,9 +14,9 @@
         "https://w3id.org/traceability/v1"
       ],
       "type": "MechanicalProperty",
-      "identifier": "ISO 3738",
-      "name": "Rockwell Hardness Test (Scale A)",
-      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+      "identifier": "ISO 180",
+      "name": "Izod Impact Strength Test",
+      "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
     },
     {
       "@context": [
@@ -30,25 +30,21 @@
   ],
   "bad": [
     {
-      "type": "MechanicalProperty",
       "identifier": "ISO 180",
-      "port": "connect",
-      "bus": "hack",
-      "driver": "input"
+      "application": "compress",
+      "program": "program"
     },
     {
-      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials.",
-      "alarm": "index",
-      "protocol": "bypass",
-      "interface": "reboot",
-      "transmitter": "connect"
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "system": "reboot"
     },
     {
-      "type": "MechanicalProperty",
-      "name": "Charpy Impact Strength Test",
-      "card": "reboot",
-      "firewall": "navigate",
-      "array": "index"
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "matrix": "copy"
     }
   ]
 }
