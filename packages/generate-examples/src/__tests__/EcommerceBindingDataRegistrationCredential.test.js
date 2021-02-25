@@ -6,11 +6,11 @@ const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
 
-const {getEcommerceWayBillRegistrationCredential} = require("../../../traceability-vocab/src/generators/EcommerceWayBillRegistrationCredential");
+const {getEcommerceBindingDataRegistrationCredential} = require("../../../traceability-vocab/src/generators/EcommerceBindingDataRegistrationCredential");
 
 // build data for credential subject
 
-let credsubjdata = getEcommerceWayBillRegistrationCredential();
+let credsubjdata = getEcommerceBindingDataRegistrationCredential();
 delete credsubjdata['@context'];
 
 describe("Generate", () => {
@@ -31,13 +31,12 @@ describe("Generate", () => {
         credentialSubject: {
           id: "did:web:www.acme.com",
           type: credsubjdata.type,
-          wayBillID: credsubjdata.wayBillID,
-          carrierName: credsubjdata.carrierName,
-          modeOfTransport: credsubjdata.modeOfTransport,
-          portOfEntry: credsubjdata.portOfEntry,
-          masterWayBill: credsubjdata.masterWayBill,
+          finalCarrierName: credsubjdata.finalCarrierName,
+          finalVesselID: credsubjdata.finalVesselID,
+          finalDateOfArrival: credsubjdata.finalDateOfArrival,
+          finalModeOfTransport: credsubjdata.finalModeOfTransport,
+          finalPortOfEntry: credsubjdata.finalPortOfEntry,
           wayBillVCID: credsubjdata.wayBillVCID,
-          packageVCID: credsubjdata.packageVCID,
           certificateName: credsubjdata.certificateName,
         },
       },
