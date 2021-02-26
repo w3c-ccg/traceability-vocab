@@ -5,54 +5,52 @@
         "https://w3id.org/traceability/v1"
       ],
       "type": "MechanicalProperty",
-      "identifier": "ISO 148",
-      "name": "Charpy Impact Strength Test",
-      "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+      "identifier": "ISO 3738",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
     },
     {
       "@context": [
         "https://w3id.org/traceability/v1"
       ],
       "type": "ChemicalProperty",
-      "name": "Aluminium",
-      "formula": "Al",
-      "inchi": "InChI=1S/Al",
-      "inchikey": "XAGFODPZIPBFFR-UHFFFAOYSA-N"
+      "name": "Tungsten",
+      "formula": "W",
+      "inchi": "InChI=1S/W",
+      "inchikey": "WFKWXMTUELFFGS-UHFFFAOYSA-N"
     },
-    {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "type": "ChemicalProperty",
-      "name": "Zirconium",
-      "formula": "Zr",
-      "inchi": "InChI=1S/Zr",
-      "inchikey": "QCWXUUIWCKQGHC-UHFFFAOYSA-N"
-    }
-  ],
-  "bad": [
     {
       "@context": [
         "https://w3id.org/traceability/v1"
       ],
       "type": "MechanicalProperty",
-      "identifier": "ISO 148",
-      "name": "Charpy Impact Strength Test",
-      "port": "program"
+      "identifier": "ISO 3738",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+    }
+  ],
+  "bad": [
+    {
+      "type": "MechanicalProperty",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "driver": "bypass",
+      "card": "generate"
     },
     {
-      "bus": "copy",
-      "monitor": "generate",
-      "panel": "index"
+      "type": "ChemicalProperty",
+      "name": "Tungsten",
+      "formula": "W",
+      "inchikey": "WFKWXMTUELFFGS-UHFFFAOYSA-N",
+      "matrix": "parse",
+      "card": "input",
+      "firewall": "navigate",
+      "bandwidth": "back up"
     },
     {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "formula": "Zr",
-      "inchikey": "QCWXUUIWCKQGHC-UHFFFAOYSA-N",
-      "panel": "synthesize",
-      "matrix": "transmit"
+      "type": "MechanicalProperty",
+      "identifier": "ISO 3738",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "transmitter": "navigate"
     }
   ]
 }

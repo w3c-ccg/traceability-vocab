@@ -31,13 +31,14 @@ while (numOrdersinPackage > 0) {
     numItemsinOrder -= 1;
   }
   const item = {
+    type: 'EcommercePackageItem',
     productReceiptID: `https://example.VC_url.com/?queryID=${faker.random.hexaDecimal(
       64
     )}`,
     packingListID: `https://example.VC_url.com/?queryID=${faker.random.hexaDecimal(
       64
     )}`,
-    orderNumber: itemOrder,
+    orderID: itemOrder,
     productInOrder: productlist,
   };
   packagelist.push(item);
@@ -51,14 +52,7 @@ describe("Generate", () => {
       credential: {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
-          "https://w3id.org/traceability/v1",
-          {
-            productReceiptID:
-              "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential#receiptID",
-          },
-          { packingListID: "https://schema.org/identifier" },
-          { orderNumber: "https://schema.org/orderNumber" },
-          { productInOrder: "https://schema.orgproductID" },
+          "https://w3id.org/traceability/v1"
         ],
         id: "https://example.com/credentials/123",
         type: ["VerifiableCredential"],
@@ -67,14 +61,14 @@ describe("Generate", () => {
           id: "did:example:123",
         },
         credentialSubject: {
-          id: "did:web:www.fedex.com",
+          id: "did:web:www.acme.com",
           type: "EcommercePackageRegistrationCredential",
           trackingID: `${faker.random.number({
             min: 100000000000,
             max: 999999999999,
           })}`,
           packageItems: packagelist,
-          certificateName: "Fedex Ecommerce Package Registration Credential",
+          certificateName: "ACME Carrier Ecommerce Package Registration Credential",
         },
       },
       suite: new Ed25519Signature2018({

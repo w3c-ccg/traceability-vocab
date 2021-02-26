@@ -8,7 +8,7 @@ const payments = require('../../data/generated/payment-types.json');
 // Include Payment Status
 const paymentstatus = require('../../data/generated/payment-status.json');
 // Include currencies
-// const currencies = require("../../data/generated/currency-format.json");
+const currencies = require("../../data/generated/currency-format.json");
 
 const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   // get a payment method
@@ -22,15 +22,13 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     min: 1,
     max: paymentstatus.status.length,
   });
-  const paymentStatus = payments.payment[randomPaymentStatus - 1];
-  // FIX ME
+  const paymentStatus = paymentstatus.status[randomPaymentStatus - 1];
+  
   // get a currency
-  // const randomCurrency = Object.keys(currencies)[
-  //   faker.random.number(Object.keys(currencies).length)
-  // ];
-
-  // const currency = currencies[randomCurrency].code;
-  const currency = 'USD';
+  let randNum = Object.keys(currencies)[
+    faker.random.number(Object.keys(currencies).length - 1)
+  ];
+  const currency = currencies[randNum].code;
 
   // create a list of ordered products in invoice
   

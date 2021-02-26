@@ -6,16 +6,15 @@
       ],
       "type": "Observation",
       "property": {
-        "type": "ChemicalProperty",
-        "name": "Palladium",
-        "formula": "Pd",
-        "inchi": "InChI=1S/Pd",
-        "inchikey": "KDLHZDBZIXYQEI-UHFFFAOYSA-N"
+        "type": "MechanicalProperty",
+        "identifier": "ISO 148",
+        "name": "Charpy Impact Strength Test",
+        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
       },
       "measurement": {
         "type": "MeasuredValue",
-        "value": "0.902",
-        "unitCode": "P1"
+        "value": "91.935",
+        "unitCode": "B13"
       }
     },
     {
@@ -25,14 +24,14 @@
       "type": "Observation",
       "property": {
         "type": "ChemicalProperty",
-        "name": "Platinum",
-        "formula": "Pt",
-        "inchi": "InChI=1S/Pt",
-        "inchikey": "BASFCYQUMIYNBI-UHFFFAOYSA-N"
+        "name": "Lawrencium",
+        "formula": "Lr",
+        "inchi": "InChI=1S/Lr",
+        "inchikey": "CNQCVBJFEGMYDW-UHFFFAOYSA-N"
       },
       "measurement": {
         "type": "MeasuredValue",
-        "value": "77.740",
+        "value": "41.428",
         "unitCode": "P1"
       }
     },
@@ -56,43 +55,36 @@
   ],
   "bad": [
     {
-      "measurement": {
-        "type": "MeasuredValue",
-        "value": "0.902",
-        "unitCode": "P1"
-      },
-      "system": "reboot",
-      "protocol": "override"
-    },
-    {
       "@context": [
         "https://w3id.org/traceability/v1"
       ],
       "type": "Observation",
-      "measurement": {
-        "type": "MeasuredValue",
-        "value": "77.740",
-        "unitCode": "P1"
+      "property": {
+        "type": "MechanicalProperty",
+        "identifier": "ISO 148",
+        "name": "Charpy Impact Strength Test",
+        "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
       },
-      "microchip": "override"
+      "pixel": "hack",
+      "matrix": "parse"
     },
     {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
+      "card": "program",
+      "monitor": "parse",
+      "alarm": "compress",
+      "driver": "navigate"
+    },
+    {
+      "type": "Observation",
       "property": {
         "type": "MechanicalProperty",
         "identifier": "ISO 3738",
         "name": "Rockwell Hardness Test (Scale A)",
         "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
       },
-      "measurement": {
-        "type": "MeasuredValue",
-        "value": "00.00",
-        "unitCode": "UNKNOWN"
-      },
-      "application": "program",
-      "bandwidth": "override"
+      "sensor": "index",
+      "application": "generate",
+      "firewall": "hack"
     }
   ]
 }

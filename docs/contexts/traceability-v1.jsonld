@@ -161,6 +161,26 @@
         }
       }
     },
+    "ChargeDeclaration": {
+      "@id": "https://w3id.org/traceability#ChargeDeclaration",
+      "@context": {
+        "weightCharge": {
+          "@id": "https://schema.org/PriceSpecification"
+        },
+        "taxCharge": {
+          "@id": "https://schema.org/price"
+        },
+        "otherChargesAgent": {
+          "@id": "https://schema.org/totalPrice"
+        },
+        "otherChargesCarrier": {
+          "@id": "https://schema.org/discountPrice"
+        },
+        "totalCharge": {
+          "@id": "https://w3id.org/traceability#TotalCharge"
+        }
+      }
+    },
     "ChemicalProperty": {
       "@id": "https://w3id.org/traceability#ChemicalProperty",
       "@context": {
@@ -252,6 +272,32 @@
         },
         "addProductCodeType": {
           "@id": "https://schema.org/additionalType"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommerceBindingDataRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommerceBindingDataRegistrationCredential",
+      "@context": {
+        "finalCarrierName": {
+          "@id": "https://schema.org/Organization"
+        },
+        "finalVesselID": {
+          "@id": "https://schema.org/identifier"
+        },
+        "finalDateOfArrival": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "finalModeOfTransport": {
+          "@id": "https://https://schema.org/option"
+        },
+        "finalPortOfEntry": {
+          "@id": "https://w3id.org/traceability#ShippingStop"
+        },
+        "wayBillVCID": {
+          "@id": "https://https://schema.org/identifier"
         },
         "certificateName": {
           "@id": "https://schema.org/name"
@@ -510,6 +556,130 @@
         }
       }
     },
+    "EcommerceWayBillCommodityContent": {
+      "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityContent",
+      "@context": {
+        "wayBillGrouping": {
+          "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityGroup"
+        },
+        "totalsCommodityContent": {
+          "@id": "https://w3id.org/traceability#EcommerceWayBillTotals"
+        }
+      }
+    },
+    "EcommerceWayBillCommodityGroup": {
+      "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityGroup",
+      "@context": {
+        "commodityItemNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "natureQuantityOfGoods": {
+          "@id": "https://schema.org/description"
+        },
+        "totalsCommodityGroup": {
+          "@id": "https://w3id.org/traceability#EcommerceWayBillTotals"
+        }
+      }
+    },
+    "EcommerceWayBillRegistrationCredential": {
+      "@id": "https://w3id.org/traceability#EcommerceWayBillRegistrationCredential",
+      "@context": {
+        "wayBillID": {
+          "@id": "https://schema.org/trackingNumber"
+        },
+        "carrierName": {
+          "@id": "https://schema.org/Organization"
+        },
+        "modeOfTransport": {
+          "@id": "https://https://schema.org/option"
+        },
+        "portOfEntry": {
+          "@id": "https://w3id.org/traceability#ShippingStop"
+        },
+        "masterWayBill": {
+          "@id": "https://https://schema.org/status"
+        },
+        "wayBillVCID": {
+          "@id": "https://https://schema.org/identifier"
+        },
+        "packageVCID": {
+          "@id": "https://schema.org/ListItem"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
+        }
+      }
+    },
+    "EcommerceWayBillRegistrationEvidenceDocument": {
+      "@id": "https://w3id.org/traceability#EcommerceWayBillRegistrationEvidenceDocument",
+      "@context": {
+        "issuanceDate": {
+          "@id": "https://schema.org/dateIssued"
+        },
+        "waybillNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "waybillType": {
+          "@id": "https://schema.org/DigitalDocument"
+        },
+        "issuer": {
+          "@id": "https://schema.org/Organization"
+        },
+        "shipper": {
+          "@id": "https://schema.org/broker"
+        },
+        "sidNumber": {
+          "@id": "https://schema.org/accountId"
+        },
+        "consignee": {
+          "@id": "https://schema.org/Corporation"
+        },
+        "cidNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "issuerAgent": {
+          "@id": "https://w3id.org/traceability#IssuerAgent"
+        },
+        "shippingRoute": {
+          "@id": "https://schema.org/Trip"
+        },
+        "handlingInstructions": {
+          "@id": "https://schema.org/description"
+        },
+        "handlingInstructionsSCI": {
+          "@id": "https://schema.org/Code"
+        },
+        "wayBillCommodityContent": {
+          "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityContent"
+        },
+        "chargeDeclaration": {
+          "@id": "https://w3id.org/traceability#ChargeDeclaration"
+        }
+      }
+    },
+    "EcommerceWayBillTotals": {
+      "@id": "https://w3id.org/traceability#EcommerceWayBillTotals",
+      "@context": {
+        "totalPieces": {
+          "@id": "https://schema.org/Number"
+        },
+        "weight": {
+          "@id": "https://schema.org/weight"
+        },
+        "chargeableWeight": {
+          "@id": "https://schema.org/QuantitativeValue"
+        },
+        "weightUnit": {
+          "@id": "https://schema.org/unitCode"
+        },
+        "rateCharge": {
+          "@id": "https://schema.org/Price"
+        },
+        "totalRateCharge": {
+          "@id": "https://schema.org/totalPrice"
+        }
+      }
+    },
     "Entity": {
       "@id": "https://w3id.org/traceability#Entity",
       "@context": {}
@@ -572,6 +742,41 @@
       "@context": {
         "identifier": {
           "@id": "https://schema.org/identifier"
+        }
+      }
+    },
+    "IssuerAgent": {
+      "@id": "https://w3id.org/traceability#IssuerAgent",
+      "@context": {
+        "issuerAgentOrg": {
+          "@id": "https://schema.org/Organization"
+        },
+        "iataCode": {
+          "@id": "https://schema.org/identifier"
+        },
+        "accountNumber": {
+          "@id": "https://schema.org/accountId"
+        },
+        "accountingInformation": {
+          "@id": "https://schema.org/description"
+        },
+        "charge": {
+          "@id": "https://schema.org/Price"
+        },
+        "declaredValueCarriage": {
+          "@id": "https://schema.org/totalPrice"
+        },
+        "declaredValueCarriagePaymentStatus": {
+          "@id": "https://schema.org/paymentStatus"
+        },
+        "declaredValueCustoms": {
+          "@id": "https://schema.org/discountPrice"
+        },
+        "declaredValueCustomsPaymentStatus": {
+          "@id": "https://schema.org/status"
+        },
+        "amountInsurance": {
+          "@id": "https://schema.org/PaymentChargeSpecification"
         }
       }
     },
@@ -1191,6 +1396,26 @@
         }
       }
     },
+    "ShippingStop": {
+      "@id": "https://w3id.org/traceability#ShippingStop",
+      "@context": {
+        "shippingStopAddress": {
+          "@id": "https://schema.org/PostalAddress"
+        },
+        "carrier": {
+          "@id": "https://schema.org/Organizationn"
+        },
+        "vesselNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "arrivalDate": {
+          "@id": "https://schema.org/Date"
+        },
+        "stopType": {
+          "@id": "https://schema.org/description"
+        }
+      }
+    },
     "SteelProduct": {
       "@id": "https://w3id.org/traceability#SteelProduct",
       "@context": {
@@ -1217,6 +1442,57 @@
         },
         "shipment": {
           "@id": "https://schema.org/ParcelDelivery"
+        }
+      }
+    },
+    "TotalCharge": {
+      "@id": "https://w3id.org/traceability#TotalCharge",
+      "@context": {
+        "totalPrepaid": {
+          "@id": "https://schema.org/Price"
+        },
+        "totalCollect": {
+          "@id": "https://schema.org/totalPrice"
+        },
+        "sourceCurrency": {
+          "@id": "https://schema.org/priceCurrency"
+        },
+        "destinationCurrency": {
+          "@id": "https://schema.org/currency"
+        },
+        "currencyConversionRate": {
+          "@id": "https://schema.org/ExchangeRateSpecification"
+        },
+        "ccChargesDestinationCurrency": {
+          "@id": "https://schema.org/discountCurrency"
+        },
+        "chargesDestination": {
+          "@id": "https://schema.org/Number"
+        },
+        "totalCollectCharge": {
+          "@id": "https://schema.org/estimatedCost"
+        }
+      }
+    },
+    "chargeAndPaymentType": {
+      "@id": "https://w3id.org/traceability#chargeAndPaymentType",
+      "@context": {
+        "chargeCollect": {
+          "@id": "https://schema.org/discountPrice"
+        },
+        "chargePrepaid": {
+          "@id": "https://schema.org/totalPrice"
+        }
+      }
+    },
+    "chargeSpecification": {
+      "@id": "https://schema.org/PriceSpecification",
+      "@context": {
+        "price": {
+          "@id": "https://schema.org/price"
+        },
+        "priceCurrency": {
+          "@id": "https://schema.org/priceCurrency"
         }
       }
     },
