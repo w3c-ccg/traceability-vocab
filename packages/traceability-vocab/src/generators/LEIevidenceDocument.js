@@ -3,7 +3,6 @@ const { getLEIentity } = require('./LEIentity');
 const { getLEIregistration } = require('./LEIregistration');
 
 const getLEIevidenceDocument = () => {
-
   const shortId = `${faker.random.alpha({ count: 4 }).toUpperCase()}`;
   const lei = faker.random.alphaNumeric(20).toUpperCase();
 

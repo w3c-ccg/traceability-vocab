@@ -33,7 +33,6 @@ const getLEIentity = () => {
   const auth = getLEIauthority();
   delete auth['@context'];
 
-
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'LEIentity',
@@ -48,17 +47,17 @@ const getLEIentity = () => {
     entityCategory: getCategory(),
     legalForm: getLegalForm(),
     associatedEntity: {
-        type: 'Organization',
-        leiCode: lei,
-        name: faker.company.companyName()
+      type: 'Organization',
+      leiCode: lei,
+      name: faker.company.companyName(),
     },
     status: getStatus(),
     expirationDate: futureDate,
     expirationReason: faker.company.bs(),
     successorEntity: {
-        type: 'Organization',
-        leiCode: faker.random.alphaNumeric(20).toUpperCase(),
-        name: faker.company.companyName(),
+      type: 'Organization',
+      leiCode: faker.random.alphaNumeric(20).toUpperCase(),
+      name: faker.company.companyName(),
     },
     otherAddresses: [],
   };
