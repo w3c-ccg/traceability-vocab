@@ -1,10 +1,9 @@
 const { getEcommercePackingListItem } = require('./EcommercePackingListItem');
 
 const getEcommercePackingListRegistrationCredential = () => {
-
   const itemlist = getEcommercePackingListItem();
   delete itemlist['@context'];
-  let items = [];
+  const items = [];
   items.push(itemlist);
 
   const example = {

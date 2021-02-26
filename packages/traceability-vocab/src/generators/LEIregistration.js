@@ -17,10 +17,10 @@ const getLEIregistration = () => {
     return faker.random.arrayElement(types);
   };
 
-const valauth = getLEIauthority();
-delete valauth['@context'];
-let valautharray = [];
-valautharray.push(valauth);
+  const valauth = getLEIauthority();
+  delete valauth['@context'];
+  const valautharray = [];
+  valautharray.push(valauth);
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -31,7 +31,7 @@ valautharray.push(valauth);
     nextRenewalDate: futureDate,
     managingLou: faker.random.alpha({ count: 20 }).toUpperCase(),
     validationSources: getCorroborationLevel(),
-    validationAuthority: valautharray
+    validationAuthority: valautharray,
   };
   return example;
 };

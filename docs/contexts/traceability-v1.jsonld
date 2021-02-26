@@ -10,6 +10,32 @@
     },
     "id": "@id",
     "type": "@type",
+    "AgActivity": {
+      "@id": "https://w3id.org/traceability#AgActivity",
+      "@context": {
+        "farm": {
+          "@id": "https://w3id.org/traceability#dfn-entities"
+        },
+        "actor": {
+          "@id": "https://w3id.org/traceability#Person"
+        },
+        "field": {
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "activityDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "activityType": {
+          "@id": "https://www.schema.org/value"
+        },
+        "agProduct": {
+          "@id": "https://schema.org/ItemList"
+        },
+        "observation": {
+          "@id": "https://w3id.org/traceability#observation"
+        }
+      }
+    },
     "AgInspectionReport": {
       "@id": "https://w3id.org/traceability#AgInspectionReport",
       "@context": {
@@ -135,17 +161,6 @@
         }
       }
     },
-    "chargeAndPaymentType": {
-      "@id": "https://w3id.org/traceability#chargeAndPaymentType",
-      "@context": {
-        "chargeCollect": {
-          "@id": "https://schema.org/discountPrice"
-        },
-        "chargePrepaid": {
-          "@id": "https://schema.org/totalPrice"
-        }
-      }
-    },
     "ChargeDeclaration": {
       "@id": "https://w3id.org/traceability#ChargeDeclaration",
       "@context": {
@@ -163,17 +178,6 @@
         },
         "totalCharge": {
           "@id": "https://w3id.org/traceability#TotalCharge"
-        }
-      }
-    },
-    "chargeSpecification": {
-      "@id": "https://schema.org/PriceSpecification",
-      "@context": {
-        "price": {
-          "@id": "https://schema.org/price"
-        },
-        "priceCurrency": {
-          "@id": "https://schema.org/priceCurrency"
         }
       }
     },
@@ -808,17 +812,6 @@
         }
       }
     },
-    "LegalEntityIdentifierCredential": {
-      "@id": "https://w3id.org/traceability#LegalEntityIdentifierCredential",
-      "@context": {
-        "leiCode": {
-          "@id": "https://schema.org/leiCode"
-        },
-        "certificateName": {
-          "@id": "https://schema.org/name"
-        }
-      }
-    },
     "LEIaddress": {
       "@id": "https://w3id.org/traceability#LEIaddress",
       "@context": {
@@ -958,6 +951,17 @@
         },
         "validationAuthority": {
           "@id": "https://w3id.org/traceability#LEIauthority"
+        }
+      }
+    },
+    "LegalEntityIdentifierCredential": {
+      "@id": "https://w3id.org/traceability#LegalEntityIdentifierCredential",
+      "@context": {
+        "leiCode": {
+          "@id": "https://schema.org/leiCode"
+        },
+        "certificateName": {
+          "@id": "https://schema.org/name"
         }
       }
     },
@@ -1244,47 +1248,6 @@
         }
       }
     },
-    "ppq203": {
-      "@id": "https://w3id.org/traceability#ppq203",
-      "@context": {
-        "certificateNumber": {
-          "@id": "https://w3id.org/traceability#certificateNumber"
-        },
-        "foreignPortExport": {
-          "@id": "https://w3id.org/traceability#foreignPortExport"
-        },
-        "carrierId": {
-          "@id": "https://w3id.org/traceability#carrierId"
-        },
-        "portOfEntry": {
-          "@id": "https://w3id.org/traceability#portOfEntry"
-        },
-        "signatureDate": {
-          "@id": "https://w3id.org/traceability#signatureDate"
-        },
-        "facility": {
-          "@id": "https://www.gs1.org/voc/Place"
-        },
-        "inspector": {
-          "@id": "https://w3id.org/traceability?v2#Inspector"
-        },
-        "shipment": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
-        "applicant": {
-          "@id": "https://w3id.org/traceability#dfn-entities"
-        },
-        "inspectionDate": {
-          "@id": "https://schema.org/DateTime"
-        },
-        "inspectionType": {
-          "@id": "https://www.schema.org/value"
-        },
-        "observation": {
-          "@id": "https://schema.org/ItemList"
-        }
-      }
-    },
     "Product": {
       "@id": "https://schema.org/Product",
       "@context": {
@@ -1508,6 +1471,69 @@
         },
         "totalCollectCharge": {
           "@id": "https://schema.org/estimatedCost"
+        }
+      }
+    },
+    "chargeAndPaymentType": {
+      "@id": "https://w3id.org/traceability#chargeAndPaymentType",
+      "@context": {
+        "chargeCollect": {
+          "@id": "https://schema.org/discountPrice"
+        },
+        "chargePrepaid": {
+          "@id": "https://schema.org/totalPrice"
+        }
+      }
+    },
+    "chargeSpecification": {
+      "@id": "https://schema.org/PriceSpecification",
+      "@context": {
+        "price": {
+          "@id": "https://schema.org/price"
+        },
+        "priceCurrency": {
+          "@id": "https://schema.org/priceCurrency"
+        }
+      }
+    },
+    "ppq203": {
+      "@id": "https://w3id.org/traceability#ppq203",
+      "@context": {
+        "certificateNumber": {
+          "@id": "https://w3id.org/traceability#certificateNumber"
+        },
+        "foreignPortExport": {
+          "@id": "https://w3id.org/traceability#foreignPortExport"
+        },
+        "carrierId": {
+          "@id": "https://w3id.org/traceability#carrierId"
+        },
+        "portOfEntry": {
+          "@id": "https://w3id.org/traceability#portOfEntry"
+        },
+        "signatureDate": {
+          "@id": "https://w3id.org/traceability#signatureDate"
+        },
+        "facility": {
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "inspector": {
+          "@id": "https://w3id.org/traceability?v2#Inspector"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "applicant": {
+          "@id": "https://w3id.org/traceability#dfn-entities"
+        },
+        "inspectionDate": {
+          "@id": "https://schema.org/DateTime"
+        },
+        "inspectionType": {
+          "@id": "https://www.schema.org/value"
+        },
+        "observation": {
+          "@id": "https://schema.org/ItemList"
         }
       }
     }
