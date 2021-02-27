@@ -4,61 +4,53 @@
       "@context": [
         "https://w3id.org/traceability/v1"
       ],
+      "type": "MechanicalProperty",
+      "identifier": "ISO 3738",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+    },
+    {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
       "type": "ChemicalProperty",
-      "name": "Hafnium",
-      "formula": "Hf",
-      "inchi": "InChI=1S/Hf",
-      "inchikey": "VBJZVLUMGGDVMO-UHFFFAOYSA-N"
+      "name": "Tungsten",
+      "formula": "W",
+      "inchi": "InChI=1S/W",
+      "inchikey": "WFKWXMTUELFFGS-UHFFFAOYSA-N"
     },
     {
       "@context": [
         "https://w3id.org/traceability/v1"
       ],
       "type": "MechanicalProperty",
-      "identifier": "ISO 1352",
-      "name": "Torque-controlled fatigue testing",
-      "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
-    },
-    {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "type": "ChemicalProperty",
-      "name": "Cerium",
-      "formula": "Ce",
-      "inchi": "InChI=1S/Ce",
-      "inchikey": "GWXLDORMOJMVQZ-UHFFFAOYSA-N"
+      "identifier": "ISO 3738",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
     }
   ],
   "bad": [
     {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "type": "ChemicalProperty",
-      "sensor": "override",
-      "circuit": "copy"
+      "type": "MechanicalProperty",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "driver": "bypass",
+      "card": "generate"
     },
     {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "name": "Torque-controlled fatigue testing",
-      "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis.",
-      "port": "index"
+      "type": "ChemicalProperty",
+      "name": "Tungsten",
+      "formula": "W",
+      "inchikey": "WFKWXMTUELFFGS-UHFFFAOYSA-N",
+      "matrix": "parse",
+      "card": "input",
+      "firewall": "navigate",
+      "bandwidth": "back up"
     },
     {
-      "@context": [
-        "https://w3id.org/traceability/v1"
-      ],
-      "type": "ChemicalProperty",
-      "name": "Cerium",
-      "inchi": "InChI=1S/Ce",
-      "inchikey": "GWXLDORMOJMVQZ-UHFFFAOYSA-N",
-      "bandwidth": "calculate",
-      "transmitter": "parse",
-      "port": "quantify",
-      "driver": "navigate"
+      "type": "MechanicalProperty",
+      "identifier": "ISO 3738",
+      "name": "Rockwell Hardness Test (Scale A)",
+      "transmitter": "navigate"
     }
   ]
 }
