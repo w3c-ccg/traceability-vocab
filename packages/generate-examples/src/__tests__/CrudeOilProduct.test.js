@@ -4,6 +4,7 @@ const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
 
 describe("Generate Crude Product", () => {
+  jest.setTimeout(40*1000);
   it("can issue and verify", async () => {
     const key = await Ed25519KeyPair.from(require("../keypair.json"));
     const verifiableCredential = await vcjs.ld.issue({
