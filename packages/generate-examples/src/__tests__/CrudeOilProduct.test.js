@@ -1,3 +1,6 @@
+const fs = require("fs");
+const path = require("path");
+
 const { Ed25519KeyPair } = require("@transmute/did-key-ed25519");
 const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
@@ -20,5 +23,12 @@ describe("Generate Crude Product", () => {
       documentLoader,
     });
     expect(result.verified).toBe(true);
+    fs.writeFileSync(
+      path.resolve(
+        __dirname,
+        "../../../../docs/credentials/CrudeOilProduct.json"
+      ),
+      JSON.stringify(verifiableCredential, null, 2)
+    );
   });
 });

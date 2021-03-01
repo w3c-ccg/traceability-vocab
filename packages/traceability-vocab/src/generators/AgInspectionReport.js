@@ -4,7 +4,7 @@ faker.seed(42);
 const _ = require('lodash');
 const { getPlace } = require('./Place');
 const { getInspector } = require('./Inspector');
-const { getParcelDelivery } = require('./ParcelDelivery');
+const { getAgParcelDelivery } = require('./AgParcelDelivery');
 const { getEntity } = require('./Entity');
 const { getObservation } = require('./Observation');
 
@@ -68,7 +68,7 @@ const getAgInspectionReport = () => {
   delete facility['@context'];
   const inspector = getInspector();
   delete inspector['@context'];
-  const shipment = getParcelDelivery();
+  const shipment = getAgParcelDelivery();
   delete shipment['@context'];
   const applicant = getEntity();
   delete applicant['@context'];

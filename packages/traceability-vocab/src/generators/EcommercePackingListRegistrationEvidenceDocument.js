@@ -7,7 +7,6 @@ const deliverytype = require('../../data/generated/delivery-methods.json');
 const deliverystatus = require('../../data/generated/event-status.json');
 
 const getEcommercePackingListRegistrationEvidenceDocument = () => {
-
   // get a delivery method
   const randomDelivery = faker.random.number({
     min: 1,
@@ -26,7 +25,7 @@ const getEcommercePackingListRegistrationEvidenceDocument = () => {
   const partoforder = [];
   let numorders = faker.random.number({ min: 1, max: 2 });
   while (numorders > 0) {
-    let partorder = getPartOfOrder();
+    const partorder = getPartOfOrder();
     delete partorder['@context'];
     partoforder.push(partorder);
     numorders -= 1;
@@ -36,7 +35,7 @@ const getEcommercePackingListRegistrationEvidenceDocument = () => {
   const provider = {
     type: 'Organization',
     leiCode: faker.random.alphaNumeric(20).toUpperCase(),
-    name: faker.company.companyName()
+    name: faker.company.companyName(),
   };
 
   // create the required addresses

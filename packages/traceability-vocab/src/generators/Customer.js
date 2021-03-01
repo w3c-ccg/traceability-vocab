@@ -1,9 +1,7 @@
 const { getPostalAddress } = require('./PostalAddress');
 const { getPerson } = require('./Person');
 
-
 const getCustomer = () => {
-  
   const person = getPerson();
   delete person['@context'];
   const address = getPostalAddress();

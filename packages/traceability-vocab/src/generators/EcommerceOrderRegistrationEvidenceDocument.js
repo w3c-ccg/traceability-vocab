@@ -1,6 +1,6 @@
 const faker = require('faker');
-const {getCustomer} = require('./Customer');
-const {getOrderedItem} = require('./OrderedItem');
+const { getCustomer } = require('./Customer');
+const { getOrderedItem } = require('./OrderedItem');
 const { getPerson } = require('./Person');
 // Include test data for order statuses
 const orderstatus = require('../../data/generated/orderstatus-types.json');
@@ -40,7 +40,7 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
     leiCode: lei2,
   };
 
-  //customer name in order description
+  // customer name in order description
   const person = getPerson();
 
   const orderDate = new Date(faker.date.recent());

@@ -39,6 +39,7 @@ const getAgProduct = () => {
     plu: '94225', // faker.random.number({ min: 1000, max: 9999 }).toString(),
     gtin: '033383401508', // faker.random.number({ min: 10000000000000, max: 99999999999999 }).toString(),
     product,
+    scientificName: 'Persea americana',
     labelImageUrl: 'https://img.example.org/033383401508/640/480/', // faker.image.imageUrl(),
     labelImageHash,
   };
