@@ -1,0 +1,122 @@
+{
+  "good": [
+    {
+      "@context": ["https://w3id.org/traceability/v1"],
+      "type": ["BillOfLading"],
+      "billOfLadingNumber": "991205182",
+      "relatedDocuments": [
+        {
+          "type": ["Purchase"],
+          "purchaseOrder": "PO:33321235",
+          "invoice": {
+            "type": "Invoice",
+            "identifier": "8019223-135189"
+          }
+        }
+      ],
+      "freight": {
+        "type": ["ParcelDelivery"],
+        "expectedArrival": "2021-02-21",
+        "specialInstructions": "Do not expose to elements.",
+        "consignee": {
+          "type": "Organization",
+          "address": {
+            "type": ["PostalAddress"],
+            "organizationName": "Hodkiewicz, Huels and Schuppe",
+            "streetAddress": "131 Cynthia Corner",
+            "addressLocality": "Port Elvaville",
+            "addressRegion": "Massachusetts",
+            "postalCode": "21281-6812",
+            "addressCountry": "Lichtenstein"
+          }
+        },
+        "item": [
+          {
+            "type": ["Product", "BillOfLading"],
+            "name": "Rebar",
+            "description": "Coiled rebar product.",
+            "quantity": "1000 units",
+            "sku": "BB12359-1231",
+            "width": {
+              "type": "QuantitativeValue",
+              "unitCode": "ft",
+              "value": "10"
+            },
+            "height": {
+              "type": "QuantitativeValue",
+              "unitCode": "ft",
+              "value": "5"
+            },
+            "depth": {
+              "type": "QuantitativeValue",
+              "unitCode": "ft",
+              "value": "25"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "lb",
+              "value": "10000"
+            },
+            "packagingType": "pallets"
+            }]
+      },
+      "nmfcFreightClass": "50",
+      "hazardCode": "09"
+      }
+  ],
+  "bad": [
+    {
+      "@context": ["https://w3id.org/traceability/v1"],
+      "type": ["BillOfLading"],
+      "billOfLadingNumber": "991205182",
+      "freight": {
+        "type": ["ParcelDelivery"],
+        "expectedArrival": "2021-02-21",
+        "specialInstructions": "Do not expose to elements.",
+        "consignee": {
+          "type": "Organization",
+          "address": {
+            "type": ["PostalAddress"],
+            "organizationName": "Hodkiewicz, Huels and Schuppe",
+            "streetAddress": "131 Cynthia Corner",
+            "addressLocality": "Port Elvaville",
+            "addressRegion": "Massachusetts",
+            "postalCode": "21281-6812",
+            "addressCountry": "Lichtenstein"
+          }
+        },
+        "item": [
+          {
+            "type": ["Product", "BillOfLading"],
+            "name": "Rebar",
+            "description": "Coiled rebar product.",
+            "quantity": "1000 units",
+            "sku": "BB12359-1231",
+            "width": {
+              "type": "QuantitativeValue",
+              "unitCode": "ft",
+              "value": "10"
+            },
+            "height": {
+              "type": "QuantitativeValue",
+              "unitCode": "ft",
+              "value": "5"
+            },
+            "depth": {
+              "type": "QuantitativeValue",
+              "unitCode": "ft",
+              "value": "25"
+            },
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "lb",
+              "value": "10000"
+            },
+            "packagingType": "pallets"
+          }]
+        },
+      "nmfcFreightClass": "50",
+      "hazardCode": "09"
+    }
+  ]
+}
