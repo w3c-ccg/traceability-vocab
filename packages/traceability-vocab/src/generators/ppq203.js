@@ -1,23 +1,11 @@
 const faker = require('faker');
 
 faker.seed(42);
-const mask = require('json-mask');
-const { getPlace } = require('./Place');
 const { getAgInspectionReport } = require('./AgInspectionReport');
 
 const getppq203 = () => {
   // pull in outside schemas and remove the unneeded properties.
   // Use JSON-mask (https://github.com/nemtsov/json-mask) to pull in only the properties needed for PPQ
-
-  const fullForeignPortExport = getPlace();
-  delete fullForeignPortExport['@context'];
-  const exportFields = 'type,address(type,addressLocality,addressCountry)';
-  const foreignPortExport = mask(fullForeignPortExport, exportFields);
-
-  const fullPortOfEntry = getPlace();
-  delete fullPortOfEntry['@context'];
-  const portFields = 'type,address(type,addressLocality,addressRegion)';
-  const portOfEntry = mask(fullPortOfEntry, portFields);
 
   const fullAgInspectionReport = getAgInspectionReport();
   // It may make more sense in the future to only pull in the values that are
@@ -37,9 +25,7 @@ const getppq203 = () => {
   const sigDate = new Date(faker.date.recent());
   AgInspectionReport.type = 'ppq203';
   AgInspectionReport.certificateNumber = certNum;
-  AgInspectionReport.foreignPortExport = foreignPortExport;
   AgInspectionReport.carrierId = exCarrier;
-  AgInspectionReport.portOfEntry = portOfEntry;
   AgInspectionReport.signatureDate = `${sigDate.getFullYear()}-02-16`;
   return AgInspectionReport;
 };

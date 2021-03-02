@@ -1,7 +1,6 @@
 const faker = require('faker');
 
 const getItemShipped = () => {
-
   const product = faker.commerce.productName();
 
   const example = {
@@ -15,7 +14,7 @@ const getItemShipped = () => {
     height: `${faker.random.number({ min: 1, max: 10, precision: 0.001 })} in`,
     width: `${faker.random.number({ min: 1, max: 10, precision: 0.001 })} in`,
     depth: `${faker.random.number({ min: 1, max: 10, precision: 0.001 })} in`,
-    orderQuantity: faker.random.number({ min: 1, max: 10}),
+    orderQuantity: faker.random.number({ min: 1, max: 10 }),
   };
 
   return example;
