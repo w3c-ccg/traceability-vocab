@@ -1,0 +1,16 @@
+{
+  "name": "traceability-schemas",
+  "version": "1.0.0",
+  "description": "This module contains all the JSON Schema used to build the traceability vocab.",
+  "main": "index.js",
+  "types": "typings.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf ../../docs/schemas",
+    "build:schemas": "node ./scripts/build-schemas.js && cp -r ./schemas ../../docs/schemas",
+    "build:intermediate": "node ./scripts/build-intermediate.js ",
+    "build:context": "node ./scripts/build-context.js ",
+    "build": "npm run build:schemas"
+  },
+  "author": "Orie Steele",
+  "license": "Apache-2.0"
+}
