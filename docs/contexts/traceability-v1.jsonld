@@ -242,6 +242,14 @@
         }
       }
     },
+    "CommercialInvoiceCredential": {
+      "@id": "https://w3id.org/traceability#CommercialInvoiceCredential",
+      "@context": {
+        "relatedLink": {
+          "@id": "https://schema.org/relatedLink"
+        }
+      }
+    },
     "ContactPoint": {
       "@id": "https://schema.org/ContactPoint",
       "@context": {
@@ -780,6 +788,27 @@
       "@context": {
         "identifier": {
           "@id": "https://schema.org/identifier"
+        },
+        "portOfEntry": {
+          "@id": "https://schema.org/address"
+        },
+        "purchaseDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "totalPaymentDue": {
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "destinationCountry": {
+          "@id": "https://schema.org/addressCountry"
+        },
+        "merchandise": {
+          "@id": "https://schema.org/itemShipped"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
         }
       }
     },
@@ -1289,6 +1318,17 @@
         }
       }
     },
+    "PriceSpecification": {
+      "@id": "https://schema.org/PriceSpecification",
+      "@context": {
+        "price": {
+          "@id": "https://schema.org/price"
+        },
+        "priceCurrency": {
+          "@id": "https://schema.org/priceCurrency"
+        }
+      }
+    },
     "Product": {
       "@id": "https://schema.org/Product",
       "@context": {
@@ -1324,6 +1364,9 @@
         },
         "packagingType": {
           "@id": "https://www.gs1.org/voc/packagingMaterial"
+        },
+        "priceSpecification": {
+          "@id": "https://schema.org/priceSpecification"
         },
         "sku": {
           "@id": "https://schema.org/sku"
@@ -1412,6 +1455,47 @@
         },
         "purchaseOrder": {
           "@id": "https://schema.org/identifier"
+        }
+      }
+    },
+    "QPInbond": {
+      "@id": "https://w3id.org/traceability#QPInbond",
+      "@context": {
+        "product": {
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "inBondNumber": {
+          "@id": "https://w3id.org/identifier?1"
+        },
+        "inBondType": {
+          "@id": "https://w3id.org/identifier"
+        },
+        "portOfEntry": {
+          "@id": "https://www.gs1.org/voc/Place?3"
+        },
+        "carrier": {
+          "@id": "https://w3id.org/traceability?2#Entity?1"
+        },
+        "irsNumber": {
+          "@id": "https://w3id.org/identifier?3"
+        },
+        "recipient": {
+          "@id": "https://w3id.org/traceability?2#Entity?2"
+        },
+        "billOfLadingNumber": {
+          "@id": "https://w3id.org/identifier?4"
+        },
+        "expectedDeliveryDate": {
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "valuePerItem": {
+          "@id": "https://schema.org/PriceSpecification?1"
+        },
+        "totalOrderValue": {
+          "@id": "https://schema.org/PriceSpecification"
         }
       }
     },
@@ -1573,17 +1657,6 @@
         },
         "chargePrepaid": {
           "@id": "https://schema.org/totalPrice"
-        }
-      }
-    },
-    "chargeSpecification": {
-      "@id": "https://schema.org/PriceSpecification",
-      "@context": {
-        "price": {
-          "@id": "https://schema.org/price"
-        },
-        "priceCurrency": {
-          "@id": "https://schema.org/priceCurrency"
         }
       }
     },
