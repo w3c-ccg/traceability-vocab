@@ -24,7 +24,10 @@ describe("Generate", () => {
         credentialSubject: {
           id: "did:web:www.acme.com",
           type: "EcommerceProductRegistrationCredential",
-          productCode: faker.random.number(14),
+          productCode: faker.random.number({
+            min: 10000000000000,
+            max: 99999999999999,
+          }),
           productCodeType: "GTIN",
           certificateName: "ACME Ecommerce Product Registration Credential",
         },

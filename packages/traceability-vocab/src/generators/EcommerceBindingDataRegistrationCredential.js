@@ -19,6 +19,9 @@ const getEcommerceBindingDataRegistrationCredential = () => {
 
     let finalPortOfEntry = getShippingStop();
     delete finalPortOfEntry['@context'];
+    delete finalPortOfEntry['vesselNumber'];
+    delete finalPortOfEntry['arrivalDate'];
+
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
