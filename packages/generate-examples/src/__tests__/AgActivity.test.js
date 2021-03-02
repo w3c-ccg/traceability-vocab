@@ -16,7 +16,6 @@ describe("Generate AgActivity", () => {
       }),
       documentLoader,
     });
-    // console.log(JSON.stringify(verifiableCredential, null, 2));
     const result = await vcjs.ld.verifyCredential({
       credential: verifiableCredential,
       suite: new Ed25519Signature2018(),

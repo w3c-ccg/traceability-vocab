@@ -1,24 +1,21 @@
-
 const { getTotalCharge } = require('./TotalCharge');
 const { getchargeAndPaymentType } = require('./chargeAndPaymentType');
 
-
 const getChargeDeclaration = () => {
-
 // get a currency
-    
-    let weightCharge = getchargeAndPaymentType();
-    delete weightCharge['@context'];
-    let taxCharge = getchargeAndPaymentType();
-    delete taxCharge['@context'];
-    let otherChargesAgent = getchargeAndPaymentType();
-    delete otherChargesAgent['@context'];
-    let otherChargesCarrier = getchargeAndPaymentType();
-    delete otherChargesCarrier['@context'];
 
-    let charge = getTotalCharge();
-    delete charge['@context'];
-    
+  const weightCharge = getchargeAndPaymentType();
+  delete weightCharge['@context'];
+  const taxCharge = getchargeAndPaymentType();
+  delete taxCharge['@context'];
+  const otherChargesAgent = getchargeAndPaymentType();
+  delete otherChargesAgent['@context'];
+  const otherChargesCarrier = getchargeAndPaymentType();
+  delete otherChargesCarrier['@context'];
+
+  const charge = getTotalCharge();
+  delete charge['@context'];
+
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'ChargeDeclaration',
@@ -26,7 +23,7 @@ const getChargeDeclaration = () => {
     taxCharge,
     otherChargesAgent,
     otherChargesCarrier,
-    totalCharge: charge
+    totalCharge: charge,
   };
   return example;
 };
