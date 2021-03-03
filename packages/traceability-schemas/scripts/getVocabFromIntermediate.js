@@ -49,6 +49,10 @@ ${JSON.stringify({ ...ex }, null, 2)}
           <h2>${classDefinition.title}</h2>
           <p>${classDefinition.description}</p>
 
+          <p class="note">
+            See <a href="examples/${classDefinition.$comment.term}/good.json">Examples</a>
+          </p>
+
           <table class="simple">
                   <tbody>
                       <tr>
@@ -79,7 +83,6 @@ ${JSON.stringify({ ...ex }, null, 2)}
                   </table>
           ${classPropertySections}
 
-          ${classExamples}
           </section>
           `;
   });
