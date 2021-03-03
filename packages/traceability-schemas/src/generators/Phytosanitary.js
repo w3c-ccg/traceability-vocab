@@ -1,12 +1,12 @@
-const faker = require("faker");
+const faker = require('faker');
 
 faker.seed(42);
-const mask = require("json-mask");
-const { getPlace } = require("./Place");
-const { getOrganization } = require("./Organization");
-const { getAgInspectionReport } = require("./AgInspectionReport");
+const mask = require('json-mask');
+const { getPlace } = require('./Place');
+const { getOrganization } = require('./Organization');
+const { getAgInspectionReport } = require('./AgInspectionReport');
 // Include test data for types of Phyto treatments.
-const disinfectionTypes = require("../data/generated/Phytosanitary-types.json");
+const disinfectionTypes = require('../data/generated/Phytosanitary-types.json');
 
 const getPhytosanitary = () => {
   const randomType = Object.keys(disinfectionTypes)[
@@ -32,31 +32,31 @@ const getPhytosanitary = () => {
   const AgInspectionReport = fullAgInspectionReport;
 
   const plantOrg = getOrganization();
-  delete plantOrg["@context"];
+  delete plantOrg['@context'];
 
   const fullPortOfEntry = getPlace();
-  delete fullPortOfEntry["@context"];
-  const portFields = "type,address(type,addressLocality,addressRegion)";
+  delete fullPortOfEntry['@context'];
+  const portFields = 'type,address(type,addressLocality,addressRegion)';
   const portOfEntry = mask(fullPortOfEntry, portFields);
   const exDuration = `${faker.random
     .number({ min: 30, max: 200 })
     .toString()} minutes`;
 
   const exTemp = {
-    type: "MeasuredValue",
+    type: 'MeasuredValue',
     value: faker.random.number({ min: 0, max: 25 }).toString(),
-    unitCode: "Celsius",
+    unitCode: 'Celsius',
   };
   const disDate = new Date(faker.date.recent());
   const exCon = {
-    type: "MeasuredValue",
+    type: 'MeasuredValue',
     value: faker.random.number({ min: 0, max: 50 }).toString(),
-    unitCode: "Percent",
+    unitCode: 'Percent',
   };
   // faker.random.number({ min: 15, max: 50 }).toString();
   // const sigDate = new Date(faker.date.recent());
   const certNum = faker.random.number({ min: 10000000, max: 999999999999 });
-  AgInspectionReport.type = "Phytosanitary";
+  AgInspectionReport.type = 'Phytosanitary';
   AgInspectionReport.certificateNumber = certNum.toString();
   AgInspectionReport.plantOrg = plantOrg;
   AgInspectionReport.distinguishingMarks = faker.lorem.sentence();

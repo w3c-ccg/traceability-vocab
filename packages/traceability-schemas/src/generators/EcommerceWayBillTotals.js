@@ -1,5 +1,5 @@
-const faker = require("faker");
-const { getPriceSpecification } = require("./PriceSpecification");
+const faker = require('faker');
+const { getPriceSpecification } = require('./PriceSpecification');
 
 const getEcommerceWayBillTotals = () => {
   // get a currency
@@ -9,18 +9,18 @@ const getEcommerceWayBillTotals = () => {
   const chargeableWeight = 0.9 * weight;
 
   const getWeightUnit = () => {
-    const types = ["lb", "kg"];
+    const types = ['lb', 'kg'];
     return faker.random.arrayElement(types);
   };
 
   const totalRateCharge = getPriceSpecification();
-  delete totalRateCharge["@context"];
+  delete totalRateCharge['@context'];
 
   const rateCharge = totalRateCharge.price / chargeableWeight;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommerceWayBillTotals",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceWayBillTotals',
     totalPieces,
     weight,
     chargeableWeight,

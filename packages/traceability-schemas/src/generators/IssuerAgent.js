@@ -1,14 +1,14 @@
-const faker = require("faker");
-const { getOrganization } = require("./Organization");
-const { getPriceSpecification } = require("./PriceSpecification");
+const faker = require('faker');
+const { getOrganization } = require('./Organization');
+const { getPriceSpecification } = require('./PriceSpecification');
 
 // Include Payment Status
-const paymentstatus = require("../data/generated/payment-status.json");
+const paymentstatus = require('../data/generated/payment-status.json');
 
 const getIssuerAgent = () => {
   // get issuer agent
   const issuerAgentOrg = getOrganization();
-  delete issuerAgentOrg["@context"];
+  delete issuerAgentOrg['@context'];
 
   // get a payment status
   const randomPaymentStatus = faker.random.number({
@@ -23,16 +23,16 @@ const getIssuerAgent = () => {
 
   const getDescription = () => {
     const types = [
-      "Please charge to Account 123 and not Account 321",
-      "Please charge to Account 123 and Account 321",
-      "Please, only charge Account 123",
+      'Please charge to Account 123 and not Account 321',
+      'Please charge to Account 123 and Account 321',
+      'Please, only charge Account 123',
     ];
     return faker.random.arrayElement(types);
   };
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "IssuerAgent",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'IssuerAgent',
     issuerAgentOrg,
     iataCode,
     accountNumber,

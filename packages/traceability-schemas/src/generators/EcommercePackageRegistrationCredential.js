@@ -1,7 +1,7 @@
-const faker = require("faker");
+const faker = require('faker');
 // Include test data for ecom products.
-const prods = require("../data/generated/EcomProducts.json");
-const orders = require("../data/generated/orderVCIDs.json");
+const prods = require('../data/generated/EcomProducts.json');
+const orders = require('../data/generated/orderVCIDs.json');
 
 const getEcommercePackageRegistrationCredential = () => {
   // create a list of orderes for products in package
@@ -25,12 +25,12 @@ const getEcommercePackageRegistrationCredential = () => {
       numItemsinOrder -= 1;
     }
     const item = {
-      type: "EcommercePackageItem",
+      type: 'EcommercePackageItem',
       productReceiptID: `https://vc.example.com/?queryID=${faker.random.hexaDecimal(
-        64
+        64,
       )}`,
       packingListID: `https://vc.example.com/?queryID=${faker.random.hexaDecimal(
-        64
+        64,
       )}`,
       orderID: itemOrder,
       productInOrder: productlist,
@@ -40,14 +40,14 @@ const getEcommercePackageRegistrationCredential = () => {
   }
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommercePackageRegistrationCredential",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommercePackageRegistrationCredential',
     trackingID: `${faker.random.number({
       min: 100000000000,
       max: 999999999999,
     })}`,
     packageItems: packagelist,
-    certificateName: "ACME Carrier Ecommerce Package Registration Certificate",
+    certificateName: 'ACME Carrier Ecommerce Package Registration Certificate',
   };
 
   return example;

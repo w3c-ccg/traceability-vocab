@@ -1,11 +1,11 @@
-const faker = require("faker");
-const { getCustomer } = require("./Customer");
-const { getOrderedItem } = require("./OrderedItem");
-const { getPerson } = require("./Person");
+const faker = require('faker');
+const { getCustomer } = require('./Customer');
+const { getOrderedItem } = require('./OrderedItem');
+const { getPerson } = require('./Person');
 // Include test data for order statuses
-const orderstatus = require("../data/generated/orderstatus-types.json");
+const orderstatus = require('../data/generated/orderstatus-types.json');
 // Include payment methods
-const payments = require("../data/generated/payment-types.json");
+const payments = require('../data/generated/payment-types.json');
 
 const getEcommerceOrderRegistrationEvidenceDocument = () => {
   // get an order status
@@ -42,12 +42,12 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
     max: 1999999999999999,
   })}`;
   const seller = {
-    type: "Organization",
+    type: 'Organization',
     name: name1,
     leiCode: lei1,
   };
   const broker = {
-    type: "Organization",
+    type: 'Organization',
     name: name2,
     leiCode: lei2,
   };
@@ -61,8 +61,8 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
   const orderdate = `${orderDate.getMonth()}-${orderDate.getDay()}-${orderDate.getFullYear()}`;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommerceOrderRegistrationEvidenceDocument",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceOrderRegistrationEvidenceDocument',
     orderNumber,
     orderDate: orderdate,
     orderStatus: OrderStatus,

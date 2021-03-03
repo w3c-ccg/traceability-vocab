@@ -1,10 +1,10 @@
-const faker = require("faker");
-const { getPostalAddress } = require("./PostalAddress");
-const { getPartOfOrder } = require("./PartOfOrder");
+const faker = require('faker');
+const { getPostalAddress } = require('./PostalAddress');
+const { getPartOfOrder } = require('./PartOfOrder');
 // Include delivery methods
-const deliverytype = require("../data/generated/delivery-methods.json");
+const deliverytype = require('../data/generated/delivery-methods.json');
 // Include delivery Status
-const deliverystatus = require("../data/generated/event-status.json");
+const deliverystatus = require('../data/generated/event-status.json');
 
 const getEcommercePackageRegistrationEvidenceDocument = () => {
   // get a delivery method
@@ -31,19 +31,19 @@ const getEcommercePackageRegistrationEvidenceDocument = () => {
 
   // create provider
   const provider = {
-    type: "Organization",
+    type: 'Organization',
     leiCode: faker.random.alphaNumeric(20).toUpperCase(),
     name: faker.company.companyName(),
   };
 
   // create the required addresses
   const deliveryaddress = getPostalAddress();
-  delete deliveryaddress["@context"];
+  delete deliveryaddress['@context'];
   const originaddress = getPostalAddress();
-  delete originaddress["@context"];
+  delete originaddress['@context'];
 
   const futureDate = new Date(
-    `${faker.random.number({ min: 2030, max: 2040 })}`
+    `${faker.random.number({ min: 2030, max: 2040 })}`,
   );
 
   const trackingnumber = faker.random.number({
@@ -52,8 +52,8 @@ const getEcommercePackageRegistrationEvidenceDocument = () => {
   });
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommercePackageRegistrationEvidenceDocument",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommercePackageRegistrationEvidenceDocument',
     deliveryStatus,
     expectedArrivalFrom: `${futureDate}`,
     hasDeliveryMethod: deliveryMethod,

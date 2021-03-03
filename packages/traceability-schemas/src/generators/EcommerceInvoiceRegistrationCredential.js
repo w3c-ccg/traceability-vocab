@@ -1,7 +1,7 @@
-const faker = require("faker");
+const faker = require('faker');
 // Include test data for ecom products.
-const prods = require("../data/generated/EcomProducts.json");
-const orders = require("../data/generated/orderVCIDs.json");
+const prods = require('../data/generated/EcomProducts.json');
+const orders = require('../data/generated/orderVCIDs.json');
 
 const getEcommerceInvoiceRegistrationCredential = () => {
   const invoiceNumber = `Invoice#${faker.random.number({ min: 1, max: 999 })}`;
@@ -32,12 +32,12 @@ const getEcommerceInvoiceRegistrationCredential = () => {
   }
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommerceInvoiceRegistrationCredential",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceInvoiceRegistrationCredential',
     invoiceID: invoiceNumber,
     orderID: orderlist,
     productInOrder: productlist,
-    certificateName: "ACME Ecommerce Invoice Registration Certificate",
+    certificateName: 'ACME Ecommerce Invoice Registration Certificate',
   };
 
   return example;

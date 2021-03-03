@@ -1,6 +1,6 @@
-const faker = require("faker");
+const faker = require('faker');
 // Include currencies
-const currencies = require("../data/generated/currency-format.json");
+const currencies = require('../data/generated/currency-format.json');
 
 const getPriceSpecification = () => {
   // get a currency
@@ -10,8 +10,8 @@ const getPriceSpecification = () => {
   const currency = currencies[randNum].code;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "PriceSpecification",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'PriceSpecification',
     price: faker.random.number({ min: 10, max: 10000 }),
     priceCurrency: currency,
   };

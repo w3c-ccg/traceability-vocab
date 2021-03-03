@@ -1,14 +1,14 @@
-const faker = require("faker");
-const { getCustomer } = require("./Customer");
-const { getOrderedItem } = require("./OrderedItem");
+const faker = require('faker');
+const { getCustomer } = require('./Customer');
+const { getOrderedItem } = require('./OrderedItem');
 // Include test data for order statuses
-const orderstatus = require("../data/generated/orderstatus-types.json");
+const orderstatus = require('../data/generated/orderstatus-types.json');
 // Include payment methods
-const payments = require("../data/generated/payment-types.json");
+const payments = require('../data/generated/payment-types.json');
 // Include Payment Status
-const paymentstatus = require("../data/generated/payment-status.json");
+const paymentstatus = require('../data/generated/payment-status.json');
 // Include currencies
-const currencies = require("../data/generated/currency-format.json");
+const currencies = require('../data/generated/currency-format.json');
 
 const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   // get a payment method
@@ -37,7 +37,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   let totalPrice = 0;
   while (numItemsinOrder > 0) {
     const item = getOrderedItem();
-    delete item["@context"];
+    delete item['@context'];
     orderlist.push(item);
     totalPrice += item.price;
     numItemsinOrder -= 1;
@@ -46,8 +46,8 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   // check if invoice has already been paid, if yes set payment amount to 0 & construct total price
 
   if (
-    paymentStatus === "PaymentAutomaticallyApplied" ||
-    paymentStatus === "PaymentComplete"
+    paymentStatus === 'PaymentAutomaticallyApplied'
+    || paymentStatus === 'PaymentComplete'
   ) {
     totalPrice = 0;
   }
@@ -68,12 +68,12 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     max: 1999999999999999,
   })}`;
   const Seller = {
-    type: "Organization",
+    type: 'Organization',
     name: name1,
     leiCode: lei1,
   };
   const broker = {
-    type: "Organization",
+    type: 'Organization',
     name: name2,
     leiCode: lei2,
   };
@@ -92,8 +92,8 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
 
   const referencesOrderNew = [];
   const referencesOrder = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommerceOrderRegistrationEvidenceDocument",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceOrderRegistrationEvidenceDocument',
     description: `New Order For ${customer.name}`,
     url: `${faker.internet.url()}?queryid=${orderNumber}`,
     orderNumber,
@@ -112,8 +112,8 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   const invoiceNumber = `Invoice#${faker.random.number({ min: 1, max: 999 })}`;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommerceInvoiceRegistrationEvidenceDocument",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceInvoiceRegistrationEvidenceDocument',
     identifier: invoiceNumber,
     description: `Invoice For ${customer.name} for ${orderNumber}`,
     url: `${faker.internet.url()}?queryid=${invoiceNumber}`,

@@ -1,18 +1,18 @@
-const faker = require("faker");
+const faker = require('faker');
 
 faker.seed(42);
-const _ = require("lodash");
-const { getPlace } = require("./Place");
-const { getInspector } = require("./Inspector");
-const { getAgParcelDelivery } = require("./AgParcelDelivery");
-const { getEntity } = require("./Entity");
-const { getObservation } = require("./Observation");
+const _ = require('lodash');
+const { getPlace } = require('./Place');
+const { getInspector } = require('./Inspector');
+const { getAgParcelDelivery } = require('./AgParcelDelivery');
+const { getEntity } = require('./Entity');
+const { getObservation } = require('./Observation');
 
 // Include test data for inspection type.
 // This data is very rudimentary for now, and it is
 // probably overkill to have a separate file, but it might
 // be useful in the future across multiple Ag schemas.
-const agTypes = require("../data/generated/AgInspection-types.json");
+const agTypes = require('../data/generated/AgInspection-types.json');
 // Include test data for Ag products.
 // const prods = require('../data/generated/AgProducts.json');
 
@@ -36,12 +36,12 @@ const getAgInspectionReport = () => {
 
   while (numSubstances > 0) {
     const substance = getObservation();
-    delete substance["@context"];
+    delete substance['@context'];
     observation.push(substance);
     numSubstances -= 1;
   }
 
-  observation = _.uniq(observation, "property.name");
+  observation = _.uniq(observation, 'property.name');
 
   const sum = observation
     .map((r) => (r.property.inchi ? parseFloat(r.measurement.value) : 0))
@@ -49,8 +49,8 @@ const getAgInspectionReport = () => {
 
   observation = observation.map((r) => {
     const adjusted = `${(
-      (100 * parseFloat(r.measurement.value)) /
-      sum
+      (100 * parseFloat(r.measurement.value))
+      / sum
     ).toPrecision(5)}`;
 
     return {
@@ -65,22 +65,22 @@ const getAgInspectionReport = () => {
 
   // pull in outside schemas
   const facility = getPlace();
-  delete facility["@context"];
+  delete facility['@context'];
   const inspector = getInspector();
-  delete inspector["@context"];
+  delete inspector['@context'];
   const shipment = getAgParcelDelivery();
-  delete shipment["@context"];
+  delete shipment['@context'];
   const applicant = getEntity();
-  delete applicant["@context"];
+  delete applicant['@context'];
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "AgInspectionReport",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'AgInspectionReport',
     facility,
     inspector,
     shipment,
     applicant,
-    inspectionDate: "2020-03-15",
+    inspectionDate: '2020-03-15',
     inspectionType,
     observation,
   };

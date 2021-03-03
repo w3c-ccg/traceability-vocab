@@ -6,7 +6,7 @@ const getContextFromIntermediate = (intermediate) => {
       propertDefinitionPartialContext = {
         ...propertDefinitionPartialContext,
         [classProperty.$comment.term]: {
-          "@id": classProperty.$comment["@id"],
+          '@id': classProperty.$comment['@id'],
         },
       };
     });
@@ -14,25 +14,25 @@ const getContextFromIntermediate = (intermediate) => {
     partialContext = {
       ...partialContext,
       [classDefinition.$comment.term]: {
-        "@id": classDefinition.$comment["@id"],
-        "@context": {
+        '@id': classDefinition.$comment['@id'],
+        '@context': {
           ...propertDefinitionPartialContext,
         },
       },
     };
   });
   return {
-    "@context": {
-      "@version": 1.1,
-      name: "http://schema.org/name",
-      description: "http://schema.org/description",
-      identifier: "http://schema.org/identifier",
+    '@context': {
+      '@version': 1.1,
+      name: 'http://schema.org/name',
+      description: 'http://schema.org/description',
+      identifier: 'http://schema.org/identifier',
       image: {
-        "@id": "http://schema.org/image",
-        "@type": "@id",
+        '@id': 'http://schema.org/image',
+        '@type': '@id',
       },
-      id: "@id",
-      type: "@type",
+      id: '@id',
+      type: '@type',
       ...partialContext,
     },
   };

@@ -1,6 +1,6 @@
-const faker = require("faker");
-const { getOrganization } = require("./Organization");
-const { getShippingStop } = require("./ShippingStop");
+const faker = require('faker');
+const { getOrganization } = require('./Organization');
+const { getShippingStop } = require('./ShippingStop');
 
 const getEcommerceBindingDataRegistrationCredential = () => {
   const finalVesselID = `ACMEVessel#${faker.random.number({
@@ -12,21 +12,21 @@ const getEcommerceBindingDataRegistrationCredential = () => {
   const finalCarrierName = CarrierName.name;
 
   const getModeofTransport = () => {
-    const types = ["Air", "Sea", "Truck", "Rail"];
+    const types = ['Air', 'Sea', 'Truck', 'Rail'];
     return faker.random.arrayElement(types);
   };
 
   const NewDate = new Date(faker.date.future());
-  let finalDateOfArrival = `${NewDate.getMonth()}-${NewDate.getDay()}-${NewDate.getFullYear()}`;
+  const finalDateOfArrival = `${NewDate.getMonth()}-${NewDate.getDay()}-${NewDate.getFullYear()}`;
 
-  let finalPortOfEntry = getShippingStop();
-  delete finalPortOfEntry["@context"];
-  delete finalPortOfEntry["vesselNumber"];
-  delete finalPortOfEntry["arrivalDate"];
+  const finalPortOfEntry = getShippingStop();
+  delete finalPortOfEntry['@context'];
+  delete finalPortOfEntry.vesselNumber;
+  delete finalPortOfEntry.arrivalDate;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommerceBindingDataRegistrationCredential",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommerceBindingDataRegistrationCredential',
     finalCarrierName,
     finalVesselID,
     finalDateOfArrival,
@@ -36,7 +36,7 @@ const getEcommerceBindingDataRegistrationCredential = () => {
       `https://vc.example.com/?queryID=${faker.random.hexaDecimal(64)}`,
     ],
     certificateName:
-      "ACME Carrier Ecommerce Binding Data Registration Certificate",
+      'ACME Carrier Ecommerce Binding Data Registration Certificate',
   };
 
   return example;
