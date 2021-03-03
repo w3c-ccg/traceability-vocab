@@ -7,8 +7,8 @@ const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
 
-const prods = require("../../../traceability-vocab/data/generated/EcomProducts.json");
-const orders = require("../../../traceability-vocab/data/generated/orderVCIDs.json");
+const prods = require("../../../traceability-schemas/src/data/generated/EcomProducts.json");
+const orders = require("../../../traceability-schemas/src/data/generated/orderVCIDs.json");
 
 // create a list of orderes for products in package
 let numOrdersinPackage = faker.random.number({
@@ -31,7 +31,7 @@ while (numOrdersinPackage > 0) {
     numItemsinOrder -= 1;
   }
   const item = {
-    type: 'EcommercePackageItem',
+    type: "EcommercePackageItem",
     productReceiptID: `https://example.VC_url.com/?queryID=${faker.random.hexaDecimal(
       64
     )}`,
@@ -52,7 +52,7 @@ describe("Generate", () => {
       credential: {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
-          "https://w3id.org/traceability/v1"
+          "https://w3id.org/traceability/v1",
         ],
         id: "https://example.com/credentials/123",
         type: ["VerifiableCredential"],
@@ -68,7 +68,8 @@ describe("Generate", () => {
             max: 999999999999,
           })}`,
           packageItems: packagelist,
-          certificateName: "ACME Carrier Ecommerce Package Registration Credential",
+          certificateName:
+            "ACME Carrier Ecommerce Package Registration Credential",
         },
       },
       suite: new Ed25519Signature2018({

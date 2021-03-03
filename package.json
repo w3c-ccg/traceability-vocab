@@ -7,8 +7,8 @@
     "install:clean": "npx lerna clean -y && rm -rf node_modules && npm i",
     "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/main --include-dependencies",
     "lint": "lerna run lint --stream",
-    "test": "lerna run test --stream",
-    "build": "lerna run build --stream"
+    "test:credentials": "lerna run test:credentials --stream",
+    "build:all": "lerna run build:all --stream"
   },
   "devDependencies": {
     "eslint": "^7.11.0",
