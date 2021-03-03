@@ -4057,7 +4057,7 @@
         "totalRateCharge": {
           "$comment": "{\"term\": \"totalRateCharge\", \"@id\": \"https://schema.org/totalPrice\"}",
           "title": "rateCharge",
-          "$ref": "https://w3id.org/traceability/schemas/chargeSpecification.json"
+          "$ref": "https://w3id.org/traceability/schemas/PriceSpecification.json"
         }
       },
       "additionalProperties": false
@@ -4700,12 +4700,12 @@
         "charge": {
           "$comment": "{\"term\": \"charge\", \"@id\": \"https://schema.org/Price\"}",
           "title": "Charge",
-          "$ref": "https://w3id.org/traceability/schemas/chargeSpecification.json"
+          "$ref": "https://w3id.org/traceability/schemas/PriceSpecification.json"
         },
         "declaredValueCarriage": {
           "$comment": "{\"term\": \"declaredValueCarriage\", \"@id\": \"https://schema.org/totalPrice\"}",
           "title": "declaredValueCarriage",
-          "$ref": "https://w3id.org/traceability/schemas/chargeSpecification.json"
+          "$ref": "https://w3id.org/traceability/schemas/PriceSpecification.json"
         },
         "declaredValueCarriagePaymentStatus": {
           "$comment": "{\"term\": \"declaredValueCarriagePaymentStatus\", \"@id\": \"https://schema.org/paymentStatus\"}",
@@ -4719,7 +4719,7 @@
         "declaredValueCustoms": {
           "$comment": "{\"term\": \"declaredValueCustoms\", \"@id\": \"https://schema.org/discountPrice\"}",
           "title": "declaredValueCustoms",
-          "$ref": "https://w3id.org/traceability/schemas/chargeSpecification.json"
+          "$ref": "https://w3id.org/traceability/schemas/PriceSpecification.json"
         },
         "declaredValueCustomsPaymentStatus": {
           "$comment": "{\"term\": \"declaredValueCustomsPaymentStatus\", \"@id\": \"https://schema.org/status\"}",
@@ -4733,7 +4733,7 @@
         "amountInsurance": {
           "$comment": "{\"term\": \"amountInsurance\", \"@id\": \"https://schema.org/PaymentChargeSpecification\"}",
           "title": "amountInsurance",
-          "$ref": "https://w3id.org/traceability/schemas/chargeSpecification.json"
+          "$ref": "https://w3id.org/traceability/schemas/PriceSpecification.json"
         }
       },
       "additionalProperties": false
@@ -7280,14 +7280,16 @@
           "term": "price",
           "@id": "https://schema.org/price"
         },
-        "title": "Price"
+        "title": "Price",
+        "description": "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes."
       },
       "https://schema.org/priceCurrency": {
         "$comment": {
           "term": "priceCurrency",
           "@id": "https://schema.org/priceCurrency"
         },
-        "title": "Pricecurrency"
+        "title": "Price Currency",
+        "description": "The currency of the price, or a price component when attached to PriceSpecification and its subtypes."
       }
     },
     "examples": [],
@@ -7316,7 +7318,7 @@
           "$comment": "{\"term\": \"price\", \"@id\": \"https://schema.org/price\"}",
           "title": "Price",
           "description": "The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.",
-          "type": "string"
+          "type": "number"
         },
         "priceCurrency": {
           "$comment": "{\"term\": \"priceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
@@ -8453,8 +8455,6 @@
       "required": [
         "shippingStopAddress",
         "carrier",
-        "vesselNumber",
-        "arrivalDate",
         "stopType"
       ],
       "properties": {
