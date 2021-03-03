@@ -1,6 +1,7 @@
 const faker = require("faker");
 const { getOrganization } = require("./Organization");
-const { getchargeSpecification } = require("./chargeSpecification");
+const { getPriceSpecification } = require("./PriceSpecification");
+
 // Include Payment Status
 const paymentstatus = require("../data/generated/payment-status.json");
 
@@ -36,12 +37,12 @@ const getIssuerAgent = () => {
     iataCode,
     accountNumber,
     accountingInformation: getDescription(),
-    charge: getchargeSpecification(),
-    declaredValueCarriage: getchargeSpecification(),
+    charge: getPriceSpecification(),
+    declaredValueCarriage: getPriceSpecification(),
     declaredValueCarriagePaymentStatus: paymentStatus,
-    declaredValueCustoms: getchargeSpecification(),
+    declaredValueCustoms: getPriceSpecification(),
     declaredValueCustomsPaymentStatus: paymentStatus,
-    amountInsurance: getchargeSpecification(),
+    amountInsurance: getPriceSpecification(),
   };
   return example;
 };
