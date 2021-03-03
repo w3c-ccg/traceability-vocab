@@ -1,3 +1,21 @@
+const fs = require("fs");
+const path = require("path");
+
+const getExamples = (term) => {
+  try {
+    return `
+    
+    <pre class="example">
+    ${fs.readFileSync(
+      path
+        .resolve(__dirname, `../src/__fixtures__/${term}/good.json`)
+        .toString()
+    )}
+    </pre>`;
+  } catch (e) {
+    return `<p class='issue>No examples for ${term}</p>`;
+  }
+};
 const getVocabFromIntermediate = (intermediate) => {
   let vocabularyString = "";
   Object.values(intermediate).forEach((classDefinition) => {
@@ -49,10 +67,6 @@ ${JSON.stringify({ ...ex }, null, 2)}
           <h2>${classDefinition.title}</h2>
           <p>${classDefinition.description}</p>
 
-          <p class="note">
-            See <a href="examples/${classDefinition.$comment.term}/good.json">Examples</a>
-          </p>
-
           <table class="simple">
                   <tbody>
                       <tr>
@@ -60,7 +74,9 @@ ${JSON.stringify({ ...ex }, null, 2)}
           <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
                       </td>
                       <td>
-                          <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment.term}</a>
+                          <a href="${classDefinition.$comment["@id"]}">${
+      classDefinition.$comment.term
+    }</a>
                       </td>
                       </tr>
                       <tr>
@@ -68,7 +84,9 @@ ${JSON.stringify({ ...ex }, null, 2)}
           <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
                       </td>
                       <td>
-                          <a href="${classDefinition.$comment["@id"]}">${classDefinition.$comment["@id"]}</a>
+                          <a href="${classDefinition.$comment["@id"]}">${
+      classDefinition.$comment["@id"]
+    }</a>
                       </td>
                       </tr>
                       <tr>
@@ -76,13 +94,19 @@ ${JSON.stringify({ ...ex }, null, 2)}
           <a href="https://json-schema.org/">JSON Schema</a>
                       </td>
                       <td>
-                          <a href="${classDefinition.$id}">${classDefinition.$id}</a>
+                          <a href="${classDefinition.$id}">${
+      classDefinition.$id
+    }</a>
                       </td>
                       </tr>
                   </tbody>
                   </table>
           ${classPropertySections}
 
+    
+         
+         ${getExamples(classDefinition.$comment.term)}
+      
           </section>
           `;
   });
