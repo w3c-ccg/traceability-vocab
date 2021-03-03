@@ -73,7 +73,6 @@ SteelProduct: require('./schemas/SteelProduct.json'),
 TotalCharge: require('./schemas/TotalCharge.json'),
 UsdaSc6: require('./schemas/UsdaSc6.json'),
 chargeAndPaymentType: require('./schemas/chargeAndPaymentType.json'),
-chargeSpecification: require('./schemas/chargeSpecification.json'),
 ppq203: require('./schemas/ppq203.json'),
 ppq587: require('./schemas/ppq587.json'),
 }
