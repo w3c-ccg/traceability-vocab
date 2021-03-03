@@ -1,8 +1,8 @@
 const faker = require('faker');
-const { getchargeSpecification } = require('./chargeSpecification');
+const { getPriceSpecification } = require('./PriceSpecification');
 
 const getEcommerceWayBillTotals = () => {
-// get a currency
+  // get a currency
 
   const totalPieces = faker.random.number({ min: 10, max: 1000 });
   const weight = faker.random.number({ min: 10000, max: 1000000 });
@@ -13,7 +13,7 @@ const getEcommerceWayBillTotals = () => {
     return faker.random.arrayElement(types);
   };
 
-  const totalRateCharge = getchargeSpecification();
+  const totalRateCharge = getPriceSpecification();
   delete totalRateCharge['@context'];
 
   const rateCharge = totalRateCharge.price / chargeableWeight;

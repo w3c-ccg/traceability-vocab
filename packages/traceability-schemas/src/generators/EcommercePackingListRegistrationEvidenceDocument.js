@@ -1,10 +1,10 @@
-const faker = require("faker");
-const { getPostalAddress } = require("./PostalAddress");
-const { getPartOfOrder } = require("./PartOfOrder");
+const faker = require('faker');
+const { getPostalAddress } = require('./PostalAddress');
+const { getPartOfOrder } = require('./PartOfOrder');
 // Include delivery methods
-const deliverytype = require("../data/generated/delivery-methods.json");
+const deliverytype = require('../data/generated/delivery-methods.json');
 // Include delivery Status
-const deliverystatus = require("../data/generated/event-status.json");
+const deliverystatus = require('../data/generated/event-status.json');
 
 const getEcommercePackingListRegistrationEvidenceDocument = () => {
   // get a delivery method
@@ -26,31 +26,31 @@ const getEcommercePackingListRegistrationEvidenceDocument = () => {
   let numorders = faker.random.number({ min: 1, max: 2 });
   while (numorders > 0) {
     const partorder = getPartOfOrder();
-    delete partorder["@context"];
+    delete partorder['@context'];
     partoforder.push(partorder);
     numorders -= 1;
   }
 
   // create provider
   const provider = {
-    type: "Organization",
+    type: 'Organization',
     leiCode: faker.random.alphaNumeric(20).toUpperCase(),
     name: faker.company.companyName(),
   };
 
   // create the required addresses
   const deliveryaddress = getPostalAddress();
-  delete deliveryaddress["@context"];
+  delete deliveryaddress['@context'];
   const originaddress = getPostalAddress();
-  delete originaddress["@context"];
+  delete originaddress['@context'];
 
   const futureDate = new Date(
-    `${faker.random.number({ min: 2030, max: 2040 })}`
+    `${faker.random.number({ min: 2030, max: 2040 })}`,
   );
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommercePackingListRegistrationEvidenceDocument",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommercePackingListRegistrationEvidenceDocument',
     deliveryStatus,
     expectedArrivalFrom: `${futureDate}`,
     hasDeliveryMethod: deliveryMethod,

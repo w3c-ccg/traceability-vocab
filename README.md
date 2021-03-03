@@ -123,27 +123,29 @@ This project uses [lerna](https://github.com/lerna/lerna) to manage packages and
 
 There are two primary packages managed by lerna:
 
-- [traceability-vocab](./packages/traceability-vocab) which contains the tests and assets related to the vocabulary itself
-- [generate-examples](./packages/generate-examples) which manages the continuous integration tests related to various VCs
+- [traceability-schemas](./packages/traceability-schemas) which contains the tests and assets related to the vocabulary itself
+- DEPRECATION WARNING: [generate-examples](./packages/generate-examples) which manages the continuous integration tests related to various VCs
+
+`generate-examples` is going to be merged into generators for `traceability-schemas`.
 
 In addition the following key areas in the repo should be noted for understanding how to add schemas and understand the code layout:
 
 - The index file in [docs](./docs/index.html) is the master public facing documentation page
 - JSON Schema for each object to be referenced is stored in the [schemas](.docs/schemas) folder
 - Code Generation to create synthetic test data is located in [generators](./packages/traceability-vocab/src/generators)
-- Test Vectors are located in the [traceability-vocab](./packages/traceability-vocab) folder, and correspond to the defined schemas
+- Test Vectors are located in the [traceability-schemas](./packages/traceability-schemas) folder, and correspond to the defined schemas
 - [Contexts](./docs/contexts) stores the interim combined json-ld vocabulary for test and verification
 - Verifiable Credential Examples are located in the appropriately named [credential](./docs/credentials/) folder
 
 #### Contributing to Vocabulary
 
-All the terms, schemas and context definitions are generated from [./packages/traceability-vocab](./packages/traceability-vocab).
+All the terms, schemas and context definitions are generated from [./packages/traceability-schemas](./packages/traceability-schemas).
 
 ```
-cd ./packages/traceability-vocab
+cd ./packages/traceability-schemas
 npm i
-npm run build
-npm run test
+npm run build:all
+npm run test:schemas
 ```
 
 The commands above will build the spec and test vectors deterministically from source.

@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const faker = require("faker");
+const faker = require('faker');
 
-const ptd = require("../data/generated/periodic-table-data.json");
+const ptd = require('../data/generated/periodic-table-data.json');
 
 const getChemicalProperty = () => {
   const randomElementName = Object.keys(ptd)[
@@ -11,8 +11,8 @@ const getChemicalProperty = () => {
   const name = randomElement.title;
   const { symbol } = randomElement;
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "ChemicalProperty",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'ChemicalProperty',
     name,
     formula: symbol,
     inchi: randomElement.inchi,

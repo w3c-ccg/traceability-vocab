@@ -58,7 +58,7 @@ describe("Generate", () => {
     fs.writeFileSync(
       path.resolve(
         __dirname,
-        "../../../../docs/credentials/EcommercePackageRegistrationCredential.json"
+        "../../../../docs/credentials/EcommerceBindingDataRegistrationCredential.json"
       ),
       JSON.stringify(verifiableCredential, null, 2)
     );

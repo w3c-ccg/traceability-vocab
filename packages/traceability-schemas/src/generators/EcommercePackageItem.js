@@ -1,7 +1,7 @@
-const faker = require("faker");
+const faker = require('faker');
 // Include test data for ecom products.
-const prods = require("../data/generated/EcomProducts.json");
-const orders = require("../data/generated/orderVCIDs.json");
+const prods = require('../data/generated/EcomProducts.json');
+const orders = require('../data/generated/orderVCIDs.json');
 
 const getEcommercePackageItem = () => {
   // create a list of orderes for products in package
@@ -24,13 +24,13 @@ const getEcommercePackageItem = () => {
   }
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "EcommercePackageItem",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'EcommercePackageItem',
     productReceiptID: `https://vc.example.com/?queryID=${faker.random.hexaDecimal(
-      64
+      64,
     )}`,
     packingListID: `https://vc.example.com/?queryID=${faker.random.hexaDecimal(
-      64
+      64,
     )}`,
     orderID: itemOrder,
     productInOrder: productlist,

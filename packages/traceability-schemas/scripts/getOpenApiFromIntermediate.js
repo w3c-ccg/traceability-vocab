@@ -1,22 +1,22 @@
-const toOpenApi = require("json-schema-to-openapi-schema");
+const toOpenApi = require('json-schema-to-openapi-schema');
 
 const openAPISpec = {
-  openapi: "3.0.0",
+  openapi: '3.0.0',
   info: {
-    title: "Traceability Vocabulary Specification",
+    title: 'Traceability Vocabulary Specification',
     description:
-      "Traceability Schemas in OpenAPI format for use with swagger, " +
-      "redoc and similar\n\nDemonstrates how to utilize the schemas over OpenAPI " +
-      "as there is not a direct 1:1 translation between OpenAPI and JSON Schema",
+      'Traceability Schemas in OpenAPI format for use with swagger, '
+      + 'redoc and similar\n\nDemonstrates how to utilize the schemas over OpenAPI '
+      + 'as there is not a direct 1:1 translation between OpenAPI and JSON Schema',
     contact: {
-      name: "W3C Traceability Vocabulary",
-      url: "https://github.com/w3c-ccg/traceability-vocab/issues",
+      name: 'W3C Traceability Vocabulary',
+      url: 'https://github.com/w3c-ccg/traceability-vocab/issues',
     },
     license: {
-      name: "Apache 2.0",
-      url: "https://www.apache.org/licenses/LICENSE-2.0.html",
+      name: 'Apache 2.0',
+      url: 'https://www.apache.org/licenses/LICENSE-2.0.html',
     },
-    version: "0.0.1",
+    version: '0.0.1',
   },
   paths: {},
   components: {
@@ -28,16 +28,16 @@ const openAPISpec = {
 const removeComments = function (obj) {
   for (const prop in obj) {
     // definitions and nested refs may also be an issue
-    if (prop === "$comment") {
+    if (prop === '$comment') {
       delete obj[prop];
-    } else if (prop === "definitions") {
+    } else if (prop === 'definitions') {
       delete obj[prop];
-    } else if (prop === "$ref" && typeof obj[prop] === "string") {
+    } else if (prop === '$ref' && typeof obj[prop] === 'string') {
       // in schema all refs must be resolvable
-      if (!obj[prop].startsWith("#/") || !obj[prop].startsWith("https://")) {
+      if (!obj[prop].startsWith('#/') || !obj[prop].startsWith('https://')) {
         delete obj[prop];
       }
-    } else if (typeof obj[prop] === "object") {
+    } else if (typeof obj[prop] === 'object') {
       removeComments(obj[prop]);
     }
   }
@@ -52,7 +52,7 @@ const getOpenApiFromIntermediate = (intermediateJson) => {
 
         // json wrapper clones nicely, and makes sure everything parses fine
         const schemaObj = JSON.parse(
-          JSON.stringify(toOpenApi(classDefinition.schema))
+          JSON.stringify(toOpenApi(classDefinition.schema)),
         );
         removeComments(schemaObj);
         // we can also include all examples at some point in the future should this be needed
@@ -67,12 +67,12 @@ const getOpenApiFromIntermediate = (intermediateJson) => {
             responses: {
               200: {
                 description:
-                  `A list of all ${$classComment.term} objects ` +
-                  "from the system that the user has access to",
+                  `A list of all ${$classComment.term} objects `
+                  + 'from the system that the user has access to',
                 content: {
-                  "application/json": {
+                  'application/json': {
                     schema: {
-                      type: "array",
+                      type: 'array',
                       items: {
                         $ref: `#/components/schemas/${$classComment.term}`,
                       },
@@ -80,7 +80,7 @@ const getOpenApiFromIntermediate = (intermediateJson) => {
                   },
                 },
               },
-              500: { description: "Internal Server error" },
+              500: { description: 'Internal Server error' },
             },
           },
         };

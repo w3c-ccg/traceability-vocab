@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const getExamples = (term) => {
   try {
@@ -7,19 +7,19 @@ const getExamples = (term) => {
     
     <pre class="example">
     ${fs.readFileSync(
-      path
-        .resolve(__dirname, `../src/__fixtures__/${term}/good.json`)
-        .toString()
-    )}
+    path
+      .resolve(__dirname, `../src/__fixtures__/${term}/good.json`)
+      .toString(),
+  )}
     </pre>`;
   } catch (e) {
     return `<p class='issue>No examples for ${term}</p>`;
   }
 };
 const getVocabFromIntermediate = (intermediate) => {
-  let vocabularyString = "";
+  let vocabularyString = '';
   Object.values(intermediate).forEach((classDefinition) => {
-    let classPropertySections = "";
+    let classPropertySections = '';
     Object.values(classDefinition.classProperties).forEach((classProperty) => {
       classPropertySections += `
               <section id="${classProperty.$comment.term}">
@@ -33,7 +33,7 @@ const getVocabFromIntermediate = (intermediate) => {
 <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
                       </td>
                       <td>
-          <a href="${classProperty.$comment["@id"]}">${classProperty.$comment.term}</a>
+          <a href="${classProperty.$comment['@id']}">${classProperty.$comment.term}</a>
                       </td>
                       </tr>
                       <tr>
@@ -41,7 +41,7 @@ const getVocabFromIntermediate = (intermediate) => {
 <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
                       </td>
                       <td>
-          <a href="${classProperty.$comment["@id"]}">${classProperty.$comment["@id"]}</a>
+          <a href="${classProperty.$comment['@id']}">${classProperty.$comment['@id']}</a>
                       </td>
                       </tr>
                   </tbody>
@@ -50,17 +50,15 @@ const getVocabFromIntermediate = (intermediate) => {
               `;
     });
 
-    let classExamples = classDefinition.examples
+    const classExamples = classDefinition.examples
       ? classDefinition.examples
-          .map((ex) => {
-            return `
+        .map((ex) => `
 <pre class="example">
 ${JSON.stringify({ ...ex }, null, 2)}
 </pre>
-              `;
-          })
-          .join("\n")
-      : "";
+              `)
+        .join('\n')
+      : '';
 
     vocabularyString += `
           <section id="${classDefinition.$comment.term}">
@@ -74,9 +72,9 @@ ${JSON.stringify({ ...ex }, null, 2)}
           <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
                       </td>
                       <td>
-                          <a href="${classDefinition.$comment["@id"]}">${
-      classDefinition.$comment.term
-    }</a>
+                          <a href="${classDefinition.$comment['@id']}">${
+  classDefinition.$comment.term
+}</a>
                       </td>
                       </tr>
                       <tr>
@@ -84,9 +82,9 @@ ${JSON.stringify({ ...ex }, null, 2)}
           <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
                       </td>
                       <td>
-                          <a href="${classDefinition.$comment["@id"]}">${
-      classDefinition.$comment["@id"]
-    }</a>
+                          <a href="${classDefinition.$comment['@id']}">${
+  classDefinition.$comment['@id']
+}</a>
                       </td>
                       </tr>
                       <tr>
@@ -95,8 +93,8 @@ ${JSON.stringify({ ...ex }, null, 2)}
                       </td>
                       <td>
                           <a href="${classDefinition.$id}">${
-      classDefinition.$id
-    }</a>
+  classDefinition.$id
+}</a>
                       </td>
                       </tr>
                   </tbody>

@@ -1,6 +1,6 @@
-const faker = require("faker");
+const faker = require('faker');
 // Include test data for ecom products.
-const prods = require("../data/generated/EcomProducts.json");
+const prods = require('../data/generated/EcomProducts.json');
 
 const getOrderedItem = () => {
   const randomProd = faker.random.number({
@@ -14,8 +14,8 @@ const getOrderedItem = () => {
   const price = quantity * unitprice;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "OrderedItem",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'OrderedItem',
     name: itemOrderedName,
     productID: itemOrderedProduct,
     unitPrice: unitprice,

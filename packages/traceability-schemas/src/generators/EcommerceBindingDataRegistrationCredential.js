@@ -3,7 +3,10 @@ const { getOrganization } = require('./Organization');
 const { getShippingStop } = require('./ShippingStop');
 
 const getEcommerceBindingDataRegistrationCredential = () => {
-  const finalVesselID = `ACMEVessel#${faker.random.number({ min: 1, max: 999 })}`;
+  const finalVesselID = `ACMEVessel#${faker.random.number({
+    min: 1,
+    max: 999,
+  })}`;
 
   const CarrierName = getOrganization();
   const finalCarrierName = CarrierName.name;
@@ -18,6 +21,8 @@ const getEcommerceBindingDataRegistrationCredential = () => {
 
   const finalPortOfEntry = getShippingStop();
   delete finalPortOfEntry['@context'];
+  delete finalPortOfEntry.vesselNumber;
+  delete finalPortOfEntry.arrivalDate;
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -27,8 +32,11 @@ const getEcommerceBindingDataRegistrationCredential = () => {
     finalDateOfArrival,
     finalModeOfTransport: getModeofTransport(),
     finalPortOfEntry,
-    wayBillVCID: [`https://vc.example.com/?queryID=${faker.random.hexaDecimal(64)}`],
-    certificateName: 'ACME Carrier Ecommerce Binding Data Registration Certificate',
+    wayBillVCID: [
+      `https://vc.example.com/?queryID=${faker.random.hexaDecimal(64)}`,
+    ],
+    certificateName:
+      'ACME Carrier Ecommerce Binding Data Registration Certificate',
   };
 
   return example;

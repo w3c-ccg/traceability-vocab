@@ -1,6 +1,6 @@
-const faker = require("faker");
+const faker = require('faker');
 // Include currencies
-const currencies = require("../data/generated/currency-format.json");
+const currencies = require('../data/generated/currency-format.json');
 
 const getTotalCharge = () => {
   // get a currency
@@ -19,8 +19,8 @@ const getTotalCharge = () => {
   const totalCollectCharge = 0.25 * chargesDestination;
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "TotalCharge",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'TotalCharge',
     totalPrepaid,
     totalCollect,
     sourceCurrency: currency,

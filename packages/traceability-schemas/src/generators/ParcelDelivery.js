@@ -1,13 +1,13 @@
-const faker = require("faker");
+const faker = require('faker');
 
 faker.seed(42);
-const deliveryTypes = require("../data/generated/Shipping-types.json");
-const { getPostalAddress } = require("./PostalAddress");
+const deliveryTypes = require('../data/generated/Shipping-types.json');
+const { getPostalAddress } = require('./PostalAddress');
 
 const getParcelDelivery = () => {
   // Get address
   const deliveryAddress = getPostalAddress();
-  delete deliveryAddress["@context"];
+  delete deliveryAddress['@context'];
 
   // Include test data for delivery methods.
   const randomType = Object.keys(deliveryTypes)[
@@ -16,11 +16,11 @@ const getParcelDelivery = () => {
   const deliveryMethod = deliveryTypes[randomType].type;
 
   const originAddress = getPostalAddress();
-  delete originAddress["@context"];
+  delete originAddress['@context'];
 
   const example = {
-    "@context": ["https://w3id.org/traceability/v1"],
-    type: "ParcelDelivery",
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'ParcelDelivery',
     deliveryAddress,
     originAddress,
     deliveryMethod,
