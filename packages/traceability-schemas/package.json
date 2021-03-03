@@ -13,9 +13,20 @@
     "build:context": "node ./scripts/build-context.js ",
     "build:open-api": "node ./scripts/build-open-api.js ",
     "build:vocab": "node ./scripts/build-vocab.js ",
-    "build": "npm run build:schemas"
+    "build:test-vectors": "node ./scripts/build-test-vectors.js",
+    "build": "npm run build:schemas",
+    "test": "jest"
   },
   "devDependencies": {
+    "crypto-js": "^4.0.0",
+    "faker": "^5.4.0",
+    "fs-extra": "^9.1.0",
+    "image-to-base64": "^2.1.1",
+    "jest": "^26.6.3",
+    "json-mask": "^1.0.4",
     "json-schema-to-openapi-schema": "^0.4.0"
+  },
+  "dependencies": {
+    "ajv": "^7.1.1"
   }
 }
