@@ -14,7 +14,7 @@
     "build:test-vectors": "node ./scripts/build-test-vectors.js && cp -r ./src/__fixtures__ ../../docs/examples",
     "build:vocab": "node ./scripts/build-vocab.js ",
     "build:open-api": "node ./scripts/build-open-api.js ",
-    "build": "npm run build:schemas",
+    "build:all": "npm run build:schemas && npm run build:intermediate && npm run build:context && npm run build:test-vectors && npm run build:vocab && npm run build:open-api",
     "test": "jest"
   },
   "devDependencies": {
