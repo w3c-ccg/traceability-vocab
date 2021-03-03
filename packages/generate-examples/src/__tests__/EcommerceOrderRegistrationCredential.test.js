@@ -7,7 +7,7 @@ const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
 
-const prods = require("../../../traceability-vocab/data/generated/EcomProducts.json");
+const prods = require("../../../traceability-schemas/src/data/generated/EcomProducts.json");
 
 const orderNumber = `Order#${faker.random.number({ min: 1, max: 999 })}`;
 

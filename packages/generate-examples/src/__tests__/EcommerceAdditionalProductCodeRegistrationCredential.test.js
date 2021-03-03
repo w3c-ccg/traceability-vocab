@@ -7,7 +7,7 @@ const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
 
-const identifiers = require("../../../traceability-vocab/data/generated/orderVCIDs.json");
+const identifiers = require("../../../traceability-schemas/src/data/generated/orderVCIDs.json");
 
 const Randnum = faker.random.number({ min: 1, max: 3 });
 let itemVCID = "";
