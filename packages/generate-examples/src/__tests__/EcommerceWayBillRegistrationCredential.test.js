@@ -6,12 +6,14 @@ const { Ed25519Signature2018 } = require("@transmute/ed25519-signature-2018");
 const vcjs = require("@transmute/vc.js");
 const { documentLoader } = require("../documentLoader");
 
-const {getEcommerceWayBillRegistrationCredential} = require("../../../traceability-vocab/src/generators/EcommerceWayBillRegistrationCredential");
+const {
+  getEcommerceWayBillRegistrationCredential,
+} = require("../../../traceability-schemas/src/generators/EcommerceWayBillRegistrationCredential");
 
 // build data for credential subject
 
 let credsubjdata = getEcommerceWayBillRegistrationCredential();
-delete credsubjdata['@context'];
+delete credsubjdata["@context"];
 
 describe("Generate", () => {
   it("can issue and verify", async () => {
@@ -20,7 +22,7 @@ describe("Generate", () => {
       credential: {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
-          "https://w3id.org/traceability/v1"
+          "https://w3id.org/traceability/v1",
         ],
         id: "https://example.com/credentials/123",
         type: ["VerifiableCredential"],
