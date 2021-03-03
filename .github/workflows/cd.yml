@@ -25,6 +25,12 @@ jobs:
       - name: Build
         run: npm run build:all
 
+      - name: Test Schemas
+        run: npm run test:schemas
+
+      - name: Test Credentials
+        run: npm run test:credentials
+
       - name: Deploy test report
         uses: peaceiris/actions-gh-pages@v3
         with:
