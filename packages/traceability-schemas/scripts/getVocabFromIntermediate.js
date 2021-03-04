@@ -3,17 +3,18 @@ const path = require('path');
 
 const getExamples = (term) => {
   try {
+    const content = fs.readFileSync(
+      path
+        .resolve(__dirname, `../src/__fixtures__/${term}/good.json`)
+        .toString()
+    );
     return `
     
     <pre class="example">
-    ${fs.readFileSync(
-    path
-      .resolve(__dirname, `../src/__fixtures__/${term}/good.json`)
-      .toString(),
-  )}
+    ${content}
     </pre>`;
   } catch (e) {
-    return `<p class='issue>No examples for ${term}</p>`;
+    return `<p class="issue">No examples for ${term}</p>`;
   }
 };
 const getVocabFromIntermediate = (intermediate) => {
@@ -50,16 +51,6 @@ const getVocabFromIntermediate = (intermediate) => {
               `;
     });
 
-    const classExamples = classDefinition.examples
-      ? classDefinition.examples
-        .map((ex) => `
-<pre class="example">
-${JSON.stringify({ ...ex }, null, 2)}
-</pre>
-              `)
-        .join('\n')
-      : '';
-
     vocabularyString += `
           <section id="${classDefinition.$comment.term}">
           <h2>${classDefinition.title}</h2>
@@ -73,8 +64,8 @@ ${JSON.stringify({ ...ex }, null, 2)}
                       </td>
                       <td>
                           <a href="${classDefinition.$comment['@id']}">${
-  classDefinition.$comment.term
-}</a>
+      classDefinition.$comment.term
+    }</a>
                       </td>
                       </tr>
                       <tr>
@@ -83,8 +74,8 @@ ${JSON.stringify({ ...ex }, null, 2)}
                       </td>
                       <td>
                           <a href="${classDefinition.$comment['@id']}">${
-  classDefinition.$comment['@id']
-}</a>
+      classDefinition.$comment['@id']
+    }</a>
                       </td>
                       </tr>
                       <tr>
@@ -93,8 +84,8 @@ ${JSON.stringify({ ...ex }, null, 2)}
                       </td>
                       <td>
                           <a href="${classDefinition.$id}">${
-  classDefinition.$id
-}</a>
+      classDefinition.$id
+    }</a>
                       </td>
                       </tr>
                   </tbody>
