@@ -69,7 +69,7 @@ const getAgActivity = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'AgActivity',
     farm,
-    actor: farmer,
+    actor: [farmer],
     field,
     activityDate: '2020-02-15',
     activityType: 'spray',

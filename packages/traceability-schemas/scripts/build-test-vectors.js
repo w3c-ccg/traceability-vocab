@@ -8,11 +8,13 @@ const { system } = require('faker');
 const { documentLoader } = require('../src/data/vc/documentLoader');
 const config = require('../src/generators/config');
 
+console.log('Initializing test vector builder');
 // const FAKER_SEED = 12;
 const EXAMPLE_COUNT = 3;
 
 // faker.seed(FAKER_SEED);
 
+console.log('Adding schemas');
 const schemas = require('../index.js');
 
 const deleteRandomProperty = (obj) => {
@@ -53,6 +55,7 @@ const addRandomNumberProperties = (obj) => {
   return mutated;
 };
 
+console.log('Generating good / bad examples');
 Object.keys(schemas).forEach((schemaName) => {
   if (process.env.VERBOSE_BUILD) {
     console.log('Generating example for:', schemaName);
@@ -85,52 +88,64 @@ Object.keys(schemas).forEach((schemaName) => {
 });
 
 // get the good example we just wrote
+console.log('Generating credential request objects');
 Object.keys(schemas).forEach((schemaName) => {
-  // if (process.env['VERBOSE_BUILD']) {
+  if (process.env.VERBOSE_BUILD) {
     console.log('Generating credentials for:', schemaName);
-  // }
+  }
   const schema = schemas[schemaName];
   const exampleFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/good.json`);
   if (!fs.existsSync(exampleFile)) {
     console.warn(`No good example for ${schemaName} to generate credential from`);
   } else {
     try {
+      if (process.env.VERBOSE_BUILD) {
+        console.log('Generating credential for:', schemaName);
+      }
       const good = JSON.parse(
         fs.readFileSync(
           exampleFile,
         ),
       );
-      (async () => {
-        const key = await Ed25519KeyPair.from(require('../src/data/vc/keypair.json'));
-        const credTemplate = require('../src/data/vc/vc.json');
-        // eslint-disable-next-line prefer-destructuring
-        credTemplate.credential.credentialSubject = good[0];
-        try {
-          const verifiableCredential = await vcjs.ld.issue({
-            credential: credTemplate,
-            suite: new Ed25519Signature2018({
-              key,
-            }),
-            documentLoader,
-          });
-          const result = await vcjs.ld.verifyCredential({
-            credential: verifiableCredential,
-            suite: new Ed25519Signature2018(),
-            documentLoader,
-          });
-          // console.log(result)
-          expect(result.verified).toBe(true);
-          const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc.json`);
-          console.log('Writing credential example to:', vcFile);
-          fs.outputFileSync(
-            vcFile,
-            JSON.stringify(verifiableCredential, null, 2),
-          );
-        } catch (vcError) {
-          console.log('Error issuing credential for:', schemaName, '\n', vcError);
-          // process.exit(1);
-        }
-      })();
+      const credTemplate = require('../src/data/vc/vc.json');
+      // eslint-disable-next-line prefer-destructuring
+      credTemplate.credentialSubject = good[0];
+
+      const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc_request.json`);
+      // console.log('Writing credential request example to:', vcFile);
+      fs.outputFileSync(
+        vcFile,
+        JSON.stringify(credTemplate, null, 2),
+      );
+
+      // const key = Ed25519KeyPair.from(require('../src/data/vc/keypair.json'));
+
+    //   try {
+    //     const verifiableCredential = await vcjs.ld.issue({
+    //       credential: credTemplate,
+    //       suite: new Ed25519Signature2018({
+    //         key,
+    //       }),
+    //       documentLoader,
+    //     });
+    //     const result = await vcjs.ld.verifyCredential({
+    //       credential: verifiableCredential,
+    //       suite: new Ed25519Signature2018(),
+    //       documentLoader,
+    //     });
+    //     // console.log(result)
+    //     expect(result.verified).toBe(true);
+        // const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc.json`);
+        // console.log('Writing credential example to:', vcFile);
+        // fs.outputFileSync(
+        //   vcFile,
+        //   JSON.stringify(verifiableCredential, null, 2),
+        // );
+    //   } catch (vcError) {
+    //     console.log('Error issuing credential for:', schemaName, '\n', vcError);
+    //     console.log(JSON.stringify(credTemplate, null, 2));
+    //     process.exit(1);
+    //   }
     } catch (credentialError) {
       console.warn('Could not issue Credential:', schemaName, '\n', credentialError);
       if (process.env.FULL_ERROR_HANDLING) {

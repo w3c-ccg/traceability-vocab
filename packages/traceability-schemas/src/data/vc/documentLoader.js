@@ -28,7 +28,7 @@ const documentLoader = (iri) => {
         return {
             documentUrl: iri,
             document: JSON.parse(fs.readFileSync(
-                path.resolve(__dirname, '../../../docs/contexts/traceability-v1.jsonld')
+                path.resolve(__dirname, '../../../../../docs/contexts/traceability-v1.jsonld')
             ).toString())
         };
     }

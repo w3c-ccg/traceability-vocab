@@ -11,7 +11,9 @@ const buildGeneratorConfigFromFs = () => {
   const methods = {};
 
   files.forEach((fname) => {
-    console.log('Generator found for:', fname);
+    if (process.env.VERBOSE_BUILD) {
+      console.log('Generator found for:', fname);
+    }
     // eslint-disable-next-line
     const generatorMethods = require(`./generators/${fname}`);
     methods[fname.replace('.js', '')] = generatorMethods[`get${fname.replace('.js', '')}`];
