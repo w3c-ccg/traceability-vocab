@@ -1,14 +1,49 @@
+const path = require('path');
 const fs = require('fs-extra');
 const { Ed25519KeyPair } = require('@transmute/did-key-ed25519');
 const { Ed25519Signature2018 } = require('@transmute/ed25519-signature-2018');
 const vcjs = require('@transmute/vc.js');
-const { system } = require('faker');
 const { documentLoader } = require('../src/data/vc/documentLoader');
-const config = require('../src/generators/config');
 
 console.log('Initializing credential builder');
-// get the good example we just wrote
-console.log('Generating credential request objects');
+const schemas = require('../index.js');
+
+const issueCreds = async (credTemplate, schemaName) => {
+    try {
+        const key = Ed25519KeyPair.from(require('../src/data/vc/keypair.json'));
+
+        const verifiableCredential = await vcjs.ld.issue({
+            credential: credTemplate,
+            suite: new Ed25519Signature2018({
+                key,
+            }),
+            documentLoader,
+        });
+        const result = await vcjs.ld.verifyCredential({
+            credential: verifiableCredential,
+            suite: new Ed25519Signature2018(),
+            documentLoader,
+        });
+        // console.log(result)
+        if (result.verified) {
+            const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc.json`);
+            console.log('Writing credential example to:', vcFile);
+            fs.outputFileSync(
+                vcFile,
+                JSON.stringify(verifiableCredential, null, 2),
+            );
+        } else {
+            console.log('Error verifying credential for:', schemaName);
+        }
+    } catch (credentialError) {
+        console.warn('Could not issue Credential:', schemaName, '\n', credentialError);
+        if (process.env.FULL_ERROR_HANDLING) {
+            process.exit(1);
+        }
+    }
+};
+
+const credPromises = [];
 Object.keys(schemas).forEach((schemaName) => {
     if (process.env.VERBOSE_BUILD) {
         console.log('Generating credentials for:', schemaName);
@@ -27,35 +62,16 @@ Object.keys(schemas).forEach((schemaName) => {
                     exampleFile,
                 ),
             );
-
-            const key = Ed25519KeyPair.from(require('../src/data/vc/keypair.json'));
-
-            const verifiableCredential = await vcjs.ld.issue({
-                credential: credTemplate,
-                suite: new Ed25519Signature2018({
-                    key,
-                }),
-                documentLoader,
-            });
-            const result = await vcjs.ld.verifyCredential({
-                credential: verifiableCredential,
-                suite: new Ed25519Signature2018(),
-                documentLoader,
-            });
-            // console.log(result)
-            expect(result.verified).toBe(true);
-            const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc.json`);
-            console.log('Writing credential example to:', vcFile);
-            fs.outputFileSync(
-                vcFile,
-                JSON.stringify(verifiableCredential, null, 2),
-            );
-
-        } catch (credentialError) {
-            console.warn('Could not issue Credential:', schemaName, '\n', credentialError);
-            if (process.env.FULL_ERROR_HANDLING) {
-                process.exit(1);
-            }
+            credPromises.push(issueCreds(credTemplate, schemaName));
+        } catch (fileErr) {
+            console.log('Error reading credential template for schema:', schemaName);
         }
     }
 });
+
+Promise.allSettled(credPromises).then((results) => results.forEach((result) => {
+    // noop
+    if (process.env.VERBOSE_BUILD) {
+        console.log(result.status);
+    }
+}));
