@@ -3,6 +3,8 @@ const path = require('path');
 const Ajv = require('ajv').default;
 const schemas = require('../index.js');
 
+console.log('🧪 Setting up fixture validator');
+
 const ajv = new Ajv({
     //    $comment: true,
     //    addUsedSchema: true

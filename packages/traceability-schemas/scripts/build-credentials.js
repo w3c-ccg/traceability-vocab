@@ -5,7 +5,7 @@ const { Ed25519Signature2018 } = require('@transmute/ed25519-signature-2018');
 const vcjs = require('@transmute/vc.js');
 const { documentLoader } = require('../src/data/vc/documentLoader');
 
-console.log('Initializing credential builder');
+console.log('🧪 Initializing credential builder');
 const schemas = require('../index.js');
 
 const issueCreds = async (credTemplate, schemaName) => {

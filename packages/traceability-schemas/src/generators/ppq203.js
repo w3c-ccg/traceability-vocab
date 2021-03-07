@@ -1,7 +1,8 @@
-const faker = require('faker');
+const { generator, schemas } = require('../data/util/data');
 
-faker.seed(42);
 const { getAgInspectionReport } = require('./AgInspectionReport');
+
+const { faker } = generator;
 
 const getppq203 = () => {
   // pull in outside schemas and remove the unneeded properties.
@@ -11,23 +12,25 @@ const getppq203 = () => {
   // It may make more sense in the future to only pull in the values that are
   // specifically applicable to to ppq203 but in the future we plan on
   // structuring the schemas slightly differently with classes and subclasses,
-  // so including all agInspection properties makes most sense right now const
-  // fields =
-  // 'type,facility(address),inspector(type,person(type,firstName,lastName)),
-  // shipment(type,deliveryAddress(type,*),originAddress(type,*)),AgPackage
-  // (AgProducts(products(type,name,description,sizeOrAmount,weight,sku))),
-  // applicant(type,firstName,lastName,name,address,worksFor(address),
-  // inspectionDate)';
-  // const AgInspectionReport = mask(fullAgInspectionReport, fields);
+  // so including all agInspection properties makes most sense right now
   const certNum = faker.random.number({ min: 10000000, max: 999999999999 }).toString();
   const exCarrier = faker.random.number({ min: 10000000, max: 999999999999 }).toString();
   const AgInspectionReport = fullAgInspectionReport;
-  const sigDate = new Date(faker.date.recent());
+  const sigDate = generator.dates.current;
   AgInspectionReport.type = 'ppq203';
   AgInspectionReport.certificateNumber = certNum;
   AgInspectionReport.carrierId = exCarrier;
-  AgInspectionReport.signatureDate = `${sigDate.getFullYear()}-02-16`;
-  return AgInspectionReport;
+  AgInspectionReport.signatureDate = generator.dates.current;
+
+  const example = AgInspectionReport;
+  const ajv = generator.getAjv();
+  const validate = ajv.compile(schemas.AgActivity);
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_AG) {
+    console.log('Early Validation results from AgActivity:', validateResult);
+  }
+
+  return example;
 };
 
 module.exports = { getppq203 };
