@@ -27,7 +27,9 @@ const issueCreds = async (credTemplate, schemaName) => {
         // console.log(result)
         if (result.verified) {
             const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc.json`);
-            console.log('Writing credential example to:', vcFile);
+            if (process.env.VERBOSE_BUILD) {
+                console.log('Writing credential example to:', vcFile);
+            }
             fs.outputFileSync(
                 vcFile,
                 JSON.stringify(verifiableCredential, null, 2),
