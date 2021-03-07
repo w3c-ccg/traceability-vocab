@@ -1,6 +1,7 @@
 const { generator } = require('../data/util/data');
 
 const { faker } = generator;
+
 const { getPostalAddress } = require('./PostalAddress');
 const { getOrganization } = require('./Organization');
 
