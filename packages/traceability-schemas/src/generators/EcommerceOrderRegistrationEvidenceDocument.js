@@ -1,4 +1,6 @@
-const faker = require('faker');
+const { generator } = require('../data/util/data');
+
+const { faker } = generator;
 const { getCustomer } = require('./Customer');
 const { getOrderedItem } = require('./OrderedItem');
 const { getPerson } = require('./Person');
@@ -55,10 +57,9 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
   // customer name in order description
   const person = getPerson();
 
-  const orderDate = new Date(faker.date.recent());
-  const paymentDate = new Date(faker.date.future());
+  const orderdate = generator.dates.prior;
+  const paymentDate = generator.dates.current;
   const orderNumber = `Order#${faker.random.number({ min: 1, max: 999 })}`;
-  const orderdate = `${orderDate.getMonth()}-${orderDate.getDay()}-${orderDate.getFullYear()}`;
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -71,7 +72,7 @@ const getEcommerceOrderRegistrationEvidenceDocument = () => {
     seller,
     broker,
     customer: getCustomer(),
-    paymentDueDate: `${paymentDate.getMonth()}-${paymentDate.getDay()}-${paymentDate.getFullYear()}`,
+    paymentDueDate: paymentDate,
     paymentMethod,
     orderedItem: orderlist,
   };
