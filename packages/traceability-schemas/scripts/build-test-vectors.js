@@ -1,12 +1,16 @@
 const faker = require('faker');
 const path = require('path');
 const fs = require('fs-extra');
+const { system } = require('faker');
 const config = require('../src/generators/config');
+
+console.log('Initializing test vector builder');
 // const FAKER_SEED = 12;
 const EXAMPLE_COUNT = 3;
 
 // faker.seed(FAKER_SEED);
 
+console.log('Adding schemas');
 const schemas = require('../index.js');
 
 const deleteRandomProperty = (obj) => {
@@ -47,7 +51,11 @@ const addRandomNumberProperties = (obj) => {
   return mutated;
 };
 
+console.log('Generating good / bad examples');
 Object.keys(schemas).forEach((schemaName) => {
+  if (process.env.VERBOSE_BUILD) {
+    console.log('Generating example for:', schemaName);
+  }
   //   const schema = schemas[schemaName];
   const generator = config[schemaName];
   if (generator === undefined) {
@@ -72,5 +80,44 @@ Object.keys(schemas).forEach((schemaName) => {
       path.resolve(__dirname, `../src/__fixtures__/${schemaName}/bad.json`),
       JSON.stringify(fixture.bad, null, 2),
     );
+  }
+});
+
+// get the good example we just wrote
+console.log('Generating credential request objects');
+Object.keys(schemas).forEach((schemaName) => {
+  if (process.env.VERBOSE_BUILD) {
+    console.log('Generating credentials for:', schemaName);
+  }
+  const schema = schemas[schemaName];
+  const exampleFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/good.json`);
+  if (!fs.existsSync(exampleFile)) {
+    console.warn(`No good example for ${schemaName} to generate credential from`);
+  } else {
+    try {
+      if (process.env.VERBOSE_BUILD) {
+        console.log('Generating credential for:', schemaName);
+      }
+      const good = JSON.parse(
+        fs.readFileSync(
+          exampleFile,
+        ),
+      );
+      const credTemplate = require('../src/data/vc/vc.json');
+      // eslint-disable-next-line prefer-destructuring
+      credTemplate.credentialSubject = good[0];
+
+      const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/credential.json`);
+      // console.log('Writing credential request example to:', vcFile);
+      fs.outputFileSync(
+        vcFile,
+        JSON.stringify(credTemplate, null, 2),
+      );
+    } catch (credentialError) {
+      console.warn('Could not generate credential request for:', schemaName, '\n', credentialError);
+      if (process.env.FULL_ERROR_HANDLING) {
+        process.exit(1);
+      }
+    }
   }
 });

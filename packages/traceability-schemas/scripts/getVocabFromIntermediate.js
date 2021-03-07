@@ -17,13 +17,30 @@ const getExamples = (term) => {
     return `<p class="issue">No examples for ${term}</p>`;
   }
 };
+const getVCExample = (term) => {
+  try {
+    const content = fs.readFileSync(
+      path
+        .resolve(__dirname, `../src/__fixtures__/${term}/vc.json`)
+        .toString()
+    );
+    return `
+    <h4 id="#vc-example-${term}">Example Verifiable Credential</h4>
+    <pre class="example">
+    ${content}
+    </pre>`;
+  } catch (e) {
+    return `<p class="issue">No example VC for ${term}</p>`;
+  }
+};
+
 const getVocabFromIntermediate = (intermediate) => {
   let vocabularyString = '';
   Object.values(intermediate).forEach((classDefinition) => {
     let classPropertySections = '';
     Object.values(classDefinition.classProperties).forEach((classProperty) => {
       classPropertySections += `
-              <section id="${classProperty.$comment.term}">
+            <section id="${classProperty.$comment.term}">
               <h3>${classProperty.title}</h3>
               <p>${classProperty.description}</p>
 
@@ -46,7 +63,7 @@ const getVocabFromIntermediate = (intermediate) => {
                       </td>
                       </tr>
                   </tbody>
-                  </table>
+              </table>
               </section>
               `;
     });
@@ -90,9 +107,9 @@ const getVocabFromIntermediate = (intermediate) => {
                       </tr>
                   </tbody>
                   </table>
-          ${classPropertySections}
+          ${getVCExample(classDefinition.$comment.term)}
 
-    
+          ${classPropertySections}
          
          ${getExamples(classDefinition.$comment.term)}
       

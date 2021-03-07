@@ -30,13 +30,25 @@ npm run build:context
 npm run build:test-vectors
 ```
 
-### 4. Build Vocab
+### 4. Build Credential Examples
+
+```
+npm run build:credentials
+```
+
+### 5. Validate Test Vectors
+
+```
+npm run build:validate
+```
+
+### 6. Build Vocab
 
 ```
 npm run build:vocab
 ```
 
-### 4. Build Open API
+### 7. Build Open API Stubs
 
 ```
 npm run build:open-api
