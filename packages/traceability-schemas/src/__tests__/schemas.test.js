@@ -16,20 +16,19 @@ describe('Adding Schemas to AJV', () => {
 console.log('Now validating schemas');
 Object.keys(schemas).forEach((schemaName) => {
   describe('Fixture Checks', () => {
-    var errorEncounter = false;
+    let errorEncounter = false;
     const schema = schemas[schemaName];
     const goodExample = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/good.json`);
     const badExample = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/bad.json`);
     const vcReq = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc_request.json`);
     const vc = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc.json`);
     try {
-      var fileMissing = false;
-      const schema = schemas[schemaName];
+      let fileMissing = false;
 
       it(`${schemaName} has good schema`, () => {
         expect(ajv.validateSchema(schema)).toBe(true);
       });
-      
+
       it(`${schemaName} has good example`, () => {
         if (!fs.existsSync(goodExample)) {
           fileMissing = true;
@@ -51,12 +50,12 @@ Object.keys(schemas).forEach((schemaName) => {
         }
       });
       if (fileMissing) {
-        //this should be ultimately a fail
+        // this should be ultimately a fail
         console.warn('Incomplete assets for:', schemaName);
         expect(fileMissing).toBe(false);
       }
     } catch (error) {
-      //this should also fail
+      // this should also fail
       console.error('Incomplete assets for:', schemaName, 'Likely schema error', error);
       errorEncounter = true;
     }
