@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const config = require('../src/generators/config');
 
-console.log('Initializing test vector builder');
+console.log('🧪 Initializing test vector builder');
 faker.seed(42);
 const EXAMPLE_COUNT = 3;
 
