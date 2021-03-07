@@ -25,7 +25,7 @@ const getVCExample = (term) => {
         .toString()
     );
     return `
-    <h4>Example Verifiable Credential</h4>
+    <h4 id="#vc-example-${term}">Example Verifiable Credential</h4>
     <pre class="example">
     ${content}
     </pre>`;
@@ -64,8 +64,7 @@ const getVocabFromIntermediate = (intermediate) => {
                       </tr>
                   </tbody>
               </table>
-            </section>
-            ${getVCExample(classDefinition.$comment.term)}
+              </section>
               `;
     });
 
@@ -108,9 +107,9 @@ const getVocabFromIntermediate = (intermediate) => {
                       </tr>
                   </tbody>
                   </table>
-          ${classPropertySections}
+          ${getVCExample(classDefinition.$comment.term)}
 
-    
+          ${classPropertySections}
          
          ${getExamples(classDefinition.$comment.term)}
       
