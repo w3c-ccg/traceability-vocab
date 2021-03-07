@@ -1,6 +1,6 @@
-const faker = require('faker');
+const { generator, schemas } = require('../data/util/data');
 
-faker.seed(42);
+const { faker } = generator;
 const deliveryTypes = require('../data/generated/Shipping-types.json');
 const { getPostalAddress } = require('./PostalAddress');
 const { getPlace } = require('./Place');
@@ -10,22 +10,17 @@ const { getAgPackage } = require('./AgPackage');
 const getAgParcelDelivery = () => {
   // Get address
   const deliveryAddress = getPostalAddress();
-  delete deliveryAddress['@context'];
 
   // Get Places
   const foreignPortExport = getPlace();
-  delete foreignPortExport['@context'];
 
   const portOfEntry = getPlace();
-  delete portOfEntry['@context'];
 
   // Get organization
   const consignee = getOrganization();
-  delete consignee['@context'];
 
   // Get AgPackage
   const AgPackage = getAgPackage();
-  delete AgPackage['@context'];
 
   // Include test data for delivery methods.
   const randomType = Object.keys(deliveryTypes)[
@@ -34,7 +29,13 @@ const getAgParcelDelivery = () => {
   const deliveryMethod = deliveryTypes[randomType].type;
 
   const originAddress = getPostalAddress();
-  delete originAddress['@context'];
+
+  // delete deliveryAddress['@context'];
+  // delete foreignPortExport['@context'];
+  // delete portOfEntry['@context'];
+  // delete consignee['@context'];
+  // delete AgPackage['@context'];
+  // delete originAddress['@context'];
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -53,6 +54,12 @@ const getAgParcelDelivery = () => {
     consignee,
     AgPackage,
   };
+  const ajv = generator.getAjv();
+  const validate = ajv.compile(schemas.AgParcelDelivery);
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_AG) {
+    console.log('Early Validation results from AgParcelDelivery:', validateResult);
+  }
   return example;
 };
 

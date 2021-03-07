@@ -1,10 +1,10 @@
-const faker = require('faker');
-
-faker.seed(42);
 const CryptoJS = require('crypto-js');
 const imageToBase64 = require('image-to-base64');
+const { generator, schemas } = require('../data/util/data');
 const { getAgProduct } = require('./AgProduct');
 const { getEntity } = require('./Entity');
+
+const { faker } = generator;
 
 const getAgPackage = () => {
   // load image and convert to binary for hashing.
@@ -57,6 +57,12 @@ const getAgPackage = () => {
     labelImageHash,
     agProduct,
   };
+  const ajv = generator.getAjv();
+  const validate = ajv.compile(schemas.AgPackage);
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_AG) {
+    console.log('Early Validation results from AgPackage:', validateResult);
+  }
   return example;
 };
 
