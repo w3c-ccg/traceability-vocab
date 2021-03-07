@@ -15,7 +15,15 @@ class DataGenerator {
         // note - you will error badly if you leverage this inappropriately
         this.ajv = new Ajv({
             addUsedSchema: true,
-            removeAdditional: true
+            removeAdditional: true,
+            coerceTypes: 'array',
+            allErrors: true,
+            verbose: true,
+            logger: {
+                log: console.log.bind(console),
+                warn: console.log.bind(console),
+                error: console.log.bind(console),
+            }
         });
         Object.keys(schemas).forEach((schemaName) => {
             try {

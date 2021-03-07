@@ -20,7 +20,7 @@ const getAgParcelDelivery = () => {
   const consignee = getOrganization();
 
   // Get AgPackage
-  const AgPackage = getAgPackage();
+  const agPackage = getAgPackage();
 
   // Include test data for delivery methods.
   const randomType = Object.keys(deliveryTypes)[
@@ -52,13 +52,14 @@ const getAgParcelDelivery = () => {
     specialInstructions:
       'The package is top-heavy so handle with appropriate caution.',
     consignee,
-    AgPackage,
+    AgPackage: [agPackage],
   };
   const ajv = generator.getAjv();
   const validate = ajv.compile(schemas.AgParcelDelivery);
   const validateResult = validate(example);
   if (process.env.VERBOSE_BUILD_AG) {
     console.log('Early Validation results from AgParcelDelivery:', validateResult);
+    console.log('AJV Errors:', ajv.errors);
   }
   return example;
 };
