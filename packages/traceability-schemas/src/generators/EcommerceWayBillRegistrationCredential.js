@@ -1,4 +1,6 @@
-const faker = require('faker');
+const { generator } = require('../data/util/data');
+
+const { faker } = generator;
 const { getOrganization } = require('./Organization');
 const { getShippingStop } = require('./ShippingStop');
 
