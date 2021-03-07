@@ -1,7 +1,9 @@
-const faker = require('faker');
+const { generator } = require('../data/util/data');
+
+const { faker } = generator;
 
 const getProductRegistrationEvidenceDocument = () => {
-  const pastDate = new Date(faker.date.past());
+  const pastDate = generator.dates.prior;
 
   const getCategory = () => {
     const types = ['Dietary Supplement', 'Convenience Goods', 'Specialty Goods'];
@@ -20,7 +22,7 @@ const getProductRegistrationEvidenceDocument = () => {
     mpn: `${faker.random.alphaNumeric(10).toUpperCase()}`,
     gtin: `${faker.random.number({ min: 100000000000, max: 99999999999999 })}`, // 13-14 numeric characters
     isAccessoryOrSparePartFor: 'n/a',
-    releaseDate: `${pastDate.getFullYear()}-${pastDate.getMonth()}-${pastDate.getDay()}`,
+    releaseDate: `${pastDate}`,
     manufacturer: faker.company.companyName(),
     globalLocationNumber: `${faker.random.number({ min: 1000000000000, max: 9999999999999 })}`, // 13 numeric characters
     leiCode: lei,
