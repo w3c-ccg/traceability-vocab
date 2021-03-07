@@ -52,7 +52,7 @@ Object.keys(schemas).forEach((schemaName) => {
         console.log('Generating credentials for:', schemaName);
     }
     const schema = schemas[schemaName];
-    const exampleFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc_request.json`);
+    const exampleFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/credential.json`);
     if (!fs.existsSync(exampleFile)) {
         console.warn(`No good example for ${schemaName} to generate credential from`);
     } else {

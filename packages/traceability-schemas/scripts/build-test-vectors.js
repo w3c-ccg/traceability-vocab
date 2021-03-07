@@ -107,7 +107,7 @@ Object.keys(schemas).forEach((schemaName) => {
       // eslint-disable-next-line prefer-destructuring
       credTemplate.credentialSubject = good[0];
 
-      const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/vc_request.json`);
+      const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/credential.json`);
       // console.log('Writing credential request example to:', vcFile);
       fs.outputFileSync(
         vcFile,
