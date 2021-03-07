@@ -152,29 +152,6 @@
         }
       }
     },
-    "/BillOfLadingCredential": {
-      "get": {
-        "description": "BillOfLadingCredential",
-        "responses": {
-          "200": {
-            "description": "A list of all BillOfLadingCredential objects from the system that the user has access to",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/BillOfLadingCredential"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server error"
-          }
-        }
-      }
-    },
     "/Brand": {
       "get": {
         "description": "Brand",
@@ -198,18 +175,18 @@
         }
       }
     },
-    "/CertifidMillTestReportCredential": {
+    "/CertifiedMillTestReport": {
       "get": {
-        "description": "CertifidMillTestReportCredential",
+        "description": "CertifiedMillTestReport",
         "responses": {
           "200": {
-            "description": "A list of all CertifidMillTestReportCredential objects from the system that the user has access to",
+            "description": "A list of all CertifiedMillTestReport objects from the system that the user has access to",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CertifidMillTestReportCredential"
+                    "$ref": "#/components/schemas/CertifiedMillTestReport"
                   }
                 }
               }
@@ -2093,59 +2070,6 @@
         },
         "additionalProperties": false
       },
-      "BillOfLadingCredential": {
-        "title": "Bill Of Lading Credential",
-        "description": "Bill Of Lading Credential",
-        "type": "object",
-        "properties": {
-          "@context": {
-            "type": "array",
-            "items": {}
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {}
-              }
-            ]
-          },
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "issuanceDate": {
-            "type": "string"
-          },
-          "issuer": {
-            "type": "object"
-          },
-          "credentialSubject": {
-            "type": "object"
-          },
-          "proof": {
-            "type": "object"
-          },
-          "relatedLink": {
-            "title": "Related Link",
-            "description": "Links related to this verifiable credential",
-            "type": "array",
-            "items": {}
-          }
-        },
-        "additionalProperties": false,
-        "required": [
-          "proof"
-        ]
-      },
       "Brand": {
         "title": "Brand",
         "description": "Brand information for entities.",
@@ -2179,8 +2103,8 @@
         },
         "additionalProperties": false
       },
-      "CertifidMillTestReportCredential": {
-        "title": "Certified Mill Test Report Verifiable Credential",
+      "CertifiedMillTestReport": {
+        "title": "Certified Mill Test Report",
         "description": "Certifications made by a manufacturer of a metal product.",
         "type": "object",
         "properties": {
@@ -2199,38 +2123,924 @@
               }
             ]
           },
-          "id": {
+          "heatNumber": {
             "type": "string"
           },
-          "name": {
+          "category": {
             "type": "string"
           },
           "description": {
             "type": "string"
           },
-          "issuanceDate": {
+          "specification": {
             "type": "string"
           },
-          "issuer": {
-            "type": "object"
+          "grade": {
+            "type": "string"
           },
-          "credentialSubject": {
-            "type": "object"
+          "size": {
+            "type": "string"
           },
-          "proof": {
-            "type": "object"
+          "originalCountryOfMeltAndPour": {
+            "type": "string"
           },
-          "relatedLink": {
-            "title": "Related Link",
-            "description": "Links related to this verifiable credential",
-            "type": "array",
-            "items": {}
+          "manufacturer": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "globalLocationNumber": {
+                "type": "string"
+              },
+              "geo": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "type": "string"
+                  },
+                  "longitude": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "latitude",
+                  "longitude"
+                ]
+              },
+              "address": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "organizationName": {
+                    "type": "string"
+                  },
+                  "streetAddress": {
+                    "type": "string"
+                  },
+                  "addressLocality": {
+                    "type": "string"
+                  },
+                  "addressRegion": {
+                    "type": "string"
+                  },
+                  "postalCode": {
+                    "type": "string"
+                  },
+                  "addressCountry": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "organizationName",
+                  "streetAddress",
+                  "addressLocality",
+                  "addressRegion",
+                  "postalCode",
+                  "addressCountry"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "globalLocationNumber",
+              "geo",
+              "address"
+            ]
+          },
+          "purchase": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "purchaseOrder": {
+                "type": "string"
+              },
+              "invoice": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "identifier"
+                ]
+              },
+              "customer": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "globalLocationNumber": {
+                    "type": "string"
+                  },
+                  "contactPoint": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "jobTitle": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string"
+                          },
+                          "phoneNumber": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "jobTitle",
+                          "email",
+                          "phoneNumber"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "streetAddress": {
+                                "type": "string"
+                              },
+                              "addressLocality": {
+                                "type": "string"
+                              },
+                              "addressRegion": {
+                                "type": "string"
+                              },
+                              "postalCode": {
+                                "type": "string"
+                              },
+                              "addressCountry": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "streetAddress",
+                              "addressLocality",
+                              "addressRegion",
+                              "postalCode",
+                              "addressCountry"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "address"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "type",
+                  "globalLocationNumber",
+                  "contactPoint"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "purchaseOrder",
+              "invoice",
+              "customer"
+            ]
+          },
+          "shipment": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "deliveryMethod": {
+                "type": "string"
+              },
+              "trackingNumber": {
+                "type": "string"
+              },
+              "originAddress": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "organizationName": {
+                    "type": "string"
+                  },
+                  "streetAddress": {
+                    "type": "string"
+                  },
+                  "addressLocality": {
+                    "type": "string"
+                  },
+                  "addressRegion": {
+                    "type": "string"
+                  },
+                  "postalCode": {
+                    "type": "string"
+                  },
+                  "addressCountry": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "organizationName",
+                  "streetAddress",
+                  "addressLocality",
+                  "addressRegion",
+                  "postalCode",
+                  "addressCountry"
+                ]
+              },
+              "deliveryAddress": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "organizationName": {
+                    "type": "string"
+                  },
+                  "streetAddress": {
+                    "type": "string"
+                  },
+                  "addressLocality": {
+                    "type": "string"
+                  },
+                  "addressRegion": {
+                    "type": "string"
+                  },
+                  "postalCode": {
+                    "type": "string"
+                  },
+                  "addressCountry": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "organizationName",
+                  "streetAddress",
+                  "addressLocality",
+                  "addressRegion",
+                  "postalCode",
+                  "addressCountry"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "deliveryMethod",
+              "trackingNumber",
+              "originAddress",
+              "deliveryAddress"
+            ]
+          },
+          "inspection": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "observation": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "formula": {
+                            "type": "string"
+                          },
+                          "inchi": {
+                            "type": "string"
+                          },
+                          "inchikey": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "formula",
+                          "inchi",
+                          "inchikey"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "identifier",
+                          "name",
+                          "description"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "formula": {
+                            "type": "string"
+                          },
+                          "inchi": {
+                            "type": "string"
+                          },
+                          "inchikey": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "formula",
+                          "inchi",
+                          "inchikey"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "formula": {
+                            "type": "string"
+                          },
+                          "inchi": {
+                            "type": "string"
+                          },
+                          "inchikey": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "formula",
+                          "inchi",
+                          "inchikey"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "identifier",
+                          "name",
+                          "description"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "formula": {
+                            "type": "string"
+                          },
+                          "inchi": {
+                            "type": "string"
+                          },
+                          "inchikey": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "formula",
+                          "inchi",
+                          "inchikey"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "identifier",
+                          "name",
+                          "description"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "formula": {
+                            "type": "string"
+                          },
+                          "inchi": {
+                            "type": "string"
+                          },
+                          "inchikey": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "formula",
+                          "inchi",
+                          "inchikey"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "formula": {
+                            "type": "string"
+                          },
+                          "inchi": {
+                            "type": "string"
+                          },
+                          "inchikey": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "name",
+                          "formula",
+                          "inchi",
+                          "inchikey"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "property": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "identifier": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "identifier",
+                          "name",
+                          "description"
+                        ]
+                      },
+                      "measurement": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          },
+                          "unitCode": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "value",
+                          "unitCode"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "property",
+                      "measurement"
+                    ]
+                  }
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "comment",
+              "observation"
+            ]
           }
         },
-        "additionalProperties": false,
         "required": [
-          "proof"
-        ]
+          "@context",
+          "type",
+          "heatNumber",
+          "category",
+          "description",
+          "specification",
+          "grade",
+          "size",
+          "originalCountryOfMeltAndPour",
+          "manufacturer",
+          "purchase",
+          "shipment",
+          "inspection"
+        ],
+        "additionalProperties": false
       },
       "ChargeDeclaration": {
         "title": "ChargeDeclaration",
