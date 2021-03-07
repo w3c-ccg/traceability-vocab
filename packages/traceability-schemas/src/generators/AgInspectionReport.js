@@ -1,7 +1,7 @@
-const faker = require('faker');
-
-faker.seed(42);
 const _ = require('lodash');
+const { generator, schemas } = require('../data/util/data');
+
+const { faker } = generator;
 const { getPlace } = require('./Place');
 const { getInspector } = require('./Inspector');
 const { getAgParcelDelivery } = require('./AgParcelDelivery');
@@ -65,13 +65,13 @@ const getAgInspectionReport = () => {
 
   // pull in outside schemas
   const facility = getPlace();
-  delete facility['@context'];
   const inspector = getInspector();
-  delete inspector['@context'];
   const shipment = getAgParcelDelivery();
-  delete shipment['@context'];
   const applicant = getEntity();
-  delete applicant['@context'];
+  // delete facility['@context'];
+  // delete inspector['@context'];
+  // delete shipment['@context'];
+  // delete applicant['@context'];
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -84,6 +84,13 @@ const getAgInspectionReport = () => {
     inspectionType,
     observation,
   };
+
+  const ajv = generator.getAjv();
+  const validate = ajv.compile(schemas.AgInspectionReport);
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_AG) {
+    console.log('Early Validation results from AgInspectionReport:', validateResult);
+  }
   return example;
 };
 

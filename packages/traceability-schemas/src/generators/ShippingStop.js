@@ -1,4 +1,7 @@
-const faker = require('faker');
+const { generator } = require('../data/util/data');
+
+const { faker } = generator;
+
 const { getPostalAddress } = require('./PostalAddress');
 const { getOrganization } = require('./Organization');
 
@@ -11,8 +14,6 @@ const getShippingStop = () => {
 
   const vesselNumber = `ACMECarrierVessel#${faker.random.number({ min: 10, max: 1000 })}`;
 
-  const newdate = new Date(faker.date.recent());
-
   const getStopType = () => {
     const types = ['Departure', 'Destination', 'Stopover'];
     return faker.random.arrayElement(types);
@@ -24,7 +25,7 @@ const getShippingStop = () => {
     shippingStopAddress,
     carrier,
     vesselNumber,
-    arrivalDate: `${newdate.getMonth()}-${newdate.getDay()}-${newdate.getFullYear()}`,
+    arrivalDate: generator.dates.current,
     stopType: getStopType(),
   };
   return example;

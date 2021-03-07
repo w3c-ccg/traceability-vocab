@@ -1,4 +1,6 @@
-const faker = require('faker');
+const { generator } = require('../data/util/data');
+
+const { faker } = generator;
 const { getCustomer } = require('./Customer');
 const { getOrderedItem } = require('./OrderedItem');
 // Include test data for order statuses
@@ -79,9 +81,9 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
   };
   const customer = getCustomer();
 
-  const orderDate = new Date(faker.date.recent());
-  const paymentDate = new Date(faker.date.future());
-  const paymentDueDate = `${paymentDate.getMonth()}-${paymentDate.getDay()}-${paymentDate.getFullYear()}`;
+  const orderDate = generator.dates.prior;
+  const paymentDate = generator.dates.prior;
+  const paymentDueDate = generator.dates.prior;
   const orderNumber = `Order#${faker.random.number({ min: 1, max: 999 })}`;
   // get an order status
   const randomStatus = faker.random.number({
@@ -97,7 +99,7 @@ const getEcommerceInvoiceRegistrationEvidenceDocument = () => {
     description: `New Order For ${customer.name}`,
     url: `${faker.internet.url()}?queryid=${orderNumber}`,
     orderNumber,
-    orderDate: `${orderDate.getMonth()}-${orderDate.getDay()}-${orderDate.getFullYear()}`,
+    orderDate: `${orderDate}`,
     orderStatus: OrderStatus,
     seller: Seller,
     broker,

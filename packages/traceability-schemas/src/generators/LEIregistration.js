@@ -2,10 +2,8 @@ const faker = require('faker');
 const { getLEIauthority } = require('./LEIauthority');
 
 const getLEIregistration = () => {
-  const fakePast = new Date(faker.date.past());
-  const fakeFuture = new Date(faker.date.future());
-  const pastDate = `${fakePast.getFullYear()}-${fakePast.getMonth()}-${fakePast.getDay()}`;
-  const futureDate = `${fakeFuture.getFullYear()}-${fakeFuture.getMonth()}-${fakeFuture.getDay()}`;
+  const pastDate = '2020-01-01';
+  const futureDate = '2021-02-02';
 
   const getStatus = () => {
     const types = ['REQUESTED', 'CONFIRMED', 'REJECTED', 'IN PROGRESS'];

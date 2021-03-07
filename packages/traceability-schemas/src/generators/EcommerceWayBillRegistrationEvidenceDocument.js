@@ -1,4 +1,5 @@
 const faker = require('faker');
+const { generator } = require('../data/util/data');
 const { getOrganization } = require('./Organization');
 const { getIssuerAgent } = require('./IssuerAgent');
 const { getShippingStop } = require('./ShippingStop');
@@ -8,9 +9,9 @@ const { getChargeDeclaration } = require('./ChargeDeclaration');
 const getEcommerceWayBillRegistrationEvidenceDocument = () => {
   const waybillNumber = `ACMEWayBill#${faker.random.number({ min: 1, max: 999 })}`;
 
-  const NewDate = new Date(faker.date.future());
+  const NewDate = generator.dates.future;
 
-  const issuanceDate = `${NewDate.getMonth()}-${NewDate.getDay()}-${NewDate.getFullYear()}`;
+  const issuanceDate = generator.dates.current;
 
   const issuer = getOrganization();
   delete issuer['@context'];
