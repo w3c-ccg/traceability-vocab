@@ -1,14 +1,11 @@
 const faker = require('faker');
 const path = require('path');
 const fs = require('fs-extra');
-const { system } = require('faker');
 const config = require('../src/generators/config');
 
 console.log('Initializing test vector builder');
-// const FAKER_SEED = 12;
+faker.seed(42);
 const EXAMPLE_COUNT = 3;
-
-// faker.seed(FAKER_SEED);
 
 console.log('Adding schemas');
 const schemas = require('../index.js');
