@@ -1,4 +1,5 @@
 const faker = require('faker');
+const { generator } = require('../data/util/data');
 const { getPostalAddress } = require('./PostalAddress');
 const { getOrganization } = require('./Organization');
 
@@ -24,7 +25,7 @@ const getShippingStop = () => {
     shippingStopAddress,
     carrier,
     vesselNumber,
-    arrivalDate: `${newdate.getMonth()}-${newdate.getDay()}-${newdate.getFullYear()}`,
+    arrivalDate: generator.dates.current,
     stopType: getStopType(),
   };
   return example;
