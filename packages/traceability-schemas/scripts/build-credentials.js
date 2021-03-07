@@ -16,6 +16,7 @@ const issueCreds = async (credTemplate, schemaName) => {
             credential: credTemplate,
             suite: new Ed25519Signature2018({
                 key,
+                date: '2019-12-11T03:50:55Z'
             }),
             documentLoader,
         });
