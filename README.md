@@ -73,7 +73,7 @@ A one week (7 day) period will be provided for review of pull requests related t
 
 ## Ontology Structure
 
-This repository hosts both [json-schema](https://json-schema.org/) which it uses to create [jsonld](https://json-ld.org/).
+This repository hosts [json-schema](https://json-schema.org/) which it uses to create [jsonld](https://json-ld.org/).
 
 All JSON Schema must have an `$id` property, and it must resolve to the JSON-Schema Document.
 
