@@ -110,9 +110,6 @@ const getVocabFromIntermediate = (intermediate) => {
           ${getVCExample(classDefinition.$comment.term)}
 
           ${classPropertySections}
-         
-         ${getExamples(classDefinition.$comment.term)}
-      
           </section>
           `;
   });
