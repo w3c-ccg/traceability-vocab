@@ -14,7 +14,7 @@ If you are a developer who is interested in working directly with the vocabulary
 
 ### Developer Setup
 
-To get started with the repository you will need at a minimum [Node.js](https://nodejs.org/en/) and [git](https://git-scm.com/) in order to checkout the project, fetch other dependencies, and build and run the project.
+To get started building, testing, or contributing to this repository you will need at a minimum [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/)
 
 After you have the dependencies, the first time setup is as follows:
 
