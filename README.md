@@ -8,7 +8,7 @@ We encourage contributions meeting the [Contribution Guidelines](CONTRIBUTING.md
 
 ## Getting Started
 
-If youare just interested in the vocabulary itself, the items contained within, and the example Verifiable Credentials, plase see the [spec itself](https://w3c-ccg.github.io/traceability-vocab/).
+If you are only interested in the vocabulary itself, the items contained therein, and/or the example Verifiable Credentials, please see the [spec itself](https://w3c-ccg.github.io/traceability-vocab/).
 
 If you are a developer who is interested in working directly with the vocabulary, possibly add schemas, as well as to run tests and view the details of how the JSON-JD and resultant Verifiable Credentials are build, then read on.
 
