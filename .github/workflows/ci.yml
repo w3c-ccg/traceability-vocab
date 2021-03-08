@@ -13,12 +13,12 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Lint
-        run: npm run lint
-
       # must run first to build schemas.
       - name: Build
         run: npm run build:all
+
+      - name: Lint
+        run: npm run lint
 
       - name: Test Schemas
         run: npm run test:schemas

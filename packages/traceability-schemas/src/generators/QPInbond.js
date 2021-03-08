@@ -1,6 +1,11 @@
-const faker = require('faker');
+const { generator, schemas } = require('../data/util/data');
+
+const { faker } = generator;
+
 const { getEntity } = require('./Entity');
 const { getPostalAddress } = require('./PostalAddress');
+
+const ajv = generator.getAjv();
 
 faker.seed(22);
 
@@ -37,6 +42,11 @@ const getQPInbond = () => {
     totalOrderValue: faker.random.number({ min: 10000, max: 99999 }).toString(),
     product,
   };
+  const validate = ajv.compile(schemas.QPInbond);
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_GENERAL) {
+    console.log('Early Validation results from QPInbond:', validateResult);
+  }
   return example;
 };
 

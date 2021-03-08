@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "http://example.org/credentials/",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuanceDate": "2021-02-04T20:29:37+00:00",
+  "issuer": "did:example:123",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/traceability/v1"
+    ],
+    "type": "ChargeDeclaration",
+    "weightCharge": {
+      "type": "chargeAndPaymentType",
+      "chargeCollect": 374,
+      "chargePrepaid": 391
+    },
+    "taxCharge": {
+      "type": "chargeAndPaymentType",
+      "chargeCollect": 454,
+      "chargePrepaid": 647
+    },
+    "otherChargesAgent": {
+      "type": "chargeAndPaymentType",
+      "chargeCollect": 725,
+      "chargePrepaid": 783
+    },
+    "otherChargesCarrier": {
+      "type": "chargeAndPaymentType",
+      "chargeCollect": 888,
+      "chargePrepaid": 225
+    },
+    "totalCharge": {
+      "type": "TotalCharge",
+      "totalPrepaid": 2940.75,
+      "totalCollect": 980.25,
+      "sourceCurrency": "MMK",
+      "destinationCurrency": "BOB",
+      "currencyConversionRate": 3,
+      "ccChargesDestinationCurrency": "MMK",
+      "chargesDestination": 667,
+      "totalCollectCharge": 166.75
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..uW7_2wY5DFS0U-LBZhJpxKDjPTHH2gWqpGlvVY2oFeObNqQ3mA25vwT6AOIzkrIo0LkXMA5ZLap5KyIJfdSvAg",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:123#key-0"
+  }
+}

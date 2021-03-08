@@ -1,17 +1,19 @@
-const faker = require('faker');
-
-faker.seed(42);
 const _ = require('lodash');
+const { generator, schemas } = require('../data/util/data');
+
+const { faker } = generator;
+
 const { getAgProduct } = require('./AgProduct');
 const { getObservation } = require('./Observation');
 const { getEntity } = require('./Entity');
 const { getPerson } = require('./Person');
 const { getPlace } = require('./Place');
 
+const ajv = generator.getAjv();
+
 const getAgActivity = () => {
   // Get Entity
   const farm = getEntity();
-  delete farm['@context'];
   farm.name = "Jimbo's Awesome Farm";
   farm.description = 'Sustainable growth, healthy products';
 
@@ -19,8 +21,9 @@ const getAgActivity = () => {
   farmer.worksFor.name = farm.name;
   const field = getPlace();
 
-  delete farmer['@context'];
-  delete field['@context'];
+  // delete farm['@context'];
+  // delete farmer['@context'];
+  // delete field['@context'];
 
   // get agProducts
   const agProduct = [];
@@ -69,13 +72,19 @@ const getAgActivity = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'AgActivity',
     farm,
-    actor: farmer,
+    actor: [farmer],
     field,
     activityDate: '2020-02-15',
     activityType: 'spray',
     agProduct,
     observation,
+    examples: []
   };
+  const validate = ajv.compile(schemas.AgActivity);
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_AG) {
+    console.log('Early Validation results from AgActivity:', validateResult);
+  }
   return example;
 };
 

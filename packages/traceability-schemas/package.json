@@ -13,12 +13,20 @@
     "build:intermediate": "node ./scripts/build-intermediate.js ",
     "build:context": "node ./scripts/build-context.js ",
     "build:test-vectors": "node ./scripts/build-test-vectors.js",
+    "build:credentials": "node ./scripts/build-credentials.js",
+    "build:validate": "node ./scripts/validate-fixtures.js",
     "build:vocab": "node ./scripts/build-vocab.js ",
     "build:open-api": "node ./scripts/build-open-api.js ",
-    "build:all": "npm run build:schemas && npm run build:intermediate && npm run build:context && npm run build:test-vectors && npm run build:vocab && npm run build:open-api && npm run lint",
+    "build:all": "npm run build:schemas && npm run build:intermediate && npm run build:context && npm run build:test-vectors && npm run build:credentials && npm run build:validate && npm run build:vocab && npm run build:open-api && npm run lint",
     "test:schemas": "jest"
   },
   "dependencies": {
+    "@transmute/credentials-context": "^0.0.4-unstable.2",
+    "@transmute/did-context": "^0.0.4-unstable.7",
+    "@transmute/did-key-ed25519": "^0.2.1-unstable.35",
+    "@transmute/ed25519-signature-2018": "^0.2.1-unstable.8",
+    "@transmute/security-context": "^0.0.4-unstable.2",
+    "@transmute/vc.js": "^0.2.1-unstable.9",
     "ajv": "^7.1.1",
     "crypto-js": "^4.0.0",
     "eslint": "^7.21.0",
@@ -26,8 +34,15 @@
     "fs-extra": "^9.1.0",
     "image-to-base64": "^2.1.1",
     "jest": "^26.6.3",
+    "js-beautify": "^1.13.5",
     "json-mask": "^1.0.4",
     "json-schema-to-openapi-schema": "^0.4.0",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0"
   }
 }

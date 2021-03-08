@@ -2,7 +2,7 @@
     "$id": "https://w3id.org/traceability/schemas/AgActivity.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$comment": "{\"term\": \"AgActivity\", \"@id\": \"https://w3id.org/traceability#AgActivity\"}",
-    "title": "AgPackage",
+    "title": "Agricultural Activity",
     "description": "An activity that takes place on the farm that needs to be recorded, such as planting, harvesting, applying fertilizer, etc.",
     "type": "object",
     "properties": {
@@ -26,7 +26,7 @@
             "$ref": "https://w3id.org/traceability/schemas/Entity.json"
         },
         "actor": {
-            "$comment": "{\"term\": \"actor\", \"@id\": \"https://w3id.org/traceability#Person\"}",
+            "$comment": "{\"term\": \"actor\", \"@id\": \"https://w3id.org/traceability#Person\", \"@type\": \"https://schema.org/ItemList\"}",
             "title": "Actor",
             "description": "The actual person or persons performing the activity.",
             "type": "array",
@@ -62,7 +62,7 @@
             }
         },
         "observation": {
-            "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+            "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\", \"@type\": \"https://schema.org/ItemList\"}",
             "title": "Observation or Notes List",
             "description": "List of observations or notes related to the activity, such as spray mix, etc",
             "type": "array",
@@ -70,5 +70,7 @@
                 "$ref": "https://w3id.org/traceability/schemas/Observation.json"
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "examples": []
 }

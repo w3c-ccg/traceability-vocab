@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const beautifyHtml = require('js-beautify').html;
 
 console.log('🧪 build vocab from intermediate');
 
@@ -11,7 +12,9 @@ const vocab = getVocabFromIntermediate(
   ),
 );
 
+const prettyVocab = beautifyHtml(vocab);
+
 fs.writeFileSync(
   path.resolve(__dirname, '../../../docs/sections/vocab.html'),
-  vocab,
+  prettyVocab,
 );

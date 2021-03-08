@@ -1,10 +1,11 @@
 const faker = require('faker');
+const { generator } = require('../data/util/data');
 const { getLEIaddress } = require('./LEIaddress');
 const { getLEIauthority } = require('./LEIauthority');
 
 const getLEIentity = () => {
-  const fakeFuture = new Date(faker.date.future());
-  const futureDate = `${fakeFuture.getFullYear()}-${fakeFuture.getMonth()}-${fakeFuture.getDay()}`;
+  const fakeFuture = generator.dates.future;
+  const futureDate = generator.dates.futureAlt;
 
   const getStatus = () => {
     const types = ['REQUESTED', 'CONFIRMED', 'REJECTED', 'IN PROGRESS'];
