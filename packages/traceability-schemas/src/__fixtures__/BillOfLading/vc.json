@@ -10,17 +10,64 @@
   "issuanceDate": "2021-02-04T20:29:37+00:00",
   "issuer": "did:example:123",
   "credentialSubject": {
-    "@context": [
-      "https://w3id.org/traceability/v1"
-    ],
     "type": [
       "BillOfLading"
-    ]
+    ],
+    "billOfLadingNumber": "991205182",
+    "relatedDocuments": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": [
+          "Purchase"
+        ],
+        "customer": {
+          "type": [
+            "Person"
+          ],
+          "email": "Willie78@example.net",
+          "phoneNumber": "555-152-7258"
+        }
+      }
+    ],
+    "freight": {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "type": [
+        "ParcelDelivery"
+      ],
+      "deliveryAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Hahn LLC",
+        "streetAddress": "786 Pfeffer Plains",
+        "addressLocality": "West Ottilie",
+        "addressRegion": "Nebraska",
+        "postalCode": "50878-0870",
+        "addressCountry": "Cook Islands"
+      },
+      "originAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Rosenbaum, Hills and Pagac",
+        "streetAddress": "71834 Zelma Trail",
+        "addressLocality": "West Gerhardview",
+        "addressRegion": "North Carolina",
+        "postalCode": "78251-3640",
+        "addressCountry": "Paraguay"
+      },
+      "deliveryMethod": "Ocean transport",
+      "trackingNumber": "178380801954"
+    }
   },
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..UsOAZlUch9cbg0yXoQvDQjDdG77dFohX_PNXYwf2D1BwbDPh7XRUV8bsewlAwjojUNFu4zIbGlHzot3pY-c2Ag",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..lCaFPXmtx2zRrlqFaKSE4LBcocfLOX9ujIvSZU4W7latI8SpRU97clES-udV_DIyOPCi9Fq-5bE2bHQrwC0TAw",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:example:123#key-0"
   }

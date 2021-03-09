@@ -2,7 +2,6 @@ const _ = require('lodash');
 const { getParcelDelivery } = require('./ParcelDelivery');
 const { generator, schemas } = require('../data/util/data');
 
-const { faker } = generator;
 const ajv = generator.getAjv();
 
 const { getProduct } = require('./Product');
@@ -21,16 +20,14 @@ const getBillOfLading = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'BillOfLading',
     billOfLadingNumber: '991205182',
-    relatedDocuments: [
-        purchase
-    ],
+    relatedDocuments: [purchase],
     freight,
   };
   const validate = ajv.compile(schemas.BillOfLading);
-    const validateResult = validate(example);
-    if (process.env.VERBOSE_BUILD_GENERAL) {
-      console.log('Early Validation results from BillOfLading:', validateResult);
-    }
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_GENERAL) {
+    console.log('Early Validation results from BillOfLading:', validateResult);
+  }
   return example;
 };
 
