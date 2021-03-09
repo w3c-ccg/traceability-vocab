@@ -66,9 +66,9 @@ In order to have your contributions accepted you MUST:
 
 Pull requests will not as a rule be merged if any conflicts exist, or if testing is incomplete.
 
-Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponing issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
+Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponding issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
 
-A one week (7 day) period will be provided for review of pull requests related to data schemas or project functionality prior to merge to allow suffient review time. Execptions may be made for essential documentation, or to allow for immediate hotfix of security issues or functionality breaking items.
+A one week (7 day) period will be provided for review of pull requests related to data schemas or project functionality prior to merge to allow suffient review time. Exceptions may be made for essential documentation, or to allow for immediate hotfix of security issues or functionality breaking items.
 
 
 ## Ontology Structure
