@@ -1,19 +1,17 @@
+const faker = require('faker');
 const _ = require('lodash');
 const { getObservation } = require('./Observation');
-const { generator, schemas } = require('../data/util/data');
 const { getPlace } = require('./Place');
 
-const { faker } = generator;
-
-const ajv = generator.getAjv();
+faker.seed(22);
 
 const { getProduct } = require('./Product');
 
-const getCrudeOilProduct = () => {
+const getNaturalGasProduct = () => {
   const product = getProduct();
   delete product['@context'];
-  product.name = 'Crude Oil Barrel';
-  product.description = 'Heavy Sour Dilbit';
+  product.name = 'Natural Gas';
+  product.description = 'Natural Gas Stream';
 
   const facility = getPlace();
   delete facility['@context'];
@@ -51,7 +49,7 @@ const getCrudeOilProduct = () => {
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
-    type: 'CrudeOilProduct',
+    type: 'NaturalGasProduct',
     HSCode: '270900',
     UWI: '100.12-04-091-05-W5.00',
     productionDate: '2020-03-30',
@@ -59,12 +57,7 @@ const getCrudeOilProduct = () => {
     observation,
     product,
   };
-  const validate = ajv.compile(schemas.CrudeOilProduct);
-    const validateResult = validate(example);
-    if (process.env.VERBOSE_BUILD_OIL) {
-      console.log('Early Validation results from CrudeOilProduct:', validateResult);
-    }
-    return example;
+  return example;
 };
 
-module.exports = { getCrudeOilProduct };
+module.exports = { getNaturalGasProduct };
