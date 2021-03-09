@@ -1187,6 +1187,52 @@
         }
       }
     },
+    "/NaturalGasProduct": {
+      "get": {
+        "description": "NaturalGasProduct",
+        "responses": {
+          "200": {
+            "description": "A list of all NaturalGasProduct objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NaturalGasProduct"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/OGBillOfLading": {
+      "get": {
+        "description": "OGBillOfLading",
+        "responses": {
+          "200": {
+            "description": "A list of all OGBillOfLading objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OGBillOfLading"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/Observation": {
       "get": {
         "description": "Observation",
@@ -5297,6 +5343,148 @@
             "title": "Property Description",
             "description": "The description of the item.",
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NaturalGasProduct": {
+        "title": "Natural Gas Product",
+        "description": "Tombstone information regarding a natural gas product",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "id": {
+            "type": "string"
+          },
+          "issuanceDate": {
+            "type": "string"
+          },
+          "credentialSubject": {
+            "type": "object"
+          },
+          "issuer": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "product": {
+            "title": "Product",
+            "description": "Product details as outlined in the Product.json schema"
+          },
+          "facility": {
+            "title": "Manufacture Facility",
+            "description": "Information on the manufacture facility."
+          },
+          "UWI": {
+            "title": "Unique Well Identifier",
+            "description": "Unique Well Identifier used for individual well identification.",
+            "type": "string"
+          },
+          "HSCode": {
+            "title": "HSCode",
+            "description": "Defines the Harmonized System Code for the Commodity",
+            "type": "string"
+          },
+          "productionDate": {
+            "title": "Production Date",
+            "description": "Date when the product was created",
+            "type": "string"
+          },
+          "observation": {
+            "title": "Observation List",
+            "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+            "type": "array",
+            "items": {}
+          }
+        },
+        "additionalProperties": false
+      },
+      "OGBillOfLading": {
+        "title": "Bill of Lading for an Oil and Gas Product",
+        "description": "Information on the Inspection and the observations made",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "billOfLading": {
+            "title": "Bill Of Lading",
+            "description": "Bill Of Lading"
+          },
+          "shippingDate": {
+            "title": "Shipping Date",
+            "description": "Date of shipping",
+            "type": "string"
+          },
+          "arrivalDate": {
+            "title": "Arrival Date",
+            "description": "Date of arrival.",
+            "type": "string"
+          },
+          "valuePerItem": {
+            "title": "Value Per Item",
+            "description": "Value Per Item",
+            "type": "string"
+          },
+          "totalOrderValue": {
+            "title": "Total Order Value",
+            "description": "Total value of the order",
+            "type": "string"
+          },
+          "freightChargeTerms": {
+            "title": "freight Charge Terms",
+            "description": "Terms of the freight charge",
+            "type": "string"
+          },
+          "batchNumber": {
+            "title": "Unique Well Identifier",
+            "description": "Unique Well Identifier used for individual well identification.",
+            "type": "string"
+          },
+          "openingVolume": {
+            "title": "Opening Volume",
+            "description": "Volume at injection"
+          },
+          "closingVolume": {
+            "title": "closingVolume",
+            "description": "Volume at closing"
+          },
+          "observation": {
+            "title": "Observation List",
+            "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+            "type": "array",
+            "items": {}
           }
         },
         "additionalProperties": false

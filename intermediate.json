@@ -2312,18 +2312,18 @@
         "title": "Manufacture Facility",
         "description": "Information on the manufacture facility."
       },
-      "https://schema.org/identifier": {
+      "https://schema.org/identifier?1": {
         "$comment": {
           "term": "UWI",
-          "@id": "https://schema.org/identifier"
+          "@id": "https://schema.org/identifier?1"
         },
         "title": "Unique Well Identifier",
         "description": "Unique Well Identifier used for individual well identification."
       },
-      "https://w3id.org/identifier": {
+      "https://w3id.org/identifier?2": {
         "$comment": {
           "term": "HSCode",
-          "@id": "https://w3id.org/identifier"
+          "@id": "https://w3id.org/identifier?2"
         },
         "title": "HSCode",
         "description": "Defines the Harmonized System Code for the Commodity"
@@ -2399,13 +2399,13 @@
           "$ref": "https://w3id.org/traceability/schemas/Place.json"
         },
         "UWI": {
-          "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier\"}",
+          "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier?1\"}",
           "title": "Unique Well Identifier",
           "description": "Unique Well Identifier used for individual well identification.",
           "type": "string"
         },
         "HSCode": {
-          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier\"}",
+          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier?2\"}",
           "title": "HSCode",
           "description": "Defines the Harmonized System Code for the Commodity",
           "type": "string"
@@ -6750,6 +6750,331 @@
           "title": "Property Description",
           "description": "The description of the item.",
           "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#NaturalGasProduct": {
+    "$id": "https://w3id.org/traceability/schemas/NaturalGasProduct.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "NaturalGasProduct",
+      "@id": "https://w3id.org/traceability#NaturalGasProduct"
+    },
+    "title": "Natural Gas Product",
+    "description": "Tombstone information regarding a natural gas product",
+    "classProperties": {
+      "https://www.gs1.org/voc/Product": {
+        "$comment": {
+          "term": "product",
+          "@id": "https://www.gs1.org/voc/Product"
+        },
+        "title": "Product",
+        "description": "Product details as outlined in the Product.json schema"
+      },
+      "https://www.gs1.org/voc/Place": {
+        "$comment": {
+          "term": "facility",
+          "@id": "https://www.gs1.org/voc/Place"
+        },
+        "title": "Manufacture Facility",
+        "description": "Information on the manufacture facility."
+      },
+      "https://schema.org/identifier?1": {
+        "$comment": {
+          "term": "UWI",
+          "@id": "https://schema.org/identifier?1"
+        },
+        "title": "Unique Well Identifier",
+        "description": "Unique Well Identifier used for individual well identification."
+      },
+      "https://w3id.org/identifier?2": {
+        "$comment": {
+          "term": "HSCode",
+          "@id": "https://w3id.org/identifier?2"
+        },
+        "title": "HSCode",
+        "description": "Defines the Harmonized System Code for the Commodity"
+      },
+      "https://schema.org/DateTime#v2": {
+        "$comment": {
+          "term": "productionDate",
+          "@id": "https://schema.org/DateTime#v2"
+        },
+        "title": "Production Date",
+        "description": "Date when the product was created"
+      },
+      "https://w3id.org/traceability#observation": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://w3id.org/traceability#observation"
+        },
+        "title": "Observation List",
+        "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/NaturalGasProduct.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"NaturalGasProduct\", \"@id\": \"https://w3id.org/traceability#NaturalGasProduct\"}",
+      "title": "Natural Gas Product",
+      "description": "Tombstone information regarding a natural gas product",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "issuanceDate": {
+          "type": "string"
+        },
+        "credentialSubject": {
+          "type": "object"
+        },
+        "issuer": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "product": {
+          "$comment": "{\"term\": \"product\", \"@id\": \"https://www.gs1.org/voc/Product\"}",
+          "title": "Product",
+          "description": "Product details as outlined in the Product.json schema",
+          "$ref": "https://w3id.org/traceability/schemas/Product.json"
+        },
+        "facility": {
+          "$comment": "{\"term\": \"facility\", \"@id\": \"https://www.gs1.org/voc/Place\"}",
+          "title": "Manufacture Facility",
+          "description": "Information on the manufacture facility.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "UWI": {
+          "$comment": "{\"term\": \"UWI\", \"@id\": \"https://schema.org/identifier?1\"}",
+          "title": "Unique Well Identifier",
+          "description": "Unique Well Identifier used for individual well identification.",
+          "type": "string"
+        },
+        "HSCode": {
+          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://w3id.org/identifier?2\"}",
+          "title": "HSCode",
+          "description": "Defines the Harmonized System Code for the Commodity",
+          "type": "string"
+        },
+        "productionDate": {
+          "$comment": "{\"term\": \"productionDate\", \"@id\": \"https://schema.org/DateTime#v2\"}",
+          "title": "Production Date",
+          "description": "Date when the product was created",
+          "type": "string"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+          "title": "Observation List",
+          "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#OGBillOfLading": {
+    "$id": "https://w3id.org/traceability/schemas/OGBillOfLading.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "OGBillOfLading",
+      "@id": "https://w3id.org/traceability#OGBillOfLading"
+    },
+    "title": "Bill of Lading for an Oil and Gas Product",
+    "description": "Information on the Inspection and the observations made",
+    "classProperties": {
+      "https://w3id.org/traceability#BillOfLading": {
+        "$comment": {
+          "term": "billOfLading",
+          "@id": "https://w3id.org/traceability#BillOfLading"
+        },
+        "title": "Bill Of Lading",
+        "description": "Bill Of Lading"
+      },
+      "https://schema.org/DateTime?1": {
+        "$comment": {
+          "term": "shippingDate",
+          "@id": "https://schema.org/DateTime?1"
+        },
+        "title": "Shipping Date",
+        "description": "Date of shipping"
+      },
+      "https://schema.org/DateTime?2": {
+        "$comment": {
+          "term": "arrivalDate",
+          "@id": "https://schema.org/DateTime?2"
+        },
+        "title": "Arrival Date",
+        "description": "Date of arrival."
+      },
+      "https://www.schema.org/value?1": {
+        "$comment": {
+          "term": "valuePerItem",
+          "@id": "https://www.schema.org/value?1"
+        },
+        "title": "Value Per Item",
+        "description": "Value Per Item"
+      },
+      "https://www.schema.org/value?2": {
+        "$comment": {
+          "term": "totalOrderValue",
+          "@id": "https://www.schema.org/value?2"
+        },
+        "title": "Total Order Value",
+        "description": "Total value of the order"
+      },
+      "https://www.schema.org/value?3": {
+        "$comment": {
+          "term": "freightChargeTerms",
+          "@id": "https://www.schema.org/value?3"
+        },
+        "title": "freight Charge Terms",
+        "description": "Terms of the freight charge"
+      },
+      "https://schema.org/identifier": {
+        "$comment": {
+          "term": "batchNumber",
+          "@id": "https://schema.org/identifier"
+        },
+        "title": "Unique Well Identifier",
+        "description": "Unique Well Identifier used for individual well identification."
+      },
+      "https://schema.org/MeasuredValue?2": {
+        "$comment": {
+          "term": "openingVolume",
+          "@id": "https://schema.org/MeasuredValue?2"
+        },
+        "title": "Opening Volume",
+        "description": "Volume at injection"
+      },
+      "https://schema.org/MeasuredValue?1": {
+        "$comment": {
+          "term": "closingVolume",
+          "@id": "https://schema.org/MeasuredValue?1"
+        },
+        "title": "closingVolume",
+        "description": "Volume at closing"
+      },
+      "https://w3id.org/traceability#observation": {
+        "$comment": {
+          "term": "observation",
+          "@id": "https://w3id.org/traceability#observation"
+        },
+        "title": "Observation List",
+        "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/OGBillOfLading.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"OGBillOfLading\", \"@id\": \"https://w3id.org/traceability#OGBillOfLading\"}",
+      "title": "Bill of Lading for an Oil and Gas Product",
+      "description": "Information on the Inspection and the observations made",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "billOfLading": {
+          "$comment": "{\"term\": \"billOfLading\", \"@id\": \"https://w3id.org/traceability#BillOfLading\"}",
+          "title": "Bill Of Lading",
+          "description": "Bill Of Lading",
+          "$ref": "https://w3id.org/traceability/schemas/BillOfLading.json"
+        },
+        "shippingDate": {
+          "$comment": "{\"term\": \"shippingDate\", \"@id\": \"https://schema.org/DateTime?1\"}",
+          "title": "Shipping Date",
+          "description": "Date of shipping",
+          "type": "string"
+        },
+        "arrivalDate": {
+          "$comment": "{\"term\": \"arrivalDate\", \"@id\": \"https://schema.org/DateTime?2\"}",
+          "title": "Arrival Date",
+          "description": "Date of arrival.",
+          "type": "string"
+        },
+        "valuePerItem": {
+          "$comment": "{\"term\": \"valuePerItem\", \"@id\": \"https://www.schema.org/value?1\"}",
+          "title": "Value Per Item",
+          "description": "Value Per Item",
+          "type": "string"
+        },
+        "totalOrderValue": {
+          "$comment": "{\"term\": \"totalOrderValue\", \"@id\": \"https://www.schema.org/value?2\"}",
+          "title": "Total Order Value",
+          "description": "Total value of the order",
+          "type": "string"
+        },
+        "freightChargeTerms": {
+          "$comment": "{\"term\": \"freightChargeTerms\", \"@id\": \"https://www.schema.org/value?3\"}",
+          "title": "freight Charge Terms",
+          "description": "Terms of the freight charge",
+          "type": "string"
+        },
+        "batchNumber": {
+          "$comment": "{\"term\": \"batchNumber\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Unique Well Identifier",
+          "description": "Unique Well Identifier used for individual well identification.",
+          "type": "string"
+        },
+        "openingVolume": {
+          "$comment": "{\"term\": \"openingVolume\", \"@id\": \"https://schema.org/MeasuredValue?2\"}",
+          "title": "Opening Volume",
+          "description": "Volume at injection",
+          "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+        },
+        "closingVolume": {
+          "$comment": "{\"term\": \"closingVolume\", \"@id\": \"https://schema.org/MeasuredValue?1\"}",
+          "title": "closingVolume",
+          "description": "Volume at closing",
+          "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+        },
+        "observation": {
+          "$comment": "{\"term\": \"observation\", \"@id\": \"https://w3id.org/traceability#observation\"}",
+          "title": "Observation List",
+          "description": "List of observations as seen and specified in the Inspection Report schema https://w3id.org/traceability?#InspectionReport",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Observation.json"
+          }
         }
       },
       "additionalProperties": false,
