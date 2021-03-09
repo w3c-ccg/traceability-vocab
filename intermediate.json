@@ -934,959 +934,6 @@
       "examples": []
     }
   },
-  "https://w3id.org/traceability#CertifiedMillTestReport": {
-    "$id": "https://w3id.org/traceability/schemas/CertifiedMillTestReport.json",
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "CertifiedMillTestReport",
-      "@id": "https://w3id.org/traceability#CertifiedMillTestReport"
-    },
-    "title": "Certified Mill Test Report",
-    "description": "Certifications made by a manufacturer of a metal product.",
-    "classProperties": {},
-    "examples": [],
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/CertifiedMillTestReport.json",
-      "$schema": "https://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"CertifiedMillTestReport\", \"@id\": \"https://w3id.org/traceability#CertifiedMillTestReport\"}",
-      "title": "Certified Mill Test Report",
-      "description": "Certifications made by a manufacturer of a metal product.",
-      "type": "object",
-      "properties": {
-        "@context": {
-          "type": "array"
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array"
-            }
-          ]
-        },
-        "heatNumber": {
-          "type": "string"
-        },
-        "category": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "specification": {
-          "type": "string"
-        },
-        "grade": {
-          "type": "string"
-        },
-        "size": {
-          "type": "string"
-        },
-        "originalCountryOfMeltAndPour": {
-          "type": "string"
-        },
-        "manufacturer": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string"
-            },
-            "globalLocationNumber": {
-              "type": "string"
-            },
-            "geo": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "latitude": {
-                  "type": "string"
-                },
-                "longitude": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "latitude",
-                "longitude"
-              ]
-            },
-            "address": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "organizationName": {
-                  "type": "string"
-                },
-                "streetAddress": {
-                  "type": "string"
-                },
-                "addressLocality": {
-                  "type": "string"
-                },
-                "addressRegion": {
-                  "type": "string"
-                },
-                "postalCode": {
-                  "type": "string"
-                },
-                "addressCountry": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "organizationName",
-                "streetAddress",
-                "addressLocality",
-                "addressRegion",
-                "postalCode",
-                "addressCountry"
-              ]
-            }
-          },
-          "required": [
-            "type",
-            "globalLocationNumber",
-            "geo",
-            "address"
-          ]
-        },
-        "purchase": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string"
-            },
-            "purchaseOrder": {
-              "type": "string"
-            },
-            "invoice": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "identifier"
-              ]
-            },
-            "customer": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "globalLocationNumber": {
-                  "type": "string"
-                },
-                "contactPoint": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "jobTitle": {
-                          "type": "string"
-                        },
-                        "email": {
-                          "type": "string"
-                        },
-                        "phoneNumber": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "name",
-                        "jobTitle",
-                        "email",
-                        "phoneNumber"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "address": {
-                          "type": "object",
-                          "properties": {
-                            "type": {
-                              "type": "string"
-                            },
-                            "streetAddress": {
-                              "type": "string"
-                            },
-                            "addressLocality": {
-                              "type": "string"
-                            },
-                            "addressRegion": {
-                              "type": "string"
-                            },
-                            "postalCode": {
-                              "type": "string"
-                            },
-                            "addressCountry": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "type",
-                            "streetAddress",
-                            "addressLocality",
-                            "addressRegion",
-                            "postalCode",
-                            "addressCountry"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "address"
-                      ]
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "type",
-                "globalLocationNumber",
-                "contactPoint"
-              ]
-            }
-          },
-          "required": [
-            "type",
-            "purchaseOrder",
-            "invoice",
-            "customer"
-          ]
-        },
-        "shipment": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string"
-            },
-            "deliveryMethod": {
-              "type": "string"
-            },
-            "trackingNumber": {
-              "type": "string"
-            },
-            "originAddress": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "organizationName": {
-                  "type": "string"
-                },
-                "streetAddress": {
-                  "type": "string"
-                },
-                "addressLocality": {
-                  "type": "string"
-                },
-                "addressRegion": {
-                  "type": "string"
-                },
-                "postalCode": {
-                  "type": "string"
-                },
-                "addressCountry": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "organizationName",
-                "streetAddress",
-                "addressLocality",
-                "addressRegion",
-                "postalCode",
-                "addressCountry"
-              ]
-            },
-            "deliveryAddress": {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "type": "string"
-                },
-                "organizationName": {
-                  "type": "string"
-                },
-                "streetAddress": {
-                  "type": "string"
-                },
-                "addressLocality": {
-                  "type": "string"
-                },
-                "addressRegion": {
-                  "type": "string"
-                },
-                "postalCode": {
-                  "type": "string"
-                },
-                "addressCountry": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "type",
-                "organizationName",
-                "streetAddress",
-                "addressLocality",
-                "addressRegion",
-                "postalCode",
-                "addressCountry"
-              ]
-            }
-          },
-          "required": [
-            "type",
-            "deliveryMethod",
-            "trackingNumber",
-            "originAddress",
-            "deliveryAddress"
-          ]
-        },
-        "inspection": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string"
-            },
-            "comment": {
-              "type": "string"
-            },
-            "observation": {
-              "type": "array",
-              "items": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "formula": {
-                          "type": "string"
-                        },
-                        "inchi": {
-                          "type": "string"
-                        },
-                        "inchikey": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "name",
-                        "formula",
-                        "inchi",
-                        "inchikey"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "identifier": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "identifier",
-                        "name",
-                        "description"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "formula": {
-                          "type": "string"
-                        },
-                        "inchi": {
-                          "type": "string"
-                        },
-                        "inchikey": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "name",
-                        "formula",
-                        "inchi",
-                        "inchikey"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "formula": {
-                          "type": "string"
-                        },
-                        "inchi": {
-                          "type": "string"
-                        },
-                        "inchikey": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "name",
-                        "formula",
-                        "inchi",
-                        "inchikey"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "identifier": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "identifier",
-                        "name",
-                        "description"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "formula": {
-                          "type": "string"
-                        },
-                        "inchi": {
-                          "type": "string"
-                        },
-                        "inchikey": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "name",
-                        "formula",
-                        "inchi",
-                        "inchikey"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "identifier": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "identifier",
-                        "name",
-                        "description"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "formula": {
-                          "type": "string"
-                        },
-                        "inchi": {
-                          "type": "string"
-                        },
-                        "inchikey": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "name",
-                        "formula",
-                        "inchi",
-                        "inchikey"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "formula": {
-                          "type": "string"
-                        },
-                        "inchi": {
-                          "type": "string"
-                        },
-                        "inchikey": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "name",
-                        "formula",
-                        "inchi",
-                        "inchikey"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "type": {
-                      "type": "string"
-                    },
-                    "property": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "identifier": {
-                          "type": "string"
-                        },
-                        "name": {
-                          "type": "string"
-                        },
-                        "description": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "identifier",
-                        "name",
-                        "description"
-                      ]
-                    },
-                    "measurement": {
-                      "type": "object",
-                      "properties": {
-                        "type": {
-                          "type": "string"
-                        },
-                        "value": {
-                          "type": "string"
-                        },
-                        "unitCode": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "type",
-                        "value",
-                        "unitCode"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "type",
-                    "property",
-                    "measurement"
-                  ]
-                }
-              ]
-            }
-          },
-          "required": [
-            "type",
-            "comment",
-            "observation"
-          ]
-        }
-      },
-      "required": [
-        "@context",
-        "type",
-        "heatNumber",
-        "category",
-        "description",
-        "specification",
-        "grade",
-        "size",
-        "originalCountryOfMeltAndPour",
-        "manufacturer",
-        "purchase",
-        "shipment",
-        "inspection"
-      ],
-      "additionalProperties": false,
-      "examples": []
-    }
-  },
   "https://w3id.org/traceability#ChargeDeclaration": {
     "$id": "https://w3id.org/traceability/schemas/ChargeDeclaration.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -2114,31 +1161,87 @@
     }
   },
   "https://w3id.org/traceability#CommercialInvoiceCredential": {
-    "$id": "https://w3id.org/traceability/schemas/CommercialInvoiceCredential.json",
+    "$id": "https://w3id.org/traceability/schemas/CommercialInvoice.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$comment": {
-      "term": "CommercialInvoiceCredential",
+      "term": "CommercialInvoice",
       "@id": "https://w3id.org/traceability#CommercialInvoiceCredential"
     },
-    "title": "Commercial Invoice Credential",
-    "description": "Commercial Invoice Credential",
+    "title": "Commercial Invoice",
+    "description": "A statement of the money due for goods or services; a bill.",
     "classProperties": {
-      "https://schema.org/relatedLink": {
+      "https://schema.org/identifier": {
         "$comment": {
-          "term": "relatedLink",
-          "@id": "https://schema.org/relatedLink"
+          "term": "identifier",
+          "@id": "https://schema.org/identifier"
         },
-        "title": "Related Link",
-        "description": "Links related to this verifiable credential"
+        "title": "Property Identifier",
+        "description": "Identifiers for a property."
+      },
+      "https://schema.org/address": {
+        "$comment": {
+          "term": "portOfEntry",
+          "@id": "https://schema.org/address"
+        },
+        "title": "Port Of Entry",
+        "description": "Port where the purchased goods will enter first."
+      },
+      "https://schema.org/paymentDueDate": {
+        "$comment": {
+          "term": "purchaseDate",
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "title": "Purchase Date",
+        "description": "The date that payment is made."
+      },
+      "https://schema.org/totalPaymentDue": {
+        "$comment": {
+          "term": "totalPaymentDue",
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "title": "Total Payment Due",
+        "description": "The total amount due."
+      },
+      "https://schema.org/addressCountry": {
+        "$comment": {
+          "term": "destinationCountry",
+          "@id": "https://schema.org/addressCountry"
+        },
+        "title": "Destination Country",
+        "description": "Country to which the purchased product will be delivered"
+      },
+      "https://schema.org/itemShipped": {
+        "$comment": {
+          "term": "merchandise",
+          "@id": "https://schema.org/itemShipped"
+        },
+        "title": "Merchandise",
+        "description": "Identifiers for a property."
+      },
+      "https://schema.org/customer": {
+        "$comment": {
+          "term": "customer",
+          "@id": "https://schema.org/customer"
+        },
+        "title": "Customer",
+        "description": "Party placing the order or paying the invoice."
+      },
+      "https://schema.org/provider": {
+        "$comment": {
+          "term": "provider",
+          "@id": "https://schema.org/provider"
+        },
+        "title": "Provider",
+        "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller."
       }
     },
     "examples": [],
     "schema": {
-      "$id": "https://w3id.org/traceability/schemas/CommercialInvoiceCredential.json",
+      "$id": "https://w3id.org/traceability/schemas/CommercialInvoice.json",
       "$schema": "https://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"CommercialInvoiceCredential\", \"@id\": \"https://w3id.org/traceability#CommercialInvoiceCredential\"}",
-      "title": "Commercial Invoice Credential",
-      "description": "Commercial Invoice Credential",
+      "$comment": "{\"term\": \"CommercialInvoice\", \"@id\": \"https://w3id.org/traceability#CommercialInvoiceCredential\"}",
+      "title": "Commercial Invoice",
+      "description": "A statement of the money due for goods or services; a bill.",
       "type": "object",
       "properties": {
         "@context": {
@@ -2154,41 +1257,59 @@
             }
           ]
         },
-        "id": {
+        "identifier": {
+          "$comment": "{\"term\": \"identifier\", \"@id\": \"https://schema.org/identifier\"}",
+          "title": "Property Identifier",
+          "description": "Identifiers for a property.",
           "type": "string"
         },
-        "name": {
+        "portOfEntry": {
+          "$comment": "{\"term\": \"portOfEntry\", \"@id\": \"https://schema.org/address\"}",
+          "title": "Port Of Entry",
+          "description": "Port where the purchased goods will enter first.",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "purchaseDate": {
+          "$comment": "{\"term\": \"purchaseDate\", \"@id\": \"https://schema.org/paymentDueDate\"}",
+          "title": "Purchase Date",
+          "description": "The date that payment is made.",
           "type": "string"
         },
-        "description": {
+        "totalPaymentDue": {
+          "$comment": "{\"term\": \"totalPaymentDue\", \"@id\": \"https://schema.org/totalPaymentDue\"}",
+          "title": "Total Payment Due",
+          "description": "The total amount due.",
+          "$ref": "https://w3id.org/traceability/schemas/PriceSpecification.json"
+        },
+        "destinationCountry": {
+          "$comment": "{\"term\": \"destinationCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+          "title": "Destination Country",
+          "description": "Country to which the purchased product will be delivered",
           "type": "string"
         },
-        "issuanceDate": {
-          "type": "string"
-        },
-        "issuer": {
-          "type": "object"
-        },
-        "credentialSubject": {
-          "type": "object"
-        },
-        "proof": {
-          "type": "object"
-        },
-        "relatedLink": {
-          "$comment": "{\"term\": \"relatedLink\", \"@id\": \"https://schema.org/relatedLink\"}",
-          "title": "Related Link",
-          "description": "Links related to this verifiable credential",
+        "merchandise": {
+          "$comment": "{\"term\": \"merchandise\", \"@id\": \"https://schema.org/itemShipped\"}",
+          "title": "Merchandise",
+          "description": "Identifiers for a property.",
           "type": "array",
           "items": {
-            "$ref": "https://w3id.org/traceability/schemas/LinkRole.json"
+            "$ref": "https://w3id.org/traceability/schemas/Product.json"
           }
+        },
+        "customer": {
+          "$comment": "{\"term\": \"customer\", \"@id\": \"https://schema.org/customer\"}",
+          "title": "Customer",
+          "description": "Party placing the order or paying the invoice.",
+          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+        },
+        "provider": {
+          "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
+          "title": "Provider",
+          "description": "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.",
+          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
         }
       },
       "additionalProperties": false,
-      "required": [
-        "proof"
-      ],
       "examples": []
     }
   },
@@ -6752,6 +5873,108 @@
           "type": "string"
         }
       },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#MillTestReport": {
+    "$id": "https://w3id.org/traceability/schemas/MillTestReport.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "MillTestReport",
+      "@id": "https://w3id.org/traceability#MillTestReport"
+    },
+    "title": "Mill Test Report",
+    "description": "Test results made by a manufacturer of a metal product.",
+    "classProperties": {
+      "https://schema.org/Organization": {
+        "$comment": {
+          "term": "manufacturer",
+          "@id": "https://schema.org/Organization"
+        },
+        "title": "Manufacturer",
+        "description": "The manufacturer"
+      },
+      "https://w3id.org/traceability#SteelProduct": {
+        "$comment": {
+          "term": "product",
+          "@id": "https://w3id.org/traceability#SteelProduct"
+        },
+        "title": "Product",
+        "description": "Product details"
+      },
+      "https://w3id.org/traceability#Purchase": {
+        "$comment": {
+          "term": "purchase",
+          "@id": "https://w3id.org/traceability#Purchase"
+        },
+        "title": "Purchase",
+        "description": "Purchase details"
+      },
+      "https://schema.org/ParcelDelivery": {
+        "$comment": {
+          "term": "shipment",
+          "@id": "https://schema.org/ParcelDelivery"
+        },
+        "title": "Shipment",
+        "description": "Shipment details"
+      }
+    },
+    "examples": [],
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/MillTestReport.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"MillTestReport\", \"@id\": \"https://w3id.org/traceability#MillTestReport\"}",
+      "title": "Mill Test Report",
+      "description": "Test results made by a manufacturer of a metal product.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "manufacturer": {
+          "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/Organization\"}",
+          "title": "Manufacturer",
+          "description": "The manufacturer",
+          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+        },
+        "product": {
+          "$comment": "{\"term\": \"product\", \"@id\": \"https://w3id.org/traceability#SteelProduct\"}",
+          "title": "Product",
+          "description": "Product details",
+          "$ref": "https://w3id.org/traceability/schemas/SteelProduct.json"
+        },
+        "purchase": {
+          "$comment": "{\"term\": \"purchase\", \"@id\": \"https://w3id.org/traceability#Purchase\"}",
+          "title": "Purchase",
+          "description": "Purchase details",
+          "$ref": "https://w3id.org/traceability/schemas/Purchase.json"
+        },
+        "shipment": {
+          "$comment": "{\"term\": \"shipment\", \"@id\": \"https://schema.org/ParcelDelivery\"}",
+          "title": "Shipment",
+          "description": "Shipment details",
+          "$ref": "https://w3id.org/traceability/schemas/ParcelDelivery.json"
+        }
+      },
+      "required": [
+        "@context",
+        "type",
+        "manufacturer",
+        "product",
+        "purchase",
+        "shipment"
+      ],
       "additionalProperties": false,
       "examples": []
     }

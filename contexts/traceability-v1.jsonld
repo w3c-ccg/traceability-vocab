@@ -183,10 +183,6 @@
         }
       }
     },
-    "CertifiedMillTestReport": {
-      "@id": "https://w3id.org/traceability#CertifiedMillTestReport",
-      "@context": {}
-    },
     "ChargeDeclaration": {
       "@id": "https://w3id.org/traceability#ChargeDeclaration",
       "@context": {
@@ -230,11 +226,32 @@
         }
       }
     },
-    "CommercialInvoiceCredential": {
+    "CommercialInvoice": {
       "@id": "https://w3id.org/traceability#CommercialInvoiceCredential",
       "@context": {
-        "relatedLink": {
-          "@id": "https://schema.org/relatedLink"
+        "identifier": {
+          "@id": "https://schema.org/identifier"
+        },
+        "portOfEntry": {
+          "@id": "https://schema.org/address"
+        },
+        "purchaseDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "totalPaymentDue": {
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "destinationCountry": {
+          "@id": "https://schema.org/addressCountry"
+        },
+        "merchandise": {
+          "@id": "https://schema.org/itemShipped"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
         }
       }
     },
@@ -1057,6 +1074,23 @@
         },
         "description": {
           "@id": "https://schema.org/description"
+        }
+      }
+    },
+    "MillTestReport": {
+      "@id": "https://w3id.org/traceability#MillTestReport",
+      "@context": {
+        "manufacturer": {
+          "@id": "https://schema.org/Organization"
+        },
+        "product": {
+          "@id": "https://w3id.org/traceability#SteelProduct"
+        },
+        "purchase": {
+          "@id": "https://w3id.org/traceability#Purchase"
+        },
+        "shipment": {
+          "@id": "https://schema.org/ParcelDelivery"
         }
       }
     },
