@@ -8,7 +8,7 @@ const ajv = generator.getAjv();
 const getCommercialInvoice = () => {
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
-    type: ['Invoice', 'CommercialInvoice'],
+    type: ['CommercialInvoice'],
     portOfEntry: {
       type: 'PostalAddress',
       addressLocality: 'Seatle',
@@ -43,7 +43,7 @@ const getCommercialInvoice = () => {
     },
     totalPaymentDue: {
       type: 'PriceSpecification',
-      price: '150000.00',
+      price: 150000.0,
       priceCurrency: 'USD',
     },
     merchandise: [
@@ -57,11 +57,15 @@ const getCommercialInvoice = () => {
           },
         },
         description: 'UNS S30400 chromium-nickel stainless steel rolls.',
-        weight: '10000 lbs',
-        quantity: '5',
+        weight: {
+          type: ['QuantitativeValue'],
+          unitCode: 'lbs',
+          value: '10000',
+        },
+        quantity: 5,
         priceSpecification: {
           type: 'PriceSpecification',
-          price: '10000.00',
+          price: 10000.0,
           priceCurrency: 'USD',
         },
       },
@@ -76,11 +80,15 @@ const getCommercialInvoice = () => {
         },
         description:
           'Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.',
-        weight: '20000 lbs',
-        quantity: '10',
+        weight: {
+          type: ['QuantitativeValue'],
+          unitCode: 'lbs',
+          value: '20000',
+        },
+        quantity: 10,
         priceSpecification: {
           type: 'PriceSpecification',
-          price: '10000.00',
+          price: 10000.0,
           priceCurrency: 'USD',
         },
       },

@@ -10,8 +10,10 @@
   "issuanceDate": "2021-02-04T20:29:37+00:00",
   "issuer": "did:example:123",
   "credentialSubject": {
+    "@context": [
+      "https://w3id.org/traceability/v1"
+    ],
     "type": [
-      "Invoice",
       "CommercialInvoice"
     ],
     "portOfEntry": {
@@ -74,7 +76,13 @@
           ]
         },
         "description": "UNS S30400 chromium-nickel stainless steel rolls.",
-        "weight": "10000 lbs",
+        "weight": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "lbs",
+          "value": "10000"
+        },
         "quantity": "5",
         "priceSpecification": {
           "type": [
@@ -94,7 +102,13 @@
           ]
         },
         "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
-        "weight": "20000 lbs",
+        "weight": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "lbs",
+          "value": "20000"
+        },
         "quantity": "10",
         "priceSpecification": {
           "type": [
@@ -109,7 +123,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..gEk21XefQWl7Mzhu5NLFg6E5VKHnuqYL3ciDfmhTPXBabv6Z41cDFFxa0Lv7_EhJNWCF8Eq5cQhSAdJpzvDUCw",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..OrKT-f_RKMKsfx7rKoE-WeNI_7ldoJSIaNVInYgRxrW46GFcSCJJSCfdhHr2OrjcX88-5tDjzB2jGb3h-bQwBQ",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:example:123#key-0"
   }
