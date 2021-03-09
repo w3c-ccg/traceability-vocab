@@ -15,6 +15,8 @@ console.log('Adding schemas to validator');
 Object.keys(schemas).forEach((schemaName) => {
     try {
         const schema = schemas[schemaName];
+        // ajv workaround
+        schema.$schema = schema.$schema.replace('https://', 'http://');
         ajv.addSchema(schema);
     } catch (schemaError) {
         console.warn('Error adding schema to AJV for:', schemaName);
