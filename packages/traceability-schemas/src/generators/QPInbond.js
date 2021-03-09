@@ -16,8 +16,9 @@ const getQPInbond = () => {
   delete product['@context'];
   product.name = 'Crude Oil Barrel';
   product.description = 'Heavy Sour Dilbit';
-  const originAddress = getPostalAddress();
-  const deliveryAddress = getPostalAddress();
+  // const originAddress = getPostalAddress();
+  // FIXME
+  // const deliveryAddress = getPostalAddress();
   const carrier = getEntity();
   const recipient = getEntity();
 
@@ -32,9 +33,9 @@ const getQPInbond = () => {
     recipient,
     shipment: {
       type: 'DeliveryParcel',
-      originAddress,
-      deliveryAddress,
-      deliveryMethod: 'pipeline',
+      // originAddress,
+      // deliveryAddress,
+      // deliveryMethod: 'pipeline',
     },
     billOfLadingNumber: '123456789',
     expectedDeliveryDate: '2020-10-20',

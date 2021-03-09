@@ -10,17 +10,106 @@
   "issuanceDate": "2021-02-04T20:29:37+00:00",
   "issuer": "did:example:123",
   "credentialSubject": {
-    "@context": [
-      "https://w3id.org/traceability/v1"
-    ],
     "type": [
+      "Invoice",
       "CommercialInvoice"
+    ],
+    "portOfEntry": {
+      "type": [
+        "PostalAddress"
+      ],
+      "addressLocality": "Seatle",
+      "addressRegion": "Washington",
+      "addressCountry": "USA"
+    },
+    "destinationCountry": "MEX",
+    "purchaseDate": "2021-02-21",
+    "customer": {
+      "type": [
+        "Organization"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Generic Motors of America",
+        "streetAddress": "12 Generic Motors Dr",
+        "addressLocality": "Detroit",
+        "addressRegion": "Michigain",
+        "postalCode": "48232-5170",
+        "addressCountry": "USA"
+      }
+    },
+    "provider": {
+      "type": [
+        "Organization"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+        "streetAddress": "1651, Shimonakano, Yoshida",
+        "addressLocality": "Tsubame-shi",
+        "addressRegion": "Niigata-ken",
+        "postalCode": "959-0215",
+        "addressCountry": "Japan"
+      }
+    },
+    "totalPaymentDue": {
+      "type": [
+        "PriceSpecification"
+      ],
+      "price": 150000,
+      "priceCurrency": "USD"
+    },
+    "merchandise": [
+      {
+        "type": [
+          "Product"
+        ],
+        "manufacturer": {
+          "type": [
+            "Organization"
+          ]
+        },
+        "description": "UNS S30400 chromium-nickel stainless steel rolls.",
+        "weight": "10000 lbs",
+        "quantity": "5",
+        "priceSpecification": {
+          "type": [
+            "PriceSpecification"
+          ],
+          "price": 10000,
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "type": [
+          "Product"
+        ],
+        "manufacturer": {
+          "type": [
+            "Organization"
+          ]
+        },
+        "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
+        "weight": "20000 lbs",
+        "quantity": "10",
+        "priceSpecification": {
+          "type": [
+            "PriceSpecification"
+          ],
+          "price": 10000,
+          "priceCurrency": "USD"
+        }
+      }
     ]
   },
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..q4Ey9MjtYATfWEeDpvBRaal7jOwc03LOD7ffHslfGMtIePvwUxuGyLOQ2GeIOchQUHidc9O24CckCwD3MNsLCg",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..gEk21XefQWl7Mzhu5NLFg6E5VKHnuqYL3ciDfmhTPXBabv6Z41cDFFxa0Lv7_EhJNWCF8Eq5cQhSAdJpzvDUCw",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:example:123#key-0"
   }
