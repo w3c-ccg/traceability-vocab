@@ -24,11 +24,11 @@ const getContextFromIntermediate = (intermediate) => {
   return {
     '@context': {
       '@version': 1.1,
-      name: 'http://schema.org/name',
-      description: 'http://schema.org/description',
-      identifier: 'http://schema.org/identifier',
+      name: 'https://schema.org/name',
+      description: 'https://schema.org/description',
+      identifier: 'https://schema.org/identifier',
       image: {
-        '@id': 'http://schema.org/image',
+        '@id': 'https://schema.org/image',
         '@type': '@id',
       },
       id: '@id',
