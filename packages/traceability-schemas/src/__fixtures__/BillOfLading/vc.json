@@ -16,62 +16,58 @@
     "billOfLadingNumber": "991205182",
     "relatedDocuments": [
       {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
         "type": [
           "Purchase"
         ],
-        "purchaseOrder": "PO:33321235",
-        "invoice": {
+        "customer": {
           "type": [
-            "Invoice"
+            "Person"
           ],
-          "identifier": "8019223-135189"
+          "email": "Willie78@example.net",
+          "phoneNumber": "555-152-7258"
         }
       }
     ],
     "freight": {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
       "type": [
         "ParcelDelivery"
       ],
-      "expectedArrival": "2021-02-21",
-      "specialInstructions": "Do not expose to elements.",
-      "consignee": {
+      "deliveryAddress": {
         "type": [
-          "Organization"
+          "PostalAddress"
         ],
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "organizationName": "Hodkiewicz, Huels and Schuppe",
-          "streetAddress": "131 Cynthia Corner",
-          "addressLocality": "Port Elvaville",
-          "addressRegion": "Massachusetts",
-          "postalCode": "21281-6812",
-          "addressCountry": "Lichtenstein"
-        }
+        "organizationName": "Hahn LLC",
+        "streetAddress": "786 Pfeffer Plains",
+        "addressLocality": "West Ottilie",
+        "addressRegion": "Nebraska",
+        "postalCode": "50878-0870",
+        "addressCountry": "Cook Islands"
       },
-      "item": [
-        {
-          "type": [
-            "Product",
-            "BillOfLading"
-          ],
-          "name": "Rebar",
-          "description": "Coiled rebar product.",
-          "quantity": "1000 units",
-          "width": "10ft",
-          "height": "5ft",
-          "depth": "25ft",
-          "weight": "10000 lbs",
-          "packagingType": "pallets"
-        }
-      ]
+      "originAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Rosenbaum, Hills and Pagac",
+        "streetAddress": "71834 Zelma Trail",
+        "addressLocality": "West Gerhardview",
+        "addressRegion": "North Carolina",
+        "postalCode": "78251-3640",
+        "addressCountry": "Paraguay"
+      },
+      "deliveryMethod": "Ocean transport",
+      "trackingNumber": "178380801954"
     }
   },
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..eh2A-2s3GYEkuY5b9zXr98NrmG52qnejQ7iOieSJe5PUgvxszBcy2MdoHVYAnTXUaVrIgksINS8RgWRUj75HDQ",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..lCaFPXmtx2zRrlqFaKSE4LBcocfLOX9ujIvSZU4W7latI8SpRU97clES-udV_DIyOPCi9Fq-5bE2bHQrwC0TAw",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:example:123#key-0"
   }

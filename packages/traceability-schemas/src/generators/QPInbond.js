@@ -3,6 +3,7 @@ const { generator, schemas } = require('../data/util/data');
 const { faker } = generator;
 
 const { getEntity } = require('./Entity');
+const { getPlace } = require('./Place');
 const { getPostalAddress } = require('./PostalAddress');
 
 const ajv = generator.getAjv();
@@ -16,11 +17,11 @@ const getQPInbond = () => {
   delete product['@context'];
   product.name = 'Crude Oil Barrel';
   product.description = 'Heavy Sour Dilbit';
-  // const originAddress = getPostalAddress();
-  // FIXME
-  // const deliveryAddress = getPostalAddress();
+  const originAddress = getPostalAddress();
+  const deliveryAddress = getPostalAddress();
   const carrier = getEntity();
   const recipient = getEntity();
+  const portOfEntry = getPlace();
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -28,14 +29,14 @@ const getQPInbond = () => {
     inBondNumber: '123456789',
     irsNumber: '12345678-01',
     inBondType: 'IT (61)',
-    portOfEntry: 'Superior, WI, USA',
+    portOfEntry,
     carrier,
     recipient,
     shipment: {
-      type: 'DeliveryParcel',
-      // originAddress,
-      // deliveryAddress,
-      // deliveryMethod: 'pipeline',
+      type: 'ParcelDelivery',
+      originAddress,
+      deliveryAddress,
+      deliveryMethod: 'pipeline',
     },
     billOfLadingNumber: '123456789',
     expectedDeliveryDate: '2020-10-20',
