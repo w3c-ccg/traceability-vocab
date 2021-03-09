@@ -12,10 +12,26 @@ const issueCreds = async (credTemplate, schemaName) => {
   try {
     const key = Ed25519KeyPair.from(require('../src/data/vc/keypair.json'));
 
-    // eslint-disable-next-line
-    delete credTemplate.credentialSubject['@context'];
+    // deep copy
+    let credentialPayload = JSON.parse(JSON.stringify(credTemplate));
+    // allow for custom VC properties....
+    // hacky...
+    if (
+      credentialPayload.credentialSubject.type[0] === 'VerifiableCredential'
+    ) {
+      credentialPayload = credentialPayload.credentialSubject;
+      if (typeof credentialPayload.issuer === 'string') {
+        credentialPayload.issuer = key.controller;
+      } else {
+        credentialPayload.issuer.id = key.controller;
+      }
+    } else {
+      // eslint-disable-next-line
+      delete credTemplate.credentialSubject['@context'];
+    }
+
     const verifiableCredential = await vcjs.ld.issue({
-      credential: credTemplate,
+      credential: credentialPayload,
       suite: new Ed25519Signature2018({
         key,
         date: '2019-12-11T03:50:55Z',
@@ -58,7 +74,6 @@ Object.keys(schemas).forEach((schemaName) => {
   if (process.env.VERBOSE_BUILD) {
     console.log('Generating credentials for:', schemaName);
   }
-  const schema = schemas[schemaName];
   const exampleFile = path.resolve(
     __dirname,
     `../src/__fixtures__/${schemaName}/credential.json`
