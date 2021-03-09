@@ -1,5 +1,6 @@
 const faker = require('faker');
 const _ = require('lodash');
+const { getBillOfLading } = require('./BillOfLading');
 const { getObservation } = require('./Observation');
 const { getPlace } = require('./Place');
 
@@ -7,14 +8,13 @@ faker.seed(22);
 
 const { getProduct } = require('./Product');
 
-const getCrudeOilProduct = () => {
+const getOGBillOfLading = () => {
   const product = getProduct();
   delete product['@context'];
   product.name = 'Crude Oil Barrel';
   product.description = 'Heavy Sour Dilbit';
 
-  const facility = getPlace();
-  delete facility['@context'];
+  const billOfLading = getBillOfLading();
 
   let numSubstances = faker.random.number({ min: 1, max: 4 });
   let observation = [];
@@ -46,18 +46,24 @@ const getCrudeOilProduct = () => {
       },
     };
   });
+  const valuePerItem = faker.random.number({ min: 100, max: 1000 }).toString();
+  const totalOrderValue = valuePerItem * faker.random.number({ min: 2, max: 5 }).toString();
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
-    type: 'CrudeOilProduct',
-    HSCode: '270900',
-    UWI: '100.12-04-091-05-W5.00',
-    productionDate: '2020-03-30',
-    facility,
+    type: 'OGBillOfLading',
+    billOfLading,
+    shippingDate: '2020-03-15',
+    arrivalDate: '2020-03-28',
+    valuePerItem,
+    totalOrderValue,
+    freightCargoTerms: 'Freight Prepaid',
+    batchNumber: '12345678',
+    openingVolume: '123',
+    closingVolume: '222',
     observation,
-    product,
   };
   return example;
 };
 
-module.exports = { getCrudeOilProduct };
+module.exports = { getOGBillOfLading };

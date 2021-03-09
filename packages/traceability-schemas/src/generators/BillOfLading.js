@@ -1,21 +1,31 @@
-const { generator, schemas } = require('../data/util/data');
+const faker = require('faker');
+const _ = require('lodash');
+const { getParcelDelivery } = require('./ParcelDelivery');
 
-const { faker } = generator;
+faker.seed(22);
 
-const ajv = generator.getAjv();
+const { getProduct } = require('./Product');
+const { getPurchase } = require('./Purchase');
 
 const getBillOfLading = () => {
-    const example = {
-      '@context': ['https://w3id.org/traceability/v1'],
-      type: 'BillOfLading',
-      examples: []
-    };
-    const validate = ajv.compile(schemas.BillOfLading);
-    const validateResult = validate(example);
-    if (process.env.VERBOSE_BUILD_GENERAL) {
-      console.log('Early Validation results from BillOfLading:', validateResult);
-    }
-    return example;
-  };
+  const product = getProduct();
+  delete product['@context'];
+  product.name = 'Crude Oil Barrel';
+  product.description = 'Heavy Sour Dilbit';
 
-  module.exports = { getBillOfLading };
+  const freight = getParcelDelivery();
+  const purchase = getPurchase();
+
+  const example = {
+    '@context': ['https://w3id.org/traceability/v1'],
+    type: 'BillOfLading',
+    billOfLadingNumber: '991205182',
+    relatedDocuments: [
+        purchase
+    ],
+    freight,
+  };
+  return example;
+};
+
+module.exports = { getBillOfLading };
