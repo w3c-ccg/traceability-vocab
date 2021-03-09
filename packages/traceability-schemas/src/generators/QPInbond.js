@@ -33,7 +33,7 @@ const getQPInbond = () => {
     carrier,
     recipient,
     shipment: {
-      type: 'DeliveryParcel',
+      type: 'ParcelDelivery',
       originAddress,
       deliveryAddress,
       deliveryMethod: 'pipeline',

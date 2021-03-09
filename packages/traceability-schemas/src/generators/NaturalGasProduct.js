@@ -1,6 +1,5 @@
 const faker = require('faker');
 const _ = require('lodash');
-const { getBillOfLading } = require('./BillOfLading');
 const { getObservation } = require('./Observation');
 const { getPlace } = require('./Place');
 
@@ -8,13 +7,14 @@ faker.seed(22);
 
 const { getProduct } = require('./Product');
 
-const getOGBillOfLading = () => {
+const getNaturalGasProduct = () => {
   const product = getProduct();
   delete product['@context'];
-  product.name = 'Crude Oil Barrel';
-  product.description = 'Heavy Sour Dilbit';
+  product.name = 'Natural Gas';
+  product.description = 'Natural Gas Stream';
 
-  const billOfLading = getBillOfLading();
+  const facility = getPlace();
+  delete facility['@context'];
 
   let numSubstances = faker.random.number({ min: 1, max: 4 });
   let observation = [];
@@ -46,24 +46,18 @@ const getOGBillOfLading = () => {
       },
     };
   });
-  const valuePerItem = faker.random.number({ min: 100, max: 1000 }).toString();
-  const totalOrderValue = valuePerItem * faker.random.number({ min: 2, max: 5 }).toString();
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
-    type: 'OGBillOfLading',
-    billOfLading,
-    shippingDate: '2020-03-15',
-    arrivalDate: '2020-03-28',
-    valuePerItem,
-    totalOrderValue,
-    freightChargeTerms: 'Freight Prepaid',
-    batchNumber: '12345678',
-    openingVolume: '123',
-    closingVolume: '222',
+    type: 'NaturalGasProduct',
+    HSCode: '270900',
+    UWI: '100.12-04-091-05-W5.00',
+    productionDate: '2020-03-30',
+    facility,
     observation,
+    product,
   };
   return example;
 };
 
-module.exports = { getOGBillOfLading };
+module.exports = { getNaturalGasProduct };
