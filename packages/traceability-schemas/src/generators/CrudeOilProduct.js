@@ -1,9 +1,11 @@
-const faker = require('faker');
 const _ = require('lodash');
 const { getObservation } = require('./Observation');
+const { generator, schemas } = require('../data/util/data');
 const { getPlace } = require('./Place');
 
-faker.seed(22);
+const { faker } = generator;
+
+const ajv = generator.getAjv();
 
 const { getProduct } = require('./Product');
 
@@ -57,7 +59,12 @@ const getCrudeOilProduct = () => {
     observation,
     product,
   };
-  return example;
+  const validate = ajv.compile(schemas.CrudeOilProduct);
+    const validateResult = validate(example);
+    if (process.env.VERBOSE_BUILD_OIL) {
+      console.log('Early Validation results from CrudeOilProduct:', validateResult);
+    }
+    return example;
 };
 
 module.exports = { getCrudeOilProduct };

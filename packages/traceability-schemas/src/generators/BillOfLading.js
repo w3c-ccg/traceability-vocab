@@ -1,8 +1,9 @@
-const faker = require('faker');
 const _ = require('lodash');
 const { getParcelDelivery } = require('./ParcelDelivery');
+const { generator, schemas } = require('../data/util/data');
 
-faker.seed(22);
+const { faker } = generator;
+const ajv = generator.getAjv();
 
 const { getProduct } = require('./Product');
 const { getPurchase } = require('./Purchase');
@@ -25,6 +26,11 @@ const getBillOfLading = () => {
     ],
     freight,
   };
+  const validate = ajv.compile(schemas.BillOfLading);
+    const validateResult = validate(example);
+    if (process.env.VERBOSE_BUILD_GENERAL) {
+      console.log('Early Validation results from BillOfLading:', validateResult);
+    }
   return example;
 };
 
