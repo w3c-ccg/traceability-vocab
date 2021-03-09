@@ -5,10 +5,16 @@ const schemas = require('../../index.js');
 
 const ajv = new Ajv({});
 
+describe('Adding any local root schema(s) to AJV first', () => {
+  // ajv will bomb if referencing http://json-schema.org/draft-07/ via https fyi
+});
+
 const validationResults = [];
 describe('Adding Schemas to AJV', () => {
   Object.keys(schemas).forEach((schemaName) => {
     const schema = schemas[schemaName];
+    // work around an issue with validation against https for ajv
+    schema.$schema = schema.$schema.replace('https://', 'http://');
     ajv.addSchema(schema);
   });
 });
