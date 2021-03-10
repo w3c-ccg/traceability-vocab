@@ -6,7 +6,7 @@ It also contains all the programatic update code for automatically generating th
 
 If you are just adding vocabulary items, you should only ever need to:
 - Create a JSON schema definition in the `schemas` folder. The schema JSON file should be named to match the type.
-- Create a corresponding generator for known "good" data in the `src/generators/` folder.  The generator file name should be identical to the corresponding schema, with an extension and filetype of `.js`
+- Create a corresponding generator for known "good" data in the `src/generators/` folder.  The generator file name should be identical to the corresponding schema, with an extension and filetype of `.js`.
 
 Schemas should be named simply, and defined at a high a level as is reasonable.  Words such as 'credential' are redundant and should not be included in schema names.  e.g. a good schema name is `Product` for a type that represents data about a "product".  a BAD example would be `ProductCredential`.  A good sub-type that extends product with properties specific to some certain market would be `OrganicProduct`, assuming that an `OrganicProduct` had some specific attributes that are not represented in `Product`.  if the parent type accurately describes all attributes that are required, then a sub-type should not be created. If the only difference is a need to specify that the item is some specific "type" (in human english language meaning) of "Organic Product", then consideration should be given to adding a field to `Product` that specifies the "product type", such as `Product.productType`.  This prevents duplicate redundant objects and allows for sane querying and business rules handling off of common objects. 
 
@@ -87,4 +87,3 @@ The Annotated tree structure is below with notes in braces
    ├── __fixtures__       { auto-generated test assets }
    └── __tests__          { core spec tests }
 ````
-
