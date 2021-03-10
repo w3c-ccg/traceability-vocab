@@ -14,35 +14,35 @@ If you are a developer who is interested in working directly with the vocabulary
 
 ### Developer Setup
 
-To get started building, testing, or contributing to this repository you will need at a minimum [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/)
+To get started building, testing, or contributing to this repository, you will need [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/). 
 
 After you have the dependencies, the first time setup is as follows:
 
 1) checkout this repository
 
-```
-$ git checkout https://github.com/w3c-ccg/traceability-vocab.git
-```
+   ```
+   $ git checkout https://github.com/w3c-ccg/traceability-vocab.git
+   ```
 
 2) Once the repository is checked out, run `npm install` in the created directory to get all project dependencies
 
-```
-$ cd traceability-vocab
-$ npm install
-```
+   ```
+   $ cd traceability-vocab
+   $ npm install
+   ```
 
 3) After the repository is checked out, and all dependencies have been installed, then you can build the vocabulary itself
 
-```
-$ npm runbuild:all
-```
-This can take a while, as it will run through the entire process of merging the individual schemas, creating test vectors, and ultimately creating a signed verifiable credential for each vocabulary item.  If you would like to view details on the build process, please see the [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas) located in the actual schemas build project folder.
+   ```
+   $ npm runbuild:all
+   ```
+   This can take a while, as it will run through the entire process of merging the individual schemas, creating test vectors, and ultimately creating a signed verifiable credential for each vocabulary item.  If you would like to view details on the build process, please see the [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas) located in the actual schemas build project folder.
 
-4) Finally, once everything is built and tested, you can serve up the spec and related documentaion locally: 
+4) Finally, once everything is built and tested, you can serve up the spec and related documentation locally: 
 
-```
-$ npx serve docs
-```
+   ```
+   $ npx serve docs
+   ```
 
 ### Making Contributions
 
@@ -56,7 +56,7 @@ In order to have your contributions accepted you MUST:
 1. Add synthetic data generation for any new data types / vocabulary terms.
 2. Add any "special case" testing you believe is helpful for your data structures.
 3. Run all tests locally and ensure they are all passing.
-4. Generate the latest version of the spec to include your changes to vocabular / data model.
+4. Generate the latest version of the spec to include your changes to vocabulary / data model.
 5. Open a Pull Request with your changes, a clear description of them in the description, and demonstrate passing CI Tests.
 6. Any references to schemas you wish to include in your schema should be recreated locally and referenced there. In these local schemas, only include the properties relevant to the schema you have created. For example, [Person](https://schema.org/Person) is an existing schema on schema.org, but a Person.json schema has been added to this repo, including only the relevant and used properties for the other traceability schemas. This is to hopefully make traceability schemas easier to understand and manage by not incorporating too many unnecessarily large schemas. The schemas that have been made local in this way (like Person.json) should still reference the schema.org entry like so:
 
@@ -68,12 +68,12 @@ Pull requests will not as a rule be merged if any conflicts exist, or if testing
 
 Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponding issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
 
-A one week (7 day) period will be provided for review of pull requests related to data schemas or project functionality prior to merge to allow suffient review time. Exceptions may be made for essential documentation, or to allow for immediate hotfix of security issues or functionality breaking items.
+A one week (7 day) period will be provided for review of pull requests related to data schemas or project functionality prior to merge to allow sufficient review time. Exceptions may be made for essential documentation, or to allow for immediate "hotfix" of security issues or functionality breaking items.
 
 
 ## Ontology Structure
 
-This repository hosts [json-schema](https://json-schema.org/) which it uses to create [jsonld](https://json-ld.org/).
+This repository hosts [JSON Schema](https://json-schema.org/) which it uses to create [JSON-LD](https://json-ld.org/).
 
 All JSON Schema must have an `$id` property, and it must resolve to the JSON-Schema Document.
 
@@ -91,7 +91,7 @@ For example see:
 "description": "A person",
 ```
 
-These attributes are then used to determinstically build a JSON-LD context hosted at:
+These attributes are then used to deterministically build a JSON-LD context hosted at:
 
 [https://w3id.org/traceability/v1](https://w3id.org/traceability/v1)
 
@@ -166,8 +166,8 @@ In addition the following key areas in the repo should be noted for understandin
 - The index file in [docs](./docs/index.html) is the master public facing documentation page.  It is a baseline specification, with the bulk of the contents being automatically generated after tests have been run on items
 - JSON Schema for each object to be referenced is stored in the [schemas](.docs/schemas) folder
 - Code Generation to create synthetic test data is located in [generators](./packages/traceability-schemas/src/generators)
-- Test Vectors are run against fixtures that are auo generated and located in the [fixtures](./packages/traceability-schemas/src/__fixtures__) folder, and correspond to the defined schemas
-- [Contexts](./docs/contexts) stores the interim combined json-ld vocabulary for test and verification
+- Test Vectors are run against fixtures that are auto generated and located in the [fixtures](./packages/traceability-schemas/src/__fixtures__) folder, and correspond to the defined schemas
+- [Contexts](./docs/contexts) stores the interim combined JSON-LD vocabulary for test and verification
 - Verifiable Credential Examples are autogenerated and populated into the spec. Example single credential and VC examples are located in the fixtures folder mentioned above.
 
 ### Contributing to Vocabulary
@@ -205,21 +205,21 @@ Wherever possible JSON-LD in use as a Verifiable Credential should be ["small in
 
 ### Room for Improvements
 
-Certain items such as `allOf` on the JSON Schema side of things would be quite helpful to support, so that better patterns of inheritence can be modeled.  We are open to contriutions that improve our support of auto-generation of JSON-LD from JSON Schema.
+Certain items such as `allOf` on the JSON Schema side of things would be quite helpful to support, so that better patterns of inheritance can be modeled.  We are open to contributions that improve our support of auto-generation of JSON-LD from JSON Schema.
 
 ### Date / Time
 
-Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`.  Static Dates should be used in generated data so as to avoid unecessary changes in the repository on build.
+Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`.  Static Dates should be used in generated data so as to avoid unnecessary changes in the repository on build.
 
 ### Place (as an example)
 
 - [JSON Schema](./docs/schemas/Place.json)
 - [Data Generator](./packages/traceability-schemas/src/generators/Place.js)
-- [JSON-LD Context (derrived)](./docs/contexts/traceability-v1.jsonld)
-- [Vocabular Definition (derrived)](https://w3id.org/traceability#place)
+- [JSON-LD Context (derived)](./docs/contexts/traceability-v1.jsonld)
+- [Vocabulary Definition (derived)](https://w3id.org/traceability#place)
 
 
-### Common Environment Variables for Build and Deelopment
+### Common Environment Variables for Build and Development
 
 Some useful environment variables to make testing, generation, and validation stricter, or more verbose are detailed here:
 
@@ -230,5 +230,5 @@ FULL_ERROR_HANDLING=true  # forces hard stops at points in the process when warn
 
 VERBOSE_BUILD_GENERAL     # increases verbosity in object generation on common objects
 
-VERBOSE_BUILD_AG=true     # indstry veritcal specific stops, see also VERBOSE_BUILD_STEEL and related
+VERBOSE_BUILD_AG=true     # industry vertical specific stops, see also VERBOSE_BUILD_STEEL and related
 ```

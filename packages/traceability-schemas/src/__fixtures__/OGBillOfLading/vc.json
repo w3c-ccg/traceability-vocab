@@ -1,0 +1,137 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "http://example.org/credentials/",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuanceDate": "2021-02-04T20:29:37+00:00",
+  "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/traceability/v1"
+    ],
+    "type": "OGBillOfLading",
+    "billOfLading": {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "type": [
+        "BillOfLading"
+      ],
+      "billOfLadingNumber": "991205182",
+      "relatedDocuments": [
+        {
+          "@context": [
+            "https://w3id.org/traceability/v1"
+          ],
+          "type": [
+            "Purchase"
+          ],
+          "customer": {
+            "type": [
+              "Person"
+            ],
+            "email": "Haylie.Dooley@example.net",
+            "phoneNumber": "555-841-1114"
+          }
+        }
+      ],
+      "freight": {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": [
+          "ParcelDelivery"
+        ],
+        "deliveryAddress": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "Haley - Mayer",
+          "streetAddress": "3206 Champlin Well",
+          "addressLocality": "Binschester",
+          "addressRegion": "Utah",
+          "postalCode": "34633",
+          "addressCountry": "Malaysia"
+        },
+        "originAddress": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "Gibson, McCullough and Heathcote",
+          "streetAddress": "46705 Manuel Spur",
+          "addressLocality": "West Joburgh",
+          "addressRegion": "New Jersey",
+          "postalCode": "97035-2852",
+          "addressCountry": "Algeria"
+        },
+        "deliveryMethod": "Air transport",
+        "trackingNumber": "876293590572"
+      }
+    },
+    "shippingDate": "2020-03-15",
+    "arrivalDate": "2020-03-28",
+    "valuePerItem": "201",
+    "totalOrderValue": 402,
+    "freightChargeTerms": "Freight Prepaid",
+    "batchNumber": "12345678",
+    "openingVolume": "123",
+    "closingVolume": "222",
+    "observation": [
+      {
+        "type": "Observation",
+        "property": {
+          "type": "MechanicalProperty",
+          "identifier": "ISO 3738",
+          "name": "Rockwell Hardness Test (Scale A)",
+          "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+        },
+        "measurement": {
+          "type": "MeasuredValue",
+          "value": "00.00",
+          "unitCode": "UNKNOWN"
+        }
+      },
+      {
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Tungsten",
+          "formula": "W",
+          "inchi": "InChI=1S/W",
+          "inchikey": "WFKWXMTUELFFGS-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "type": "MeasuredValue",
+          "value": "42.082",
+          "unitCode": "P1"
+        }
+      },
+      {
+        "type": "Observation",
+        "property": {
+          "type": "ChemicalProperty",
+          "name": "Krypton",
+          "formula": "Kr",
+          "inchi": "InChI=1S/Kr",
+          "inchikey": "DNNSSWSSYDEUBZ-UHFFFAOYSA-N"
+        },
+        "measurement": {
+          "type": "MeasuredValue",
+          "value": "57.918",
+          "unitCode": "P1"
+        }
+      }
+    ]
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..doLUZUak56rycBHY8t0DSA-jdZDrxF1Kxq8LYTXcX3gAqrionEgSw1NYLhAAGlhT59ODrDvy6nfCaeR8C54kCA",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+  }
+}
