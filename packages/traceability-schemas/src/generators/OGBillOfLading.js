@@ -47,7 +47,7 @@ const getOGBillOfLading = () => {
     };
   });
   const valuePerItem = faker.random.number({ min: 100, max: 1000 }).toString();
-  const totalOrderValue = valuePerItem * faker.random.number({ min: 2, max: 5 }).toString();
+  const totalOrderValue = (valuePerItem * faker.random.number({ min: 2, max: 5 })).toString();
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
