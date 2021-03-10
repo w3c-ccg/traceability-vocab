@@ -2,7 +2,7 @@ const { generator, schemas } = require('../data/util/data');
 
 const { faker } = generator;
 
-const { getEntity } = require('./Entity');
+const { getOrganization } = require('./Organization');
 const { getPlace } = require('./Place');
 const { getPostalAddress } = require('./PostalAddress');
 
@@ -12,16 +12,18 @@ faker.seed(22);
 
 const { getProduct } = require('./Product');
 
-const getQPInbond = () => {
+const getInbond = () => {
   const product = getProduct();
   delete product['@context'];
   product.name = 'Crude Oil Barrel';
   product.description = 'Heavy Sour Dilbit';
   const originAddress = getPostalAddress();
   const deliveryAddress = getPostalAddress();
-  const carrier = getEntity();
-  const recipient = getEntity();
+  const carrier = getOrganization();
+  const recipient = getOrganization();
   const portOfEntry = getPlace();
+  const portOfDestination = getPlace();
+  const portOfArrival = getPlace();
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -32,6 +34,8 @@ const getQPInbond = () => {
     portOfEntry,
     carrier,
     recipient,
+    portOfArrival,
+    portOfDestination,
     shipment: {
       type: 'ParcelDelivery',
       originAddress,
@@ -44,7 +48,7 @@ const getQPInbond = () => {
     totalOrderValue: faker.random.number({ min: 10000, max: 99999 }).toString(),
     product,
   };
-  const validate = ajv.compile(schemas.QPInbond);
+  const validate = ajv.compile(schemas.InBond);
   const validateResult = validate(example);
   if (process.env.VERBOSE_BUILD_GENERAL) {
     console.log('Early Validation results from QPInbond:', validateResult);
@@ -52,4 +56,4 @@ const getQPInbond = () => {
   return example;
 };
 
-module.exports = { getQPInbond };
+module.exports = { getInbond };
