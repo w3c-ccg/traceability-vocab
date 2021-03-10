@@ -27,7 +27,7 @@ const getInbond = () => {
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
-    type: 'QPInbond',
+    type: 'Inbond',
     inBondNumber: '123456789',
     irsNumber: '12345678-01',
     inBondType: 'IT (61)',
@@ -48,10 +48,10 @@ const getInbond = () => {
     totalOrderValue: faker.random.number({ min: 10000, max: 99999 }).toString(),
     product,
   };
-  const validate = ajv.compile(schemas.InBond);
+  const validate = ajv.compile(schemas.Inbond);
   const validateResult = validate(example);
   if (process.env.VERBOSE_BUILD_GENERAL) {
-    console.log('Early Validation results from QPInbond:', validateResult);
+    console.log('Early Validation results from Inbond:', validateResult);
   }
   return example;
 };
