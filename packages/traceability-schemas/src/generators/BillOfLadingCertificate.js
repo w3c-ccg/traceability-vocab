@@ -21,7 +21,7 @@ const getBillOfLadingCertificate = () => {
     ],
     id: 'https://example.com/credential/123',
     type: ['VerifiableCredential', 'BillOfLadingCertificate'],
-    name: 'Commercial Invoice Certificate',
+    name: 'Bill Of Lading Certificate',
     description: 'This document includes recommended bill of lading fields.',
     relatedLink: [
       {
