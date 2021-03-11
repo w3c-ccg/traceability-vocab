@@ -842,6 +842,29 @@
         }
       }
     },
+    "/Inbond": {
+      "get": {
+        "description": "Inbond",
+        "responses": {
+          "200": {
+            "description": "A list of all Inbond objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Inbond"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/InspectionReport": {
       "get": {
         "description": "InspectionReport",
@@ -1590,29 +1613,6 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Purchase"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server error"
-          }
-        }
-      }
-    },
-    "/QPInbond": {
-      "get": {
-        "description": "QPInbond",
-        "responses": {
-          "200": {
-            "description": "A list of all QPInbond objects from the system that the user has access to",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/QPInbond"
                   }
                 }
               }
@@ -3789,6 +3789,121 @@
         ],
         "additionalProperties": false
       },
+      "Inbond": {
+        "title": "Inbond",
+        "description": "",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "id": {
+            "type": "string"
+          },
+          "issuanceDate": {
+            "type": "string"
+          },
+          "credentialSubject": {
+            "type": "object"
+          },
+          "issuer": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "product": {
+            "title": "Product",
+            "description": "Product details as outlined in the Product.json schema"
+          },
+          "shipment": {
+            "title": "Shipment",
+            "description": "Details for a shipment of goods."
+          },
+          "inBondNumber": {
+            "title": "InBond Number",
+            "description": "Identifier for the individual InBond",
+            "type": "string"
+          },
+          "entryId": {
+            "title": "Entry ID",
+            "description": "ACE entry summary unique identifier",
+            "type": "string"
+          },
+          "ftzNo": {
+            "title": "FTZ Number",
+            "description": "ACE admission no. into an FTZ zone",
+            "type": "string"
+          },
+          "inBondType": {
+            "title": "InBond Type",
+            "description": "Type of InBond",
+            "type": "string"
+          },
+          "portOfEntry": {
+            "title": "Port of Entry",
+            "description": "Port of Entry declared in US"
+          },
+          "portOfDestination": {
+            "title": "Port of final destination",
+            "description": "Port of Final destination in the US"
+          },
+          "portOfArrival": {
+            "title": "Port of Entry",
+            "description": "Port of Arrival into US"
+          },
+          "carrier": {
+            "title": "Carrier",
+            "description": "Entity responsible for transporting product"
+          },
+          "irsNumber": {
+            "title": "IRS Number",
+            "description": "Number for identification with IRS",
+            "type": "string"
+          },
+          "recipient": {
+            "title": "Recipient",
+            "description": "Entity that will recieve product"
+          },
+          "billOfLadingNumber": {
+            "title": "BOL",
+            "description": "Identifier for the individual BOL",
+            "type": "string"
+          },
+          "expectedDeliveryDate": {
+            "title": "Expected Delivery Date",
+            "description": "Date when the product is expected to arrive",
+            "type": "string"
+          },
+          "valuePerItem": {
+            "title": "Value Per Item",
+            "description": "Total Value Per Item",
+            "type": "string"
+          },
+          "totalOrderValue": {
+            "title": "totalOrderValue",
+            "description": "Total Value Per Item",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "InspectionReport": {
         "title": "Inspection Report",
         "description": "Series of observations",
@@ -5708,103 +5823,6 @@
           "purchaseOrder": {
             "title": "Purchase Order",
             "description": "The purchase order associated with a purchase",
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "QPInbond": {
-        "title": "QPInbond",
-        "description": "",
-        "type": "object",
-        "properties": {
-          "@context": {
-            "type": "array",
-            "items": {}
-          },
-          "id": {
-            "type": "string"
-          },
-          "issuanceDate": {
-            "type": "string"
-          },
-          "credentialSubject": {
-            "type": "object"
-          },
-          "issuer": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object"
-              }
-            ]
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {}
-              }
-            ]
-          },
-          "product": {
-            "title": "Product",
-            "description": "Product details as outlined in the Product.json schema"
-          },
-          "shipment": {
-            "title": "Shipment",
-            "description": "Details for a shipment of goods."
-          },
-          "inBondNumber": {
-            "title": "InBond Number",
-            "description": "Identifier for the individual InBond",
-            "type": "string"
-          },
-          "inBondType": {
-            "title": "InBond Type",
-            "description": "Type of InBond",
-            "type": "string"
-          },
-          "portOfEntry": {
-            "title": "Port of Entry",
-            "description": "Port of Entry into US"
-          },
-          "carrier": {
-            "title": "Carrier",
-            "description": "Entity responsible for transporting product"
-          },
-          "irsNumber": {
-            "title": "IRS Number",
-            "description": "Number for identification with IRS",
-            "type": "string"
-          },
-          "recipient": {
-            "title": "Recipient",
-            "description": "Entity that will recieve product"
-          },
-          "billOfLadingNumber": {
-            "title": "BOL",
-            "description": "Identifier for the individual BOL",
-            "type": "string"
-          },
-          "expectedDeliveryDate": {
-            "title": "Expected Delivery Date",
-            "description": "Date when the product is expected to arrive",
-            "type": "string"
-          },
-          "valuePerItem": {
-            "title": "Value Per Item",
-            "description": "Total Value Per Item",
-            "type": "string"
-          },
-          "totalOrderValue": {
-            "title": "totalOrderValue",
-            "description": "Total Value Per Item",
             "type": "string"
           }
         },
