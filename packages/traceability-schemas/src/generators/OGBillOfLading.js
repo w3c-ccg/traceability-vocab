@@ -1,9 +1,13 @@
-const faker = require('faker');
 const _ = require('lodash');
+
+const { generator, schemas } = require('../data/util/data');
 const { getBillOfLading } = require('./BillOfLading');
 const { getObservation } = require('./Observation');
 const { getPlace } = require('./Place');
 
+const { faker } = generator;
+
+const ajv = generator.getAjv();
 faker.seed(22);
 
 const { getProduct } = require('./Product');
@@ -46,8 +50,6 @@ const getOGBillOfLading = () => {
       },
     };
   });
-  const valuePerItem = faker.random.number({ min: 100, max: 1000 }).toString();
-  const totalOrderValue = valuePerItem * faker.random.number({ min: 2, max: 5 }).toString();
 
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
@@ -55,14 +57,19 @@ const getOGBillOfLading = () => {
     billOfLading,
     shippingDate: '2020-03-15',
     arrivalDate: '2020-03-28',
-    valuePerItem,
-    totalOrderValue,
+    valuePerItem: '500',
+    totalOrderValue: '1500',
     freightChargeTerms: 'Freight Prepaid',
     batchNumber: '12345678',
     openingVolume: '123',
     closingVolume: '222',
     observation,
   };
+  const validate = ajv.compile(schemas.OGBillOfLading);
+  const validateResult = validate(example);
+  if (process.env.VERBOSE_BUILD_GENERAL) {
+    console.log('Early Validation results from OGBillOfLading:', validateResult);
+  }
   return example;
 };
 
