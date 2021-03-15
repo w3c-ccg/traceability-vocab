@@ -2,6 +2,8 @@
 
 ![CI](https://github.com/w3c-ccg/traceability-vocab/workflows/CI/badge.svg) [![CD](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml/badge.svg)](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml)
 
+##### [testsuite](https://w3c-ccg.github.io/traceability-vocab/testsuite/)
+
 This specification describes a Linked Data vocabulary for asserting Verifiable Credentials related to traceability information, such as chemical properties, mechanical properties, country of origin, and other attributes used to determine the status of a products and materials in a supply chain.
 
 We encourage contributions meeting the [Contribution Guidelines](CONTRIBUTING.md). While we prefer the creation of issues and Pull Requests in the GitHub repository, discussions often occur on the [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/) mailing list as well.
@@ -14,31 +16,32 @@ If you are a developer who is interested in working directly with the vocabulary
 
 ### Developer Setup
 
-To get started building, testing, or contributing to this repository, you will need [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/). 
+To get started building, testing, or contributing to this repository, you will need [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/).
 
 After you have the dependencies, the first time setup is as follows:
 
-1) checkout this repository
+1. checkout this repository
 
    ```
    $ git checkout https://github.com/w3c-ccg/traceability-vocab.git
    ```
 
-2) Once the repository is checked out, run `npm install` in the created directory to get all project dependencies
+2. Once the repository is checked out, run `npm install` in the created directory to get all project dependencies
 
    ```
    $ cd traceability-vocab
    $ npm install
    ```
 
-3) After the repository is checked out, and all dependencies have been installed, then you can build the vocabulary itself
+3. After the repository is checked out, and all dependencies have been installed, then you can build the vocabulary itself
 
    ```
    $ npm runbuild:all
    ```
-   This can take a while, as it will run through the entire process of merging the individual schemas, creating test vectors, and ultimately creating a signed verifiable credential for each vocabulary item.  If you would like to view details on the build process, please see the [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas) located in the actual schemas build project folder.
 
-4) Finally, once everything is built and tested, you can serve up the spec and related documentation locally: 
+   This can take a while, as it will run through the entire process of merging the individual schemas, creating test vectors, and ultimately creating a signed verifiable credential for each vocabulary item. If you would like to view details on the build process, please see the [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas) located in the actual schemas build project folder.
+
+4. Finally, once everything is built and tested, you can serve up the spec and related documentation locally:
 
    ```
    $ npx serve docs
@@ -69,7 +72,6 @@ Pull requests will not as a rule be merged if any conflicts exist, or if testing
 Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponding issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
 
 A one week (7 day) period will be provided for review of pull requests related to data schemas or project functionality prior to merge to allow sufficient review time. Exceptions may be made for essential documentation, or to allow for immediate "hotfix" of security issues or functionality breaking items.
-
 
 ## Ontology Structure
 
@@ -156,14 +158,13 @@ As a rule, versioning will follow the specification outlined in the [Semantic Ve
 
 This approach to versioning gives the ability to integrate with and provided automated testing and validation against defined types without worry of instability or breaking changes being introduced, while also limiting the frequency of possibly breaking changes to prevent a large number of incompatible versions.
 
-
 ## Project Structure
 
 This project uses [lerna](https://github.com/lerna/lerna) to manage packages and dependencies as a single project.
 
 In addition the following key areas in the repo should be noted for understanding how to add schemas and understand the code layout:
 
-- The index file in [docs](./docs/index.html) is the master public facing documentation page.  It is a baseline specification, with the bulk of the contents being automatically generated after tests have been run on items
+- The index file in [docs](./docs/index.html) is the master public facing documentation page. It is a baseline specification, with the bulk of the contents being automatically generated after tests have been run on items
 - JSON Schema for each object to be referenced is stored in the [schemas](.docs/schemas) folder
 - Code Generation to create synthetic test data is located in [generators](./packages/traceability-schemas/src/generators)
 - Test Vectors are run against fixtures that are auto generated and located in the [fixtures](./packages/traceability-schemas/src/__fixtures__) folder, and correspond to the defined schemas
@@ -187,9 +188,9 @@ The commands above will build the spec and test vectors deterministically from s
 
 1. create a [JSON Schema](https://json-schema.org/) in the [schemas](./packages/traceability-schemas/schemas) folder.
 2. add synthetic data generation for it to the [generators](./packages/traceability-schemas/src/generators).
-4. run the build using: `npm run build:all`
+3. run the build using: `npm run build:all`
    Fix any errors found.
-5. review the latest spec changes by serving docs: `npx serve ./docs`.
+4. review the latest spec changes by serving docs: `npx serve ./docs`.
 
 ## Additional notes
 
@@ -205,11 +206,11 @@ Wherever possible JSON-LD in use as a Verifiable Credential should be ["small in
 
 ### Room for Improvements
 
-Certain items such as `allOf` on the JSON Schema side of things would be quite helpful to support, so that better patterns of inheritance can be modeled.  We are open to contributions that improve our support of auto-generation of JSON-LD from JSON Schema.
+Certain items such as `allOf` on the JSON Schema side of things would be quite helpful to support, so that better patterns of inheritance can be modeled. We are open to contributions that improve our support of auto-generation of JSON-LD from JSON Schema.
 
 ### Date / Time
 
-Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`.  Static Dates should be used in generated data so as to avoid unnecessary changes in the repository on build.
+Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`. Static Dates should be used in generated data so as to avoid unnecessary changes in the repository on build.
 
 ### Place (as an example)
 
@@ -217,7 +218,6 @@ Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directl
 - [Data Generator](./packages/traceability-schemas/src/generators/Place.js)
 - [JSON-LD Context (derived)](./docs/contexts/traceability-v1.jsonld)
 - [Vocabulary Definition (derived)](https://w3id.org/traceability#place)
-
 
 ### Common Environment Variables for Build and Development
 
