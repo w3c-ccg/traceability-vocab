@@ -36,7 +36,7 @@ After you have the dependencies, the first time setup is as follows:
 3. After the repository is checked out, and all dependencies have been installed, then you can build the vocabulary itself
 
    ```
-   $ npm runbuild:all
+   $ npm run build:all
    ```
 
    This can take a while, as it will run through the entire process of merging the individual schemas, creating test vectors, and ultimately creating a signed verifiable credential for each vocabulary item. If you would like to view details on the build process, please see the [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas) located in the actual schemas build project folder.

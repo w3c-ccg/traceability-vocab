@@ -1,3 +1,5 @@
+const rootTerms = require('../rootTerms.json');
+
 const getContextFromIntermediate = (intermediate) => {
   let partialContext = {};
   Object.values(intermediate).forEach((classDefinition) => {
@@ -24,15 +26,9 @@ const getContextFromIntermediate = (intermediate) => {
   return {
     '@context': {
       '@version': 1.1,
-      name: 'https://schema.org/name',
-      description: 'https://schema.org/description',
-      identifier: 'https://schema.org/identifier',
-      image: {
-        '@id': 'https://schema.org/image',
-        '@type': '@id',
-      },
       id: '@id',
       type: '@type',
+      ...rootTerms,
       ...partialContext,
     },
   };
