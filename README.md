@@ -2,21 +2,61 @@
 
 ![CI](https://github.com/w3c-ccg/traceability-vocab/workflows/CI/badge.svg) [![CD](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml/badge.svg)](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml)
 
-##### [testsuite](https://w3c-ccg.github.io/traceability-vocab/testsuite/)
+## About 
 
-This specification describes a Linked Data vocabulary for asserting Verifiable Credentials related to traceability information, such as chemical properties, mechanical properties, country of origin, and other attributes used to determine the status of a products and materials in a supply chain.
+This specification describes a Linked Data vocabulary for asserting Verifiable
+Credentials related to traceability information, such as chemical properties,
+mechanical properties, country of origin, and other attributes used to determine
+the status of a products and materials in a supply chain.
 
-We encourage contributions meeting the [Contribution Guidelines](CONTRIBUTING.md). While we prefer the creation of issues and Pull Requests in the GitHub repository, discussions often occur on the [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/) mailing list as well.
+We encourage contributions meeting the [Contribution
+Guidelines](CONTRIBUTING.md). While we prefer the creation of issues and Pull
+Requests in the GitHub repository, discussions often occur on the
+[public-credentials](http://lists.w3.org/Archives/Public/public-credentials/)
+mailing list as well, and at regular public meetings (see below).
+
+## Meetings
+
+Meetings are held 
+* Tuesdays at 1.30pm ET/10.30pm PT 
+* on jitsi using this link:
+* [meet.w3c-ccg.org/traceability](https://meet.w3c-ccg.org/traceability
+)
+
+### Hosting instructions
+Any chair, editor, or other party authorized by CCG to manage recordings and
+minutes can do the following. A scribe-bot will show up in the main #ccg IRC
+channel automatically. 
+1. Make sure to select "Start Recording" at the beginning of the call and "Stop
+   Recording" when you're done. 
+2. Make sure to kick everyone out of the room when the meeting is done. 
+3. Once the last person leaves, everything else is automated (publishing raw IRC
+   log, audio, and video). If you want to clean up the minutes, it takes about
+   5-10 minutes to clean up the transcription and publish it.
+
+## Testing
+
+There is also a [**test
+suite**](https://w3c-ccg.github.io/traceability-vocab/testsuite/) that is run
+against PRs, checking separately both the JSON Schema-based data shape
+validation nor the JSON-LD-based semantic anchoring. See the underlying test
+scripts
+[here](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas/src/__tests__)
 
 ## Getting Started
 
-If you are only interested in the vocabulary itself, the items contained therein, and/or the example Verifiable Credentials, please see the [spec itself](https://w3c-ccg.github.io/traceability-vocab/).
+If you are only interested in the vocabulary itself, the items contained
+therein, and/or the example Verifiable Credentials, please see the [spec
+itself](https://w3c-ccg.github.io/traceability-vocab/).
 
-If you are a developer who is interested in working directly with the vocabulary, possibly adding schemas, and/or running tests and viewing details of how the JSON-JD and resultant Verifiable Credentials are built, then read on.
+If you are a developer who is interested in working directly with the
+vocabulary, possibly adding schemas, and/or running tests and viewing details of
+how the JSON-JD and resultant Verifiable Credentials are built, then read on.
 
 ### Developer Setup
 
-To get started building, testing, or contributing to this repository, you will need [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/).
+To get started building, testing, or contributing to this repository, you will
+need [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/).
 
 After you have the dependencies, the first time setup is as follows:
 
@@ -26,20 +66,27 @@ After you have the dependencies, the first time setup is as follows:
    $ git checkout https://github.com/w3c-ccg/traceability-vocab.git
    ```
 
-2. Once the repository is checked out, run `npm install` in the created directory to get all project dependencies
+2. Once the repository is checked out, run `npm install` in the created
+   directory to get all project dependencies
 
    ```
    $ cd traceability-vocab
    $ npm install
    ```
 
-3. After the repository is checked out, and all dependencies have been installed, then you can build the vocabulary itself
+3. After the repository is checked out, and all dependencies have been
+   installed, then you can build the vocabulary itself
 
    ```
    $ npm run build:all
    ```
 
-   This can take a while, as it will run through the entire process of merging the individual schemas, creating test vectors, and ultimately creating a signed verifiable credential for each vocabulary item. If you would like to view details on the build process, please see the [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas) located in the actual schemas build project folder.
+   This can take a while, as it will run through the entire process of merging
+   the individual schemas, creating test vectors, and ultimately creating a
+   signed verifiable credential for each vocabulary item. If you would like to
+   view details on the build process, please see the
+   [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas)
+   located in the actual schemas build project folder.
 
 4. Finally, once everything is built and tested, you can serve up the spec and related documentation locally:
 
@@ -49,10 +96,13 @@ After you have the dependencies, the first time setup is as follows:
 
 ### Making Contributions
 
-This repository takes a "test / code first" approach to vocabulary development and deals specifically with data types required for
-track and trace of supply chain data, particularly in a cross border context. Focus is especially given to schema objects that describe
-common supply chain elements, shared by multiple use cases, as well as to items for which inspections and audits may be required, and thereby
-merit creation of Verifiable Credentials to store the results of such an inspection for verification by a third party.
+This repository takes a "test / code first" approach to vocabulary development
+and deals specifically with data types required for track and trace of supply
+chain data, particularly in a cross border context. Focus is especially given to
+schema objects that describe common supply chain elements, shared by multiple
+use cases, as well as to items for which inspections and audits may be required,
+and thereby merit creation of Verifiable Credentials to store the results of
+such an inspection for verification by a third party.
 
 In order to have your contributions accepted you MUST:
 
@@ -60,8 +110,18 @@ In order to have your contributions accepted you MUST:
 2. Add any "special case" testing you believe is helpful for your data structures.
 3. Run all tests locally and ensure they are all passing.
 4. Generate the latest version of the spec to include your changes to vocabulary / data model.
-5. Open a Pull Request with your changes, a clear description of them in the description, and demonstrate passing CI Tests.
-6. Any references to schemas you wish to include in your schema should be recreated locally and referenced there. In these local schemas, only include the properties relevant to the schema you have created. For example, [Person](https://schema.org/Person) is an existing schema on schema.org, but a Person.json schema has been added to this repo, including only the relevant and used properties for the other traceability schemas. This is to hopefully make traceability schemas easier to understand and manage by not incorporating too many unnecessarily large schemas. The schemas that have been made local in this way (like Person.json) should still reference the schema.org entry like so:
+5. Open a Pull Request with your changes, a clear description of them in the
+   description, and demonstrate passing CI Tests.
+6. Any references to schemas you wish to include in your schema should be
+   recreated locally and referenced there. In these local schemas, only include
+   the properties relevant to the schema you have created. For example,
+   [Person](https://schema.org/Person) is an existing schema on schema.org, but
+   a Person.json schema has been added to this repo, including only the relevant
+   and used properties for the other traceability schemas. This is to hopefully
+   make traceability schemas easier to understand and manage by not
+   incorporating too many unnecessarily large schemas. The schemas that have
+   been made local in this way (like Person.json) should still reference the
+   schema.org entry like so:
 
 ```
     "$comment": "{\"term\": \"Person\", \"@id\": \"https://schema.org/Person\"}",
@@ -69,19 +129,28 @@ In order to have your contributions accepted you MUST:
 
 Pull requests will not as a rule be merged if any conflicts exist, or if testing is incomplete.
 
-Any changes that potentially introduce breaking or non-backwards compatible functionality MUST have a corresponding issue and discussion, and will require consensus from the editors in order to be introduced or to have any related Pull Requests accepted and merged.
+Any changes that potentially introduce breaking or non-backwards compatible
+functionality MUST have a corresponding issue and discussion, and will require
+consensus from the editors in order to be introduced or to have any related Pull
+Requests accepted and merged.
 
-A one week (7 day) period will be provided for review of pull requests related to data schemas or project functionality prior to merge to allow sufficient review time. Exceptions may be made for essential documentation, or to allow for immediate "hotfix" of security issues or functionality breaking items.
+A one week (7 day) period will be provided for review of pull requests related
+to data schemas or project functionality prior to merge to allow sufficient
+review time. Exceptions may be made for essential documentation, or to allow for
+immediate "hotfix" of security issues or functionality breaking items.
 
 ## Ontology Structure
 
 This repository hosts [JSON Schema](https://json-schema.org/) which it uses to create [JSON-LD](https://json-ld.org/).
 
-All JSON Schema must have an `$id` property, and it must resolve to the JSON-Schema Document.
+All JSON Schema must have an `$id` property, and it must resolve to the
+JSON-Schema Document.
 
-For example see [https://w3id.org/traceability/schemas/Person.json](https://w3id.org/traceability/schemas/Person.json).
+For example see
+[https://w3id.org/traceability/schemas/Person.json](https://w3id.org/traceability/schemas/Person.json).
 
-We are currently 🚧 EXPERIMENTING 🚧 with injecting JSON-LD concepts like `@id` and `@type` in JSON Schema using `$comment`.
+We are currently 🚧 EXPERIMENTING 🚧 with injecting JSON-LD concepts like `@id`
+and `@type` in JSON Schema using `$comment`.
 
 For example see:
 
@@ -97,7 +166,8 @@ These attributes are then used to deterministically build a JSON-LD context host
 
 [https://w3id.org/traceability/v1](https://w3id.org/traceability/v1)
 
-This context can then be used to produce verifiable credentials for supply chain traceability, for example:
+This context can then be used to produce verifiable credentials for supply chain
+traceability, for example:
 
 ```json
 {
@@ -141,39 +211,60 @@ Inside JSON Schema you will see things like:
  "$ref": "https://w3id.org/traceability/schemas/Product.json"
 ```
 
-These are JSON Schema reference tags and they allow for nesting of types that are defined in JSON Schema.
+These are JSON Schema reference tags and they allow for nesting of types that
+are defined in JSON Schema.
 
-In general, you should strive to model concepts as types that are defined in JSON Schema and composed from smaller types.
+In general, you should strive to model concepts as types that are defined in
+JSON Schema and composed from smaller types.
 
 ## Versioning
 
-This repository will be versioned at periodic points in time with a Q1 Calendar Year target for major releases. Versioning tags will follow a pattern of `[MAJOR].[MINOR].[PATCH]`
-Version Definitions:
+This repository will be versioned at periodic points in time with a Q1 Calendar
+Year target for major releases. Versioning tags will follow a pattern of
+`[MAJOR].[MINOR].[PATCH]` Version Definitions:
 
-- MAJOR - significant changes rolled forward from the previous major version. Major versions MAY include breaking or non-backwards compatible changes
-- MINOR - backwards compatible changes that may introduce new functionality or extensions of objects that are backwards compatible
+- MAJOR - significant changes rolled forward from the previous major version.
+  Major versions MAY include breaking or non-backwards compatible changes
+- MINOR - backwards compatible changes that may introduce new functionality or
+  extensions of objects that are backwards compatible
 - PATCH - minor changes that are non breaking and resolve discovered issues or bugs
 
-As a rule, versioning will follow the specification outlined in the [Semantic Versioning 2.0](https://semver.org/) spec
+As a rule, versioning will follow the specification outlined in the [Semantic
+Versioning 2.0](https://semver.org/) spec
 
-This approach to versioning gives the ability to integrate with and provided automated testing and validation against defined types without worry of instability or breaking changes being introduced, while also limiting the frequency of possibly breaking changes to prevent a large number of incompatible versions.
+This approach to versioning gives the ability to integrate with and provided
+automated testing and validation against defined types without worry of
+instability or breaking changes being introduced, while also limiting the
+frequency of possibly breaking changes to prevent a large number of incompatible
+versions.
 
 ## Project Structure
 
-This project uses [lerna](https://github.com/lerna/lerna) to manage packages and dependencies as a single project.
+This project uses [lerna](https://github.com/lerna/lerna) to manage packages and
+dependencies as a single project.
 
-In addition the following key areas in the repo should be noted for understanding how to add schemas and understand the code layout:
+In addition the following key areas in the repo should be noted for
+understanding how to add schemas and understand the code layout:
 
-- The index file in [docs](./docs/index.html) is the master public facing documentation page. It is a baseline specification, with the bulk of the contents being automatically generated after tests have been run on items
+- The index file in [docs](./docs/index.html) is the master public facing
+  documentation page. It is a baseline specification, with the bulk of the
+  contents being automatically generated after tests have been run on items
 - JSON Schema for each object to be referenced is stored in the [schemas](.docs/schemas) folder
-- Code Generation to create synthetic test data is located in [generators](./packages/traceability-schemas/src/generators)
-- Test Vectors are run against fixtures that are auto generated and located in the [fixtures](./packages/traceability-schemas/src/__fixtures__) folder, and correspond to the defined schemas
-- [Contexts](./docs/contexts) stores the interim combined JSON-LD vocabulary for test and verification
-- Verifiable Credential Examples are autogenerated and populated into the spec. Example single credential and VC examples are located in the fixtures folder mentioned above.
+- Code Generation to create synthetic test data is located in
+  [generators](./packages/traceability-schemas/src/generators)
+- Test Vectors are run against fixtures that are auto generated and located in
+  the [fixtures](./packages/traceability-schemas/src/__fixtures__) folder, and
+  correspond to the defined schemas
+- [Contexts](./docs/contexts) stores the interim combined JSON-LD vocabulary for
+  test and verification
+- Verifiable Credential Examples are autogenerated and populated into the spec.
+  Example single credential and VC examples are located in the fixtures folder
+  mentioned above.
 
 ### Contributing to Vocabulary
 
-All the terms, schemas and context definitions are generated from [./packages/traceability-schemas](./packages/traceability-schemas).
+All the terms, schemas and context definitions are generated from
+[./packages/traceability-schemas](./packages/traceability-schemas).
 
 ```
 cd ./packages/traceability-schemas
@@ -182,12 +273,15 @@ npm run build:all
 npm run test:schemas
 ```
 
-The commands above will build the spec and test vectors deterministically from source, clean up any formatting using lint, and run all tests.
+The commands above will build the spec and test vectors deterministically from
+source, clean up any formatting using lint, and run all tests.
 
 ### Adding a new type
 
-1. create a [JSON Schema](https://json-schema.org/) in the [schemas](./packages/traceability-schemas/schemas) folder.
-2. add synthetic data generation for it to the [generators](./packages/traceability-schemas/src/generators).
+1. create a [JSON Schema](https://json-schema.org/) in the
+   [schemas](./packages/traceability-schemas/schemas) folder.
+2. add synthetic data generation for it to the
+   [generators](./packages/traceability-schemas/src/generators).
 3. run the build using: `npm run build:all`
    Fix any errors found.
 4. review the latest spec changes by serving docs: `npx serve ./docs`.
@@ -200,17 +294,27 @@ Please follow the conventions established for the other properties, for example:
 
 ### General Formatting and Guidelines
 
-UTF-8 should be used as the standard encoding for all assets in this repository, and any services utilizing these objects as schemas should support UTF-8
+UTF-8 should be used as the standard encoding for all assets in this repository,
+and any services utilizing these objects as schemas should support UTF-8
 
-Wherever possible JSON-LD in use as a Verifiable Credential should be ["small in size"](https://www.w3.org/TR/vc-imp-guide/#pf4a). Some harder limits will likely be established based on common and broadly distributed VC libraries but at this time be aware that a VC could be rejected from this repo for exceeding reasonable size limits
+Wherever possible JSON-LD in use as a Verifiable Credential should be ["small in
+size"](https://www.w3.org/TR/vc-imp-guide/#pf4a). Some harder limits will likely
+be established based on common and broadly distributed VC libraries but at this
+time be aware that a VC could be rejected from this repo for exceeding
+reasonable size limits
 
 ### Room for Improvements
 
-Certain items such as `allOf` on the JSON Schema side of things would be quite helpful to support, so that better patterns of inheritance can be modeled. We are open to contributions that improve our support of auto-generation of JSON-LD from JSON Schema.
+Certain items such as `allOf` on the JSON Schema side of things would be quite
+helpful to support, so that better patterns of inheritance can be modeled. We
+are open to contributions that improve our support of auto-generation of JSON-LD
+from JSON Schema.
 
 ### Date / Time
 
-Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directly compatible with `xsd:date`. Static Dates should be used in generated data so as to avoid unnecessary changes in the repository on build.
+Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be
+directly compatible with `xsd:date`. Static Dates should be used in generated
+data so as to avoid unnecessary changes in the repository on build.
 
 ### Place (as an example)
 
@@ -221,7 +325,8 @@ Wherever possible, dates should be formatted as `YYYY-MM-DD` so as to be directl
 
 ### Common Environment Variables for Build and Development
 
-Some useful environment variables to make testing, generation, and validation stricter, or more verbose are detailed here:
+Some useful environment variables to make testing, generation, and validation
+stricter, or more verbose are detailed here:
 
 ```
 VERBOSE_BUILD=true        # sets general verbosity levels up when building
