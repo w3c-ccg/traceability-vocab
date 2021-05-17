@@ -2,6 +2,7 @@ const _ = require('lodash');
 
 const { generator, schemas } = require('../data/util/data');
 const { getBillOfLading } = require('./BillOfLading');
+const { getMeasuredValue } = require('./MeasuredValue');
 const { getObservation } = require('./Observation');
 const { getPlace } = require('./Place');
 
@@ -61,8 +62,8 @@ const getOGBillOfLading = () => {
     totalOrderValue: '1500',
     freightChargeTerms: 'Freight Prepaid',
     batchNumber: '12345678',
-    openingVolume: '123',
-    closingVolume: '222',
+    openingVolume: getMeasuredValue(),
+    closingVolume: getMeasuredValue(),
     observation,
   };
   const validate = ajv.compile(schemas.OGBillOfLading);
