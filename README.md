@@ -19,9 +19,10 @@ mailing list as well, and at regular public meetings (see below).
 
 Meetings are held 
 * Tuesdays at 1.30pm ET/10.30pm PT 
-* on jitsi using this link:
-* [meet.w3c-ccg.org/traceability](https://meet.w3c-ccg.org/traceability
-)
+* on jitsi using this link: [meet.w3c-ccg.org/traceability](https://meet.w3c-ccg.org/traceability)
+* with standing agenda to review open [Pull Requests](https://github.com/w3c-ccg/traceability-vocab/pulls), 
+  then [open Issues](https://github.com/w3c-ccg/traceability-vocab/issues), unless otherwise noted on the mailing list
+
 
 ### Hosting instructions
 Any chair, editor, or other party authorized by CCG to manage recordings and
