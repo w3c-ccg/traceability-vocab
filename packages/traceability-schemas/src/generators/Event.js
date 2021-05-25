@@ -1,18 +1,17 @@
-const faker = require('faker');
-const { getOrganization } = require('./Organization');
+const { getEntity } = require('./Entity');
 const { getPlace } = require('./Place');
 const { getProduct } = require('./Product');
 
 const getEvent = () => {
     const eventType = 'commission';
     const eventId = '12345';
-    const actor = [getOrganization(), getOrganization()];
+    const actor = [getEntity(), getEntity()];
 
     delete actor[0]['@context'];
     delete actor[1]['@context'];
     const place = getPlace();
     delete place['@context'];
-    const eventTime = '';
+    const eventTime = '2019-12-11T03:50:55Z';
     const products = [getProduct(), getProduct()];
     delete products[0]['@context'];
     delete products[1]['@context'];
