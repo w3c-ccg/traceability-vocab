@@ -35,6 +35,7 @@ EcommerceWayBillRegistrationCredential: require('./schemas/EcommerceWayBillRegis
 EcommerceWayBillRegistrationEvidenceDocument: require('./schemas/EcommerceWayBillRegistrationEvidenceDocument.json'),
 EcommerceWayBillTotals: require('./schemas/EcommerceWayBillTotals.json'),
 Entity: require('./schemas/Entity.json'),
+Event: require('./schemas/Event.json'),
 GeoCoordinates: require('./schemas/GeoCoordinates.json'),
 Inbond: require('./schemas/Inbond.json'),
 InspectionReport: require('./schemas/InspectionReport.json'),

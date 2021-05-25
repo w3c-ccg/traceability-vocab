@@ -10,8 +10,8 @@ const getEvent = () => {
 
     delete actor[0]['@context'];
     delete actor[1]['@context'];
-    const eventLocation = getPlace();
-    delete eventLocation['@context'];
+    const place = getPlace();
+    delete place['@context'];
     const eventTime = '';
     const products = [getProduct(), getProduct()];
     delete products[0]['@context'];
@@ -23,7 +23,7 @@ const getEvent = () => {
         eventType,
         eventId,
         actor,
-        eventLocation,
+        place,
         eventTime,
         products,
     };
