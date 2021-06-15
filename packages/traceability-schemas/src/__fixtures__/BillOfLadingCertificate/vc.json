@@ -1,0 +1,109 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "https://example.com/credential/123",
+  "type": [
+    "VerifiableCredential",
+    "BillOfLadingCertificate"
+  ],
+  "name": "Bill Of Lading Certificate",
+  "description": "This document includes recommended bill of lading fields.",
+  "relatedLink": [
+    {
+      "type": [
+        "LinkRole"
+      ],
+      "target": "did:example:789",
+      "linkRelationship": "commercialInvoiceLink"
+    },
+    {
+      "type": [
+        "LinkRole"
+      ],
+      "target": "https://www.example.com/template/123",
+      "linkRelationship": "millTestReportLink"
+    }
+  ],
+  "issuanceDate": "2019-12-11T03:50:55Z",
+  "issuer": {
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "type": "Organization",
+    "name": "Reichel Group",
+    "description": "Total composite architecture",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "87539 Kuhic Ways",
+      "addressLocality": "Cartwrightfurt",
+      "addressRegion": "Oregon",
+      "postalCode": "31989-4611",
+      "addressCountry": "American Samoa"
+    },
+    "email": "Morton33@example.com",
+    "phoneNumber": "555-718-6037",
+    "faxNumber": "555-183-5746"
+  },
+  "credentialSubject": {
+    "type": [
+      "BillOfLading"
+    ],
+    "billOfLadingNumber": "991205182",
+    "relatedDocuments": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": [
+          "Purchase"
+        ],
+        "customer": {
+          "type": [
+            "Person"
+          ],
+          "email": "Rogers_Auer62@example.net",
+          "phoneNumber": "555-919-8434"
+        }
+      }
+    ],
+    "freight": {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "type": [
+        "ParcelDelivery"
+      ],
+      "deliveryAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Spinka, Schoen and Kovacek",
+        "streetAddress": "926 Ritchie Burgs",
+        "addressLocality": "Bennettborough",
+        "addressRegion": "Kansas",
+        "postalCode": "00611-8629",
+        "addressCountry": "Sri Lanka"
+      },
+      "originAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Blick LLC",
+        "streetAddress": "6852 Effertz Grove",
+        "addressLocality": "North Norbertburgh",
+        "addressRegion": "Massachusetts",
+        "postalCode": "79982-7870",
+        "addressCountry": "Norway"
+      },
+      "deliveryMethod": "Rail freight transport",
+      "trackingNumber": "898848401026"
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..KBXFCbBBEGB1TRHfgllZFrg57iHP5-IESDPXFrbepY_K2Eu7KmurVvniutQRSe_Gfwci4m0C1Mbk73x2ujmZBQ",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+  }
+}

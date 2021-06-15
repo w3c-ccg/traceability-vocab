@@ -70,12 +70,12 @@ Object.keys(schemas).forEach((schemaName) => {
     }
     fs.outputFileSync(
       path.resolve(__dirname, `../src/__fixtures__/${schemaName}/good.json`),
-      JSON.stringify(fixture.good, null, 2),
+      JSON.stringify(fixture.good, null, 2)
     );
 
     fs.outputFileSync(
       path.resolve(__dirname, `../src/__fixtures__/${schemaName}/bad.json`),
-      JSON.stringify(fixture.bad, null, 2),
+      JSON.stringify(fixture.bad, null, 2)
     );
   }
 });
@@ -86,32 +86,39 @@ Object.keys(schemas).forEach((schemaName) => {
   if (process.env.VERBOSE_BUILD) {
     console.log('Generating credentials for:', schemaName);
   }
-  const schema = schemas[schemaName];
-  const exampleFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/good.json`);
+  const exampleFile = path.resolve(
+    __dirname,
+    `../src/__fixtures__/${schemaName}/good.json`
+  );
   if (!fs.existsSync(exampleFile)) {
-    console.warn(`No good example for ${schemaName} to generate credential from`);
+    console.warn(
+      `No good example for ${schemaName} to generate credential from`
+    );
   } else {
     try {
       if (process.env.VERBOSE_BUILD) {
         console.log('Generating credential for:', schemaName);
       }
-      const good = JSON.parse(
-        fs.readFileSync(
-          exampleFile,
-        ),
-      );
-      const credTemplate = require('../src/data/vc/vc.json');
+      const good = JSON.parse(fs.readFileSync(exampleFile));
+      let credTemplate = require('../src/data/vc/vc.json');
       // eslint-disable-next-line prefer-destructuring
-      credTemplate.credentialSubject = good[0];
 
-      const vcFile = path.resolve(__dirname, `../src/__fixtures__/${schemaName}/credential.json`);
-      // console.log('Writing credential request example to:', vcFile);
-      fs.outputFileSync(
-        vcFile,
-        JSON.stringify(credTemplate, null, 2),
+      // eslint-disable-next-line operator-linebreak
+      credTemplate = { ...credTemplate, credentialSubject: good[0] };
+
+      const vcFile = path.resolve(
+        __dirname,
+        `../src/__fixtures__/${schemaName}/credential.json`
       );
+      // console.log('Writing credential request example to:', vcFile);
+      fs.outputFileSync(vcFile, JSON.stringify(credTemplate, null, 2));
     } catch (credentialError) {
-      console.warn('Could not generate credential request for:', schemaName, '\n', credentialError);
+      console.warn(
+        'Could not generate credential request for:',
+        schemaName,
+        '\n',
+        credentialError
+      );
       if (process.env.FULL_ERROR_HANDLING) {
         process.exit(1);
       }

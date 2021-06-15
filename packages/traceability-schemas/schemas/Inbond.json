@@ -1,8 +1,8 @@
 {
-    "$id": "https://w3id.org/traceability/schemas/QPInbond.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$comment": "{\"term\": \"QPInbond\", \"@id\": \"https://w3id.org/traceability#QPInbond\"}",
-    "title": "QPInbond",
+    "$id": "https://w3id.org/traceability/schemas/Inbond.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"Inbond\", \"@id\": \"https://w3id.org/traceability#Inbond\"}",
+    "title": "Inbond",
     "description": "",
     "type": "object",
     "properties": {
@@ -56,8 +56,20 @@
             "description": "Identifier for the individual InBond",
             "type": "string"
         },
+        "entryId": {
+            "$comment": "{\"term\": \"entryId\", \"@id\": \"https://w3id.org/identifier?3\"}",
+            "title": "Entry ID",
+            "description": "ACE entry summary unique identifier",
+            "type": "string"
+        },
+        "ftzNo": {
+            "$comment": "{\"term\": \"ftzNo\", \"@id\": \"https://w3id.org/identifier?2\"}",
+            "title": "FTZ Number",
+            "description": "ACE admission no. into an FTZ zone",
+            "type": "string"
+        },
         "inBondType": {
-            "$comment": "{\"term\": \"inBondType\", \"@id\": \"https://w3id.org/identifier\"}",
+            "$comment": "{\"term\": \"inBondType\", \"@id\": \"https://w3id.org/identifier?6\"}",
             "title": "InBond Type",
             "description": "Type of InBond",
             "type": "string"
@@ -65,7 +77,19 @@
         "portOfEntry": {
             "$comment": "{\"term\": \"portOfEntry\", \"@id\": \"https://www.gs1.org/voc/Place?3\"}",
             "title": "Port of Entry",
-            "description": "Port of Entry into US",
+            "description": "Port of Entry declared in US",
+            "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "portOfDestination": {
+            "$comment": "{\"term\": \"portOfDestination\", \"@id\": \"https://www.gs1.org/voc/Place?4\"}",
+            "title": "Port of final destination",
+            "description": "Port of Final destination in the US",
+            "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "portOfArrival": {
+            "$comment": "{\"term\": \"portOfArrival\", \"@id\": \"https://www.gs1.org/voc/Place?5\"}",
+            "title": "Port of Entry",
+            "description": "Port of Arrival into US",
             "$ref": "https://w3id.org/traceability/schemas/Place.json"
         },
         "carrier": {
@@ -75,7 +99,7 @@
             "$ref": "https://w3id.org/traceability/schemas/Entity.json"
         },
         "irsNumber": {
-            "$comment": "{\"term\": \"irsNumber\", \"@id\": \"https://w3id.org/identifier?3\"}",
+            "$comment": "{\"term\": \"irsNumber\", \"@id\": \"https://w3id.org/identifier?4\"}",
             "title": "IRS Number",
             "description": "Number for identification with IRS",
             "type": "string"
@@ -87,7 +111,7 @@
             "$ref": "https://w3id.org/traceability/schemas/Entity.json"
         },
         "billOfLadingNumber": {
-            "$comment": "{\"term\": \"billOfLadingNumber\", \"@id\": \"https://w3id.org/identifier?4\"}",
+            "$comment": "{\"term\": \"billOfLadingNumber\", \"@id\": \"https://w3id.org/identifier?5\"}",
             "title": "BOL",
             "description": "Identifier for the individual BOL",
             "type": "string"

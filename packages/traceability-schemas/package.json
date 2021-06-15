@@ -18,13 +18,15 @@
     "build:vocab": "node ./scripts/build-vocab.js ",
     "build:open-api": "node ./scripts/build-open-api.js ",
     "build:all": "npm run build:schemas && npm run build:intermediate && npm run build:context && npm run build:test-vectors && npm run build:credentials && npm run build:validate && npm run build:vocab && npm run build:open-api && npm run lint",
-    "test:schemas": "jest"
+    "test:schemas": "jest",
+    "test": "npm run test:schemas"
   },
   "dependencies": {
     "@transmute/credentials-context": "^0.0.4-unstable.2",
     "@transmute/did-context": "^0.0.4-unstable.7",
     "@transmute/did-key-ed25519": "^0.2.1-unstable.35",
     "@transmute/ed25519-signature-2018": "^0.2.1-unstable.8",
+    "@transmute/jsonld-schema": "0.0.4-unstable.16",
     "@transmute/security-context": "^0.0.4-unstable.2",
     "@transmute/vc.js": "^0.2.1-unstable.9",
     "ajv": "^7.1.1",
@@ -37,12 +39,14 @@
     "js-beautify": "^1.13.5",
     "json-mask": "^1.0.4",
     "json-schema-to-openapi-schema": "^0.4.0",
+    "jsonld": "^4.0.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.1.0"
+    "eslint-plugin-jest": "^24.1.0",
+    "jest-html-reporters": "^2.1.2"
   }
 }

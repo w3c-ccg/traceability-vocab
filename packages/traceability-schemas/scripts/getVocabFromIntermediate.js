@@ -1,28 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const getExamples = (term) => {
-  try {
-    const content = fs.readFileSync(
-      path
-        .resolve(__dirname, `../src/__fixtures__/${term}/good.json`)
-        .toString()
-    );
-    return `
-    
-    <pre class="example">
-    ${content}
-    </pre>`;
-  } catch (e) {
-    return `<p class="issue">No examples for ${term}</p>`;
-  }
-};
 const getVCExample = (term) => {
   try {
     const content = fs.readFileSync(
-      path
-        .resolve(__dirname, `../src/__fixtures__/${term}/vc.json`)
-        .toString()
+      path.resolve(__dirname, `../src/__fixtures__/${term}/vc.json`).toString()
     );
     return `
     <h4 id="#vc-example-${term}">Example Verifiable Credential</h4>
