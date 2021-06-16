@@ -1,0 +1,72 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "http://example.org/credentials/",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuanceDate": "2021-02-04T20:29:37+00:00",
+  "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/traceability/v1"
+    ],
+    "type": "EcommerceOrderRegistrationEvidenceDocument",
+    "orderNumber": "Order#274",
+    "orderDate": "2020-01-07",
+    "orderStatus": "OrderCancelled",
+    "description": "New Order For Brigitte Kris",
+    "url": "http://jedidiah.org?queryid=Order#274",
+    "seller": {
+      "type": "Organization",
+      "name": "Yost, Rowe and Cummerata",
+      "leiCode": "23451967761466046795"
+    },
+    "broker": {
+      "type": "Organization",
+      "name": "Kessler Inc",
+      "leiCode": "54321278368485858664"
+    },
+    "customer": {
+      "@context": [
+        "https://w3id.org/traceability/v1"
+      ],
+      "type": "Customer",
+      "name": "Jeramie Macejkovic",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "447 Turner Mission",
+        "addressLocality": "Port Valliefort",
+        "addressRegion": "Florida",
+        "postalCode": "57554-8642",
+        "addressCountry": "Vietnam"
+      },
+      "telephone": "555-767-6904",
+      "email": "Marquis.Smitham@example.com"
+    },
+    "paymentDueDate": "2021-03-09",
+    "paymentMethod": "http://purl.org/goodrelations/v1#ByBankTransferInAdvance",
+    "orderedItem": [
+      {
+        "@context": [
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": "OrderedItem",
+        "name": "ACME Bluetooth Computer Mouse 3000-1",
+        "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+        "unitPrice": 6,
+        "orderQuantity": 2,
+        "price": 12
+      }
+    ]
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..AmOAEoqpSZA64gpchpQgR99H4q4X4e57vHV5NfMT4s8jIu1Mi1Uf0qeoRMmngZHBd_YbgnhQjIdoLWJDUdMjDw",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+  }
+}
