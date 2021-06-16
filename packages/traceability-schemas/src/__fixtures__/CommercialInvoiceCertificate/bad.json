@@ -1,6 +1,56 @@
 [
   {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "type": [
+      "VerifiableCredential",
+      "CommercialInvoiceCertificate"
+    ],
     "name": "Commercial Invoice Certificate",
+    "description": "This document includes recommended commercial invoice fields.",
+    "relatedLink": [
+      {
+        "type": [
+          "LinkRole"
+        ],
+        "target": "https://www.example.com/template/123",
+        "linkRelationship": "templateLink"
+      },
+      {
+        "type": [
+          "LinkRole"
+        ],
+        "target": "did:example:789",
+        "linkRelationship": "billOfLadingLink"
+      },
+      {
+        "type": [
+          "LinkRole"
+        ],
+        "target": "https://www.example.com/credentials/123",
+        "linkRelationship": "millTestReportLink"
+      }
+    ],
+    "issuanceDate": "2019-12-11T03:50:55Z",
+    "issuer": {
+      "id": "did:example:123",
+      "type": "Organization",
+      "name": "Mayer, White and Price",
+      "description": "Centralized 24 hour time-frame",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "788 Bell Ridges",
+        "addressLocality": "West Jedidiahchester",
+        "addressRegion": "Arkansas",
+        "postalCode": "46400",
+        "addressCountry": "French Southern Territories"
+      },
+      "email": "Joyce68@example.org",
+      "phoneNumber": "555-413-5942",
+      "faxNumber": "555-199-6688"
+    },
     "credentialSubject": {
       "type": [
         "CommercialInvoice"
@@ -109,46 +159,25 @@
         }
       ]
     },
-    "interface": "back up"
+    "bus": "transmit",
+    "program": "synthesize",
+    "sensor": "back up"
   },
   {
-    "issuanceDate": "2019-12-11T03:50:55Z",
-    "sensor": "program",
-    "program": "generate",
-    "alarm": "override"
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "protocol": "calculate",
+    "feed": "generate",
+    "program": "connect"
   },
   {
     "type": [
       "VerifiableCredential",
       "CommercialInvoiceCertificate"
     ],
-    "description": "This document includes recommended commercial invoice fields.",
-    "relatedLink": [
-      {
-        "type": [
-          "LinkRole"
-        ],
-        "target": "https://www.example.com/template/123",
-        "linkRelationship": "templateLink"
-      },
-      {
-        "type": [
-          "LinkRole"
-        ],
-        "target": "did:example:789",
-        "linkRelationship": "billOfLadingLink"
-      },
-      {
-        "type": [
-          "LinkRole"
-        ],
-        "target": "https://www.example.com/credentials/123",
-        "linkRelationship": "millTestReportLink"
-      }
-    ],
     "issuanceDate": "2019-12-11T03:50:55Z",
-    "monitor": "back up",
-    "port": "input",
-    "interface": "copy"
+    "capacitor": "input"
   }
 ]

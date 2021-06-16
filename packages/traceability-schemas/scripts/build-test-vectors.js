@@ -2,6 +2,8 @@ const faker = require('faker');
 const path = require('path');
 const fs = require('fs-extra');
 const config = require('../src/generators/config');
+const evidencecreds = require('../src/data/vc/includingevidence.json');
+const credstatus = require('../src/data/vc/includingcredentialstatus.json');
 
 console.log('🧪 Initializing test vector builder');
 faker.seed(42);
@@ -101,10 +103,54 @@ Object.keys(schemas).forEach((schemaName) => {
       }
       const good = JSON.parse(fs.readFileSync(exampleFile));
       let credTemplate = require('../src/data/vc/vc.json');
+      const Evidence = require('../src/data/vc/evidence.json');
+      const Credentialstatus = require('../src/data/vc/credentialstatus.json');
+      delete Evidence['@context'];
+      // detect if evidence property is to be included
+      let loopvar = evidencecreds.included.length;
+      let remove = false;
+      while (loopvar > 0) {
+        if (evidencecreds.included[loopvar - 1] === schemaName) {
+          remove = true;
+        }
+        loopvar -= 1;
+      }
+      // detect if credentialStatus is to be included
+      let loopvar1 = credstatus.included.length;
+      let remove1 = false;
+      while (loopvar1 > 0) {
+        if (credstatus.included[loopvar1 - 1] === schemaName) {
+          remove1 = true;
+        }
+        loopvar1 -= 1;
+      }
       // eslint-disable-next-line prefer-destructuring
 
       // eslint-disable-next-line operator-linebreak
+      // Based on remove and remove1 flag determine whether evidence, credentialStatus
+      // or both should be included in the credential
+      if (!remove && !remove1) {
+      delete credTemplate.evidence;
+      delete credTemplate.credentialStatus;
       credTemplate = { ...credTemplate, credentialSubject: good[0] };
+      } else if (remove && !remove1) {
+        delete credTemplate.credentialStatus;
+        credTemplate = { ...credTemplate, credentialSubject: good[0], evidence: [Evidence] };
+      } else if (!remove && remove1) {
+        delete credTemplate.evidence;
+        credTemplate = {
+ ...credTemplate,
+credentialSubject: good[0],
+          credentialStatus: Credentialstatus
+};
+      } else {
+        credTemplate = {
+ ...credTemplate,
+credentialSubject: good[0],
+          evidence: [Evidence],
+credentialStatus: Credentialstatus
+};
+      }
 
       const vcFile = path.resolve(
         __dirname,
