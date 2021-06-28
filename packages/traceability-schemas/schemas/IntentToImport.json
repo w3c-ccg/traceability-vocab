@@ -1,0 +1,47 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/IntentToImport.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"IntentToImport\", \"@id\": \"https://w3id.org/traceability#IntentToImport\"}",
+    "title": "IntentToImport",
+    "description": "A simple notification by an entity (person or organization) notifying authorities of intention to import goods into its jurisdiction. Basic attributes are included only for the purpose of letting the authority determine the required documentation needed for the given import. This is a highly simplified and should not be interpreted as a replacement of Import Declarations or other relevant documents. This object may be easily subclassed for extension with other data for other cases where additional regulatory data may be required.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "importer": {
+            "$comment": "{\"term\": \"importer\", \"@id\": \"https://w3id.org/traceability#Entity\"}",
+            "title": "Importer",
+            "description": "Entity that is declaring their intention to import goods.",
+            "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+        },
+        "commodityTypes": {
+            "$comment": "{\"term\": \"commodityTypes\", \"@id\": \"https://w3id.org/traceability#CommodityType\"}",
+            "title": "Commodity Types",
+            "description": "Type of commodities intended for import.",
+            "type": "array",
+            "items": {
+              "$ref": "https://w3id.org/traceability/schemas/CommodityType.json"
+            }
+            
+        },
+        "originCountry": {
+            "$comment": "{\"term\": \"originCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+            "title": "Origin Country",
+            "description": "Code specifying the origin country (and country subdivision) using ISO 3166-1.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "examples": []
+}
