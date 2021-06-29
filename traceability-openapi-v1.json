@@ -819,6 +819,29 @@
         }
       }
     },
+    "/Event": {
+      "get": {
+        "description": "Event",
+        "responses": {
+          "200": {
+            "description": "A list of all Event objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/GeoCoordinates": {
       "get": {
         "description": "GeoCoordinates",
@@ -3751,6 +3774,60 @@
           {},
           {}
         ]
+      },
+      "Event": {
+        "title": "Organization",
+        "description": "An event such as a transformation, aggregation, commission, etc.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "eventType": {
+            "title": "Event Type",
+            "description": "The Type of the Event.",
+            "type": "string"
+          },
+          "eventId": {
+            "title": "Event Identifier",
+            "description": "The Identifier of the Event.",
+            "type": "string"
+          },
+          "actor": {
+            "title": "Actor",
+            "description": "The organization performing the activity.",
+            "type": "array",
+            "items": {}
+          },
+          "place": {
+            "title": "Event Location",
+            "description": "The location where the event took place."
+          },
+          "eventTime": {
+            "title": "Event Time",
+            "description": "The time when the event took place.",
+            "type": "string"
+          },
+          "products": {
+            "title": "Products",
+            "description": "The products referenced by the event.",
+            "type": "array",
+            "items": {}
+          }
+        },
+        "additionalProperties": false
       },
       "GeoCoordinates": {
         "title": "Geographic Coordinates",
