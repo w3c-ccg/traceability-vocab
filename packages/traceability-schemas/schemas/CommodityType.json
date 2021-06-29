@@ -1,0 +1,43 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/CommodityType.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"CommodityType\", \"@id\": \"https://w3id.org/traceability#CommodityType\"}",
+  "title": "CommodityType",
+  "description": "A type of commodity, used to determine tarifs and required cross border documentation.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "commodityDescription": {
+      "$comment": "{\"term\": \"commodityDescription\", \"@id\": \"https://w3id.org/traceability#commodityDescription\"}",
+      "title": "Commodity Description",
+      "description": "A description of the type of commodity.",
+      "type": "string"
+    },
+    "commodityCode": {
+      "$comment": "{\"term\": \"name\", \"@id\": \"https://w3id.org/traceability#commodityCode\"}",
+      "title": "Commodity Code",
+      "description": "The code representing the type of commodity",
+      "type": "string"
+    },
+    "commodityCodeScheme": {
+      "$comment": "{\"term\": \"description\", \"@id\": \"https://w3id.org/traceability#commodityCodeScheme\"}",
+      "title": "Description",
+      "description": "The codification scheme, such as WCO's 6-digit Harmonized System (HS) code listing or US Custom's Harmonized Tariff Schedule 10-digit (HTS) code listing.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}
