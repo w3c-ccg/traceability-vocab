@@ -1,5 +1,3 @@
-const faker = require('faker');
-
 const getCommodityType = () => {
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
