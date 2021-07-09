@@ -112,7 +112,6 @@ Object.keys(schemas).forEach((schemaName) => {
       findAllByKey(credTemplate, '@context');
       credTemplate['@context'] = Array.from(contextArray);
       credTemplate = { '@context': Array.from(contextArray), ...credTemplate };
-      console.log(credTemplate);
       credPromises.push(issueCreds(credTemplate, schemaName));
     } catch (fileErr) {
       console.log('Error reading credential template for schema:', schemaName);
