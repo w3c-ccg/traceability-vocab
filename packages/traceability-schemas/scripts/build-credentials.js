@@ -8,6 +8,27 @@ const { documentLoader } = require('../src/data/vc/documentLoader');
 console.log('🧪 Initializing credential builder');
 const schemas = require('../index.js');
 
+const contextArray = new Set([]);
+
+// if the key is found, delete the key and add the value to the contextArraySet
+// if not available and is an object recurse deeper
+
+function findAllByKey(obj, keyToFind) {
+  return Object.entries(obj)
+    .reduce((acc, [key, value]) => {
+      if (key === keyToFind) {
+        contextArray.add(...value);
+        // eslint-disable-next-line
+        delete obj[key];
+        return acc.concat(value);
+      }
+      if ((typeof value === 'object')) {
+          return acc.concat(findAllByKey(value, keyToFind));
+      }
+      return acc;
+      }, []);
+}
+
 const issueCreds = async (credTemplate, schemaName) => {
   try {
     const key = Ed25519KeyPair.from(require('../src/data/vc/keypair.json'));
@@ -87,7 +108,11 @@ Object.keys(schemas).forEach((schemaName) => {
       if (process.env.VERBOSE_BUILD) {
         console.log('Generating credential for:', schemaName);
       }
-      const credTemplate = JSON.parse(fs.readFileSync(exampleFile));
+      let credTemplate = JSON.parse(fs.readFileSync(exampleFile));
+      findAllByKey(credTemplate, '@context');
+      credTemplate['@context'] = Array.from(contextArray);
+      credTemplate = { '@context': Array.from(contextArray), ...credTemplate };
+      console.log(credTemplate);
       credPromises.push(issueCreds(credTemplate, schemaName));
     } catch (fileErr) {
       console.log('Error reading credential template for schema:', schemaName);
