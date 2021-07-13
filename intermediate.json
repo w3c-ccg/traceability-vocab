@@ -1777,6 +1777,97 @@
       "additionalProperties": false
     }
   },
+  "https://w3id.org/traceability#DocumentVerificationEvidence": {
+    "$id": "https://w3id.org/traceability/schemas/DocumentVerificationEvidence.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "DocumentVerificationEvidence",
+      "@id": "https://w3id.org/traceability#DocumentVerificationEvidence"
+    },
+    "title": "DocumentVerificationEvidence",
+    "description": "Verifiable Credential Evidence Document Schema",
+    "classProperties": {
+      "https://schema.org/Organization": {
+        "$comment": {
+          "term": "verifier",
+          "@id": "https://schema.org/Organization"
+        },
+        "title": "verifier"
+      },
+      "https://schema.org/DigitalDocument": {
+        "$comment": {
+          "term": "evidenceDocument",
+          "@id": "https://schema.org/DigitalDocument"
+        },
+        "title": "evidenceDocument"
+      },
+      "https://schema.org/Person": {
+        "$comment": {
+          "term": "subjectPresence",
+          "@id": "https://schema.org/Person"
+        },
+        "title": "subjectPresence"
+      },
+      "https://schema.org/PresentationDigitalDocument": {
+        "$comment": {
+          "term": "documentPresence",
+          "@id": "https://schema.org/PresentationDigitalDocument"
+        },
+        "title": "documentPresence"
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/DocumentVerificationEvidence.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"DocumentVerificationEvidence\", \"@id\": \"https://w3id.org/traceability#DocumentVerificationEvidence\"}",
+      "title": "DocumentVerificationEvidence",
+      "description": "Verifiable Credential Evidence Document Schema",
+      "type": "object",
+      "required": [
+        "type",
+        "verifier",
+        "evidenceDocument",
+        "subjectPresence",
+        "documentPresence"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "verifier": {
+          "$comment": "{\"term\": \"verifier\", \"@id\": \"https://schema.org/Organization\"}",
+          "title": "verifier",
+          "type": "array"
+        },
+        "evidenceDocument": {
+          "$comment": "{\"term\": \"evidenceDocument\", \"@id\": \"https://schema.org/DigitalDocument\"}",
+          "title": "evidenceDocument",
+          "type": "string"
+        },
+        "subjectPresence": {
+          "$comment": "{\"term\": \"subjectPresence\", \"@id\": \"https://schema.org/Person\"}",
+          "title": "subjectPresence",
+          "type": "string"
+        },
+        "documentPresence": {
+          "$comment": "{\"term\": \"documentPresence\", \"@id\": \"https://schema.org/PresentationDigitalDocument\"}",
+          "title": "documentPresence",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
   "https://w3id.org/traceability#EcommerceAdditionalProductCodeRegistrationCredential": {
     "$id": "https://w3id.org/traceability/schemas/EcommerceAdditionalProductCodeRegistrationCredential.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -9076,6 +9167,71 @@
       },
       "additionalProperties": false,
       "examples": []
+    }
+  },
+  "https://w3id.org/traceability#RevocationList2020Status": {
+    "$id": "https://w3id.org/traceability/schemas/RevocationList2020Status.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "RevocationList2020Status",
+      "@id": "https://w3id.org/traceability#RevocationList2020Status"
+    },
+    "title": "RevocationList2020Status",
+    "description": "Verifiable Credential credentialStatus Schema for RevocationList2020Status",
+    "classProperties": {
+      "https://schema.org/itemListElement": {
+        "$comment": {
+          "term": "revocationListIndex",
+          "@id": "https://schema.org/itemListElement"
+        },
+        "title": "revocationListIndex"
+      },
+      "https://schema.org/LinkRole": {
+        "$comment": {
+          "term": "revocationListCredential",
+          "@id": "https://schema.org/LinkRole"
+        },
+        "title": "revocationListCredential"
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/RevocationList2020Status.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"RevocationList2020Status\", \"@id\": \"https://w3id.org/traceability#RevocationList2020Status\"}",
+      "title": "RevocationList2020Status",
+      "description": "Verifiable Credential credentialStatus Schema for RevocationList2020Status",
+      "type": "object",
+      "required": [
+        "type",
+        "revocationListIndex",
+        "revocationListCredential"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "revocationListIndex": {
+          "$comment": "{\"term\": \"revocationListIndex\", \"@id\": \"https://schema.org/itemListElement\"}",
+          "title": "revocationListIndex",
+          "type": "string"
+        },
+        "revocationListCredential": {
+          "$comment": "{\"term\": \"revocationListCredential\", \"@id\": \"https://schema.org/LinkRole\"}",
+          "title": "revocationListCredential",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "https://w3id.org/traceability#ShippingStop": {

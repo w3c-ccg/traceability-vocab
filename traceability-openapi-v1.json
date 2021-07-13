@@ -359,6 +359,29 @@
         }
       }
     },
+    "/DocumentVerificationEvidence": {
+      "get": {
+        "description": "DocumentVerificationEvidence",
+        "responses": {
+          "200": {
+            "description": "A list of all DocumentVerificationEvidence objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentVerificationEvidence"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/EcommerceAdditionalProductCodeRegistrationCredential": {
       "get": {
         "description": "EcommerceAdditionalProductCodeRegistrationCredential",
@@ -1693,6 +1716,29 @@
         }
       }
     },
+    "/RevocationList2020Status": {
+      "get": {
+        "description": "RevocationList2020Status",
+        "responses": {
+          "200": {
+            "description": "A list of all RevocationList2020Status objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RevocationList2020Status"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/ShippingStop": {
       "get": {
         "description": "ShippingStop",
@@ -2672,6 +2718,53 @@
             "type": "string",
             "default": "",
             "example": "mailto:jane-doe@xyz.edu"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DocumentVerificationEvidence": {
+        "title": "DocumentVerificationEvidence",
+        "description": "Verifiable Credential Evidence Document Schema",
+        "type": "object",
+        "required": [
+          "type",
+          "verifier",
+          "evidenceDocument",
+          "subjectPresence",
+          "documentPresence"
+        ],
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "verifier": {
+            "title": "verifier",
+            "type": "array",
+            "items": {}
+          },
+          "evidenceDocument": {
+            "title": "evidenceDocument",
+            "type": "string"
+          },
+          "subjectPresence": {
+            "title": "subjectPresence",
+            "type": "string"
+          },
+          "documentPresence": {
+            "title": "documentPresence",
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -5966,6 +6059,42 @@
           "value": {
             "title": "Value",
             "description": "Value or amount.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RevocationList2020Status": {
+        "title": "RevocationList2020Status",
+        "description": "Verifiable Credential credentialStatus Schema for RevocationList2020Status",
+        "type": "object",
+        "required": [
+          "type",
+          "revocationListIndex",
+          "revocationListCredential"
+        ],
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "revocationListIndex": {
+            "title": "revocationListIndex",
+            "type": "string"
+          },
+          "revocationListCredential": {
+            "title": "revocationListCredential",
             "type": "string"
           }
         },
