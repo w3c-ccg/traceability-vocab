@@ -93,7 +93,7 @@ After you have the dependencies, the first-time setup is as follows:
    and related documentation locally:
 
    ```
-   $ npx serve docs
+   $ npx serve ./docs
    ```
 
 ### Making Contributions
@@ -291,9 +291,11 @@ npm run test:schemas
    [schemas](./packages/traceability-schemas/schemas) folder.
 2. Add synthetic data generation for it to the
    [generators](./packages/traceability-schemas/src/generators).
-3. Run the build using: `npm run build:all`
-   Fix any errors found.
-4. Review the latest spec changes by serving docs: `npx serve ./docs`.
+3. OPTIONAL -- Add your new schema name to the file [includingevidence.json](./packages/traceability-schemas/src/data/vc/includingevidence.json) if you want to include the ```evidence``` property in your verifiable credential test fixture.
+4. OPTIONAL -- Add your new schema name to the file [includincredentialstatus.json](./packages/traceability-schemas/src/data/vc/includingcredentialstatus.json) if you want to include the ```credentialStatus``` property in your verifiable credential test fixture.   
+5. Run the build using: `npm run build:all`
+6. Fix any errors found.  Repeat as needed.
+7. Review the latest spec changes by serving docs: `npx serve ./docs`.
 
 ## Additional notes
 

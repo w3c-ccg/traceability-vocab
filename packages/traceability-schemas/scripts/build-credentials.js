@@ -4,6 +4,7 @@ const { Ed25519KeyPair } = require('@transmute/did-key-ed25519');
 const { Ed25519Signature2018 } = require('@transmute/ed25519-signature-2018');
 const vcjs = require('@transmute/vc.js');
 const { documentLoader } = require('../src/data/vc/documentLoader');
+const credstatus = require('../src/data/vc/includingcredentialstatus.json');
 
 console.log('🧪 Initializing credential builder');
 const schemas = require('../index.js');
@@ -38,11 +39,31 @@ const issueCreds = async (credTemplate, schemaName) => {
       }),
       documentLoader,
     });
-    const result = await vcjs.ld.verifyCredential({
+
+    // check if VC has credential status
+    let loopvar = credstatus.included.length;
+    let remove = false;
+      while (loopvar > 0) {
+        if (credstatus.included[loopvar - 1] === schemaName) {
+          remove = true;
+        }
+        loopvar -= 1;
+      }
+      let result = {};
+    if (!remove) {
+      result = await vcjs.ld.verifyCredential({
       credential: verifiableCredential,
       suite: new Ed25519Signature2018(),
       documentLoader,
     });
+      } else {
+          result = await vcjs.ld.verifyCredential({
+          credential: verifiableCredential,
+          suite: new Ed25519Signature2018(),
+          documentLoader,
+          checkStatus: async () => ({ verified: true })
+        });
+      }
     // console.log(result)
     if (result.verified) {
       const vcFile = path.resolve(
