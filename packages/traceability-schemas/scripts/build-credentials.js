@@ -110,7 +110,6 @@ Object.keys(schemas).forEach((schemaName) => {
       }
       let credTemplate = JSON.parse(fs.readFileSync(exampleFile));
       findAllByKey(credTemplate, '@context');
-      credTemplate['@context'] = Array.from(contextArray);
       credTemplate = { '@context': Array.from(contextArray), ...credTemplate };
       credPromises.push(issueCreds(credTemplate, schemaName));
     } catch (fileErr) {
