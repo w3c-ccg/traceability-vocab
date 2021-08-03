@@ -24,7 +24,7 @@ const getVocabFromIntermediate = (intermediate) => {
       classPropertySections += `
             <section id="${classProperty.$comment.term}">
               <h3>${classProperty.title}</h3>
-              <p>${classProperty.description}</p>
+              ${classProperty.description ? `<p>${classProperty.description}</p>` : ''}
 
               <table class="simple">
                   <tbody>
@@ -53,7 +53,7 @@ const getVocabFromIntermediate = (intermediate) => {
     vocabularyString += `
           <section id="${classDefinition.$comment.term}">
           <h2>${classDefinition.title}</h2>
-          <p>${classDefinition.description}</p>
+          ${classDefinition.description ? `<p>${classDefinition.description}</p>` : ''}
 
           <table class="simple">
                   <tbody>

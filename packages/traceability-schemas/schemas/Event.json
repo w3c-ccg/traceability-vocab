@@ -1,0 +1,67 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/Event.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"Event\", \"@id\": \"https://schema.org/Event\"}",
+    "title": "Organization",
+    "description": "An event such as a transformation, aggregation, commission, etc.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "eventType": {
+            "$comment": "{\"term\": \"eventType\", \"@id\": \"https://schema.org/value\"}",
+            "title": "Event Type",
+            "description": "The Type of the Event.",
+            "type": "string"
+        },
+        "eventId": {
+            "$comment": "{\"term\": \"eventId\", \"@id\": \"https://schema.org/identifier\"}",
+            "title": "Event Identifier",
+            "description": "The Identifier of the Event.",
+            "type": "string"
+        },
+        "actor": {
+            "$comment": "{\"term\": \"actor\", \"@id\": \"https://w3id.org/traceability#Organization\", \"@type\": \"https://schema.org/ItemList\"}",
+            "title": "Actor",
+            "description": "The organization performing the activity.",
+            "type": "array",
+            "items": {
+                "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+            }
+        },
+        "place": {
+            "$comment": "{\"term\": \"place\", \"@id\": \"https://w3id.org/traceability#place\"}",
+            "title": "Event Location",
+            "description": "The location where the event took place.",
+            "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "eventTime": {
+            "$comment": "{\"term\": \"eventTime\", \"@id\": \"https://schema.org/DateTime#v2\"}",
+            "title": "Event Time",
+            "description": "The time when the event took place.",
+            "type": "string"
+        },
+        "products": {
+            "$comment": "{\"term\": \"products\", \"@id\": \"https://schema.org/Product\"}",
+            "title": "Products",
+            "description": "The products referenced by the event.",
+            "type": "array",
+            "items": {
+                "$ref": "https://w3id.org/traceability/schemas/Product.json"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "examples": []
+}

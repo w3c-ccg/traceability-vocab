@@ -2,7 +2,7 @@
 
 This module contains all the JSON Schema used to build the traceability vocab.
 
-It also contains all the programatic update code for automatically generating the resources used to produce the traceability spec.
+It also contains all the programmatic update code for automatically generating the resources used to produce the traceability spec.
 
 If you are just adding vocabulary items, you should only ever need to:
 - Create a JSON schema definition in the `schemas` folder. The schema JSON file should be named to match the type.
