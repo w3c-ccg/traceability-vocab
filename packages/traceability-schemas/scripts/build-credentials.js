@@ -32,7 +32,6 @@ function findAllByKey(obj, keyToFind) {
       }, []);
 }
 
-
 const issueCreds = async (credTemplate, schemaName) => {
   try {
     const key = Ed25519KeyPair.from(require('../src/data/vc/keypair.json'));
@@ -45,6 +44,8 @@ const issueCreds = async (credTemplate, schemaName) => {
       credentialPayload.credentialSubject.type[0] === 'VerifiableCredential'
     ) {
       credentialPayload = credentialPayload.credentialSubject;
+      credentialPayload['@context'] = Array.from(contextArray);
+
       if (typeof credentialPayload.issuer === 'string') {
         credentialPayload.issuer = key.controller;
       } else {
@@ -88,7 +89,6 @@ const issueCreds = async (credTemplate, schemaName) => {
           checkStatus: async () => ({ verified: true })
         });
       }
-    // console.log(result)
     if (result.verified) {
       const vcFile = path.resolve(
         __dirname,
@@ -132,12 +132,12 @@ Object.keys(schemas).forEach((schemaName) => {
       if (process.env.VERBOSE_BUILD) {
         console.log('Generating credential for:', schemaName);
       }
-      let credTemplate = JSON.parse(fs.readFileSync(exampleFile));
+      const credTemplate = JSON.parse(fs.readFileSync(exampleFile));
       findAllByKey(credTemplate, '@context');
       credTemplate['@context'] = Array.from(contextArray);
-      credTemplate = { '@context': Array.from(contextArray), ...credTemplate };
-      // This line is used to show the issue with Certificate type VCs this is NOT A FIX
-      credTemplate.credentialSubject['@context'] = Array.from(contextArray);
+      if (process.env.VERBOSE_BUILD) {
+        console.log('Credential after context merge:', credTemplate);
+      }
       credPromises.push(issueCreds(credTemplate, schemaName));
     } catch (fileErr) {
       console.log('Error reading credential template for schema:', schemaName);
