@@ -61,7 +61,7 @@ need [`Node.js`](https://nodejs.org/en/) and [`git`](https://git-scm.com/).
 
 After you have the dependencies, the first-time setup is as follows:
 
-1. checkout this repository —
+1. check out this repository —
 
    ```
    $ git checkout https://github.com/w3c-ccg/traceability-vocab.git
@@ -93,7 +93,7 @@ After you have the dependencies, the first-time setup is as follows:
    and related documentation locally:
 
    ```
-   $ npx serve docs
+   $ npx serve ./docs
    ```
 
 ### Making Contributions
@@ -291,9 +291,23 @@ npm run test:schemas
    [schemas](./packages/traceability-schemas/schemas) folder.
 2. Add synthetic data generation for it to the
    [generators](./packages/traceability-schemas/src/generators).
-3. Run the build using: `npm run build:all`
-   Fix any errors found.
-4. Review the latest spec changes by serving docs: `npx serve ./docs`.
+3. OPTIONAL — If you want to include the ```evidence``` property in your
+   verifiable credential test fixture, add your new schema name to the
+   [includingevidence.json](./packages/traceability-schemas/src/data/vc/includingevidence.json)
+   file.
+5. OPTIONAL — If you want to include the ```credentialStatus``` property in
+   your verifiable credential test fixture, add your new schema name to the
+   [includingcredentialstatus.json](./packages/traceability-schemas/src/data/vc/includingcredentialstatus.json)
+   file.
+6. Run the build using this command:
+   ```
+   npm run build:all
+   ```
+8. Fix any errors found.  Repeat as needed.
+9. Review the latest spec changes by serving docs with this command:
+   ```
+   npx serve ./docs
+   ```
 
 ## Additional notes
 
