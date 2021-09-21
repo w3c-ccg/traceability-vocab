@@ -7,14 +7,17 @@ const buildFixturesFromFs = () => {
   const fixtures = {};
 
   files.forEach((fname) => {
-    // eslint-disable-next-line
+     let file;
     try {
-      const fixture = JSON.parse(
-        fs.readFileSync(path.resolve(__dirname, `../schemas/${fname}`).toString()),
-      );
+        file = fs.readFileSync(path.resolve(__dirname, `../schemas/${fname}`).toString());
+         } catch (e) {
+      throw new Error(`Unable to read schema file at: ${fname}`);
+    }
+   try {
+      const fixture = JSON.parse(file);
       fixtures[fname.replace('.json', '')] = fixture;
     } catch (e) {
-      throw new Error(`Unable to read file and parse JSON schema at: ${fname}`);
+      throw new Error(`Unable to parse JSON schema at: ${fname}`);
     }
   });
 
