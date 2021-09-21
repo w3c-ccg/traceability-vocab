@@ -1,0 +1,45 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/Place.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"Place\", \"@id\": \"https://schema.org/Place\"}",
+    "title": "Place",
+    "description": "Entities that have a somewhat fixed, physical location.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "globalLocationNumber": {
+            "$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
+            "title": "Global Location Number (GLN)",
+            "description": "A Global Location Number (GLN) is the GS1 Identification Key used to identify physical locations or parties. The key comprises a GS1 Company Prefix, Location Reference and Check Digit. For more information, see http://www.gs1.org/gln.",
+            "type": "string",
+            "minLength": 13,
+            "maxLength": 13
+        },
+        "geo": {
+            "$comment": "{\"term\": \"geo\", \"@id\": \"https://schema.org/GeoCoordinates\"}",
+            "title": "Geographic Coordinates",
+            "description": "Links to information about geocoordinates for a place.",
+            "$ref": "https://w3id.org/traceability/schemas/GeoCoordinates.json"
+        },
+        "address": {
+            "$comment": "{\"term\": \"address\", \"@id\": \"https://schema.org/PostalAddress\"}",
+            "title": "Postal Address",
+            "description": "The postal address for an organization or place.",
+            "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        }
+    },
+    "additionalProperties": false,
+    "examples": []
+}

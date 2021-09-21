@@ -1,0 +1,39 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/RevocationList2020Status.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"RevocationList2020Status\", \"@id\": \"https://w3id.org/traceability#RevocationList2020Status\"}",
+    "title": "RevocationList2020Status",
+    "description": "Verifiable Credential credentialStatus Schema for RevocationList2020Status",
+    "type": "object",
+    "required": [
+        "type",
+        "revocationListIndex",
+        "revocationListCredential"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "revocationListIndex": {
+            "$comment": "{\"term\": \"revocationListIndex\", \"@id\": \"https://schema.org/itemListElement\"}",
+            "title": "revocationListIndex",
+            "type": "string"
+        },
+        "revocationListCredential": {
+            "$comment": "{\"term\": \"revocationListCredential\", \"@id\": \"https://schema.org/LinkRole\"}",
+            "title": "revocationListCredential",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}

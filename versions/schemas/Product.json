@@ -1,0 +1,103 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/Product.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"Product\", \"@id\": \"https://schema.org/Product\"}",
+  "title": "Product",
+  "description": "A product",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "manufacturer": {
+      "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
+      "title": "Manufacturer",
+      "description": "The entity manufacturing the product.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "name": {
+      "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+      "title": "Name",
+      "description": "Name of the shipment item(s)",
+      "type": "string"
+    },
+    "description": {
+      "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+      "title": "Description",
+      "description": "Description of the shipment.",
+      "type": "string"
+    },
+    "category": {
+      "$comment": "{\"term\": \"category\", \"@id\": \"https://schema.org/category\"}",
+      "title": "Category",
+      "description": "A category for the item.",
+      "type": "string"
+    },
+    "sizeOrAmount": {
+      "$comment": "{\"term\": \"sizeOrAmount\", \"@id\": \"https://schema.org/size\"}",
+      "title": "Size or Amount",
+      "description": "The size or amount of the product",
+      "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+    },
+    "weight": {
+      "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+      "title": "Weight",
+      "description": "Weight of the product.",
+      "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+    },
+    "depth": {
+      "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+      "title": "Depth",
+      "description": "The depth of the item.",
+      "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+    },
+    "width": {
+      "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+      "title": "Width",
+      "description": "The width of the item.",
+      "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+    },
+    "height": {
+      "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+      "title": "Height",
+      "description": "The height of the item.",
+      "$ref": "https://w3id.org/traceability/schemas/QuantitativeValue.json"
+    },
+    "quantity": {
+      "$comment": "{\"term\": \"quantity\", \"@id\": \"https://www.gs1.org/voc/netContent\"}",
+      "title": "Quantity",
+      "description": "The quantity of the product contained by a package.",
+      "type": "string"
+    },
+    "packagingType": {
+      "$comment": "{\"term\": \"packagingType\", \"@id\": \"https://www.gs1.org/voc/packagingMaterial\"}",
+      "title": "Packaging Type",
+      "description": "Links to details about packaging material type, quantity and thickness",
+      "type": "string"
+    },
+    "priceSpecification": {
+      "$comment": "{\"term\": \"priceSpecification\", \"@id\": \"https://schema.org/priceSpecification\"}",
+      "title": "Price Specification",
+      "description": "One or more detailed price specifications, indicating the unit price and delivery or payment charges.",
+      "$ref": "https://w3id.org/traceability/schemas/PriceSpecification.json"
+    },
+    "sku": {
+      "$comment": "{\"term\": \"sku\", \"@id\": \"https://schema.org/sku\"}",
+      "title": "Sku Number",
+      "description": "The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a product or service, or for the product to which the offer refers.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}

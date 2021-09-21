@@ -1,0 +1,52 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/LEIevidenceDocument.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"LEIevidenceDocument\", \"@id\": \"https://w3id.org/traceability#LEIevidenceDocument\"}",
+    "title": "LEIevidenceDocument",
+    "description": "GLEIF LEI Redord Level 1 Schema",
+	"type": "object",
+	"required": [
+        "lei",
+        "entity",
+        "registration",
+        "bic"
+        ],
+		"properties": {
+			"@context": {
+				"type": "array"
+			  },
+			"type": {
+				"oneOf": [
+				  {
+					"type": "string"
+				  },
+				  {
+					"type": "array"
+				  }
+				]
+			  },
+            "lei": {
+                "$comment": "{\"term\": \"lei\", \"@id\": \"https://www.gleif.org/en/about-lei/iso-17442-the-lei-code-structure#\"}",
+                "title": "Lei",
+                "type": "string"
+            },
+            "entity": {
+                "$comment": "{\"term\": \"entity\", \"@id\": \"https://w3id.org/traceability#LEIentity\"}",
+                "title": "LEIentity",
+                "$ref": "https://w3id.org/traceability/schemas/LEIentity.json"
+            },
+            "registration": {
+                "$comment": "{\"term\": \"registration\", \"@id\": \"https://w3id.org/traceability#LEIregistration\"}",
+                "title": "LEIregistration",
+                "$ref": "https://w3id.org/traceability/schemas/LEIregistration.json"
+            },
+            "bic": {
+                "$comment": "{\"term\": \"bic\", \"@id\": \"https://www.iso.org/obp/ui/#iso:std:60390:en\"}",
+                "title": "bic",
+                "description": "S.W.I.F.T. bank identifier code",
+                "type": "array"
+            }
+        },
+	"additionalProperties": false,
+	"examples": []
+}
