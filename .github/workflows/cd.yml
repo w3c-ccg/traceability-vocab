@@ -3,13 +3,10 @@ name: CD
 on:
   push:
     branches:
-      - auto_release
+      - main
 
 jobs:
   release-unstable:
-    # Don't run on any commit that features [skip ci] in the commit message
-    #  This can be removed github actions automatically detect [no ci] in commits https://github.blog/changelog/2021-02-08-github-actions-skip-pull-request-and-push-workflows-with-skip-ci/
-    if: "! contains(github.event.head_commit.message, '[skip ci]')"
     name: Publish unstable release
     runs-on: ubuntu-latest
     steps:
@@ -38,12 +35,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Create new Release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
           files: |
-            LICENSE.txt
+            LICENSE.md
             ./docs
