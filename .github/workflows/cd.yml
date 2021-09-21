@@ -3,7 +3,7 @@ name: CD
 on:
   push:
     branches:
-      - main
+      - auto_release
 
 jobs:
   release-unstable:
@@ -35,13 +35,20 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
 
-      - name: Create new Release
+      - name: 'Automated Version Bump'
+        id: version-bump
+        uses: 'phips28/gh-action-bump-version@master'
+        with:
+          tag-prefix: 'v'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create new Github Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Development Build"
+          title: ${{ steps.version-bump.outputs.newTag }}
           files: |
             LICENSE.md
             ./docs
