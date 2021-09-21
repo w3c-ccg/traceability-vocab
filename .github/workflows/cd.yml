@@ -29,12 +29,6 @@ jobs:
       - name: Test Credentials
         run: npm run test:credentials
 
-      - name: Deploy test report
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-
       - name: 'Automated Version Bump'
         id: version-bump
         uses: 'phips28/gh-action-bump-version@master'
@@ -42,6 +36,14 @@ jobs:
           tag-prefix: 'v'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy test report
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          destination_dir: ./versions/${{ steps.version-bump.outputs.newTag }}
+
       - name: Create new Github Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
