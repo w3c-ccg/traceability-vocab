@@ -10,6 +10,8 @@ const getShippingInstruction = () => {
     transportDocumentType: 'SWB',
     cargoItems: getCargoItem(),
     utilizedTransportEquipments: getTransportEquipment(),
+    shipper: getEntity(),
+    consignee: getEntity(),
   };
   return example;
 };
