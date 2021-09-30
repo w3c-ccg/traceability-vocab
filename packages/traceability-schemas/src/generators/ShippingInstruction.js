@@ -1,5 +1,5 @@
 const { getCargoItem } = require('./CargoItem');
-const { getParty } = require('./Party');
+const { getEntity } = require('./Entity');
 const { getTransportEquipment } = require('./TransportEquipment');
 
 const getShippingInstruction = () => {
