@@ -9,24 +9,3 @@ const getCargoLineItem = () => {
 };
 
 module.exports = { getCargoLineItem };
-
-  //   "cargoItems": [
-  //     {
-  //       "cargoLineItems": [
-  //         {
-  //           "cargoLineItemID": "string",
-  //           "shippingMarks": "string"
-  //         }
-  //       ],
-  //       "carrierBookingReference": "ABC709951",
-  //       "descriptionOfGoods": "string",
-  //       "HSCode": "string",
-  //       "weight": 13000.3,
-  //       "volume": 12,
-  //       "weightUnit": "KGM",
-  //       "volumeUnit": "CBM",
-  //       "numberOfPackages": 18,
-  //       "packageCode": "5H",
-  //       "equipmentReference": "APZU4812090"
-  //     }
-  //   ],
