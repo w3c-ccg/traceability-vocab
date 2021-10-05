@@ -2,6 +2,8 @@
 
 ![CI](https://github.com/w3c-ccg/traceability-vocab/workflows/CI/badge.svg) [![CD](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml/badge.svg)](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml)
 
+<!-- kick ci --> 
+
 ## About 
 
 This specification describes a Linked Data vocabulary for asserting Verifiable
