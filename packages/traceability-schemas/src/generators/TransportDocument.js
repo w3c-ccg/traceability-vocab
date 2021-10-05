@@ -11,4 +11,3 @@ const getTransportDocument = () => {
 };
 
 module.exports = { getTransportDocument };
-

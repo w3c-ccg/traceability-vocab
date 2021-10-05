@@ -8,4 +8,3 @@ const getTransportEquipment = () => {
 };
 
 module.exports = { getTransportEquipment };
-
