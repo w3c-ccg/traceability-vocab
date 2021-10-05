@@ -14,6 +14,7 @@ const getPlace = () => {
     globalLocationNumber,
     geo,
     address,
+    unLocode: 'DKCPH'
   };
   return example;
 };
