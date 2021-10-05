@@ -1,0 +1,94 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/ShippingInstruction.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"ShippingInstruction\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions\"}",
+  "title": "ShippingInstruction",
+  "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "shippingInstructionID": {
+      "$comment": "{\"term\": \"shippingInstructionID\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_instruction_number\"}",
+      "title": "Shipping Instruction ID",
+      "description": "The identifier for a shipping instruction provided by the carrier for system purposes.",
+      "type": "string"
+    },
+    "transportDocumentType": {
+      "$comment": "{\"term\": \"transportDocumentType\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocumentType\"}",
+      "title": "Transport Document Type",
+      "description": "Specifies the type of the transport document (a Bill of Lading (BOL) or a Sea Waybill (SWB)).",
+      "type": "string"
+    },
+    "preCarriageUnderShippersResponsibility": {
+      "$comment": "{\"term\": \"preCarriageUnderShippersResponsibility\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/preCarriageUnderShippersResponsibility\"}",
+      "title": "Pre Carriage Under Shippers Responsibility",
+      "description": "Mode of transportation for pre-carriage (e.g., truck, barge, rail), under shipper's responsibility",
+      "type": "string"
+    },
+    "invoicePayableAt": {
+      "$comment": "{\"term\": \"invoicePayableAt\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt\"}",
+      "title": "",
+      "description": "",
+      "$ref": "https://w3id.org/traceability/schemas/Place.json"
+    },
+    "carrierBookingReference": {
+      "$comment": "{\"term\": \"carrierBookingReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId\"}",
+      "title": "Carrier Booking Reference",
+      "description": "The associated booking number provided by the carrier. Cannot be used in combination with Cargo Item level carrierBookingReference",
+      "type": "string"
+    },
+    "cargoItems": {
+      "$comment": "{\"term\": \"cargoItems\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem\"}",
+      "title": "Cargo Item",
+      "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+      "type": "array",
+      "items": {
+        "$ref": "https://w3id.org/traceability/schemas/CargoItem.json"
+      }
+    },
+    "utilizedTransportEquipments": {
+      "$comment": "{\"term\": \"utilizedTransportEquipments\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment\"}",
+      "title": "Utilized Transport Equipments",
+      "description": "A piece of transport equipment utilized for the consignment or trade delivery.",
+      "type": "array",
+      "items": {
+        "$ref": "https://w3id.org/traceability/schemas/TransportEquipment.json"
+      }
+    },
+    "shipmentLocations": {
+      "$comment": "{\"term\": \"shipmentLocations\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DOCUMENTATION_DOMAIN/1.0.0#/components/schemas/shipmentLocation\"}",
+      "title": "Shipment Locations",
+      "description": "Maps the relationship between Shipment and Location, e.g., the place of receipt and the places of delivery for a specific shipment.",
+      "type": "array",
+      "items": {
+        "$ref": "https://w3id.org/traceability/schemas/Place.json"
+      }
+    },
+    "shipper": {
+      "$comment": "{\"term\": \"shipper\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty\"}",
+      "title": "Shipper",
+      "description": "Original shipper",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "consignee": {
+      "$comment": "{\"term\": \"consignee\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty\"}",
+      "title": "Consignee",
+      "description": "Consignee",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}

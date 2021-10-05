@@ -1,0 +1,51 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/DocumentVerificationEvidence.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"DocumentVerificationEvidence\", \"@id\": \"https://w3id.org/traceability#DocumentVerificationEvidence\"}",
+    "title": "DocumentVerificationEvidence",
+    "description": "Verifiable Credential Evidence Document Schema",
+    "type": "object",
+    "required": [
+        "type",
+        "verifier",
+        "evidenceDocument",
+        "subjectPresence",
+        "documentPresence"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "verifier": {
+            "$comment": "{\"term\": \"verifier\", \"@id\": \"https://schema.org/Organization\"}",
+            "title": "verifier",
+            "type": "array"
+        },
+        "evidenceDocument": {
+            "$comment": "{\"term\": \"evidenceDocument\", \"@id\": \"https://schema.org/DigitalDocument\"}",
+            "title": "evidenceDocument",
+            "type": "string"
+        },
+        "subjectPresence": {
+            "$comment": "{\"term\": \"subjectPresence\", \"@id\": \"https://schema.org/Person\"}",
+            "title": "subjectPresence",
+            "type": "string"
+        },
+        "documentPresence": {
+            "$comment": "{\"term\": \"documentPresence\", \"@id\": \"https://schema.org/PresentationDigitalDocument\"}",
+            "title": "documentPresence",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}

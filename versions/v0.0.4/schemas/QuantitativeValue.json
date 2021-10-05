@@ -1,0 +1,37 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/QuantitativeValue.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"QuantitativeValue\", \"@id\": \"https://schema.org/QuantitativeValue\"}",
+    "title": "Quantitative Value",
+    "description": "A point value or interval for product characteristics and other purposes",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "unitCode": {
+            "$comment": "{\"term\": \"unitCode\", \"@id\": \"https://schema.org/unitCode\"}",
+            "title": "Unit Code",
+            "description": "Unit of measurement.",
+            "type": "string"
+        },
+        "value": {
+            "$comment": "{\"term\": \"value\", \"@id\": \"https://schema.org/value\"}",
+            "title": "Value",
+            "description": "Value or amount.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "examples": []
+}

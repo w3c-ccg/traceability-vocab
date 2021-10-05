@@ -1,0 +1,38 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/chargeAndPaymentType.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",  
+    "$comment": "{\"term\": \"chargeAndPaymentType\", \"@id\": \"https://w3id.org/traceability#chargeAndPaymentType\"}",
+    "title": "chargeAndPaymentType",
+    "type": "object",
+    "required": [
+        "type",
+        "chargeCollect",
+        "chargePrepaid"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "chargeCollect": {
+            "$comment": "{\"term\": \"chargeCollect\", \"@id\": \"https://schema.org/discountPrice\"}",
+            "title": "chargeCollect",
+            "type": "number"
+        },
+        "chargePrepaid": {
+            "$comment": "{\"term\": \"chargePrepaid\", \"@id\": \"https://schema.org/totalPrice\"}",
+            "title": "chargePrepaid",
+            "type": "number"
+        }
+    },
+    "additionalProperties": false
+}

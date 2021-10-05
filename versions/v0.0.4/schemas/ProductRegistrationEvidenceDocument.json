@@ -1,0 +1,239 @@
+{
+	"$id": "https://w3id.org/traceability/schemas/ProductRegistrationEvidenceDocument.json",
+	"$schema": "https://json-schema.org/draft-07/schema#",
+	"$comment": "{\"term\": \"ProductRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#ProductRegistrationEvidenceDocument\"}",
+	"title": "Product Registration Evidence Document",
+	"description": "Evidence data for a registered eCommerce Product",
+	"type": "object",
+	"required": [
+		"@context",
+		"category",
+		"inProductGroupWithID",
+		"productID",
+		"mpn",
+		"gtin",
+		"isAccessoryOrSparePartFor",
+		"releaseDate",
+		"manufacturer",
+		"globalLocationNumber",
+		"leiCode",
+		"name",
+		"description",
+		"model",
+		"color",
+		"material",
+		"weight",
+		"height",
+		"width",
+		"depth",
+		"url",
+		"isBasedOn",
+		"image"
+	],
+	"properties": {
+		"@context": {
+			"type": "array"
+		},
+		"type": {
+			"oneOf": [
+				{ "type": "string" },
+				{ "type": "array"}
+			]
+		},
+		"category": {
+			"$comment": "{\"term\": \"category\", \"@id\": \"https://schema.org/category\"}",
+			"title": "A category for the product item.", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"Example Product Category (required)"
+			]
+		},
+		"inProductGroupWithID": {
+			"$comment": "{\"term\": \"inProductGroupWithID\", \"@id\": \"https://schema.org/inProductGroupWithID\"}",
+			"title": "Indicates the productGroupID for a ProductGroup", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"valid Product Group ID number per schema.org, could be NULL (required)"
+			]
+		},
+		"productID": {
+			"$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+			"title": "Product ID", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"Product number of registering Legal Entity such as an ISBN (required)"
+			]
+		},
+		"mpn": {
+			"$comment": "{\"term\": \"mpn\", \"@id\": \"https://schema.org/mpn\"}",
+			"title": "Manufacturer Part Number (MPN)", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"Manufacturer part number (required)"
+			]
+		},
+		"gtin": {
+			"$comment": "{\"term\": \"gtin\", \"@id\": \"https://schema.org/gtin\"}",
+			"title": "Global Trade Item Number (GTIN)", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"valid GTIN as number or URL per GS1 spec (required)"
+			]
+		},
+		"isAccessoryOrSparePartFor": {
+			"$comment": "{\"term\": \"isAccessoryOrSparePartFor\", \"@id\": \"https://schema.org/isAccessoryOrSparePartFor\"}", 
+			"title": "Is accessory or sparepart for", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"A pointer to another product (or multiple products) for which this product is an accessory or spare part; may be empty (required)"
+			]
+		},
+		"releaseDate": {
+			"$comment": "{\"term\": \"releaseDate\", \"@id\": \"https://schema.org/releaseDate\"}",
+			"title": "Release date of a product or product model", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"date when product (version) was first released (required)"
+			]
+		},
+		"manufacturer": {
+			"$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}", 
+			"title": "Manufacturer name or brand of the product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"name of the manufacturer (required)"
+			]
+		},
+		"globalLocationNumber": {
+        	    	"$comment": "{\"term\": \"globalLocationNumber\", \"@id\": \"https://schema.org/globalLocationNumber\"}",
+            		"title": "Global Location Number (GLN)",
+            		"default": "",
+            		"description": "A Global Location Number of the manufacturer issued by GS1 (required), for more information see http://www.gs1.org/gln.",
+            		"type": "string"
+        	},
+        	"leiCode": {
+            		"$comment": "{\"term\": \"leiCode\", \"@id\": \"https://schema.org/leiCode\"}",
+            		"title": "Global Location Number (GLN)",
+            		"default": "",
+            		"description": "A Legal Entity Identifier of the manufacturer issued by GLEIF (required), for more information see https://gleif.org",
+            		"type": "string"
+        	},
+		"name": {
+			"$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}", 
+			"title": "Name of the product item", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"short name of product (required)"
+			]
+		},
+		"description": {
+			"$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",  
+			"title": "Description of the product item", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"Description of product (required)"
+			]
+		},
+		"model": {
+			"$comment": "{\"term\": \"model\", \"@id\": \"https://schema.org/model\"}",  
+			"title": "Model of the product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"produdct model name, a URL is also allowed (required)"
+			]
+		},
+		"color": {
+			"$comment": "{\"term\": \"color\", \"@id\": \"https://schema.org/color\"}",  
+			"title": "Color of the product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"color of product -- 'mix' is allowed (required)"
+			]
+		},
+		"material": {
+			"$comment": "{\"term\": \"material\", \"@id\": \"https://schema.org/material\"}", 
+			"title": "Material the product is made from", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"Material the product is made from, could be specified as 'composites' (required)"
+			]
+		},
+		"weight": {
+			"$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}", 
+			"title": "Weight of the product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"floating point metric system value plus unit measure (kg) (required)"
+			]
+		},
+		"height": {
+			"$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}", 
+			"title": "Height of the product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"floating point metric system value plus unit measure (meter) (required)"
+			]
+		},
+		"width": {
+			"$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}", 
+			"title": "Width of the product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"floating point metric system value plus unit measure (meter) (required)"
+			]
+		},
+		"depth": {
+			"$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}", 
+			"title": "Depth of the Product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"floating point metric system value plus unit measure (meter) (required)"
+			]
+		},
+		"url": {
+			"$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+			"title": "Url or the product item", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"URL of the product; could be empty (required)"
+			]
+		},
+		"isBasedOn": {
+			"$comment": "{\"term\": \"isBasedOn\", \"@id\": \"https://schema.org/isBasedOn\"}",
+			"title": "Is based on", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"URI for the resource, e.g., patent, from which this work is derived or from which it is a modification or adaption; could be empty (required)"
+			]
+		},
+		"image": {
+			"$comment": "{\"term\": \"image\", \"@id\": \"https://schema.org/image\"}",
+			"title": "Image of the product", 
+			"type": "string",
+			"default": "",
+			"examples": [
+				"encoded picture of the product as a URI/URL (required)"
+			]
+		}
+	},
+	"additionalProperties": false
+}
