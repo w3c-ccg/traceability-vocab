@@ -20,34 +20,36 @@ const getVocabFromIntermediate = (intermediate) => {
   let vocabularyString = '';
   Object.values(intermediate).forEach((classDefinition) => {
     let classPropertySections = '';
-    Object.values(classDefinition.classProperties).forEach((classProperty) => {
-      classPropertySections += `
-            <section id="${classProperty.$comment.term}">
-              <h3>${classProperty.title}</h3>
-              ${classProperty.description ? `<p>${classProperty.description}</p>` : ''}
-
-              <table class="simple">
-                  <tbody>
-                      <tr>
-                      <td>
-<a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
-                      </td>
-                      <td>
-          <a href="${classProperty.$comment['@id']}">${classProperty.$comment.term}</a>
-                      </td>
-                      </tr>
-                      <tr>
-                      <td>
-<a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
-                      </td>
-                      <td>
-          <a href="${classProperty.$comment['@id']}">${classProperty.$comment['@id']}</a>
-                      </td>
-                      </tr>
-                  </tbody>
-              </table>
-              </section>
-              `;
+    Object.values(classDefinition.classProperties).forEach((classPropertyArray) => {
+      classPropertyArray.forEach((classProperty) => {
+        classPropertySections += `
+              <section id="${classProperty.$comment.term}">
+                <h3>${classProperty.title}</h3>
+                ${classProperty.description ? `<p>${classProperty.description}</p>` : ''}
+  
+                <table class="simple">
+                    <tbody>
+                        <tr>
+                        <td>
+  <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+            <a href="${classProperty.$comment['@id']}">${classProperty.$comment.term}</a>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>
+  <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+            <a href="${classProperty.$comment['@id']}">${classProperty.$comment['@id']}</a>
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </section>
+                `;
+      });
     });
 
     vocabularyString += `
