@@ -140,8 +140,8 @@ const getVocabFromIntermediate = (intermediate) => {
 
   <section>
   <h3 id="undefinedTerm">Undefined terms</h3>
-  <p>This vocabulary uses <code> '@vocab': 'https://w3id.org/traceability/#undefinedTerm' </code>, 
-    to disable JSON-LD related errors associated with Verifiable Credentials issued over 
+  <p>This vocabulary uses <code> '@vocab': 'https://w3id.org/traceability/#undefinedTerm' </code>
+    to disable JSON-LD related errors associated with Verifiable Credentials, issued about
     terms that have not yet been added here. 
   </p>
 </section>
