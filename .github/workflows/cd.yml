@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
-      - name: Use Node 12
+      - name: Use Node 16
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - name: Install
         run: npm i
@@ -34,13 +36,14 @@ jobs:
         uses: 'phips28/gh-action-bump-version@master'
         with:
           tag-prefix: 'v'
+          commit-message: 'CI: bumps version to {{version}} [skip ci]'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_AUTH_TOKEN }}
 
       - name: Deploy test report
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACTION_AUTH_TOKEN }}
           publish_dir: ./docs
           destination_dir: ./versions/${{ steps.version-bump.outputs.newTag }}
 
