@@ -1,0 +1,74 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/TotalCharge.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"TotalCharge\", \"@id\": \"https://w3id.org/traceability#TotalCharge\"}",
+    "title": "TotalCharge",
+    "description": "TotalCharge definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls",
+    "type": "object",
+    "required": [
+        "type",
+        "totalPrepaid",
+        "totalCollect",
+        "sourceCurrency",
+        "currencyConversionRate",
+        "ccChargesDestinationCurrency",
+        "chargesDestination",
+        "totalCollectCharge"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "totalPrepaid": {
+            "$comment": "{\"term\": \"totalPrepaid\", \"@id\": \"https://schema.org/Price\"}",
+            "title": "totalPrepaid",
+            "type": "number"
+        },
+        "totalCollect": {
+            "$comment": "{\"term\": \"totalCollect\", \"@id\": \"https://schema.org/totalPrice\"}",
+            "title": "totalCollect",
+            "type": "number"
+        },
+        "sourceCurrency": {
+            "$comment": "{\"term\": \"sourceCurrency\", \"@id\": \"https://schema.org/priceCurrency\"}",
+            "title": "sourceCurrency",
+            "type": "string"
+        },
+        "destinationCurrency": {
+            "$comment": "{\"term\": \"destinationCurrency\", \"@id\": \"https://schema.org/currency\"}",
+            "title": "destinationCurrency",
+            "type": "string"
+        },
+        "currencyConversionRate" : {
+            "$comment": "{\"term\": \"currencyConversionRate\", \"@id\": \"https://schema.org/ExchangeRateSpecification\"}",
+            "title": "currencyConversionRate",
+            "type": "number"
+        },
+        "ccChargesDestinationCurrency": {
+            "$comment": "{\"term\": \"ccChargesDestinationCurrency\", \"@id\": \"https://schema.org/discountCurrency\"}",
+            "title": "ccChargesDestinationCurrency",
+            "type": "string"
+        }, 
+        "chargesDestination": {
+            "$comment": "{\"term\": \"chargesDestination\", \"@id\": \"https://schema.org/Number\"}",
+            "title": "chargesDestination",
+            "type": "number"
+        },
+        "totalCollectCharge": {
+            "$comment": "{\"term\": \"totalCollectCharge\", \"@id\": \"https://schema.org/estimatedCost\"}",
+            "title": "totalCollectCharge",
+            "type": "number"
+        }    
+    },
+    "additionalProperties": false
+}

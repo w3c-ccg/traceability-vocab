@@ -1,0 +1,127 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/LEIentity.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"LEIentity\", \"@id\": \"https://w3id.org/traceability#LEIentity\"}",
+    "title": "LEIentity",
+    "description": "GLEIF LEI Redord Level 1 Schema for LEI Entity",
+	"type": "object",
+	"required": [
+        "legalName",
+        "otherNames",
+        "transliteratedOtherNames",
+        "legalAddress",
+        "headquartersAddress",
+        "registrationAuthority",
+        "legalJurisdiction",
+        "entityCategory",
+        "legalForm",
+        "associatedEntity",
+        "status",
+        "expirationDate",
+        "expirationReason",
+        "successorEntity",
+        "otherAddresses"
+        ],
+		"properties": {
+			"@context": {
+				"type": "array"
+			  },
+			"type": {
+				"oneOf": [
+				  {
+					"type": "string"
+				  },
+				  {
+					"type": "array"
+				  }
+				]
+			},
+            "legalName": {
+                "$comment": "{\"term\": \"legalName\", \"@id\": \"https://schema.org/legalName\"}",
+                "title": "Legalname",
+                "type": "string"
+            },
+            "legalNameLanguage": {
+                "$comment": "{\"term\": \"legalNameLanguage\", \"@id\": \"https://schema.org/Language\"}",
+                "title": "Language",
+                "type": "string"
+            },
+            "otherNames": {
+                "$comment": "{\"term\": \"otherNames\", \"@id\": \"https://schema.org/alternateName\"}",
+                "title": "Othernames",
+                "type": "array",
+                "default": []
+            },
+            "transliteratedOtherNames": {
+                "$comment": "{\"term\": \"transliteratedOtherNames\", \"@id\": \"https://schema.org/name\"}",
+                "title": "Transliteratedothernames",
+                "type": "array",
+                "default": []
+            },
+            "legalAddress": {
+                "$comment": "{\"term\": \"legalAddress\", \"@id\": \"https://w3id.org/traceability#LEIaddress\"}",
+                "title": "LegalAddress",
+                "$ref": "https://w3id.org/traceability/schemas/LEIaddress.json"
+            },
+            "headquartersAddress": {
+                "$comment": "{\"term\": \"headquartersAddress\", \"@id\": \"https://schema.org/PostalAddress\"}",
+                "title": "HeadquartersAddress",
+                "$ref": "https://w3id.org/traceability/schemas/LEIaddress.json"
+            },
+            "registrationAuthority": {
+                "$comment": "{\"term\": \"registrationAuthority\", \"@id\": \"https://w3id.org/traceability#LEIauthority\"}",
+                "title": "RegistrationAuthority",
+                "$ref": "https://w3id.org/traceability/schemas/LEIauthority.json"
+            },
+            "legalJurisdiction": {
+                "$comment": "{\"term\": \"legalJurisdiction\", \"@id\": \"https://schema.org/countryOfOrigin\"}",
+                "title": "LegalJurisdiction",
+                "type": "string"
+            },
+            "entityCategory": {
+                "$comment": "{\"term\": \"entityCategory\", \"@id\": \"https://schema.org/category\"}",
+                "title": "EntityCategory",
+                "type": "string"
+            },
+            "legalForm": {
+                "$comment": "{\"term\": \"legalForm\", \"@id\": \"https://schema.org/additionalType\"}",
+                "title": "LegalForm",
+                "type": "string"
+            },
+            "associatedEntity": {
+                "$comment": "{\"term\": \"associatedEntity\", \"@id\": \"https://schema.org/Organization\"}",
+                "title": "AssociatedEntity",
+                "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+            },
+            "status": {
+                "$comment": "{\"term\": \"status\", \"@id\": \"https://schema.org/status\"}",
+                "title": "Status",
+                "type": "string"
+            },
+            "expirationDate": {
+                "$comment": "{\"term\": \"expirationDate\", \"@id\": \"https://schema.org/expires\"}",
+                "title": "ExpirationDate",
+                "type": "string"
+            },
+            "expirationReason": {
+                "$comment": "{\"term\": \"expirationReason\", \"@id\": \"https://schema.org/Answer\"}",
+                "title": "ExpirationReason",
+                "type": "string"
+            },
+            "successorEntity": {
+                "$comment": "{\"term\": \"successorEntity\", \"@id\": \"https://schema.org/Corporation\"}",
+                "title": "SuccessorEntity",
+                "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+            },
+            "otherAddresses": {
+                "$comment": "{\"term\": \"otherAddresses\", \"@id\": \"https://schema.org/Place\"}",
+                "title": "OtherAddresses",
+                "type": "array",
+                "items": {
+                "$ref": "https://w3id.org/traceability/schemas/LEIaddress.json"
+                }
+            }
+    },
+	"additionalProperties": false,
+	"examples": []
+}
