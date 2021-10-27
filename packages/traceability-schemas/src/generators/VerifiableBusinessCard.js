@@ -15,7 +15,7 @@ const getVerifiableBusinessCard = () => {
       {
         type: 'LinkRole',
         target: 'https://example.com/organizations/example-org/presentations/available',
-        linkRelationship: 'OrganizationSecureShareEndpoint',
+        linkRelationship: 'OrganizationPresentationEndpoint',
       },
     ],
     issuanceDate: '2019-12-11T03:50:55Z',
