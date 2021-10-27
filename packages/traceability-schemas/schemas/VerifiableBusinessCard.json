@@ -1,0 +1,51 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/VerifiableBusinessCard.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"VerifiableBusinessCard\", \"@id\": \"https://w3id.org/traceability#VerifiableBusinessCard\"}",
+    "title": "Verifiable Business Card",
+    "description": "A digital, verifiable business card.",
+    "type": "object",
+    "properties": {
+      "@context": {
+        "type": "array",
+        "const": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://w3id.org/traceability/v1"
+        ]
+      },
+      "type": {
+        "type": "array",
+        "const": ["VerifiableCredential", "VerifiableBusinessCard"]
+      },
+      "id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "issuanceDate": {
+        "type": "string"
+      },
+      "issuer": {
+        "type": "object"
+      },
+      "credentialSubject": {
+        "type": "object"
+      },
+      "proof": {
+        "type": "object"
+      },
+      "relatedLink": {
+        "title": "Related Link",
+        "description": "Links related to this verifiable credential. This can include an endpoint for making verifiable presentations in accordance with https://w3c-ccg.github.io/traceability-interop/",
+        "type": "array",
+        "items": {
+          "$ref": "https://w3id.org/traceability/schemas/LinkRole.json"
+        }
+      }
+    },
+    "additionalProperties": false,
+    "required": [],
+    "examples": []
+  }
+  
