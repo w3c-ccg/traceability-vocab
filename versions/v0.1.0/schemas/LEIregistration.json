@@ -1,0 +1,72 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/LEIregistration.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"LEIregistration\", \"@id\": \"https://w3id.org/traceability#LEIregistration\"}",
+    "title": "LEIregistration",
+    "description": "GLEIF LEI Redord Level 1 Schema for LEI Registration",
+	"type": "object",
+	"required": [
+        "initialRegistrationDate",
+        "lastUpdateDate",
+        "status",
+        "nextRenewalDate",
+        "managingLou",
+        "validationSources",
+        "validationAuthority"
+        ],
+		"properties": {
+			"@context": {
+				"type": "array"
+			  },
+			"type": {
+				"oneOf": [
+				  {
+					"type": "string"
+				  },
+				  {
+					"type": "array"
+				  }
+				]
+			  },
+            "initialRegistrationDate": {
+                "$comment": "{\"term\": \"initialRegistrationDate\", \"@id\": \"https://schema.org/dateIssued\"}",
+                "title": "Initialregistrationdate",
+                "type": "string"
+            },
+            "lastUpdateDate": {
+                "$comment": "{\"term\": \"lastUpdateDate\", \"@id\": \"https://schema.org/dateModified\"}",
+                "title": "Lastupdatedate",
+                "type": "string"
+            },
+            "status": {
+                "$comment": "{\"term\": \"status\", \"@id\": \"https://schema.org/status\"}",
+                "title": "Status",
+                "type": "string"
+            },
+            "nextRenewalDate": {
+                "$comment": "{\"term\": \"nextRenewalDate\", \"@id\": \"https://schema.org/validThrough\"}",
+                "title": "Nextrenewaldate",
+                "type": "string"
+            },
+            "managingLou": {
+                "$comment": "{\"term\": \"managingLou\", \"@id\": \"https://www.gleif.org/en/about-lei/iso-17442-the-lei-code-structure#\"}",
+                "title": "Managinglou",
+                "type": "string"
+            },
+            "validationSources": {
+                "$comment": "{\"term\": \"validationSources\", \"@id\": \"https://schema.org/eventStatus\"}",
+                "title": "validationSources",
+                "type": "string"
+            },
+            "validationAuthority": {
+              "$comment": "{\"term\": \"validationAuthority\", \"@id\": \"https://w3id.org/traceability#LEIauthority\"}",
+                "title": "validationAuthority",
+                "type": "array",
+                "items": {
+                "$ref": "https://w3id.org/traceability/schemas/LEIauthority.json"
+                }
+            }
+		},
+	"additionalProperties": false,
+	"examples": []
+}

@@ -1,0 +1,37 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/Brand.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"Brand\", \"@id\": \"https://schema.org/Brand\"}",
+    "title": "Brand",
+    "description": "Brand information for entities.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "logo": {
+            "$comment": "{\"term\": \"logo\", \"@id\": \"https://schema.org/logo\"}",
+            "title": "Logo",
+            "description": "Logo of the entity.",
+            "type": "string"
+        },
+        "url": {
+            "$comment": "{\"term\": \"url\", \"@id\": \"https://schema.org/url\"}",
+            "title": "URL",
+            "description": "URL of the entity.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "examples": []
+}

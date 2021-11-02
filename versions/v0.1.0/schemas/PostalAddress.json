@@ -1,0 +1,79 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/PostalAddress.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"PostalAddress\", \"@id\": \"https://schema.org/PostalAddress\"}",
+    "title": "Postal Address",
+    "description": "The location at which a particular organization or person may be found or reached.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "organizationName": {
+            "$comment": "{\"term\": \"organizationName\", \"@id\": \"https://gs1.org/voc/organizationName\"}",
+            "title": "Organization Name",
+            "description": "The name of the organization expressed in text.",
+            "type": "string"
+        },
+        "streetAddress": {
+            "$comment": "{\"term\": \"streetAddress\", \"@id\": \"https://schema.org/streetAddress\"}",
+            "title": "Street Address",
+            "description": "The street address expressed as free form text. The street address is printed on paper as the first lines below the name. For example, the name of the street and the number in the street or the name of a building.",
+            "type": "string"
+        },
+        "addressLocality": {
+            "$comment": "{\"term\": \"addressLocality\", \"@id\": \"https://schema.org/addressLocality\"}",
+            "title": "Address Locality",
+            "description": "Text specifying the name of the locality; for example, a city.",
+            "type": "string"
+        },
+        "addressRegion": {
+            "$comment": "{\"term\": \"addressRegion\", \"@id\": \"https://schema.org/addressRegion\"}",
+            "title": "Address Region",
+            "description": "Text specifying a province or state in abbreviated format; for example, NJ.",
+            "type": "string"
+        },
+        "addressCountry": {
+            "$comment": "{\"term\": \"addressCountry\", \"@id\": \"https://schema.org/addressCountry\"}",
+            "title": "Address Country",
+            "description": "Code specifying the country (and country subdivision) for the address using ISO 3166-1.",
+            "type": "string"
+        },
+        "crossStreet": {
+            "$comment": "{\"term\": \"crossStreet\", \"@id\": \"https://gs1.org/voc/crossStreet\"}",
+            "title": "Cross Street",
+            "description": "A street intersecting a main street (usually at right angles) and continuing on both sides of it.",
+            "type": "string"
+        },
+        "countyCode": {
+            "$comment": "{\"term\": \"countyCode\", \"@id\": \"https://gs1.org/voc/countyCode\"}",
+            "title": "County Code",
+            "description": "A code that identifies a county. A county is a territorial division in some countries, forming the chief unit of local administration. In the US, a county is a political and administrative division of a state.",
+            "type": "string"
+        },
+        "postalCode": {
+            "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+            "title": "Postal Code",
+            "description": "Text specifying the postal code for an address.",
+            "type": "string"
+        },
+        "postOfficeBoxNumber": {
+            "$comment": "{\"term\": \"postOfficeBoxNumber\", \"@id\": \"https://schema.org/postOfficeBoxNumber\"}",
+            "title": "Post Office Box Number",
+            "description": "The number that identifies a PO box. A PO box is a box in a post office or other postal service location assigned to an organization where postal items may be kept.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "examples": []
+}
