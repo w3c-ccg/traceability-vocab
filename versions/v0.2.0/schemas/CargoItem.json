@@ -1,0 +1,86 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/CargoItem.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"CargoItem\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem\"}",
+  "title": "Cargo Item",
+  "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "cargoLineItems": {
+      "$comment": "{\"term\": \"cargoLineItems\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItem\"}",
+      "title": "Cargo Line Item",
+      "description": "Identifies the specific details of packages within a cargo item.",
+      "type": "array",
+      "items": {
+        "$ref": "https://w3id.org/traceability/schemas/CargoLineItem.json"
+      }
+    },
+    "carrierBookingReference": {
+      "$comment": "{\"term\": \"carrierBookingReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId\"}",
+      "title": "Carrier Booking Reference",
+      "description": "The associated booking number provided by the carrier for this cargo item. Cannot be used in combination with Shipping Instruction header level carrierBookingReference.",
+      "type": "string"
+    },
+    "descriptionOfGoods": {
+      "$comment": "{\"term\": \"descriptionOfGoods\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/descriptionOfGoods\"}",
+      "title": "Description of Goods",
+      "description": "The cargo description are details which accurately and properly describe the cargo being shipped in the container(s) as provided by the shipper.",
+      "type": "string"
+    },
+    "HSCode": {
+      "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/HSCode\"}",
+      "title": "HS Code",
+      "description": "Used by customs to classify the product being shipped.",
+      "type": "string"
+    },
+    "weight": {
+      "$comment": "{\"term\": \"weight\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weight\"}",
+      "title": "Weight",
+      "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s).",
+      "type": "number"
+    },
+    "volume": {
+      "$comment": "{\"term\": \"volume\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volume\"}",
+      "title": "Volume",
+      "description": "Calculated by multiplying the width, height, and length of the packed cargo.",
+      "type": "number"
+    },
+    "weightUnit": {
+      "$comment": "{\"term\": \"weightUnit\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit\"}",
+      "title": "Weight Unit",
+      "description": "The unit of measure which can be expressed in imperial or metric terms",
+      "type": "string"
+    },
+    "volumeUnit": {
+      "$comment": "{\"term\": \"volumeUnit\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volumeUnit\"}",
+      "title": "Volume Unit",
+      "description": "The unit of measure which can be expressed in either imperial or metric terms",
+      "type": "string"
+    },
+    "numberOfPackages": {
+      "$comment": "{\"term\": \"numberOfPackages\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/numberOfPackages\"}",
+      "title": "Number of Packages",
+      "description": "Specifies the number of packages associated with this cargo item",
+      "type": "number"
+    },
+    "packageCode": {
+      "$comment": "{\"term\": \"packageCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/packageCode\"}",
+      "title": "Package Code",
+      "description": "The unique identifier for the package type",
+      "type": "string"
+    }
+  }
+}

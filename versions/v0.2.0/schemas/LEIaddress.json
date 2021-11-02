@@ -1,0 +1,81 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/LEIaddress.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"LEIaddress\", \"@id\": \"https://w3id.org/traceability#LEIaddress\"}",
+    "title": "LEIaddress",
+    "description": "GLEIF LEI Redord Level 1 Schema for LEI Address",
+	"type": "object",
+	"required": [
+        "addressLines",
+        "city",
+        "region",
+        "country",
+        "postalCode"
+        ],
+		"properties": {
+			"@context": {
+				"type": "array"
+			  },
+			"type": {
+				"oneOf": [
+				  {
+					"type": "string"
+				  },
+				  {
+					"type": "array"
+				  }
+				]
+			},
+            "language": {
+                "$comment": "{\"term\": \"language\", \"@id\": \"https://schema.org/Language\"}",
+                "title": "Language",
+                "type": "string",
+                "default": null
+            },
+            "addressLines": {
+                "$comment": "{\"term\": \"addressLines\", \"@id\": \"https://schema.org/streetAddress\"}",
+                "title": "Addresslines",
+                "type": "array"
+            },
+            "addressNumber": {
+                "$comment": "{\"term\": \"addressNumber\", \"@id\": \"https://schema.org/Number\"}",
+                "title": "Addressnumber",
+                "type": "string",
+                "default": null
+            },
+            "addressNumberWithinBuilding": {
+                "$comment": "{\"term\": \"addressNumberWithinBuilding\", \"@id\": \"https://schema.org/value\"}",
+                "title": "Addressnumberwithinbuilding",
+                "type": "string",
+                "default": null
+            },
+            "mailRouting": {
+                "$comment": "{\"term\": \"mailRouting\", \"@id\": \"https://schema.org/Trip\"}",
+                "title": "Mailrouting",
+                "type": "string",
+                "default": null
+            },
+            "city": {
+                "$comment": "{\"term\": \"city\", \"@id\": \"https://schema.org/addressLocality\"}",
+                "title": "City",
+                "type": "string"
+            },
+            "region": {
+                "$comment": "{\"term\": \"region\", \"@id\": \"https://schema.org/addressRegion\"}",
+                "title": "Region",
+                "type": "string"
+            },
+            "country": {
+                "$comment": "{\"term\": \"country\", \"@id\": \"https://schema.org/addressCountry\"}",
+                "title": "Country",
+                "type": "string"
+            },
+            "postalCode": {
+                "$comment": "{\"term\": \"postalCode\", \"@id\": \"https://schema.org/postalCode\"}",
+                "title": "Postalcode",
+                "type": "string"
+            }
+        },
+	"additionalProperties": false,
+	"examples": []
+}

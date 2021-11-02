@@ -1,0 +1,45 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/LEIauthority.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"LEIauthority\", \"@id\": \"https://w3id.org/traceability#LEIauthority\"}",
+    "title": "LEIauthority",
+    "description": "GLEIF LEI Redord Level 1 Schema for LEI Authority",
+	"type": "object",
+	"required": [
+        "validationAuthorityID",
+        "otherValidationAuthorityID",
+        "validationAuthorityEntityID"
+        ],
+		"properties": {
+			"@context": {
+				"type": "array"
+			  },
+			"type": {
+				"oneOf": [
+				  {
+					"type": "string"
+				  },
+				  {
+					"type": "array"
+				  }
+				]
+			  },
+            "validationAuthorityID": {
+                "$comment": "{\"term\": \"validationAuthorityID\", \"@id\": \"https://schema.org/identifier\"}",
+                "title": "validationAuthorityID",
+                "type": "string"
+            },
+            "otherValidationAuthorityID": {
+                "$comment": "{\"term\": \"otherValidationAuthorityID\", \"@id\": \"https://schema.org/taxID\"}",
+                "title": "otherValidationAuthorityID",
+                "type": "string"
+            },
+            "validationAuthorityEntityID": {
+                "$comment": "{\"term\": \"validationAuthorityEntityID\", \"@id\": \"https://schema.org/leiCode\"}",
+                "title": "validationAuthorityEntityID",
+                "type": "string"
+            }
+		},
+	"additionalProperties": false,
+	"examples": []
+}

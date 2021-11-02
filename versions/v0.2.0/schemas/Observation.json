@@ -1,0 +1,43 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/Observation.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"Observation\", \"@id\": \"https://schema.org/Observation\"}",
+  "title": "Observation",
+  "description": "Instances of the class Observation are used to specify observations about an entity at a particular time.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "property": {
+      "$comment": "{\"term\": \"property\", \"@id\": \"https://schema.org/measuredProperty\"}",
+      "title": "Measured Property",
+      "description": "The property of an Observation.",
+      "$ref": "https://w3id.org/traceability/schemas/MeasuredProperty.json"
+    },
+    "measurement": {
+      "$comment": "{\"term\": \"measurement\", \"@id\": \"https://w3id.org/traceability#MeasuredValue\"}",
+      "title": "Measured Value",
+      "description": "The measurement of an Observation.",
+      "$ref": "https://w3id.org/traceability/schemas/MeasuredValue.json"
+    },
+    "date": {
+      "$comment": "{\"term\": \"date\", \"@id\": \"https://schema.org/observationDate\"}",
+      "title": "Observation Date",
+      "description": "The date of the Observation.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}
