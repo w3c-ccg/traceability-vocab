@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
 
       - name: Use Node 16
         uses: actions/setup-node@v1
@@ -31,21 +29,25 @@ jobs:
       - name: Test Credentials
         run: npm run test:credentials
 
-      - name: 'Automated Version Bump'
+      - name: "Automated Version Bump"
         id: version-bump
-        uses: 'phips28/gh-action-bump-version@master'
+        uses: "phips28/gh-action-bump-version@master"
         with:
-          tag-prefix: 'v'
-          commit-message: 'CI: bumps version to {{version}} [skip ci]'
+          tag-prefix: "v"
+          commit-message: "CI: bumps version to {{version}} [skip ci]"
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTION_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup assets
+        run: |
+          mkdir ./versions/${{ steps.version-bump.outputs.newTag }}
+          cp ./docs ./versions/${{ steps.version-bump.outputs.newTag }}
 
       - name: Deploy test report
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.ACTION_AUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN  }}
           publish_dir: ./docs
-          destination_dir: ./versions/${{ steps.version-bump.outputs.newTag }}
 
       - name: Create new Github Release
         uses: "marvinpinto/action-automatic-releases@latest"
