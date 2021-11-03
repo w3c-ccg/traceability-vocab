@@ -26,6 +26,7 @@ const getContextFromIntermediate = (intermediate) => {
   return {
     '@context': {
       '@version': 1.1,
+      '@vocab': 'https://w3id.org/traceability/#undefinedTerm',
       id: '@id',
       type: '@type',
       ...rootTerms,
