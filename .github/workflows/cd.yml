@@ -29,26 +29,26 @@ jobs:
       - name: Test Credentials
         run: npm run test:credentials
 
-      - name: "Automated Version Bump"
+      - name: 'Automated Version Bump'
         id: version-bump
-        uses: "phips28/gh-action-bump-version@master"
+        uses: 'phips28/gh-action-bump-version@master'
         with:
-          tag-prefix: "v"
-          commit-message: "CI: bumps version to {{version}} [skip ci]"
+          tag-prefix: 'v'
+          commit-message: 'CI: bumps version to {{version}} [skip ci]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy test report
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN  }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
 
       - name: Create new Github Release
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: 'marvinpinto/action-automatic-releases@latest'
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          repo_token: '${{ secrets.GITHUB_TOKEN }}'
+          automatic_release_tag: 'latest'
           prerelease: true
           title: ${{ steps.version-bump.outputs.newTag }}
           files: |
