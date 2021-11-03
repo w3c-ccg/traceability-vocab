@@ -38,11 +38,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup assets
-        run: |
-          mkdir ./versions/${{ steps.version-bump.outputs.newTag }}
-          cp ./docs ./versions/${{ steps.version-bump.outputs.newTag }}
-
       - name: Deploy test report
         uses: peaceiris/actions-gh-pages@v3
         with:
