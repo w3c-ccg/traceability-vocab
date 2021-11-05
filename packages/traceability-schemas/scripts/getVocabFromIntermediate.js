@@ -23,39 +23,51 @@ const getVocabFromIntermediate = (intermediate) => {
     Object.values(classDefinition.classProperties).forEach((classPropertyArray) => {
       classPropertyArray.forEach((classProperty) => {
         classPropertySections += `
-              <section id="${classProperty.$comment.term}">
-                <h3>${classProperty.title}</h3>
-                ${classProperty.description ? `<p>${classProperty.description}</p>` : ''}
-  
-                <table class="simple">
-                    <tbody>
-                        <tr>
-                        <td>
-  <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
-                        </td>
-                        <td>
-            <a href="${classProperty.$comment['@id']}">${classProperty.$comment.term}</a>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-  <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
-                        </td>
-                        <td>
-            <a href="${classProperty.$comment['@id']}">${classProperty.$comment['@id']}</a>
-                        </td>
-                        </tr>
-                    </tbody>
-                </table>
-                </section>
-                `;
+        <section id="${classProperty.$comment.term}">
+              <h3>${classProperty.title}</h3>
+              ${
+                classProperty.description
+                  ? `<p>${classProperty.description}</p>`
+                  : ''
+              }
+
+              <table class="simple">
+                  <tbody>
+                      <tr>
+                      <td>
+<a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                      </td>
+                      <td>
+          <a href="${classProperty.$comment['@id']}">${
+        classProperty.$comment.term
+      }</a>
+                      </td>
+                      </tr>
+                      <tr>
+                      <td>
+<a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                      </td>
+                      <td>
+          <a href="${classProperty.$comment['@id']}">${
+        classProperty.$comment['@id']
+      }</a>
+                      </td>
+                      </tr>
+                  </tbody>
+              </table>
+              </section>
+              `;
       });
     });
 
     vocabularyString += `
           <section id="${classDefinition.$comment.term}">
           <h2>${classDefinition.title}</h2>
-          ${classDefinition.description ? `<p>${classDefinition.description}</p>` : ''}
+          ${
+            classDefinition.description
+              ? `<p>${classDefinition.description}</p>`
+              : ''
+          }
 
           <table class="simple">
                   <tbody>
@@ -127,6 +139,14 @@ const getVocabFromIntermediate = (intermediate) => {
       https://github.com/w3c-ccg/traceability-vocab/tree/main/docs/schemas
     </a>
   </p>
+
+  <section>
+  <h3 id="undefinedTerm">Undefined terms</h3>
+  <p>This vocabulary uses <code> '@vocab': 'https://w3id.org/traceability/#undefinedTerm' </code>
+    to disable JSON-LD related errors associated with Verifiable Credentials, issued about
+    terms that have not yet been added here. 
+  </p>
+</section>
   
   
   ${vocabularyString}
