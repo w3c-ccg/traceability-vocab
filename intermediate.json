@@ -994,6 +994,251 @@
       "examples": []
     }
   },
+  "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem": {
+    "$id": "https://w3id.org/traceability/schemas/CargoItem.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "CargoItem",
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem"
+    },
+    "title": "Cargo Item",
+    "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+    "classProperties": {
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItem": {
+        "$comment": {
+          "term": "cargoLineItems",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItem"
+        },
+        "title": "Cargo Line Item",
+        "description": "Identifies the specific details of packages within a cargo item."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId": {
+        "$comment": {
+          "term": "carrierBookingReference",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "title": "Carrier Booking Reference",
+        "description": "The associated booking number provided by the carrier for this cargo item. Cannot be used in combination with Shipping Instruction header level carrierBookingReference."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/descriptionOfGoods": {
+        "$comment": {
+          "term": "descriptionOfGoods",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/descriptionOfGoods"
+        },
+        "title": "Description of Goods",
+        "description": "The cargo description are details which accurately and properly describe the cargo being shipped in the container(s) as provided by the shipper."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/HSCode": {
+        "$comment": {
+          "term": "HSCode",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/HSCode"
+        },
+        "title": "HS Code",
+        "description": "Used by customs to classify the product being shipped."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weight": {
+        "$comment": {
+          "term": "weight",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weight"
+        },
+        "title": "Weight",
+        "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s)."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volume": {
+        "$comment": {
+          "term": "volume",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volume"
+        },
+        "title": "Volume",
+        "description": "Calculated by multiplying the width, height, and length of the packed cargo."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit": {
+        "$comment": {
+          "term": "weightUnit",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit"
+        },
+        "title": "Weight Unit",
+        "description": "The unit of measure which can be expressed in imperial or metric terms"
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volumeUnit": {
+        "$comment": {
+          "term": "volumeUnit",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volumeUnit"
+        },
+        "title": "Volume Unit",
+        "description": "The unit of measure which can be expressed in either imperial or metric terms"
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/numberOfPackages": {
+        "$comment": {
+          "term": "numberOfPackages",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/numberOfPackages"
+        },
+        "title": "Number of Packages",
+        "description": "Specifies the number of packages associated with this cargo item"
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/packageCode": {
+        "$comment": {
+          "term": "packageCode",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/packageCode"
+        },
+        "title": "Package Code",
+        "description": "The unique identifier for the package type"
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/CargoItem.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"CargoItem\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem\"}",
+      "title": "Cargo Item",
+      "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "cargoLineItems": {
+          "$comment": "{\"term\": \"cargoLineItems\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItem\"}",
+          "title": "Cargo Line Item",
+          "description": "Identifies the specific details of packages within a cargo item.",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/CargoLineItem.json"
+          }
+        },
+        "carrierBookingReference": {
+          "$comment": "{\"term\": \"carrierBookingReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId\"}",
+          "title": "Carrier Booking Reference",
+          "description": "The associated booking number provided by the carrier for this cargo item. Cannot be used in combination with Shipping Instruction header level carrierBookingReference.",
+          "type": "string"
+        },
+        "descriptionOfGoods": {
+          "$comment": "{\"term\": \"descriptionOfGoods\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/descriptionOfGoods\"}",
+          "title": "Description of Goods",
+          "description": "The cargo description are details which accurately and properly describe the cargo being shipped in the container(s) as provided by the shipper.",
+          "type": "string"
+        },
+        "HSCode": {
+          "$comment": "{\"term\": \"HSCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/HSCode\"}",
+          "title": "HS Code",
+          "description": "Used by customs to classify the product being shipped.",
+          "type": "string"
+        },
+        "weight": {
+          "$comment": "{\"term\": \"weight\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weight\"}",
+          "title": "Weight",
+          "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s).",
+          "type": "number"
+        },
+        "volume": {
+          "$comment": "{\"term\": \"volume\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volume\"}",
+          "title": "Volume",
+          "description": "Calculated by multiplying the width, height, and length of the packed cargo.",
+          "type": "number"
+        },
+        "weightUnit": {
+          "$comment": "{\"term\": \"weightUnit\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit\"}",
+          "title": "Weight Unit",
+          "description": "The unit of measure which can be expressed in imperial or metric terms",
+          "type": "string"
+        },
+        "volumeUnit": {
+          "$comment": "{\"term\": \"volumeUnit\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volumeUnit\"}",
+          "title": "Volume Unit",
+          "description": "The unit of measure which can be expressed in either imperial or metric terms",
+          "type": "string"
+        },
+        "numberOfPackages": {
+          "$comment": "{\"term\": \"numberOfPackages\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/numberOfPackages\"}",
+          "title": "Number of Packages",
+          "description": "Specifies the number of packages associated with this cargo item",
+          "type": "number"
+        },
+        "packageCode": {
+          "$comment": "{\"term\": \"packageCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/packageCode\"}",
+          "title": "Package Code",
+          "description": "The unique identifier for the package type",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "https://w3id.org/traceability#CargoLineItem": {
+    "$id": "https://w3id.org/traceability/schemas/CargoLineItem.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "CargoLineItem",
+      "@id": "https://w3id.org/traceability#CargoLineItem"
+    },
+    "title": "Cargo Line Item",
+    "description": "Identifies the specific details of packages within a cargo item.",
+    "classProperties": {
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItemID": {
+        "$comment": {
+          "term": "cargoLineItemID",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItemID"
+        },
+        "title": "cargoLineItemID",
+        "description": "Identifies the cargo line item (package) within the cargo. The cargo line item ID is provided by the shipper and is used to define the stuffing. Cargo line items belonging to the same cargo items are stuffed in the same container."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingMarks": {
+        "$comment": {
+          "term": "shippingMarks",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingMarks"
+        },
+        "title": "shippingMarks",
+        "description": "The identifying details of a package or the actual markings that appear on the package(s). This information is provided by the shipper."
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/CargoLineItem.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"CargoLineItem\", \"@id\": \"https://w3id.org/traceability#CargoLineItem\"}",
+      "title": "Cargo Line Item",
+      "description": "Identifies the specific details of packages within a cargo item.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "cargoLineItemID": {
+          "$comment": "{\"term\": \"cargoLineItemID\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItemID\"}",
+          "title": "cargoLineItemID",
+          "description": "Identifies the cargo line item (package) within the cargo. The cargo line item ID is provided by the shipper and is used to define the stuffing. Cargo line items belonging to the same cargo items are stuffed in the same container.",
+          "type": "string"
+        },
+        "shippingMarks": {
+          "$comment": "{\"term\": \"shippingMarks\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingMarks\"}",
+          "title": "shippingMarks",
+          "description": "The identifying details of a package or the actual markings that appear on the package(s). This information is provided by the shipper.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "cargoLineItemID",
+        "shippingMarks"
+      ]
+    }
+  },
   "https://w3id.org/traceability#ChargeDeclaration": {
     "$id": "https://w3id.org/traceability/schemas/ChargeDeclaration.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -8068,6 +8313,14 @@
         },
         "title": "Postal Address",
         "description": "The postal address for an organization or place."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE": {
+        "$comment": {
+          "term": "unLocode",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE"
+        },
+        "title": "UN Locode",
+        "description": "LOCODE"
       }
     },
     "schema": {
@@ -8110,6 +8363,12 @@
           "title": "Postal Address",
           "description": "The postal address for an organization or place.",
           "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "unLocode": {
+          "$comment": "{\"term\": \"unLocode\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE\"}",
+          "title": "UN Locode",
+          "description": "LOCODE",
+          "type": "string"
         }
       },
       "additionalProperties": false,
@@ -9248,6 +9507,192 @@
       "additionalProperties": false
     }
   },
+  "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions": {
+    "$id": "https://w3id.org/traceability/schemas/ShippingInstruction.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "ShippingInstruction",
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions"
+    },
+    "title": "ShippingInstruction",
+    "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
+    "classProperties": {
+      "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_instruction_number": {
+        "$comment": {
+          "term": "shippingInstructionID",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_instruction_number"
+        },
+        "title": "Shipping Instruction ID",
+        "description": "The identifier for a shipping instruction provided by the carrier for system purposes."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocumentType": {
+        "$comment": {
+          "term": "transportDocumentType",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocumentType"
+        },
+        "title": "Transport Document Type",
+        "description": "Specifies the type of the transport document (a Bill of Lading (BOL) or a Sea Waybill (SWB))."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/preCarriageUnderShippersResponsibility": {
+        "$comment": {
+          "term": "preCarriageUnderShippersResponsibility",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/preCarriageUnderShippersResponsibility"
+        },
+        "title": "Pre Carriage Under Shippers Responsibility",
+        "description": "Mode of transportation for pre-carriage (e.g., truck, barge, rail), under shipper's responsibility"
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt": {
+        "$comment": {
+          "term": "invoicePayableAt",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt"
+        },
+        "title": "",
+        "description": ""
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId": {
+        "$comment": {
+          "term": "carrierBookingReference",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "title": "Carrier Booking Reference",
+        "description": "The associated booking number provided by the carrier. Cannot be used in combination with Cargo Item level carrierBookingReference"
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem": {
+        "$comment": {
+          "term": "cargoItems",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
+        },
+        "title": "Cargo Item",
+        "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment": {
+        "$comment": {
+          "term": "utilizedTransportEquipments",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment"
+        },
+        "title": "Utilized Transport Equipments",
+        "description": "A piece of transport equipment utilized for the consignment or trade delivery."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DOCUMENTATION_DOMAIN/1.0.0#/components/schemas/shipmentLocation": {
+        "$comment": {
+          "term": "shipmentLocations",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DOCUMENTATION_DOMAIN/1.0.0#/components/schemas/shipmentLocation"
+        },
+        "title": "Shipment Locations",
+        "description": "Maps the relationship between Shipment and Location, e.g., the place of receipt and the places of delivery for a specific shipment."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty": {
+        "$comment": {
+          "term": "shipper",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
+        },
+        "title": "Shipper",
+        "description": "Original shipper"
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty": {
+        "$comment": {
+          "term": "consignee",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        },
+        "title": "Consignee",
+        "description": "Consignee"
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/ShippingInstruction.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"ShippingInstruction\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions\"}",
+      "title": "ShippingInstruction",
+      "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "shippingInstructionID": {
+          "$comment": "{\"term\": \"shippingInstructionID\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_instruction_number\"}",
+          "title": "Shipping Instruction ID",
+          "description": "The identifier for a shipping instruction provided by the carrier for system purposes.",
+          "type": "string"
+        },
+        "transportDocumentType": {
+          "$comment": "{\"term\": \"transportDocumentType\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocumentType\"}",
+          "title": "Transport Document Type",
+          "description": "Specifies the type of the transport document (a Bill of Lading (BOL) or a Sea Waybill (SWB)).",
+          "type": "string"
+        },
+        "preCarriageUnderShippersResponsibility": {
+          "$comment": "{\"term\": \"preCarriageUnderShippersResponsibility\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/preCarriageUnderShippersResponsibility\"}",
+          "title": "Pre Carriage Under Shippers Responsibility",
+          "description": "Mode of transportation for pre-carriage (e.g., truck, barge, rail), under shipper's responsibility",
+          "type": "string"
+        },
+        "invoicePayableAt": {
+          "$comment": "{\"term\": \"invoicePayableAt\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt\"}",
+          "title": "",
+          "description": "",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "carrierBookingReference": {
+          "$comment": "{\"term\": \"carrierBookingReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId\"}",
+          "title": "Carrier Booking Reference",
+          "description": "The associated booking number provided by the carrier. Cannot be used in combination with Cargo Item level carrierBookingReference",
+          "type": "string"
+        },
+        "cargoItems": {
+          "$comment": "{\"term\": \"cargoItems\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem\"}",
+          "title": "Cargo Item",
+          "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/CargoItem.json"
+          }
+        },
+        "utilizedTransportEquipments": {
+          "$comment": "{\"term\": \"utilizedTransportEquipments\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment\"}",
+          "title": "Utilized Transport Equipments",
+          "description": "A piece of transport equipment utilized for the consignment or trade delivery.",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/TransportEquipment.json"
+          }
+        },
+        "shipmentLocations": {
+          "$comment": "{\"term\": \"shipmentLocations\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DOCUMENTATION_DOMAIN/1.0.0#/components/schemas/shipmentLocation\"}",
+          "title": "Shipment Locations",
+          "description": "Maps the relationship between Shipment and Location, e.g., the place of receipt and the places of delivery for a specific shipment.",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/Place.json"
+          }
+        },
+        "shipper": {
+          "$comment": "{\"term\": \"shipper\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty\"}",
+          "title": "Shipper",
+          "description": "Original shipper",
+          "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+        },
+        "consignee": {
+          "$comment": "{\"term\": \"consignee\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty\"}",
+          "title": "Consignee",
+          "description": "Consignee",
+          "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability#ShippingStop": {
     "$id": "https://w3id.org/traceability/schemas/ShippingStop.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -9631,6 +10076,390 @@
       "additionalProperties": false
     }
   },
+  "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocument": {
+    "$id": "https://w3id.org/traceability/schemas/TransportDocument.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "TransportDocument",
+      "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocument"
+    },
+    "title": "TransportDocument",
+    "description": "The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill.",
+    "classProperties": {
+      "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_contract_document_identifier": {
+        "$comment": {
+          "term": "transportDocumentReference",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_contract_document_identifier"
+        },
+        "title": "Transport Document Reference",
+        "description": "A unique number allocated by the shipping line to the transport document and the main number used for the tracking of the status of the shipment."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueLocation": {
+        "$comment": {
+          "term": "placeOfIssue",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueLocation"
+        },
+        "title": "Place Of Issue",
+        "description": "Generally used to capture location-related data, also for locations without UN Location Codes."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime": {
+        "$comment": {
+          "term": "issueDate",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime"
+        },
+        "title": "Issue Date",
+        "description": "Date when the transport document has been issued"
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/shippedOnBoardDate": {
+        "$comment": {
+          "term": "shippedOnBoardDate",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/shippedOnBoardDate"
+        },
+        "title": "Shipped On Board Date",
+        "description": "Date when the last container that is linked to the transport document is physically loaded onboard the vessel indicated on the transport document."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#availabilityDueDateTime": {
+        "$comment": {
+          "term": "receivedForShipmentDate",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#availabilityDueDateTime"
+        },
+        "title": "Received For Shipment Date",
+        "description": "Date when the last container linked to the transport document is physically in the terminal (customers cleared against the intended vessel)."
+      },
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription": {
+        "$comment": {
+          "term": "termsAndConditions",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription"
+        },
+        "title": "Terms And Conditions",
+        "description": "Carrier general terms and conditions for this transport document."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCode": {
+        "$comment": {
+          "term": "issuerCode",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCode"
+        },
+        "title": "Issuer Code",
+        "description": "The code used for identifying the specific issuer."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCodeListProvider": {
+        "$comment": {
+          "term": "issuerCodeListProvider",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCodeListProvider"
+        },
+        "title": "Issuer Code List Provider",
+        "description": "The provider used for identifying the issuer Code"
+      },
+      "https://schema.org/currency": {
+        "$comment": {
+          "term": "declaredValueCurrency",
+          "@id": "https://schema.org/currency"
+        },
+        "title": "Declared Value Currency",
+        "description": "The currency used for the declared value, using the 3-character code defined by ISO 4217."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtOrigin": {
+        "$comment": {
+          "term": "cargoMovementTypeAtOrigin",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtOrigin"
+        },
+        "title": "Cargo Movement Type At Origin",
+        "description": "Refers to the shipment term at the loading of the cargo into the container. Options are defined in the Cargo Movement Type entity."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtDestination": {
+        "$comment": {
+          "term": "cargoMovementTypeAtDestination",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtDestination"
+        },
+        "title": "Cargo Movement Type At Destination",
+        "description": "Refers to the shipment term at the unloading of the cargo out of the container. Options are defined in the Cargo Movement Type entity."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtOrigin": {
+        "$comment": {
+          "term": "receiptDeliveryTypeAtOrigin",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtOrigin"
+        },
+        "title": "Receipt Delivery Type At Origin",
+        "description": "Indicates the type of service offered at Origin. Options are defined in the Receipt/Delivery entity."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtDestination": {
+        "$comment": {
+          "term": "receiptDeliveryTypeAtDestination",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtDestination"
+        },
+        "title": "Receipt Delivery Type At Destination",
+        "description": "Indicates the type of service offered at Destination. Options are defined in the Receipt/Delivery entity."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/serviceContractReference": {
+        "$comment": {
+          "term": "serviceContractReference",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/serviceContractReference"
+        },
+        "title": "Service Contract Reference",
+        "description": "Reference number for agreement between shipper and carrier through which the shipper commits to provide a certain minimum quantity of cargo over a fixed period, and the carrier commits to a certain rate or rate schedule."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingInstruction": {
+        "$comment": {
+          "term": "shippingInstruction",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingInstruction"
+        },
+        "title": "Shipping Instruction",
+        "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/charges": {
+        "$comment": {
+          "term": "charges",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/charges"
+        },
+        "title": "Charges",
+        "description": ""
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/clauses": {
+        "$comment": {
+          "term": "clauses",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/clauses"
+        },
+        "title": "Clauses",
+        "description": ""
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transports": {
+        "$comment": {
+          "term": "transports",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transports"
+        },
+        "title": "Transports",
+        "description": ""
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/TransportDocument.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"TransportDocument\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocument\"}",
+      "title": "TransportDocument",
+      "description": "The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill.",
+      "type": "object",
+      "properties": {
+        "transportDocumentReference": {
+          "$comment": "{\"term\": \"transportDocumentReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_contract_document_identifier\"}",
+          "title": "Transport Document Reference",
+          "description": "A unique number allocated by the shipping line to the transport document and the main number used for the tracking of the status of the shipment.",
+          "type": "string"
+        },
+        "placeOfIssue": {
+          "$comment": "{\"term\": \"placeOfIssue\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueLocation\"}",
+          "title": "Place Of Issue",
+          "description": "Generally used to capture location-related data, also for locations without UN Location Codes.",
+          "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "issueDate": {
+          "$comment": "{\"term\": \"issueDate\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime\"}",
+          "title": "Issue Date",
+          "description": "Date when the transport document has been issued",
+          "type": "string"
+        },
+        "shippedOnBoardDate": {
+          "$comment": "{\"term\": \"shippedOnBoardDate\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/shippedOnBoardDate\"}",
+          "title": "Shipped On Board Date",
+          "description": "Date when the last container that is linked to the transport document is physically loaded onboard the vessel indicated on the transport document.",
+          "type": "string"
+        },
+        "receivedForShipmentDate": {
+          "$comment": "{\"term\": \"receivedForShipmentDate\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#availabilityDueDateTime\"}",
+          "title": "Received For Shipment Date",
+          "description": "Date when the last container linked to the transport document is physically in the terminal (customers cleared against the intended vessel).",
+          "type": "string"
+        },
+        "termsAndConditions": {
+          "$comment": "{\"term\": \"termsAndConditions\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription\"}",
+          "title": "Terms And Conditions",
+          "description": "Carrier general terms and conditions for this transport document.",
+          "type": "string"
+        },
+        "issuerCode": {
+          "$comment": "{\"term\": \"issuerCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCode\"}",
+          "title": "Issuer Code",
+          "description": "The code used for identifying the specific issuer.",
+          "type": "string"
+        },
+        "issuerCodeListProvider": {
+          "$comment": "{\"term\": \"issuerCodeListProvider\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCodeListProvider\"}",
+          "title": "Issuer Code List Provider",
+          "description": "The provider used for identifying the issuer Code",
+          "type": "string"
+        },
+        "declaredValueCurrency": {
+          "$comment": "{\"term\": \"declaredValueCurrency\", \"@id\": \"https://schema.org/currency\"}",
+          "title": "Declared Value Currency",
+          "description": "The currency used for the declared value, using the 3-character code defined by ISO 4217.",
+          "type": "string"
+        },
+        "cargoMovementTypeAtOrigin": {
+          "$comment": "{\"term\": \"cargoMovementTypeAtOrigin\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtOrigin\"}",
+          "title": "Cargo Movement Type At Origin",
+          "description": "Refers to the shipment term at the loading of the cargo into the container. Options are defined in the Cargo Movement Type entity.",
+          "type": "string"
+        },
+        "cargoMovementTypeAtDestination": {
+          "$comment": "{\"term\": \"cargoMovementTypeAtDestination\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtDestination\"}",
+          "title": "Cargo Movement Type At Destination",
+          "description": "Refers to the shipment term at the unloading of the cargo out of the container. Options are defined in the Cargo Movement Type entity.",
+          "type": "string"
+        },
+        "receiptDeliveryTypeAtOrigin": {
+          "$comment": "{\"term\": \"receiptDeliveryTypeAtOrigin\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtOrigin\"}",
+          "title": "Receipt Delivery Type At Origin",
+          "description": "Indicates the type of service offered at Origin. Options are defined in the Receipt/Delivery entity.",
+          "type": "string"
+        },
+        "receiptDeliveryTypeAtDestination": {
+          "$comment": "{\"term\": \"receiptDeliveryTypeAtDestination\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtDestination\"}",
+          "title": "Receipt Delivery Type At Destination",
+          "description": "Indicates the type of service offered at Destination. Options are defined in the Receipt/Delivery entity.",
+          "type": "string"
+        },
+        "serviceContractReference": {
+          "$comment": "{\"term\": \"serviceContractReference\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/serviceContractReference\"}",
+          "title": "Service Contract Reference",
+          "description": "Reference number for agreement between shipper and carrier through which the shipper commits to provide a certain minimum quantity of cargo over a fixed period, and the carrier commits to a certain rate or rate schedule.",
+          "type": "string"
+        },
+        "shippingInstruction": {
+          "$comment": "{\"term\": \"shippingInstruction\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingInstruction\"}",
+          "title": "Shipping Instruction",
+          "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
+          "$ref": "https://w3id.org/traceability/schemas/ShippingInstruction.json"
+        },
+        "charges": {
+          "$comment": "{\"term\": \"charges\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/charges\"}",
+          "title": "Charges",
+          "description": "",
+          "type": "string"
+        },
+        "clauses": {
+          "$comment": "{\"term\": \"clauses\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/clauses\"}",
+          "title": "Clauses",
+          "description": "",
+          "type": "string"
+        },
+        "transports": {
+          "$comment": "{\"term\": \"transports\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transports\"}",
+          "title": "Transports",
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "shippingInstruction"
+      ]
+    }
+  },
+  "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportEquipment": {
+    "$id": "https://w3id.org/traceability/schemas/TransportEquipment.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "TransportEquipment",
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportEquipment"
+    },
+    "title": "Transport Equipment",
+    "description": "A piece of equipment used to hold, protect or secure cargo for transportation purposes.",
+    "classProperties": {
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId": {
+        "$comment": {
+          "term": "equipmentReference",
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId"
+        },
+        "title": "Equipment Reference",
+        "description": "The unique identifier for the equipment, which should follow the BIC ISO Container Identification Number where possible. According to ISO 6346, a container identification code consists of a 4-letter prefix and a 7-digit number (composed of a 3-letter owner code, a category identifier, a serial number, and a check-digit). If a container does not comply with ISO 6346, it is suggested to follow Recommendation #2 “Container with non-ISO identification” from SMDG."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/ISOEquipmentCode": {
+        "$comment": {
+          "term": "ISOEquipmentCode",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/ISOEquipmentCode"
+        },
+        "title": "ISO Equipment Code",
+        "description": "Unique code for the different equipment size/type used for transporting commodities. The code is a concatenation of ISO Equipment Size Code and ISO Equipment Type Code A and follows the ISO 6346 standard."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight": {
+        "$comment": {
+          "term": "tareWeight",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight"
+        },
+        "title": "Tare Weight",
+        "description": "The weight of an empty container (gross container weight)."
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit": {
+        "$comment": {
+          "term": "weightUnit",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit"
+        },
+        "title": "Weight Unit",
+        "description": "The unit of measure which can be expressed in imperial or metric terms"
+      },
+      "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/isShipperOwned": {
+        "$comment": {
+          "term": "isShipperOwned",
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/isShipperOwned"
+        },
+        "title": "Is Shipper Owned",
+        "description": "Indicates whether the container is shipper owned (SOC)."
+      }
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/TransportEquipment.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"TransportEquipment\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportEquipment\"}",
+      "title": "Transport Equipment",
+      "description": "A piece of equipment used to hold, protect or secure cargo for transportation purposes.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "equipmentReference": {
+          "$comment": "{\"term\": \"equipmentReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId\"}",
+          "title": "Equipment Reference",
+          "description": "The unique identifier for the equipment, which should follow the BIC ISO Container Identification Number where possible. According to ISO 6346, a container identification code consists of a 4-letter prefix and a 7-digit number (composed of a 3-letter owner code, a category identifier, a serial number, and a check-digit). If a container does not comply with ISO 6346, it is suggested to follow Recommendation #2 “Container with non-ISO identification” from SMDG.",
+          "type": "string"
+        },
+        "ISOEquipmentCode": {
+          "$comment": "{\"term\": \"ISOEquipmentCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/ISOEquipmentCode\"}",
+          "title": "ISO Equipment Code",
+          "description": "Unique code for the different equipment size/type used for transporting commodities. The code is a concatenation of ISO Equipment Size Code and ISO Equipment Type Code A and follows the ISO 6346 standard.",
+          "type": "string"
+        },
+        "tareWeight": {
+          "$comment": "{\"term\": \"tareWeight\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight\"}",
+          "title": "Tare Weight",
+          "description": "The weight of an empty container (gross container weight).",
+          "type": "number"
+        },
+        "weightUnit": {
+          "$comment": "{\"term\": \"weightUnit\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit\"}",
+          "title": "Weight Unit",
+          "description": "The unit of measure which can be expressed in imperial or metric terms",
+          "type": "number"
+        },
+        "isShipperOwned": {
+          "$comment": "{\"term\": \"isShipperOwned\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/isShipperOwned\"}",
+          "title": "Is Shipper Owned",
+          "description": "Indicates whether the container is shipper owned (SOC).",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "examples": []
+    }
+  },
   "https://w3id.org/traceability#UsdaSc6": {
     "$id": "https://w3id.org/traceability/schemas/UsdaSc6.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -9882,6 +10711,70 @@
         }
       },
       "additionalProperties": false,
+      "examples": []
+    }
+  },
+  "https://w3id.org/traceability#VerifiableBusinessCard": {
+    "$id": "https://w3id.org/traceability/schemas/VerifiableBusinessCard.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "VerifiableBusinessCard",
+      "@id": "https://w3id.org/traceability#VerifiableBusinessCard"
+    },
+    "title": "Verifiable Business Card",
+    "description": "A digital, verifiable business card.",
+    "classProperties": {},
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/VerifiableBusinessCard.json",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"VerifiableBusinessCard\", \"@id\": \"https://w3id.org/traceability#VerifiableBusinessCard\"}",
+      "title": "Verifiable Business Card",
+      "description": "A digital, verifiable business card.",
+      "type": "object",
+      "properties": {
+        "@context": {
+          "type": "array",
+          "const": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://w3id.org/traceability/v1"
+          ]
+        },
+        "type": {
+          "type": "array",
+          "const": [
+            "VerifiableCredential",
+            "VerifiableBusinessCard"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "issuanceDate": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "object"
+        },
+        "credentialSubject": {
+          "type": "object"
+        },
+        "proof": {
+          "type": "object"
+        },
+        "relatedLink": {
+          "title": "Related Link",
+          "description": "Links related to this verifiable credential. This can include an endpoint for making verifiable presentations in accordance with https://w3c-ccg.github.io/traceability-interop/",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/LinkRole.json"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [],
       "examples": []
     }
   },

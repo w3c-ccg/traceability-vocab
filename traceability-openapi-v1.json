@@ -198,6 +198,52 @@
         }
       }
     },
+    "/CargoItem": {
+      "get": {
+        "description": "CargoItem",
+        "responses": {
+          "200": {
+            "description": "A list of all CargoItem objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CargoItem"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/CargoLineItem": {
+      "get": {
+        "description": "CargoLineItem",
+        "responses": {
+          "200": {
+            "description": "A list of all CargoLineItem objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CargoLineItem"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/ChargeDeclaration": {
       "get": {
         "description": "ChargeDeclaration",
@@ -1739,6 +1785,29 @@
         }
       }
     },
+    "/ShippingInstruction": {
+      "get": {
+        "description": "ShippingInstruction",
+        "responses": {
+          "200": {
+            "description": "A list of all ShippingInstruction objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingInstruction"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/ShippingStop": {
       "get": {
         "description": "ShippingStop",
@@ -1808,6 +1877,52 @@
         }
       }
     },
+    "/TransportDocument": {
+      "get": {
+        "description": "TransportDocument",
+        "responses": {
+          "200": {
+            "description": "A list of all TransportDocument objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TransportDocument"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/TransportEquipment": {
+      "get": {
+        "description": "TransportEquipment",
+        "responses": {
+          "200": {
+            "description": "A list of all TransportEquipment objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TransportEquipment"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/UsdaSc6": {
       "get": {
         "description": "UsdaSc6",
@@ -1820,6 +1935,29 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/UsdaSc6"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/VerifiableBusinessCard": {
+      "get": {
+        "description": "VerifiableBusinessCard",
+        "responses": {
+          "200": {
+            "description": "A list of all VerifiableBusinessCard objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VerifiableBusinessCard"
                   }
                 }
               }
@@ -2342,6 +2480,115 @@
           }
         },
         "additionalProperties": false
+      },
+      "CargoItem": {
+        "title": "Cargo Item",
+        "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "cargoLineItems": {
+            "title": "Cargo Line Item",
+            "description": "Identifies the specific details of packages within a cargo item.",
+            "type": "array",
+            "items": {}
+          },
+          "carrierBookingReference": {
+            "title": "Carrier Booking Reference",
+            "description": "The associated booking number provided by the carrier for this cargo item. Cannot be used in combination with Shipping Instruction header level carrierBookingReference.",
+            "type": "string"
+          },
+          "descriptionOfGoods": {
+            "title": "Description of Goods",
+            "description": "The cargo description are details which accurately and properly describe the cargo being shipped in the container(s) as provided by the shipper.",
+            "type": "string"
+          },
+          "HSCode": {
+            "title": "HS Code",
+            "description": "Used by customs to classify the product being shipped.",
+            "type": "string"
+          },
+          "weight": {
+            "title": "Weight",
+            "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s).",
+            "type": "number"
+          },
+          "volume": {
+            "title": "Volume",
+            "description": "Calculated by multiplying the width, height, and length of the packed cargo.",
+            "type": "number"
+          },
+          "weightUnit": {
+            "title": "Weight Unit",
+            "description": "The unit of measure which can be expressed in imperial or metric terms",
+            "type": "string"
+          },
+          "volumeUnit": {
+            "title": "Volume Unit",
+            "description": "The unit of measure which can be expressed in either imperial or metric terms",
+            "type": "string"
+          },
+          "numberOfPackages": {
+            "title": "Number of Packages",
+            "description": "Specifies the number of packages associated with this cargo item",
+            "type": "number"
+          },
+          "packageCode": {
+            "title": "Package Code",
+            "description": "The unique identifier for the package type",
+            "type": "string"
+          }
+        }
+      },
+      "CargoLineItem": {
+        "title": "Cargo Line Item",
+        "description": "Identifies the specific details of packages within a cargo item.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "cargoLineItemID": {
+            "title": "cargoLineItemID",
+            "description": "Identifies the cargo line item (package) within the cargo. The cargo line item ID is provided by the shipper and is used to define the stuffing. Cargo line items belonging to the same cargo items are stuffed in the same container.",
+            "type": "string"
+          },
+          "shippingMarks": {
+            "title": "shippingMarks",
+            "description": "The identifying details of a package or the actual markings that appear on the package(s). This information is provided by the shipper.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cargoLineItemID",
+          "shippingMarks"
+        ]
       },
       "ChargeDeclaration": {
         "title": "ChargeDeclaration",
@@ -5601,6 +5848,11 @@
           "address": {
             "title": "Postal Address",
             "description": "The postal address for an organization or place."
+          },
+          "unLocode": {
+            "title": "UN Locode",
+            "description": "LOCODE",
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -6105,6 +6357,79 @@
         },
         "additionalProperties": false
       },
+      "ShippingInstruction": {
+        "title": "ShippingInstruction",
+        "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "shippingInstructionID": {
+            "title": "Shipping Instruction ID",
+            "description": "The identifier for a shipping instruction provided by the carrier for system purposes.",
+            "type": "string"
+          },
+          "transportDocumentType": {
+            "title": "Transport Document Type",
+            "description": "Specifies the type of the transport document (a Bill of Lading (BOL) or a Sea Waybill (SWB)).",
+            "type": "string"
+          },
+          "preCarriageUnderShippersResponsibility": {
+            "title": "Pre Carriage Under Shippers Responsibility",
+            "description": "Mode of transportation for pre-carriage (e.g., truck, barge, rail), under shipper's responsibility",
+            "type": "string"
+          },
+          "invoicePayableAt": {
+            "title": "",
+            "description": ""
+          },
+          "carrierBookingReference": {
+            "title": "Carrier Booking Reference",
+            "description": "The associated booking number provided by the carrier. Cannot be used in combination with Cargo Item level carrierBookingReference",
+            "type": "string"
+          },
+          "cargoItems": {
+            "title": "Cargo Item",
+            "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+            "type": "array",
+            "items": {}
+          },
+          "utilizedTransportEquipments": {
+            "title": "Utilized Transport Equipments",
+            "description": "A piece of transport equipment utilized for the consignment or trade delivery.",
+            "type": "array",
+            "items": {}
+          },
+          "shipmentLocations": {
+            "title": "Shipment Locations",
+            "description": "Maps the relationship between Shipment and Location, e.g., the place of receipt and the places of delivery for a specific shipment.",
+            "type": "array",
+            "items": {}
+          },
+          "shipper": {
+            "title": "Shipper",
+            "description": "Original shipper"
+          },
+          "consignee": {
+            "title": "Consignee",
+            "description": "Consignee"
+          }
+        },
+        "additionalProperties": false
+      },
       "ShippingStop": {
         "title": "Shipping Stop Schema",
         "description": "Shipping Stop definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls",
@@ -6261,6 +6586,152 @@
         },
         "additionalProperties": false
       },
+      "TransportDocument": {
+        "title": "TransportDocument",
+        "description": "The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill.",
+        "type": "object",
+        "properties": {
+          "transportDocumentReference": {
+            "title": "Transport Document Reference",
+            "description": "A unique number allocated by the shipping line to the transport document and the main number used for the tracking of the status of the shipment.",
+            "type": "string"
+          },
+          "placeOfIssue": {
+            "title": "Place Of Issue",
+            "description": "Generally used to capture location-related data, also for locations without UN Location Codes."
+          },
+          "issueDate": {
+            "title": "Issue Date",
+            "description": "Date when the transport document has been issued",
+            "type": "string"
+          },
+          "shippedOnBoardDate": {
+            "title": "Shipped On Board Date",
+            "description": "Date when the last container that is linked to the transport document is physically loaded onboard the vessel indicated on the transport document.",
+            "type": "string"
+          },
+          "receivedForShipmentDate": {
+            "title": "Received For Shipment Date",
+            "description": "Date when the last container linked to the transport document is physically in the terminal (customers cleared against the intended vessel).",
+            "type": "string"
+          },
+          "termsAndConditions": {
+            "title": "Terms And Conditions",
+            "description": "Carrier general terms and conditions for this transport document.",
+            "type": "string"
+          },
+          "issuerCode": {
+            "title": "Issuer Code",
+            "description": "The code used for identifying the specific issuer.",
+            "type": "string"
+          },
+          "issuerCodeListProvider": {
+            "title": "Issuer Code List Provider",
+            "description": "The provider used for identifying the issuer Code",
+            "type": "string"
+          },
+          "declaredValueCurrency": {
+            "title": "Declared Value Currency",
+            "description": "The currency used for the declared value, using the 3-character code defined by ISO 4217.",
+            "type": "string"
+          },
+          "cargoMovementTypeAtOrigin": {
+            "title": "Cargo Movement Type At Origin",
+            "description": "Refers to the shipment term at the loading of the cargo into the container. Options are defined in the Cargo Movement Type entity.",
+            "type": "string"
+          },
+          "cargoMovementTypeAtDestination": {
+            "title": "Cargo Movement Type At Destination",
+            "description": "Refers to the shipment term at the unloading of the cargo out of the container. Options are defined in the Cargo Movement Type entity.",
+            "type": "string"
+          },
+          "receiptDeliveryTypeAtOrigin": {
+            "title": "Receipt Delivery Type At Origin",
+            "description": "Indicates the type of service offered at Origin. Options are defined in the Receipt/Delivery entity.",
+            "type": "string"
+          },
+          "receiptDeliveryTypeAtDestination": {
+            "title": "Receipt Delivery Type At Destination",
+            "description": "Indicates the type of service offered at Destination. Options are defined in the Receipt/Delivery entity.",
+            "type": "string"
+          },
+          "serviceContractReference": {
+            "title": "Service Contract Reference",
+            "description": "Reference number for agreement between shipper and carrier through which the shipper commits to provide a certain minimum quantity of cargo over a fixed period, and the carrier commits to a certain rate or rate schedule.",
+            "type": "string"
+          },
+          "shippingInstruction": {
+            "title": "Shipping Instruction",
+            "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document."
+          },
+          "charges": {
+            "title": "Charges",
+            "description": "",
+            "type": "string"
+          },
+          "clauses": {
+            "title": "Clauses",
+            "description": "",
+            "type": "string"
+          },
+          "transports": {
+            "title": "Transports",
+            "description": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "shippingInstruction"
+        ]
+      },
+      "TransportEquipment": {
+        "title": "Transport Equipment",
+        "description": "A piece of equipment used to hold, protect or secure cargo for transportation purposes.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "equipmentReference": {
+            "title": "Equipment Reference",
+            "description": "The unique identifier for the equipment, which should follow the BIC ISO Container Identification Number where possible. According to ISO 6346, a container identification code consists of a 4-letter prefix and a 7-digit number (composed of a 3-letter owner code, a category identifier, a serial number, and a check-digit). If a container does not comply with ISO 6346, it is suggested to follow Recommendation #2 “Container with non-ISO identification” from SMDG.",
+            "type": "string"
+          },
+          "ISOEquipmentCode": {
+            "title": "ISO Equipment Code",
+            "description": "Unique code for the different equipment size/type used for transporting commodities. The code is a concatenation of ISO Equipment Size Code and ISO Equipment Type Code A and follows the ISO 6346 standard.",
+            "type": "string"
+          },
+          "tareWeight": {
+            "title": "Tare Weight",
+            "description": "The weight of an empty container (gross container weight).",
+            "type": "number"
+          },
+          "weightUnit": {
+            "title": "Weight Unit",
+            "description": "The unit of measure which can be expressed in imperial or metric terms",
+            "type": "number"
+          },
+          "isShipperOwned": {
+            "title": "Is Shipper Owned",
+            "description": "Indicates whether the container is shipper owned (SOC).",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "UsdaSc6": {
         "title": "USDA Form SC-6",
         "description": "Importer's Exempt Commodity Form (SC-6) to declare the intent to import an agricultural commodity exempt from grade requirements for the commodity.",
@@ -6354,6 +6825,59 @@
           }
         },
         "additionalProperties": false
+      },
+      "VerifiableBusinessCard": {
+        "title": "Verifiable Business Card",
+        "description": "A digital, verifiable business card.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "enum": [
+              [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://w3id.org/traceability/v1"
+              ]
+            ],
+            "items": {}
+          },
+          "type": {
+            "type": "array",
+            "enum": [
+              [
+                "VerifiableCredential",
+                "VerifiableBusinessCard"
+              ]
+            ],
+            "items": {}
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "issuanceDate": {
+            "type": "string"
+          },
+          "issuer": {
+            "type": "object"
+          },
+          "credentialSubject": {
+            "type": "object"
+          },
+          "proof": {
+            "type": "object"
+          },
+          "relatedLink": {
+            "title": "Related Link",
+            "description": "Links related to this verifiable credential. This can include an endpoint for making verifiable presentations in accordance with https://w3c-ccg.github.io/traceability-interop/",
+            "type": "array",
+            "items": {}
+          }
+        },
+        "additionalProperties": false,
+        "required": []
       },
       "chargeAndPaymentType": {
         "title": "chargeAndPaymentType",

@@ -1,6 +1,7 @@
 {
   "@context": {
     "@version": 1.1,
+    "@vocab": "https://w3id.org/traceability/#undefinedTerm",
     "id": "@id",
     "type": "@type",
     "name": "https://schema.org/name",
@@ -187,6 +188,52 @@
         },
         "url": {
           "@id": "https://schema.org/url"
+        }
+      }
+    },
+    "CargoItem": {
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem",
+      "@context": {
+        "cargoLineItems": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItem"
+        },
+        "carrierBookingReference": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "descriptionOfGoods": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/descriptionOfGoods"
+        },
+        "HSCode": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/HSCode"
+        },
+        "weight": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weight"
+        },
+        "volume": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volume"
+        },
+        "weightUnit": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit"
+        },
+        "volumeUnit": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/volumeUnit"
+        },
+        "numberOfPackages": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/numberOfPackages"
+        },
+        "packageCode": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/packageCode"
+        }
+      }
+    },
+    "CargoLineItem": {
+      "@id": "https://w3id.org/traceability#CargoLineItem",
+      "@context": {
+        "cargoLineItemID": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItemID"
+        },
+        "shippingMarks": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingMarks"
         }
       }
     },
@@ -1474,6 +1521,9 @@
         },
         "address": {
           "@id": "https://schema.org/PostalAddress"
+        },
+        "unLocode": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE"
         }
       }
     },
@@ -1682,6 +1732,41 @@
         }
       }
     },
+    "ShippingInstruction": {
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions",
+      "@context": {
+        "shippingInstructionID": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_instruction_number"
+        },
+        "transportDocumentType": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocumentType"
+        },
+        "preCarriageUnderShippersResponsibility": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/preCarriageUnderShippersResponsibility"
+        },
+        "invoicePayableAt": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt"
+        },
+        "carrierBookingReference": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "cargoItems": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
+        },
+        "utilizedTransportEquipments": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment"
+        },
+        "shipmentLocations": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DOCUMENTATION_DOMAIN/1.0.0#/components/schemas/shipmentLocation"
+        },
+        "shipper": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
+        },
+        "consignee": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        }
+      }
+    },
     "ShippingStop": {
       "@id": "https://w3id.org/traceability#ShippingStop",
       "@context": {
@@ -1760,6 +1845,85 @@
         }
       }
     },
+    "TransportDocument": {
+      "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocument",
+      "@context": {
+        "transportDocumentReference": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_contract_document_identifier"
+        },
+        "placeOfIssue": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueLocation"
+        },
+        "issueDate": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime"
+        },
+        "shippedOnBoardDate": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/shippedOnBoardDate"
+        },
+        "receivedForShipmentDate": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#availabilityDueDateTime"
+        },
+        "termsAndConditions": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription"
+        },
+        "issuerCode": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCode"
+        },
+        "issuerCodeListProvider": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCodeListProvider"
+        },
+        "declaredValueCurrency": {
+          "@id": "https://schema.org/currency"
+        },
+        "cargoMovementTypeAtOrigin": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtOrigin"
+        },
+        "cargoMovementTypeAtDestination": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/cargoMovementTypeAtDestination"
+        },
+        "receiptDeliveryTypeAtOrigin": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtOrigin"
+        },
+        "receiptDeliveryTypeAtDestination": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/receiptDeliveryTypeAtDestination"
+        },
+        "serviceContractReference": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/serviceContractReference"
+        },
+        "shippingInstruction": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingInstruction"
+        },
+        "charges": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/charges"
+        },
+        "clauses": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/clauses"
+        },
+        "transports": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transports"
+        }
+      }
+    },
+    "TransportEquipment": {
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportEquipment",
+      "@context": {
+        "equipmentReference": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId"
+        },
+        "ISOEquipmentCode": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/ISOEquipmentCode"
+        },
+        "tareWeight": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight"
+        },
+        "weightUnit": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit"
+        },
+        "isShipperOwned": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/isShipperOwned"
+        }
+      }
+    },
     "UsdaSc6": {
       "@id": "https://w3id.org/traceability#UsdaSc6",
       "@context": {
@@ -1809,6 +1973,10 @@
           "@id": "https://w3id.org/traceability#intendedUseCert"
         }
       }
+    },
+    "VerifiableBusinessCard": {
+      "@id": "https://w3id.org/traceability#VerifiableBusinessCard",
+      "@context": {}
     },
     "chargeAndPaymentType": {
       "@id": "https://w3id.org/traceability#chargeAndPaymentType",
