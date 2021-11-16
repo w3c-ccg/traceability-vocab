@@ -20,9 +20,10 @@ const getVocabFromIntermediate = (intermediate) => {
   let vocabularyString = '';
   Object.values(intermediate).forEach((classDefinition) => {
     let classPropertySections = '';
-    Object.values(classDefinition.classProperties).forEach((classProperty) => {
-      classPropertySections += `
-            <section id="${classProperty.$comment.term}">
+    Object.values(classDefinition.classProperties).forEach((classPropertyArray) => {
+      classPropertyArray.forEach((classProperty) => {
+        classPropertySections += `
+        <section id="${classProperty.$comment.term}">
               <h3>${classProperty.title}</h3>
               ${
                 classProperty.description
@@ -56,6 +57,7 @@ const getVocabFromIntermediate = (intermediate) => {
               </table>
               </section>
               `;
+      });
     });
 
     vocabularyString += `

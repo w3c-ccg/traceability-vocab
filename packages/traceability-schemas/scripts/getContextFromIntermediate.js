@@ -1,28 +1,8 @@
+const jsonldSchema = require('@transmute/jsonld-schema');
 const rootTerms = require('../rootTerms.json');
 
 const getContextFromIntermediate = (intermediate) => {
-  let partialContext = {};
-  Object.values(intermediate).forEach((classDefinition) => {
-    let propertDefinitionPartialContext = {};
-    Object.values(classDefinition.classProperties).forEach((classProperty) => {
-      propertDefinitionPartialContext = {
-        ...propertDefinitionPartialContext,
-        [classProperty.$comment.term]: {
-          '@id': classProperty.$comment['@id'],
-        },
-      };
-    });
-
-    partialContext = {
-      ...partialContext,
-      [classDefinition.$comment.term]: {
-        '@id': classDefinition.$comment['@id'],
-        '@context': {
-          ...propertDefinitionPartialContext,
-        },
-      },
-    };
-  });
+  const partialContext = jsonldSchema.intermediateToPartialContext(intermediate);
   return {
     '@context': {
       '@version': 1.1,
