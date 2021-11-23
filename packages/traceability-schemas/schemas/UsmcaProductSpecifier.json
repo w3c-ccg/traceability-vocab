@@ -1,0 +1,51 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/UsmcaProductSpecifier.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"usmcaProductSpecifier\", \"@id\": \"https://w3id.org/traceability/UsmcaProductSpecifier\"}",
+  "title": "USMCA Product Specifier",
+  "description": "USMCA product origin specifier",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "product": {
+      "$comment": "{\"term\": \"product\", \"@id\": \"https://schema.org/Product\"}",
+      "title": "Product",
+      "description": "Product details. USMCA mandatory elements include: part/SKU number, description, and minimum 6-digit HS classification",
+      "$ref": "https://w3id.org/traceability/schemas/Product.json"
+    },
+    "originCriterion": {
+      "$comment": "{\"term\": \"importer\", \"@id\": \"https://w3id.org/traceability#originCriterion\"}",
+      "title": "Origin Criterion",
+      "description": "In order to be entitled to preferential tariff treatment, each good must meet at least one of the criteria A, B, C, or D. If the item does not meet the applicable Rule of Origin for USMCA (not eligible good), please leave this field blank. The rules of origin are contained in Chapter Four and Article 4.2 (https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/04-Rules-of-Origin.pdf)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["A", "B", "C", "D"]
+      }
+    },
+    "countryOfOrigin": {
+      "$comment": "{\"term\": \"importer\", \"@id\": \"https://w3id.org/traceability#countryOfOrigin\"}",
+      "title": "Country of Origin",
+      "description": "Identify the 2-digit ISO country code of the country of production for each good listed in this certification.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["CA", "MX", "US"]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}

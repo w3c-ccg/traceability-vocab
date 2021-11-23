@@ -1,0 +1,71 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/USMCACertificateOfOrigin.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"USMCACertificateOfOrigin\", \"@id\": \"https://w3id.org/traceability#USMCACertificateOfOrigin\"}",
+  "title": "USMCA Certificate Of Origin",
+  "description": "The new United States-Mexico-Canada Agreement (USMCA) allows importers to complete a certification of origin to include nine required data elements as well as a certification statement. These data elements do not need to follow a prescribed format. The USMCA also allows a certification of origin to be completed and signed with an electronic or digital signature.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "certifier": {
+      "$comment": "{\"term\": \"certifier\", \"@id\": \"https://w3id.org/traceability#Entity\"}",
+      "title": "Certifier",
+      "description": "Certifier’s name, address, country, e-mail address, telephone number and tax id.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "exporter": {
+      "$comment": "{\"term\": \"exporter\", \"@id\": \"https://w3id.org/traceability#Entity\"}",
+      "title": "Exporter",
+      "description": "Exporter’s name, address, country, e-mail address, telephone number and tax id.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "producer": {
+      "$comment": "{\"term\": \"producer\", \"@id\": \"https://schema.org/manufacturer\"}",
+      "title": "Exporter",
+      "description": "Producer’s name, address, country, e-mail address, telephone number and tax id.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "importer": {
+      "$comment": "{\"term\": \"importer\", \"@id\": \"https://w3id.org/traceability#Entity\"}",
+      "title": "Exporter",
+      "description": "Importer’s name, address, country, e-mail address, telephone number and tax id.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "goods": {
+      "$comment": "{\"term\": \"goods\", \"@id\": \"https://schema.org/itemShipped\"}",
+      "title": "Description of goods",
+      "description": "Full description for each good, sufficient to relate it to the invoice description and the Harmonized System (HS) description of the goods.",
+      "type": "array",
+      "items": {
+        "$ref": "https://w3id.org/traceability/schemas/UsmcaProductSpecifier.json"
+      }
+    },
+    "blanketPeriodFrom": {
+      "$comment": "{\"term\": \"blanketPeriodFrom\", \"@id\": \"https://schema.org/validFrom\", \"@type\": \"https://w3id.org/traceability#DateTime\"}",
+      "title": "Blanket Period From",
+      "description": "The date upon which the certification becomes applicable to the good covered by the blanket Certification (it may be prior to the date of signing this certification).",
+      "type": "string"
+    },
+    "blanketPeriodTo": {
+      "$comment": "{\"term\": \"blanketPeriodTo\", \"@id\": \"https://schema.org/validThrough\", \"@type\": \"https://w3id.org/traceability#DateTime\"}",
+      "title": "Blanket Period To",
+      "description": "The date upon which the blanket period expires. In no instance should that certification exceed a 12-month period, and any information provided should be updated in the event any previously-issued certification no longer applies. ",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["certifier"],
+  "examples": []
+}
