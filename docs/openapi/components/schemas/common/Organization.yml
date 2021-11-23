@@ -1,0 +1,27 @@
+type: object
+title: Organization
+description: An organization such as a school, NGO, corporation, club, etc.
+$linkedData:
+  'term': 'Organization'
+  '@id': 'https://schema.org/Organization'
+properties:
+  name:
+    type: string
+    description: The name of the organization.
+    $linkedData:
+      'term': 'name'
+      '@id': 'https://schema.org/name'
+  brand:
+    type: string
+    description: The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+    $linkedData:
+      'term': 'brand'
+      '@id': 'https://schema.org/Brand'
+example: >
+  {
+    "name": "Acme Corp.",
+    "brand": {
+      "logo": "https://source.unsplash.com/random",
+      "url": "https://cool.example"
+    }
+  }
