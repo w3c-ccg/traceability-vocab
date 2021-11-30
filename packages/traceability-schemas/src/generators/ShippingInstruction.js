@@ -12,6 +12,7 @@ const getShippingInstruction = () => {
     utilizedTransportEquipments: getTransportEquipment(),
     shipper: getEntity(),
     consignee: getEntity(),
+    firstNotify: getEntity(),
   };
   return example;
 };
