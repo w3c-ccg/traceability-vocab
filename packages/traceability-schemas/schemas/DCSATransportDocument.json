@@ -1,13 +1,13 @@
 {
-  "$id": "https://w3id.org/traceability/schemas/TransportDocument.json",
+  "$id": "https://w3id.org/traceability/schemas/DCSATransportDocument.json",
   "$schema": "https://json-schema.org/draft-07/schema#",
-  "$comment": "{\"term\": \"TransportDocument\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocument\"}",
-  "title": "TransportDocument",
-  "description": "The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill.",
+  "$comment": "{\"term\": \"DCSATransportDocument\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocument\"}",
+  "title": "DCSA Transport Document",
+  "description": "The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)",
   "type": "object",
   "properties": { 
     "transportDocumentReference": {
-      "$comment": "{\"term\": \"transportDocumentReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_contract_document_identifier\"}",
+      "$comment": "{\"term\": \"transportDocumentReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number\"}",
       "title": "Transport Document Reference",
       "description": "A unique number allocated by the shipping line to the transport document and the main number used for the tracking of the status of the shipment.",
       "type": "string"
@@ -43,7 +43,7 @@
       "type": "string"
     },    
     "issuerCode": {
-      "$comment": "{\"term\": \"issuerCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.2#/components/schemas/issuerCode\"}",
+      "$comment": "{\"term\": \"issuerCode\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number\"}",
       "title": "Issuer Code",
       "description": "The code used for identifying the specific issuer.",
       "type": "string"
@@ -94,7 +94,7 @@
       "$comment": "{\"term\": \"shippingInstruction\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/shippingInstruction\"}",
       "title": "Shipping Instruction",
       "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
-      "$ref": "https://w3id.org/traceability/schemas/ShippingInstruction.json"
+      "$ref": "https://w3id.org/traceability/schemas/DCSAShippingInstruction.json"
     },
     "charges": {
       "$comment": "{\"term\": \"charges\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/charges\"}",

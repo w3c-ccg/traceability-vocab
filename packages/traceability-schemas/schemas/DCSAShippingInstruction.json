@@ -1,24 +1,11 @@
 {
-  "$id": "https://w3id.org/traceability/schemas/ShippingInstruction.json",
+  "$id": "https://w3id.org/traceability/schemas/DCSAShippingInstruction.json",
   "$schema": "https://json-schema.org/draft-07/schema#",
-  "$comment": "{\"term\": \"ShippingInstruction\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions\"}",
-  "title": "ShippingInstruction",
-  "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
+  "$comment": "{\"term\": \"DCSAShippingInstruction\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions\"}",
+  "title": "DCSA Shipping Instruction",
+  "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)",
   "type": "object",
   "properties": {
-    "@context": {
-      "type": "array"
-    },
-    "type": {
-      "oneOf": [
-        {
-          "type": "string"
-        },
-        {
-          "type": "array"
-        }
-      ]
-    },
     "shippingInstructionID": {
       "$comment": "{\"term\": \"shippingInstructionID\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_instruction_number\"}",
       "title": "Shipping Instruction ID",
@@ -39,12 +26,12 @@
     },
     "invoicePayableAt": {
       "$comment": "{\"term\": \"invoicePayableAt\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt\"}",
-      "title": "",
-      "description": "",
+      "title": "Invoice Payable At",
+      "description": "A location object - here with an example with only UN location code and City name present",
       "$ref": "https://w3id.org/traceability/schemas/Place.json"
     },
     "carrierBookingReference": {
-      "$comment": "{\"term\": \"carrierBookingReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId\"}",
+      "$comment": "{\"term\": \"carrierBookingReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_carrier_assigned\"}",
       "title": "Carrier Booking Reference",
       "description": "The associated booking number provided by the carrier. Cannot be used in combination with Cargo Item level carrierBookingReference",
       "type": "string"
@@ -86,6 +73,24 @@
       "$comment": "{\"term\": \"consignee\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty\"}",
       "title": "Consignee",
       "description": "Consignee",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "firstNotify": {
+      "$comment": "{\"term\": \"notify\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty\"}",
+      "title": "First Notify",
+      "description": "First notify party.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "secondNotify": {
+      "$comment": "{\"term\": \"notify\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty\"}",
+      "title": "Second Notify",
+      "description": "Second notify party.",
+      "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+    },
+    "thirdNotify": {
+      "$comment": "{\"term\": \"notify\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty\"}",
+      "title": "Third Notify",
+      "description": "Third notify party.",
       "$ref": "https://w3id.org/traceability/schemas/Entity.json"
     }
   },
