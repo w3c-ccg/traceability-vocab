@@ -8,16 +8,16 @@ const { getUsmcaProductSpecifier } = require('./UsmcaProductSpecifier');
 const { Organization } = require('../..');
 
 const getUsmcaCertificateOfOrigin = () => {
-  const certifier = getOrganization();
-  delete certifier['@context'];
+  const certifierDetails = getOrganization();
+  delete certifierDetails['@context'];
 
-  const importer = certifier;
+  const importerDetails = certifierDetails;
 
-  const exporter = getOrganization();
-  delete exporter['@context'];
+  const exporterDetails = getOrganization();
+  delete exporterDetails['@context'];
 
-  const producer = getOrganization();
-  delete producer['@context'];
+  const producerDetails = getOrganization();
+  delete producerDetails['@context'];
 
   const usmcaProdSpec = getUsmcaProductSpecifier();
   delete usmcaProdSpec['@context'];
@@ -25,11 +25,14 @@ const getUsmcaCertificateOfOrigin = () => {
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'USMCACertificateOfOrigin',
-    certifier,
-    exporter,
-    importer,
-    producer,
+    certifier: 'Importer',
+    certifierDetails,
+    exporterDetails,
+    importerDetails: [importerDetails],
+    producerDetails: [producerDetails],
     goods: [usmcaProdSpec],
+    blanketPeriodFrom: '2021-06-22',
+    blanketPeriodTo: '2022-06-21',
   };
   return example;
 };
