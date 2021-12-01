@@ -43,10 +43,10 @@ const getBillOfLading = () => {
     consignee: consigneeParty,
     notify: notifyParty,
     freight,
-    firstArrivalPortLocation: {
+    portOfLoading: {
       unLocode: 'USMOB'
     },
-    lastExitPortLocation: {
+    portOfDischarge: {
       unLocode: 'MXATM'
     }
   };
