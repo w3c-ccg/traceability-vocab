@@ -258,8 +258,8 @@
             </tr>
             <tr>
               <td>E-Commerce</td>
-              <td>Carsten Stöcker</td>
-              <td></td>
+              <td>Nis Jespersen</td>
+              <td>nis@transmute.industries</td>
             </tr>
             <tr>
               <td>Oil and Gas</td>
@@ -308,65 +308,87 @@
         <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
         <section>
           <h4>Steel and Metals</h4>
-          <dl class="termlist">
-            <p>
-              The global steel industry relies on cross-party communication of
-              product and business information to successfully move materials
-              from mines, to manufacturers, through customs, to end customers
-              (such as automotive and construction companies). Today this
-              information exists primarily in siloed paper documents. In the
-              current format it is very difficult to make data comparisons
-              across a small number of parties, let alone across millions of
-              shipments over time. It can also be difficult to catch forged
-              documents in the absence of digital signatures and clearly defined
-              organization data attributes.
-            </p>
+          <p>
+            The global steel industry relies on cross-party communication of
+            product and business information to successfully move materials
+            from mines, to manufacturers, through customs, to end customers
+            (such as automotive and construction companies). Today this
+            information exists primarily in siloed paper documents. In the
+            current format it is very difficult to make data comparisons
+            across a small number of parties, let alone across millions of
+            shipments over time. It can also be difficult to catch forged
+            documents in the absence of digital signatures and clearly defined
+            organization data attributes.
+          </p>
 
-            <p>
-              A shared vocabulary creates opportunities for steel trading
-              partners to work from a common digital representation of trade
-              information. Take the example of a mill report for a steel
-              product. This document provides important information about the
-              chemical make-up of steel materials, helping to ensure the desired
-              specification and grade have been met. It also acts as evidence
-              about the origins of steel materials. Unambiguous representation
-              of mill report fields is critical for assessing appropriate
-              duties, meeting customer requirements, and ultimately ensuring
-              consumer safely.
-            </p>
+          <p>
+            A shared vocabulary creates opportunities for steel trading
+            partners to work from a common digital representation of trade
+            information. Take the example of a mill report for a steel
+            product. This document provides important information about the
+            chemical make-up of steel materials, helping to ensure the desired
+            specification and grade have been met. It also acts as evidence
+            about the origins of steel materials. Unambiguous representation
+            of mill report fields is critical for assessing appropriate
+            duties, meeting customer requirements, and ultimately ensuring
+            consumer safely.
+          </p>
 
-            <p>
-              By defining the schema for each field, importers can now answer
-              questions like “How many pipes of specification XYZ did we
-              purchase last year?” (i.e.,
-              <a
-                href="https://w3id.org/traceability#schemas/ChemicalProperty.json"
-                >ChemicalProperty</a
-              >). The mill report can also be linked to other trade
-              documentation such as commercial invoices and bills of lading when
-              those credentials are specified and defined. Regulators can also
-              ask questions across a large number of mill reports to help catch
-              transshipment issues, such as “How much steel product imported
-              last month specified Vietnam as the country of origin?” (i.e.,
-              <a href="https://schema.org/addressCountry">addressCountry</a>).
-            </p>
+          <p>
+            By defining the schema for each field, importers can now answer
+            questions like “How many pipes of specification XYZ did we
+            purchase last year?” (i.e.,
+            <a
+              href="https://w3id.org/traceability#schemas/ChemicalProperty.json"
+              >ChemicalProperty</a
+            >). The mill report can also be linked to other trade
+            documentation such as commercial invoices and bills of lading when
+            those credentials are specified and defined. Regulators can also
+            ask questions across a large number of mill reports to help catch
+            transshipment issues, such as “How much steel product imported
+            last month specified Vietnam as the country of origin?” (i.e.,
+            <a href="https://schema.org/addressCountry">addressCountry</a>).
+          </p>
+          <dl>
+            <dt><dfn>Mill Test Report Certificate</dfn></dt>
+            <dd>
+              <p>The <a href="#MillTestReportCertificate">Mill Test Report</a> 
+                certifies steel type and quality, listing chemical and mechanical 
+                properties.</p>
+            </dd>
+            <dt><dfn>Commercial Invoice Certificate</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/commercial-invoice-ex.png" alt="Commercial Invoice example" style="width:40%">
+                <figcaption>Sample Commercial Invoice</figcaption>
+              </figure>
+              <p>
+                <a href="#CommercialInvoiceCertificate">Commercial Invoice</a> 
+                indicates to authorities the value of goods subject to tariffs 
+                and duties.
+              </p> 
+            </dd>
+            <dt><dfn>Bill of Lading Certificate</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/bill-of-lading-ex-2.png" alt="Bill of Lading example" style="width:40%">
+                <figcaption>Sample Bill of Lading</figcaption>
+              </figure>
+              <p>
+                <a href="#BillOfLadingCertificate">Bill of Lading</a> certificates 
+                are issued by the carrier, indicating a) receipt of goods, b) evidence 
+                of consignment contract and c) title of goods. 
+              </p> 
+            </dd>
+            <dt><dfn>Verifiable Business Card</dfn></dt>
+            <dd>
+              <p>
+                <a href="#VerifiableBusinessCard">Verifiable Business Cards</a> hold 
+                verifiable presentation endpoint addresses.  
+              </p>
+            </dd>
           </dl>
-
-          <p>Credentials of interest:</p>
-          <ul>
-            <li>
-              <a href="#MillTestReportCertificate">Mill Test Report Certificate</a>
-            </li>
-            <li>
-              <a href="#CommercialInvoiceCertificate">Commercial Invoice Certificate</a>
-            </li>
-            <li>
-              <a href="#BillOfLadingCertificate">Bill of Lading Certificate</a>
-            </li>
-            <li>
-              <a href="#VerifiableBusinessCard">Verifiable Business Card</a>
-            </li>
-          </ul>
+          
         </section>
 
         <section>
@@ -446,49 +468,89 @@
         </section>
         <section>
           <h5>E-Commerce</h5>
-          <dl class="termlist">
-            <p>
-              A common traceability vocabulary will allow complex supply chains
-              that import goods to US-resident customers to register individual
-              packages and pre-register products intended for sale to the US
-              with US Customs. For the data needs of Customs to be met by highly
-              heterogenous supply chains that might require much "internal
-              confidentiality" (between supply chain actors), a highly sharded
-              data model is required, whereby many different actors can each
-              submit data points separately that get combined at time of customs
-              processing.
-            </p>
-            <p>
-              Without strong identification of legal entities (i.e., legally
-              defined and registered supply chain actors) and of products, and
-              without high levels of semantic flexibility, the shards can be
-              quite hard to combine usefully. Linking the registration of
-              individual packages together with the pre-registration of
-              commercial products and actors is the key value-add of this
-              system, but could also be a burdensome request on importers,
-              retailers, and freight forwarders. To minimize this burden, we are
-              aligning wherever possible with the ontology work of GS1 (GTINs
-              and vLEIs), and with shipping and tracking semantics already
-              adopted today by international logistics consortia. We distinguish
-              between the VCs that are issued in relation to a specific package
-              and the contextual information that needs to be queried to
-              validate package information, as well as to make valuable
-              assessments, inferences, and data quality remediation on Customs
-              pre-entry data.
-            </p>
-            <p>
-              NOTE: To facilitate linking and alignment across internal and
-              external processes, many of the VCs modeled in this project are
-              labeled "process" VCs, meaning they refer to the internal
-              processes of a customs agency. Reusability here is likely minimal
-              compared to the rest of the vocabulary, but they are included for
-              informational purposes and to ensure they stay aligned with any
-              changes to the private-sector/logistics-industry data model being
-              consumed by those processes. These may also be less documented
-              than the product- and package- VCs, which correspond to
-              standardized data models in the logistics and shipping sector.
-            </p>
+          <p>
+            A common traceability vocabulary will allow complex supply chains
+            that import goods to US-resident customers to register individual
+            packages and pre-register products intended for sale to the US
+            with US Customs. For the data needs of Customs to be met by highly
+            heterogenous supply chains that might require much "internal
+            confidentiality" (between supply chain actors), a highly sharded
+            data model is required, whereby many different actors can each
+            submit data points separately that get combined at time of customs
+            processing.
+          </p>
+          <p>
+            Without strong identification of legal entities (i.e., legally
+            defined and registered supply chain actors) and of products, and
+            without high levels of semantic flexibility, the shards can be
+            quite hard to combine usefully. Linking the registration of
+            individual packages together with the pre-registration of
+            commercial products and actors is the key value-add of this
+            system, but could also be a burdensome request on importers,
+            retailers, and freight forwarders. To minimize this burden, we are
+            aligning wherever possible with the ontology work of GS1 (GTINs
+            and vLEIs), and with shipping and tracking semantics already
+            adopted today by international logistics consortia. We distinguish
+            between the VCs that are issued in relation to a specific package
+            and the contextual information that needs to be queried to
+            validate package information, as well as to make valuable
+            assessments, inferences, and data quality remediation on Customs
+            pre-entry data.
+          </p>
+          <p>
+            NOTE: To facilitate linking and alignment across internal and
+            external processes, many of the VCs modeled in this project are
+            labeled "process" VCs, meaning they refer to the internal
+            processes of a customs agency. Reusability here is likely minimal
+            compared to the rest of the vocabulary, but they are included for
+            informational purposes and to ensure they stay aligned with any
+            changes to the private-sector/logistics-industry data model being
+            consumed by those processes. These may also be less documented
+            than the product- and package- VCs, which correspond to
+            standardized data models in the logistics and shipping sector.
+          </p>
+          <dl>
+            <dd>
+              <figure>
+                <img src="samples/purchase-order-ex.png" alt="Purchase Order example" style="width:40%">
+                <figcaption>Sample Purchase Order</figcaption>
+              </figure>
+              <p>
+                The <a href="#EcommerceOrderRegistrationCredential">Purchase Order</a> 
+                is a formal request of goods by buyer to seller. 
+              </p> 
+            </dd>
+            <dt><dfn>Packing List</dfn></dt>
+            <dd>
+              <p>
+                The <a href="#EcommercePackingListRegistrationCredential">Packing List</a>
+                lists the goods of a shipment. 
+              </p>
+            </dd>
+            <dt><dfn>Waybill</dfn></dt>
+            <dd>
+              <p>
+                <a href="#EcommerceWayBillRegistrationEvidenceDocument">Waybill</a> 
+                is a transport document issued by the carrier. It serves a 
+                similar purpose as a Bill of Lading, except that it does not
+                carry title. Instead, the consignee is identified on the 
+                document. 
+              </p>
+            </dd>
+            <dd>
+              <figure>
+                <img src="samples/invoice-ex.png" alt="Commercial Invoice example" style="width:40%">
+                <figcaption>Sample Invoice example</figcaption>
+              </figure>
+              <p>
+                An <a href="#CommercialInvoiceCertificate">Invoice</a> 
+                requests payment for a shipment of goods. It is based on the same 
+                schema as the Commercial Invoice, but is typically at much finer
+                level of details, line items corresponding to the Purchase Order. 
+              </p> 
+            </dd>
           </dl>
+
         </section>
       </section>
 
