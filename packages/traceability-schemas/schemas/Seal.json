@@ -1,0 +1,51 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/Seal.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"Seal\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Seal\"}",
+    "title": "Seal",
+    "description": "addresses the seal-related information associated with the shipment equipment. A seal is put on a shipment equipment once it is loaded. This seal is meant to stay on until the shipment equipment reaches its final destination.",
+    "type": "object",
+    "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "sealNumber": {
+        "$comment": "{\"term\": \"equipmentReference\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId\"}",
+        "title": "Seal Number",
+        "description": "Identifies a seal affixed to the container.",
+        "type": "string"
+    },
+    "sealSource": {
+        "$comment": "{\"term\": \"ISOEquipmentCode\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/ISOEquipmentCode\"}",
+        "title": "Seal Source",
+        "description": "The source of the seal, namely who has affixed the seal. This attribute links to the Seal Source ID defined in the Seal Source reference data entity. CAR (Carrier), SHI (Shipper), PHY (Phytosanitary), VET (Veterinary), CUS (Customs)",
+        "items": {
+          "type": "string",
+          "enum": ["CAR", "SHI", "PHY", "VET", "CUS"]
+        }
+    },
+    "sealType": {
+        "$comment": "{\"term\": \"tareWeight\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight\"}",
+        "title": "Tare Weight",
+        "description": "The type of seal. This attribute links to the Seal Type ID defined in the Seal Type reference data entity. KLP (Keyless padlock), BLT (Bolt), WIR (Wire)",
+        "items": {
+          "type": "string",
+          "enum": ["KLP", "BLT", "WIR"]
+        }
+    }
+  },
+  "additionalProperties": false,
+  "examples": [],
+  "required": ["sealNumber"]
+}
+  
