@@ -26,7 +26,6 @@ const getUsmcaCertificateOfOrigin = () => {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'USMCACertificateOfOrigin',
     certifier: 'Importer',
-    certifierDetails,
     exporterDetails,
     importerDetails: [importerDetails],
     producerDetails: [producerDetails],
