@@ -5,9 +5,7 @@ const getDCSATransportDocument = () => {
   const example = {
     '@context': ['https://w3id.org/traceability/v1'],
     type: 'DCSATransportDocument',
-
     transportDocumentReference: 'XMANHR2102045',
-    
     shippingInstruction: {
       '@context': ['https://w3id.org/traceability/v1'],
       type: 'DCSAShippingInstruction',
@@ -57,6 +55,18 @@ const getDCSATransportDocument = () => {
         },
         email: 'procurement@lifetech-example.org',
         phoneNumber: '+32-5555-8495'
+      },
+      consigneesFreightForwarder: {
+        type: 'Organization',
+        name: 'Intertrans NV [378]',
+        address: {
+          type: 'PostalAddress',
+          streetAddress: 'Belcrownlaan 25 - 3rd floor',
+          addressLocality: 'Antwerpen',
+          postalCode: 'BE-2100AN',
+          addressCountry: 'BE'
+        },
+        phoneNumber: '+32-3-201.98.10'
       },
       cargoItems: [
         {
@@ -109,13 +119,52 @@ const getDCSATransportDocument = () => {
         seals: [
           {
             '@context': ['https://w3id.org/traceability/v1'],
-            type: 'TransportEquipment',
+            type: 'Seal',
             sealNumber: 'YMAI715692'
           }
         ],
-        
       }
-
+    },
+    transports: {
+      '@context': ['https://w3id.org/traceability/v1'],
+      type: 'Transport',
+      loadLocation: {
+        '@context': ['https://w3id.org/traceability/v1'],
+        type: 'Place',
+        address: {
+          '@context': ['https://w3id.org/traceability/v1'],
+          type: 'PostalAddress',
+          addressRegion: 'Xiamen',
+          addressCountry: 'CN',
+        }
+      },
+      dischargeLocation: {
+        '@context': ['https://w3id.org/traceability/v1'],
+        type: 'Place',
+        address: {
+          '@context': ['https://w3id.org/traceability/v1'],
+          type: 'PostalAddress',
+          addressRegion: 'Antwerp',
+          addressCountry: 'BE',
+        }
+      },
+      modeOfTransport: 'Vessel',
+      carrier: {
+        '@context': ['https://w3id.org/traceability/v1'],
+        type: 'Organization',
+        name: 'MULTI CONTAINER LINE',
+        address: {
+          '@context': ['https://w3id.org/traceability/v1'],
+          type: 'PostalAddress',
+          organizationName: 'MCL Multi Container Line LTD.',
+          streetAddress: 'Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road',
+          addressLocality: 'Kowloon Bay',
+          addressRegion: 'Hong Kong',
+          addressCountry: 'Hong Kong SAR',
+        }
+      },
+      vesselNumber: 'HMM Algeciras',
+      voyageNumber: 'V.0004W'
     }
   };
   return example;
