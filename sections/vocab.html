@@ -2146,7 +2146,8 @@
     "type": [
       "BillOfLading"
     ],
-    "billOfLadingNumber": "991205182",
+    "billOfLadingNumber": "991205182A",
+    "bookingNumber": "991205182",
     "relatedDocuments": [
       {
         "type": [
@@ -2161,6 +2162,35 @@
         }
       }
     ],
+    "scac": "NISC",
+    "carrier": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Adaline29@example.com",
+      "phoneNumber": "+1 555-234-9983"
+    },
+    "consignor": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Idella60@example.org",
+      "phoneNumber": "555-953-9479"
+    },
+    "consignee": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Victoria.Hane74@example.org",
+      "phoneNumber": "555-455-9053"
+    },
+    "notify": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Florida91@example.net",
+      "phoneNumber": "555-104-1126"
+    },
     "freight": {
       "type": [
         "ParcelDelivery"
@@ -2189,6 +2219,12 @@
       },
       "deliveryMethod": "Ocean transport",
       "trackingNumber": "178380801954"
+    },
+    "portOfLoading": {
+      "unLocode": "USMOB"
+    },
+    "portOfDischarge": {
+      "unLocode": "MXATM"
     }
   },
   "@context": [
@@ -2198,7 +2234,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..a_qmFLe2mjM90X0UDNGU1PociU6qhiUdyUxzENN__qVDfNWy_Yrb46VAdKLJBxhyhvslY5_dtueL0zsrX4voCg",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..CZY7ess2dh8XdiOAc-d8t2sqzyvDcqiiuaaTNw1oVaUoLq9fcRU_BkV3q4HhXDPKKUek_fdeX8AS1Ngwz8ENCA",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -2208,7 +2244,7 @@
 
         <section id="billOfLadingNumber">
             <h3>Bill Of Lading Number</h3>
-            <p>This identifeir might not be globally unique.</p>
+            <p>This identifier might not be globally unique.</p>
 
             <table class="simple">
                 <tbody>
@@ -2232,8 +2268,34 @@
             </table>
         </section>
 
+        <section id="bookingNumber">
+            <h3>Booking Number</h3>
+            <p>Reference number assigned by a carrier of its agent to identify a specific consignment such as a booking reference number when cargo space is reserved prior to loading.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_carrier_assigned">bookingNumber</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_carrier_assigned">https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_carrier_assigned</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
         <section id="relatedDocuments">
-            <h3>Purchase </h3>
+            <h3>Purchase</h3>
             <p>Purchase documents related to a bill of lading</p>
 
             <table class="simple">
@@ -2252,6 +2314,162 @@
                         </td>
                         <td>
                             <a href="https://schema.org/Purchase">https://schema.org/Purchase</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="scac">
+            <h3>SCAC</h3>
+            <p>For maritime shipments, this code qualifies a Standard Alpha Carrier Code (SCAC) as issued by the United Stated National Motor Traffic Association Inc.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number">scac</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number">https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="carrier">
+            <h3>Carrier</h3>
+            <p>The party providing the transport of goods in this consignment between named points.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty">carrier</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty">https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="consignor">
+            <h3>Consignor</h3>
+            <p>The party consigning goods, as stipulated in the transport contract by the party ordering transport.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty">consignor</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty">https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="consignee">
+            <h3>Consignee</h3>
+            <p>A party to which goods are consigned.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty">consignee</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty">https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="notify">
+            <h3>Notify Party</h3>
+            <p>The party to be notified upon arrival of goods and when special occurrences (usually pre-defined) take place during a transportation service.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty">notify</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty">https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="freightForwarder">
+            <h3>Freight Forwarder</h3>
+            <p>The party combining individual smaller consignments into a single larger shipment (the consolidated shipment), which is sent to a counterpart that mirrors the consolidator's activity by dividing the consolidated consignment into its original components.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty">freightForwarder</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty">https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty</a>
                         </td>
                     </tr>
                 </tbody>
@@ -2336,6 +2554,58 @@
             </table>
         </section>
 
+        <section id="placeOfIssue">
+            <h3>Port of Loading</h3>
+            <p>The first arrival location in a transport. This would be a port for sea, an airport for air, a terminal for rail, or a border post for land crossing.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_loading">placeOfIssue</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_loading">https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_loading</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="placeOfIssue">
+            <h3>Port of Discharge</h3>
+            <p>The final exporting location in a transport. This would be a port for sea, an airport for air, a terminal for rail, or a border post for land crossing.</p>
+
+            <table class="simple">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-terms">Term</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_discharge">placeOfIssue</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://json-ld.org/spec/latest/json-ld/#dfn-iris">Full IRI</a>
+                        </td>
+                        <td>
+                            <a href="https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_discharge">https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_discharge</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
     </section>
 
     <section id="BillOfLadingCertificate">
@@ -2401,25 +2671,26 @@
   "issuer": {
     "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
     "type": "Organization",
-    "name": "Reichel Group",
-    "description": "Total composite architecture",
+    "name": "Hauck Group",
+    "description": "Focused secondary synergy",
     "address": {
       "type": "PostalAddress",
-      "streetAddress": "87539 Kuhic Ways",
-      "addressLocality": "Cartwrightfurt",
-      "addressRegion": "Oregon",
-      "postalCode": "31989-4611",
-      "addressCountry": "American Samoa"
+      "streetAddress": "3198 O'Kon Wall",
+      "addressLocality": "North Adolphchester",
+      "addressRegion": "Nevada",
+      "postalCode": "50788",
+      "addressCountry": "Cote d'Ivoire"
     },
-    "email": "Morton33@example.com",
-    "phoneNumber": "555-718-6037",
-    "faxNumber": "555-183-5746"
+    "email": "Bernita.Quitzon98@example.com",
+    "phoneNumber": "555-171-4411",
+    "faxNumber": "555-758-9761"
   },
   "credentialSubject": {
     "type": [
       "BillOfLading"
     ],
-    "billOfLadingNumber": "991205182",
+    "billOfLadingNumber": "991205182A",
+    "bookingNumber": "991205182",
     "relatedDocuments": [
       {
         "type": [
@@ -2429,11 +2700,40 @@
           "type": [
             "Person"
           ],
-          "email": "Rogers_Auer62@example.net",
-          "phoneNumber": "555-919-8434"
+          "email": "Deangelo56@example.org",
+          "phoneNumber": "555-208-5866"
         }
       }
     ],
+    "scac": "NISC",
+    "carrier": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Adaline29@example.com",
+      "phoneNumber": "+1 555-234-9983"
+    },
+    "consignor": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Idella60@example.org",
+      "phoneNumber": "555-953-9479"
+    },
+    "consignee": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Victoria.Hane74@example.org",
+      "phoneNumber": "555-455-9053"
+    },
+    "notify": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Florida91@example.net",
+      "phoneNumber": "555-104-1126"
+    },
     "freight": {
       "type": [
         "ParcelDelivery"
@@ -2442,26 +2742,32 @@
         "type": [
           "PostalAddress"
         ],
-        "organizationName": "Spinka, Schoen and Kovacek",
-        "streetAddress": "926 Ritchie Burgs",
-        "addressLocality": "Bennettborough",
+        "organizationName": "Goyette Inc",
+        "streetAddress": "3685 Hessel Field",
+        "addressLocality": "North Alexannemouth",
         "addressRegion": "Kansas",
-        "postalCode": "00611-8629",
-        "addressCountry": "Sri Lanka"
+        "postalCode": "67998",
+        "addressCountry": "Denmark"
       },
       "originAddress": {
         "type": [
           "PostalAddress"
         ],
-        "organizationName": "Blick LLC",
-        "streetAddress": "6852 Effertz Grove",
-        "addressLocality": "North Norbertburgh",
-        "addressRegion": "Massachusetts",
-        "postalCode": "79982-7870",
-        "addressCountry": "Norway"
+        "organizationName": "Schaefer, Beer and O'Reilly",
+        "streetAddress": "269 Aaliyah Trafficway",
+        "addressLocality": "Caylaland",
+        "addressRegion": "Maryland",
+        "postalCode": "34283",
+        "addressCountry": "Malta"
       },
-      "deliveryMethod": "Rail freight transport",
-      "trackingNumber": "898848401026"
+      "deliveryMethod": "Truck transport",
+      "trackingNumber": "128857427430"
+    },
+    "portOfLoading": {
+      "unLocode": "USMOB"
+    },
+    "portOfDischarge": {
+      "unLocode": "MXATM"
     }
   },
   "@context": [
@@ -2471,7 +2777,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ujXE5K1o34zuctakDOKdRfv8LL1ydTyAAq-60pimowV3xv3wskDJj0L0fSvxoFETbgPYYjDCbejrc1WC63z3AA",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..g9J070BT6vKDscw8nlQ9bSXc9ONbd9gIdtnqZ8d8HWQNYVyK-y6PygSoFOuUP9wdXd8QCQNcZpXI7Rgz_NtuCQ",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -3095,34 +3401,34 @@
     "type": "ChargeDeclaration",
     "weightCharge": {
       "type": "chargeAndPaymentType",
-      "chargeCollect": 757,
-      "chargePrepaid": 865
+      "chargeCollect": 68,
+      "chargePrepaid": 856
     },
     "taxCharge": {
       "type": "chargeAndPaymentType",
-      "chargeCollect": 497,
-      "chargePrepaid": 593
+      "chargeCollect": 13,
+      "chargePrepaid": 445
     },
     "otherChargesAgent": {
       "type": "chargeAndPaymentType",
-      "chargeCollect": 309,
-      "chargePrepaid": 381
+      "chargeCollect": 644,
+      "chargePrepaid": 849
     },
     "otherChargesCarrier": {
       "type": "chargeAndPaymentType",
-      "chargeCollect": 496,
-      "chargePrepaid": 293
+      "chargeCollect": 305,
+      "chargePrepaid": 895
     },
     "totalCharge": {
       "type": "TotalCharge",
-      "totalPrepaid": 4224,
-      "totalCollect": 1408,
-      "sourceCurrency": "LKR",
-      "destinationCurrency": "CNY",
-      "currencyConversionRate": 3,
-      "ccChargesDestinationCurrency": "LKR",
-      "chargesDestination": 764,
-      "totalCollectCharge": 191
+      "totalPrepaid": 2344.5,
+      "totalCollect": 781.5,
+      "sourceCurrency": "CZK",
+      "destinationCurrency": "ARS",
+      "currencyConversionRate": 2,
+      "ccChargesDestinationCurrency": "CZK",
+      "chargesDestination": 885,
+      "totalCollectCharge": 221.25
     }
   },
   "@context": [
@@ -3132,7 +3438,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..UL8d4JvN0AJXPgJ2qwXEkjGQpSuT0w429zkCW3zIbj4w2ryvEZ3gIaHccro2nlzUD_Wsk2Xx24y-itTRaaSbAQ",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..zqnUn2aLLHv5nhuOuVRIQfqr2T1hBZUXFbHMa_CIU2jkN63D8PeIJIAS3wTIGzGG4sHV6RuB65ZI2SF_qKPMBQ",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -3316,10 +3622,10 @@
   "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
   "credentialSubject": {
     "type": "ChemicalProperty",
-    "name": "Helium",
-    "formula": "He",
-    "inchi": "InChI=1S/He",
-    "inchikey": "SWQJXJOGLNCZEY-UHFFFAOYSA-N"
+    "name": "Rhodium",
+    "formula": "Rh",
+    "inchi": "InChI=1S/Rh",
+    "inchikey": "MHOVAHRLVXNVSD-UHFFFAOYSA-N"
   },
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -3328,7 +3634,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ws27uE1LFLbTWMMp9lfvn2SCGuL0Z8iE4wU7EcSA5Ipynb-lTmWsFgOiGOytl28FlTLImLYTuG3ZEyycUAoqCg",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..G_7YsT45W8EoagUKYIlaVeIIdYUsbs2Org4AHAjfCBO6p8eEtq8n0u9fslkXXlWVzvQ5qBCknWZVZHBu0dQwCA",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -3939,19 +4245,19 @@
   "issuer": {
     "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
     "type": "Organization",
-    "name": "Bahringer, Hand and McCullough",
-    "description": "Multi-layered static contingency",
+    "name": "Ratke - Feest",
+    "description": "Stand-alone disintermediate projection",
     "address": {
       "type": "PostalAddress",
-      "streetAddress": "58727 Considine Manor",
-      "addressLocality": "New Groverfurt",
-      "addressRegion": "Iowa",
-      "postalCode": "28248",
-      "addressCountry": "France"
+      "streetAddress": "2346 Dibbert Shores",
+      "addressLocality": "Reichelport",
+      "addressRegion": "Utah",
+      "postalCode": "45865",
+      "addressCountry": "Bangladesh"
     },
-    "email": "Lucienne.Erdman60@example.com",
-    "phoneNumber": "555-936-2370",
-    "faxNumber": "555-464-3395"
+    "email": "Katrine.Maggio@example.org",
+    "phoneNumber": "555-673-7143",
+    "faxNumber": "555-573-3177"
   },
   "credentialSubject": {
     "type": [
@@ -4068,7 +4374,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..MxY26-9WwDnXOQfm4wWEvKzGplelOBOQtsZoGQR8Y4NVjyqxbPVJsY9f7_xaAw2U99saQNkE_H0BUHdtz1M5Cg",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..oHspUGBs6d5m5Rg2txdpsN-GuGrdHuDLn3R7G_eQxAGuoWHF6tdFn_SEI7WHOvyaBCBHnWvuE6mUSVtH9xmvCQ",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -4122,17 +4428,17 @@
   "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
   "credentialSubject": {
     "type": "ContactPoint",
-    "name": "Hessel and Sons",
+    "name": "Rippin, Halvorson and Wiza",
     "address": {
       "type": "PostalAddress",
-      "streetAddress": "78619 Brayan Gardens",
-      "addressLocality": "Padbergchester",
-      "addressRegion": "West Virginia",
-      "postalCode": "21476",
-      "addressCountry": "Niger"
+      "streetAddress": "487 O'Kon Ferry",
+      "addressLocality": "Kozeychester",
+      "addressRegion": "Vermont",
+      "postalCode": "27676-0231",
+      "addressCountry": "Ukraine"
     },
-    "email": "Gerhard.Kutch47@example.net",
-    "phoneNumber": "555-999-1433"
+    "email": "America_Huels46@example.com",
+    "phoneNumber": "555-686-2131"
   },
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -4141,7 +4447,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..zgiyKhARSOmNQV8zHEeBsuw2hsUX8gg7yi71R7bj3mDLU71r5K9tJgUPvluWSxzkwdy5gxUYO_jlsrZTEkZDAg",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..yZeAAdQl2MhD-xSK1pK0Cm23Y5GYW7bOEerReywHERxaVjnf6NtC-MS2S2e0MGoREYe6GKuDO_i7F1-qz4PEAQ",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -4308,28 +4614,87 @@
       "type": [
         "Place"
       ],
-      "globalLocationNumber": "9095096159122",
+      "globalLocationNumber": "1680445799234",
       "geo": {
         "type": [
           "GeoCoordinates"
         ],
-        "latitude": "37.8244",
-        "longitude": "-97.8353"
+        "latitude": "-24.1775",
+        "longitude": "-106.2068"
       },
       "address": {
         "type": [
           "PostalAddress"
         ],
-        "organizationName": "Franecki, Mitchell and Kub",
-        "streetAddress": "7046 Vernie Center",
-        "addressLocality": "Weissnatberg",
-        "addressRegion": "South Carolina",
-        "postalCode": "96569-5073",
-        "addressCountry": "Costa Rica"
+        "organizationName": "Reinger Inc",
+        "streetAddress": "1868 Mayert Spur",
+        "addressLocality": "East William",
+        "addressRegion": "South Dakota",
+        "postalCode": "69316-6283",
+        "addressCountry": "United States Minor Outlying Islands"
       },
       "unLocode": "DKCPH"
     },
     "observation": [
+      {
+        "type": [
+          "Observation"
+        ],
+        "date": "2019-12-11T03:50:55Z",
+        "property": {
+          "type": [
+            "ChemicalProperty"
+          ],
+          "name": "Lithium"
+        },
+        "measurement": {
+          "type": [
+            "MeasuredValue"
+          ],
+          "value": "51.345",
+          "unitCode": "P1"
+        }
+      },
+      {
+        "type": [
+          "Observation"
+        ],
+        "date": "2019-12-11T03:50:55Z",
+        "property": {
+          "type": [
+            "MechanicalProperty"
+          ],
+          "identifier": "ISO 1352",
+          "name": "Torque-controlled fatigue testing",
+          "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+        },
+        "measurement": {
+          "type": [
+            "MeasuredValue"
+          ],
+          "value": "00.00",
+          "unitCode": "UNKNOWN"
+        }
+      },
+      {
+        "type": [
+          "Observation"
+        ],
+        "date": "2019-12-11T03:50:55Z",
+        "property": {
+          "type": [
+            "ChemicalProperty"
+          ],
+          "name": "Terbium"
+        },
+        "measurement": {
+          "type": [
+            "MeasuredValue"
+          ],
+          "value": "48.655",
+          "unitCode": "P1"
+        }
+      },
       {
         "type": [
           "Observation"
@@ -4347,7 +4712,7 @@
           "type": [
             "MeasuredValue"
           ],
-          "value": "62.140",
+          "value": "93.7",
           "unitCode": "B13"
         }
       }
@@ -4358,10 +4723,10 @@
       ],
       "manufacturer": {
         "type": [
-          "Person"
+          "Organization"
         ],
-        "email": "Webster_Thiel2@example.com",
-        "phoneNumber": "555-611-3698"
+        "email": "Anastasia_McCullough94@example.net",
+        "phoneNumber": "555-739-3054"
       },
       "name": "Crude Oil Barrel",
       "description": "Heavy Sour Dilbit",
@@ -4370,16 +4735,16 @@
           "QuantitativeValue"
         ],
         "unitCode": "hg/ha",
-        "value": "6066"
+        "value": "7854"
       },
       "weight": {
         "type": [
           "QuantitativeValue"
         ],
         "unitCode": "hg/ha",
-        "value": "2918"
+        "value": "9914"
       },
-      "sku": "302922693672"
+      "sku": "561297936667"
     }
   },
   "@context": [
@@ -4389,7 +4754,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..FYIdf7wwNsyPfI_flshl-AALdnCqX-8PdWD2Yhg5V-9CGBTz5sNXUh0i5mhrPCiF_7ym1iz6zp0lMJs973r6Cw",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8kWcsmiuWCj7FYpludOQWfOLVhC8xYFjjaKTnm1S8GTai8e8urSWIIuBS4W_rdXE357MSesV5kf-zujMWfOJBg",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -4599,17 +4964,17 @@
   "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
   "credentialSubject": {
     "type": "Customer",
-    "name": "Laurel Steuber",
+    "name": "Matt Ryan",
     "address": {
       "type": "PostalAddress",
-      "streetAddress": "88803 Omer Route",
-      "addressLocality": "Hermanfurt",
-      "addressRegion": "Tennessee",
-      "postalCode": "58450",
-      "addressCountry": "Falkland Islands (Malvinas)"
+      "streetAddress": "9031 Justyn Orchard",
+      "addressLocality": "New Haventon",
+      "addressRegion": "Nebraska",
+      "postalCode": "07922",
+      "addressCountry": "Cook Islands"
     },
-    "telephone": "555-366-3984",
-    "email": "Coralie36@example.org"
+    "telephone": "555-398-7540",
+    "email": "Fermin.OKeefe51@example.net"
   },
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -4618,7 +4983,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..apJm0IV69ERwekjNhNwAEOX9J02QqjXQykL9wTCDqWXemKcYBakcfM45LYTuEek1-zdIXR3lp_pU75lXX7aFDg",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..0CZtBUrCiEBYozT2mZ2Ldx-yQwlbPrjrP3KPpayxjoxUxvNMZhTbHH0YUy1HF3R9xxHP0Su8G25yOpwAA5NrCQ",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -4951,10 +5316,10 @@
   "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
   "credentialSubject": {
     "type": "EcommerceAdditionalProductCodeRegistrationCredential",
-    "productVCid": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
-    "addProductCode": 70661792920436,
-    "addProductCodeType": "UPC",
-    "certificateName": "ACME Ecommerce Universal Product Code Product Registration Certificate"
+    "productVCid": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+    "addProductCode": 94149498746264,
+    "addProductCodeType": "CO",
+    "certificateName": "ACME Ecommerce Country of Origin Code Product Registration Certificate"
   },
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -4963,7 +5328,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..-zCjcm2MeWzgCHbgyz-cPXnsdy47hljBy8CJccavXdj6Kl8Vldn1qBP-LFcHRaGydr7W0IIZIoDezHDoSnS7Cw",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..PwNN5KW0B1rVuTMvDQBoOOmKMqRIy6YAWedx7dXVDNdu2QX8JeVHy9PJiELScjFOep7R0VXIEwmOvyKzOOB8Bw",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -5121,41 +5486,41 @@
   "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
   "credentialSubject": {
     "type": "EcommerceBindingDataRegistrationCredential",
-    "finalCarrierName": "Daugherty, Brakus and Witting",
-    "finalVesselID": "ACMEVessel#73",
+    "finalCarrierName": "Dickens, Purdy and McCullough",
+    "finalVesselID": "ACMEVessel#781",
     "finalDateOfArrival": "2022-05-11",
     "finalModeOfTransport": "Truck",
     "finalPortOfEntry": {
       "type": "ShippingStop",
       "shippingStopAddress": {
         "type": "PostalAddress",
-        "organizationName": "Jones - Doyle",
-        "streetAddress": "5302 Larson Place",
-        "addressLocality": "Lake Domenick",
-        "addressRegion": "New York",
-        "postalCode": "56691",
-        "addressCountry": "Mozambique"
+        "organizationName": "Larson and Sons",
+        "streetAddress": "262 Mary Orchard",
+        "addressLocality": "Considinestad",
+        "addressRegion": "New Jersey",
+        "postalCode": "10990",
+        "addressCountry": "French Guiana"
       },
       "carrier": {
         "type": "Organization",
-        "name": "Leffler and Sons",
-        "description": "Ergonomic methodical ability",
+        "name": "Carroll, Breitenberg and Kirlin",
+        "description": "Decentralized mission-critical throughput",
         "address": {
           "type": "PostalAddress",
-          "streetAddress": "99024 Lavon Common",
-          "addressLocality": "New Audreanne",
-          "addressRegion": "North Carolina",
-          "postalCode": "26079-3256",
-          "addressCountry": "Jordan"
+          "streetAddress": "4606 Nitzsche Oval",
+          "addressLocality": "New Violettebury",
+          "addressRegion": "Illinois",
+          "postalCode": "64766-5352",
+          "addressCountry": "Ecuador"
         },
-        "email": "Chaim10@example.net",
-        "phoneNumber": "555-735-7048",
-        "faxNumber": "555-649-6252"
+        "email": "Mylene.Weimann20@example.org",
+        "phoneNumber": "555-637-1018",
+        "faxNumber": "555-879-2566"
       },
-      "stopType": "Departure"
+      "stopType": "Destination"
     },
     "wayBillVCID": [
-      "https://vc.example.com/?queryID=0xE4AED04Acdf8e18d08cE5b9EF48fCd4Ae4Fe2a0A972DA1EB9C5B9bf90Fc5dcee"
+      "https://vc.example.com/?queryID=0xf8e18d08cE5b9EF48fCd4Ae4Fe2a0A972DA1EB9C5B9bf90Fc5dcee5ff42e4CD1"
     ],
     "certificateName": "ACME Carrier Ecommerce Binding Data Registration Certificate"
   },
@@ -5166,7 +5531,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..r16IYrijjiZ9vYwhlMTVbUt1gGH2Seiun-Yw082SHaBVRmTrm_fg4Lzec59_lUW4Tg-WjkCiUIlPKwoNZCVmAg",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..gUVLr4KzbW9D0RZRB8ol0OyG47bLT1NZxBbRYwFU4bpRoYTkY9bZV4khEthmVJaebXEt4csXMzzXPttXSiihAA",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
@@ -15778,7 +16143,8 @@
       "type": [
         "BillOfLading"
       ],
-      "billOfLadingNumber": "991205182",
+      "billOfLadingNumber": "991205182A",
+      "bookingNumber": "991205182",
       "relatedDocuments": [
         {
           "type": [
@@ -15793,6 +16159,35 @@
           }
         }
       ],
+      "scac": "NISC",
+      "carrier": {
+        "type": [
+          "Organization"
+        ],
+        "email": "Adaline29@example.com",
+        "phoneNumber": "+1 555-234-9983"
+      },
+      "consignor": {
+        "type": [
+          "Organization"
+        ],
+        "email": "Idella60@example.org",
+        "phoneNumber": "555-953-9479"
+      },
+      "consignee": {
+        "type": [
+          "Organization"
+        ],
+        "email": "Victoria.Hane74@example.org",
+        "phoneNumber": "555-455-9053"
+      },
+      "notify": {
+        "type": [
+          "Organization"
+        ],
+        "email": "Florida91@example.net",
+        "phoneNumber": "555-104-1126"
+      },
       "freight": {
         "type": [
           "ParcelDelivery"
@@ -15821,6 +16216,12 @@
         },
         "deliveryMethod": "Rail freight transport",
         "trackingNumber": "286188012058"
+      },
+      "portOfLoading": {
+        "unLocode": "USMOB"
+      },
+      "portOfDischarge": {
+        "unLocode": "MXATM"
       }
     },
     "shippingDate": "2020-03-15",
@@ -15893,7 +16294,7 @@
   "proof": {
     "type": "Ed25519Signature2018",
     "created": "2019-12-11T03:50:55Z",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TsUWPHLFA1bVH09MqCy1ftbHKVbkjqQxNv3CqJG9eDe0M7dMTO7UDqnhDg7qDlmzgNKpb7iDi2d4CNrUmTqoCw",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..CHIiWK8c8rljJodyE6cr_kqaybpvjl4vtOSMZL3N8PDAcWUiFOHur5SHDtcwWAtT-x090VriUIfOYQna-mWNBA",
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
