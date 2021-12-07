@@ -32,12 +32,24 @@
         "type": "string"
     },
     "tareWeight": {
-        "$comment": "{\"term\": \"tareWeight\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight\"}",
-        "title": "Tare Weight",
-        "description": "The weight of an empty container (gross container weight).",
+      "$comment": "{\"term\": \"tareWeight\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight\"}",
+      "title": "Tare Weight",
+      "description": "The weight of an empty container (gross container weight).",
+      "type": "number"
+    },
+    "tareWeightUnit": {
+        "$comment": "{\"term\": \"weightUnit\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit\"}",
+        "title": "Weight Unit",
+        "description": "The unit of measure which can be expressed in imperial or metric terms",
         "type": "number"
     },
-    "weightUnit": {
+    "cargoGrossWeight": {
+      "$comment": "{\"term\": \"tareWeight\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure\"}",
+      "title": "Tare Weight",
+      "description": "The weight of an empty container (gross container weight).",
+      "type": "number"
+    },
+    "cargoGrossWeightUnit": {
         "$comment": "{\"term\": \"weightUnit\", \"@id\": \"https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit\"}",
         "title": "Weight Unit",
         "description": "The unit of measure which can be expressed in imperial or metric terms",
@@ -48,6 +60,15 @@
         "title": "Is Shipper Owned",
         "description": "Indicates whether the container is shipper owned (SOC).",
         "type": "string"
+    },
+    "seals": {
+      "$comment": "{\"term\": \"isShipperOwned\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#affixedSeal\"}",
+      "title": "Is Shipper Owned",
+      "description": "A seal affixed to this piece of logistics or referenced logistics transport equipment.",
+      "type": "array",
+      "items": {
+        "$ref": "https://w3id.org/traceability/schemas/Seal.json"
+      }
     }
   },
   "additionalProperties": false,
