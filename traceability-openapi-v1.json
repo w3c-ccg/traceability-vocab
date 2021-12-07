@@ -681,29 +681,6 @@
         }
       }
     },
-    "/EcommercePackageRegistrationEvidenceDocument": {
-      "get": {
-        "description": "EcommercePackageRegistrationEvidenceDocument",
-        "responses": {
-          "200": {
-            "description": "A list of all EcommercePackageRegistrationEvidenceDocument objects from the system that the user has access to",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EcommercePackageRegistrationEvidenceDocument"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server error"
-          }
-        }
-      }
-    },
     "/EcommercePackingListItem": {
       "get": {
         "description": "EcommercePackingListItem",
@@ -739,29 +716,6 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/EcommercePackingListRegistrationCredential"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server error"
-          }
-        }
-      }
-    },
-    "/EcommercePackingListRegistrationEvidenceDocument": {
-      "get": {
-        "description": "EcommercePackingListRegistrationEvidenceDocument",
-        "responses": {
-          "200": {
-            "description": "A list of all EcommercePackingListRegistrationEvidenceDocument objects from the system that the user has access to",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/EcommercePackingListRegistrationEvidenceDocument"
                   }
                 }
               }
@@ -1130,29 +1084,6 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/IssuerAgent"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server error"
-          }
-        }
-      }
-    },
-    "/ItemShipped": {
-      "get": {
-        "description": "ItemShipped",
-        "responses": {
-          "200": {
-            "description": "A list of all ItemShipped objects from the system that the user has access to",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ItemShipped"
                   }
                 }
               }
@@ -1555,6 +1486,52 @@
         }
       }
     },
+    "/Package": {
+      "get": {
+        "description": "Package",
+        "responses": {
+          "200": {
+            "description": "A list of all Package objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Package"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/PackingListCertificate": {
+      "get": {
+        "description": "PackingListCertificate",
+        "responses": {
+          "200": {
+            "description": "A list of all PackingListCertificate objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PackingListCertificate"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/ParcelDelivery": {
       "get": {
         "description": "ParcelDelivery",
@@ -1567,29 +1544,6 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ParcelDelivery"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server error"
-          }
-        }
-      }
-    },
-    "/PartOfOrder": {
-      "get": {
-        "description": "PartOfOrder",
-        "responses": {
-          "200": {
-            "description": "A list of all PartOfOrder objects from the system that the user has access to",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/PartOfOrder"
                   }
                 }
               }
@@ -1935,6 +1889,29 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/TotalCharge"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/TradeLineItem": {
+      "get": {
+        "description": "TradeLineItem",
+        "responses": {
+          "200": {
+            "description": "A list of all TradeLineItem objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TradeLineItem"
                   }
                 }
               }
@@ -3882,77 +3859,6 @@
         },
         "additionalProperties": false
       },
-      "EcommercePackageRegistrationEvidenceDocument": {
-        "title": "Package Registration Evidence Document",
-        "description": "Evidence data for a registered eCommerce Package",
-        "type": "object",
-        "required": [
-          "@context",
-          "deliveryStatus",
-          "expectedArrivalFrom",
-          "hasDeliveryMethod",
-          "deliveryAddress",
-          "provider",
-          "originAddress",
-          "trackingNumber",
-          "partOfOrder"
-        ],
-        "properties": {
-          "@context": {
-            "type": "array",
-            "items": {}
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {}
-              }
-            ]
-          },
-          "deliveryStatus": {
-            "title": "DeliveryStatus",
-            "type": "string",
-            "default": "",
-            "example": "EventScheduled"
-          },
-          "expectedArrivalFrom": {
-            "title": "Earliest Expected arrival date of parcel",
-            "type": "string",
-            "default": "",
-            "example": "01-12-2021"
-          },
-          "hasDeliveryMethod": {
-            "title": "Method of Parcel Delivery",
-            "type": "string",
-            "default": "",
-            "example": "https://purl.org/goodrelations/v1#FederalExpress"
-          },
-          "deliveryAddress": {
-            "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
-          },
-          "provider": {
-            "title": "Provider"
-          },
-          "originAddress": {
-            "title": "Address of the Manufacturer/Packer of Parcel"
-          },
-          "trackingNumber": {
-            "title": "Tracking Number of the Carrier",
-            "type": "string",
-            "default": "",
-            "example": "9988 1234 8677"
-          },
-          "partOfOrder": {
-            "title": "Products in Parcel that are Part of one or more Orders",
-            "type": "array",
-            "items": {}
-          }
-        }
-      },
       "EcommercePackingListItem": {
         "title": "EcommercePackingListItem",
         "description": "Ecommerce Packing List Item",
@@ -4029,70 +3935,6 @@
           "certificateName"
         ],
         "additionalProperties": false
-      },
-      "EcommercePackingListRegistrationEvidenceDocument": {
-        "title": "Packing List Registration Evidence Document",
-        "description": "Evidence data for a registered eCommerce Packing List based on schema.org",
-        "type": "object",
-        "required": [
-          "@context",
-          "deliveryStatus",
-          "expectedArrivalFrom",
-          "hasDeliveryMethod",
-          "deliveryAddress",
-          "provider",
-          "originAddress",
-          "partOfOrder"
-        ],
-        "properties": {
-          "@context": {
-            "type": "array",
-            "items": {}
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {}
-              }
-            ]
-          },
-          "deliveryStatus": {
-            "title": "DeliveryStatus",
-            "type": "string",
-            "default": "",
-            "example": "EventScheduled"
-          },
-          "expectedArrivalFrom": {
-            "title": "Earliest Expected arrival date of parcel",
-            "type": "string",
-            "default": "",
-            "example": "01-12-2021"
-          },
-          "hasDeliveryMethod": {
-            "title": "Method of Parcel Delivery",
-            "type": "string",
-            "default": "",
-            "example": "https://purl.org/goodrelations/v1#FederalExpress"
-          },
-          "deliveryAddress": {
-            "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
-          },
-          "provider": {
-            "title": "Provider"
-          },
-          "originAddress": {
-            "title": "Address of the Manufacturer/Packer of Parcel"
-          },
-          "partOfOrder": {
-            "title": "Products in Parcel that are Part of one or more Orders",
-            "type": "array",
-            "items": {}
-          }
-        }
       },
       "EcommerceProductReceiptRegistrationCredential": {
         "title": "EcommerceProductReceiptRegistrationCredential",
@@ -4946,94 +4788,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "ItemShipped": {
-        "title": "Part of an Ecommerce Order",
-        "description": "Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org",
-        "type": "object",
-        "required": [
-          "type",
-          "manufacturer",
-          "name",
-          "description",
-          "productID",
-          "weight",
-          "height",
-          "width",
-          "depth",
-          "orderQuantity"
-        ],
-        "properties": {
-          "@context": {
-            "type": "array",
-            "items": {}
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {}
-              }
-            ]
-          },
-          "manufacturer": {
-            "title": "Manufacturer",
-            "type": "string",
-            "default": "",
-            "example": "ACME Corp"
-          },
-          "name": {
-            "title": "Name",
-            "type": "string",
-            "default": "",
-            "example": "ACME Laptop 3000"
-          },
-          "description": {
-            "title": "Description of product",
-            "type": "string",
-            "default": "",
-            "example": "Example Product Description"
-          },
-          "productID": {
-            "title": "Product ID",
-            "type": "string",
-            "default": "",
-            "example": "Product number of registering Legal Entity such as an ISBN (required)"
-          },
-          "weight": {
-            "title": "Weight of the product",
-            "type": "string",
-            "default": "",
-            "example": "floating point metric system value plus unit measrure (kg) (required)"
-          },
-          "height": {
-            "title": "Height of the product",
-            "type": "string",
-            "default": "",
-            "example": "floating point metric system value plus unit measrure (meter) (required)"
-          },
-          "width": {
-            "title": "Width of the product",
-            "type": "string",
-            "default": "",
-            "example": "floating point metric system value plus unit measrure (meter) (required)"
-          },
-          "depth": {
-            "title": "Depth of the Product",
-            "type": "string",
-            "default": "",
-            "example": "floating point metric system value plus unit measrure (meter)(required)"
-          },
-          "orderQuantity": {
-            "title": "Qrder Quantity",
-            "type": "number",
-            "default": "",
-            "example": 5
-          }
-        }
       },
       "LEIaddress": {
         "title": "LEIaddress",
@@ -5925,6 +5679,170 @@
         },
         "additionalProperties": false
       },
+      "Package": {
+        "title": "Package",
+        "description": "Any self-contained wrapping or container within which goods can be contained, such as a box or a barrel which can be filled, partially filled or empty.",
+        "type": "object",
+        "required": [],
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "physicalShippingMarks": {
+            "title": "shippingMarks",
+            "description": "The identifying details of a package or the actual markings that appear on the package(s). This information is provided by the shipper.",
+            "type": "string"
+          },
+          "itemQuantity": {
+            "title": "Item Quantity",
+            "description": "Number of packages.",
+            "type": "string"
+          },
+          "perPackageUnitQuantity": {
+            "title": "perPackageUnitQuantity",
+            "description": "A number of units per package in the package or trade delivery.",
+            "type": "number"
+          },
+          "tradeLineItems": {
+            "title": "Included Trade Line Item",
+            "description": "An included trade line item.",
+            "type": "array",
+            "items": {}
+          },
+          "netWeight": {
+            "title": "A measure of the net weight (mass).",
+            "type": "string"
+          },
+          "grossWeight": {
+            "title": "A measure of the gross weight (mass) which includes packaging but excludes any transport equipment.",
+            "type": "string"
+          },
+          "weightUnit": {
+            "title": "Weight Unit",
+            "description": "The unit of measure which can be expressed in imperial or metric terms",
+            "type": "string"
+          },
+          "height": {
+            "title": "Height of the product",
+            "type": "string"
+          },
+          "width": {
+            "title": "Width of the product",
+            "type": "string"
+          },
+          "depth": {
+            "title": "Depth of the Product",
+            "type": "string"
+          },
+          "grossVolume": {
+            "title": "Volume",
+            "description": "Calculated by multiplying the width, height, and length of the packed cargo.",
+            "type": "number"
+          },
+          "volumeUnit": {
+            "title": "Volume Unit",
+            "description": "The unit of measure which can be expressed in either imperial or metric terms",
+            "type": "string"
+          }
+        }
+      },
+      "PackingListCertificate": {
+        "title": "Packing List Certificate",
+        "description": "Evidence data for a registered eCommerce Packing List",
+        "type": "object",
+        "required": [
+          "@context",
+          "hasDeliveryMethod",
+          "deliveryAddress",
+          "provider",
+          "originAddress",
+          "partOfOrder"
+        ],
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "deliveryStatus": {
+            "title": "DeliveryStatus",
+            "type": "string",
+            "default": "",
+            "example": "EventScheduled"
+          },
+          "estimatedTimeOfArrival": {
+            "title": "The expected arrival time",
+            "type": "string"
+          },
+          "hasDeliveryMethod": {
+            "title": "Method of Parcel Delivery",
+            "type": "string",
+            "default": "",
+            "example": "https://purl.org/goodrelations/v1#FederalExpress"
+          },
+          "deliveryAddress": {
+            "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
+          },
+          "provider": {
+            "title": "Provider"
+          },
+          "originAddress": {
+            "title": "Address of the Manufacturer/Packer of Parcel"
+          },
+          "partOfOrder": {
+            "title": "Products in Parcel that are Part of one or more Orders",
+            "type": "array",
+            "items": {}
+          },
+          "totalWeight": {
+            "title": "Weight",
+            "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s).",
+            "type": "number"
+          },
+          "totalWeightUnit": {
+            "title": "Weight Unit",
+            "description": "The unit of measure which can be expressed in imperial or metric terms",
+            "type": "string"
+          },
+          "totalVolume": {
+            "title": "Volume",
+            "description": "Calculated by multiplying the width, height, and length of the packed cargo.",
+            "type": "number"
+          },
+          "totalVolumeUnit": {
+            "title": "Volume Unit",
+            "description": "The unit of measure which can be expressed in either imperial or metric terms",
+            "type": "string"
+          },
+          "totalNumberOfPackages": {
+            "title": "Number of Packages",
+            "description": "Specifies the number of packages associated with this cargo item",
+            "type": "number"
+          }
+        }
+      },
       "ParcelDelivery": {
         "title": "Parcel Delivery",
         "description": "Details on a shipment or delivery.",
@@ -5985,44 +5903,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "PartOfOrder": {
-        "title": "Part of an Order",
-        "description": "Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org",
-        "type": "object",
-        "required": [
-          "type",
-          "orderNumber",
-          "itemsShipped"
-        ],
-        "properties": {
-          "@context": {
-            "type": "array",
-            "items": {}
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "array",
-                "items": {}
-              }
-            ]
-          },
-          "orderNumber": {
-            "title": "Ordernumber",
-            "type": "string",
-            "default": "",
-            "example": "123ABC"
-          },
-          "itemsShipped": {
-            "title": "Products to be shipped belonging to an Order",
-            "type": "array",
-            "items": {}
-          }
-        }
       },
       "Person": {
         "title": "Person",
@@ -6954,6 +6834,46 @@
           }
         },
         "additionalProperties": false
+      },
+      "TradeLineItem": {
+        "title": "Trade Line Item",
+        "description": "A collection of information specific to an item being used or reported on for trade purposes.",
+        "type": "object",
+        "required": [],
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description of product",
+            "type": "string"
+          },
+          "productID": {
+            "title": "Product ID",
+            "description": "Product number of registering Legal Entity such as an ISBN",
+            "type": "string"
+          },
+          "itemCount": {
+            "title": "A quantity despatched in the trade delivery.",
+            "type": "string"
+          }
+        }
       },
       "Transport": {
         "title": "Transport",

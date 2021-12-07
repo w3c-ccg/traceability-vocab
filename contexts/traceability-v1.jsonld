@@ -225,7 +225,7 @@
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
         },
         "weight": {
-          "@id": "https://schema.org/weight"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
         },
         "volume": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
@@ -239,8 +239,20 @@
         "numberOfPackages": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
+        "name": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity"
+        },
         "packageCode": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageTypeCode"
+        },
+        "manufacturer": {
+          "@id": "https://schema.org/manufacturer"
+        },
+        "orderNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "transportPackage": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package"
         }
       }
     },
@@ -718,35 +730,6 @@
         }
       }
     },
-    "EcommercePackageRegistrationEvidenceDocument": {
-      "@id": "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument",
-      "@context": {
-        "deliveryStatus": {
-          "@id": "https://schema.org/deliveryStatus"
-        },
-        "expectedArrivalFrom": {
-          "@id": "https://schema.org/expectedArrivalFrom"
-        },
-        "hasDeliveryMethod": {
-          "@id": "https://schema.org/hasDeliveryMethod"
-        },
-        "deliveryAddress": {
-          "@id": "https://schema.org/deliveryAddress"
-        },
-        "provider": {
-          "@id": "https://schema.org/provider"
-        },
-        "originAddress": {
-          "@id": "https://schema.org/originAddress"
-        },
-        "trackingNumber": {
-          "@id": "https://schema.org/trackingNumber"
-        },
-        "partOfOrder": {
-          "@id": "https://schema.org/partOfOrder"
-        }
-      }
-    },
     "EcommercePackingListItem": {
       "@id": "https://w3id.org/traceability#EcommercePackingListItem",
       "@context": {
@@ -766,32 +749,6 @@
         },
         "certificateName": {
           "@id": "https://schema.org/name"
-        }
-      }
-    },
-    "EcommercePackingListRegistrationEvidenceDocument": {
-      "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument",
-      "@context": {
-        "deliveryStatus": {
-          "@id": "https://schema.org/deliveryStatus"
-        },
-        "expectedArrivalFrom": {
-          "@id": "https://schema.org/expectedArrivalFrom"
-        },
-        "hasDeliveryMethod": {
-          "@id": "https://schema.org/hasDeliveryMethod"
-        },
-        "deliveryAddress": {
-          "@id": "https://schema.org/deliveryAddress"
-        },
-        "provider": {
-          "@id": "https://schema.org/provider"
-        },
-        "originAddress": {
-          "@id": "https://schema.org/originAddress"
-        },
-        "partOfOrder": {
-          "@id": "https://schema.org/partOfOrder"
         }
       }
     },
@@ -1150,38 +1107,6 @@
         }
       }
     },
-    "ItemShipped": {
-      "@id": "https://w3id.org/traceability#ItemShipped",
-      "@context": {
-        "manufacturer": {
-          "@id": "https://schema.org/manufacturer"
-        },
-        "name": {
-          "@id": "https://schema.org/name"
-        },
-        "description": {
-          "@id": "https://schema.org/description"
-        },
-        "productID": {
-          "@id": "https://schema.org/productID"
-        },
-        "weight": {
-          "@id": "https://schema.org/weight"
-        },
-        "height": {
-          "@id": "https://schema.org/height"
-        },
-        "width": {
-          "@id": "https://schema.org/width"
-        },
-        "depth": {
-          "@id": "https://schema.org/depth"
-        },
-        "orderQuantity": {
-          "@id": "https://schema.org/orderQuantity"
-        }
-      }
-    },
     "LEIaddress": {
       "@id": "https://w3id.org/traceability#LEIaddress",
       "@context": {
@@ -1529,6 +1454,82 @@
         }
       }
     },
+    "Package": {
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package",
+      "@context": {
+        "shippingMarks": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity"
+        },
+        "name": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity"
+        },
+        "itemsShipped": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem"
+        },
+        "weight": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
+        },
+        "weightUnit": {
+          "@id": "https://schema.org/unitCode"
+        },
+        "volumeUnit": {
+          "@id": "https://schema.org/unitCode"
+        },
+        "height": {
+          "@id": "https://schema.org/height"
+        },
+        "width": {
+          "@id": "https://schema.org/width"
+        },
+        "depth": {
+          "@id": "https://schema.org/depth"
+        },
+        "volume": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
+        }
+      }
+    },
+    "PackingListCertificate": {
+      "@id": "https://w3id.org/traceability#PackingListCertificate",
+      "@context": {
+        "deliveryStatus": {
+          "@id": "https://schema.org/deliveryStatus"
+        },
+        "estimatedTimeOfArrival": {
+          "@id": "https://schema.org/arrivalTime"
+        },
+        "hasDeliveryMethod": {
+          "@id": "https://schema.org/hasDeliveryMethod"
+        },
+        "deliveryAddress": {
+          "@id": "https://schema.org/deliveryAddress"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
+        },
+        "originAddress": {
+          "@id": "https://schema.org/originAddress"
+        },
+        "partOfOrder": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem"
+        },
+        "weight": {
+          "@id": "https://schema.org/weight"
+        },
+        "weightUnit": {
+          "@id": "https://schema.org/unitCode"
+        },
+        "volumeUnit": {
+          "@id": "https://schema.org/unitCode"
+        },
+        "volume": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
+        },
+        "numberOfPackages": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        }
+      }
+    },
     "ParcelDelivery": {
       "@id": "https://schema.org/ParcelDelivery",
       "@context": {
@@ -1554,17 +1555,6 @@
           "@id": "https://schema.org/Organization"
         },
         "item": {
-          "@id": "https://schema.org/itemShipped"
-        }
-      }
-    },
-    "PartOfOrder": {
-      "@id": "https://w3id.org/traceability#PartOfOrder",
-      "@context": {
-        "orderNumber": {
-          "@id": "https://schema.org/orderNumber"
-        },
-        "itemsShipped": {
           "@id": "https://schema.org/itemShipped"
         }
       }
@@ -1977,6 +1967,23 @@
         },
         "totalCollectCharge": {
           "@id": "https://schema.org/estimatedCost"
+        }
+      }
+    },
+    "TradeLineItem": {
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem",
+      "@context": {
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        },
+        "productID": {
+          "@id": "https://schema.org/productID"
+        },
+        "itemCount": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity"
         }
       }
     },

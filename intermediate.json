@@ -1278,9 +1278,33 @@
           },
           "title": "Volume",
           "description": "Calculated by multiplying the width, height, and length of the packed cargo."
+        },
+        {
+          "$comment": {
+            "term": "volume",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
+          },
+          "title": "Volume",
+          "description": "Calculated by multiplying the width, height, and length of the packed cargo."
         }
       ],
       "https://schema.org/unitCode": [
+        {
+          "$comment": {
+            "term": "weightUnit",
+            "@id": "https://schema.org/unitCode"
+          },
+          "title": "Weight Unit",
+          "description": "The unit of measure which can be expressed in imperial or metric terms"
+        },
+        {
+          "$comment": {
+            "term": "volumeUnit",
+            "@id": "https://schema.org/unitCode"
+          },
+          "title": "Volume Unit",
+          "description": "The unit of measure which can be expressed in either imperial or metric terms"
+        },
         {
           "$comment": {
             "term": "weightUnit",
@@ -1306,6 +1330,14 @@
           },
           "title": "Number of Packages",
           "description": "Specifies the number of packages associated with this cargo item"
+        },
+        {
+          "$comment": {
+            "term": "name",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+          },
+          "title": "Package Quantity",
+          "description": "A number of packages"
         }
       ],
       "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageTypeCode": [
@@ -1316,6 +1348,61 @@
           },
           "title": "Package Code",
           "description": "The unique identifier for the package type"
+        }
+      ],
+      "https://schema.org/manufacturer": [
+        {
+          "$comment": {
+            "term": "manufacturer",
+            "@id": "https://schema.org/manufacturer"
+          },
+          "title": "Manufacturer"
+        }
+      ],
+      "https://schema.org/orderNumber": [
+        {
+          "$comment": {
+            "term": "orderNumber",
+            "@id": "https://schema.org/orderNumber"
+          },
+          "title": "Ordernumber"
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package": [
+        {
+          "$comment": {
+            "term": "transportPackage",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package"
+          },
+          "title": "Any self-contained wrapping or container within which goods can be contained, such as a box or a barrel which can be filled, partially filled or empty."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure": [
+        {
+          "$comment": {
+            "term": "weight",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure"
+          },
+          "title": "A measure of the net weight (mass)."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure": [
+        {
+          "$comment": {
+            "term": "weight",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
+          },
+          "title": "A measure of the gross weight (mass) which includes packaging but excludes any transport equipment."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity": [
+        {
+          "$comment": {
+            "term": "name",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity"
+          },
+          "title": "Item Quantity",
+          "description": "A number of trade line items in the consignment item."
         }
       ]
     },
@@ -4275,183 +4362,6 @@
       "examples": []
     }
   },
-  "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument": {
-    "$id": "https://w3id.org/traceability/schemas/EcommercePackageRegistrationEvidenceDocument.json",
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "EcommercePackageRegistrationEvidenceDocument",
-      "@id": "https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument"
-    },
-    "title": "Package Registration Evidence Document",
-    "description": "Evidence data for a registered eCommerce Package",
-    "classProperties": {
-      "https://schema.org/deliveryStatus": [
-        {
-          "$comment": {
-            "term": "deliveryStatus",
-            "@id": "https://schema.org/deliveryStatus"
-          },
-          "title": "DeliveryStatus"
-        }
-      ],
-      "https://schema.org/expectedArrivalFrom": [
-        {
-          "$comment": {
-            "term": "expectedArrivalFrom",
-            "@id": "https://schema.org/expectedArrivalFrom"
-          },
-          "title": "Earliest Expected arrival date of parcel"
-        }
-      ],
-      "https://schema.org/hasDeliveryMethod": [
-        {
-          "$comment": {
-            "term": "hasDeliveryMethod",
-            "@id": "https://schema.org/hasDeliveryMethod"
-          },
-          "title": "Method of Parcel Delivery"
-        }
-      ],
-      "https://schema.org/deliveryAddress": [
-        {
-          "$comment": {
-            "term": "deliveryAddress",
-            "@id": "https://schema.org/deliveryAddress"
-          },
-          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
-        }
-      ],
-      "https://schema.org/provider": [
-        {
-          "$comment": {
-            "term": "provider",
-            "@id": "https://schema.org/provider"
-          },
-          "title": "Provider"
-        }
-      ],
-      "https://schema.org/originAddress": [
-        {
-          "$comment": {
-            "term": "originAddress",
-            "@id": "https://schema.org/originAddress"
-          },
-          "title": "Address of the Manufacturer/Packer of Parcel"
-        }
-      ],
-      "https://schema.org/trackingNumber": [
-        {
-          "$comment": {
-            "term": "trackingNumber",
-            "@id": "https://schema.org/trackingNumber"
-          },
-          "title": "Tracking Number of the Carrier"
-        }
-      ],
-      "https://schema.org/partOfOrder": [
-        {
-          "$comment": {
-            "term": "partOfOrder",
-            "@id": "https://schema.org/partOfOrder"
-          },
-          "title": "Products in Parcel that are Part of one or more Orders"
-        }
-      ]
-    },
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/EcommercePackageRegistrationEvidenceDocument.json",
-      "$schema": "https://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"EcommercePackageRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommercePackageRegistrationEvidenceDocument\"}",
-      "title": "Package Registration Evidence Document",
-      "description": "Evidence data for a registered eCommerce Package",
-      "type": "object",
-      "required": [
-        "@context",
-        "deliveryStatus",
-        "expectedArrivalFrom",
-        "hasDeliveryMethod",
-        "deliveryAddress",
-        "provider",
-        "originAddress",
-        "trackingNumber",
-        "partOfOrder"
-      ],
-      "properties": {
-        "@context": {
-          "type": "array"
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array"
-            }
-          ]
-        },
-        "deliveryStatus": {
-          "$comment": "{\"term\": \"deliveryStatus\", \"@id\": \"https://schema.org/deliveryStatus\"}",
-          "title": "DeliveryStatus",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "EventScheduled"
-          ]
-        },
-        "expectedArrivalFrom": {
-          "$comment": "{\"term\": \"expectedArrivalFrom\", \"@id\": \"https://schema.org/expectedArrivalFrom\"}",
-          "title": "Earliest Expected arrival date of parcel",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "01-12-2021"
-          ]
-        },
-        "hasDeliveryMethod": {
-          "$comment": "{\"term\": \"hasDeliveryMethod\", \"@id\": \"https://schema.org/hasDeliveryMethod\"}",
-          "title": "Method of Parcel Delivery",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "https://purl.org/goodrelations/v1#FederalExpress"
-          ]
-        },
-        "deliveryAddress": {
-          "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
-          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment",
-          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
-        },
-        "provider": {
-          "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
-          "title": "Provider",
-          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
-        },
-        "originAddress": {
-          "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
-          "title": "Address of the Manufacturer/Packer of Parcel",
-          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
-        },
-        "trackingNumber": {
-          "$comment": "{\"term\": \"trackingNumber\", \"@id\": \"https://schema.org/trackingNumber\"}",
-          "title": "Tracking Number of the Carrier",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "9988 1234 8677"
-          ]
-        },
-        "partOfOrder": {
-          "$comment": "{\"term\": \"partOfOrder\", \"@id\": \"https://schema.org/partOfOrder\"}",
-          "title": "Products in Parcel that are Part of one or more Orders",
-          "type": "array",
-          "items": {
-            "$ref": "https://w3id.org/traceability/schemas/PartOfOrder.json"
-          }
-        }
-      }
-    }
-  },
   "https://w3id.org/traceability#EcommercePackingListItem": {
     "$id": "https://w3id.org/traceability/schemas/EcommercePackingListItem.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -4599,164 +4509,6 @@
       ],
       "additionalProperties": false,
       "examples": []
-    }
-  },
-  "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument": {
-    "$id": "https://w3id.org/traceability/schemas/EcommercePackingListRegistrationEvidenceDocument.json",
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "EcommercePackingListRegistrationEvidenceDocument",
-      "@id": "https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument"
-    },
-    "title": "Packing List Registration Evidence Document",
-    "description": "Evidence data for a registered eCommerce Packing List based on schema.org",
-    "classProperties": {
-      "https://schema.org/deliveryStatus": [
-        {
-          "$comment": {
-            "term": "deliveryStatus",
-            "@id": "https://schema.org/deliveryStatus"
-          },
-          "title": "DeliveryStatus"
-        }
-      ],
-      "https://schema.org/expectedArrivalFrom": [
-        {
-          "$comment": {
-            "term": "expectedArrivalFrom",
-            "@id": "https://schema.org/expectedArrivalFrom"
-          },
-          "title": "Earliest Expected arrival date of parcel"
-        }
-      ],
-      "https://schema.org/hasDeliveryMethod": [
-        {
-          "$comment": {
-            "term": "hasDeliveryMethod",
-            "@id": "https://schema.org/hasDeliveryMethod"
-          },
-          "title": "Method of Parcel Delivery"
-        }
-      ],
-      "https://schema.org/deliveryAddress": [
-        {
-          "$comment": {
-            "term": "deliveryAddress",
-            "@id": "https://schema.org/deliveryAddress"
-          },
-          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
-        }
-      ],
-      "https://schema.org/provider": [
-        {
-          "$comment": {
-            "term": "provider",
-            "@id": "https://schema.org/provider"
-          },
-          "title": "Provider"
-        }
-      ],
-      "https://schema.org/originAddress": [
-        {
-          "$comment": {
-            "term": "originAddress",
-            "@id": "https://schema.org/originAddress"
-          },
-          "title": "Address of the Manufacturer/Packer of Parcel"
-        }
-      ],
-      "https://schema.org/partOfOrder": [
-        {
-          "$comment": {
-            "term": "partOfOrder",
-            "@id": "https://schema.org/partOfOrder"
-          },
-          "title": "Products in Parcel that are Part of one or more Orders"
-        }
-      ]
-    },
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/EcommercePackingListRegistrationEvidenceDocument.json",
-      "$schema": "https://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"EcommercePackingListRegistrationEvidenceDocument\", \"@id\": \"https://w3id.org/traceability#EcommercePackingListRegistrationEvidenceDocument\"}",
-      "title": "Packing List Registration Evidence Document",
-      "description": "Evidence data for a registered eCommerce Packing List based on schema.org",
-      "type": "object",
-      "required": [
-        "@context",
-        "deliveryStatus",
-        "expectedArrivalFrom",
-        "hasDeliveryMethod",
-        "deliveryAddress",
-        "provider",
-        "originAddress",
-        "partOfOrder"
-      ],
-      "properties": {
-        "@context": {
-          "type": "array"
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array"
-            }
-          ]
-        },
-        "deliveryStatus": {
-          "$comment": "{\"term\": \"deliveryStatus\", \"@id\": \"https://schema.org/deliveryStatus\"}",
-          "title": "DeliveryStatus",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "EventScheduled"
-          ]
-        },
-        "expectedArrivalFrom": {
-          "$comment": "{\"term\": \"expectedArrivalFrom\", \"@id\": \"https://schema.org/expectedArrivalFrom\"}",
-          "title": "Earliest Expected arrival date of parcel",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "01-12-2021"
-          ]
-        },
-        "hasDeliveryMethod": {
-          "$comment": "{\"term\": \"hasDeliveryMethod\", \"@id\": \"https://schema.org/hasDeliveryMethod\"}",
-          "title": "Method of Parcel Delivery",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "https://purl.org/goodrelations/v1#FederalExpress"
-          ]
-        },
-        "deliveryAddress": {
-          "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
-          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment",
-          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
-        },
-        "provider": {
-          "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
-          "title": "Provider",
-          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
-        },
-        "originAddress": {
-          "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
-          "title": "Address of the Manufacturer/Packer of Parcel",
-          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
-        },
-        "partOfOrder": {
-          "$comment": "{\"term\": \"partOfOrder\", \"@id\": \"https://schema.org/partOfOrder\"}",
-          "title": "Products in Parcel that are Part of one or more Orders",
-          "type": "array",
-          "items": {
-            "$ref": "https://w3id.org/traceability/schemas/PartOfOrder.json"
-          }
-        }
-      }
     }
   },
   "https://w3id.org/traceability#EcommerceProductReceiptRegistrationCredential": {
@@ -6834,215 +6586,6 @@
         }
       },
       "additionalProperties": false
-    }
-  },
-  "https://w3id.org/traceability#ItemShipped": {
-    "$id": "https://w3id.org/traceability/schemas/ItemShipped.json",
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "ItemShipped",
-      "@id": "https://w3id.org/traceability#ItemShipped"
-    },
-    "title": "Part of an Ecommerce Order",
-    "description": "Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org",
-    "classProperties": {
-      "https://schema.org/manufacturer": [
-        {
-          "$comment": {
-            "term": "manufacturer",
-            "@id": "https://schema.org/manufacturer"
-          },
-          "title": "Manufacturer"
-        }
-      ],
-      "https://schema.org/name": [
-        {
-          "$comment": {
-            "term": "name",
-            "@id": "https://schema.org/name"
-          },
-          "title": "Name"
-        }
-      ],
-      "https://schema.org/description": [
-        {
-          "$comment": {
-            "term": "description",
-            "@id": "https://schema.org/description"
-          },
-          "title": "Description of product"
-        }
-      ],
-      "https://schema.org/productID": [
-        {
-          "$comment": {
-            "term": "productID",
-            "@id": "https://schema.org/productID"
-          },
-          "title": "Product ID"
-        }
-      ],
-      "https://schema.org/weight": [
-        {
-          "$comment": {
-            "term": "weight",
-            "@id": "https://schema.org/weight"
-          },
-          "title": "Weight of the product"
-        }
-      ],
-      "https://schema.org/height": [
-        {
-          "$comment": {
-            "term": "height",
-            "@id": "https://schema.org/height"
-          },
-          "title": "Height of the product"
-        }
-      ],
-      "https://schema.org/width": [
-        {
-          "$comment": {
-            "term": "width",
-            "@id": "https://schema.org/width"
-          },
-          "title": "Width of the product"
-        }
-      ],
-      "https://schema.org/depth": [
-        {
-          "$comment": {
-            "term": "depth",
-            "@id": "https://schema.org/depth"
-          },
-          "title": "Depth of the Product"
-        }
-      ],
-      "https://schema.org/orderQuantity": [
-        {
-          "$comment": {
-            "term": "orderQuantity",
-            "@id": "https://schema.org/orderQuantity"
-          },
-          "title": "Qrder Quantity"
-        }
-      ]
-    },
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/ItemShipped.json",
-      "$schema": "https://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"ItemShipped\", \"@id\": \"https://w3id.org/traceability#ItemShipped\"}",
-      "title": "Part of an Ecommerce Order",
-      "description": "Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org",
-      "type": "object",
-      "required": [
-        "type",
-        "manufacturer",
-        "name",
-        "description",
-        "productID",
-        "weight",
-        "height",
-        "width",
-        "depth",
-        "orderQuantity"
-      ],
-      "properties": {
-        "@context": {
-          "type": "array"
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array"
-            }
-          ]
-        },
-        "manufacturer": {
-          "$comment": "{\"term\": \"manufacturer\", \"@id\": \"https://schema.org/manufacturer\"}",
-          "title": "Manufacturer",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "ACME Corp"
-          ]
-        },
-        "name": {
-          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
-          "title": "Name",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "ACME Laptop 3000"
-          ]
-        },
-        "description": {
-          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
-          "title": "Description of product",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "Example Product Description"
-          ]
-        },
-        "productID": {
-          "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
-          "title": "Product ID",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "Product number of registering Legal Entity such as an ISBN (required)"
-          ]
-        },
-        "weight": {
-          "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
-          "title": "Weight of the product",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "floating point metric system value plus unit measrure (kg) (required)"
-          ]
-        },
-        "height": {
-          "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
-          "title": "Height of the product",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "floating point metric system value plus unit measrure (meter) (required)"
-          ]
-        },
-        "width": {
-          "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
-          "title": "Width of the product",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "floating point metric system value plus unit measrure (meter) (required)"
-          ]
-        },
-        "depth": {
-          "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
-          "title": "Depth of the Product",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "floating point metric system value plus unit measrure (meter)(required)"
-          ]
-        },
-        "orderQuantity": {
-          "$comment": "{\"term\": \"orderQuantity\", \"@id\": \"https://schema.org/orderQuantity\"}",
-          "title": "Qrder Quantity",
-          "type": "number",
-          "default": "",
-          "examples": [
-            5
-          ]
-        }
-      }
     }
   },
   "https://w3id.org/traceability#LEIaddress": {
@@ -9126,6 +8669,455 @@
       "examples": []
     }
   },
+  "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package": {
+    "$id": "https://w3id.org/traceability/schemas/Package.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "Package",
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package"
+    },
+    "title": "Package",
+    "description": "Any self-contained wrapping or container within which goods can be contained, such as a box or a barrel which can be filled, partially filled or empty.",
+    "classProperties": {
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks": [
+        {
+          "$comment": {
+            "term": "shippingMarks",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks"
+          },
+          "title": "shippingMarks",
+          "description": "The identifying details of a package or the actual markings that appear on the package(s). This information is provided by the shipper."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity": [
+        {
+          "$comment": {
+            "term": "name",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity"
+          },
+          "title": "Item Quantity",
+          "description": "Number of packages."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity": [
+        {
+          "$comment": {
+            "term": "shippingMarks",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity"
+          },
+          "title": "perPackageUnitQuantity",
+          "description": "A number of units per package in the package or trade delivery."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem": [
+        {
+          "$comment": {
+            "term": "itemsShipped",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem"
+          },
+          "title": "Included Trade Line Item",
+          "description": "An included trade line item."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure": [
+        {
+          "$comment": {
+            "term": "weight",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure"
+          },
+          "title": "A measure of the net weight (mass)."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure": [
+        {
+          "$comment": {
+            "term": "weight",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
+          },
+          "title": "A measure of the gross weight (mass) which includes packaging but excludes any transport equipment."
+        }
+      ],
+      "https://schema.org/unitCode": [
+        {
+          "$comment": {
+            "term": "weightUnit",
+            "@id": "https://schema.org/unitCode"
+          },
+          "title": "Weight Unit",
+          "description": "The unit of measure which can be expressed in imperial or metric terms"
+        },
+        {
+          "$comment": {
+            "term": "volumeUnit",
+            "@id": "https://schema.org/unitCode"
+          },
+          "title": "Volume Unit",
+          "description": "The unit of measure which can be expressed in either imperial or metric terms"
+        }
+      ],
+      "https://schema.org/height": [
+        {
+          "$comment": {
+            "term": "height",
+            "@id": "https://schema.org/height"
+          },
+          "title": "Height of the product"
+        }
+      ],
+      "https://schema.org/width": [
+        {
+          "$comment": {
+            "term": "width",
+            "@id": "https://schema.org/width"
+          },
+          "title": "Width of the product"
+        }
+      ],
+      "https://schema.org/depth": [
+        {
+          "$comment": {
+            "term": "depth",
+            "@id": "https://schema.org/depth"
+          },
+          "title": "Depth of the Product"
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure": [
+        {
+          "$comment": {
+            "term": "volume",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
+          },
+          "title": "Volume",
+          "description": "Calculated by multiplying the width, height, and length of the packed cargo."
+        }
+      ]
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/Package.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"Package\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package\"}",
+      "title": "Package",
+      "description": "Any self-contained wrapping or container within which goods can be contained, such as a box or a barrel which can be filled, partially filled or empty.",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "physicalShippingMarks": {
+          "$comment": "{\"term\": \"shippingMarks\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks\"}",
+          "title": "shippingMarks",
+          "description": "The identifying details of a package or the actual markings that appear on the package(s). This information is provided by the shipper.",
+          "type": "string"
+        },
+        "itemQuantity": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity\"}",
+          "title": "Item Quantity",
+          "description": "Number of packages.",
+          "type": "string"
+        },
+        "perPackageUnitQuantity": {
+          "$comment": "{\"term\": \"shippingMarks\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity\"}",
+          "title": "perPackageUnitQuantity",
+          "description": "A number of units per package in the package or trade delivery.",
+          "type": "number"
+        },
+        "tradeLineItems": {
+          "$comment": "{\"term\": \"itemsShipped\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem\"}",
+          "title": "Included Trade Line Item",
+          "description": "An included trade line item.",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/PartOfOrder.json"
+          }
+        },
+        "netWeight": {
+          "$comment": "{\"term\": \"weight\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure\"}",
+          "title": "A measure of the net weight (mass).",
+          "type": "string"
+        },
+        "grossWeight": {
+          "$comment": "{\"term\": \"weight\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure\"}",
+          "title": "A measure of the gross weight (mass) which includes packaging but excludes any transport equipment.",
+          "type": "string"
+        },
+        "weightUnit": {
+          "$comment": "{\"term\": \"weightUnit\", \"@id\": \"https://schema.org/unitCode\"}",
+          "title": "Weight Unit",
+          "description": "The unit of measure which can be expressed in imperial or metric terms",
+          "type": "string"
+        },
+        "height": {
+          "$comment": "{\"term\": \"height\", \"@id\": \"https://schema.org/height\"}",
+          "title": "Height of the product",
+          "type": "string"
+        },
+        "width": {
+          "$comment": "{\"term\": \"width\", \"@id\": \"https://schema.org/width\"}",
+          "title": "Width of the product",
+          "type": "string"
+        },
+        "depth": {
+          "$comment": "{\"term\": \"depth\", \"@id\": \"https://schema.org/depth\"}",
+          "title": "Depth of the Product",
+          "type": "string"
+        },
+        "grossVolume": {
+          "$comment": "{\"term\": \"volume\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure\"}",
+          "title": "Volume",
+          "description": "Calculated by multiplying the width, height, and length of the packed cargo.",
+          "type": "number"
+        },
+        "volumeUnit": {
+          "$comment": "{\"term\": \"volumeUnit\", \"@id\": \"https://schema.org/unitCode\"}",
+          "title": "Volume Unit",
+          "description": "The unit of measure which can be expressed in either imperial or metric terms",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "https://w3id.org/traceability#PackingListCertificate": {
+    "$id": "https://w3id.org/traceability/schemas/PackingListCertificate.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "PackingListCertificate",
+      "@id": "https://w3id.org/traceability#PackingListCertificate"
+    },
+    "title": "Packing List Certificate",
+    "description": "Evidence data for a registered eCommerce Packing List",
+    "classProperties": {
+      "https://schema.org/deliveryStatus": [
+        {
+          "$comment": {
+            "term": "deliveryStatus",
+            "@id": "https://schema.org/deliveryStatus"
+          },
+          "title": "DeliveryStatus"
+        }
+      ],
+      "https://schema.org/arrivalTime": [
+        {
+          "$comment": {
+            "term": "estimatedTimeOfArrival",
+            "@id": "https://schema.org/arrivalTime"
+          },
+          "title": "The expected arrival time"
+        }
+      ],
+      "https://schema.org/hasDeliveryMethod": [
+        {
+          "$comment": {
+            "term": "hasDeliveryMethod",
+            "@id": "https://schema.org/hasDeliveryMethod"
+          },
+          "title": "Method of Parcel Delivery"
+        }
+      ],
+      "https://schema.org/deliveryAddress": [
+        {
+          "$comment": {
+            "term": "deliveryAddress",
+            "@id": "https://schema.org/deliveryAddress"
+          },
+          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment"
+        }
+      ],
+      "https://schema.org/provider": [
+        {
+          "$comment": {
+            "term": "provider",
+            "@id": "https://schema.org/provider"
+          },
+          "title": "Provider"
+        }
+      ],
+      "https://schema.org/originAddress": [
+        {
+          "$comment": {
+            "term": "originAddress",
+            "@id": "https://schema.org/originAddress"
+          },
+          "title": "Address of the Manufacturer/Packer of Parcel"
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem": [
+        {
+          "$comment": {
+            "term": "partOfOrder",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem"
+          },
+          "title": "Products in Parcel that are Part of one or more Orders"
+        }
+      ],
+      "https://schema.org/weight": [
+        {
+          "$comment": {
+            "term": "weight",
+            "@id": "https://schema.org/weight"
+          },
+          "title": "Weight",
+          "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s)."
+        }
+      ],
+      "https://schema.org/unitCode": [
+        {
+          "$comment": {
+            "term": "weightUnit",
+            "@id": "https://schema.org/unitCode"
+          },
+          "title": "Weight Unit",
+          "description": "The unit of measure which can be expressed in imperial or metric terms"
+        },
+        {
+          "$comment": {
+            "term": "volumeUnit",
+            "@id": "https://schema.org/unitCode"
+          },
+          "title": "Volume Unit",
+          "description": "The unit of measure which can be expressed in either imperial or metric terms"
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure": [
+        {
+          "$comment": {
+            "term": "volume",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
+          },
+          "title": "Volume",
+          "description": "Calculated by multiplying the width, height, and length of the packed cargo."
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity": [
+        {
+          "$comment": {
+            "term": "numberOfPackages",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+          },
+          "title": "Number of Packages",
+          "description": "Specifies the number of packages associated with this cargo item"
+        }
+      ]
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/PackingListCertificate.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"PackingListCertificate\", \"@id\": \"https://w3id.org/traceability#PackingListCertificate\"}",
+      "title": "Packing List Certificate",
+      "description": "Evidence data for a registered eCommerce Packing List",
+      "type": "object",
+      "required": [
+        "@context",
+        "hasDeliveryMethod",
+        "deliveryAddress",
+        "provider",
+        "originAddress",
+        "partOfOrder"
+      ],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "deliveryStatus": {
+          "$comment": "{\"term\": \"deliveryStatus\", \"@id\": \"https://schema.org/deliveryStatus\"}",
+          "title": "DeliveryStatus",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "EventScheduled"
+          ]
+        },
+        "estimatedTimeOfArrival": {
+          "$comment": "{\"term\": \"estimatedTimeOfArrival\", \"@id\": \"https://schema.org/arrivalTime\"}",
+          "title": "The expected arrival time",
+          "type": "string"
+        },
+        "hasDeliveryMethod": {
+          "$comment": "{\"term\": \"hasDeliveryMethod\", \"@id\": \"https://schema.org/hasDeliveryMethod\"}",
+          "title": "Method of Parcel Delivery",
+          "type": "string",
+          "default": "",
+          "examples": [
+            "https://purl.org/goodrelations/v1#FederalExpress"
+          ]
+        },
+        "deliveryAddress": {
+          "$comment": "{\"term\": \"deliveryAddress\", \"@id\": \"https://schema.org/deliveryAddress\"}",
+          "title": "Address of the Shipper/Carrier/Importer to which the provider delivers product for final shipment",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "provider": {
+          "$comment": "{\"term\": \"provider\", \"@id\": \"https://schema.org/provider\"}",
+          "title": "Provider",
+          "$ref": "https://w3id.org/traceability/schemas/Organization.json"
+        },
+        "originAddress": {
+          "$comment": "{\"term\": \"originAddress\", \"@id\": \"https://schema.org/originAddress\"}",
+          "title": "Address of the Manufacturer/Packer of Parcel",
+          "$ref": "https://w3id.org/traceability/schemas/PostalAddress.json"
+        },
+        "partOfOrder": {
+          "$comment": "{\"term\": \"partOfOrder\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem\"}",
+          "title": "Products in Parcel that are Part of one or more Orders",
+          "type": "array",
+          "items": {
+            "$ref": "https://w3id.org/traceability/schemas/PartOfOrder.json"
+          }
+        },
+        "totalWeight": {
+          "$comment": "{\"term\": \"weight\", \"@id\": \"https://schema.org/weight\"}",
+          "title": "Weight",
+          "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s).",
+          "type": "number"
+        },
+        "totalWeightUnit": {
+          "$comment": "{\"term\": \"weightUnit\", \"@id\": \"https://schema.org/unitCode\"}",
+          "title": "Weight Unit",
+          "description": "The unit of measure which can be expressed in imperial or metric terms",
+          "type": "string"
+        },
+        "totalVolume": {
+          "$comment": "{\"term\": \"volume\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure\"}",
+          "title": "Volume",
+          "description": "Calculated by multiplying the width, height, and length of the packed cargo.",
+          "type": "number"
+        },
+        "totalVolumeUnit": {
+          "$comment": "{\"term\": \"volumeUnit\", \"@id\": \"https://schema.org/unitCode\"}",
+          "title": "Volume Unit",
+          "description": "The unit of measure which can be expressed in either imperial or metric terms",
+          "type": "string"
+        },
+        "totalNumberOfPackages": {
+          "$comment": "{\"term\": \"numberOfPackages\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity\"}",
+          "title": "Number of Packages",
+          "description": "Specifies the number of packages associated with this cargo item",
+          "type": "number"
+        }
+      }
+    }
+  },
   "https://schema.org/ParcelDelivery": {
     "$id": "https://w3id.org/traceability/schemas/ParcelDelivery.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
@@ -9292,81 +9284,6 @@
       },
       "additionalProperties": false,
       "examples": []
-    }
-  },
-  "https://w3id.org/traceability#PartOfOrder": {
-    "$id": "https://w3id.org/traceability/schemas/PartOfOrder.json",
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "$comment": {
-      "term": "PartOfOrder",
-      "@id": "https://w3id.org/traceability#PartOfOrder"
-    },
-    "title": "Part of an Order",
-    "description": "Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org",
-    "classProperties": {
-      "https://schema.org/orderNumber": [
-        {
-          "$comment": {
-            "term": "orderNumber",
-            "@id": "https://schema.org/orderNumber"
-          },
-          "title": "Ordernumber"
-        }
-      ],
-      "https://schema.org/itemShipped": [
-        {
-          "$comment": {
-            "term": "itemsShipped",
-            "@id": "https://schema.org/itemShipped"
-          },
-          "title": "Products to be shipped belonging to an Order"
-        }
-      ]
-    },
-    "schema": {
-      "$id": "https://w3id.org/traceability/schemas/PartOfOrder.json",
-      "$schema": "https://json-schema.org/draft-07/schema#",
-      "$comment": "{\"term\": \"PartOfOrder\", \"@id\": \"https://w3id.org/traceability#PartOfOrder\"}",
-      "title": "Part of an Order",
-      "description": "Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org",
-      "type": "object",
-      "required": [
-        "type",
-        "orderNumber",
-        "itemsShipped"
-      ],
-      "properties": {
-        "@context": {
-          "type": "array"
-        },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "array"
-            }
-          ]
-        },
-        "orderNumber": {
-          "$comment": "{\"term\": \"orderNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
-          "title": "Ordernumber",
-          "type": "string",
-          "default": "",
-          "examples": [
-            "123ABC"
-          ]
-        },
-        "itemsShipped": {
-          "$comment": "{\"term\": \"itemsShipped\", \"@id\": \"https://schema.org/itemShipped\"}",
-          "title": "Products to be shipped belonging to an Order",
-          "type": "array",
-          "items": {
-            "$ref": "https://w3id.org/traceability/schemas/ItemShipped.json"
-          }
-        }
-      }
     }
   },
   "https://schema.org/Person": {
@@ -11772,6 +11689,100 @@
         }
       },
       "additionalProperties": false
+    }
+  },
+  "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem": {
+    "$id": "https://w3id.org/traceability/schemas/TradeLineItem.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": {
+      "term": "TradeLineItem",
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem"
+    },
+    "title": "Trade Line Item",
+    "description": "A collection of information specific to an item being used or reported on for trade purposes.",
+    "classProperties": {
+      "https://schema.org/name": [
+        {
+          "$comment": {
+            "term": "name",
+            "@id": "https://schema.org/name"
+          },
+          "title": "Name"
+        }
+      ],
+      "https://schema.org/description": [
+        {
+          "$comment": {
+            "term": "description",
+            "@id": "https://schema.org/description"
+          },
+          "title": "Description of product"
+        }
+      ],
+      "https://schema.org/productID": [
+        {
+          "$comment": {
+            "term": "productID",
+            "@id": "https://schema.org/productID"
+          },
+          "title": "Product ID",
+          "description": "Product number of registering Legal Entity such as an ISBN"
+        }
+      ],
+      "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity": [
+        {
+          "$comment": {
+            "term": "itemCount",
+            "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity"
+          },
+          "title": "A quantity despatched in the trade delivery."
+        }
+      ]
+    },
+    "schema": {
+      "$id": "https://w3id.org/traceability/schemas/TradeLineItem.json",
+      "$schema": "https://json-schema.org/draft-07/schema#",
+      "$comment": "{\"term\": \"TradeLineItem\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem\"}",
+      "title": "Trade Line Item",
+      "description": "A collection of information specific to an item being used or reported on for trade purposes.",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "@context": {
+          "type": "array"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array"
+            }
+          ]
+        },
+        "name": {
+          "$comment": "{\"term\": \"name\", \"@id\": \"https://schema.org/name\"}",
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+          "title": "Description of product",
+          "type": "string"
+        },
+        "productID": {
+          "$comment": "{\"term\": \"productID\", \"@id\": \"https://schema.org/productID\"}",
+          "title": "Product ID",
+          "description": "Product number of registering Legal Entity such as an ISBN",
+          "type": "string"
+        },
+        "itemCount": {
+          "$comment": "{\"term\": \"itemCount\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity\"}",
+          "title": "A quantity despatched in the trade delivery.",
+          "type": "string"
+        }
+      }
     }
   },
   "https://w3id.org/traceability#Transport": {
