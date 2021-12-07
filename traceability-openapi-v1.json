@@ -336,6 +336,29 @@
         }
       }
     },
+    "/Commodity": {
+      "get": {
+        "description": "Commodity",
+        "responses": {
+          "200": {
+            "description": "A list of all Commodity objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Commodity"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/ContactPoint": {
       "get": {
         "description": "ContactPoint",
@@ -1946,6 +1969,52 @@
         }
       }
     },
+    "/USMCACertificateOfOrigin": {
+      "get": {
+        "description": "USMCACertificateOfOrigin",
+        "responses": {
+          "200": {
+            "description": "A list of all USMCACertificateOfOrigin objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/USMCACertificateOfOrigin"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/usmcaProductSpecifier": {
+      "get": {
+        "description": "usmcaProductSpecifier",
+        "responses": {
+          "200": {
+            "description": "A list of all usmcaProductSpecifier objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/usmcaProductSpecifier"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/VerifiableBusinessCard": {
       "get": {
         "description": "VerifiableBusinessCard",
@@ -2842,6 +2911,47 @@
         },
         "additionalProperties": false,
         "required": []
+      },
+      "Commodity": {
+        "title": "Commodity",
+        "description": "Commodity classification based on either WCO HS or USITS HTS codification.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "commodityCode": {
+            "title": "Commodity Code",
+            "description": "The commodity code at a given granularity, commonly a 6-digit HS or a 10-digit HTS code.",
+            "type": "string"
+          },
+          "commodityCodeType": {
+            "title": "Commodity Code Type",
+            "description": "Commodity code type",
+            "enum": [
+              "HS",
+              "HTS"
+            ]
+          },
+          "description": {
+            "title": "Commodity Description",
+            "description": "Description of the commodity.",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       },
       "ContactPoint": {
         "title": "Contact Point",
@@ -5577,6 +5687,11 @@
           "contactPoint": {
             "title": "Contact Point",
             "description": "Points of contact for this organization"
+          },
+          "taxId": {
+            "title": "Tax Identification Number",
+            "description": "The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US or the CIF/NIF in Spain.",
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -5727,6 +5842,11 @@
           "jobTitle": {
             "title": "Job Title",
             "description": "Person's job title.",
+            "type": "string"
+          },
+          "taxId": {
+            "title": "Tax Identification Number",
+            "description": "The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US or the CIF/NIF in Spain.",
             "type": "string"
           }
         },
@@ -6073,6 +6193,10 @@
             "title": "Sku Number",
             "description": "The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a product or service, or for the product to which the offer refers.",
             "type": "string"
+          },
+          "commodity": {
+            "title": "Commodity",
+            "description": "Product commodity code, codification system and description"
           }
         },
         "additionalProperties": false
@@ -6860,6 +6984,129 @@
             "title": "Certification of Intended Use",
             "description": "Certification by the shipment receiver that they have received the shipents and will displose of them in pursuant to the stated intended use.  Most commonly in SC-6 this would be 'processing,' 'charity', and 'livestock.'",
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "USMCACertificateOfOrigin": {
+        "title": "USMCA Certificate Of Origin",
+        "description": "The new United States-Mexico-Canada Agreement (USMCA) allows importers to complete a certification of origin to include nine required data elements as well as a certification statement. These data elements do not need to follow a prescribed format. The USMCA also allows a certification of origin to be completed and signed with an electronic or digital signature.",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "certifier": {
+            "title": "Certifier",
+            "description": "Importer, Exporter, or Producer Certification of Origin: Indicate whether the certifier is the exporter, producer, or importer in accordance with Chapter 5, Article 5.2 (Claims for Preferential Tariff Treatment) of the agreement.",
+            "enum": [
+              "Importer",
+              "Exporter",
+              "Producer"
+            ]
+          },
+          "exporterDetails": {
+            "title": "Exporter's Details",
+            "description": "Exporter’s name, address (including country), email address, and telephone number, if different than the certifier. This information is not required if the producer is completing the Certification of Origin and does not know the identity of the exporter. The address of the exporter shall be the place of export of the good in a Party’s territory. "
+          },
+          "producerDetails": {
+            "title": "Producer's Details",
+            "description": "Producer’s name, address (including country), email address, and telephone number, if different than the certifier or exporter, or, if there are multiple producers, state 'Various' or provide a list of producers. A person that wants this information to remain confidential may state 'Available upon request by the importing authorities.' The address of a producer shall be the place of production of the good in a Party's territory.",
+            "type": "array",
+            "items": {}
+          },
+          "producerConfidential": {
+            "title": "Producer Confidential",
+            "description": "A person that wants the producer information to remain confidential may state 'Available upon request by the importing authorities.'",
+            "type": "boolean"
+          },
+          "importerDetails": {
+            "title": "Importer's Details",
+            "description": "Importer’s name, address, email address, and telephone number (if known). The address of the importer shall be in a Party's territory. If the identity of the importer is unknown, or there are various importers, please check the appropriate box.",
+            "type": "array",
+            "items": {}
+          },
+          "importerUnknown": {
+            "title": "Importer Unknown",
+            "description": "If the identity of the importer is unknown, or there are various importers, please check the appropriate box.",
+            "type": "boolean"
+          },
+          "goods": {
+            "title": "Description of goods",
+            "description": "Full description for each good, sufficient to relate it to the invoice description and the Harmonized System (HS) description of the goods.",
+            "type": "array",
+            "items": {}
+          },
+          "blanketPeriodFrom": {
+            "title": "Blanket Period From",
+            "description": "The date upon which the certification becomes applicable to the good covered by the blanket Certification (it may be prior to the date of signing this certification).",
+            "type": "string"
+          },
+          "blanketPeriodTo": {
+            "title": "Blanket Period To",
+            "description": "The date upon which the blanket period expires. In no instance should that certification exceed a 12-month period, and any information provided should be updated in the event any previously-issued certification no longer applies. ",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "certifier"
+        ]
+      },
+      "usmcaProductSpecifier": {
+        "title": "USMCA Product Specifier",
+        "description": "USMCA product origin specifier",
+        "type": "object",
+        "properties": {
+          "@context": {
+            "type": "array",
+            "items": {}
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {}
+              }
+            ]
+          },
+          "product": {
+            "title": "Product",
+            "description": "Product details. USMCA mandatory elements include: part/SKU number, description, and minimum 6-digit HS classification"
+          },
+          "originCriterion": {
+            "title": "Origin Criterion",
+            "description": "Specify the Origin Criterion under which the good qualifies, as set out in Chapter 4, Article 4.2 (Originating Goods) of the USMCA/T-MEC/CUSMA agreement (https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/04-Rules-of-Origin.pdf). Criterion A: The good is wholly obtained or produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries, as defined in Article 4.3 of the Agreement; Criterion B: The good is produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries using non-originating materials, provided the good satisfies all applicable requirements of product-specific rules of origin; Criterion C: The good is produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries exclusively from originating materials; or Criterion D: The good is produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries. It is classified with its materials, or satisfies the 'unassembled goods' requirement, and meets a regional value content threshold of not less than 60% if the transaction value method is used, or not less than 50% if the net cost method is used (not including RVC for autos); except for goods in Chapter 61-63 of the HTS.",
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "countryOfOrigin": {
+            "title": "Country of Origin",
+            "description": "Identify the 2-digit ISO country code of the country of production for each good listed in this certification.",
+            "enum": [
+              "CA",
+              "MX",
+              "US"
+            ]
           }
         },
         "additionalProperties": false

@@ -337,6 +337,20 @@
       "@id": "https://w3id.org/traceability#CommercialInvoiceCertificate",
       "@context": {}
     },
+    "Commodity": {
+      "@id": "https://w3id.org/traceability#Commodity",
+      "@context": {
+        "commodityCode": {
+          "@id": "https://w3id.org/traceability#commodityCode"
+        },
+        "commodityCodeType": {
+          "@id": "https://w3id.org/traceability#commodityCodeType"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
+        }
+      }
+    },
     "ContactPoint": {
       "@id": "https://schema.org/ContactPoint",
       "@context": {
@@ -1400,6 +1414,9 @@
         },
         "contactPoint": {
           "@id": "https://schema.org/ContactPoint"
+        },
+        "taxId": {
+          "@id": "https://schema.org/taxID"
         }
       }
     },
@@ -1463,6 +1480,9 @@
         },
         "jobTitle": {
           "@id": "https://schema.org/jobTitle"
+        },
+        "taxId": {
+          "@id": "https://schema.org/taxID"
         }
       }
     },
@@ -1635,6 +1655,9 @@
         },
         "sku": {
           "@id": "https://schema.org/sku"
+        },
+        "commodity": {
+          "@id": "https://w3id.org/traceability#Commodity"
         }
       }
     },
@@ -1995,6 +2018,43 @@
         },
         "intendedUseCert": {
           "@id": "https://w3id.org/traceability#intendedUseCert"
+        }
+      }
+    },
+    "USMCACertificateOfOrigin": {
+      "@id": "https://w3id.org/traceability#USMCACertificateOfOrigin",
+      "@context": {
+        "importer": {
+          "@id": "https://w3id.org/traceability#certifier"
+        },
+        "exporterDetails": {
+          "@id": "https://w3id.org/traceability#importerUnknown"
+        },
+        "producerDetails": {
+          "@id": "https://schema.org/manufacturer"
+        },
+        "importerDetails": {
+          "@id": "https://w3id.org/traceability#importerDetails"
+        },
+        "goods": {
+          "@id": "https://schema.org/itemShipped"
+        },
+        "blanketPeriodFrom": {
+          "@id": "https://schema.org/validFrom"
+        },
+        "blanketPeriodTo": {
+          "@id": "https://schema.org/validThrough"
+        }
+      }
+    },
+    "usmcaProductSpecifier": {
+      "@id": "https://w3id.org/traceability/UsmcaProductSpecifier",
+      "@context": {
+        "product": {
+          "@id": "https://schema.org/Product"
+        },
+        "importer": {
+          "@id": "https://w3id.org/traceability#countryOfOrigin"
         }
       }
     },

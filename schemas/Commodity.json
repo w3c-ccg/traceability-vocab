@@ -1,0 +1,43 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/Commodity.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"Commodity\", \"@id\": \"https://w3id.org/traceability#Commodity\"}",
+  "title": "Commodity",
+  "description": "Commodity classification based on either WCO HS or USITS HTS codification.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "commodityCode": {
+      "$comment": "{\"term\": \"commodityCode\", \"@id\": \"https://w3id.org/traceability#commodityCode\"}",
+      "title": "Commodity Code",
+      "description": "The commodity code at a given granularity, commonly a 6-digit HS or a 10-digit HTS code.",
+      "type": "string"
+    },
+    "commodityCodeType": {
+      "$comment": "{\"term\": \"commodityCodeType\", \"@id\": \"https://w3id.org/traceability#commodityCodeType\"}",
+      "title": "Commodity Code Type",
+      "description": "Commodity code type",
+      "enum": ["HS", "HTS"]
+    },
+    "description": {
+      "$comment": "{\"term\": \"description\", \"@id\": \"https://schema.org/description\"}",
+      "title": "Commodity Description",
+      "description": "Description of the commodity.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}
