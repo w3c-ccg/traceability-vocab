@@ -428,6 +428,52 @@
         }
       }
     },
+    "/DCSAShippingInstruction": {
+      "get": {
+        "description": "DCSAShippingInstruction",
+        "responses": {
+          "200": {
+            "description": "A list of all DCSAShippingInstruction objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DCSAShippingInstruction"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
+    "/DCSATransportDocument": {
+      "get": {
+        "description": "DCSATransportDocument",
+        "responses": {
+          "200": {
+            "description": "A list of all DCSATransportDocument objects from the system that the user has access to",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DCSATransportDocument"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server error"
+          }
+        }
+      }
+    },
     "/DocumentVerificationEvidence": {
       "get": {
         "description": "DocumentVerificationEvidence",
@@ -1808,18 +1854,18 @@
         }
       }
     },
-    "/ShippingInstruction": {
+    "/Seal": {
       "get": {
-        "description": "ShippingInstruction",
+        "description": "Seal",
         "responses": {
           "200": {
-            "description": "A list of all ShippingInstruction objects from the system that the user has access to",
+            "description": "A list of all Seal objects from the system that the user has access to",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/ShippingInstruction"
+                    "$ref": "#/components/schemas/Seal"
                   }
                 }
               }
@@ -1900,18 +1946,18 @@
         }
       }
     },
-    "/TransportDocument": {
+    "/Transport": {
       "get": {
-        "description": "TransportDocument",
+        "description": "Transport",
         "responses": {
           "200": {
-            "description": "A list of all TransportDocument objects from the system that the user has access to",
+            "description": "A list of all Transport objects from the system that the user has access to",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/TransportDocument"
+                    "$ref": "#/components/schemas/Transport"
                   }
                 }
               }
@@ -2619,16 +2665,6 @@
             "description": "The associated booking number provided by the carrier for this cargo item. Cannot be used in combination with Shipping Instruction header level carrierBookingReference.",
             "type": "string"
           },
-          "descriptionOfGoods": {
-            "title": "Description of Goods",
-            "description": "The cargo description are details which accurately and properly describe the cargo being shipped in the container(s) as provided by the shipper.",
-            "type": "string"
-          },
-          "HSCode": {
-            "title": "HS Code",
-            "description": "Used by customs to classify the product being shipped.",
-            "type": "string"
-          },
           "weight": {
             "title": "Weight",
             "description": "The total weight of the cargo including packaging items being carried in the container(s). Excludes the tare weight of the container(s).",
@@ -2690,10 +2726,19 @@
             "title": "shippingMarks",
             "description": "The identifying details of a package or the actual markings that appear on the package(s). This information is provided by the shipper.",
             "type": "string"
+          },
+          "descriptionOfGoods": {
+            "title": "Description of Goods",
+            "description": "The cargo description are details which accurately and properly describe the cargo being shipped in the container(s) as provided by the shipper.",
+            "type": "string"
+          },
+          "HSCode": {
+            "title": "HS Code",
+            "description": "Used by customs to classify the product being shipped.",
+            "type": "string"
           }
         },
         "required": [
-          "cargoLineItemID",
           "shippingMarks"
         ]
       },
@@ -3116,6 +3161,190 @@
           }
         },
         "additionalProperties": false
+      },
+      "DCSAShippingInstruction": {
+        "title": "DCSA Shipping Instruction",
+        "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)",
+        "type": "object",
+        "properties": {
+          "shippingInstructionID": {
+            "title": "Shipping Instruction ID",
+            "description": "The identifier for a shipping instruction provided by the carrier for system purposes.",
+            "type": "string"
+          },
+          "transportDocumentType": {
+            "title": "Transport Document Type",
+            "description": "Specifies the type of the transport document (a Bill of Lading (BOL) or a Sea Waybill (SWB)).",
+            "type": "string"
+          },
+          "preCarriageUnderShippersResponsibility": {
+            "title": "Pre Carriage Under Shippers Responsibility",
+            "description": "Mode of transportation for pre-carriage (e.g., truck, barge, rail), under shipper's responsibility",
+            "type": "string"
+          },
+          "invoicePayableAt": {
+            "title": "Invoice Payable At",
+            "description": "A location object - here with an example with only UN location code and City name present"
+          },
+          "carrierBookingReference": {
+            "title": "Carrier Booking Reference",
+            "description": "The associated booking number provided by the carrier. Cannot be used in combination with Cargo Item level carrierBookingReference",
+            "type": "string"
+          },
+          "cargoItems": {
+            "title": "Cargo Item",
+            "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
+            "type": "array",
+            "items": {}
+          },
+          "utilizedTransportEquipments": {
+            "title": "Utilized Transport Equipments",
+            "description": "A piece of transport equipment utilized for the consignment or trade delivery.",
+            "type": "array",
+            "items": {}
+          },
+          "shipmentLocations": {
+            "title": "Shipment Locations",
+            "description": "Maps the relationship between Shipment and Location, e.g., the place of receipt and the places of delivery for a specific shipment.",
+            "type": "array",
+            "items": {}
+          },
+          "shipper": {
+            "title": "Shipper",
+            "description": "Original shipper"
+          },
+          "consignee": {
+            "title": "Consignee",
+            "description": "Consignee"
+          },
+          "invoicePayerShipper": {
+            "title": "Shippers's Invoice Payer",
+            "description": "Invoice payer on behalf of the shipper"
+          },
+          "invoicePayerConsignee": {
+            "title": "Consignee's Invoice Payer",
+            "description": "Invoice payer on behalf of the consignee"
+          },
+          "firstNotify": {
+            "title": "First Notify",
+            "description": "First notify party."
+          },
+          "secondNotify": {
+            "title": "Second Notify",
+            "description": "Second notify party."
+          },
+          "otherNotify": {
+            "title": "Other Notify",
+            "description": "Other notify party."
+          },
+          "shippersFreightForwarder": {
+            "title": "Consignor's freight forwarder",
+            "description": "Consignor's freight forwarder"
+          },
+          "consigneesFreightForwarder": {
+            "title": "Consignee's freight forwarder",
+            "description": "Consignee's freight forwarder"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DCSATransportDocument": {
+        "title": "DCSA Transport Document",
+        "description": "The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)",
+        "type": "object",
+        "properties": {
+          "transportDocumentReference": {
+            "title": "Transport Document Reference",
+            "description": "A unique number allocated by the shipping line to the transport document and the main number used for the tracking of the status of the shipment.",
+            "type": "string"
+          },
+          "placeOfIssue": {
+            "title": "Place Of Issue",
+            "description": "Generally used to capture location-related data, also for locations without UN Location Codes."
+          },
+          "issueDate": {
+            "title": "Issue Date",
+            "description": "Date when the transport document has been issued",
+            "type": "string"
+          },
+          "shippedOnBoardDate": {
+            "title": "Shipped On Board Date",
+            "description": "Date when the last container that is linked to the transport document is physically loaded onboard the vessel indicated on the transport document.",
+            "type": "string"
+          },
+          "receivedForShipmentDate": {
+            "title": "Received For Shipment Date",
+            "description": "Date when the last container linked to the transport document is physically in the terminal (customers cleared against the intended vessel).",
+            "type": "string"
+          },
+          "termsAndConditions": {
+            "title": "Terms And Conditions",
+            "description": "Carrier general terms and conditions for this transport document.",
+            "type": "string"
+          },
+          "issuerCode": {
+            "title": "Issuer Code",
+            "description": "The code used for identifying the specific issuer.",
+            "type": "string"
+          },
+          "issuerCodeListProvider": {
+            "title": "Issuer Code List Provider",
+            "description": "The provider used for identifying the issuer Code",
+            "type": "string"
+          },
+          "declaredValueCurrency": {
+            "title": "Declared Value Currency",
+            "description": "The currency used for the declared value, using the 3-character code defined by ISO 4217.",
+            "type": "string"
+          },
+          "cargoMovementTypeAtOrigin": {
+            "title": "Cargo Movement Type At Origin",
+            "description": "Refers to the shipment term at the loading of the cargo into the container. Options are defined in the Cargo Movement Type entity.",
+            "type": "string"
+          },
+          "cargoMovementTypeAtDestination": {
+            "title": "Cargo Movement Type At Destination",
+            "description": "Refers to the shipment term at the unloading of the cargo out of the container. Options are defined in the Cargo Movement Type entity.",
+            "type": "string"
+          },
+          "receiptDeliveryTypeAtOrigin": {
+            "title": "Receipt Delivery Type At Origin",
+            "description": "Indicates the type of service offered at Origin. Options are defined in the Receipt/Delivery entity.",
+            "type": "string"
+          },
+          "receiptDeliveryTypeAtDestination": {
+            "title": "Receipt Delivery Type At Destination",
+            "description": "Indicates the type of service offered at Destination. Options are defined in the Receipt/Delivery entity.",
+            "type": "string"
+          },
+          "serviceContractReference": {
+            "title": "Service Contract Reference",
+            "description": "Reference number for agreement between shipper and carrier through which the shipper commits to provide a certain minimum quantity of cargo over a fixed period, and the carrier commits to a certain rate or rate schedule.",
+            "type": "string"
+          },
+          "shippingInstruction": {
+            "title": "Shipping Instruction",
+            "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document."
+          },
+          "charges": {
+            "title": "Charges",
+            "description": "",
+            "type": "string"
+          },
+          "clauses": {
+            "title": "Clauses",
+            "description": "",
+            "type": "string"
+          },
+          "transports": {
+            "title": "Transport legs",
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "shippingInstruction"
+        ]
       },
       "DocumentVerificationEvidence": {
         "title": "DocumentVerificationEvidence",
@@ -6519,9 +6748,9 @@
         },
         "additionalProperties": false
       },
-      "ShippingInstruction": {
-        "title": "ShippingInstruction",
-        "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document.",
+      "Seal": {
+        "title": "Seal",
+        "description": "addresses the seal-related information associated with the shipment equipment. A seal is put on a shipment equipment once it is loaded. This seal is meant to stay on until the shipment equipment reaches its final destination.",
         "type": "object",
         "properties": {
           "@context": {
@@ -6539,58 +6768,36 @@
               }
             ]
           },
-          "shippingInstructionID": {
-            "title": "Shipping Instruction ID",
-            "description": "The identifier for a shipping instruction provided by the carrier for system purposes.",
+          "sealNumber": {
+            "title": "Seal Number",
+            "description": "Identifies a seal affixed to the container.",
             "type": "string"
           },
-          "transportDocumentType": {
-            "title": "Transport Document Type",
-            "description": "Specifies the type of the transport document (a Bill of Lading (BOL) or a Sea Waybill (SWB)).",
-            "type": "string"
+          "sealSource": {
+            "title": "Seal Source",
+            "description": "The source of the seal, namely who has affixed the seal. This attribute links to the Seal Source ID defined in the Seal Source reference data entity. CAR (Carrier), SHI (Shipper), PHY (Phytosanitary), VET (Veterinary), CUS (Customs)",
+            "enum": [
+              "CAR",
+              "SHI",
+              "PHY",
+              "VET",
+              "CUS"
+            ]
           },
-          "preCarriageUnderShippersResponsibility": {
-            "title": "Pre Carriage Under Shippers Responsibility",
-            "description": "Mode of transportation for pre-carriage (e.g., truck, barge, rail), under shipper's responsibility",
-            "type": "string"
-          },
-          "invoicePayableAt": {
-            "title": "",
-            "description": ""
-          },
-          "carrierBookingReference": {
-            "title": "Carrier Booking Reference",
-            "description": "The associated booking number provided by the carrier. Cannot be used in combination with Cargo Item level carrierBookingReference",
-            "type": "string"
-          },
-          "cargoItems": {
-            "title": "Cargo Item",
-            "description": "Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.",
-            "type": "array",
-            "items": {}
-          },
-          "utilizedTransportEquipments": {
-            "title": "Utilized Transport Equipments",
-            "description": "A piece of transport equipment utilized for the consignment or trade delivery.",
-            "type": "array",
-            "items": {}
-          },
-          "shipmentLocations": {
-            "title": "Shipment Locations",
-            "description": "Maps the relationship between Shipment and Location, e.g., the place of receipt and the places of delivery for a specific shipment.",
-            "type": "array",
-            "items": {}
-          },
-          "shipper": {
-            "title": "Shipper",
-            "description": "Original shipper"
-          },
-          "consignee": {
-            "title": "Consignee",
-            "description": "Consignee"
+          "sealType": {
+            "title": "Tare Weight",
+            "description": "The type of seal. This attribute links to the Seal Type ID defined in the Seal Type reference data entity. KLP (Keyless padlock), BLT (Bolt), WIR (Wire)",
+            "enum": [
+              "KLP",
+              "BLT",
+              "WIR"
+            ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sealNumber"
+        ]
       },
       "ShippingStop": {
         "title": "Shipping Stop Schema",
@@ -6748,103 +6955,56 @@
         },
         "additionalProperties": false
       },
-      "TransportDocument": {
-        "title": "TransportDocument",
-        "description": "The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill.",
+      "Transport": {
+        "title": "Transport",
+        "description": "A transport which can be a leg of a journey.",
         "type": "object",
+        "required": [
+          "shippingStopAddress",
+          "carrier",
+          "stopType"
+        ],
         "properties": {
-          "transportDocumentReference": {
-            "title": "Transport Document Reference",
-            "description": "A unique number allocated by the shipping line to the transport document and the main number used for the tracking of the status of the shipment.",
+          "loadLocation": {
+            "title": "Load Location"
+          },
+          "dischargeLocation": {
+            "title": "Discharge Location"
+          },
+          "plannedDepartureDate": {
+            "title": "Planned Departure Date",
+            "description": "The planned date of departure.",
             "type": "string"
           },
-          "placeOfIssue": {
-            "title": "Place Of Issue",
-            "description": "Generally used to capture location-related data, also for locations without UN Location Codes."
-          },
-          "issueDate": {
-            "title": "Issue Date",
-            "description": "Date when the transport document has been issued",
+          "plannedArrivalDate": {
+            "title": "Planned Arrival Date",
+            "description": "The planned date of arrival.",
             "type": "string"
           },
-          "shippedOnBoardDate": {
-            "title": "Shipped On Board Date",
-            "description": "Date when the last container that is linked to the transport document is physically loaded onboard the vessel indicated on the transport document.",
+          "modeOfTransport": {
+            "title": "Mode of Transport",
+            "description": "The mode of transport as defined by DCSA.",
+            "enum": [
+              "Vessel",
+              "Rail",
+              "Truck",
+              "Barge"
+            ]
+          },
+          "carrier": {
+            "title": "carrier"
+          },
+          "vesselNumber": {
+            "title": "Vessel Number",
+            "description": "The unique reference for a registered vessel.",
             "type": "string"
           },
-          "receivedForShipmentDate": {
-            "title": "Received For Shipment Date",
-            "description": "Date when the last container linked to the transport document is physically in the terminal (customers cleared against the intended vessel).",
-            "type": "string"
-          },
-          "termsAndConditions": {
-            "title": "Terms And Conditions",
-            "description": "Carrier general terms and conditions for this transport document.",
-            "type": "string"
-          },
-          "issuerCode": {
-            "title": "Issuer Code",
-            "description": "The code used for identifying the specific issuer.",
-            "type": "string"
-          },
-          "issuerCodeListProvider": {
-            "title": "Issuer Code List Provider",
-            "description": "The provider used for identifying the issuer Code",
-            "type": "string"
-          },
-          "declaredValueCurrency": {
-            "title": "Declared Value Currency",
-            "description": "The currency used for the declared value, using the 3-character code defined by ISO 4217.",
-            "type": "string"
-          },
-          "cargoMovementTypeAtOrigin": {
-            "title": "Cargo Movement Type At Origin",
-            "description": "Refers to the shipment term at the loading of the cargo into the container. Options are defined in the Cargo Movement Type entity.",
-            "type": "string"
-          },
-          "cargoMovementTypeAtDestination": {
-            "title": "Cargo Movement Type At Destination",
-            "description": "Refers to the shipment term at the unloading of the cargo out of the container. Options are defined in the Cargo Movement Type entity.",
-            "type": "string"
-          },
-          "receiptDeliveryTypeAtOrigin": {
-            "title": "Receipt Delivery Type At Origin",
-            "description": "Indicates the type of service offered at Origin. Options are defined in the Receipt/Delivery entity.",
-            "type": "string"
-          },
-          "receiptDeliveryTypeAtDestination": {
-            "title": "Receipt Delivery Type At Destination",
-            "description": "Indicates the type of service offered at Destination. Options are defined in the Receipt/Delivery entity.",
-            "type": "string"
-          },
-          "serviceContractReference": {
-            "title": "Service Contract Reference",
-            "description": "Reference number for agreement between shipper and carrier through which the shipper commits to provide a certain minimum quantity of cargo over a fixed period, and the carrier commits to a certain rate or rate schedule.",
-            "type": "string"
-          },
-          "shippingInstruction": {
-            "title": "Shipping Instruction",
-            "description": "The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document."
-          },
-          "charges": {
-            "title": "Charges",
-            "description": "",
-            "type": "string"
-          },
-          "clauses": {
-            "title": "Clauses",
-            "description": "",
-            "type": "string"
-          },
-          "transports": {
-            "title": "Transports",
-            "description": "",
+          "voyageNumber": {
+            "title": "Voyage Number",
+            "description": "The vessel operator-specific identifier of the Voyage.",
             "type": "string"
           }
-        },
-        "required": [
-          "shippingInstruction"
-        ]
+        }
       },
       "TransportEquipment": {
         "title": "Transport Equipment",
@@ -6881,7 +7041,17 @@
             "description": "The weight of an empty container (gross container weight).",
             "type": "number"
           },
-          "weightUnit": {
+          "tareWeightUnit": {
+            "title": "Weight Unit",
+            "description": "The unit of measure which can be expressed in imperial or metric terms",
+            "type": "number"
+          },
+          "cargoGrossWeight": {
+            "title": "Tare Weight",
+            "description": "The weight of an empty container (gross container weight).",
+            "type": "number"
+          },
+          "cargoGrossWeightUnit": {
             "title": "Weight Unit",
             "description": "The unit of measure which can be expressed in imperial or metric terms",
             "type": "number"
@@ -6890,6 +7060,12 @@
             "title": "Is Shipper Owned",
             "description": "Indicates whether the container is shipper owned (SOC).",
             "type": "string"
+          },
+          "seals": {
+            "title": "Is Shipper Owned",
+            "description": "A seal affixed to this piece of logistics or referenced logistics transport equipment.",
+            "type": "array",
+            "items": {}
           }
         },
         "additionalProperties": false
