@@ -1,0 +1,431 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/AirWaybill.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"AirWaybill\", \"@id\": \"https://w3id.org/traceability#AirWaybill\"}",
+    "title": "Air Waybill",
+    "description": "Air Waybill based on IATA Air Waybill Resolution 600a https://www.iata.org/contentassets/e9cb5a72b88f4f68a5cfc572a50b60c9/eacph-european-air-cargo-programme-handbook.pdf and https://www.iata.org/contentassets/b559d10aeb734d5196332b4953dcf312/e-awb-sop-hyd.pdf",
+    "type": "object",
+    "required": [
+        "@context",
+        "type",
+        "issuanceDate",
+        "waybillNumber",
+        "waybillType",
+        "issuer",
+        "shipper",
+        "consignee",
+        "issuerAgent",
+        "shippingRoute",
+        "handlingInstructions",
+        "handlingInstructionsSCI",
+        "wayBillCommodityContent",
+        "chargeDeclaration"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "airWaybillNumber": {
+            "$comment": "{\"term\": \"airWaybillNumber\", \"@id\": \"https://schema.org/orderNumber\"}",
+            "title": "Air Waybill Number",
+            "type": "string"
+        },
+        "waybillType": {
+            "$comment": "{\"term\": \"waybillType\", \"@id\": \"https://schema.org/DigitalDocument\"}",
+            "title": "Type of Air Waybill",
+            "enum": ["Master", "House"]
+        },
+        "airlineCodeNumber": {
+            "$comment": "{\"term\": \"airlineCodeNumber\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
+            "title": "Airline Code Number",
+            "description": "The issuing carrier's three-digit IATA airline code number shall be inserted. Box 1A.",
+            "type": "string"
+        },
+        "serialNumber": {
+            "$comment": "{\"term\": \"serialNumber\", \"@id\": \"https://schema.org/serialNumber\"}",
+            "title": "Serial Number",
+            "description": "A serial number of eight digits including a check digit placed in the extreme right position shall be inserted. Box 1B.",
+            "type": "string"
+        },
+        "airportOfDeparture": {
+            "$comment": "{\"term\": \"airportOfDeparture\", \"@id\": \"https://onerecord.iata.org/cargo/Location#code\"}",
+            "title": "Airport of Departure",
+            "description": "The IATA three-letter code of the airport of departure (or city when the name of the airport is unknown). Box 1.",
+            "$ref": "https://w3id.org/traceability/schemas/Place.json"
+        },
+        "carrier": {
+            "$comment": "{\"term\": \"carrier\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty\"}",
+            "title": "Issuing Carrier's Name and Address",
+            "description": "Box 1C.",
+            "type": "string"
+        },
+        "conditionsOfContract": {
+            "$comment": "{\"term\": \"conditionsOfContract\", \"@id\": \"https://schema.org/termsOfService\"}",
+            "title": "Reference to Conditions of Contract",
+            "description": "This box shall not be completed unless used by the issuing carrier at its option.",
+            "type": "string"
+        },
+        "shipper": {
+            "$comment": "{\"term\": \"shipper\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty\"}",
+            "title": "Shipper's Name and Address",
+            "description": "The name, address and country (or two-letter country code) of the shipper (or IATA Cargo Intermediary when acting in its capacity as a Forwarder) shall be inserted. Box 2.",
+            "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+
+        },
+        "shippersAccountNumber": {
+            "$comment": "{\"term\": \"shippersAccountNumber\", \"@id\": \"https://schema.org/accountId\"}",
+            "title": "Shipper's Account Number",
+            "description": "This box shall not be completed unless used by the issuing carrier at its option. Box 3.",
+            "type": "string"
+        },
+        "consignee": {
+            "$comment": "{\"term\": \"consignee\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty\"}",
+            "title": "Consignee's Name and Address",
+            "description": "The name, address and country (or two-letter country code) of the consignee shall be inserted. Box 4.",
+            "$ref": "https://w3id.org/traceability/schemas/Entity.json"
+        },
+        "consigneesAccountNumber": {
+            "$comment": "{\"term\": \"consigneesAccountNumber\", \"@id\": \"https://schema.org/accountId\"}",
+            "title": "Consignee's Account Number",
+            "description": "This box shall not be completed unless used by the last carrier at its option. Box 5.",
+            "type": "string"
+        },
+        "issuingCarrierAgent": {
+            "$comment": "{\"term\": \"issuingCarrierAgent\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAgentParty\"}",
+            "title": "Issuing Carrier's Agent",
+            "description": "The name and location (airport or city) of the issuing carrier's IATA Cargo Agent (or IATA Cargo Intermediary when acting in its capacity as the issuing carrier's agent). Box 6.",
+            "type": "string"
+        },
+        "agentIATACode": {
+            "$comment": "{\"term\": \"agentIATACode\", \"@id\": \"https://onerecord.iata.org/cargo/Company#iataCargoAgentCode\"}",
+            "title": "Agent's IATA Code",
+            "description": "IATA code of the Cargo Agent (or IATA Cargo Intermediary when acting in its capacity as the issuing carrier's agent). Box 7.",
+            "type": "string"
+        },
+        "agentAccountNumber": {
+            "$comment": "{\"term\": \"agentAccountNumber\", \"@id\": \"https://schema.org/accountId\"}",
+            "title": "Account No.",
+            "description": "Box 8.",
+            "type": "string"
+        },
+        "requestedRouting": {
+            "$comment": "{\"term\": \"requestedRouting\", \"@id\": \"https://schema.org/Trip\"}",
+            "title": "Airport of Departure and Requested Routing",
+            "description": "The name of the airport of departure. Box 9.",
+            "type": "array",
+            "items": {
+                "$ref": "https://w3id.org/traceability/schemas/ShippingStop.json"
+            }
+        },
+        "firstCarrierDestination": {
+            "$comment": "{\"term\": \"firstCarrierDestination\", \"@id\": \"https://onerecord.iata.org/cargo/Location#code\"}",
+            "title": "To (by First Carrier)",
+            "description": "The IATA three-letter code of the airport of destination or first transfer point (or city when the name of the airport is unknown because the city is served by more than one airport) may be inserted. Box 11A.",
+            "type": "string"
+        },
+        "firstCarrier": {
+            "$comment": "{\"term\": \"firstCarrier\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
+            "title": "By First Carrier",
+            "description": "The name of the first carrier (either full name or IATA two-character code) shall be inserted. Box 11B.",
+            "type": "string"
+        },
+        "secondCarrierDestination": {
+            "$comment": "{\"term\": \"secondCarrierDestination\", \"@id\": \"https://onerecord.iata.org/cargo/Location#code\"}",
+            "title": "To (by Second Carrier)",
+            "description": "The IATA three-letter code of the airport of destination or second transfer point (or city when the name of the airport is unknown because the city is served by more than one airport) may be inserted. Box 11C.",
+            "type": "string"
+        },
+        "secondCarrier": {
+            "$comment": "{\"term\": \"secondCarrier\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
+            "title": "By Second Carrier",
+            "description": "The IATA two-character code of the second carrier may be inserted. Box 11D.",
+            "type": "string"
+        },
+        "thirdCarrierDestination": {
+            "$comment": "{\"term\": \"thirdCarrierDestination\", \"@id\": \"https://onerecord.iata.org/cargo/Location#code\"}",
+            "title": "To (by Third Carrier)",
+            "description": "The IATA three-letter code of the airport of destination or third transfer point (or city when the name of the airport is unknown because the city is served by more than one airport) may be inserted. Box 11E.",
+            "type": "string"
+        },
+        "thirdCarrier": {
+            "$comment": "{\"term\": \"thirdCarrier\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
+            "title": "By Third Carrier",
+            "description": "The IATA two-character code of the third carrier may be inserted. Box 11F.",
+            "type": "string"
+        },
+        "destinationAirport": {
+            "$comment": "{\"term\": \"destinationAirport\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
+            "title": "Airport of Destination",
+            "description": "The airport of destination of the last carrier (or city when the name of the airport is unknown because the city is served by more than one airport) shall be inserted. Box 18.",
+            "type": "string"
+        },
+        "requestedFlight": {
+            "$comment": "{\"term\": \"requestedFlight\", \"@id\": \"https://schema.org/Flight\"}",
+            "title": "Requested Flight",
+            "description": "Completed by the carrier/agent/shipper effecting the booking. Box 19A.",
+            "type": "string"
+        },
+        "requestedDate": {
+            "$comment": "{\"term\": \"requestedDate\", \"@id\": \"https://schema.org/Date\"}",
+            "title": "Requested Date",
+            "description": "Completed by the carrier/agent/shipper effecting the booking. Box 19B.",
+            "type": "string"
+        },
+        "accountingInformation": {
+            "$comment": "{\"term\": \"accountingInformation\", \"@id\": \"\"}",
+            "title": "Accounting Information",
+            "description": "Only accounting information required by the participating carriers may be inserted. Box 10.",
+            "enum": ["Payment by cash or cheque", "Payment by Miscellaneous Charges Order (MCO) is only acceptable for baggage shipped as cargo; the MCO number and value of the Exchange Coupon in the currency of the air waybill shall be shown followed, if necessary, by the amount deducted from the MCO coupon and, in all cases, by the passenger's ticket number and flight/date/routing used", "Payment by Government Bill of Lading (GBL); the GBL number shall be shown", "Consignment returned because of non-delivery; the original air waybill number shall be shown on the new air waybill for the returning carriage", "Shipper's reference number as indicated by the shipper or his agent", "Payment by credit card; the credit card number shall be shown", "The words “Also Notify” may be printed after the title of the “Accounting Information” box (applicable for domestic transportation only)"]
+        },
+        "currency": {
+            "$comment": "{\"term\": \"currency\", \"@id\": \"\"}",
+            "title": "Currency",
+            "description": "The ISO three-letter currency code of the currency applicable in the country of departure, according to the applicable rating rules, shall be inserted.",
+            "type": "string"
+        },
+        "chargeCodes": {
+            "$comment": "{\"term\": \"chargeCodes\", \"@id\": \"\"}",
+            "title": "Charges Codes",
+            "description": "Box 13.",
+            "enum": ["CA—partial collect credit—partial prepaid cash CB—partial collect credit—partial prepaid credit CC—all charges collect", "CE—partial collect credit card—partial prepaid cash CG—all charges collect by GBL", "CH—partial collect credit card—partial prepaid credit CP—destination collect cash", "CX—destination collect credit", "CZ—all charges collect by credit card", "NC—no charge", "NG—no weight charge—other charges prepaid by", "GBL", "NP—no weight charge—other charges prepaid cash", "NT—no weight charge—other charges collect", "NX—no weight charge—other charges prepaid credit", "NZ—no weight charge—other charges prepaid by credit card", "PC—partial prepaid cash—partial collect cash", "PD—partial prepaid credit—partial collect cash", "PE—partial prepaid credit card—partial collect cash", "PF—partial prepaid credit card—partial collect credit card", "PG—all charges prepaid by GBL", "PH—partial prepaid credit card—partial collect credit PP—all charges prepaid by cash", "PX—all charges prepaid by credit", "PZ—all charges prepaid by credit card"]
+        },
+        "weightValuationChargesType": {
+            "$comment": "{\"term\": \"weightValuationChargesType\", \"@id\": \"\"}",
+            "title": "Weight/Valuation Charges Type",
+            "description": "Box 14A.",
+            "enum": ["Prepaid", "Collect"]
+        },
+        "otherChargesType": {
+            "$comment": "{\"term\": \"otherChargesType\", \"@id\": \"\"}",
+            "title": "Weight/Valuation Charges Type",
+            "description": "Box 14B.",
+            "enum": ["Prepaid", "Collect"]
+        },
+        "declaredValueForCarriage": {
+            "$comment": "{\"term\": \"declaredValueForCarriage\", \"@id\": \"\"}",
+            "title": "Declared Value For Carriage",
+            "description": "The declared value for carriage, as specified by the shipper, shall be inserted. Where no value is declared, “NVD” shall be inserted. Box 16.",
+            "type": "string"
+        },
+        "declaredValueForCustoms": {
+            "$comment": "{\"term\": \"declaredValueForCustoms\", \"@id\": \"\"}",
+            "title": "Declared Value For Customs",
+            "description": "The shipper or agent may declare and insert a customs value, which may be NCV, or leave the box blank. Box 17.",
+            "type": "string"
+        },
+        "amountOfInsurance": {
+            "$comment": "{\"term\": \"amountOfInsurance\", \"@id\": \"\"}",
+            "title": "Amount of Insurance",
+            "description": "Box 20.",
+            "type": "string"
+        },
+        "insuranceClauses": {
+            "$comment": "{\"term\": \"insuranceClauses\", \"@id\": \"\"}",
+            "title": "Insurance Clauses",
+            "description": "Box 20A",
+            "type": "string"
+        },
+        "handlingInformation": {
+            "$comment": "{\"term\": \"handlingInformation\", \"@id\": \"\"}",
+            "title": "Handling Information",
+            "description": "Only clear and concise information as required by the participating carriers shall be inserted. In the case of dangerous goods for which a Shipper's Declaration is required, a statement: “Dangerous Goods as per attached Shipper's Declaration” or “Dangerous Goods as per attached DGD” and where applicable the statement “Cargo Aircraft Only” or “CAO”. When dangerous goods are contained in a consignment with non-dangerous goods, the number of pieces of dangerous goods must be indicated either before or after the statement “Dangerous Goods as per attached Shipper's Declaration” or “Dangerous Goods as per attached DGD”. Other handling information using, where available, the codes and abbreviations in Cargo-IMP, may be inserted, such as: marks and numbers which appear on the consignment and method of packing; name, address, country or two-letter country code and one or more method of contact (telephone, telex or telefax) and number of any person to be notified of arrival of the consignment in addition to the consignee; name of documents to accompany the air waybill, such as the “Shipper's Certification for Live Animals”; special handling instructions that may be required; when not preprinted, and if the air waybill is issued in the United States, the statement: “These commodities, technology or software were exported from the United States in accordance with the Export Administration Regulations. Diversion contrary to USA law prohibited”; Agent Nomination when a consignment's details, including house waybill details, must be reported to Customs and the agent has elected to undertake that reporting, the human readable statement “House Information transmitted to (country name) by:”, or the coded statement “(Country ISO Code) - AGT-” shall be entered in the Handling Information box on the master air waybill and either statement shall be followed by the appropriate agent identifier as specified by that country (multiple entries may be necessary if more than one country requires information). When a local transfer at destination is required and known the statement “Local transfer at destination to:” or “FIRMS-” shall be entered in the Handling Information box on the air waybill followed by the appropriate location identifier, e.g. FIRMS code for the United States. Box 21.",
+            "type": "string"
+        },
+        "specialCustomsInformation": {
+            "$comment": "{\"term\": \"specialCustomsInformation\", \"@id\": \"\"}",
+            "title": "Special Customs Information (SCI)",
+            "description": "When a consignment is loaded or reloaded at an airport in an European Union country, the Customs Origin Code shall be inserted. When a consignment is not loaded or reloaded at an airport in an European Union country, then this box may be used for other customs information. Box 21A.",
+            "type": "string"
+        },
+        "consignmentRatingDetails": {
+            "$comment": "{\"term\": \"consignmentRatingDetails\", \"@id\": \"\"}",
+            "title": "Consignment Rating Details",
+            "description": "A separate set of entries shall be made for each rated group of items, each set commencing on a new line, dangerous goods items, if any, being entered first. Box 22.",
+            "array": ConsignmentItem
+
+            numberOfPieces (22A)
+            grossWeight (22B)
+            grossWeightUnit (22C)
+            serviceCode (22Z)
+            rateClass (22D)
+            commodityItemNumber (22E)
+            chargeableWeight (22F)
+            rateCharge
+            charge (22H)
+            natureAndVolumeOfGoods (22I)
+        },
+        "totalNumberOfPieces": {
+            "$comment": "{\"term\": \"totalNumberOfPieces\", \"@id\": \"\"}",
+            "title": "Total Number of Pieces",
+            "description": "Where there is more than one numeric entry in box 22A, the total number of pieces shall be inserted. Box 22J.",
+            "type": "string"
+        },
+        "totalGrossWeight": {
+            "$comment": "{\"term\": \"totalGrossWeight\", \"@id\": \"\"}",
+            "title": "Total Gross Weight",
+            "description": "Where there is more than one entry in box 22B, the total gross weight shall be inserted. Box 22K.",
+            "type": "string"
+        },
+        "totalCharge": {
+            "$comment": "{\"term\": \"totalCharge\", \"@id\": \"\"}",
+            "title": "Total Charge",
+            "description": "Where there is more than one entry in box 22H, the sum shall be inserted. Box 22L",
+            "type": "string"
+        },
+        "otherCharges": {
+            "$comment": "{\"term\": \"otherCharges\", \"@id\": \"\"}",
+            "title": "Other Charges",
+            "description": "Other charges incurred at origin shall be inserted at the time of air waybill issuance as either wholly prepaid or wholly collect. Box 23.",
+            "type": "string"
+        },
+        "prepaidWeightCharge": {
+            "$comment": "{\"term\": \"prepaidWeightCharge\", \"@id\": \"\"}",
+            "title": "Prepaid Weight Charge",
+            "description": "The weight/volume charge for air carriage. Box 24A.",
+            "type": "string"
+        },
+        "prepaidValuationCharge": {
+            "$comment": "{\"term\": \"prepaidValuationCharge\", \"@id\": \"\"}",
+            "title": "Prepaid Valuation Charge",
+            "description": "The valuation charge, if applicable. Box 25A.",
+            "type": "string"
+        },
+        "prepaidTax": {
+            "$comment": "{\"term\": \"prepaidTax\", \"@id\": \"\"}",
+            "title": "Prepaid Tax",
+            "description": "Any applicable tax. Box 26A.",
+            "type": "string"
+        },
+        "prepaidDueAgent": {
+            "$comment": "{\"term\": \"prepaidDueAgent\", \"@id\": \"\"}",
+            "title": "Prepaid Due Agent",
+            "description": "This box shall not be used unless agreed locally. Box 27A.",
+            "type": "string"
+        },
+        "prepaidDueCarrier": {
+            "$comment": "{\"term\": \"prepaidDueCarrier\", \"@id\": \"\"}",
+            "title": "Prepaid Due Carrier",
+            "description": "The total of prepaid other charges due to carrier. Box 28A.",
+            "type": "string"
+        },
+        "prepaidTotal": {
+            "$comment": "{\"term\": \"prepaidTotal\", \"@id\": \"\"}",
+            "title": "Total Prepaid",
+            "description": "The total of all the prepaid charges, i.e. weight/volume charge, valuation charge, other prepaid charges due carrier and, if applicable, tax and other charges due agent. Box 30A.",
+            "type": "string"
+        },
+        "collectWeightCharge": {
+            "$comment": "{\"term\": \"collectWeightCharge\", \"@id\": \"\"}",
+            "title": "Collect Weight Charge",
+            "description": "he weight/volume charge for air carriage. Box 24B.",
+            "type": "string"
+        },
+        "collectValuationCharge": {
+            "$comment": "{\"term\": \"collectValuationCharge\", \"@id\": \"\"}",
+            "title": "Collect Valuation Charge",
+            "description": "The valuation charge. Box 25B.",
+            "type": "string"
+        },
+        "collectTax": {
+            "$comment": "{\"term\": \"collectTax\", \"@id\": \"\"}",
+            "title": "",
+            "description": "Any applicable tax. Box 26B.",
+            "type": "string"
+        },
+        "collectDueAgent": {
+            "$comment": "{\"term\": \"collectDueAgent\", \"@id\": \"\"}",
+            "title": "",
+            "description": "The total disbursements due to agent. Box 27B.",
+            "type": "string"
+        },
+        "collectDueCarrier": {
+            "$comment": "{\"term\": \"collectDueCarrier\", \"@id\": \"\"}",
+            "title": "Collect Due Agent",
+            "description": "The total disbursements due to carrier. Box 28B.",
+            "type": "string"
+        },
+        "collectTotal": {
+            "$comment": "{\"term\": \"collectTotal\", \"@id\": \"\"}",
+            "title": "Collect Due Carrier",
+            "description": "The total of all the collect charges, i.e. weight/volume charge, valuation charge, other collect charges due car- rier and agent and, if applicable, tax. Box 30B.",
+            "type": "string"
+        },
+        "shippersCertificationBox": {
+            "$comment": "{\"term\": \"shippersCertificationBox\", \"@id\": \"\"}",
+            "title": "Shipper's Certification Box",
+            "description": "When not preprinted, the signature of the shipper or his agent (printed, signed or stamped). Box 31.",
+            "type": "string"
+        },
+        "executedOn": {
+            "$comment": "{\"term\": \"executedOn\", \"@id\": \"\"}",
+            "title": "Executed on (Date)",
+            "description": "The date of execution of the air waybill shall be inserted in the sequence of day, month and year. The month shall be expressed alphabetically, either abbreviated or in full. Box 32A.",
+            "type": "string"
+        },
+        "executedAt": {
+            "$comment": "{\"term\": \"executedAt\", \"@id\": \"\"}",
+            "title": "At (Place)",
+            "description": "The name of the place of execution (airport or city) of the air waybill shall be inserted. Box 32B.",
+            "type": "string"
+        },
+        "currencyConvertionRate": {
+            "$comment": "{\"term\": \"currencyConvertionRate\", \"@id\": \"\"}",
+            "title": "Currency Conversion Rate",
+            "description": "The destination currency code followed by the conversion rate shall be inserted. Box 33A.",
+            "type": "string"
+        },
+        "collectChargesInDestinationCurrency": {
+            "$comment": "{\"term\": \"collectChargesInDestinationCurrency\", \"@id\": \"\"}",
+            "title": "Collect Charges in Destination Currency",
+            "description": "The amount shown in the “Total Collect” box shall be inserted after conversion to the destination currency. Box 33B.",
+            "type": "string"
+        },
+        "chargesAtDestination": {
+            "$comment": "{\"term\": \"chargesAtDestination\", \"@id\": \"\"}",
+            "title": "Charges at Destination",
+            "description": "Charges levied at destination accruing to the last carrier shall be inserted in destination currency. 33C.",
+            "type": "string"
+        },
+        "totalCollectCharges": {
+            "$comment": "{\"term\": \"totalCollectCharges\", \"@id\": \"\"}",
+            "title": "Total Collect Charges",
+            "description": "The sum of boxes (33B) and (33C). Box 33D.",
+            "type": "string"
+        },
+        "referenceNumber": {
+            "$comment": "{\"term\": \"referenceNumber\", \"@id\": \"\"}",
+            "title": "",
+            "description": "Box 34A.",
+            "type": "string"
+        },
+        "optionalShippingInformation": {
+            "$comment": "{\"term\": \"optionalShippingInformation\", \"@id\": \"\"}",
+            "title": "Optional Shipping Information",
+            "description": "The shipper or its Agent may enter the appropriate optional shipping information as agreed upon with the issuing carrier. Shading of these boxes will indicate non-use. Box 34B.",
+            "type": "string"
+        },
+        
+
+        "wayBillCommodityContent": {
+            "$comment": "{\"term\": \"wayBillCommodityContent\", \"@id\": \"https://w3id.org/traceability#EcommerceWayBillCommodityContent\"}",
+            "title": "wayBillCommodityContent",
+            "$ref": "https://w3id.org/traceability/schemas/EcommerceWayBillCommodityContent.json"
+        },
+        "chargeDeclaration": {
+            "$comment": "{\"term\": \"chargeDeclaration\", \"@id\": \"https://w3id.org/traceability#ChargeDeclaration\"}",
+            "title": "chargeDeclaration",
+            "$ref": "https://w3id.org/traceability/schemas/ChargeDeclaration.json"
+        }
+    },
+    "additionalProperties": false
+}

@@ -6,7 +6,7 @@ const { getShippingStop } = require('./ShippingStop');
 const { getEcommerceWayBillCommodityContent } = require('./EcommerceWayBillCommodityContent');
 const { getChargeDeclaration } = require('./ChargeDeclaration');
 
-const getEcommerceWayBillRegistrationEvidenceDocument = () => {
+const getAirWaybill = () => {
   const waybillNumber = `ACMEWayBill#${faker.random.number({ min: 1, max: 999 })}`;
 
   const NewDate = generator.dates.future;
@@ -72,4 +72,4 @@ const getEcommerceWayBillRegistrationEvidenceDocument = () => {
   return example;
 };
 
-module.exports = { getEcommerceWayBillRegistrationEvidenceDocument };
+module.exports = { getAirWaybill };
