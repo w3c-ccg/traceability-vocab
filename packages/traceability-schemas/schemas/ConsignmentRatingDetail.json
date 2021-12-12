@@ -1,0 +1,77 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/EcommerceWayBillCommodityContent.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"EcommerceWayBillCommodityContent\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem\"}",
+  "title": "Consignment Rating Details, itemized consignment items of IATA Air Waybill.",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "numberOfPieces": {
+      "$comment": "{\"term\": \"numberOfPieces\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity\"}",
+      "title": "Number of Pieces and RCP",
+      "description": "The number of pieces for the applicable rating entry. Box 22A.",
+      "type": "string"
+    },
+    "grossWeight": {
+      "$comment": "{\"term\": \"grossWeight\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure\"}",
+      "title": "Gross Weight",
+      "description": "The gross weight of the pieces for the applicable rating entry. Box 22B.",
+      "type": "string"
+    },
+    "grossWeightUnit": {
+      "$comment": "{\"term\": \"grossWeightUnit\", \"@id\": \"https://schema.org/unitCode\"}",
+      "title": "",
+      "description": "22C",
+      "type": "string"
+    },
+    "rateClass": {
+      "$comment": "{\"term\": \"rateClass\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightChargeTariffClassCode\"}",
+      "title": "Rate Class",
+      "description": "22D",
+      "enum": ["M—minimum charge", "N—normal rate", "Q—quantity rate", "B—basic charge (optional use)", "K—rate per kilogram (optional use)", "P—international priority service rate", "C—specific commodity rate", "R—class rate reduction", "S—class rate surcharge", "U—unit load device basic charge or rate E—unit load device additional rate X—unit load device additional information Y—unit load device discount", "W—weight increase"]
+    },
+    "commodityItemNumber": {
+      "$comment": "{\"term\": \"commodityItemNumber\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#discountIndicator\"}",
+      "title": "Commodity Item Number",
+      "description": "This box shall be completed as follows: when a specific commodity rate applies, the IATA item description number shall be inserted on the “C” or “U” rate class line; when a class rate reduction applies, the per- centage which is applied to the appropriate charge or rate shall be inserted on the “R” rate class line, preceded by the rate class code to which it refers, e.g. 33% reduction on the normal rate shall be expressed as N67; when a class rate surcharge applies, the per- centage which is applied to the appropriate charge or rate shall be inserted on the “S” rate class line, preceded by the rate class code to which it refers, e.g. 50% surcharge of the minimum charge shall be expressed as M150; when a unit load device rate applies, the ULD rate class type used shall be inserted on the “X” rate class line.Box 22E.",
+      "type": "string"
+    },
+    "chargeableWeight": {
+      "$comment": "{\"term\": \"chargeableWeight\", \"@id\": \"https://schema.org/weight\"}",
+      "title": "Chargeable Weight",
+      "description": "The applicable chargeable weight, calculated according to applicable rating rules. Box 22F.",
+      "type": "string"
+    },
+    "rateCharge": {
+      "$comment": "{\"term\": \"rateCharge\", \"@id\": \"https://schema.org/price\"}",
+      "title": "Rate/Charge",
+      "description": "The applicable rate or charge.",
+      "type": "string"
+    },
+    "total": {
+      "$comment": "{\"term\": \"total\", \"@id\": \"https://schema.org/totalPrice\"}",
+      "title": "Total",
+      "description": "The total charge or discount for each line entry shall be inserted on the same horizontal line. Box 22H.",
+      "type": "string"
+    },
+    "natureAndVolumeOfGoods": {
+      "$comment": "{\"term\": \"natureAndVolumeOfGoods\", \"@id\": \"https://schema.org/description\"}",
+      "title": "Nature and Quantity of Goods",
+      "description": "Nature and Quantity of Goods (including Dimensions or Volume). Box 22I.",
+      "type": "string"
+    },
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/CollectChargeDeclaration.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"CollectChargeDeclaration\", \"@id\": \"https://w3id.org/traceability#CollectChargeDeclaration\"}",
+    "title": "Collect Charge Declaration",
+    "description": "Charge Declaration definition based on IATA electronic Air Waybill.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "destinationCurrencyConvertionRate": {
+            "$comment": "{\"term\": \"destinationCurrencyConvertionRate\", \"@id\": \"https://schema.org/currentExchangeRate\"}",
+            "title": "Currency Conversion Rate",
+            "description": "The destination currency code followed by the conversion rate shall be inserted. Box 33A.",
+            "type": "string"
+        },
+        "destinationCollectChargesCurrency": {
+            "$comment": "{\"term\": \"destinationCollectChargesCurrency\", \"@id\": \"https://schema.org/currency\"}",
+            "title": "Collect Charges in Destination Currency",
+            "description": "The amount shown in the “Total Collect” box shall be inserted after conversion to the destination currency. Box 33B.",
+            "type": "string"
+        },
+        "destinationCharges": {
+            "$comment": "{\"term\": \"destinationCharges\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Charges at Destination",
+            "description": "Charges levied at destination accruing to the last carrier shall be inserted in destination currency. Box 33C.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}
