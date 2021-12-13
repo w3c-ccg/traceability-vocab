@@ -1,8 +1,8 @@
 {
-    "$id": "https://w3id.org/traceability/schemas/AirWaybill.json",
+    "$id": "https://w3id.org/traceability/schemas/IATAAirWaybillCertificate.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "$comment": "{\"term\": \"AirWaybillCertificate\", \"@id\": \"https://w3id.org/traceability#AirWaybillCertificate\"}",
-    "title": "Air Waybill Certificate",
+    "$comment": "{\"term\": \"IATAAirWaybillCertificate\", \"@id\": \"https://w3id.org/traceability#IATAAirWaybillCertificate\"}",
+    "title": "IATA Air Waybill Certificate",
     "description": "Air Waybill based on IATA Air Waybill Resolution 600a https://www.iata.org/contentassets/e9cb5a72b88f4f68a5cfc572a50b60c9/eacph-european-air-cargo-programme-handbook.pdf and https://www.iata.org/contentassets/b559d10aeb734d5196332b4953dcf312/e-awb-sop-hyd.pdf",
     "type": "object",
     "required": [
@@ -36,13 +36,13 @@
         "airlineCodeNumber": {
             "$comment": "{\"term\": \"airlineCodeNumber\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
             "title": "Airline Code Number",
-            "description": "The issuing carrier's three-digit IATA airline code number shall be inserted. Box 1A.",
+            "description": "The issuing carrier's three-digit IATA airline code number. Box 1A.",
             "type": "string"
         },
         "serialNumber": {
             "$comment": "{\"term\": \"serialNumber\", \"@id\": \"https://schema.org/serialNumber\"}",
             "title": "Serial Number",
-            "description": "A serial number of eight digits including a check digit placed in the extreme right position shall be inserted. Box 1B.",
+            "description": "A serial number of eight digits including a check digit placed in the extreme right position. Box 1B.",
             "type": "string"
         },
         "airportOfDeparture": {
@@ -55,7 +55,7 @@
             "$comment": "{\"term\": \"carrier\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty\"}",
             "title": "Issuing Carrier's Name and Address",
             "description": "Box 1C.",
-            "type": "string"
+            "$ref": "https://w3id.org/traceability/schemas/Organization.json"
         },
         "conditionsOfContract": {
             "$comment": "{\"term\": \"conditionsOfContract\", \"@id\": \"https://schema.org/termsOfService\"}",
@@ -66,9 +66,8 @@
         "shipper": {
             "$comment": "{\"term\": \"shipper\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty\"}",
             "title": "Shipper's Name and Address",
-            "description": "The name, address and country (or two-letter country code) of the shipper (or IATA Cargo Intermediary when acting in its capacity as a Forwarder) shall be inserted. Box 2.",
+            "description": "The name, address and country (or two-letter country code) of the shipper (or IATA Cargo Intermediary when acting in its capacity as a Forwarder). Box 2.",
             "$ref": "https://w3id.org/traceability/schemas/Entity.json"
-
         },
         "shippersAccountNumber": {
             "$comment": "{\"term\": \"shippersAccountNumber\", \"@id\": \"https://schema.org/accountId\"}",
@@ -79,7 +78,7 @@
         "consignee": {
             "$comment": "{\"term\": \"consignee\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty\"}",
             "title": "Consignee's Name and Address",
-            "description": "The name, address and country (or two-letter country code) of the consignee shall be inserted. Box 4.",
+            "description": "The name, address and country (or two-letter country code) of the consignee. Box 4.",
             "$ref": "https://w3id.org/traceability/schemas/Entity.json"
         },
         "consigneesAccountNumber": {
@@ -109,53 +108,17 @@
         "requestedRouting": {
             "$comment": "{\"term\": \"requestedRouting\", \"@id\": \"https://schema.org/Trip\"}",
             "title": "Airport of Departure and Requested Routing",
-            "description": "The name of the airport of departure. Box 9.",
+            "description": "The name of the airport of departure. Box 9 and 11A-F.",
             "type": "array",
             "items": {
                 "$ref": "https://w3id.org/traceability/schemas/ShippingStop.json"
             }
         },
-        "firstCarrierDestination": {
-            "$comment": "{\"term\": \"firstCarrierDestination\", \"@id\": \"https://onerecord.iata.org/cargo/Location#code\"}",
-            "title": "To (by First Carrier)",
-            "description": "The IATA three-letter code of the airport of destination or first transfer point (or city when the name of the airport is unknown because the city is served by more than one airport) may be inserted. Box 11A.",
-            "type": "string"
-        },
-        "firstCarrier": {
-            "$comment": "{\"term\": \"firstCarrier\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
-            "title": "By First Carrier",
-            "description": "The name of the first carrier (either full name or IATA two-character code) shall be inserted. Box 11B.",
-            "type": "string"
-        },
-        "secondCarrierDestination": {
-            "$comment": "{\"term\": \"secondCarrierDestination\", \"@id\": \"https://onerecord.iata.org/cargo/Location#code\"}",
-            "title": "To (by Second Carrier)",
-            "description": "The IATA three-letter code of the airport of destination or second transfer point (or city when the name of the airport is unknown because the city is served by more than one airport) may be inserted. Box 11C.",
-            "type": "string"
-        },
-        "secondCarrier": {
-            "$comment": "{\"term\": \"secondCarrier\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
-            "title": "By Second Carrier",
-            "description": "The IATA two-character code of the second carrier may be inserted. Box 11D.",
-            "type": "string"
-        },
-        "thirdCarrierDestination": {
-            "$comment": "{\"term\": \"thirdCarrierDestination\", \"@id\": \"https://onerecord.iata.org/cargo/Location#code\"}",
-            "title": "To (by Third Carrier)",
-            "description": "The IATA three-letter code of the airport of destination or third transfer point (or city when the name of the airport is unknown because the city is served by more than one airport) may be inserted. Box 11E.",
-            "type": "string"
-        },
-        "thirdCarrier": {
-            "$comment": "{\"term\": \"thirdCarrier\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
-            "title": "By Third Carrier",
-            "description": "The IATA two-character code of the third carrier may be inserted. Box 11F.",
-            "type": "string"
-        },
         "destinationAirport": {
             "$comment": "{\"term\": \"destinationAirport\", \"@id\": \"https://onerecord.iata.org/cargo/Company#airlineCode\"}",
             "title": "Airport of Destination",
-            "description": "The airport of destination of the last carrier (or city when the name of the airport is unknown because the city is served by more than one airport) shall be inserted. Box 18.",
-            "type": "string"
+            "description": "The airport of destination of the last carrier (or city when the name of the airport is unknown because the city is served by more than one airport). Box 18.",
+            "$ref": "https://w3id.org/traceability/schemas/Place.json"
         },
         "requestedFlight": {
             "$comment": "{\"term\": \"requestedFlight\", \"@id\": \"https://schema.org/Flight\"}",
@@ -178,7 +141,7 @@
         "currency": {
             "$comment": "{\"term\": \"currency\", \"@id\": \"https://schema.org/currency\"}",
             "title": "Currency",
-            "description": "The ISO three-letter currency code of the currency applicable in the country of departure, according to the applicable rating rules, shall be inserted.",
+            "description": "The ISO three-letter currency code of the currency applicable in the country of departure, according to the applicable rating rules,.",
             "type": "string"
         },
         "chargeCodes": {
@@ -202,7 +165,7 @@
         "declaredValueForCarriage": {
             "$comment": "{\"term\": \"declaredValueForCarriage\", \"@id\": \"https://schema.org/value\"}",
             "title": "Declared Value For Carriage",
-            "description": "The declared value for carriage, as specified by the shipper, shall be inserted. Where no value is declared, “NVD” shall be inserted. Box 16.",
+            "description": "The declared value for carriage, as specified by the shipper,. Where no value is declared, “NVD”. Box 16.",
             "type": "string"
         },
         "declaredValueForCustoms": {
@@ -226,13 +189,13 @@
         "handlingInformation": {
             "$comment": "{\"term\": \"handlingInformation\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#handlingInstructions\"}",
             "title": "Handling Information",
-            "description": "Only clear and concise information as required by the participating carriers shall be inserted. In the case of dangerous goods for which a Shipper's Declaration is required, a statement: “Dangerous Goods as per attached Shipper's Declaration” or “Dangerous Goods as per attached DGD” and where applicable the statement “Cargo Aircraft Only” or “CAO”. When dangerous goods are contained in a consignment with non-dangerous goods, the number of pieces of dangerous goods must be indicated either before or after the statement “Dangerous Goods as per attached Shipper's Declaration” or “Dangerous Goods as per attached DGD”. Other handling information using, where available, the codes and abbreviations in Cargo-IMP, may be inserted, such as: marks and numbers which appear on the consignment and method of packing; name, address, country or two-letter country code and one or more method of contact (telephone, telex or telefax) and number of any person to be notified of arrival of the consignment in addition to the consignee; name of documents to accompany the air waybill, such as the “Shipper's Certification for Live Animals”; special handling instructions that may be required; when not preprinted, and if the air waybill is issued in the United States, the statement: “These commodities, technology or software were exported from the United States in accordance with the Export Administration Regulations. Diversion contrary to USA law prohibited”; Agent Nomination when a consignment's details, including house waybill details, must be reported to Customs and the agent has elected to undertake that reporting, the human readable statement “House Information transmitted to (country name) by:”, or the coded statement “(Country ISO Code) - AGT-” shall be entered in the Handling Information box on the master air waybill and either statement shall be followed by the appropriate agent identifier as specified by that country (multiple entries may be necessary if more than one country requires information). When a local transfer at destination is required and known the statement “Local transfer at destination to:” or “FIRMS-” shall be entered in the Handling Information box on the air waybill followed by the appropriate location identifier, e.g. FIRMS code for the United States. Box 21.",
+            "description": "Only clear and concise information as required by the participating carriers. In the case of dangerous goods for which a Shipper's Declaration is required, a statement: “Dangerous Goods as per attached Shipper's Declaration” or “Dangerous Goods as per attached DGD” and where applicable the statement “Cargo Aircraft Only” or “CAO”. When dangerous goods are contained in a consignment with non-dangerous goods, the number of pieces of dangerous goods must be indicated either before or after the statement “Dangerous Goods as per attached Shipper's Declaration” or “Dangerous Goods as per attached DGD”. Other handling information using, where available, the codes and abbreviations in Cargo-IMP, may be inserted, such as: marks and numbers which appear on the consignment and method of packing; name, address, country or two-letter country code and one or more method of contact (telephone, telex or telefax) and number of any person to be notified of arrival of the consignment in addition to the consignee; name of documents to accompany the air waybill, such as the “Shipper's Certification for Live Animals”; special handling instructions that may be required; when not preprinted, and if the air waybill is issued in the United States, the statement: “These commodities, technology or software were exported from the United States in accordance with the Export Administration Regulations. Diversion contrary to USA law prohibited”; Agent Nomination when a consignment's details, including house waybill details, must be reported to Customs and the agent has elected to undertake that reporting, the human readable statement “House Information transmitted to (country name) by:”, or the coded statement “(Country ISO Code) - AGT-” shall be entered in the Handling Information box on the master air waybill and either statement shall be followed by the appropriate agent identifier as specified by that country (multiple entries may be necessary if more than one country requires information). When a local transfer at destination is required and known the statement “Local transfer at destination to:” or “FIRMS-” shall be entered in the Handling Information box on the air waybill followed by the appropriate location identifier, e.g. FIRMS code for the United States. Box 21.",
             "type": "string"
         },
         "specialCustomsInformation": {
             "$comment": "{\"term\": \"specialCustomsInformation\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Declaration\"}",
             "title": "Special Customs Information (SCI)",
-            "description": "When a consignment is loaded or reloaded at an airport in an European Union country, the Customs Origin Code shall be inserted. When a consignment is not loaded or reloaded at an airport in an European Union country, then this box may be used for other customs information. Box 21A.",
+            "description": "When a consignment is loaded or reloaded at an airport in an European Union country, the Customs Origin Code. When a consignment is not loaded or reloaded at an airport in an European Union country, then this box may be used for other customs information. Box 21A.",
             "type": "string"
         },
         "consignmentRatingDetails": {
@@ -247,19 +210,19 @@
         "totalNumberOfPieces": {
             "$comment": "{\"term\": \"totalNumberOfPieces\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity\"}",
             "title": "Total Number of Pieces",
-            "description": "Where there is more than one numeric entry in box 22A, the total number of pieces shall be inserted. Box 22J.",
+            "description": "Where there is more than one numeric entry in box 22A, the total number of pieces. Box 22J.",
             "type": "string"
         },
         "totalGrossWeight": {
             "$comment": "{\"term\": \"totalGrossWeight\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure\"}",
             "title": "Total Gross Weight",
-            "description": "Where there is more than one entry in box 22B, the total gross weight shall be inserted. Box 22K.",
+            "description": "Where there is more than one entry in box 22B, the total gross weight. Box 22K.",
             "type": "string"
         },
         "totalCharge": {
             "$comment": "{\"term\": \"totalCharge\", \"@id\": \"https://schema.org/totalPrice\"}",
             "title": "Total Charge",
-            "description": "Where there is more than one entry in box 22H, the sum shall be inserted. Box 22L",
+            "description": "Where there is more than one entry in box 22H, the sum. Box 22L",
             "type": "string"
         },
         "otherCharges": {
@@ -271,7 +234,7 @@
         "prepaidChargeDeclaration": {
             "$comment": "{\"term\": \"prepaidChargeDeclaration\", \"@id\": \"https://w3id.org/traceability#PrepaidChargeDeclaration\"}",
             "title": "Prepaid Charge Declaration",
-            "$ref": "https://w3id.org/traceability/schemas/PrepaidChargeDeclaration.json"
+            "$ref": "https://w3id.org/traceability/schemas/ChargeDeclaration.json"
         },
         "prepaidTotal": {
             "$comment": "{\"term\": \"prepaidTotal\", \"@id\": \"https://schema.org/totalPrice\"}",
@@ -282,13 +245,13 @@
         "collectChargeDeclaration": {
             "$comment": "{\"term\": \"collectChargeDeclaration\", \"@id\": \"https://w3id.org/traceability#CollectChargeDeclaration\"}",
             "title": "Collect Charge Declaration",
-            "$ref": "https://w3id.org/traceability/schemas/CollectChargeDeclaration.json"
+            "$ref": "https://w3id.org/traceability/schemas/ChargeDeclaration.json"
         },
         "destinationCollectChargeDeclaration": {
             "$comment": "{\"term\": \"destinationCollectChargeDeclaration\", \"@id\": \"https://w3id.org/traceability#DestinationCollectChargeDeclaration\"}",
             "title": "Destination Collect Charge Declaration",
             "description": "Collect charges at destination, incl. currency exchange.",
-            "$ref": "https://w3id.org/traceability/schemas/DestinationCollectChargeDeclaration.json"
+            "$ref": "https://w3id.org/traceability/schemas/ForeignChargeDeclaration.json"
         },
         "collectTotal": {
             "$comment": "{\"term\": \"collectTotal\", \"@id\": \"https://schema.org/totalPrice\"}",
@@ -311,20 +274,8 @@
         "executedAt": {
             "$comment": "{\"term\": \"executedAt\", \"@id\": \"https://schema.org/Place\"}",
             "title": "At (Place)",
-            "description": "The name of the place of execution (airport or city) of the air waybill shall be inserted. Box 32B.",
+            "description": "The name of the place of execution (airport or city) of the air waybill. Box 32B.",
             "$ref": "https://w3id.org/traceability/schemas/Place.json"
-        },
-        "referenceNumber": {
-            "$comment": "{\"term\": \"referenceNumber\", \"@id\": \"https://schema.org/identifier\"}",
-            "title": "Reference Number",
-            "description": "Reference number may be inserted as per shipper/agent/issuing carrier agreement. Box 34A.",
-            "type": "string"
-        },
-        "optionalShippingInformation": {
-            "$comment": "{\"term\": \"optionalShippingInformation\", \"@id\": \"https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorProvidedInformation\"}",
-            "title": "Optional Shipping Information",
-            "description": "The shipper or its Agent may enter the appropriate optional shipping information as agreed upon with the issuing carrier. Shading of these boxes will indicate non-use. Box 34B.",
-            "type": "string"
         }
     },
     "additionalProperties": false

@@ -1,0 +1,42 @@
+{
+    "$id": "https://w3id.org/traceability/schemas/ForeignChargeDeclaration.json",
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$comment": "{\"term\": \"ForeignChargeDeclaration\", \"@id\": \"https://w3id.org/traceability#ForeignChargeDeclaration\"}",
+    "title": "Foreign Charge Declaration",
+    "description": "Foreign charge declaration definition based on IATA electronic Air Waybill.",
+    "type": "object",
+    "properties": {
+        "@context": {
+            "type": "array"
+        },
+        "type": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array"
+                }
+            ]
+        },
+        "foreignCurrencyConvertionRate": {
+            "$comment": "{\"term\": \"foreignCurrencyConvertionRate\", \"@id\": \"https://schema.org/currentExchangeRate\"}",
+            "title": "Currency Conversion Rate",
+            "description": "The foreign currency code followed by the conversion rate shall be inserted. Box 33A.",
+            "type": "string"
+        },
+        "foreignChargesCurrency": {
+            "$comment": "{\"term\": \"foreignChargesCurrency\", \"@id\": \"https://schema.org/currency\"}",
+            "title": "Charges in foreign Currency",
+            "description": "The amount shown in the “Total Collect” box shall be inserted after conversion to the foreign currency. Box 33B.",
+            "type": "string"
+        },
+        "foreignCharges": {
+            "$comment": "{\"term\": \"foreignCharges\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Foreign charges",
+            "description": "Charges levied at destination accruing to the last carrier shall be inserted in destination currency. Box 33C.",
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+}
