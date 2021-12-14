@@ -2,17 +2,9 @@
     "$id": "https://w3id.org/traceability/schemas/ChargeDeclaration.json",
     "$schema": "https://json-schema.org/draft-07/schema#",
     "$comment": "{\"term\": \"ChargeDeclaration\", \"@id\": \"https://w3id.org/traceability#ChargeDeclaration\"}",
-    "title": "ChargeDeclaration",
-    "description": "Charge Declaration definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls",
+    "title": "Charge Declaration",
+    "description": "Charge Declaration definition based on IATA electronic Air Waybill.",
     "type": "object",
-    "required": [
-        "type",
-        "weightCharge",
-        "taxCharge",
-        "otherChargesAgent",
-        "otherChargesCarrier",
-        "totalCharge"
-    ],
     "properties": {
         "@context": {
             "type": "array"
@@ -28,29 +20,40 @@
             ]
         },
         "weightCharge": {
-            "$comment": "{\"term\": \"weightCharge\", \"@id\": \"https://schema.org/PriceSpecification\"}",
-            "title": "weightCharge",
-            "$ref": "https://w3id.org/traceability/schemas/chargeAndPaymentType.json"
+            "$comment": "{\"term\": \"weightCharge\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Weight Charge",
+            "description": "The weight/volume charge for air carriage. Box 24A and 24B.",
+            "type": "string"
         },
-        "taxCharge": {
-            "$comment": "{\"term\": \"taxCharge\", \"@id\": \"https://schema.org/price\"}",
-            "title": "taxCharge",
-            "$ref": "https://w3id.org/traceability/schemas/chargeAndPaymentType.json"
+        "valuationCharge": {
+            "$comment": "{\"term\": \"valuationCharge\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Valuation Charge",
+            "description": "The valuation charge. Box 25A and 25B.",
+            "type": "string"
         },
-        "otherChargesAgent": {
-            "$comment": "{\"term\": \"otherChargesAgent\", \"@id\": \"https://schema.org/totalPrice\"}",
-            "title": "otherChargesAgent",
-            "$ref": "https://w3id.org/traceability/schemas/chargeAndPaymentType.json"
+        "tax": {
+            "$comment": "{\"term\": \"tax\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Tax",
+            "description": "Any applicable tax. Box 26A and 26B.",
+            "type": "string"
         },
-        "otherChargesCarrier": {
-            "$comment": "{\"term\": \"otherChargesCarrier\", \"@id\": \"https://schema.org/discountPrice\"}",
-            "title": "otherChargesCarrier",
-            "$ref": "https://w3id.org/traceability/schemas/chargeAndPaymentType.json"
+        "dueAgent": {
+            "$comment": "{\"term\": \"dueAgent\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Due Agent",
+            "description": "The total disbursements due to agent. Box 27A and 27B.",
+            "type": "string"
         },
-        "totalCharge": {
-            "$comment": "{\"term\": \"totalCharge\", \"@id\": \"https://w3id.org/traceability#TotalCharge\"}",
-            "title": "totalCharge",
-            "$ref": "https://w3id.org/traceability/schemas/TotalCharge.json"
+        "dueCarrier": {
+            "$comment": "{\"term\": \"dueCarrier\", \"@id\": \"https://schema.org/price\"}",
+            "title": "Due Carrier",
+            "description": "The total disbursements due to carrier. Box 28A and 28B.",
+            "type": "string"
+        },
+        "total": {
+            "$comment": "{\"term\": \"total\", \"@id\": \"https://schema.org/totalPrice\"}",
+            "title": "Total Collect",
+            "description": "The total of all the charges, i.e., weight/volume charge, valuation charge, other charges due carrier and agent, and, if applicable, tax. Box 30A and 30B.",
+            "type": "string"
         }
     },
     "additionalProperties": false
