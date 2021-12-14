@@ -233,7 +233,10 @@
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
         },
         "weight": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure"
+        },
+        "chargeableWeight": {
+          "@id": "https://schema.org/weight"
         },
         "volume": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
@@ -244,7 +247,13 @@
         "volumeUnit": {
           "@id": "https://schema.org/unitCode"
         },
+        "grossWeightUnit": {
+          "@id": "https://schema.org/unitCode"
+        },
         "numberOfPackages": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "numberOfPieces": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
         "name": {
@@ -252,6 +261,24 @@
         },
         "packageCode": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageTypeCode"
+        },
+        "grossWeight": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
+        },
+        "rateClass": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightChargeTariffClassCode"
+        },
+        "commodityItemNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#discountIndicator"
+        },
+        "rateCharge": {
+          "@id": "https://schema.org/price"
+        },
+        "total": {
+          "@id": "https://schema.org/totalPrice"
+        },
+        "natureAndVolumeOfGoods": {
+          "@id": "https://schema.org/description"
         },
         "manufacturer": {
           "@id": "https://schema.org/manufacturer"
@@ -285,19 +312,22 @@
       "@id": "https://w3id.org/traceability#ChargeDeclaration",
       "@context": {
         "weightCharge": {
-          "@id": "https://schema.org/PriceSpecification"
-        },
-        "taxCharge": {
           "@id": "https://schema.org/price"
         },
-        "otherChargesAgent": {
+        "valuationCharge": {
+          "@id": "https://schema.org/price"
+        },
+        "tax": {
+          "@id": "https://schema.org/price"
+        },
+        "dueAgent": {
+          "@id": "https://schema.org/price"
+        },
+        "dueCarrier": {
+          "@id": "https://schema.org/price"
+        },
+        "total": {
           "@id": "https://schema.org/totalPrice"
-        },
-        "otherChargesCarrier": {
-          "@id": "https://schema.org/discountPrice"
-        },
-        "totalCharge": {
-          "@id": "https://w3id.org/traceability#TotalCharge"
         }
       }
     },
@@ -794,31 +824,6 @@
         }
       }
     },
-    "EcommerceWayBillCommodityContent": {
-      "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityContent",
-      "@context": {
-        "wayBillGrouping": {
-          "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityGroup"
-        },
-        "totalsCommodityContent": {
-          "@id": "https://w3id.org/traceability#EcommerceWayBillTotals"
-        }
-      }
-    },
-    "EcommerceWayBillCommodityGroup": {
-      "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityGroup",
-      "@context": {
-        "commodityItemNumber": {
-          "@id": "https://schema.org/identifier"
-        },
-        "natureQuantityOfGoods": {
-          "@id": "https://schema.org/description"
-        },
-        "totalsCommodityGroup": {
-          "@id": "https://w3id.org/traceability#EcommerceWayBillTotals"
-        }
-      }
-    },
     "EcommerceWayBillRegistrationCredential": {
       "@id": "https://w3id.org/traceability#EcommerceWayBillRegistrationCredential",
       "@context": {
@@ -845,76 +850,6 @@
         },
         "certificateName": {
           "@id": "https://schema.org/name"
-        }
-      }
-    },
-    "EcommerceWayBillRegistrationEvidenceDocument": {
-      "@id": "https://w3id.org/traceability#EcommerceWayBillRegistrationEvidenceDocument",
-      "@context": {
-        "issuanceDate": {
-          "@id": "https://schema.org/dateIssued"
-        },
-        "waybillNumber": {
-          "@id": "https://schema.org/orderNumber"
-        },
-        "waybillType": {
-          "@id": "https://schema.org/DigitalDocument"
-        },
-        "issuer": {
-          "@id": "https://schema.org/Organization"
-        },
-        "shipper": {
-          "@id": "https://schema.org/broker"
-        },
-        "sidNumber": {
-          "@id": "https://schema.org/accountId"
-        },
-        "consignee": {
-          "@id": "https://schema.org/Corporation"
-        },
-        "cidNumber": {
-          "@id": "https://schema.org/identifier"
-        },
-        "issuerAgent": {
-          "@id": "https://w3id.org/traceability#IssuerAgent"
-        },
-        "shippingRoute": {
-          "@id": "https://schema.org/Trip"
-        },
-        "handlingInstructions": {
-          "@id": "https://schema.org/description"
-        },
-        "handlingInstructionsSCI": {
-          "@id": "https://schema.org/Code"
-        },
-        "wayBillCommodityContent": {
-          "@id": "https://w3id.org/traceability#EcommerceWayBillCommodityContent"
-        },
-        "chargeDeclaration": {
-          "@id": "https://w3id.org/traceability#ChargeDeclaration"
-        }
-      }
-    },
-    "EcommerceWayBillTotals": {
-      "@id": "https://w3id.org/traceability#EcommerceWayBillTotals",
-      "@context": {
-        "totalPieces": {
-          "@id": "https://schema.org/Number"
-        },
-        "weight": {
-          "@id": "https://schema.org/weight"
-        },
-        "chargeableWeight": {
-          "@id": "https://schema.org/QuantitativeValue"
-        },
-        "weightUnit": {
-          "@id": "https://schema.org/unitCode"
-        },
-        "rateCharge": {
-          "@id": "https://schema.org/Price"
-        },
-        "totalRateCharge": {
-          "@id": "https://schema.org/totalPrice"
         }
       }
     },
@@ -945,6 +880,20 @@
         }
       }
     },
+    "ForeignChargeDeclaration": {
+      "@id": "https://w3id.org/traceability#ForeignChargeDeclaration",
+      "@context": {
+        "foreignCurrencyConvertionRate": {
+          "@id": "https://schema.org/currentExchangeRate"
+        },
+        "foreignChargesCurrency": {
+          "@id": "https://schema.org/currency"
+        },
+        "foreignCharges": {
+          "@id": "https://schema.org/price"
+        }
+      }
+    },
     "GeoCoordinates": {
       "@id": "https://schema.org/GeoCoordinates",
       "@context": {
@@ -953,6 +902,137 @@
         },
         "longitude": {
           "@id": "https://schema.org/longitude"
+        }
+      }
+    },
+    "IATAAirWaybillCertificate": {
+      "@id": "https://w3id.org/traceability#IATAAirWaybillCertificate",
+      "@context": {
+        "airWaybillNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "waybillType": {
+          "@id": "https://schema.org/DigitalDocument"
+        },
+        "airlineCodeNumber": {
+          "@id": "https://onerecord.iata.org/cargo/Company#airlineCode"
+        },
+        "destinationAirport": {
+          "@id": "https://onerecord.iata.org/cargo/Company#airlineCode"
+        },
+        "serialNumber": {
+          "@id": "https://schema.org/serialNumber"
+        },
+        "airportOfDeparture": {
+          "@id": "https://onerecord.iata.org/cargo/Location#code"
+        },
+        "carrier": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty"
+        },
+        "conditionsOfContract": {
+          "@id": "https://schema.org/termsOfService"
+        },
+        "shipper": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
+        },
+        "shippersAccountNumber": {
+          "@id": "https://schema.org/accountId"
+        },
+        "consigneesAccountNumber": {
+          "@id": "https://schema.org/accountId"
+        },
+        "agentAccountNumber": {
+          "@id": "https://schema.org/accountId"
+        },
+        "consignee": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        },
+        "issuingCarrierAgent": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAgentParty"
+        },
+        "agentIATACode": {
+          "@id": "https://onerecord.iata.org/cargo/Company#iataCargoAgentCode"
+        },
+        "requestedRouting": {
+          "@id": "https://schema.org/Trip"
+        },
+        "requestedFlight": {
+          "@id": "https://schema.org/Flight"
+        },
+        "requestedDate": {
+          "@id": "https://schema.org/Date"
+        },
+        "executedOn": {
+          "@id": "https://schema.org/Date"
+        },
+        "accountingInformation": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#typeCode"
+        },
+        "currency": {
+          "@id": "https://schema.org/currency"
+        },
+        "chargeCodes": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#chargeCategoryCode"
+        },
+        "weightValuationChargesType": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#chargeCategoryCode"
+        },
+        "otherChargesType": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#chargeCategoryCode"
+        },
+        "declaredValueForCarriage": {
+          "@id": "https://schema.org/value"
+        },
+        "amountOfInsurance": {
+          "@id": "https://schema.org/value"
+        },
+        "declaredValueForCustoms": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#customsValueSpecifiedAmount"
+        },
+        "insuranceClauses": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#contractualClause"
+        },
+        "handlingInformation": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#handlingInstructions"
+        },
+        "specialCustomsInformation": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Declaration"
+        },
+        "consignmentRatingDetails": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
+        },
+        "totalNumberOfPieces": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "totalGrossWeight": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
+        },
+        "totalCharge": {
+          "@id": "https://schema.org/totalPrice"
+        },
+        "prepaidTotal": {
+          "@id": "https://schema.org/totalPrice"
+        },
+        "collectTotal": {
+          "@id": "https://schema.org/totalPrice"
+        },
+        "otherCharges": {
+          "@id": "https://schema.org/price"
+        },
+        "prepaidChargeDeclaration": {
+          "@id": "https://w3id.org/traceability#PrepaidChargeDeclaration"
+        },
+        "collectChargeDeclaration": {
+          "@id": "https://w3id.org/traceability#CollectChargeDeclaration"
+        },
+        "destinationCollectChargeDeclaration": {
+          "@id": "https://w3id.org/traceability#DestinationCollectChargeDeclaration"
+        },
+        "shippersCertificationBox": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Certification"
+        },
+        "executedAt": {
+          "@id": "https://schema.org/Place"
         }
       }
     },
@@ -1459,6 +1539,9 @@
         },
         "taxId": {
           "@id": "https://schema.org/taxID"
+        },
+        "iataCarrierCode": {
+          "@id": "https://onerecord.iata.org/cargo/Company#airlineCode"
         }
       }
     },
@@ -1674,7 +1757,7 @@
           "@id": "https://schema.org/PostalAddress"
         },
         "unLocode": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE"
+          "@id": "https://onerecord.iata.org/cargo/Location#code"
         }
       }
     },
@@ -1903,8 +1986,11 @@
     "ShippingStop": {
       "@id": "https://w3id.org/traceability#ShippingStop",
       "@context": {
-        "shippingStopAddress": {
-          "@id": "https://schema.org/PostalAddress"
+        "from": {
+          "@id": "https://schema.org/Place"
+        },
+        "to": {
+          "@id": "https://schema.org/Place"
         },
         "carrier": {
           "@id": "https://schema.org/Organization"
@@ -1946,35 +2032,6 @@
         },
         "shipment": {
           "@id": "https://schema.org/ParcelDelivery"
-        }
-      }
-    },
-    "TotalCharge": {
-      "@id": "https://w3id.org/traceability#TotalCharge",
-      "@context": {
-        "totalPrepaid": {
-          "@id": "https://schema.org/Price"
-        },
-        "totalCollect": {
-          "@id": "https://schema.org/totalPrice"
-        },
-        "sourceCurrency": {
-          "@id": "https://schema.org/priceCurrency"
-        },
-        "destinationCurrency": {
-          "@id": "https://schema.org/currency"
-        },
-        "currencyConversionRate": {
-          "@id": "https://schema.org/ExchangeRateSpecification"
-        },
-        "ccChargesDestinationCurrency": {
-          "@id": "https://schema.org/discountCurrency"
-        },
-        "chargesDestination": {
-          "@id": "https://schema.org/Number"
-        },
-        "totalCollectCharge": {
-          "@id": "https://schema.org/estimatedCost"
         }
       }
     },
@@ -2134,17 +2191,6 @@
     "VerifiableBusinessCard": {
       "@id": "https://w3id.org/traceability#VerifiableBusinessCard",
       "@context": {}
-    },
-    "chargeAndPaymentType": {
-      "@id": "https://w3id.org/traceability#chargeAndPaymentType",
-      "@context": {
-        "chargeCollect": {
-          "@id": "https://schema.org/discountPrice"
-        },
-        "chargePrepaid": {
-          "@id": "https://schema.org/totalPrice"
-        }
-      }
     },
     "ppq203": {
       "@id": "https://w3id.org/traceability#ppq203",
