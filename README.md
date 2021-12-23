@@ -43,6 +43,8 @@ channel automatically.
 
 ```
 npm i
+npm run build
+npm run serve
 ```
 
 See [DEVELOPMENT.md](./DEVELOPMENT.md)

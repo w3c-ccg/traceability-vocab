@@ -5,10 +5,7 @@ const path = require('path');
 
 const { schemas } = require('./help');
 
-const vocabPath = path.resolve(
-  __dirname,
-  '../../../docs/sections/vocab-2.html'
-);
+const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
 
 const baseUrl = 'https://w3id.org/traceability';
 
@@ -79,8 +76,8 @@ const buildVocabSection = (schema) => {
   console.log('🧪 build vocab from schemas');
   const sections = schemas.map(buildVocabSection).join('\n');
   const section = `
-<section id="vocabulary-2" class="normative">
-<h2>Vocabulary 2 (preview) </h2>
+<section id="vocabulary" class="normative">
+<h2>Vocabulary </h2>
 ${sections}
 </section>
   `;
