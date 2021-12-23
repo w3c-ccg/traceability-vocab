@@ -4,14 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-const jsonldSchema = require('@transmute/jsonld-schema');
-const rootTerms = require('../rootTerms.json');
-
 const specPath = path.resolve(__dirname, '../../../docs/openapi/openapi.yml');
-const contextPath = path.resolve(
-  __dirname,
-  '../../../docs/contexts/traceability-v1.1.jsonld'
-);
 
 const apiSpec = yaml.load(fs.readFileSync(specPath, { encoding: 'utf-8' }));
 
