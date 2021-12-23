@@ -1,0 +1,90 @@
+$linkedData:
+  term: OGBillOfLading
+  '@id': https://w3id.org/traceability#OGBillOfLading
+title: Bill of Lading for an Oil and Gas Product
+description: Information on the Inspection and the observations made
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - OGBillOfLading
+  billOfLading:
+    title: Bill Of Lading
+    description: Bill Of Lading
+    $ref: ./BillOfLading.yml
+    $linkedData:
+      term: billOfLading
+      '@id': https://w3id.org/traceability#BillOfLading
+  shippingDate:
+    title: Shipping Date
+    description: Date of shipping
+    type: string
+    $linkedData:
+      term: shippingDate
+      '@id': https://schema.org/DateTime
+  arrivalDate:
+    title: Arrival Date
+    description: Date of arrival.
+    type: string
+    $linkedData:
+      term: arrivalDate
+      '@id': https://schema.org/DateTime
+  valuePerItem:
+    title: Value Per Item
+    description: Value Per Item
+    type: string
+    $linkedData:
+      term: valuePerItem
+      '@id': https://www.schema.org/value
+  totalOrderValue:
+    title: Total Order Value
+    description: Total value of the order
+    type: string
+    $linkedData:
+      term: totalOrderValue
+      '@id': https://www.schema.org/value
+  freightChargeTerms:
+    title: freight Charge Terms
+    description: Terms of the freight charge
+    type: string
+    $linkedData:
+      term: freightChargeTerms
+      '@id': https://www.schema.org/value
+  batchNumber:
+    title: Unique Well Identifier
+    description: Unique Well Identifier used for individual well identification.
+    type: string
+    $linkedData:
+      term: batchNumber
+      '@id': https://schema.org/identifier
+  openingVolume:
+    title: Opening Volume
+    description: Volume at injection
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: openingVolume
+      '@id': https://schema.org/MeasuredValue
+  closingVolume:
+    title: closingVolume
+    description: Volume at closing
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: closingVolume
+      '@id': https://schema.org/MeasuredValue
+  observation:
+    title: Observation List
+    description: >-
+      List of observations as seen and specified in the Inspection Report
+      schema, https://w3id.org/traceability#InspectionReport
+    type: array
+    items:
+      $ref: ./Observation.yml
+    $linkedData:
+      term: observation
+      '@id': https://w3id.org/traceability#observation
+additionalProperties: false
+example: |-
+  {
+
+  }

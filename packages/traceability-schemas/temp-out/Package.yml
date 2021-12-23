@@ -1,0 +1,114 @@
+$linkedData:
+  term: Package
+  '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package
+title: Package
+description: >-
+  Any self-contained wrapping or container within which goods can be contained,
+  such as a box or a barrel which can be filled, partially filled or empty.
+type: object
+required: []
+properties:
+  type:
+    type: string
+    enum:
+      - Package
+  physicalShippingMarks:
+    title: shippingMarks
+    description: >-
+      The identifying details of a package or the actual markings that appear on
+      the package(s). This information is provided by the shipper.
+    type: string
+    $linkedData:
+      term: shippingMarks
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks
+  itemQuantity:
+    title: Item Quantity
+    description: Number of packages.
+    type: string
+    $linkedData:
+      term: name
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity
+  perPackageUnitQuantity:
+    title: perPackageUnitQuantity
+    description: A number of units per package in the package or trade delivery.
+    type: number
+    $linkedData:
+      term: shippingMarks
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity
+  tradeLineItems:
+    title: Included Trade Line Item
+    description: An included trade line item.
+    type: array
+    items:
+      $ref: ./PartOfOrder.yml
+    $linkedData:
+      term: itemsShipped
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem
+  netWeight:
+    title: A measure of the net weight (mass).
+    type: string
+    $linkedData:
+      term: weight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure
+  grossWeight:
+    title: >-
+      A measure of the gross weight (mass) which includes packaging but excludes
+      any transport equipment.
+    type: string
+    $linkedData:
+      term: weight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  weightUnit:
+    title: Weight Unit
+    description: The unit of measure which can be expressed in imperial or metric terms
+    type: string
+    $linkedData:
+      term: weightUnit
+      '@id': https://schema.org/unitCode
+  height:
+    title: Height of the product
+    type: string
+    $linkedData:
+      term: height
+      '@id': https://schema.org/height
+  width:
+    title: Width of the product
+    type: string
+    $linkedData:
+      term: width
+      '@id': https://schema.org/width
+  depth:
+    title: Depth of the Product
+    type: string
+    $linkedData:
+      term: depth
+      '@id': https://schema.org/depth
+  grossVolume:
+    title: Volume
+    description: >-
+      Calculated by multiplying the width, height, and length of the packed
+      cargo.
+    type: number
+    $linkedData:
+      term: volume
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
+  volumeUnit:
+    title: Volume Unit
+    description: >-
+      The unit of measure which can be expressed in either imperial or metric
+      terms
+    type: string
+    $linkedData:
+      term: volumeUnit
+      '@id': https://schema.org/unitCode
+example: |-
+  {
+
+  }

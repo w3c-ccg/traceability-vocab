@@ -82,18 +82,19 @@ const sortObj = (unordered) => {
     path.resolve(__dirname, '../schemas')
   );
 
-  const [firstSchema] = oldSchemas;
-  const fileName = firstSchema.$id
-    .replace('https://w3id.org/traceability/schemas/', '')
-    .replace('.json', '.yml');
-  delete firstSchema.$id;
-  cleanObj(firstSchema);
+  oldSchemas.forEach((oldSchema) => {
+    const fileName = oldSchema.$id
+      .replace('https://w3id.org/traceability/schemas/', '')
+      .replace('.json', '.yml');
+    delete oldSchema.$id;
+    cleanObj(oldSchema);
 
-  const finalSchema = sortObj(firstSchema);
-  finalSchema.example = '{\n\n}';
+    const finalSchema = sortObj(oldSchema);
+    finalSchema.example = '{\n\n}';
 
-  fs.writeFileSync(
-    path.resolve(__dirname, `../temp-out/${fileName}`),
-    yaml.dump(finalSchema)
-  );
+    fs.writeFileSync(
+      path.resolve(__dirname, `../temp-out/${fileName}`),
+      yaml.dump(finalSchema)
+    );
+  });
 })();

@@ -1,0 +1,51 @@
+$linkedData:
+  term: EcommercePackageItem
+  '@id': https://w3id.org/traceability#EcommercePackageItem
+title: EcommercePackageItem
+description: Ecommerce Package Item
+type: object
+required:
+  - productReceiptID
+  - packingListID
+  - orderID
+  - productInOrder
+properties:
+  type:
+    type: string
+    enum:
+      - EcommercePackageItem
+  productReceiptID:
+    title: productReceiptID
+    description: >-
+      The receipt VC ID issued by a shipper/carrier receiving product to be
+      packaged and shipped
+    type: string
+    $linkedData:
+      term: productReceiptID
+      '@id': https://w3id.org/traceability#EcommercePackageItem
+  packingListID:
+    title: packingListID
+    description: The packing list VC IDs issues by the seller
+    type: string
+    $linkedData:
+      term: packingListID
+      '@id': https://schema.org/identifier
+  orderID:
+    title: orderID
+    description: The seller specific Order VC ID
+    type: string
+    $linkedData:
+      term: orderID
+      '@id': https://schema.org/orderNumber
+  productInOrder:
+    title: productInOrder
+    description: Product VC IDs included in the order
+    type: array
+    $linkedData:
+      term: productInOrder
+      '@id': https://schema.org/productID
+additionalProperties: false
+example: |-
+  {
+
+  }

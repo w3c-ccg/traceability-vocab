@@ -1,0 +1,104 @@
+$linkedData:
+  term: EcommerceOrderRegistrationEvidenceDocument
+  '@id': https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument
+title: Order Registration Evidence Document
+description: Evidence data for a registered eCommerce Order
+type: object
+required:
+  - '@context'
+  - orderNumber
+  - orderDate
+  - orderStatus
+  - description
+  - url
+  - seller
+  - broker
+  - customer
+  - paymentDueDate
+  - paymentMethod
+  - orderedItem
+properties:
+  type:
+    type: string
+    enum:
+      - EcommerceOrderRegistrationEvidenceDocument
+  orderNumber:
+    title: Number for eCommerce Order
+    type: string
+    default: ''
+    $linkedData:
+      term: orderNumber
+      '@id': https://schema.org/orderNumber
+  orderDate:
+    title: Date of eCommerce Order
+    type: string
+    default: ''
+    $linkedData:
+      term: orderDate
+      '@id': https://schema.org/DateTime
+  orderStatus:
+    title: Status of eCommerce Order
+    type: string
+    default: ''
+    $linkedData:
+      term: orderStatus
+      '@id': https://schema.org/OrderStatus
+  description:
+    title: Description of the customer order
+    type: string
+    default: ''
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  url:
+    title: Url or the order
+    type: string
+    default: ''
+    $linkedData:
+      term: url
+      '@id': https://schema.org/url
+  seller:
+    title: Seller
+    $ref: ./Organization.yml
+    $linkedData:
+      term: seller
+      '@id': https://schema.org/seller
+  broker:
+    title: Broker
+    $ref: ./Organization.yml
+    $linkedData:
+      term: broker
+      '@id': https://schema.org/broker
+  customer:
+    title: Customer
+    $ref: ./Customer.yml
+    $linkedData:
+      term: customer
+      '@id': https://schema.org/customer
+  paymentDueDate:
+    title: Paymentduedate
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentDueDate
+      '@id': https://schema.org/paymentDueDate
+  paymentMethod:
+    title: Paymentmethod
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentMethod
+      '@id': https://schema.org/paymentMethod
+  orderedItem:
+    title: Ordered Item
+    type: array
+    items:
+      $ref: ./OrderedItem.yml
+    $linkedData:
+      term: orderedItem
+      '@id': https://schema.org/orderedItem
+additionalProperties: false
+example: |-
+  {
+
+  }

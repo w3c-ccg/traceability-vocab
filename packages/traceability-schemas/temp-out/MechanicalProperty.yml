@@ -1,0 +1,39 @@
+$linkedData:
+  term: MechanicalProperty
+  '@id': https://w3id.org/traceability#MechanicalProperty
+title: Mechanical Property
+description: >-
+  A property, used to indicate attributes and relationships of some Thing;
+  equivalent to rdf:Property.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - MechanicalProperty
+  identifier:
+    title: Property Identifier
+    description: Identifiers for a property.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  name:
+    title: Property Name
+    description: The name of the item.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  description:
+    title: Property Description
+    description: The description of the item.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+additionalProperties: false
+example: |-
+  {
+
+  }

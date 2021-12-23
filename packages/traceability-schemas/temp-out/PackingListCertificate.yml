@@ -1,0 +1,114 @@
+$linkedData:
+  term: PackingListCertificate
+  '@id': https://w3id.org/traceability#PackingListCertificate
+title: Packing List Certificate
+description: Evidence data for a registered eCommerce Packing List
+type: object
+required:
+  - '@context'
+  - hasDeliveryMethod
+  - deliveryAddress
+  - provider
+  - originAddress
+  - partOfOrder
+properties:
+  type:
+    type: string
+    enum:
+      - PackingListCertificate
+  deliveryStatus:
+    title: DeliveryStatus
+    type: string
+    default: ''
+    $linkedData:
+      term: deliveryStatus
+      '@id': https://schema.org/deliveryStatus
+  estimatedTimeOfArrival:
+    title: The expected arrival time
+    type: string
+    $linkedData:
+      term: estimatedTimeOfArrival
+      '@id': https://schema.org/arrivalTime
+  hasDeliveryMethod:
+    title: Method of Parcel Delivery
+    type: string
+    default: ''
+    $linkedData:
+      term: hasDeliveryMethod
+      '@id': https://schema.org/hasDeliveryMethod
+  deliveryAddress:
+    title: >-
+      Address of the Shipper/Carrier/Importer to which the provider delivers
+      product for final shipment
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: deliveryAddress
+      '@id': https://schema.org/deliveryAddress
+  provider:
+    title: Provider
+    $ref: ./Organization.yml
+    $linkedData:
+      term: provider
+      '@id': https://schema.org/provider
+  originAddress:
+    title: Address of the Manufacturer/Packer of Parcel
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: originAddress
+      '@id': https://schema.org/originAddress
+  partOfOrder:
+    title: Products in Parcel that are Part of one or more Orders
+    type: array
+    items:
+      $ref: ./PartOfOrder.yml
+    $linkedData:
+      term: partOfOrder
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem
+  totalWeight:
+    title: Weight
+    description: >-
+      The total weight of the cargo including packaging items being carried in
+      the container(s). Excludes the tare weight of the container(s).
+    type: number
+    $linkedData:
+      term: weight
+      '@id': https://schema.org/weight
+  totalWeightUnit:
+    title: Weight Unit
+    description: The unit of measure which can be expressed in imperial or metric terms
+    type: string
+    $linkedData:
+      term: weightUnit
+      '@id': https://schema.org/unitCode
+  totalVolume:
+    title: Volume
+    description: >-
+      Calculated by multiplying the width, height, and length of the packed
+      cargo.
+    type: number
+    $linkedData:
+      term: volume
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
+  totalVolumeUnit:
+    title: Volume Unit
+    description: >-
+      The unit of measure which can be expressed in either imperial or metric
+      terms
+    type: string
+    $linkedData:
+      term: volumeUnit
+      '@id': https://schema.org/unitCode
+  totalNumberOfPackages:
+    title: Number of Packages
+    description: Specifies the number of packages associated with this cargo item
+    type: number
+    $linkedData:
+      term: numberOfPackages
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+example: |-
+  {
+
+  }

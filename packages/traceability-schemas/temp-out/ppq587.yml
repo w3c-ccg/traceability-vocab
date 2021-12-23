@@ -1,0 +1,57 @@
+$linkedData:
+  term: ppq587
+  '@id': https://w3id.org/traceability#ppq587
+title: PPQ 587 Application
+description: >-
+  United States Department of Agriculture Animal and Plant Health Inspection
+  Service.  Application for permit to import plants or plant products.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - ppq587
+  signatureDate:
+    title: signatureDate
+    description: Date when the inspection was signed by the inspection officer.
+    type: string
+    $linkedData:
+      term: signatureDate
+      '@id': https://w3id.org/traceability#signatureDate
+      '@type': http://www.w3.org/2001/XMLSchema#dateTime
+  facility:
+    title: Facility
+    description: Information on the inspection facility.
+    $ref: ./Place.yml
+    $linkedData:
+      term: facility
+      '@id': https://www.gs1.org/voc/Place
+  shipment:
+    title: Shipment
+    description: Details for a shipment of agricultural goods.
+    $ref: ./AgParcelDelivery.yml
+    $linkedData:
+      term: shipment
+      '@id': https://schema.org/AgParcelDelivery
+  applicant:
+    title: Applicant
+    description: Entity that is applying for the inspection.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: applicant
+      '@id': https://w3id.org/traceability#dfn-entities
+  intendedUse:
+    title: Intended Use
+    description: >-
+      The intended use for the imported products.  Most commonly in ppq587 this
+      would be 'plants for planting,' 'small lots of seed', and 'fruits and
+      vegetables.'
+    type: string
+    $linkedData:
+      term: intendedUse
+      '@id': https://w3id.org/traceability#intendedUse
+additionalProperties: false
+example: |-
+  {
+
+  }

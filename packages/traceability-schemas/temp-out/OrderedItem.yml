@@ -1,0 +1,56 @@
+$linkedData:
+  term: OrderedItem
+  '@id': https://w3id.org/traceability#OrderedItem
+title: Order Item Record
+description: Order Item Record based on orderedItem from schema.org
+type: object
+required:
+  - type
+  - name
+  - productID
+  - orderQuantity
+properties:
+  type:
+    type: string
+    enum:
+      - OrderedItem
+  name:
+    title: Name
+    type: string
+    default: ''
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  productID:
+    title: Product Id
+    type: string
+    default: ''
+    $linkedData:
+      term: productID
+      '@id': https://schema.org/productID
+  unitPrice:
+    title: UnitPrice
+    type: number
+    default: 0
+    $linkedData:
+      term: unitPrice
+      '@id': https://schema.org/PriceSpecification
+  orderQuantity:
+    title: Qrder Quantity
+    type: number
+    default: ''
+    $linkedData:
+      term: orderQuantity
+      '@id': https://schema.org/orderQuantity
+  price:
+    title: Price
+    type: number
+    default: 0
+    $linkedData:
+      term: price
+      '@id': https://schema.org/Price
+additionalProperties: false
+example: |-
+  {
+
+  }

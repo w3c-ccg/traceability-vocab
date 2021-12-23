@@ -1,0 +1,57 @@
+$linkedData:
+  term: CargoLineItem
+  '@id': https://w3id.org/traceability#CargoLineItem
+title: Cargo Line Item
+description: Identifies the specific details of packages within a cargo item.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - CargoLineItem
+  cargoLineItemID:
+    title: cargoLineItemID
+    description: >-
+      Identifies the cargo line item (package) within the cargo. The cargo line
+      item ID is provided by the shipper and is used to define the stuffing.
+      Cargo line items belonging to the same cargo items are stuffed in the same
+      container.
+    type: string
+    $linkedData:
+      term: cargoLineItemID
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItemID
+  shippingMarks:
+    title: shippingMarks
+    description: >-
+      The identifying details of a package or the actual markings that appear on
+      the package(s). This information is provided by the shipper.
+    type: string
+    $linkedData:
+      term: shippingMarks
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks
+  descriptionOfGoods:
+    title: Description of Goods
+    description: >-
+      The cargo description are details which accurately and properly describe
+      the cargo being shipped in the container(s) as provided by the shipper.
+    type: string
+    $linkedData:
+      term: descriptionOfGoods
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/descriptionOfGoods
+  HSCode:
+    title: HS Code
+    description: Used by customs to classify the product being shipped.
+    type: string
+    $linkedData:
+      term: HSCode
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/HSCode
+required:
+  - shippingMarks
+example: |-
+  {
+
+  }

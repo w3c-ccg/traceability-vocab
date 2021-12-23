@@ -1,0 +1,61 @@
+$linkedData:
+  term: ChargeDeclaration
+  '@id': https://w3id.org/traceability#ChargeDeclaration
+title: Charge Declaration
+description: Charge Declaration definition based on IATA electronic Air Waybill.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - ChargeDeclaration
+  weightCharge:
+    title: Weight Charge
+    description: The weight/volume charge for air carriage. Box 24A and 24B.
+    type: string
+    $linkedData:
+      term: weightCharge
+      '@id': https://schema.org/price
+  valuationCharge:
+    title: Valuation Charge
+    description: The valuation charge. Box 25A and 25B.
+    type: string
+    $linkedData:
+      term: valuationCharge
+      '@id': https://schema.org/price
+  tax:
+    title: Tax
+    description: Any applicable tax. Box 26A and 26B.
+    type: string
+    $linkedData:
+      term: tax
+      '@id': https://schema.org/price
+  dueAgent:
+    title: Due Agent
+    description: The total disbursements due to agent. Box 27A and 27B.
+    type: string
+    $linkedData:
+      term: dueAgent
+      '@id': https://schema.org/price
+  dueCarrier:
+    title: Due Carrier
+    description: The total disbursements due to carrier. Box 28A and 28B.
+    type: string
+    $linkedData:
+      term: dueCarrier
+      '@id': https://schema.org/price
+  total:
+    title: Total Collect
+    description: >-
+      The total of all the charges, i.e., weight/volume charge, valuation
+      charge, other charges due carrier and agent, and, if applicable, tax. Box
+      30A and 30B.
+    type: string
+    $linkedData:
+      term: total
+      '@id': https://schema.org/totalPrice
+additionalProperties: false
+example: |-
+  {
+
+  }

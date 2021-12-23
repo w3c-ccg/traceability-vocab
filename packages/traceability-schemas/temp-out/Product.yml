@@ -1,0 +1,118 @@
+$linkedData:
+  term: Product
+  '@id': https://schema.org/Product
+title: Product
+description: A product
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - Product
+  manufacturer:
+    title: Manufacturer
+    description: The entity manufacturing the product.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: manufacturer
+      '@id': https://schema.org/manufacturer
+  name:
+    title: Name
+    description: Name of the shipment item(s)
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  description:
+    title: Description
+    description: Description of the shipment.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  category:
+    title: Category
+    description: A category for the item.
+    type: string
+    $linkedData:
+      term: category
+      '@id': https://schema.org/category
+  sizeOrAmount:
+    title: Size or Amount
+    description: The size or amount of the product
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: sizeOrAmount
+      '@id': https://schema.org/size
+  weight:
+    title: Weight
+    description: Weight of the product.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: weight
+      '@id': https://schema.org/weight
+  depth:
+    title: Depth
+    description: The depth of the item.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: depth
+      '@id': https://schema.org/depth
+  width:
+    title: Width
+    description: The width of the item.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: width
+      '@id': https://schema.org/width
+  height:
+    title: Height
+    description: The height of the item.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: height
+      '@id': https://schema.org/height
+  quantity:
+    title: Quantity
+    description: The quantity of the product contained by a package.
+    type: string
+    $linkedData:
+      term: quantity
+      '@id': https://www.gs1.org/voc/netContent
+  packagingType:
+    title: Packaging Type
+    description: Links to details about packaging material type, quantity and thickness
+    type: string
+    $linkedData:
+      term: packagingType
+      '@id': https://www.gs1.org/voc/packagingMaterial
+  priceSpecification:
+    title: Price Specification
+    description: >-
+      One or more detailed price specifications, indicating the unit price and
+      delivery or payment charges.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: priceSpecification
+      '@id': https://schema.org/priceSpecification
+  sku:
+    title: Sku Number
+    description: >-
+      The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
+      product or service, or for the product to which the offer refers.
+    type: string
+    $linkedData:
+      term: sku
+      '@id': https://schema.org/sku
+  commodity:
+    title: Commodity
+    description: Product commodity code, codification system and description
+    $ref: ./Commodity.yml
+    $linkedData:
+      term: commodity
+      '@id': https://w3id.org/traceability#Commodity
+additionalProperties: false
+example: |-
+  {
+
+  }

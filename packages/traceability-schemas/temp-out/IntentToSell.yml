@@ -1,0 +1,62 @@
+$linkedData:
+  term: IntentToSell
+  '@id': https://w3id.org/traceability#IntentToSell
+title: IntentToSell
+description: >-
+  A simple case where an entity (person or organization) wishes to notify some
+  third party that they intend to sell some product, likely into a different
+  geographic region than in originated in.  This is a highly simplified version
+  of an LOI that can be used to identify and declare intent earlier in the
+  process than would be possible otherwise.  This object may be easily
+  subclassed for extension with other data for other cases where additional
+  regulatory data may be required
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - IntentToSell
+  seller:
+    title: Seller
+    description: >-
+      Entity that is declaring their intention for a product to be used at a
+      different location than where it was created.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: seller
+      '@id': https://w3id.org/traceability#Entity
+  purchaser:
+    title: Purchaser
+    description: >-
+      Entity that is expected to receive some amount of the product, though
+      possibly a reseller.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: purchaser
+      '@id': https://w3id.org/traceability#Entity
+  product:
+    title: Product
+    description: Product details as specified in the Product.json schema
+    $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://www.gs1.org/voc/Product
+  declarationDate:
+    title: Declaration Date
+    description: Date intention is delcared.
+    type: string
+    $linkedData:
+      term: declarationDate
+      '@id': https://schema.org/DateTime
+  sellByDate:
+    title: Sell By Date
+    description: Date delcared as a non-binding target to sell product by.
+    type: string
+    $linkedData:
+      term: sellByDate
+      '@id': https://schema.org/DateTime
+additionalProperties: false
+example: |-
+  {
+
+  }

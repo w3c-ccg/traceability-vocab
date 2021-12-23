@@ -1,0 +1,83 @@
+$linkedData:
+  term: AgProduct
+  '@id': https://w3id.org/traceability#AgProduct
+title: AgProduct
+description: >-
+  An agricultural product, extending the Product.json schema.  This schema
+  accounts for the FDA lebeling data requirements at the crate level as
+  specified here:
+  https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - AgProduct
+  upc:
+    title: UPC Number
+    description: >-
+      UPC (aka UPC-A) consists of 12 numeric digits that are uniquely assigned
+      to each trade item. Along with the related EAN barcode, the UPC is the
+      barcode mainly used for scanning of trade items at the point of sale, per
+      GS1 specifications.
+    type: string
+    $linkedData:
+      term: upc
+      '@id': https://www.gs1.org/standards/barcodes/ean-upc
+  plu:
+    title: PLU Number
+    description: >-
+      PLUs are a system of numbers that uniquely identify bulk produce sold in
+      grocery stores and supermarkets.  See the following link for further
+      information: https://www.pma.com/content/articles/2014/05/plu-codes
+    type: string
+    $linkedData:
+      term: plu
+      '@id': https://w3id.org/traceability#plu
+  gtin:
+    title: GTIN Code
+    description: >-
+      Global Trade Item Number (GTIN) can be used by a company to uniquely
+      identify all of its trade items.
+    type: string
+    $linkedData:
+      term: gtin
+      '@id': https://www.gs1.org/voc/gtin
+  product:
+    title: Product
+    description: Product details as specified in the Product.json schema
+    $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://www.gs1.org/voc/Product
+  scientificName:
+    title: Scientific Name
+    description: >-
+      The scientific classification of the agricultural product.  Each plant has
+      a scientific name comprised of a binomial which indicates the genus and
+      specific identifier of the plant.
+    type: string
+    $linkedData:
+      term: scientificName
+      '@id': https://w3id.org/traceability#scientificName
+  labelImageUrl:
+    title: Label Image URL
+    description: Image of the package label
+    type: string
+    $linkedData:
+      term: labelImageUrl
+      '@id': https://schema.org/url
+  labelImageHash:
+    title: Label Image Hash
+    description: >-
+      Hash value for securely identifying the label image.  More information can
+      be found at the following link: https://cybersecurityglossary.com/hashing
+    type: string
+    $linkedData:
+      term: labelImageHash
+      '@id': https://w3id.org/traceability#labelImageHash
+additionalProperties: false
+example: |-
+  {
+
+  }

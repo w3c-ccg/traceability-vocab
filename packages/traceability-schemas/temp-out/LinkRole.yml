@@ -1,0 +1,30 @@
+$linkedData:
+  term: LinkRole
+  '@id': https://schema.org/LinkRole
+title: Link Role
+description: A Role that represents a Web link e.g. as expressed via the 'url' property.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - LinkRole
+  target:
+    title: Target
+    description: An entry point, within some Web-based protocol.
+    type: string
+    $linkedData:
+      term: target
+      '@id': https://schema.org/target
+  linkRelationship:
+    title: Link Relationship
+    description: Indicates the relationship type of a link.
+    type: string
+    $linkedData:
+      term: linkRelationship
+      '@id': https://schema.org/linkRelationship
+additionalProperties: false
+example: |-
+  {
+
+  }

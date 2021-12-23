@@ -1,0 +1,90 @@
+$linkedData:
+  term: AgParcelDelivery
+  '@id': https://w3id.org/traceability#AgParcelDelivery
+title: Ag Parcel Delivery
+description: Details on a shipment or delivery.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - AgParcelDelivery
+  deliveryAddress:
+    title: Delivery Address
+    description: Final destination address to which the shipment is being sent.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: deliveryAddress
+      '@id': https://schema.org/deliveryAddress
+  originAddress:
+    title: Origin Address
+    description: Address from where the shipment was sent.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: originAddress
+      '@id': https://schema.org/originAddress
+  foreignPortExport:
+    title: Foreign Port of Export
+    description: Foreign port through which the shipment will pass as an export.
+    $ref: ./Place.yml
+    $linkedData:
+      term: foreignPortExport
+      '@id': https://w3id.org/traceability#foreignPortExport
+  portOfEntry:
+    title: Port of Entry
+    description: US port through which the imports passed.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfEntry
+      '@id': https://w3id.org/traceability#portOfEntry
+  deliveryMethod:
+    title: Delivery Method
+    description: The means of transportation used in delivering the shipment.
+    type: string
+    $linkedData:
+      term: deliveryMethod
+      '@id': https://schema.org/DeliveryMethod
+  trackingNumber:
+    title: Tracking Number
+    description: Shipper tracking number.
+    type: string
+    $linkedData:
+      term: trackingNumber
+      '@id': https://schema.org/trackingNumber
+  expectedArrival:
+    title: Expected Arrival
+    description: The earliest date the package may arrive.
+    type: string
+    $linkedData:
+      term: expectedArrival
+      '@id': https://schema.org/expectedArrivalFrom
+  specialInstructions:
+    title: Special Instructions
+    description: Instructions for freight handlers
+    type: string
+    $linkedData:
+      term: specialInstructions
+      '@id': https://schema.org/comment
+  consignee:
+    title: Consignee
+    description: >-
+      The consignee is the entity who is financially responsible for the receipt
+      of a shipment.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignee
+      '@id': https://schema.org/Organization
+  AgPackage:
+    title: Packages of items being shipped
+    description: Item(s) being shipped.
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: AgPackage
+      '@id': https://w3id.org/traceability#AgPackage
+additionalProperties: false
+example: |-
+  {
+
+  }

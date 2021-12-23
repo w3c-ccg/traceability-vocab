@@ -1,0 +1,51 @@
+$linkedData:
+  term: MillTestReport
+  '@id': https://w3id.org/traceability#MillTestReport
+title: Mill Test Report
+description: Test results made by a manufacturer of a metal product.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - MillTestReport
+  manufacturer:
+    title: Manufacturer
+    description: The manufacturer
+    $ref: ./Organization.yml
+    $linkedData:
+      term: manufacturer
+      '@id': https://schema.org/Organization
+  product:
+    title: Product
+    description: Product details
+    $ref: ./SteelProduct.yml
+    $linkedData:
+      term: product
+      '@id': https://w3id.org/traceability#SteelProduct
+  purchase:
+    title: Purchase
+    description: Purchase details
+    $ref: ./Purchase.yml
+    $linkedData:
+      term: purchase
+      '@id': https://w3id.org/traceability#Purchase
+  shipment:
+    title: Shipment
+    description: Shipment details
+    $ref: ./ParcelDelivery.yml
+    $linkedData:
+      term: shipment
+      '@id': https://schema.org/ParcelDelivery
+required:
+  - '@context'
+  - type
+  - manufacturer
+  - product
+  - purchase
+  - shipment
+additionalProperties: false
+example: |-
+  {
+
+  }

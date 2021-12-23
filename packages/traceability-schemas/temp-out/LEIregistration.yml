@@ -1,0 +1,68 @@
+$linkedData:
+  term: LEIregistration
+  '@id': https://w3id.org/traceability#LEIregistration
+title: LEIregistration
+description: GLEIF LEI Redord Level 1 Schema for LEI Registration
+type: object
+required:
+  - initialRegistrationDate
+  - lastUpdateDate
+  - status
+  - nextRenewalDate
+  - managingLou
+  - validationSources
+  - validationAuthority
+properties:
+  type:
+    type: string
+    enum:
+      - LEIregistration
+  initialRegistrationDate:
+    title: Initialregistrationdate
+    type: string
+    $linkedData:
+      term: initialRegistrationDate
+      '@id': https://schema.org/dateIssued
+  lastUpdateDate:
+    title: Lastupdatedate
+    type: string
+    $linkedData:
+      term: lastUpdateDate
+      '@id': https://schema.org/dateModified
+  status:
+    title: Status
+    type: string
+    $linkedData:
+      term: status
+      '@id': https://schema.org/status
+  nextRenewalDate:
+    title: Nextrenewaldate
+    type: string
+    $linkedData:
+      term: nextRenewalDate
+      '@id': https://schema.org/validThrough
+  managingLou:
+    title: Managinglou
+    type: string
+    $linkedData:
+      term: managingLou
+      '@id': https://www.gleif.org/en/about-lei/iso-17442-the-lei-code-structure#
+  validationSources:
+    title: validationSources
+    type: string
+    $linkedData:
+      term: validationSources
+      '@id': https://schema.org/eventStatus
+  validationAuthority:
+    title: validationAuthority
+    type: array
+    items:
+      $ref: ./LEIauthority.yml
+    $linkedData:
+      term: validationAuthority
+      '@id': https://w3id.org/traceability#LEIauthority
+additionalProperties: false
+example: |-
+  {
+
+  }

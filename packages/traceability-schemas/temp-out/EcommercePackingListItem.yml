@@ -1,0 +1,33 @@
+$linkedData:
+  term: EcommercePackingListItem
+  '@id': https://w3id.org/traceability#EcommercePackingListItem
+title: EcommercePackingListItem
+description: Ecommerce Packing List Item
+type: object
+required:
+  - orderID
+  - productInOrder
+properties:
+  type:
+    type: string
+    enum:
+      - EcommercePackingListItem
+  orderID:
+    title: orderID
+    description: The seller specific Order VC ID
+    type: string
+    $linkedData:
+      term: orderID
+      '@id': https://schema.org/orderNumber
+  productInOrder:
+    title: productInOrder
+    description: Product VC IDs included in the order
+    type: array
+    $linkedData:
+      term: productInOrder
+      '@id': https://schema.org/productID
+additionalProperties: false
+example: |-
+  {
+
+  }

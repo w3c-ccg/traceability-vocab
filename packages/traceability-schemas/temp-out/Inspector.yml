@@ -1,0 +1,30 @@
+$linkedData:
+  term: Inspector
+  '@id': https://w3id.org/traceability#Inspector
+title: Inspector
+description: Information on the person performing an inspection
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - Inspector
+  person:
+    title: Person
+    description: Person doing the inspection.
+    $ref: ./Person.yml
+    $linkedData:
+      term: person
+      '@id': https://schema.org/Person.json
+  qualification:
+    title: Qualification List
+    description: List of qualifications relevant to the inspection.
+    type: array
+    $linkedData:
+      term: qualification
+      '@id': https://w3id.org/traceability#qualification
+additionalProperties: false
+example: |-
+  {
+
+  }

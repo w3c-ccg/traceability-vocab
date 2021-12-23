@@ -1,0 +1,87 @@
+$linkedData:
+  term: AgPackage
+  '@id': https://w3id.org/traceability#AgPackage
+title: AgPackage
+description: >-
+  A package (container, crate, etc.) which holds agricultural products. The
+  contents or the package itself should meet the requirements as specified here:
+  https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - AgPackage
+  packageName:
+    title: Package Name
+    description: Name of the items within the package.
+    type: string
+    $linkedData:
+      term: packageName
+      '@id': https://schema.org/name
+  grade:
+    title: Food Grade
+    description: >-
+      Grade of the agricultural products contained within the package.  The
+      following link contains more information on USDA food grading:
+      https://www.ams.usda.gov/grades-standards
+    type: string
+    $linkedData:
+      term: grade
+      '@id': https://w3id.org/traceability#grade
+  responsibleParty:
+    title: Responsible Party
+    description: Entity that produced and packaged the products.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: responsibleParty
+      '@id': https://w3id.org/traceability#responsibleParty
+  voicePickCode:
+    title: Voice Pick Code
+    description: >-
+      A four digit code digest of the GTIN code and Lot Code for use in
+      integrating with voice picking systems. See the following PDF for more
+      information:
+      https://www.produceinventory.com/files/newsroom/Voice-Pick-Code.pdf
+    type: string
+    $linkedData:
+      term: voicePickCode
+      '@id': https://w3id.org/traceability#voicePickCode
+  date:
+    title: Packing, Harvest, or Best By Date
+    description: >-
+      Human readable date describing the date the package was packed, harvested,
+      or is 'best by.'
+    type: string
+    $linkedData:
+      term: date
+      '@id': https://schema.org/DateTime
+  labelImageUrl:
+    title: Label Image URL
+    description: Image of the package label
+    type: string
+    $linkedData:
+      term: labelImageUrl
+      '@id': https://schema.org/url
+  labelImageHash:
+    title: Label Image Hash
+    description: Hash value for securely identifying the label image
+    type: string
+    $linkedData:
+      term: labelImageHash
+      '@id': https://w3id.org/traceability#labelImageHash
+  agProduct:
+    title: Product List
+    description: List of agricultural products contained within this package.
+    type: array
+    items:
+      $ref: ./AgProduct.yml
+    $linkedData:
+      term: agProduct
+      '@id': https://schema.org/ItemList
+      '@type': https://schema.org/ItemList
+additionalProperties: false
+example: |-
+  {
+
+  }

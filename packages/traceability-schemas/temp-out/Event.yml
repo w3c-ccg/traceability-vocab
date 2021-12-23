@@ -1,0 +1,63 @@
+$linkedData:
+  term: Event
+  '@id': https://schema.org/Event
+title: Organization
+description: An event such as a transformation, aggregation, commission, etc.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - Event
+  eventType:
+    title: Event Type
+    description: The Type of the Event.
+    type: string
+    $linkedData:
+      term: eventType
+      '@id': https://schema.org/value
+  eventId:
+    title: Event Identifier
+    description: The Identifier of the Event.
+    type: string
+    $linkedData:
+      term: eventId
+      '@id': https://schema.org/identifier
+  actor:
+    title: Actor
+    description: The organization performing the activity.
+    type: array
+    items:
+      $ref: ./Entity.yml
+    $linkedData:
+      term: actor
+      '@id': https://w3id.org/traceability#Organization
+      '@type': https://schema.org/ItemList
+  place:
+    title: Event Location
+    description: The location where the event took place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+  eventTime:
+    title: Event Time
+    description: The time when the event took place.
+    type: string
+    $linkedData:
+      term: eventTime
+      '@id': https://schema.org/DateTime
+  products:
+    title: Products
+    description: The products referenced by the event.
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: products
+      '@id': https://schema.org/Product
+additionalProperties: false
+example: |-
+  {
+
+  }

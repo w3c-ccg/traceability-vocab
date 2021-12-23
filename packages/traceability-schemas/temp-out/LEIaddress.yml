@@ -1,0 +1,80 @@
+$linkedData:
+  term: LEIaddress
+  '@id': https://w3id.org/traceability#LEIaddress
+title: LEIaddress
+description: GLEIF LEI Redord Level 1 Schema for LEI Address
+type: object
+required:
+  - addressLines
+  - city
+  - region
+  - country
+  - postalCode
+properties:
+  type:
+    type: string
+    enum:
+      - LEIaddress
+  language:
+    title: Language
+    type: string
+    default: null
+    $linkedData:
+      term: language
+      '@id': https://schema.org/Language
+  addressLines:
+    title: Addresslines
+    type: array
+    $linkedData:
+      term: addressLines
+      '@id': https://schema.org/streetAddress
+  addressNumber:
+    title: Addressnumber
+    type: string
+    default: null
+    $linkedData:
+      term: addressNumber
+      '@id': https://schema.org/Number
+  addressNumberWithinBuilding:
+    title: Addressnumberwithinbuilding
+    type: string
+    default: null
+    $linkedData:
+      term: addressNumberWithinBuilding
+      '@id': https://schema.org/value
+  mailRouting:
+    title: Mailrouting
+    type: string
+    default: null
+    $linkedData:
+      term: mailRouting
+      '@id': https://schema.org/Trip
+  city:
+    title: City
+    type: string
+    $linkedData:
+      term: city
+      '@id': https://schema.org/addressLocality
+  region:
+    title: Region
+    type: string
+    $linkedData:
+      term: region
+      '@id': https://schema.org/addressRegion
+  country:
+    title: Country
+    type: string
+    $linkedData:
+      term: country
+      '@id': https://schema.org/addressCountry
+  postalCode:
+    title: Postalcode
+    type: string
+    $linkedData:
+      term: postalCode
+      '@id': https://schema.org/postalCode
+additionalProperties: false
+example: |-
+  {
+
+  }

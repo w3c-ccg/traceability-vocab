@@ -1,0 +1,108 @@
+$linkedData:
+  term: EcommerceInvoiceRegistrationEvidenceDocument
+  '@id': https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument
+title: Invoice Registration Evidence Document
+description: Evidence data for a registered eCommerce Invoice
+type: object
+required:
+  - '@context'
+  - identifier
+  - description
+  - url
+  - broker
+  - accountId
+  - customer
+  - paymentDueDate
+  - totalPaymentDue
+  - paymentStatus
+  - provider
+  - referencesOrder
+properties:
+  type:
+    type: string
+    enum:
+      - EcommerceInvoiceRegistrationEvidenceDocument
+  identifier:
+    title: Identifier
+    type: string
+    default: ''
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  description:
+    title: Description of customer invoice
+    type: string
+    default: ''
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  url:
+    title: Url or the order
+    type: string
+    default: ''
+    $linkedData:
+      term: url
+      '@id': https://schema.org/url
+  broker:
+    title: Broker
+    $ref: ./Organization.yml
+    $linkedData:
+      term: broker
+      '@id': https://schema.org/broker
+  accountId:
+    title: Accountid
+    type: string
+    default: ''
+    $linkedData:
+      term: accountId
+      '@id': https://schema.org/accountId
+  customer:
+    title: Customer
+    $ref: ./Customer.yml
+    $linkedData:
+      term: customer
+      '@id': https://schema.org/customer
+  paymentDueDate:
+    title: Paymentduedate
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentDueDate
+      '@id': https://schema.org/paymentDueDate
+  totalPaymentDue:
+    title: Totalpaymentdue
+    type: number
+    $linkedData:
+      term: totalPaymentDue
+      '@id': https://schema.org/totalPaymentDue
+  totalPaymentDueCurrency:
+    title: TotalpaymentdueCurrency
+    type: string
+    $linkedData:
+      term: totalPaymentDueCurrency
+      '@id': https://schema.org/currency
+  paymentStatus:
+    title: Paymentstatus
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentStatus
+      '@id': https://schema.org/paymentStatus
+  provider:
+    title: Provider
+    $ref: ./Organization.yml
+    $linkedData:
+      term: provider
+      '@id': https://schema.org/provider
+  referencesOrder:
+    title: Referencesorder
+    type: array
+    items:
+      $ref: ./EcommerceOrderRegistrationEvidenceDocument.yml
+    $linkedData:
+      term: referencesOrder
+      '@id': https://schema.org/referencesOrder
+example: |-
+  {
+
+  }

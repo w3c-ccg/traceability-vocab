@@ -1,0 +1,138 @@
+$linkedData:
+  term: Inbond
+  '@id': https://w3id.org/traceability#Inbond
+title: Inbond
+description: ''
+type: object
+properties:
+  id:
+    type: string
+  issuanceDate:
+    type: string
+  credentialSubject:
+    type: object
+  issuer:
+    oneOf:
+      - type: string
+      - type: object
+  type:
+    type: string
+    enum:
+      - Inbond
+  product:
+    title: Product
+    description: Product details as outlined in the Product.json schema
+    $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://www.gs1.org/voc/Product
+  shipment:
+    title: Shipment
+    description: Details for a shipment of goods.
+    $ref: ./ParcelDelivery.yml
+    $linkedData:
+      term: shipment
+      '@id': https://schema.org/ParcelDelivery
+  inBondNumber:
+    title: InBond Number
+    description: Identifier for the individual InBond
+    type: string
+    $linkedData:
+      term: inBondNumber
+      '@id': https://w3id.org/identifier
+  entryId:
+    title: Entry ID
+    description: ACE entry summary unique identifier
+    type: string
+    $linkedData:
+      term: entryId
+      '@id': https://w3id.org/identifier
+  ftzNo:
+    title: FTZ Number
+    description: ACE admission no. into an FTZ zone
+    type: string
+    $linkedData:
+      term: ftzNo
+      '@id': https://w3id.org/identifier
+  inBondType:
+    title: InBond Type
+    description: Type of InBond
+    type: string
+    $linkedData:
+      term: inBondType
+      '@id': https://w3id.org/identifier
+  portOfEntry:
+    title: Port of Entry
+    description: Port of Entry declared in US
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfEntry
+      '@id': https://www.gs1.org/voc/Place
+  portOfDestination:
+    title: Port of final destination
+    description: Port of Final destination in the US
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfDestination
+      '@id': https://www.gs1.org/voc/Place
+  portOfArrival:
+    title: Port of Entry
+    description: Port of Arrival into US
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfArrival
+      '@id': https://www.gs1.org/voc/Place
+  carrier:
+    title: Carrier
+    description: Entity responsible for transporting product
+    $ref: ./Entity.yml
+    $linkedData:
+      term: carrier
+      '@id': https://w3id.org/traceability#Entity
+  irsNumber:
+    title: IRS Number
+    description: Number for identification with IRS
+    type: string
+    $linkedData:
+      term: irsNumber
+      '@id': https://w3id.org/identifier
+  recipient:
+    title: Recipient
+    description: Entity that will recieve product
+    $ref: ./Entity.yml
+    $linkedData:
+      term: recipient
+      '@id': https://w3id.org/traceability#Entity
+  billOfLadingNumber:
+    title: BOL
+    description: Identifier for the individual BOL
+    type: string
+    $linkedData:
+      term: billOfLadingNumber
+      '@id': https://w3id.org/identifier
+  expectedDeliveryDate:
+    title: Expected Delivery Date
+    description: Date when the product is expected to arrive
+    type: string
+    $linkedData:
+      term: expectedDeliveryDate
+      '@id': https://schema.org/DateTime
+  valuePerItem:
+    title: Value Per Item
+    description: Total Value Per Item
+    type: string
+    $linkedData:
+      term: valuePerItem
+      '@id': https://schema.org/PriceSpecification
+  totalOrderValue:
+    title: totalOrderValue
+    description: Total Value Per Item
+    type: string
+    $linkedData:
+      term: totalOrderValue
+      '@id': https://schema.org/PriceSpecification
+additionalProperties: false
+example: |-
+  {
+
+  }

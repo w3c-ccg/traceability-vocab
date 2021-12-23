@@ -1,0 +1,72 @@
+$linkedData:
+  term: NaturalGasProduct
+  '@id': https://w3id.org/traceability#NaturalGasProduct
+title: Natural Gas Product
+description: Tombstone information regarding a natural gas product
+type: object
+properties:
+  id:
+    type: string
+  issuanceDate:
+    type: string
+  credentialSubject:
+    type: object
+  issuer:
+    oneOf:
+      - type: string
+      - type: object
+  type:
+    type: string
+    enum:
+      - NaturalGasProduct
+  product:
+    title: Product
+    description: Product details as outlined in the Product.json schema
+    $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://www.gs1.org/voc/Product
+  facility:
+    title: Manufacture Facility
+    description: Information on the manufacture facility.
+    $ref: ./Place.yml
+    $linkedData:
+      term: facility
+      '@id': https://www.gs1.org/voc/Place
+  UWI:
+    title: Unique Well Identifier
+    description: Unique Well Identifier used for individual well identification.
+    type: string
+    $linkedData:
+      term: UWI
+      '@id': https://schema.org/identifier
+  HSCode:
+    title: HSCode
+    description: Defines the Harmonized System Code for the Commodity
+    type: string
+    $linkedData:
+      term: HSCode
+      '@id': https://w3id.org/identifier
+  productionDate:
+    title: Production Date
+    description: Date when the product was created
+    type: string
+    $linkedData:
+      term: productionDate
+      '@id': https://schema.org/DateTime
+  observation:
+    title: Observation List
+    description: >-
+      List of observations as seen and specified in the Inspection Report
+      schema, https://w3id.org/traceability#InspectionReport
+    type: array
+    items:
+      $ref: ./Observation.yml
+    $linkedData:
+      term: observation
+      '@id': https://w3id.org/traceability#observation
+additionalProperties: false
+example: |-
+  {
+
+  }

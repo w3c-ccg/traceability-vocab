@@ -1,0 +1,37 @@
+$linkedData:
+  term: GeoCoordinates
+  '@id': https://schema.org/GeoCoordinates
+title: Geographic Coordinates
+description: The geographic coordinates of a place or event.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - GeoCoordinates
+  latitude:
+    title: Latitude
+    description: >-
+      Angular distance North or South from the earth's equator measured through
+      90 degrees.
+    type: string
+    $linkedData:
+      term: latitude
+      '@id': https://schema.org/latitude
+  longitude:
+    title: Longitude
+    description: >-
+      The arc or portion of the earth's equator intersected between the meridian
+      of a given place and the prime meridian and expressed in degrees.
+    type: string
+    $linkedData:
+      term: longitude
+      '@id': https://schema.org/longitude
+required:
+  - latitude
+  - longitude
+additionalProperties: false
+example: |-
+  {
+
+  }

@@ -1,0 +1,60 @@
+$linkedData:
+  term: Seal
+  '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Seal
+title: Seal
+description: >-
+  addresses the seal-related information associated with the shipment equipment.
+  A seal is put on a shipment equipment once it is loaded. This seal is meant to
+  stay on until the shipment equipment reaches its final destination.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - Seal
+  sealNumber:
+    title: Seal Number
+    description: Identifies a seal affixed to the container.
+    type: string
+    $linkedData:
+      term: equipmentReference
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#seal_number
+  sealSource:
+    title: Seal Source
+    description: >-
+      The source of the seal, namely who has affixed the seal. This attribute
+      links to the Seal Source ID defined in the Seal Source reference data
+      entity. CAR (Carrier), SHI (Shipper), PHY (Phytosanitary), VET
+      (Veterinary), CUS (Customs)
+    enum:
+      - CAR
+      - SHI
+      - PHY
+      - VET
+      - CUS
+    $linkedData:
+      term: ISOEquipmentCode
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/sealSource
+  sealType:
+    title: Tare Weight
+    description: >-
+      The type of seal. This attribute links to the Seal Type ID defined in the
+      Seal Type reference data entity. KLP (Keyless padlock), BLT (Bolt), WIR
+      (Wire)
+    enum:
+      - KLP
+      - BLT
+      - WIR
+    $linkedData:
+      term: tareWeight
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/sealType
+additionalProperties: false
+required:
+  - sealNumber
+example: |-
+  {
+
+  }

@@ -1,0 +1,74 @@
+$linkedData:
+  term: SteelProduct
+  '@id': https://w3id.org/traceability#SteelProduct
+title: Steel Product
+description: A finished or unfinisheed manufactured steel product
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - SteelProduct
+  heatNumber:
+    title: Heat Number
+    description: >-
+      The only way to trace a steel plate back to its mill sheet is the heat
+      number
+    type: string
+    $linkedData:
+      term: heatNumber
+      '@id': https://schema.org/identifier
+  specification:
+    title: Specification
+    description: The specification of the product
+    type: string
+    $linkedData:
+      term: specification
+      '@id': https://schema.org/identifier
+  grade:
+    title: Grade
+    description: The grade of the product
+    type: string
+    $linkedData:
+      term: grade
+      '@id': https://schema.org/Rating
+  size:
+    title: Size
+    description: The size of the product
+    type: string
+    $linkedData:
+      term: size
+      '@id': https://schema.org/size
+  originalCountryOfMeltAndPour:
+    title: Original Country Of Melt and Pour
+    description: The country where the product was first melted and poured.
+    type: string
+    $linkedData:
+      term: originalCountryOfMeltAndPour
+      '@id': https://schema.org/addressCountry
+  inspection:
+    title: Inspection
+    description: Observations of chemical and mechanical properties of the product
+    $ref: ./InspectionReport.yml
+    $linkedData:
+      term: inspection
+      '@id': https://w3id.org/traceability#InspectionReport
+  purchase:
+    title: Purchase
+    description: Purchase details about a product and its customer
+    $ref: ./Purchase.yml
+    $linkedData:
+      term: purchase
+      '@id': https://w3id.org/traceability#Purchase
+  shipment:
+    title: Parcel Delivery
+    description: Shipment details about a product
+    $ref: ./ParcelDelivery.yml
+    $linkedData:
+      term: shipment
+      '@id': https://schema.org/ParcelDelivery
+additionalProperties: false
+example: |-
+  {
+
+  }

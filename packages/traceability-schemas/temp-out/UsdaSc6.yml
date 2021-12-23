@@ -1,0 +1,139 @@
+$linkedData:
+  term: UsdaSc6
+  '@id': https://w3id.org/traceability#UsdaSc6
+title: USDA Form SC-6
+description: >-
+  Importer's Exempt Commodity Form (SC-6) to declare the intent to import an
+  agricultural commodity exempt from grade requirements for the commodity.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - UsdaSc6
+  serialNumber:
+    title: Serial Number
+    description: Serial number of the form.
+    type: string
+    $linkedData:
+      term: serialNumber
+      '@id': https://w3id.org/traceability#serialNumber
+      '@type': https://schema.org/identifier
+  customsEntryNumber:
+    title: Customs Service Entry Number
+    description: U.S. Customs Service Entry Number
+    type: string
+    $linkedData:
+      term: customsEntryNumber
+      '@id': https://w3id.org/traceability#customsEntryNumber
+      '@type': https://schema.org/identifier
+  tariffCodeNumber:
+    title: Tariff Code Number
+    description: Haronized Tariff Code Number
+    type: string
+    $linkedData:
+      term: tariffCodeNumber
+      '@id': https://w3id.org/traceability#tariffCodeNumber
+      '@type': https://schema.org/identifier
+  carrierId:
+    title: Carrier ID
+    description: Identifier of the carrier.
+    type: string
+    $linkedData:
+      term: carrierId
+      '@id': https://w3id.org/traceability#carrierId
+      '@type': https://schema.org/identifier
+  lotId:
+    title: Lot ID
+    description: Identifier of the lot+.
+    type: string
+    $linkedData:
+      term: lotId
+      '@id': https://w3id.org/traceability#lotId
+      '@type': https://schema.org/identifier
+  dateOfEntry:
+    title: dateOfEntry
+    description: Date when the the package entered the port of entry.
+    type: string
+    $linkedData:
+      term: dateOfEntry
+      '@id': https://w3id.org/traceability#dateOfEntry
+      '@type': http://www.w3.org/2001/XMLSchema#dateTime
+  signatureDate:
+    title: signatureDate
+    description: Date when the inspection was signed by the inspection officer.
+    type: string
+    $linkedData:
+      term: signatureDate
+      '@id': https://w3id.org/traceability#signatureDate
+      '@type': http://www.w3.org/2001/XMLSchema#dateTime
+  facility:
+    title: Facility
+    description: Information on the inspection facility.
+    $ref: ./Place.yml
+    $linkedData:
+      term: facility
+      '@id': https://www.gs1.org/voc/Place
+  inspector:
+    title: Inspector
+    description: >-
+      Inspector performing the Agriculture Inspection.  The following link
+      provides further insight:
+      https://www.lawinsider.com/dictionary/food-inspector
+    $ref: ./Inspector.yml
+    $linkedData:
+      term: inspector
+      '@id': https://w3id.org/traceability#Inspector
+  shipment:
+    title: Shipment
+    description: Details for a shipment of goods.
+    $ref: ./AgParcelDelivery.yml
+    $linkedData:
+      term: shipment
+      '@id': https://w3id.org/traceability#AgParcelDelivery
+  applicant:
+    title: Applicant
+    description: Entity that is applying for the inspection.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: applicant
+      '@id': https://w3id.org/traceability#applicant
+  importerSignatureDate:
+    title: importerSignatureDate
+    description: Date the importer signed the document.
+    type: string
+    $linkedData:
+      term: importerSignatureDate
+      '@id': https://w3id.org/traceability#importerSignatureDate
+  inspectionDate:
+    title: Inspection Date
+    description: Date of the completed inspection.
+    type: string
+    $linkedData:
+      term: inspectionDate
+      '@id': https://schema.org/DateTime
+  intendedUse:
+    title: Intended Use
+    description: >-
+      The intended use for the imported products.  Most commonly in SC-6 this
+      would be 'processing,' 'charity', and 'livestock.'
+    type: string
+    $linkedData:
+      term: intendedUse
+      '@id': https://w3id.org/traceability#intendedUse
+  intendedUseCert:
+    title: Certification of Intended Use
+    description: >-
+      Certification by the shipment receiver that they have received the
+      shipents and will displose of them in pursuant to the stated intended
+      use.  Most commonly in SC-6 this would be 'processing,' 'charity', and
+      'livestock.'
+    type: string
+    $linkedData:
+      term: intendedUseCert
+      '@id': https://w3id.org/traceability#intendedUseCert
+additionalProperties: false
+example: |-
+  {
+
+  }

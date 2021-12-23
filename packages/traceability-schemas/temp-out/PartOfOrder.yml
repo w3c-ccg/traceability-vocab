@@ -1,0 +1,101 @@
+$linkedData:
+  term: PartOfOrder
+  '@id': >-
+    https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem
+title: Part of an Order
+description: >-
+  Part of an Order listed in the Evidence data for a registered eCommerce
+  Packing List based on schema.org
+type: object
+required: []
+properties:
+  type:
+    type: string
+    enum:
+      - PartOfOrder
+  manufacturer:
+    title: Manufacturer
+    type: string
+    $linkedData:
+      term: manufacturer
+      '@id': https://schema.org/manufacturer
+  orderNumber:
+    title: Ordernumber
+    type: string
+    default: ''
+    $linkedData:
+      term: orderNumber
+      '@id': https://schema.org/orderNumber
+  transportPackages:
+    title: >-
+      Any self-contained wrapping or container within which goods can be
+      contained, such as a box or a barrel which can be filled, partially filled
+      or empty.
+    type: array
+    items:
+      $ref: ./Package.yml
+    $linkedData:
+      term: transportPackage
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package
+  netWeight:
+    title: A measure of the net weight (mass).
+    type: string
+    $linkedData:
+      term: weight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure
+  grossWeight:
+    title: >-
+      A measure of the gross weight (mass) which includes packaging but excludes
+      any transport equipment.
+    type: string
+    $linkedData:
+      term: weight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  weightUnit:
+    title: Weight Unit
+    description: The unit of measure which can be expressed in imperial or metric terms
+    type: string
+    $linkedData:
+      term: weightUnit
+      '@id': https://schema.org/unitCode
+  grossVolume:
+    title: Volume
+    description: >-
+      Calculated by multiplying the width, height, and length of the packed
+      cargo.
+    type: number
+    $linkedData:
+      term: volume
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
+  volumeUnit:
+    title: Volume Unit
+    description: >-
+      The unit of measure which can be expressed in either imperial or metric
+      terms
+    type: string
+    $linkedData:
+      term: volumeUnit
+      '@id': https://schema.org/unitCode
+  packageQuantity:
+    title: Package Quantity
+    description: A number of packages
+    type: string
+    $linkedData:
+      term: name
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  itemQuantity:
+    title: Item Quantity
+    description: A number of trade line items in the consignment item.
+    type: string
+    $linkedData:
+      term: name
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity
+example: |-
+  {
+
+  }

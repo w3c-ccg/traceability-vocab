@@ -1,0 +1,39 @@
+$linkedData:
+  term: Observation
+  '@id': https://schema.org/Observation
+title: Observation
+description: >-
+  Instances of the class Observation are used to specify observations about an
+  entity at a particular time.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - Observation
+  property:
+    title: Measured Property
+    description: The property of an Observation.
+    $ref: ./MeasuredProperty.yml
+    $linkedData:
+      term: property
+      '@id': https://schema.org/measuredProperty
+  measurement:
+    title: Measured Value
+    description: The measurement of an Observation.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: measurement
+      '@id': https://w3id.org/traceability#MeasuredValue
+  date:
+    title: Observation Date
+    description: The date of the Observation.
+    type: string
+    $linkedData:
+      term: date
+      '@id': https://schema.org/observationDate
+additionalProperties: false
+example: |-
+  {
+
+  }
