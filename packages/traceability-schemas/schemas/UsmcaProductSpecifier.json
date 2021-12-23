@@ -1,0 +1,43 @@
+{
+  "$id": "https://w3id.org/traceability/schemas/UsmcaProductSpecifier.json",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$comment": "{\"term\": \"usmcaProductSpecifier\", \"@id\": \"https://w3id.org/traceability/UsmcaProductSpecifier\"}",
+  "title": "USMCA Product Specifier",
+  "description": "USMCA product origin specifier",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "array"
+    },
+    "type": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array"
+        }
+      ]
+    },
+    "product": {
+      "$comment": "{\"term\": \"product\", \"@id\": \"https://schema.org/Product\"}",
+      "title": "Product",
+      "description": "Product details. USMCA mandatory elements include: part/SKU number, description, and minimum 6-digit HS classification",
+      "$ref": "https://w3id.org/traceability/schemas/Product.json"
+    },
+    "originCriterion": {
+      "$comment": "{\"term\": \"importer\", \"@id\": \"https://w3id.org/traceability#originCriterion\"}",
+      "title": "Origin Criterion",
+      "description": "Specify the Origin Criterion under which the good qualifies, as set out in Chapter 4, Article 4.2 (Originating Goods) of the USMCA/T-MEC/CUSMA agreement (https://ustr.gov/sites/default/files/files/agreements/FTA/USMCA/Text/04-Rules-of-Origin.pdf). Criterion A: The good is wholly obtained or produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries, as defined in Article 4.3 of the Agreement; Criterion B: The good is produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries using non-originating materials, provided the good satisfies all applicable requirements of product-specific rules of origin; Criterion C: The good is produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries exclusively from originating materials; or Criterion D: The good is produced entirely in the territory of one or more of the USMCA/T-MEC/CUSMA countries. It is classified with its materials, or satisfies the 'unassembled goods' requirement, and meets a regional value content threshold of not less than 60% if the transaction value method is used, or not less than 50% if the net cost method is used (not including RVC for autos); except for goods in Chapter 61-63 of the HTS.",
+      "enum": ["A", "B", "C", "D"]
+    },
+    "countryOfOrigin": {
+      "$comment": "{\"term\": \"importer\", \"@id\": \"https://w3id.org/traceability#countryOfOrigin\"}",
+      "title": "Country of Origin",
+      "description": "Identify the 2-digit ISO country code of the country of production for each good listed in this certification.",
+      "enum": ["CA", "MX", "US"]
+    }
+  },
+  "additionalProperties": false,
+  "examples": []
+}

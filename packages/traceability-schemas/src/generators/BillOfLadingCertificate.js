@@ -6,8 +6,8 @@ const { getOrganization } = require('./Organization');
 const { getBillOfLading } = require('./BillOfLading');
 
 const getBillOfLadingCertificate = () => {
-  const manufacturer = getOrganization();
-  delete manufacturer['@context'];
+  const carrier = getOrganization();
+  delete carrier['@context'];
 
   const subject = getBillOfLading();
   delete subject['@context'];
@@ -38,7 +38,7 @@ const getBillOfLadingCertificate = () => {
     issuanceDate: '2019-12-11T03:50:55Z',
     issuer: {
       id: 'did:example:123',
-      ...manufacturer,
+      ...carrier,
     },
     credentialSubject: subject,
   };
