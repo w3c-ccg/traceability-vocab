@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const jsonldSchema = require('@transmute/jsonld-schema');
-const { schemas } = require('./help');
+const { schemas } = require('../services/schemas');
 const rootTerms = require('./rootTerms.json');
 
 const contextPath = path.resolve(

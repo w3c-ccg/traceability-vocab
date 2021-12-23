@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { schemas } = require('./help');
+const { schemas } = require('../services/schemas');
 
 const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
 
