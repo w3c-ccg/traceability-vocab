@@ -1,10 +1,10 @@
 # Traceability Vocabulary Specification
 
+OAS3 update in progress... ci disabled.
+
 ![CI](https://github.com/w3c-ccg/traceability-vocab/workflows/CI/badge.svg) [![CD](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml/badge.svg)](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml)
 
-<!-- kick ci --> 
-
-## About 
+## About
 
 This specification describes a Linked Data vocabulary for asserting Verifiable
 Credentials related to traceability information, such as chemical properties,
@@ -19,20 +19,22 @@ mailing list as well, and at regular public meetings (see below).
 
 ## Meetings
 
-Meetings are held 
-* Tuesdays at 1.30pm ET/10.30pm PT 
-* on jitsi using this link: [meet.w3c-ccg.org/traceability](https://meet.w3c-ccg.org/traceability)
-* with standing agenda to review open [Pull Requests](https://github.com/w3c-ccg/traceability-vocab/pulls), 
+Meetings are held
+
+- Tuesdays at 1.30pm ET/10.30pm PT
+- on jitsi using this link: [meet.w3c-ccg.org/traceability](https://meet.w3c-ccg.org/traceability)
+- with standing agenda to review open [Pull Requests](https://github.com/w3c-ccg/traceability-vocab/pulls),
   then [open Issues](https://github.com/w3c-ccg/traceability-vocab/issues), unless otherwise noted on the mailing list
 
-
 ### Hosting instructions
+
 Any chair, editor, or other party authorized by CCG to manage recordings and
 minutes can do the following. A scribe-bot will show up in the main #ccg IRC
-channel automatically. 
+channel automatically.
+
 1. Make sure to select "Start Recording" at the beginning of the call and "Stop
-   Recording" when you're done. 
-2. Make sure to kick everyone out of the room when the meeting is done. 
+   Recording" when you're done.
+2. Make sure to kick everyone out of the room when the meeting is done.
 3. Once the last person leaves, everything else is automated (publishing raw IRC
    log, audio, and video). If you want to clean up the minutes, it takes about
    5-10 minutes to clean up the transcription and publish it.
@@ -91,7 +93,7 @@ After you have the dependencies, the first-time setup is as follows:
    [README](https://github.com/w3c-ccg/traceability-vocab/tree/main/packages/traceability-schemas)
    located in the actual schemas build project folder.
 
-4. Finally, once everything is built and tested, you can serve up the spec 
+4. Finally, once everything is built and tested, you can serve up the spec
    and related documentation locally:
 
    ```
@@ -113,7 +115,7 @@ To have your contributions accepted, you MUST:
 1. Add synthetic data generation for any new data types and/or vocabulary terms.
 2. Add any "special case" testing you believe is helpful for your data structures.
 3. Run all tests locally and ensure they are all passing.
-4. Generate the latest version of the spec to include your changes to vocabulary 
+4. Generate the latest version of the spec to include your changes to vocabulary
    and/or data model.
 5. Open a Pull Request with your changes, a clear description of them in the
    description, and demonstrated passing CI Tests.
@@ -132,7 +134,7 @@ To have your contributions accepted, you MUST:
 "$comment": "{\"term\": \"Person\", \"@id\": \"https://schema.org/Person\"}",
 ```
 
-As a rule, pull requests will not be merged if any conflicts exist, or if 
+As a rule, pull requests will not be merged if any conflicts exist, or if
 testing is incomplete.
 
 Any changes that introduce potentially breaking or non-backwards compatible
@@ -141,13 +143,13 @@ consensus from the editors in order to be introduced or to have any related Pull
 Requests accepted and merged.
 
 A one week (7 day) period prior to merge will be provided to allow sufficient
-review time of pull requests related to data schemas or project functionality. 
-Exceptions may be made for essential documentation, or to allow for immediate 
+review time of pull requests related to data schemas or project functionality.
+Exceptions may be made for essential documentation, or to allow for immediate
 "hotfix" of security issues or functionality breaking items.
 
 ## Ontology Structure
 
-This repository hosts [JSON Schema](https://json-schema.org/) which it uses 
+This repository hosts [JSON Schema](https://json-schema.org/) which it uses
 to create [JSON-LD](https://json-ld.org/).
 
 All JSON Schema must have an `$id` property, which must resolve to the
@@ -169,7 +171,7 @@ For example see:
 "description": "A person",
 ```
 
-These attributes are then used to deterministically build a JSON-LD context 
+These attributes are then used to deterministically build a JSON-LD context
 hosted at:
 
 [https://w3id.org/traceability/v1](https://w3id.org/traceability/v1)
@@ -235,7 +237,7 @@ Year target for major releases. Versioning tags will follow a pattern of
   Major versions MAY include breaking or non-backwards compatible changes.
 - `MINOR` - backwards compatible changes that may introduce new functionality
   or extensions of objects that are backwards compatible
-- `PATCH` - minor changes that are non-breaking and resolve discovered issues 
+- `PATCH` - minor changes that are non-breaking and resolve discovered issues
   or bugs
 
 As a rule, versioning will follow the specification outlined in the [Semantic
@@ -258,7 +260,7 @@ understanding how to add schemas and understand the code layout:
 - The index file in [docs](./docs/index.html) is the master public-facing
   documentation page. It is a baseline specification, with the bulk of the
   contents being automatically generated after tests have been run on items.
-- JSON Schema for each object to be referenced is stored in the 
+- JSON Schema for each object to be referenced is stored in the
   [schemas](.docs/schemas) folder.
 - Code Generation to create synthetic test data is located in
   [generators](./packages/traceability-schemas/src/generators).
@@ -293,20 +295,20 @@ npm run test:schemas
    [schemas](./packages/traceability-schemas/schemas) folder.
 2. Add synthetic data generation for it to the
    [generators](./packages/traceability-schemas/src/generators).
-3. OPTIONAL — If you want to include the ```evidence``` property in your
+3. OPTIONAL — If you want to include the `evidence` property in your
    verifiable credential test fixture, add your new schema name to the
    [includingevidence.json](./packages/traceability-schemas/src/data/vc/includingevidence.json)
    file.
-5. OPTIONAL — If you want to include the ```credentialStatus``` property in
+4. OPTIONAL — If you want to include the `credentialStatus` property in
    your verifiable credential test fixture, add your new schema name to the
    [includingcredentialstatus.json](./packages/traceability-schemas/src/data/vc/includingcredentialstatus.json)
    file.
-6. Run the build using this command:
+5. Run the build using this command:
    ```
    npm run build:all
    ```
-8. Fix any errors found.  Repeat as needed.
-9. Review the latest spec changes by serving docs with this command:
+6. Fix any errors found. Repeat as needed.
+7. Review the latest spec changes by serving docs with this command:
    ```
    npx serve ./docs
    ```
@@ -356,12 +358,12 @@ stricter or more verbose are detailed here:
 ```
 VERBOSE_BUILD=true        # sets general verbosity levels up when building
 
-FULL_ERROR_HANDLING=true  # forces hard stops at points in the process 
+FULL_ERROR_HANDLING=true  # forces hard stops at points in the process
                           # when warning or other exceptions are caught
 
-VERBOSE_BUILD_GENERAL     # increases verbosity in object generation on 
+VERBOSE_BUILD_GENERAL     # increases verbosity in object generation on
                           # common objects
 
-VERBOSE_BUILD_AG=true     # industry vertical specific stops, see also 
+VERBOSE_BUILD_AG=true     # industry vertical specific stops, see also
                           # VERBOSE_BUILD_STEEL and related
 ```
