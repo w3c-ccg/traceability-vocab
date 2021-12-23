@@ -48,25 +48,43 @@ const buildProperty = (property) => {
 };
 
 const buildClass = (schema) => {
+  let table = '';
+  let props = '';
+  try {
+    table = `
+  ${buildLinkedDataTable(schema)}
+  `;
+  } catch (e) {
+    console.error('error building table: ', e);
+  }
+
+  try {
+    props = `
+  ${Object.values(schema.properties).map(buildProperty).join('\n')}
+  `;
+  } catch (e) {
+    console.error('error building props: ', e);
+  }
+
   const section = `
   <section id="${schema.$linkedData.term}">
   <h2>${schema.title}</h2>
   <p>${schema.description}</p>
 
+  ${table}
+
   <pre class="example">
-${schema.example}
-  </pre>
+  ${schema.example}
+    </pre>
 
-  ${buildLinkedDataTable(schema)}
-
-  ${Object.values(schema.properties).map(buildProperty).join('\n')}
+  ${props}
   </section>
   `;
   return section;
 };
 
 const buildVocabSection = (schema) => {
-  if (schema.type === 'object') {
+  if (schema.type === 'object' || schema.anyOf) {
     return buildClass(schema);
   }
   return buildProperty(schema);

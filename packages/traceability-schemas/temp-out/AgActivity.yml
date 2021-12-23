@@ -1,0 +1,74 @@
+$linkedData:
+  term: AgActivity
+  '@id': https://w3id.org/traceability#AgActivity
+title: Agricultural Activity
+description: >-
+  An activity that takes place on the farm that needs to be recorded, such as
+  planting, harvesting, applying fertilizer, etc.
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - AgActivity
+  farm:
+    title: Farm
+    description: The Farm or business entity performing the activity.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: farm
+      '@id': https://w3id.org/traceability#dfn-entities
+  actor:
+    title: Actor
+    description: The actual person or persons performing the activity.
+    type: array
+    items:
+      $ref: ./Person.yml
+    $linkedData:
+      term: actor
+      '@id': https://w3id.org/traceability#Person
+      '@type': https://schema.org/ItemList
+  field:
+    title: Field
+    description: The field where the activity was performed.
+    $ref: ./Place.yml
+    $linkedData:
+      term: field
+      '@id': https://www.gs1.org/voc/Place
+  activityDate:
+    title: Activity Date
+    description: Date the activity occured.
+    type: string
+    $linkedData:
+      term: activityDate
+      '@id': https://schema.org/DateTime
+  activityType:
+    title: Activity Type
+    description: Type of Avtivity, e.g. plant, harvest, spray.
+    type: string
+    $linkedData:
+      term: activityType
+      '@id': https://www.schema.org/value
+  agProduct:
+    title: Product List
+    description: Agricultural Product the Activity was performed on if known
+    type: array
+    items:
+      $ref: ./AgProduct.yml
+    $linkedData:
+      term: agProduct
+      '@id': https://schema.org/ItemList
+      '@type': https://schema.org/ItemList
+  observation:
+    title: Observation or Notes List
+    description: >-
+      List of observations or notes related to the activity, such as spray mix,
+      etc
+    type: array
+    items:
+      $ref: ./Observation.yml
+    $linkedData:
+      term: observation
+      '@id': https://w3id.org/traceability#observation
+      '@type': https://schema.org/ItemList
+additionalProperties: false
