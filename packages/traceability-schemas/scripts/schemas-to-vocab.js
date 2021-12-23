@@ -49,7 +49,7 @@ const buildProperty = (property) => {
 
 const buildClass = (schema) => {
   let table = '';
-  let props = '';
+  const props = '';
   try {
     table = `
   ${buildLinkedDataTable(schema)}
@@ -58,13 +58,14 @@ const buildClass = (schema) => {
     console.error('error building table: ', e);
   }
 
-  try {
-    props = `
-  ${Object.values(schema.properties).map(buildProperty).join('\n')}
-  `;
-  } catch (e) {
-    console.error('error building props: ', e);
-  }
+  // lets not render props for now.
+  // try {
+  //   props = `
+  // ${Object.values(schema.properties).map(buildProperty).join('\n')}
+  // `;
+  // } catch (e) {
+  //   console.error('error building props: ', e);
+  // }
 
   const section = `
   <section id="${schema.$linkedData.term}">
@@ -77,7 +78,7 @@ const buildClass = (schema) => {
 ${schema.example}
 </pre>
 
-  ${props}
+ 
   </section>
   `;
   return section;
