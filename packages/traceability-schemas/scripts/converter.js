@@ -90,6 +90,7 @@ const sortObj = (unordered) => {
   cleanObj(firstSchema);
 
   const finalSchema = sortObj(firstSchema);
+  finalSchema.example = '{\n\n}';
 
   fs.writeFileSync(
     path.resolve(__dirname, `../temp-out/${fileName}`),

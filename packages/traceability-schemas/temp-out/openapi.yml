@@ -1,23 +1,13 @@
 openapi: 3.0.0
 info:
-  description: Schema
+  title: Traceability Schemas
   version: 1.0.0
-  title: Schema with various data
 servers:
   # - url: http://localhost:5000
   - url: http://localhost:5000/openapi/components
   - url: https://w3id.org/traceability/api
+
 paths:
-  /contexts/traceability-v1.jsonld:
-    get:
-      tags:
-        - Contexts
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: './components/schemas/common/Context.yml'
   /schemas/common/Brand.yml:
     get:
       tags:
@@ -28,6 +18,18 @@ paths:
             application/yml:
               schema:
                 $ref: './components/schemas/common/Brand.yml'
+
+  /schemas/common/Entity.yml:
+    get:
+      tags:
+        - Common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './components/schemas/common/Entity.yml'
+
   /schemas/common/Organization.yml:
     get:
       tags:
@@ -38,13 +40,14 @@ paths:
             application/yml:
               schema:
                 $ref: './components/schemas/common/Organization.yml'
-  /schemas/common/Entity.yml:
+
+  /schemas/common/Person.yml:
     get:
       tags:
         - Common
       responses:
         '200':
           content:
-            application/json:
+            application/yml:
               schema:
-                $ref: './components/schemas/common/Entity.yml'
+                $ref: './components/schemas/common/Person.yml'

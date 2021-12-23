@@ -73,9 +73,9 @@ const buildClass = (schema) => {
 
   ${table}
 
-  <pre class="example">
-  ${schema.example}
-    </pre>
+<pre class="example">
+${schema.example}
+</pre>
 
   ${props}
   </section>
