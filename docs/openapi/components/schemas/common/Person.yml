@@ -1,0 +1,67 @@
+$linkedData:
+  term: Person
+  '@id': https://schema.org/Person
+title: Person
+description: A person
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - Person
+  firstName:
+    title: First Name
+    description: Person's first name.
+    type: string
+    $linkedData:
+      term: firstName
+      '@id': https://schema.org/givenName
+  lastName:
+    title: Last Name
+    description: Person's last name.
+    type: string
+    $linkedData:
+      term: lastName
+      '@id': https://schema.org/familyName
+  email:
+    title: Person's Email Address
+    description: Person's email address.
+    type: string
+    $linkedData:
+      term: email
+      '@id': https://schema.org/email
+  phoneNumber:
+    title: Phone Number
+    description: Person's contact phone number.
+    type: string
+    $linkedData:
+      term: phoneNumber
+      '@id': https://schema.org/telephone
+  worksFor:
+    title: Works For
+    description: Company which employs the person.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: worksFor
+      '@id': https://schema.org/worksFor
+  jobTitle:
+    title: Job Title
+    description: Person's job title.
+    type: string
+    $linkedData:
+      term: jobTitle
+      '@id': https://schema.org/jobTitle
+  taxId:
+    title: Tax Identification Number
+    description: >-
+      The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US
+      or the CIF/NIF in Spain.
+    type: string
+    $linkedData:
+      term: taxId
+      '@id': https://schema.org/taxID
+additionalProperties: false
+example: |-
+  {
+
+  }

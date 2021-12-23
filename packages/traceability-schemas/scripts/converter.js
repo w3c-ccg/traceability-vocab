@@ -93,7 +93,10 @@ const sortObj = (unordered) => {
     finalSchema.example = '{\n\n}';
 
     fs.writeFileSync(
-      path.resolve(__dirname, `../temp-out/${fileName}`),
+      path.resolve(
+        __dirname,
+        `../../../docs/openapi/components/schemas/common/${fileName}`
+      ),
       yaml.dump(finalSchema)
     );
   });
