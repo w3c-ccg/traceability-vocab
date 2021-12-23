@@ -13,7 +13,7 @@ const getAllJsonFilesFromDirectory = (targetDirectory) => {
 };
 
 (async () => {
-  console.log('building paths from schemas...');
+  console.log('🧪 building open api from components directory...');
   const newSchemas = getAllJsonFilesFromDirectory(
     path.resolve(__dirname, '../../../docs/openapi/components/schemas/common')
   );
@@ -24,9 +24,8 @@ info:
   title: Traceability Schemas
   version: 1.0.0
 servers:
-  # - url: http://localhost:5000
   - url: http://localhost:5000/openapi/components
-  - url: https://w3id.org/traceability/api
+  - url: https://w3id.org/traceability/openapi/components
 `;
 
   const endpoints = [];
@@ -52,7 +51,7 @@ servers:
   const finalAPI = `${template}\npaths:${endpoints.join('\n')}`;
 
   fs.writeFileSync(
-    path.resolve(__dirname, '../temp-out/openapi.yml'),
+    path.resolve(__dirname, '../../../docs/openapi/openapi.yml'),
     finalAPI
   );
 })();
