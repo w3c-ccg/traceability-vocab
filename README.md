@@ -1,7 +1,5 @@
 # Traceability Vocabulary Specification
 
-OAS3 update in progress... ci disabled.
-
 ![CI](https://github.com/w3c-ccg/traceability-vocab/workflows/CI/badge.svg) [![CD](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml/badge.svg)](https://github.com/w3c-ccg/traceability-vocab/actions/workflows/cd.yml)
 
 ## About
@@ -43,6 +41,8 @@ channel automatically.
 
 ```
 npm i
+npm run lint
+npm run test
 npm run build
 npm run serve
 ```
