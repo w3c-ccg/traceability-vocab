@@ -21,19 +21,25 @@ const ignoreEndpoint = (endpoint) => {
 };
 
 const extractSchemaFromEndpoint = (endpoint) => {
-  const { $ref } =
-    endpoint.get.responses['200'].content['application/yml'].schema;
-  let schema = fs.readFileSync(
-    path.join(specPath.replace('/openapi.yml', ''), $ref),
-    { encoding: 'utf-8' }
-  );
-  schema = yaml.load(schema);
-  schema.$id = $ref.replace('./', '/openapi/');
-  return schema;
+  try {
+    const { $ref } =
+      endpoint.get.responses['200'].content['application/yml'].schema;
+    let schema = fs.readFileSync(
+      path.join(specPath.replace('/openapi.yml', ''), $ref),
+      { encoding: 'utf-8' }
+    );
+    schema = yaml.load(schema);
+    schema.$id = $ref.replace('./', '/openapi/');
+    return schema;
+  } catch (e) {
+    console.error(endpoint, e);
+  }
+  return null;
 };
 
 const schemas = Object.values(apiSpec.paths)
   .filter(ignoreEndpoint)
-  .map(extractSchemaFromEndpoint);
+  .map(extractSchemaFromEndpoint)
+  .filter((s) => !!s); // remove nulls
 
 module.exports = { schemas };
