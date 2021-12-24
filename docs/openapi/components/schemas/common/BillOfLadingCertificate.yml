@@ -34,5 +34,141 @@ additionalProperties: false
 required: []
 example: |-
   {
-
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "https://example.com/credential/123",
+  "type": [
+    "VerifiableCredential",
+    "BillOfLadingCertificate"
+  ],
+  "name": "Bill Of Lading Certificate",
+  "description": "This document includes recommended bill of lading fields.",
+  "relatedLink": [
+    {
+      "type": [
+        "LinkRole"
+      ],
+      "target": "did:example:789",
+      "linkRelationship": "commercialInvoiceLink"
+    },
+    {
+      "type": [
+        "LinkRole"
+      ],
+      "target": "https://www.example.com/template/123",
+      "linkRelationship": "millTestReportLink"
+    }
+  ],
+  "issuanceDate": "2019-12-11T03:50:55Z",
+  "issuer": {
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "type": "Organization",
+    "name": "Hauck Group",
+    "description": "Focused secondary synergy",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "3198 O'Kon Wall",
+      "addressLocality": "North Adolphchester",
+      "addressRegion": "Nevada",
+      "postalCode": "50788",
+      "addressCountry": "Cote d'Ivoire"
+    },
+    "email": "Bernita.Quitzon98@example.com",
+    "phoneNumber": "555-171-4411",
+    "faxNumber": "555-758-9761"
+  },
+  "credentialSubject": {
+    "type": [
+      "BillOfLading"
+    ],
+    "billOfLadingNumber": "991205182A",
+    "bookingNumber": "991205182",
+    "relatedDocuments": [
+      {
+        "type": [
+          "Purchase"
+        ],
+        "customer": {
+          "type": [
+            "Person"
+          ],
+          "email": "Deangelo56@example.org",
+          "phoneNumber": "555-208-5866"
+        }
+      }
+    ],
+    "scac": "NISC",
+    "carrier": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Adaline29@example.com",
+      "phoneNumber": "+1 555-234-9983"
+    },
+    "consignor": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Idella60@example.org",
+      "phoneNumber": "555-953-9479"
+    },
+    "consignee": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Victoria.Hane74@example.org",
+      "phoneNumber": "555-455-9053"
+    },
+    "notify": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Florida91@example.net",
+      "phoneNumber": "555-104-1126"
+    },
+    "freight": {
+      "type": [
+        "ParcelDelivery"
+      ],
+      "deliveryAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Goyette Inc",
+        "streetAddress": "3685 Hessel Field",
+        "addressLocality": "North Alexannemouth",
+        "addressRegion": "Kansas",
+        "postalCode": "67998",
+        "addressCountry": "Denmark"
+      },
+      "originAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Schaefer, Beer and O'Reilly",
+        "streetAddress": "269 Aaliyah Trafficway",
+        "addressLocality": "Caylaland",
+        "addressRegion": "Maryland",
+        "postalCode": "34283",
+        "addressCountry": "Malta"
+      },
+      "deliveryMethod": "Truck transport",
+      "trackingNumber": "128857427430"
+    },
+    "portOfLoading": {
+      "unLocode": "USMOB"
+    },
+    "portOfDischarge": {
+      "unLocode": "MXATM"
+    }
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..g9J070BT6vKDscw8nlQ9bSXc9ONbd9gIdtnqZ8d8HWQNYVyK-y6PygSoFOuUP9wdXd8QCQNcZpXI7Rgz_NtuCQ",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
+}

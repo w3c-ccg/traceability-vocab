@@ -97,6 +97,16 @@ const buildVocabSection = (schema) => {
   const section = `
 <section id="vocabulary" class="normative">
 <h2>Vocabulary </h2>
+
+<section>
+<h3 id="undefinedTerm">Undefined terms</h3>
+<p>This vocabulary uses <code> '@vocab': 'https://w3id.org/traceability/#undefinedTerm' </code>
+    to disable JSON-LD related errors associated with Verifiable Credentials, issued about
+    terms that have not yet been added here.
+</p>
+</section>
+
+
 ${sections}
 </section>
   `;
