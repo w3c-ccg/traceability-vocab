@@ -98,16 +98,26 @@ const buildVocabSection = (schema) => {
 <section id="vocabulary" class="normative">
 <h2>Vocabulary </h2>
 
+<section id="Open API" class="informative">
+  <h2>Open API</h2>
+  <p>
+    This vocabulary can also be viewed as an
+    <a href="/openapi/">Open API Specification</a>.
+  </p>
+</section>
+
 <section>
-<h3 id="undefinedTerm">Undefined terms</h3>
+<h3 id="undefinedTerm">Undefined Terms</h3>
 <p>This vocabulary uses <code> '@vocab': 'https://w3id.org/traceability/#undefinedTerm' </code>
     to disable JSON-LD related errors associated with Verifiable Credentials, issued about
     terms that have not yet been added here.
 </p>
 </section>
 
-
+<section>
+<h2>Defined Terms</h2>
 ${sections}
+</section>
 </section>
   `;
   fs.writeFileSync(vocabPath, section);
