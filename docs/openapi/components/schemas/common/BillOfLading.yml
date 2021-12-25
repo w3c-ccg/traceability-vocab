@@ -6,9 +6,11 @@ description: Bill Of Lading
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - BillOfLading
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - BillOfLading
   billOfLadingNumber:
     title: Bill Of Lading Number
     description: This identifier might not be globally unique.

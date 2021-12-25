@@ -6,9 +6,11 @@ description: Skills, certifications, etc., required to perform a job properly.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Qualification
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Qualification
   qualificationCategory:
     title: Qualification Category
     description: The type of qualification, credential, or certification the person has.

@@ -6,9 +6,11 @@ description: A finished or unfinisheed manufactured steel product
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - SteelProduct
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - SteelProduct
   heatNumber:
     title: Heat Number
     description: >-

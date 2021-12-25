@@ -8,9 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - MechanicalProperty
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - MechanicalProperty
   identifier:
     title: Property Identifier
     description: Identifiers for a property.

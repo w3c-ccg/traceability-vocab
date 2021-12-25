@@ -6,9 +6,11 @@ description: Series of observations
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - InspectionReport
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - InspectionReport
   comment:
     title: Comment
     description: Comments, typically from users.

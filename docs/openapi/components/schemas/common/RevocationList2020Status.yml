@@ -10,9 +10,11 @@ required:
   - revocationListCredential
 properties:
   type:
-    type: string
-    enum:
-      - RevocationList2020Status
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - RevocationList2020Status
   revocationListIndex:
     title: revocationListIndex
     type: string

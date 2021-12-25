@@ -16,9 +16,11 @@ properties:
       - type: string
       - type: object
   type:
-    type: string
-    enum:
-      - CrudeOilProduct
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CrudeOilProduct
   product:
     title: Product
     description: Product details as outlined in the Product schema

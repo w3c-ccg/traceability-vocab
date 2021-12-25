@@ -11,9 +11,11 @@ required:
   - orderQuantity
 properties:
   type:
-    type: string
-    enum:
-      - OrderedItem
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - OrderedItem
   name:
     title: Name
     type: string

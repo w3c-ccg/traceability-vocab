@@ -9,9 +9,11 @@ required:
   - productInOrder
 properties:
   type:
-    type: string
-    enum:
-      - EcommercePackingListItem
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommercePackingListItem
   orderID:
     title: orderID
     description: The seller specific Order VC ID

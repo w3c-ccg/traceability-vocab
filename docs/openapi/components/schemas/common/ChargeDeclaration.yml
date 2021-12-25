@@ -6,9 +6,11 @@ description: Charge Declaration definition based on IATA electronic Air Waybill.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - ChargeDeclaration
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ChargeDeclaration
   weightCharge:
     title: Weight Charge
     description: The weight/volume charge for air carriage. Box 24A and 24B.

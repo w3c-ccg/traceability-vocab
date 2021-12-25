@@ -6,9 +6,11 @@ description: An event such as a transformation, aggregation, commission, etc.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Event
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Event
   eventType:
     title: Event Type
     description: The Type of the Event.

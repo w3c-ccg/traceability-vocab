@@ -9,9 +9,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - TransportEquipment
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - TransportEquipment
   equipmentReference:
     title: Equipment Reference
     description: >-

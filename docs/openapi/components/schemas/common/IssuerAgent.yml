@@ -20,9 +20,11 @@ required:
   - amountInsurance
 properties:
   type:
-    type: string
-    enum:
-      - IssuerAgent
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - IssuerAgent
   issuerAgentOrg:
     title: IssuerAgentOrg
     $ref: ./Organization.yml

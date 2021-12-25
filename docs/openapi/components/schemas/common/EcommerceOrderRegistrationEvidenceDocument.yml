@@ -19,9 +19,11 @@ required:
   - orderedItem
 properties:
   type:
-    type: string
-    enum:
-      - EcommerceOrderRegistrationEvidenceDocument
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommerceOrderRegistrationEvidenceDocument
   orderNumber:
     title: Number for eCommerce Order
     type: string

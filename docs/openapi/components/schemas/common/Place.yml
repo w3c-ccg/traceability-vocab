@@ -6,9 +6,11 @@ description: Entities that have a somewhat fixed, physical location.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Place
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Place
   globalLocationNumber:
     title: Global Location Number (GLN)
     description: >-

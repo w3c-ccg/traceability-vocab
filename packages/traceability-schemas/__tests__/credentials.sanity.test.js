@@ -8,7 +8,15 @@ const documentLoader = require('../services/documentLoader');
 const { schemas } = require('../services/schemas');
 
 const verifiableCredentials = schemas
-  .map((s) => JSON.parse(s.example))
+  .map((s) => {
+    try {
+      return JSON.parse(s.example);
+    } catch (e) {
+      console.error(e, s);
+    }
+    return null;
+  })
+  .filter((i) => !!i)
   .filter(
     (item) =>
       item.type &&

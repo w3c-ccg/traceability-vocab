@@ -9,9 +9,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - CargoItem
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CargoItem
   cargoLineItems:
     title: Cargo Line Item
     description: Identifies the specific details of packages within a cargo item.

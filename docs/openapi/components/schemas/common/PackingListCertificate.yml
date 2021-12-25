@@ -13,9 +13,11 @@ required:
   - partOfOrder
 properties:
   type:
-    type: string
-    enum:
-      - PackingListCertificate
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - PackingListCertificate
   deliveryStatus:
     title: DeliveryStatus
     type: string

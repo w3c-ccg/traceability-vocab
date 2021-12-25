@@ -19,9 +19,11 @@ required:
   - referencesOrder
 properties:
   type:
-    type: string
-    enum:
-      - EcommerceInvoiceRegistrationEvidenceDocument
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommerceInvoiceRegistrationEvidenceDocument
   identifier:
     title: Identifier
     type: string

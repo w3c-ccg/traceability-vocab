@@ -6,9 +6,11 @@ description: An organization such as a corporation, firm, club, etc.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Organization
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Organization
   name:
     title: Name
     description: Name of the organization.

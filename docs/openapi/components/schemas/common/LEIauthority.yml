@@ -10,9 +10,11 @@ required:
   - validationAuthorityEntityID
 properties:
   type:
-    type: string
-    enum:
-      - LEIauthority
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LEIauthority
   validationAuthorityID:
     title: validationAuthorityID
     type: string

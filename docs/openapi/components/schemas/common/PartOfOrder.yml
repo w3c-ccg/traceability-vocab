@@ -10,9 +10,11 @@ type: object
 required: []
 properties:
   type:
-    type: string
-    enum:
-      - PartOfOrder
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - PartOfOrder
   manufacturer:
     title: Manufacturer
     type: string

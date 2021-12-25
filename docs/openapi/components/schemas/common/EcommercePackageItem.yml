@@ -11,9 +11,11 @@ required:
   - productInOrder
 properties:
   type:
-    type: string
-    enum:
-      - EcommercePackageItem
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommercePackageItem
   productReceiptID:
     title: productReceiptID
     description: >-

@@ -10,9 +10,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Phytosanitary
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Phytosanitary
   certificateNumber:
     title: Certificate Number
     description: ID number of the certificate

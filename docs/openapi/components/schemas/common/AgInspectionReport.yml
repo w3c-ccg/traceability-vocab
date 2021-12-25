@@ -6,9 +6,11 @@ description: Information on the Inspection and the observations made
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - AgInspectionReport
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - AgInspectionReport
   facility:
     title: Facility
     description: Information on the inspection facility.

@@ -22,9 +22,11 @@ required:
   - otherAddresses
 properties:
   type:
-    type: string
-    enum:
-      - LEIentity
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LEIentity
   legalName:
     title: Legalname
     type: string

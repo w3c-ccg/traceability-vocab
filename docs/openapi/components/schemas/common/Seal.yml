@@ -9,9 +9,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Seal
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Seal
   sealNumber:
     title: Seal Number
     description: Identifies a seal affixed to the container.

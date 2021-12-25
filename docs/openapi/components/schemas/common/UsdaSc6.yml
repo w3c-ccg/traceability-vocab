@@ -8,9 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - UsdaSc6
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - UsdaSc6
   serialNumber:
     title: Serial Number
     description: Serial number of the form.

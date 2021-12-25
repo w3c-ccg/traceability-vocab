@@ -6,9 +6,11 @@ description: A Role that represents a Web link e.g. as expressed via the 'url' p
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - LinkRole
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LinkRole
   target:
     title: Target
     description: An entry point, within some Web-based protocol.

@@ -6,9 +6,11 @@ description: A purchase of a Product
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Purchase
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Purchase
   customer:
     title: Customer
     description: The buying party of a purchase

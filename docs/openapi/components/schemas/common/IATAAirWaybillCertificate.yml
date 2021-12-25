@@ -13,9 +13,11 @@ required:
   - type
 properties:
   type:
-    type: string
-    enum:
-      - IATAAirWaybillCertificate
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - IATAAirWaybillCertificate
   airWaybillNumber:
     title: Air Waybill Number
     type: string

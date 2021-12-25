@@ -14,9 +14,11 @@ required:
   - validationAuthority
 properties:
   type:
-    type: string
-    enum:
-      - LEIregistration
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LEIregistration
   initialRegistrationDate:
     title: Initialregistrationdate
     type: string

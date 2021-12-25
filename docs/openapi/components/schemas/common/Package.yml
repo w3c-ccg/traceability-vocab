@@ -9,9 +9,11 @@ type: object
 required: []
 properties:
   type:
-    type: string
-    enum:
-      - Package
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Package
   physicalShippingMarks:
     title: shippingMarks
     description: >-

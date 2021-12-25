@@ -6,9 +6,11 @@ description: The measurement of an Observation.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - MeasuredValue
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - MeasuredValue
   value:
     title: Measurement Value
     description: >-

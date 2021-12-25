@@ -6,9 +6,11 @@ description: Details on a shipment or delivery.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - ParcelDelivery
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ParcelDelivery
   deliveryAddress:
     title: Delivery Address
     description: Final destination address to which the shipment is being sent.

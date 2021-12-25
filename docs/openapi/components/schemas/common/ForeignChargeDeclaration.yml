@@ -6,9 +6,11 @@ description: Foreign charge declaration definition based on IATA electronic Air 
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - ForeignChargeDeclaration
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ForeignChargeDeclaration
   foreignCurrencyConvertionRate:
     title: Currency Conversion Rate
     description: >-

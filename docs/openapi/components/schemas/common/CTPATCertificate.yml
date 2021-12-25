@@ -17,9 +17,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - CTPATCertificate
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CTPATCertificate
   ctpatCertifiedEntity:
     title: CTPAT Certified Entity
     description: >-

@@ -11,9 +11,11 @@ required:
   - bic
 properties:
   type:
-    type: string
-    enum:
-      - LEIevidenceDocument
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LEIevidenceDocument
   lei:
     title: Lei
     type: string

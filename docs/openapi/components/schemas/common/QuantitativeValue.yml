@@ -6,9 +6,11 @@ description: A point value or interval for product characteristics and other pur
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - QuantitativeValue
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - QuantitativeValue
   unitCode:
     title: Unit Code
     description: Unit of measurement.

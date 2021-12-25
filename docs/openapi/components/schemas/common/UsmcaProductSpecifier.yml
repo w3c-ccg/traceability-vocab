@@ -6,9 +6,11 @@ description: USMCA product origin specifier
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - usmcaProductSpecifier
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - usmcaProductSpecifier
   product:
     title: Product
     description: >-

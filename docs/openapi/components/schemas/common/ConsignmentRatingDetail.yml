@@ -6,9 +6,11 @@ title: Consignment Rating Details, itemized consignment items of IATA Air Waybil
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - ConsignmentRatingDetail
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ConsignmentRatingDetail
   numberOfPieces:
     title: Number of Pieces and RCP
     description: The number of pieces for the applicable rating entry. Box 22A.

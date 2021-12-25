@@ -10,9 +10,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - AgProduct
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - AgProduct
   upc:
     title: UPC Number
     description: >-

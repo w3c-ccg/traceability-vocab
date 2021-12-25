@@ -8,9 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - AgActivity
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - AgActivity
   farm:
     title: Farm
     description: The Farm or business entity performing the activity.

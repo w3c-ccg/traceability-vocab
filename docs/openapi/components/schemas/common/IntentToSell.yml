@@ -13,9 +13,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - IntentToSell
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - IntentToSell
   seller:
     title: Seller
     description: >-

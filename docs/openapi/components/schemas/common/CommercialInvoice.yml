@@ -6,9 +6,11 @@ description: A statement of the money due for goods or services; a bill.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - CommercialInvoice
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CommercialInvoice
   identifier:
     title: Property Identifier
     description: Identifiers for a property.

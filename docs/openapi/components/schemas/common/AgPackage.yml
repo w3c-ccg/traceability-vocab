@@ -9,9 +9,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - AgPackage
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - AgPackage
   packageName:
     title: Package Name
     description: Name of the items within the package.

@@ -6,9 +6,11 @@ description: A product
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Product
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Product
   manufacturer:
     title: Manufacturer
     description: The entity manufacturing the product.

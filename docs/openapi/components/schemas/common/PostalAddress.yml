@@ -8,9 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - PostalAddress
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - PostalAddress
   organizationName:
     title: Organization Name
     description: The name of the organization expressed in text.

@@ -6,9 +6,11 @@ description: Contact information for entities.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - ContactPoint
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ContactPoint
   name:
     title: Name
     description: Name of the entity.

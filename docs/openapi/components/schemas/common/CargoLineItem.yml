@@ -6,9 +6,11 @@ description: Identifies the specific details of packages within a cargo item.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - CargoLineItem
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CargoLineItem
   cargoLineItemID:
     title: cargoLineItemID
     description: >-

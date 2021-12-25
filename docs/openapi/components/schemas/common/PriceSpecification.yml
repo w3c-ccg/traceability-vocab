@@ -6,9 +6,11 @@ description: A structured value representing a price or price range.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - PriceSpecification
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - PriceSpecification
   price:
     title: Price
     description: >-

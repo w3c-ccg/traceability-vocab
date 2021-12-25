@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
+const Ajv = require('ajv').default;
+
 const specPath = path.resolve(__dirname, '../../../docs/openapi/openapi.yml');
 
 const apiSpec = yaml.load(fs.readFileSync(specPath, { encoding: 'utf-8' }));
@@ -67,4 +69,14 @@ const schemas = Object.values(apiSpec.paths)
   .map(extractSchemaFromEndpoint)
   .filter((s) => !!s); // remove nulls
 
-module.exports = { schemas };
+async function loadSchema(uri) {
+  const schema = schemas.find((s) => s.$id === uri);
+  return schema;
+}
+
+const ajv = new Ajv({
+  strict: false, // required due to "$linkedData" and "example".
+  loadSchema,
+});
+
+module.exports = { schemas, ajv };

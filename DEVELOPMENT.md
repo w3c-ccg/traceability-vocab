@@ -318,11 +318,11 @@ stricter or more verbose are detailed here:
 VERBOSE_BUILD=true        # sets general verbosity levels up when building
 
 FULL_ERROR_HANDLING=true  # forces hard stops at points in the process
-                          # when warning or other exceptions are caught
+                         # when warning or other exceptions are caught
 
 VERBOSE_BUILD_GENERAL     # increases verbosity in object generation on
-                          # common objects
+                         # common objects
 
 VERBOSE_BUILD_AG=true     # industry vertical specific stops, see also
-                          # VERBOSE_BUILD_STEEL and related
+                         # VERBOSE_BUILD_STEEL and related
 ```

@@ -6,9 +6,11 @@ description: Information on the person performing an inspection
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Inspector
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Inspector
   person:
     title: Person
     description: Person doing the inspection.

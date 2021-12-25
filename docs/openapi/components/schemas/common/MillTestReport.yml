@@ -6,9 +6,11 @@ description: Test results made by a manufacturer of a metal product.
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - MillTestReport
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - MillTestReport
   manufacturer:
     title: Manufacturer
     description: The manufacturer

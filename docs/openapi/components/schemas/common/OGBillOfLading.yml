@@ -6,9 +6,11 @@ description: Information on the Inspection and the observations made
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - OGBillOfLading
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - OGBillOfLading
   billOfLading:
     title: Bill Of Lading
     description: Bill Of Lading

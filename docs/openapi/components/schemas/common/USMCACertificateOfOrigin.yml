@@ -11,9 +11,11 @@ description: >-
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - USMCACertificateOfOrigin
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - USMCACertificateOfOrigin
   certifier:
     title: Certifier
     description: >-

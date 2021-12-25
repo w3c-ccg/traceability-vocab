@@ -12,9 +12,11 @@ required:
   - documentPresence
 properties:
   type:
-    type: string
-    enum:
-      - DocumentVerificationEvidence
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - DocumentVerificationEvidence
   verifier:
     title: verifier
     type: array

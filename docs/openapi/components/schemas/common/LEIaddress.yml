@@ -12,9 +12,11 @@ required:
   - postalCode
 properties:
   type:
-    type: string
-    enum:
-      - LEIaddress
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LEIaddress
   language:
     title: Language
     type: string

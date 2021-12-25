@@ -6,9 +6,11 @@ description: Commodity classification based on either WCO HS or USITS HTS codifi
 type: object
 properties:
   type:
-    type: string
-    enum:
-      - Commodity
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Commodity
   commodityCode:
     title: Commodity Code
     description: >-

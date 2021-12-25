@@ -16,9 +16,11 @@ properties:
       - type: string
       - type: object
   type:
-    type: string
-    enum:
-      - NaturalGasProduct
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - NaturalGasProduct
   product:
     title: Product
     description: Product details as outlined in the Product schema

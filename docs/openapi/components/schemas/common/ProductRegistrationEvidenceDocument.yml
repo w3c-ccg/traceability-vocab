@@ -30,9 +30,11 @@ required:
   - image
 properties:
   type:
-    type: string
-    enum:
-      - ProductRegistrationEvidenceDocument
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ProductRegistrationEvidenceDocument
   category:
     title: A category for the product item.
     type: string

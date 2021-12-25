@@ -12,9 +12,11 @@ required:
   - email
 properties:
   type:
-    type: string
-    enum:
-      - Customer
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Customer
   name:
     title: Name of the Customer
     type: string
