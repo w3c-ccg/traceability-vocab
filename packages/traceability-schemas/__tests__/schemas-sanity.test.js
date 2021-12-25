@@ -33,7 +33,7 @@ it('all schemas examples are valid json', () => {
   ).toBe(true);
 });
 
-it.only('all schemas examples are valid', async () => {
+it('all schemas examples are valid', async () => {
   const checks = await Promise.all(
     schemas.map(async (s) => {
       try {
