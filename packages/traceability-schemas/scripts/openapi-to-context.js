@@ -9,7 +9,7 @@ const rootTerms = require('./rootTerms.json');
 
 const contextPath = path.resolve(
   __dirname,
-  '../../../docs/contexts/traceability-v1.1.jsonld'
+  '../../../docs/contexts/traceability-v1.jsonld'
 );
 
 (async () => {

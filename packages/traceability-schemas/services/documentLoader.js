@@ -17,10 +17,7 @@ const contexts = {
   'https://w3id.org/traceability/v1': JSON.parse(
     fs
       .readFileSync(
-        path.resolve(
-          __dirname,
-          '../../../docs/contexts/traceability-v1.1.jsonld'
-        )
+        path.resolve(__dirname, '../../../docs/contexts/traceability-v1.jsonld')
       )
       .toString()
   ),
