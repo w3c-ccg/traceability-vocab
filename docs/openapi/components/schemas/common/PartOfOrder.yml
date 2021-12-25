@@ -17,10 +17,10 @@ properties:
           - PartOfOrder
   manufacturer:
     title: Manufacturer
-    type: string
+    $ref: ./Organization.yml
     $linkedData:
       term: manufacturer
-      '@id': https://schema.org/manufacturer
+      '@id': https://schema.org/Organization
   orderNumber:
     title: Ordernumber
     type: string
@@ -50,7 +50,7 @@ properties:
     title: >-
       A measure of the gross weight (mass) which includes packaging but excludes
       any transport equipment.
-    type: string
+    type: number
     $linkedData:
       term: weight
       '@id': >-
@@ -84,7 +84,7 @@ properties:
   packageQuantity:
     title: Package Quantity
     description: A number of packages
-    type: string
+    type: number
     $linkedData:
       term: name
       '@id': >-
@@ -92,7 +92,7 @@ properties:
   itemQuantity:
     title: Item Quantity
     description: A number of trade line items in the consignment item.
-    type: string
+    type: number
     $linkedData:
       term: name
       '@id': >-

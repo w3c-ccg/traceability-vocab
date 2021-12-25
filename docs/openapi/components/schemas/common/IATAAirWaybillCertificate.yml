@@ -9,7 +9,6 @@ description: >-
   https://www.iata.org/contentassets/b559d10aeb734d5196332b4953dcf312/e-awb-sop-hyd.pdf
 type: object
 required:
-  - '@context'
   - type
 properties:
   type:
@@ -466,18 +465,11 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "AirWaybillCertificate",
+    "type": ["AirWaybillCertificate"],
     "airWaybillNumber": "AXM121102183",
     "airlineCodeNumber": "172",
     "serialNumber": "48835010",
-    "airportOfDeparture": {
-      "type": "Place",
-      "iataAirportCode": "XMN",
-      "address": {
-        "type": "PostalAddress",
-        "addressLocality": "Xiamen"
-      },
-      "carrier": {
+    "carrier": {
         "type": "Organization",
         "name": "On Time Express Limited",
         "address": {
@@ -487,6 +479,13 @@ example: |-
           "addressRegion": "Xiamen",
           "addressCountry": "CN"
         }
+      }
+    "airportOfDeparture": {
+      "type": "Place",
+      "iataAirportCode": "XMN",
+      "address": {
+        "type": "PostalAddress",
+        "addressLocality": "Xiamen"
       },
       "conditionsOfContract": "It is agreed that the goods described herein are accepted in apparent good order and condition (except as noted) for carriage SUBJECT TO THE CONDITIONS OF CONTRACT ON THE REVERSE HEREOF. ALL GOODS MAY BE CARRIED BY ANY OTHER MEANS INCLUDING ROAD OR ANY OTHER CARRIER UNLESS SPECIFIC CONTRARY INSTRUCTIONS ARE GIVEN HEREON BY THE SHIPPER, AND SHIPPER AGREES THAT THE SHIPMENT MAY BE CARRIED VIA INTERMEDIATE STOPPING PLACES WHICH THE CARRIER DEEMS APPROPRIATE. THE SHIPPER'S ATTENTION IS DRAWN TO THE NOTICE CONCERNING CARRIER'S LIMITATION OF LIABILITY. Shipper may increase such limitation of liability by declaring a higher value for carriage and paying a supplemental charge if required.",
       "shipper": {

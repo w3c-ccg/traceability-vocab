@@ -11,6 +11,12 @@ description: >-
   on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)
 type: object
 properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - DCSAShippingInstruction
   shippingInstructionID:
     title: Shipping Instruction ID
     description: >-
@@ -175,13 +181,13 @@ example: |-
     "type": "DCSAShippingInstruction",
     "shippingInstructionID": "E0559d8308",
     "transportDocumentType": "SWB",
-    "cargoItems": {
+    "cargoItems": [{
       "type": "CargoItem",
-      "cargoLineItems": {
-        "type": "CargoLineItem",
+      "cargoLineItems": [{
+        "type": ["CargoLineItem"],
         "cargoLineItemID": "3312591",
         "shippingMarks": "Premium break pads"
-      },
+      }],
       "carrierBookingReference": "ABC709951",
       "descriptionOfGoods": "Break pads",
       "HSCode": "68138100",
@@ -191,11 +197,11 @@ example: |-
       "volumeUnit": "CBM",
       "numberOfPackages": 18,
       "packageCode": "5H"
-    },
-    "utilizedTransportEquipments": {
+    }],
+    "utilizedTransportEquipments": [{
       "type": "TransportEquipment",
       "equipmentReference": "APZU4812090"
-    },
+    }],
     "shipper": {
       "type": "Organization",
       "name": "Wisozk, Considine and Mitchell",
