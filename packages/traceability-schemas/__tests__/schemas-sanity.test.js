@@ -36,23 +36,29 @@ it('all schemas examples are valid json', () => {
 it.only('all schemas examples are valid', async () => {
   const checks = await Promise.all(
     schemas.map(async (s) => {
-      const input = JSON.parse(s.example);
-      if (
-        input.issue &&
-        input.issue.startsWith(
-          'https://github.com/w3c-ccg/traceability-vocab/issues/'
-        )
-      ) {
+      try {
+        const input = JSON.parse(s.example);
+        if (
+          input.issue &&
+          input.issue.startsWith(
+            'https://github.com/w3c-ccg/traceability-vocab/issues/'
+          )
+        ) {
+          return true;
+        }
+        await ajv.compileAsync(s);
+
+        const isValid = ajv.validate(s.$id, input);
+        if (!isValid) {
+          console.error(s.$linkedData.term, '\n', s.example, '\n', ajv.errors);
+        }
+
         return true;
+      } catch (e) {
+        console.error(s.$linkedData.term);
+        console.error(e);
+        return false;
       }
-      await ajv.compileAsync(s);
-
-      const isValid = ajv.validate(s.$id, input);
-      if (!isValid) {
-        console.error(s.$linkedData.term, '\n', s.example, '\n', ajv.errors);
-      }
-
-      return true;
     })
   );
   expect(checks.every((s) => s)).toBe(true);
