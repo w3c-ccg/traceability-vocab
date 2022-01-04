@@ -1,0 +1,36 @@
+$linkedData:
+  term: Qualification
+  '@id': https://schema.org/qualifications
+title: Qualification
+description: Skills, certifications, etc., required to perform a job properly.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Qualification
+  qualificationCategory:
+    title: Qualification Category
+    description: The type of qualification, credential, or certification the person has.
+    type: string
+    $linkedData:
+      term: qualificationCategory
+      '@id': https://schema.org/credentialCategory
+  qualificationValue:
+    title: Qualification Value
+    description: >-
+      Value of the qualification (if relevant), such as badge number or
+      certification level.
+    type: string
+    $linkedData:
+      term: qualificationValue
+      '@id': https://schema.org/hasCredential
+additionalProperties: false
+example: |-
+  {
+    "type": "Qualification",
+    "qualificationCategory": "National Directives Engineer",
+    "qualificationValue": "Consultant"
+  }

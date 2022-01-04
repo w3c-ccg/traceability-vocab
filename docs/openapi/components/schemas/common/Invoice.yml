@@ -1,0 +1,80 @@
+$linkedData:
+  term: Invoice
+  '@id': https://schema.org/Invoice
+title: Invoice
+description: A statement of the money due for goods or services; a bill.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Invoice
+  identifier:
+    title: Property Identifier
+    description: Identifiers for a property.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  portOfEntry:
+    title: Port Of Entry
+    description: Port where the purchased goods will enter first.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: portOfEntry
+      '@id': https://schema.org/address
+  purchaseDate:
+    title: Purchase Date
+    description: The date that payment is made.
+    type: string
+    $linkedData:
+      term: purchaseDate
+      '@id': https://schema.org/paymentDueDate
+  totalPaymentDue:
+    title: Total Payment Due
+    description: The total amount due.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: totalPaymentDue
+      '@id': https://schema.org/totalPaymentDue
+  destinationCountry:
+    title: Destination Country
+    description: Country to which the purchased product will be delivered
+    type: string
+    $linkedData:
+      term: destinationCountry
+      '@id': https://schema.org/addressCountry
+  merchandise:
+    title: Merchandise
+    description: Identifiers for a property.
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: merchandise
+      '@id': https://schema.org/itemShipped
+  customer:
+    title: Customer
+    description: Party placing the order or paying the invoice.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: customer
+      '@id': https://schema.org/customer
+  provider:
+    title: Provider
+    description: >-
+      The service provider, service operator, or service performer; the goods
+      producer. Another party (a seller) may offer those services or goods on
+      behalf of the provider. A provider may also serve as the seller.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: provider
+      '@id': https://schema.org/provider
+additionalProperties: false
+example: |-
+  {
+    "type": "Invoice",
+    "identifier": "IN-29251"
+  }

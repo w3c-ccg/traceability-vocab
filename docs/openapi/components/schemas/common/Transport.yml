@@ -1,0 +1,75 @@
+$linkedData:
+  term: Transport
+  '@id': https://w3id.org/traceability#Transport
+title: Transport
+description: A transport which can be a leg of a journey.
+type: object
+required:
+  - shippingStopAddress
+  - carrier
+  - stopType
+properties:
+  loadLocation:
+    title: Load Location
+    $ref: ./Place.yml
+    $linkedData:
+      term: loadLocation
+      '@id': https://schema.org/Place
+  dischargeLocation:
+    title: Discharge Location
+    $ref: ./Place.yml
+    $linkedData:
+      term: dischargeLocation
+      '@id': https://schema.org/Place
+  plannedDepartureDate:
+    title: Planned Departure Date
+    description: The planned date of departure.
+    type: string
+    $linkedData:
+      term: plannedDepartureDate
+      '@id': https://schema.org/Date
+  plannedArrivalDate:
+    title: Planned Arrival Date
+    description: The planned date of arrival.
+    type: string
+    $linkedData:
+      term: plannedArrivalDate
+      '@id': https://schema.org/Date
+  modeOfTransport:
+    title: Mode of Transport
+    description: The mode of transport as defined by DCSA.
+    enum:
+      - Vessel
+      - Rail
+      - Truck
+      - Barge
+    $linkedData:
+      term: modeOfTransport
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/modeOfTransport
+  carrier:
+    title: carrier
+    $ref: ./Organization.yml
+    $linkedData:
+      term: carrier
+      '@id': https://schema.org/Organization
+  vesselNumber:
+    title: Vessel Number
+    description: The unique reference for a registered vessel.
+    type: string
+    $linkedData:
+      term: vesselNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMeans
+  voyageNumber:
+    title: Voyage Number
+    description: The vessel operator-specific identifier of the Voyage.
+    type: string
+    $linkedData:
+      term: voyageNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMovement
+example: |-
+  {
+    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/237"
+  }

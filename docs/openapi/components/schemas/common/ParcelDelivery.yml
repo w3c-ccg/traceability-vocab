@@ -1,0 +1,98 @@
+$linkedData:
+  term: ParcelDelivery
+  '@id': https://schema.org/ParcelDelivery
+title: Parcel Delivery
+description: Details on a shipment or delivery.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ParcelDelivery
+  deliveryAddress:
+    title: Delivery Address
+    description: Final destination address to which the shipment is being sent.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: deliveryAddress
+      '@id': https://schema.org/deliveryAddress
+  originAddress:
+    title: Origin Address
+    description: Address from where the shipment was sent.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: originAddress
+      '@id': https://schema.org/originAddress
+  deliveryMethod:
+    title: Delivery Method
+    description: The means of transportation used in delivering the shipment.
+    type: string
+    $linkedData:
+      term: deliveryMethod
+      '@id': https://schema.org/DeliveryMethod
+  trackingNumber:
+    title: Tracking Number
+    description: Shipper tracking number.
+    type: string
+    $linkedData:
+      term: trackingNumber
+      '@id': https://schema.org/trackingNumber
+  expectedArrival:
+    title: Expected Arrival
+    description: The earliest date the package may arrive.
+    type: string
+    $linkedData:
+      term: expectedArrival
+      '@id': https://schema.org/expectedArrivalFrom
+  specialInstructions:
+    title: Special Instructions
+    description: Instructions for freight handlers
+    type: string
+    $linkedData:
+      term: specialInstructions
+      '@id': https://schema.org/comment
+  consignee:
+    title: Consignee
+    description: >-
+      The consignee is the entity who is financially responsible for the receipt
+      of a shipment.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignee
+      '@id': https://schema.org/Organization
+  item:
+    title: Items Shipped
+    description: Item(s) being shipped.
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: item
+      '@id': https://schema.org/itemShipped
+additionalProperties: false
+example: |-
+  {
+    "type": "ParcelDelivery",
+    "deliveryAddress": {
+      "type": "PostalAddress",
+      "organizationName": "Reichel, Feil and Botsford",
+      "streetAddress": "632 Adelbert Avenue",
+      "addressLocality": "Jaidenland",
+      "addressRegion": "Missouri",
+      "postalCode": "03612-8503",
+      "addressCountry": "Gambia"
+    },
+    "originAddress": {
+      "type": "PostalAddress",
+      "organizationName": "Jaskolski Inc",
+      "streetAddress": "25015 Crona Mission",
+      "addressLocality": "Marcoston",
+      "addressRegion": "Pennsylvania",
+      "postalCode": "13480",
+      "addressCountry": "Nicaragua"
+    },
+    "deliveryMethod": "Rail freight transport",
+    "trackingNumber": "598186458445"
+  }

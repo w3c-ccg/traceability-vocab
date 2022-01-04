@@ -1,0 +1,48 @@
+$linkedData:
+  term: Commodity
+  '@id': https://w3id.org/traceability#Commodity
+title: Commodity
+description: Commodity classification based on either WCO HS or USITS HTS codification.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Commodity
+  commodityCode:
+    title: Commodity Code
+    description: >-
+      The commodity code at a given granularity, commonly a 6-digit HS or a
+      10-digit HTS code.
+    type: string
+    $linkedData:
+      term: commodityCode
+      '@id': https://w3id.org/traceability#commodityCode
+  commodityCodeType:
+    title: Commodity Code Type
+    description: Commodity code type
+    enum:
+      - HS
+      - HTS
+    $linkedData:
+      term: commodityCodeType
+      '@id': https://w3id.org/traceability#commodityCodeType
+  description:
+    title: Commodity Description
+    description: Description of the commodity.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+additionalProperties: false
+example: |-
+  {
+    "type": [
+      "Commodity"
+    ],
+    "commodityCode": "199301.20",
+    "commodityCodeType": "HS",
+    "description": "Rocket launchers; flame-throwers; grenade launchers; torpedo tubes and similar projectors"
+  }

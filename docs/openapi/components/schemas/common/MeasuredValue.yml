@@ -1,0 +1,42 @@
+$linkedData:
+  term: MeasuredValue
+  '@id': https://www.schema.org/QuantitativeValue
+title: Measured Value
+description: The measurement of an Observation.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - MeasuredValue
+  value:
+    title: Measurement Value
+    description: >-
+      A floating-point numeric value that is qualified by the corresponding
+      measurement unit code - see gs1:unitCode.
+    type: string
+    $linkedData:
+      term: value
+      '@id': https://www.schema.org/value
+  unitCode:
+    title: Measurement Unit
+    description: >-
+      A string value indicating a Measurement Unit from UN/ECE Recommendation
+      20, Units of Measure used in International Trade, e.g., GRM = gram - see
+      <a
+      href="https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf">rec20_rev3</a>
+    type: string
+    $linkedData:
+      term: unitCode
+      '@id': https://schema.org/unitCode
+additionalProperties: false
+example: |-
+  {
+    "type": [
+      "MeasuredValue"
+    ],
+    "value": "42.757",
+    "unitCode": "P1"
+  }

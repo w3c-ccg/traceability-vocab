@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   ci:
@@ -13,17 +13,10 @@ jobs:
         with:
           node-version: 16.x
       - name: Install
-        run: npm ci
-
-      # must run first to build schemas.
-      - name: Build
-        run: npm run build:all
+        run: npm i
 
       - name: Lint
         run: npm run lint
 
-      - name: Test Schemas
-        run: npm run test:schemas
-
-      - name: Test Credentials
-        run: npm run test:credentials
+      - name: Test
+        run: npm run test

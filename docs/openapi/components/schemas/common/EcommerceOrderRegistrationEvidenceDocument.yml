@@ -1,0 +1,170 @@
+$linkedData:
+  term: EcommerceOrderRegistrationEvidenceDocument
+  '@id': https://w3id.org/traceability#EcommerceOrderRegistrationEvidenceDocument
+title: Order Registration Evidence Document
+description: Evidence data for a registered eCommerce Order
+type: object
+required:
+  - orderNumber
+  - orderDate
+  - orderStatus
+  - description
+  - url
+  - seller
+  - broker
+  - customer
+  - paymentDueDate
+  - paymentMethod
+  - orderedItem
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommerceOrderRegistrationEvidenceDocument
+  orderNumber:
+    title: Number for eCommerce Order
+    type: string
+    default: ''
+    $linkedData:
+      term: orderNumber
+      '@id': https://schema.org/orderNumber
+  orderDate:
+    title: Date of eCommerce Order
+    type: string
+    default: ''
+    $linkedData:
+      term: orderDate
+      '@id': https://schema.org/DateTime
+  orderStatus:
+    title: Status of eCommerce Order
+    type: string
+    default: ''
+    $linkedData:
+      term: orderStatus
+      '@id': https://schema.org/OrderStatus
+  description:
+    title: Description of the customer order
+    type: string
+    default: ''
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  url:
+    title: Url or the order
+    type: string
+    default: ''
+    $linkedData:
+      term: url
+      '@id': https://schema.org/url
+  seller:
+    title: Seller
+    $ref: ./Organization.yml
+    $linkedData:
+      term: seller
+      '@id': https://schema.org/seller
+  broker:
+    title: Broker
+    $ref: ./Organization.yml
+    $linkedData:
+      term: broker
+      '@id': https://schema.org/broker
+  customer:
+    title: Customer
+    $ref: ./Customer.yml
+    $linkedData:
+      term: customer
+      '@id': https://schema.org/customer
+  paymentDueDate:
+    title: Paymentduedate
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentDueDate
+      '@id': https://schema.org/paymentDueDate
+  paymentMethod:
+    title: Paymentmethod
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentMethod
+      '@id': https://schema.org/paymentMethod
+  orderedItem:
+    title: Ordered Item
+    type: array
+    items:
+      $ref: ./OrderedItem.yml
+    $linkedData:
+      term: orderedItem
+      '@id': https://schema.org/orderedItem
+additionalProperties: false
+example: |-
+  {
+    "type": "EcommerceOrderRegistrationEvidenceDocument",
+    "orderNumber": "Order#538",
+    "orderDate": "2020-01-07",
+    "orderStatus": "OrderPaymentDue",
+    "description": "New Order For Stefan Gaylord",
+    "url": "https://dudley.com?queryid=Order#538",
+    "seller": {
+      "type": "Organization",
+      "name": "Watsica, Blick and Paucek",
+      "leiCode": "23451420761202927678"
+    },
+    "broker": {
+      "type": "Organization",
+      "name": "Mills - Bartoletti",
+      "leiCode": "54321937108944635838"
+    },
+    "customer": {
+      "type": "Customer",
+      "name": "Oscar Keebler",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "41379 Kerluke Mill",
+        "addressLocality": "Fritschport",
+        "addressRegion": "Nevada",
+        "postalCode": "23952-3805",
+        "addressCountry": "Ethiopia"
+      },
+      "telephone": "555-138-7096",
+      "email": "Morton_Kihn14@example.com"
+    },
+    "paymentDueDate": "2021-03-09",
+    "paymentMethod": "http://purl.org/goodrelations/v1#ByInvoice",
+    "orderedItem": [
+      {
+        "type": "OrderedItem",
+        "name": "ACME Bluetooth Computer Mouse 3000-1",
+        "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+        "unitPrice": 8,
+        "orderQuantity": 9,
+        "price": 72
+      },
+      {
+        "type": "OrderedItem",
+        "name": "ACME Bluetooth Computer Mouse 3000-1",
+        "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+        "unitPrice": 6,
+        "orderQuantity": 8,
+        "price": 48
+      },
+      {
+        "type": "OrderedItem",
+        "name": "ACME Laptop 3000",
+        "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+        "unitPrice": 2,
+        "orderQuantity": 4,
+        "price": 8
+      },
+      {
+        "type": "OrderedItem",
+        "name": "ACME Bluetooth Computer Keyboard 3801-1",
+        "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+        "unitPrice": 2,
+        "orderQuantity": 1,
+        "price": 2
+      }
+    ]
+  }

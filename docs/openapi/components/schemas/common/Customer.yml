@@ -1,0 +1,62 @@
+$linkedData:
+  term: Customer
+  '@id': https://w3id.org/traceability#Customer
+title: Customer
+description: Customer record based on Customer from schema.org
+type: object
+required:
+  - type
+  - name
+  - address
+  - telephone
+  - email
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Customer
+  name:
+    title: Name of the Customer
+    type: string
+    default: ''
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  address:
+    title: Address of the Customer
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: address
+      '@id': https://schema.org/PostalAddress
+  telephone:
+    title: Telephone
+    type: string
+    default: ''
+    $linkedData:
+      term: telephone
+      '@id': https://schema.org/telephone
+  email:
+    title: Email
+    type: string
+    default: ''
+    $linkedData:
+      term: email
+      '@id': https://schema.org/email
+additionalProperties: false
+example: |-
+  {
+    "type": "Customer",
+    "name": "Catharine Glover",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "267 Keira Crescent",
+      "addressLocality": "Lake Jonathonchester",
+      "addressRegion": "Montana",
+      "postalCode": "39948",
+      "addressCountry": "Cape Verde"
+    },
+    "telephone": "555-738-1186",
+    "email": "Joseph95@example.net"
+  }

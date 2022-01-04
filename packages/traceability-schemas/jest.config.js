@@ -1,5 +1,4 @@
 module.exports = {
-  //   testPathIgnorePatterns: ['/__generated__'],
   reporters: [
     'default',
     [

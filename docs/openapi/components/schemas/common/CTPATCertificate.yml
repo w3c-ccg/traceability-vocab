@@ -1,0 +1,55 @@
+$linkedData:
+  term: CTPATCertificate
+  '@id': https://w3id.org/traceability#CTPATCertificate
+title: CTPAT Certificate
+description: >-
+  Customs Trade Partnership Against Terrorism (CTPAT) is but one layer in U.S.
+  Customs and Border Protection’s (CBP) multi-layered cargo enforcement
+  strategy. Through this program, CBP works with the trade community to
+  strengthen international supply chains and improve United States border
+  security. CTPAT is a voluntary public-private sector partnership program which
+  recognizes that CBP can provide the highest level of cargo security only
+  through close cooperation with the principle stakeholders of the international
+  supply chain such as importers, carriers, consolidators, licensed customs
+  brokers, and manufacturers. The Security and Accountability for Every Port Act
+  of 2006 provided a statutory framework for the CTPAT program and imposed
+  strict program oversight requirements.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CTPATCertificate
+  ctpatCertifiedEntity:
+    title: CTPAT Certified Entity
+    description: >-
+      In recognition of your commitment to partnerhip, and in appreciation for
+      joining with us to secure the international supply chain and protect our
+      country's security, The U.S. Customs Service is pleased to certify your
+      membership in the Customs - Trade Partnership Against Terrorism and to
+      present this certificate to
+    $ref: ./Organization.yml
+    $linkedData:
+      term: ctpatCertifiedEntity
+      '@id': https://w3id.org/traceability#ctpatCertifiedEntity
+additionalProperties: false
+required:
+  - ctpatCertifiedEntity
+example: |-
+  {
+    "type": "CTPATCertificate",
+    "ctpatCertifiedEntity": {
+      "type": "Organization",
+      "name": "Trans-Atlantic Shipping Co. Ltd.",
+      "address": {
+        "type": "PostalAddress",
+        "organizationName": "Trans-Atlantic Shipping Co. Ltd.",
+        "streetAddress": "82 Whitchurch Road",
+        "addressLocality": "Elsworth",
+        "postalCode": "CB3 8NW",
+        "addressCountry": "UK"
+      }
+    }
+  }

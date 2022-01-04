@@ -18,16 +18,13 @@ jobs:
           node-version: 16.x
 
       - name: Install
-        run: npm ci
+        run: npm i
 
-      - name: Build
-        run: npm run build:all
+      - name: Lint
+        run: npm run lint
 
-      - name: Test Schemas
-        run: npm run test:schemas
-
-      - name: Test Credentials
-        run: npm run test:credentials
+      - name: Test
+        run: npm run test
 
       - name: 'Automated Version Bump'
         id: version-bump

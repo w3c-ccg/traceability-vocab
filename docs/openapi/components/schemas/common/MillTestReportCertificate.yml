@@ -1,0 +1,331 @@
+$linkedData:
+  term: MillTestReportCertificate
+  '@id': https://w3id.org/traceability#MillTestReportCertificate
+title: Mill Test Report Certificate
+description: Certifications made by a manufacturer of a metal product.
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - MillTestReportCertificate
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    type: object
+  proof:
+    type: object
+  relatedLink:
+    title: Related Link
+    description: Links related to this verifiable credential
+    type: array
+    items:
+      $ref: ./LinkRole.yml
+additionalProperties: false
+required: []
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "https://example.com/credential/123",
+    "type": [
+      "VerifiableCredential",
+      "MillTestReportCertificate"
+    ],
+    "name": "Certified Mill Test Report",
+    "description": "This document includes recommended mill certificate fields.",
+    "relatedLink": [
+      {
+        "type": [
+          "LinkRole"
+        ],
+        "target": "https://www.example.com/template/123",
+        "linkRelationship": "templateLink"
+      }
+    ],
+    "issuanceDate": "2019-12-11T03:50:55Z",
+    "issuer": {
+      "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "type": "Organization",
+      "name": "Bartell Inc",
+      "description": "Realigned maximized alliance",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "713 Funk Parkway",
+        "addressLocality": "Dannyside",
+        "addressRegion": "Alabama",
+        "postalCode": "17321",
+        "addressCountry": "Peru"
+      },
+      "email": "Dion_Stoltenberg@example.org",
+      "phoneNumber": "555-987-1014",
+      "faxNumber": "555-377-8843"
+    },
+    "credentialSubject": {
+      "type": [
+        "MillTestReport"
+      ],
+      "manufacturer": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Pacocha Group",
+        "description": "Cross-group motivating open system",
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "streetAddress": "3076 Bernier Radial",
+          "addressLocality": "Lake Cora",
+          "addressRegion": "Arizona",
+          "postalCode": "54215-6259",
+          "addressCountry": "Sweden"
+        },
+        "email": "Ila_VonRueden14@example.net",
+        "phoneNumber": "555-378-2057",
+        "faxNumber": "555-317-8070"
+      },
+      "product": {
+        "type": [
+          "SteelProduct"
+        ],
+        "heatNumber": "29493",
+        "specification": "ASTM-96405",
+        "grade": "1526",
+        "originalCountryOfMeltAndPour": "Bermuda",
+        "inspection": {
+          "type": [
+            "InspectionReport"
+          ],
+          "observation": [
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "MechanicalProperty"
+                ],
+                "identifier": "ISO 148",
+                "name": "Charpy Impact Strength Test",
+                "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "38.844",
+                "unitCode": "B13"
+              }
+            },
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "MechanicalProperty"
+                ],
+                "identifier": "ISO 148",
+                "name": "Charpy Impact Strength Test",
+                "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "33.743",
+                "unitCode": "B13"
+              }
+            },
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "MechanicalProperty"
+                ],
+                "identifier": "ISO 3738",
+                "name": "Rockwell Hardness Test (Scale A)",
+                "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "00.00",
+                "unitCode": "UNKNOWN"
+              }
+            },
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "MechanicalProperty"
+                ],
+                "identifier": "ISO 1352",
+                "name": "Torque-controlled fatigue testing",
+                "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "00.00",
+                "unitCode": "UNKNOWN"
+              }
+            },
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "ChemicalProperty"
+                ],
+                "name": "Zirconium"
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "60.811",
+                "unitCode": "P1"
+              }
+            },
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "MechanicalProperty"
+                ],
+                "identifier": "ISO 1352",
+                "name": "Torque-controlled fatigue testing",
+                "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "00.00",
+                "unitCode": "UNKNOWN"
+              }
+            },
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "ChemicalProperty"
+                ],
+                "name": "Nitrogen"
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "00.00",
+                "unitCode": "UNKNOWN"
+              }
+            },
+            {
+              "type": [
+                "Observation"
+              ],
+              "date": "2019-12-11T03:50:55Z",
+              "property": {
+                "type": [
+                  "ChemicalProperty"
+                ],
+                "name": "Astatine"
+              },
+              "measurement": {
+                "type": [
+                  "MeasuredValue"
+                ],
+                "value": "39.189",
+                "unitCode": "P1"
+              }
+            }
+          ]
+        }
+      },
+      "purchase": {
+        "type": [
+          "Purchase"
+        ],
+        "customer": {
+          "type": [
+            "Person"
+          ],
+          "email": "Triston.Wehner28@example.com",
+          "phoneNumber": "555-829-8193"
+        }
+      },
+      "shipment": {
+        "type": [
+          "ParcelDelivery"
+        ],
+        "deliveryAddress": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "Luettgen - Conn",
+          "streetAddress": "03845 Dylan Groves",
+          "addressLocality": "Wittingfurt",
+          "addressRegion": "Delaware",
+          "postalCode": "77015-3992",
+          "addressCountry": "Tuvalu"
+        },
+        "originAddress": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "O'Hara, Klein and Ratke",
+          "streetAddress": "603 Jerde Curve",
+          "addressLocality": "Kubside",
+          "addressRegion": "Indiana",
+          "postalCode": "38144",
+          "addressCountry": "Isle of Man"
+        },
+        "deliveryMethod": "Rail freight transport",
+        "trackingNumber": "793845358389"
+      }
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2019-12-11T03:50:55Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..eYAe3tnAYLhfE7tbW6nVUeQclF63oi2Y8JK1Y9U5VTXx4l0Zo1qcsefsZvuwj3AhNZ1OisIwyTD-BccnOiXcBA",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+    }
+  }

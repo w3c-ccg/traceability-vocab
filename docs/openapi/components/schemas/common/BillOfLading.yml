@@ -1,0 +1,235 @@
+$linkedData:
+  term: BillOfLading
+  '@id': https://w3id.org/traceability#BillOfLading
+title: Bill Of Lading
+description: Bill Of Lading
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - BillOfLading
+  billOfLadingNumber:
+    title: Bill Of Lading Number
+    description: This identifier might not be globally unique.
+    type: string
+    $linkedData:
+      term: billOfLadingNumber
+      '@id': https://schema.org/identifier
+  bookingNumber:
+    title: Booking Number
+    description: >-
+      Reference number assigned by a carrier of its agent to identify a specific
+      consignment such as a booking reference number when cargo space is
+      reserved prior to loading.
+    type: string
+    $linkedData:
+      term: bookingNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_carrier_assigned
+  relatedDocuments:
+    title: Purchase
+    description: Purchase documents related to a bill of lading
+    type: array
+    items:
+      $ref: ./Purchase.yml
+    $linkedData:
+      term: relatedDocuments
+      '@id': https://schema.org/Purchase
+  scac:
+    title: SCAC
+    description: >-
+      For maritime shipments, this code qualifies a Standard Alpha Carrier Code
+      (SCAC) as issued by the United Stated National Motor Traffic Association
+      Inc.
+    type: string
+    $linkedData:
+      term: scac
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number
+  carrier:
+    title: Carrier
+    description: >-
+      The party providing the transport of goods in this consignment between
+      named points.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: carrier
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
+  consignor:
+    title: Consignor
+    description: >-
+      The party consigning goods, as stipulated in the transport contract by the
+      party ordering transport.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: consignor
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
+  consignee:
+    title: Consignee
+    description: A party to which goods are consigned.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: consignee
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+  notify:
+    title: Notify Party
+    description: >-
+      The party to be notified upon arrival of goods and when special
+      occurrences (usually pre-defined) take place during a transportation
+      service.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: notify
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
+  freightForwarder:
+    title: Freight Forwarder
+    description: >-
+      The party combining individual smaller consignments into a single larger
+      shipment (the consolidated shipment), which is sent to a counterpart that
+      mirrors the consolidator's activity by dividing the consolidated
+      consignment into its original components.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: freightForwarder
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty
+  freight:
+    title: 'Freight '
+    description: Content described by the bill of lading
+    $ref: ./ParcelDelivery.yml
+    $linkedData:
+      term: freight
+      '@id': https://schema.org/ParcelDelivery
+  nmfcFreightClass:
+    title: NMFC Freight Class
+    description: >-
+      The National Motor Freight Classification® (NMFC®) is a standard that
+      allows for determining of freight classes for the comparison of different
+      commodities and products being shipped.
+    type: string
+    $linkedData:
+      term: nmfcFreightClass
+      '@id': https://w3id.org/traceability#nmfcFreightClass
+  hazardCode:
+    title: Hazard Code
+    description: >-
+      The Department of Transportation (DOT) hazard code associated with the
+      shipment.
+    type: string
+    $linkedData:
+      term: hazardCode
+      '@id': https://w3id.org/traceability#hazardCode
+  portOfLoading:
+    title: Port of Loading
+    description: >-
+      The first arrival location in a transport. This would be a port for sea,
+      an airport for air, a terminal for rail, or a border post for land
+      crossing.
+    $ref: ./Place.yml
+    $linkedData:
+      term: placeOfIssue
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_loading
+  portOfDischarge:
+    title: Port of Discharge
+    description: >-
+      The final exporting location in a transport. This would be a port for sea,
+      an airport for air, a terminal for rail, or a border post for land
+      crossing.
+    $ref: ./Place.yml
+    $linkedData:
+      term: placeOfIssue
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_discharge
+additionalProperties: false
+example: |-
+  {
+    "type": "BillOfLading",
+    "billOfLadingNumber": "991205182A",
+    "bookingNumber": "991205182",
+    "relatedDocuments": [
+      {
+        "type": [
+          "Purchase"
+        ],
+        "customer": {
+          "type": [
+            "Person"
+          ],
+          "email": "Willie78@example.net",
+          "phoneNumber": "555-152-7258"
+        }
+      }
+    ],
+    "scac": "NISC",
+    "carrier": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Adaline29@example.com",
+      "phoneNumber": "+1 555-234-9983"
+    },
+    "consignor": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Idella60@example.org",
+      "phoneNumber": "555-953-9479"
+    },
+    "consignee": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Victoria.Hane74@example.org",
+      "phoneNumber": "555-455-9053"
+    },
+    "notify": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Florida91@example.net",
+      "phoneNumber": "555-104-1126"
+    },
+    "freight": {
+      "type": [
+        "ParcelDelivery"
+      ],
+      "deliveryAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Hahn LLC",
+        "streetAddress": "786 Pfeffer Plains",
+        "addressLocality": "West Ottilie",
+        "addressRegion": "Nebraska",
+        "postalCode": "50878-0870",
+        "addressCountry": "Cook Islands"
+      },
+      "originAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Rosenbaum, Hills and Pagac",
+        "streetAddress": "71834 Zelma Trail",
+        "addressLocality": "West Gerhardview",
+        "addressRegion": "North Carolina",
+        "postalCode": "78251-3640",
+        "addressCountry": "Paraguay"
+      },
+      "deliveryMethod": "Ocean transport",
+      "trackingNumber": "178380801954"
+    },
+    "portOfLoading": {
+      "unLocode": "USMOB"
+    },
+    "portOfDischarge": {
+      "unLocode": "MXATM"
+    }
+  }

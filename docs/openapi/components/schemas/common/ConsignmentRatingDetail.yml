@@ -1,0 +1,115 @@
+$linkedData:
+  term: ConsignmentRatingDetail
+  '@id': >-
+    https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem
+title: Consignment Rating Details, itemized consignment items of IATA Air Waybill.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ConsignmentRatingDetail
+  numberOfPieces:
+    title: Number of Pieces and RCP
+    description: The number of pieces for the applicable rating entry. Box 22A.
+    type: number
+    $linkedData:
+      term: numberOfPieces
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  grossWeight:
+    title: Gross Weight
+    description: The gross weight of the pieces for the applicable rating entry. Box 22B.
+    type: number
+    $linkedData:
+      term: grossWeight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  grossWeightUnit:
+    title: Gross Weight Unit
+    description: 22C
+    type: string
+    $linkedData:
+      term: grossWeightUnit
+      '@id': https://schema.org/unitCode
+  rateClass:
+    title: Rate Class
+    description: 22D
+    enum:
+      - M—minimum charge
+      - N—normal rate
+      - Q—quantity rate
+      - B—basic charge (optional use)
+      - K—rate per kilogram (optional use)
+      - P—international priority service rate
+      - C—specific commodity rate
+      - R—class rate reduction
+      - S—class rate surcharge
+      - U—unit load device basic charge or rate
+      - E—unit load device additional rate
+      - X—unit load device additional information
+      - Y—unit load device discount
+      - W—weight increase
+    $linkedData:
+      term: rateClass
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightChargeTariffClassCode
+  commodityItemNumber:
+    title: Commodity Item Number
+    description: >-
+      This box shall be completed as follows: when a specific commodity rate
+      applies, the IATA item description number shall be inserted on the “C” or
+      “U” rate class line; when a class rate reduction applies, the percentage
+      which is applied to the appropriate charge or rate shall be inserted on
+      the “R” rate class line, preceded by the rate class code to which it
+      refers, e.g., 33% reduction on the normal rate shall be expressed as N67;
+      when a class rate surcharge applies, the percentage which is applied to
+      the appropriate charge or rate shall be inserted on the “S” rate class
+      line, preceded by the rate class code to which it refers, e.g., 50%
+      surcharge of the minimum charge shall be expressed as M150; when a unit
+      load device rate applies, the ULD rate class type used shall be inserted
+      on the “X” rate class line. Box 22E.
+    type: string
+    $linkedData:
+      term: commodityItemNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#discountIndicator
+  chargeableWeight:
+    title: Chargeable Weight
+    description: >-
+      The applicable chargeable weight, calculated according to applicable
+      rating rules. Box 22F.
+    type: number
+    $linkedData:
+      term: chargeableWeight
+      '@id': https://schema.org/weight
+  rateCharge:
+    title: Rate/Charge
+    description: The applicable rate or charge.
+    type: string
+    $linkedData:
+      term: rateCharge
+      '@id': https://schema.org/price
+  total:
+    title: Total
+    description: >-
+      The total charge or discount for each line entry shall be inserted on the
+      same horizontal line. Box 22H.
+    type: string
+    $linkedData:
+      term: total
+      '@id': https://schema.org/totalPrice
+  natureAndVolumeOfGoods:
+    title: Nature and Quantity of Goods
+    description: Nature and Quantity of Goods (including Dimensions or Volume). Box 22I.
+    type: string
+    $linkedData:
+      term: natureAndVolumeOfGoods
+      '@id': https://schema.org/description
+  additionalProperties: false
+example: |-
+  {
+
+  }

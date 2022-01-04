@@ -1,0 +1,184 @@
+$linkedData:
+  term: CommercialInvoice
+  '@id': https://w3id.org/traceability#CommercialInvoiceCredential
+title: Commercial Invoice
+description: A statement of the money due for goods or services; a bill.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CommercialInvoice
+  identifier:
+    title: Property Identifier
+    description: Identifiers for a property.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  portOfEntry:
+    title: Port Of Entry
+    description: Port where the purchased goods will enter first.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: portOfEntry
+      '@id': https://schema.org/address
+  purchaseDate:
+    title: Purchase Date
+    description: The date that payment is made.
+    type: string
+    $linkedData:
+      term: purchaseDate
+      '@id': https://schema.org/paymentDueDate
+  totalPaymentDue:
+    title: Total Payment Due
+    description: The total amount due.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: totalPaymentDue
+      '@id': https://schema.org/totalPaymentDue
+  destinationCountry:
+    title: Destination Country
+    description: Country to which the purchased product will be delivered
+    type: string
+    $linkedData:
+      term: destinationCountry
+      '@id': https://schema.org/addressCountry
+  merchandise:
+    title: Merchandise
+    description: Identifiers for a property.
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: merchandise
+      '@id': https://schema.org/itemShipped
+  customer:
+    title: Customer
+    description: Party placing the order or paying the invoice.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: customer
+      '@id': https://schema.org/customer
+  provider:
+    title: Provider
+    description: >-
+      The service provider, service operator, or service performer; the goods
+      producer. Another party (a seller) may offer those services or goods on
+      behalf of the provider. A provider may also serve as the seller.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: provider
+      '@id': https://schema.org/provider
+additionalProperties: false
+example: |-
+  {
+    "type": [
+      "CommercialInvoice"
+    ],
+    "portOfEntry": {
+      "type": [
+        "PostalAddress"
+      ],
+      "addressLocality": "Seatle",
+      "addressRegion": "Washington",
+      "addressCountry": "USA"
+    },
+    "destinationCountry": "MEX",
+    "purchaseDate": "2021-02-21",
+    "customer": {
+      "type": [
+        "Organization"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Generic Motors of America",
+        "streetAddress": "12 Generic Motors Dr",
+        "addressLocality": "Detroit",
+        "addressRegion": "Michigain",
+        "postalCode": "48232-5170",
+        "addressCountry": "USA"
+      }
+    },
+    "provider": {
+      "type": [
+        "Organization"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+        "streetAddress": "1651, Shimonakano, Yoshida",
+        "addressLocality": "Tsubame-shi",
+        "addressRegion": "Niigata-ken",
+        "postalCode": "959-0215",
+        "addressCountry": "Japan"
+      }
+    },
+    "totalPaymentDue": {
+      "type": [
+        "PriceSpecification"
+      ],
+      "price": 150000,
+      "priceCurrency": "USD"
+    },
+    "merchandise": [
+      {
+        "type": [
+          "Product"
+        ],
+        "manufacturer": {
+          "type": [
+            "Organization"
+          ]
+        },
+        "description": "UNS S30400 chromium-nickel stainless steel rolls.",
+        "weight": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "lbs",
+          "value": "10000"
+        },
+        "quantity": "5",
+        "priceSpecification": {
+          "type": [
+            "PriceSpecification"
+          ],
+          "price": 10000,
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "type": [
+          "Product"
+        ],
+        "manufacturer": {
+          "type": [
+            "Organization"
+          ]
+        },
+        "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
+        "weight": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "lbs",
+          "value": "20000"
+        },
+        "quantity": "10",
+        "priceSpecification": {
+          "type": [
+            "PriceSpecification"
+          ],
+          "price": 10000,
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }

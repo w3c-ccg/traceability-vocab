@@ -1,0 +1,197 @@
+$linkedData:
+  term: LEIentity
+  '@id': https://w3id.org/traceability#LEIentity
+title: LEIentity
+description: GLEIF LEI Redord Level 1 Schema for LEI Entity
+type: object
+required:
+  - legalName
+  - otherNames
+  - transliteratedOtherNames
+  - legalAddress
+  - headquartersAddress
+  - registrationAuthority
+  - legalJurisdiction
+  - entityCategory
+  - legalForm
+  - associatedEntity
+  - status
+  - expirationDate
+  - expirationReason
+  - successorEntity
+  - otherAddresses
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LEIentity
+  legalName:
+    title: Legalname
+    type: string
+    $linkedData:
+      term: legalName
+      '@id': https://schema.org/legalName
+  legalNameLanguage:
+    title: Language
+    type: string
+    $linkedData:
+      term: legalNameLanguage
+      '@id': https://schema.org/Language
+  otherNames:
+    title: Othernames
+    type: array
+    default: []
+    $linkedData:
+      term: otherNames
+      '@id': https://schema.org/alternateName
+  transliteratedOtherNames:
+    title: Transliteratedothernames
+    type: array
+    default: []
+    $linkedData:
+      term: transliteratedOtherNames
+      '@id': https://schema.org/name
+  legalAddress:
+    title: LegalAddress
+    $ref: ./LEIaddress.yml
+    $linkedData:
+      term: legalAddress
+      '@id': https://w3id.org/traceability#LEIaddress
+  headquartersAddress:
+    title: HeadquartersAddress
+    $ref: ./LEIaddress.yml
+    $linkedData:
+      term: headquartersAddress
+      '@id': https://schema.org/PostalAddress
+  registrationAuthority:
+    title: RegistrationAuthority
+    $ref: ./LEIauthority.yml
+    $linkedData:
+      term: registrationAuthority
+      '@id': https://w3id.org/traceability#LEIauthority
+  legalJurisdiction:
+    title: LegalJurisdiction
+    type: string
+    $linkedData:
+      term: legalJurisdiction
+      '@id': https://schema.org/countryOfOrigin
+  entityCategory:
+    title: EntityCategory
+    type: string
+    $linkedData:
+      term: entityCategory
+      '@id': https://schema.org/category
+  legalForm:
+    title: LegalForm
+    type: string
+    $linkedData:
+      term: legalForm
+      '@id': https://schema.org/additionalType
+  associatedEntity:
+    title: AssociatedEntity
+    $ref: ./Organization.yml
+    $linkedData:
+      term: associatedEntity
+      '@id': https://schema.org/Organization
+  status:
+    title: Status
+    type: string
+    $linkedData:
+      term: status
+      '@id': https://schema.org/status
+  expirationDate:
+    title: ExpirationDate
+    type: string
+    $linkedData:
+      term: expirationDate
+      '@id': https://schema.org/expires
+  expirationReason:
+    title: ExpirationReason
+    type: string
+    $linkedData:
+      term: expirationReason
+      '@id': https://schema.org/Answer
+  successorEntity:
+    title: SuccessorEntity
+    $ref: ./Organization.yml
+    $linkedData:
+      term: successorEntity
+      '@id': https://schema.org/Corporation
+  otherAddresses:
+    title: OtherAddresses
+    type: array
+    items:
+      $ref: ./LEIaddress.yml
+    $linkedData:
+      term: otherAddresses
+      '@id': https://schema.org/Place
+additionalProperties: false
+example: |-
+  {
+    "type": "LEIentity",
+    "legalName": "Dicki Group",
+    "legalNameLanguage": "cz",
+    "otherNames": [
+      "Baumbach, Wunsch and Reichel",
+      "Kilback, Schaden and Gerhold"
+    ],
+    "transliteratedOtherNames": [
+      "Baumbach, Wunsch and Reichel",
+      "Kilback, Schaden and Gerhold"
+    ],
+    "legalAddress": {
+      "type": "LEIaddress",
+      "language": "fa",
+      "addressLines": [
+        "Hansen Group",
+        "34443 Cassin Turnpike"
+      ],
+      "addressNumber": "40",
+      "addressNumberWithinBuilding": "2",
+      "mailRouting": "161 Keeling Brooks, 86340",
+      "city": "Rosenbaumshire",
+      "region": "Avon",
+      "country": "Saint Barthelemy",
+      "postalCode": "65001-1865"
+    },
+    "headquartersAddress": {
+      "type": "LEIaddress",
+      "language": "en_BORK",
+      "addressLines": [
+        "Labadie, Stiedemann and Little",
+        "8379 Bennett Cliff"
+      ],
+      "addressNumber": "475",
+      "addressNumberWithinBuilding": "10",
+      "mailRouting": "46159 O'Hara Turnpike, 33968",
+      "city": "New Hilmaburgh",
+      "region": "Bedfordshire",
+      "country": "Uganda",
+      "postalCode": "38600"
+    },
+    "registrationAuthority": {
+      "type": "LEIauthority",
+      "validationAuthorityID": "RA000005",
+      "otherValidationAuthorityID": "W9TPAHSE",
+      "validationAuthorityEntityID": "15YFIRA9D02OZZ1LN4FB"
+    },
+    "legalJurisdiction": "Buckinghamshire",
+    "entityCategory": "Finance",
+    "legalForm": "CORPORATION",
+    "associatedEntity": {
+      "type": "Organization",
+      "leiCode": "OHVJ56TBUFWT9XWMBEJ9",
+      "name": "Lemke LLC"
+    },
+    "status": "CONFIRMED",
+    "expirationDate": "2022-07-11",
+    "expirationReason": "synergize cross-media eyeballs",
+    "successorEntity": {
+      "type": "Organization",
+      "leiCode": "2T6Q7NQ863KK7JV6X2I2",
+      "name": "Zemlak - Feest"
+    },
+    "otherAddresses": []
+  }

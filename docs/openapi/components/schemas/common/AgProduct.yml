@@ -1,0 +1,131 @@
+$linkedData:
+  term: AgProduct
+  '@id': https://w3id.org/traceability#AgProduct
+title: AgProduct
+description: >-
+  An agricultural product, extending the Product schema.  This schema
+  accounts for the FDA lebeling data requirements at the crate level as
+  specified here:
+  https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - AgProduct
+  upc:
+    title: UPC Number
+    description: >-
+      UPC (aka UPC-A) consists of 12 numeric digits that are uniquely assigned
+      to each trade item. Along with the related EAN barcode, the UPC is the
+      barcode mainly used for scanning of trade items at the point of sale, per
+      GS1 specifications.
+    type: string
+    $linkedData:
+      term: upc
+      '@id': https://www.gs1.org/standards/barcodes/ean-upc
+  plu:
+    title: PLU Number
+    description: >-
+      PLUs are a system of numbers that uniquely identify bulk produce sold in
+      grocery stores and supermarkets.  See the following link for further
+      information: https://www.pma.com/content/articles/2014/05/plu-codes
+    type: string
+    $linkedData:
+      term: plu
+      '@id': https://w3id.org/traceability#plu
+  gtin:
+    title: GTIN Code
+    description: >-
+      Global Trade Item Number (GTIN) can be used by a company to uniquely
+      identify all of its trade items.
+    type: string
+    $linkedData:
+      term: gtin
+      '@id': https://www.gs1.org/voc/gtin
+  product:
+    title: Product
+    description: Product details as specified in the Product schema
+    $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://www.gs1.org/voc/Product
+  scientificName:
+    title: Scientific Name
+    description: >-
+      The scientific classification of the agricultural product.  Each plant has
+      a scientific name comprised of a binomial which indicates the genus and
+      specific identifier of the plant.
+    type: string
+    $linkedData:
+      term: scientificName
+      '@id': https://w3id.org/traceability#scientificName
+  labelImageUrl:
+    title: Label Image URL
+    description: Image of the package label
+    type: string
+    $linkedData:
+      term: labelImageUrl
+      '@id': https://schema.org/url
+  labelImageHash:
+    title: Label Image Hash
+    description: >-
+      Hash value for securely identifying the label image.  More information can
+      be found at the following link: https://cybersecurityglossary.com/hashing
+    type: string
+    $linkedData:
+      term: labelImageHash
+      '@id': https://w3id.org/traceability#labelImageHash
+additionalProperties: false
+example: |-
+  {
+    "type": "AgProduct",
+    "upc": "033383401508",
+    "plu": "94225",
+    "gtin": "033383401508",
+    "product": {
+      "type": "Product",
+      "manufacturer": {
+        "type": "Person",
+        "firstName": "Itzel",
+        "lastName": "Leannon",
+        "email": "Camila_Braun51@example.net",
+        "phoneNumber": "555-900-1599",
+        "worksFor": {
+          "type": "Organization",
+          "name": "Koepp, Shanahan and Nienow",
+          "description": "Networked multi-state functionalities",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "6384 Verlie Key",
+            "addressLocality": "Coleshire",
+            "addressRegion": "Colorado",
+            "postalCode": "63968-4022",
+            "addressCountry": "Sudan"
+          },
+          "email": "Israel61@example.net",
+          "phoneNumber": "555-937-1345",
+          "faxNumber": "555-327-9115"
+        },
+        "jobTitle": "District Quality Associate"
+      },
+      "name": "Avocados",
+      "description": "Avocados, 4 pack boxes",
+      "sizeOrAmount": {
+        "type": "QuantitativeValue",
+        "unitCode": "hg/ha",
+        "value": "389"
+      },
+      "weight": {
+        "type": "QuantitativeValue",
+        "unitCode": "hg/ha",
+        "value": "7465"
+      },
+      "sku": "71266019767"
+    },
+    "scientificName": "Persea americana",
+    "labelImageUrl": "https://img.example.org/033383401508/640/480/",
+    "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
