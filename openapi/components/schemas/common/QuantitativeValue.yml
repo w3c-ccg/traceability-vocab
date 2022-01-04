@@ -1,0 +1,34 @@
+$linkedData:
+  term: QuantitativeValue
+  '@id': https://schema.org/QuantitativeValue
+title: Quantitative Value
+description: A point value or interval for product characteristics and other purposes
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - QuantitativeValue
+  unitCode:
+    title: Unit Code
+    description: Unit of measurement.
+    type: string
+    $linkedData:
+      term: unitCode
+      '@id': https://schema.org/unitCode
+  value:
+    title: Value
+    description: Value or amount.
+    type: string
+    $linkedData:
+      term: value
+      '@id': https://schema.org/value
+additionalProperties: false
+example: |-
+  {
+    "type": "QuantitativeValue",
+    "unitCode": "hg/ha",
+    "value": "4121"
+  }

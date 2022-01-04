@@ -1,0 +1,41 @@
+$linkedData:
+  term: EcommercePackingListItem
+  '@id': https://w3id.org/traceability#EcommercePackingListItem
+title: EcommercePackingListItem
+description: Ecommerce Packing List Item
+type: object
+required:
+  - orderID
+  - productInOrder
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommercePackingListItem
+  orderID:
+    title: orderID
+    description: The seller specific Order VC ID
+    type: string
+    $linkedData:
+      term: orderID
+      '@id': https://schema.org/orderNumber
+  productInOrder:
+    title: productInOrder
+    description: Product VC IDs included in the order
+    type: array
+    $linkedData:
+      term: productInOrder
+      '@id': https://schema.org/productID
+additionalProperties: false
+example: |-
+  {
+    "type": "EcommercePackingListItem",
+    "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+    "productInOrder": [
+      "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+      "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+      "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
+    ]
+  }

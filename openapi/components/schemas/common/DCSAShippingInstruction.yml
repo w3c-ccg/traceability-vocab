@@ -1,0 +1,261 @@
+$linkedData:
+  term: DCSAShippingInstruction
+  '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions
+title: DCSA Shipping Instruction
+description: >-
+  The Shipping Instruction is an enrichment to the original booking shared by
+  the shipper to the carrier. The shipping instruction includes volume or
+  weight, cargo items, shipping dates, origin, destination, and other special
+  instructions. The information given by the shipper through the shipping
+  instruction is the information required to create a Transport Document. Based
+  on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - DCSAShippingInstruction
+  shippingInstructionID:
+    title: Shipping Instruction ID
+    description: >-
+      The identifier for a shipping instruction provided by the carrier for
+      system purposes.
+    type: string
+    $linkedData:
+      term: shippingInstructionID
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Transport_instruction_number
+  transportDocumentType:
+    title: Transport Document Type
+    description: >-
+      Specifies the type of the transport document (a Bill of Lading (BOL) or a
+      Sea Waybill (SWB)).
+    type: string
+    $linkedData:
+      term: transportDocumentType
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocumentType
+  preCarriageUnderShippersResponsibility:
+    title: Pre Carriage Under Shippers Responsibility
+    description: >-
+      Mode of transportation for pre-carriage (e.g., truck, barge, rail), under
+      shipper's responsibility
+    type: string
+    $linkedData:
+      term: preCarriageUnderShippersResponsibility
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/preCarriageUnderShippersResponsibility
+  invoicePayableAt:
+    title: Invoice Payable At
+    description: >-
+      A location object - here with an example with only UN location code and
+      City name present
+    $ref: ./Place.yml
+    $linkedData:
+      term: invoicePayableAt
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt
+  carrierBookingReference:
+    title: Carrier Booking Reference
+    description: >-
+      The associated booking number provided by the carrier. Cannot be used in
+      combination with Cargo Item level carrierBookingReference
+    type: string
+    $linkedData:
+      term: carrierBookingReference
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_carrier_assigned
+  cargoItems:
+    title: Cargo Item
+    description: >-
+      Addresses the cargo items to be stuffed into a container for a shipment. A
+      cargo item cannot be split across containers.
+    type: array
+    items:
+      $ref: ./CargoItem.yml
+    $linkedData:
+      term: cargoItems
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem
+  utilizedTransportEquipments:
+    title: Utilized Transport Equipments
+    description: >-
+      A piece of transport equipment utilized for the consignment or trade
+      delivery.
+    type: array
+    items:
+      $ref: ./TransportEquipment.yml
+    $linkedData:
+      term: utilizedTransportEquipments
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment
+  shipmentLocations:
+    title: Shipment Locations
+    description: >-
+      Maps the relationship between Shipment and Location, e.g., the place of
+      receipt and the places of delivery for a specific shipment.
+    type: array
+    items:
+      $ref: ./Place.yml
+    $linkedData:
+      term: shipmentLocations
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DOCUMENTATION_DOMAIN/1.0.0#/components/schemas/shipmentLocation
+  shipper:
+    title: Shipper
+    description: Original shipper
+    $ref: ./Entity.yml
+    $linkedData:
+      term: shipper
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
+  consignee:
+    title: Consignee
+    description: Consignee
+    $ref: ./Entity.yml
+    $linkedData:
+      term: consignee
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+  invoicePayerShipper:
+    title: Shippers's Invoice Payer
+    description: Invoice payer on behalf of the shipper
+    $ref: ./Entity.yml
+    $linkedData:
+      term: invoicePayerShipper
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipperParty
+  invoicePayerConsignee:
+    title: Consignee's Invoice Payer
+    description: Invoice payer on behalf of the consignee
+    $ref: ./Entity.yml
+    $linkedData:
+      term: invoicePayerConsignee
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+  firstNotify:
+    title: First Notify
+    description: First notify party.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: notify
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
+  secondNotify:
+    title: Second Notify
+    description: Second notify party.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: notify
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
+  otherNotify:
+    title: Other Notify
+    description: Other notify party.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: notify
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
+  shippersFreightForwarder:
+    title: Consignor's freight forwarder
+    description: Consignor's freight forwarder
+    $ref: ./Entity.yml
+    $linkedData:
+      term: shippersFreightForwarder
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty
+  consigneesFreightForwarder:
+    title: Consignee's freight forwarder
+    description: Consignee's freight forwarder
+    $ref: ./Entity.yml
+    $linkedData:
+      term: consigneesFreightForwarder
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty
+additionalProperties: false
+example: |-
+  {
+    "type": "DCSAShippingInstruction",
+    "shippingInstructionID": "E0559d8308",
+    "transportDocumentType": "SWB",
+    "cargoItems": [{
+      "type": "CargoItem",
+      "cargoLineItems": [{
+        "type": ["CargoLineItem"],
+        "cargoLineItemID": "3312591",
+        "shippingMarks": "Premium break pads"
+      }],
+      "carrierBookingReference": "ABC709951",
+      "descriptionOfGoods": "Break pads",
+      "HSCode": "68138100",
+      "weight": 13000,
+      "volume": 12,
+      "weightUnit": "KGM",
+      "volumeUnit": "CBM",
+      "numberOfPackages": 18,
+      "packageCode": "5H"
+    }],
+    "utilizedTransportEquipments": [{
+      "type": "TransportEquipment",
+      "equipmentReference": "APZU4812090"
+    }],
+    "shipper": {
+      "type": "Organization",
+      "name": "Wisozk, Considine and Mitchell",
+      "description": "Persistent analyzing challenge",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "5717 Doyle Pass",
+        "addressLocality": "South Grady",
+        "addressRegion": "Arkansas",
+        "postalCode": "62547",
+        "addressCountry": "Estonia"
+      },
+      "email": "Tianna29@example.org",
+      "phoneNumber": "555-667-3587",
+      "faxNumber": "555-594-6910"
+    },
+    "consignee": {
+      "type": "Person",
+      "firstName": "Linnie",
+      "lastName": "Prohaska",
+      "email": "Marilou_Beatty@example.com",
+      "phoneNumber": "555-795-6288",
+      "worksFor": {
+        "type": "Organization",
+        "name": "Carroll, Breitenberg and Kirlin",
+        "description": "Decentralized mission-critical throughput",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "6065 Adrien Freeway",
+          "addressLocality": "Violettebury",
+          "addressRegion": "Illinois",
+          "postalCode": "64766-5352",
+          "addressCountry": "Ecuador"
+        },
+        "email": "Mylene.Weimann20@example.org",
+        "phoneNumber": "555-637-1018",
+        "faxNumber": "555-879-2566"
+      },
+      "jobTitle": "Lead Markets Planner"
+    },
+    "firstNotify": {
+      "type": "Organization",
+      "name": "Schumm and Sons",
+      "description": "Open-architected object-oriented help-desk",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "923 Lexus Route",
+        "addressLocality": "Lake Margarettaberg",
+        "addressRegion": "Wisconsin",
+        "postalCode": "14074-3087",
+        "addressCountry": "Belgium"
+      },
+      "email": "Zelma61@example.org",
+      "phoneNumber": "555-923-8264",
+      "faxNumber": "555-490-8751"
+    }
+  }

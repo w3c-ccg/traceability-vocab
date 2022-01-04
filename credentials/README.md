@@ -1,3 +1,0 @@
-Placeholder...
-
-this folder should be merged into test vectors for the vocabulary.

@@ -1,0 +1,57 @@
+$linkedData:
+  term: ContactPoint
+  '@id': https://schema.org/ContactPoint
+title: Contact Point
+description: Contact information for entities.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ContactPoint
+  name:
+    title: Name
+    description: Name of the entity.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  address:
+    title: Postal Address
+    description: The postal address for an organization or place.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: address
+      '@id': https://schema.org/PostalAddress
+  email:
+    title: Email Address
+    description: Contact email address.
+    type: string
+    $linkedData:
+      term: email
+      '@id': https://schema.org/email
+  phoneNumber:
+    title: Phone Number
+    description: Contact phone number.
+    type: string
+    $linkedData:
+      term: phoneNumber
+      '@id': https://schema.org/telephone
+additionalProperties: false
+example: |-
+  {
+    "type": "ContactPoint",
+    "name": "Cassin, Mayer and Auer",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "3595 Reilly Freeway",
+      "addressLocality": "Port Vincenzo",
+      "addressRegion": "Arizona",
+      "postalCode": "36734-7272",
+      "addressCountry": "Macedonia"
+    },
+    "email": "Okey.Homenick12@example.org",
+    "phoneNumber": "555-218-9784"
+  }

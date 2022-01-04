@@ -1,0 +1,132 @@
+$linkedData:
+  term: USMCACertificateOfOrigin
+  '@id': https://w3id.org/traceability#USMCACertificateOfOrigin
+title: USMCA Certificate Of Origin
+description: >-
+  The new United States-Mexico-Canada Agreement (USMCA) allows importers to
+  complete a certification of origin to include nine required data elements as
+  well as a certification statement. These data elements do not need to follow a
+  prescribed format. The USMCA also allows a certification of origin to be
+  completed and signed with an electronic or digital signature.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - USMCACertificateOfOrigin
+  certifier:
+    title: Certifier
+    description: >-
+      Importer, Exporter, or Producer Certification of Origin: Indicate whether
+      the certifier is the exporter, producer, or importer in accordance with
+      Chapter 5, Article 5.2 (Claims for Preferential Tariff Treatment) of the
+      agreement.
+    enum:
+      - Importer
+      - Exporter
+      - Producer
+    $linkedData:
+      term: importer
+      '@id': https://w3id.org/traceability#certifier
+  exporterDetails:
+    title: Exporter's Details
+    description: >-
+      Exporter’s name, address (including country), email address, and telephone
+      number, if different than the certifier. This information is not required
+      if the producer is completing the Certification of Origin and does not
+      know the identity of the exporter. The address of the exporter shall be
+      the place of export of the good in a Party’s territory.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: exporterDetails
+      '@id': https://w3id.org/traceability#exporterDetails
+  producerDetails:
+    title: Producer's Details
+    description: >-
+      Producer’s name, address (including country), email address, and telephone
+      number, if different than the certifier or exporter, or, if there are
+      multiple producers, state 'Various' or provide a list of producers. A
+      person that wants this information to remain confidential may state
+      'Available upon request by the importing authorities.' The address of a
+      producer shall be the place of production of the good in a Party's
+      territory.
+    type: array
+    items:
+      $ref: ./Entity.yml
+    $linkedData:
+      term: producerDetails
+      '@id': https://schema.org/manufacturer
+  producerConfidential:
+    title: Producer Confidential
+    description: >-
+      A person that wants the producer information to remain confidential may
+      state 'Available upon request by the importing authorities.'
+    type: boolean
+    $linkedData:
+      term: exporterDetails
+      '@id': https://w3id.org/traceability#producerConfidential
+  importerDetails:
+    title: Importer's Details
+    description: >-
+      Importer’s name, address, email address, and telephone number (if known).
+      The address of the importer shall be in a Party's territory. If the
+      identity of the importer is unknown, or there are various importers,
+      please check the appropriate box.
+    type: array
+    items:
+      $ref: ./Entity.yml
+    $linkedData:
+      term: importerDetails
+      '@id': https://w3id.org/traceability#importerDetails
+  importerUnknown:
+    title: Importer Unknown
+    description: >-
+      If the identity of the importer is unknown, or there are various
+      importers, please check the appropriate box.
+    type: boolean
+    $linkedData:
+      term: exporterDetails
+      '@id': https://w3id.org/traceability#importerUnknown
+  goods:
+    title: Description of goods
+    description: >-
+      Full description for each good, sufficient to relate it to the invoice
+      description and the Harmonized System (HS) description of the goods.
+    type: array
+    items:
+      $ref: ./UsmcaProductSpecifier.yml
+    $linkedData:
+      term: goods
+      '@id': https://schema.org/itemShipped
+  blanketPeriodFrom:
+    title: Blanket Period From
+    description: >-
+      The date upon which the certification becomes applicable to the good
+      covered by the blanket Certification (it may be prior to the date of
+      signing this certification).
+    type: string
+    $linkedData:
+      term: blanketPeriodFrom
+      '@id': https://schema.org/validFrom
+      '@type': http://www.w3.org/2001/XMLSchema#dateTime
+  blanketPeriodTo:
+    title: Blanket Period To
+    description: >-
+      The date upon which the blanket period expires. In no instance should that
+      certification exceed a 12-month period, and any information provided
+      should be updated in the event any previously-issued certification no
+      longer applies.
+    type: string
+    $linkedData:
+      term: blanketPeriodTo
+      '@id': https://schema.org/validThrough
+      '@type': http://www.w3.org/2001/XMLSchema#dateTime
+additionalProperties: false
+required:
+  - certifier
+example: |-
+  {
+    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/238"
+  }

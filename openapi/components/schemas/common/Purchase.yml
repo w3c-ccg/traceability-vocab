@@ -1,0 +1,65 @@
+$linkedData:
+  term: Purchase
+  '@id': https://w3id.org/traceability#Purchase
+title: Purchase
+description: A purchase of a Product
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Purchase
+  customer:
+    title: Customer
+    description: The buying party of a purchase
+    $ref: ./Entity.yml
+    $linkedData:
+      term: customer
+      '@id': https://w3id.org/traceability#Entity
+  invoice:
+    title: Invoice
+    description: The invoice associated with a purchase
+    $ref: ./Invoice.yml
+    $linkedData:
+      term: invoice
+      '@id': https://w3id.org/traceability#Invoice
+  purchaseOrder:
+    title: Purchase Order
+    description: The purchase order associated with a purchase
+    type: string
+    $linkedData:
+      term: purchaseOrder
+      '@id': https://schema.org/identifier
+additionalProperties: false
+example: |-
+  {
+    "type": [
+      "Purchase"
+    ],
+    "customer": {
+      "type": "Person",
+      "firstName": "Audreanne",
+      "lastName": "Pollich",
+      "email": "Rory_Hessel@example.net",
+      "phoneNumber": "555-869-2576",
+      "worksFor": {
+        "type": "Organization",
+        "name": "Powlowski - Roob",
+        "description": "Balanced multimedia emulation",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "9592 Myrtis Shoal",
+          "addressLocality": "East Isom",
+          "addressRegion": "Tennessee",
+          "postalCode": "41990-3405",
+          "addressCountry": "Honduras"
+        },
+        "email": "Reece25@example.org",
+        "phoneNumber": "555-464-6401",
+        "faxNumber": "555-289-5622"
+      },
+      "jobTitle": "Global Marketing Specialist"
+    }
+  }

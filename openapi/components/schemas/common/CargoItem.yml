@@ -1,0 +1,106 @@
+$linkedData:
+  term: CargoItem
+  '@id': >-
+    https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem
+title: Cargo Item
+description: >-
+  Addresses the cargo items to be stuffed into a container for a shipment. A
+  cargo item cannot be split across containers.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - CargoItem
+  cargoLineItems:
+    title: Cargo Line Item
+    description: Identifies the specific details of packages within a cargo item.
+    type: array
+    items:
+      $ref: ./CargoLineItem.yml
+    $linkedData:
+      term: cargoLineItems
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoLineItem
+  carrierBookingReference:
+    title: Carrier Booking Reference
+    description: >-
+      The associated booking number provided by the carrier for this cargo item.
+      Cannot be used in combination with Shipping Instruction header level
+      carrierBookingReference.
+    type: string
+    $linkedData:
+      term: carrierBookingReference
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId
+  weight:
+    title: Weight
+    description: >-
+      The total weight of the cargo including packaging items being carried in
+      the container(s). Excludes the tare weight of the container(s).
+    type: number
+    $linkedData:
+      term: weight
+      '@id': https://schema.org/weight
+  volume:
+    title: Volume
+    description: >-
+      Calculated by multiplying the width, height, and length of the packed
+      cargo.
+    type: number
+    $linkedData:
+      term: volume
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
+  weightUnit:
+    title: Weight Unit
+    description: The unit of measure which can be expressed in imperial or metric terms
+    type: string
+    $linkedData:
+      term: weightUnit
+      '@id': https://schema.org/unitCode
+  volumeUnit:
+    title: Volume Unit
+    description: >-
+      The unit of measure which can be expressed in either imperial or metric
+      terms
+    type: string
+    $linkedData:
+      term: volumeUnit
+      '@id': https://schema.org/unitCode
+  numberOfPackages:
+    title: Number of Packages
+    description: Specifies the number of packages associated with this cargo item
+    type: number
+    $linkedData:
+      term: numberOfPackages
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  packageCode:
+    title: Package Code
+    description: The unique identifier for the package type
+    type: string
+    $linkedData:
+      term: packageCode
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageTypeCode
+example: |-
+  {
+    "type": "CargoItem",
+    "cargoLineItems": [{
+      "type": "CargoLineItem",
+      "cargoLineItemID": "3312591",
+      "shippingMarks": "Premium break pads"
+    }],
+    "carrierBookingReference": "ABC709951",
+    "descriptionOfGoods": "Break pads",
+    "HSCode": "68138100",
+    "weight": 13000,
+    "volume": 12,
+    "weightUnit": "KGM",
+    "volumeUnit": "CBM",
+    "numberOfPackages": 18,
+    "packageCode": "5H"
+  }

@@ -1,0 +1,211 @@
+$linkedData:
+  term: EcommerceInvoiceRegistrationEvidenceDocument
+  '@id': https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument
+title: Invoice Registration Evidence Document
+description: Evidence data for a registered eCommerce Invoice
+type: object
+required:
+  - identifier
+  - description
+  - url
+  - broker
+  - accountId
+  - customer
+  - paymentDueDate
+  - totalPaymentDue
+  - paymentStatus
+  - provider
+  - referencesOrder
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommerceInvoiceRegistrationEvidenceDocument
+  identifier:
+    title: Identifier
+    type: string
+    default: ''
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  description:
+    title: Description of customer invoice
+    type: string
+    default: ''
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  url:
+    title: Url or the order
+    type: string
+    default: ''
+    $linkedData:
+      term: url
+      '@id': https://schema.org/url
+  broker:
+    title: Broker
+    $ref: ./Organization.yml
+    $linkedData:
+      term: broker
+      '@id': https://schema.org/broker
+  accountId:
+    title: Accountid
+    type: string
+    default: ''
+    $linkedData:
+      term: accountId
+      '@id': https://schema.org/accountId
+  customer:
+    title: Customer
+    $ref: ./Customer.yml
+    $linkedData:
+      term: customer
+      '@id': https://schema.org/customer
+  paymentDueDate:
+    title: Paymentduedate
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentDueDate
+      '@id': https://schema.org/paymentDueDate
+  totalPaymentDue:
+    title: Totalpaymentdue
+    type: number
+    $linkedData:
+      term: totalPaymentDue
+      '@id': https://schema.org/totalPaymentDue
+  totalPaymentDueCurrency:
+    title: TotalpaymentdueCurrency
+    type: string
+    $linkedData:
+      term: totalPaymentDueCurrency
+      '@id': https://schema.org/currency
+  paymentStatus:
+    title: Paymentstatus
+    type: string
+    default: ''
+    $linkedData:
+      term: paymentStatus
+      '@id': https://schema.org/paymentStatus
+  provider:
+    title: Provider
+    $ref: ./Organization.yml
+    $linkedData:
+      term: provider
+      '@id': https://schema.org/provider
+  referencesOrder:
+    title: Referencesorder
+    type: array
+    items:
+      $ref: ./EcommerceOrderRegistrationEvidenceDocument.yml
+    $linkedData:
+      term: referencesOrder
+      '@id': https://schema.org/referencesOrder
+example: |-
+  {
+    "type": "EcommerceInvoiceRegistrationEvidenceDocument",
+    "identifier": "Invoice#922",
+    "description": "Invoice For Eva Oberbrunner for Order#112",
+    "url": "http://maureen.info?queryid=Invoice#922",
+    "broker": {
+      "type": "Organization",
+      "name": "Koch LLC",
+      "leiCode": "54321351219389121979"
+    },
+    "accountId": "xxxx-xxxx-xxxx-6496",
+    "customer": {
+      "type": "Customer",
+      "name": "Eva Oberbrunner",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "25849 Carolina Street",
+        "addressLocality": "Baileymouth",
+        "addressRegion": "Minnesota",
+        "postalCode": "23047",
+        "addressCountry": "Samoa"
+      },
+      "telephone": "555-284-1409",
+      "email": "Daniella_Morar46@example.com"
+    },
+    "paymentDueDate": "2020-01-07",
+    "totalPaymentDue": 0,
+    "totalPaymentDueCurrency": "LBP",
+    "paymentStatus": "PaymentComplete",
+    "provider": {
+      "type": "Organization",
+      "name": "Rohan - Feeney",
+      "leiCode": "23451152048570336774"
+    },
+    "referencesOrder": [
+      {
+        "type": "EcommerceOrderRegistrationEvidenceDocument",
+        "description": "New Order For Eva Oberbrunner",
+        "url": "https://claire.biz?queryid=Order#112",
+        "orderNumber": "Order#112",
+        "orderDate": "2020-01-07",
+        "orderStatus": "OrderReturned",
+        "seller": {
+          "type": "Organization",
+          "name": "Rohan - Feeney",
+          "leiCode": "23451152048570336774"
+        },
+        "broker": {
+          "type": "Organization",
+          "name": "Koch LLC",
+          "leiCode": "54321351219389121979"
+        },
+        "customer": {
+          "type": "Customer",
+          "name": "Eva Oberbrunner",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "25849 Carolina Street",
+            "addressLocality": "Baileymouth",
+            "addressRegion": "Minnesota",
+            "postalCode": "23047",
+            "addressCountry": "Samoa"
+          },
+          "telephone": "555-284-1409",
+          "email": "Daniella_Morar46@example.com"
+        },
+        "paymentMethod": "http://purl.org/goodrelations/v1#Cash",
+        "paymentDueDate": "2020-01-07",
+        "orderedItem": [
+          {
+            "type": "OrderedItem",
+            "name": "ACME Bluetooth Computer Mouse 3000-1",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "unitPrice": 6,
+            "orderQuantity": 3,
+            "price": 18
+          },
+          {
+            "type": "OrderedItem",
+            "name": "ACME Laptop 3000",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
+            "unitPrice": 0,
+            "orderQuantity": 8,
+            "price": 0
+          },
+          {
+            "type": "OrderedItem",
+            "name": "ACME Bluetooth Computer Mouse 3000-1",
+            "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "unitPrice": 6,
+            "orderQuantity": 9,
+            "price": 54
+          },
+          {
+            "type": "OrderedItem",
+            "name": "ACME Bluetooth Computer Keyboard 3801-1",
+            "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
+            "unitPrice": 6,
+            "orderQuantity": 1,
+            "price": 6
+          }
+        ]
+      }
+    ]
+  }

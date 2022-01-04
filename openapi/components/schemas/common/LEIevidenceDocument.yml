@@ -1,0 +1,135 @@
+$linkedData:
+  term: LEIevidenceDocument
+  '@id': https://w3id.org/traceability#LEIevidenceDocument
+title: LEIevidenceDocument
+description: GLEIF LEI Redord Level 1 Schema
+type: object
+required:
+  - lei
+  - entity
+  - registration
+  - bic
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - LEIevidenceDocument
+  lei:
+    title: Lei
+    type: string
+    $linkedData:
+      term: lei
+      '@id': https://www.gleif.org/en/about-lei/iso-17442-the-lei-code-structure#
+  entity:
+    title: LEIentity
+    $ref: ./LEIentity.yml
+    $linkedData:
+      term: entity
+      '@id': https://w3id.org/traceability#LEIentity
+  registration:
+    title: LEIregistration
+    $ref: ./LEIregistration.yml
+    $linkedData:
+      term: registration
+      '@id': https://w3id.org/traceability#LEIregistration
+  bic:
+    title: bic
+    description: S.W.I.F.T. bank identifier code
+    type: array
+    $linkedData:
+      term: bic
+      '@id': https://www.iso.org/obp/ui/#iso:std:60390:en
+additionalProperties: false
+example: |-
+  {
+    "type": "LEIevidenceDocument",
+    "lei": "1GS89XTLP3YKEINUGJM9",
+    "entity": {
+      "type": "LEIentity",
+      "legalName": "Bashirian, Botsford and Hilll",
+      "legalNameLanguage": "tr",
+      "otherNames": [
+        "Waelchi - Sipes",
+        "Goodwin Group"
+      ],
+      "transliteratedOtherNames": [
+        "Waelchi - Sipes",
+        "Goodwin Group"
+      ],
+      "legalAddress": {
+        "type": "LEIaddress",
+        "language": "hy",
+        "addressLines": [
+          "Cormier - Quigley",
+          "25974 Meda Valley"
+        ],
+        "addressNumber": "5",
+        "addressNumberWithinBuilding": "5",
+        "mailRouting": "633 Padberg Roads, 75463",
+        "city": "East Morris",
+        "region": "Bedfordshire",
+        "country": "Saint Helena",
+        "postalCode": "56041-9807"
+      },
+      "headquartersAddress": {
+        "type": "LEIaddress",
+        "language": "sk",
+        "addressLines": [
+          "Zieme, Carroll and Torphy",
+          "29723 Dare Radial"
+        ],
+        "addressNumber": "105",
+        "addressNumberWithinBuilding": "4",
+        "mailRouting": "539 Spencer Unions, 81768-3826",
+        "city": "West Chaya",
+        "region": "Buckinghamshire",
+        "country": "Yemen",
+        "postalCode": "98342-0463"
+      },
+      "registrationAuthority": {
+        "type": "LEIauthority",
+        "validationAuthorityID": "RA000001",
+        "otherValidationAuthorityID": "1QXYYF6U",
+        "validationAuthorityEntityID": "OK35QOCIONDW5FEW4RKH"
+      },
+      "legalJurisdiction": "Cambridgeshire",
+      "entityCategory": "Jewelery",
+      "legalForm": "LLC",
+      "associatedEntity": {
+        "type": "Organization",
+        "leiCode": "GO6JI8JKTTQ1NM4CPAIE",
+        "name": "Torphy Group"
+      },
+      "status": "IN PROGRESS",
+      "expirationDate": "2022-07-11",
+      "expirationReason": "whiteboard visionary web-readiness",
+      "successorEntity": {
+        "type": "Organization",
+        "leiCode": "XB3M42K0WGZB1FC975RO",
+        "name": "Larkin - Carter"
+      },
+      "otherAddresses": []
+    },
+    "registration": {
+      "type": "LEIregistration",
+      "initialRegistrationDate": "2020-01-01",
+      "lastUpdateDate": "2020-01-01",
+      "status": "IN PROGRESS",
+      "nextRenewalDate": "2021-02-02",
+      "managingLou": "UHNIJRHAQSSVWKITUEOI",
+      "validationSources": "NOT_CORROBORATED",
+      "validationAuthority": [
+        {
+          "type": "LEIauthority",
+          "validationAuthorityID": "RA000004",
+          "otherValidationAuthorityID": "7HBOLS20",
+          "validationAuthorityEntityID": "5W2KTTRTR6P3OPH5NU1Q"
+        }
+      ]
+    },
+    "bic": [
+      "ZNZNLCZTEY"
+    ]
+  }

@@ -1,0 +1,45 @@
+$linkedData:
+  term: ForeignChargeDeclaration
+  '@id': https://w3id.org/traceability#ForeignChargeDeclaration
+title: Foreign Charge Declaration
+description: Foreign charge declaration definition based on IATA electronic Air Waybill.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ForeignChargeDeclaration
+  foreignCurrencyConvertionRate:
+    title: Currency Conversion Rate
+    description: >-
+      The foreign currency code followed by the conversion rate shall be
+      inserted. Box 33A.
+    type: string
+    $linkedData:
+      term: foreignCurrencyConvertionRate
+      '@id': https://schema.org/currentExchangeRate
+  foreignChargesCurrency:
+    title: Charges in foreign Currency
+    description: >-
+      The amount shown in the "Total Collect" box shall be inserted after
+      conversion to the foreign currency. Box 33B.
+    type: string
+    $linkedData:
+      term: foreignChargesCurrency
+      '@id': https://schema.org/currency
+  foreignCharges:
+    title: Foreign charges
+    description: >-
+      Charges levied at destination accruing to the last carrier shall be
+      inserted in destination currency. Box 33C.
+    type: string
+    $linkedData:
+      term: foreignCharges
+      '@id': https://schema.org/price
+additionalProperties: false
+example: |-
+  {
+    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/231"
+  }

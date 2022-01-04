@@ -1,0 +1,46 @@
+$linkedData:
+  term: MechanicalProperty
+  '@id': https://w3id.org/traceability#MechanicalProperty
+title: Mechanical Property
+description: >-
+  A property, used to indicate attributes and relationships of some Thing;
+  equivalent to rdf:Property.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - MechanicalProperty
+  identifier:
+    title: Property Identifier
+    description: Identifiers for a property.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  name:
+    title: Property Name
+    description: The name of the item.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  description:
+    title: Property Description
+    description: The description of the item.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+additionalProperties: false
+example: |-
+  {
+    "type": [
+      "MechanicalProperty"
+    ],
+    "identifier": "ISO 1352",
+    "name": "Torque-controlled fatigue testing",
+    "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+  }

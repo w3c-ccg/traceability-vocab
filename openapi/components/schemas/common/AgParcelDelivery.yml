@@ -1,0 +1,195 @@
+$linkedData:
+  term: AgParcelDelivery
+  '@id': https://w3id.org/traceability#AgParcelDelivery
+title: Ag Parcel Delivery
+description: Details on a shipment or delivery.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - AgParcelDelivery
+  deliveryAddress:
+    title: Delivery Address
+    description: Final destination address to which the shipment is being sent.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: deliveryAddress
+      '@id': https://schema.org/deliveryAddress
+  originAddress:
+    title: Origin Address
+    description: Address from where the shipment was sent.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: originAddress
+      '@id': https://schema.org/originAddress
+  foreignPortExport:
+    title: Foreign Port of Export
+    description: Foreign port through which the shipment will pass as an export.
+    $ref: ./Place.yml
+    $linkedData:
+      term: foreignPortExport
+      '@id': https://w3id.org/traceability#foreignPortExport
+  portOfEntry:
+    title: Port of Entry
+    description: US port through which the imports passed.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfEntry
+      '@id': https://w3id.org/traceability#portOfEntry
+  deliveryMethod:
+    title: Delivery Method
+    description: The means of transportation used in delivering the shipment.
+    type: string
+    $linkedData:
+      term: deliveryMethod
+      '@id': https://schema.org/DeliveryMethod
+  trackingNumber:
+    title: Tracking Number
+    description: Shipper tracking number.
+    type: string
+    $linkedData:
+      term: trackingNumber
+      '@id': https://schema.org/trackingNumber
+  expectedArrival:
+    title: Expected Arrival
+    description: The earliest date the package may arrive.
+    type: string
+    $linkedData:
+      term: expectedArrival
+      '@id': https://schema.org/expectedArrivalFrom
+  specialInstructions:
+    title: Special Instructions
+    description: Instructions for freight handlers
+    type: string
+    $linkedData:
+      term: specialInstructions
+      '@id': https://schema.org/comment
+  consignee:
+    title: Consignee
+    description: >-
+      The consignee is the entity who is financially responsible for the receipt
+      of a shipment.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignee
+      '@id': https://schema.org/Organization
+  AgPackage:
+    title: Packages of items being shipped
+    description: Item(s) being shipped.
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: AgPackage
+      '@id': https://w3id.org/traceability#AgPackage
+additionalProperties: false
+example: |-
+  {
+    "type": "AgParcelDelivery",
+    "deliveryAddress": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "Bartell - Doyle",
+      "streetAddress": "84189 Roberts Route",
+      "addressLocality": "Kautzerstad",
+      "addressRegion": "Louisiana",
+      "postalCode": "37950-5855",
+      "addressCountry": "Mongolia"
+    },
+    "originAddress": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "Marks, Runte and Bartell",
+      "streetAddress": "97696 Weissnat Pines",
+      "addressLocality": "Reynabury",
+      "addressRegion": "North Dakota",
+      "postalCode": "51361-9603",
+      "addressCountry": "Virgin Islands, U.S."
+    },
+    "foreignPortExport": {
+      "type": [
+        "Place"
+      ],
+      "globalLocationNumber": "4947538126450",
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "40.5464",
+        "longitude": "-37.6146"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Moen - Swift",
+        "streetAddress": "9746 Laron Gardens",
+        "addressLocality": "Port Flossie",
+        "addressRegion": "Hawaii",
+        "postalCode": "64687",
+        "addressCountry": "Djibouti"
+      },
+      "unLocode": "DKCPH"
+    },
+    "portOfEntry": {
+      "type": [
+        "Place"
+      ],
+      "globalLocationNumber": "2184109798407",
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "38.8485",
+        "longitude": "-34.0883"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Mills, Daugherty and Nader",
+        "streetAddress": "39514 Kulas Terrace",
+        "addressLocality": "East Avis",
+        "addressRegion": "Utah",
+        "postalCode": "45553",
+        "addressCountry": "Northern Mariana Islands"
+      },
+      "unLocode": "DKCPH"
+    },
+    "deliveryMethod": "Truck transport",
+    "trackingNumber": "866440000109",
+    "expectedArrival": "2021-03-14",
+    "specialInstructions": "The package is top-heavy so handle with appropriate caution.",
+    "consignee": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Leannon and Sons",
+      "description": "Fundamental multi-tasking service-desk",
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "streetAddress": "3393 Madison Forks",
+        "addressLocality": "West Ladariusmouth",
+        "addressRegion": "New Jersey",
+        "postalCode": "39242",
+        "addressCountry": "Djibouti"
+      },
+      "email": "Hipolito58@example.org",
+      "phoneNumber": "555-895-1661",
+      "faxNumber": "555-497-2527"
+    },
+    "AgPackage": [
+      {
+        "type": [
+          "AgPackage"
+        ]
+      }
+    ]
+  }

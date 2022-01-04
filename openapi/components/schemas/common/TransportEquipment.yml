@@ -1,0 +1,100 @@
+$linkedData:
+  term: TransportEquipment
+  '@id': >-
+    https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportEquipment
+title: Transport Equipment
+description: >-
+  A piece of equipment used to hold, protect or secure cargo for transportation
+  purposes.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - TransportEquipment
+  equipmentReference:
+    title: Equipment Reference
+    description: >-
+      The unique identifier for the equipment, which should follow the BIC ISO
+      Container Identification Number where possible. According to ISO 6346, a
+      container identification code consists of a 4-letter prefix and a 7-digit
+      number (composed of a 3-letter owner code, a category identifier, a serial
+      number, and a check-digit). If a container does not comply with ISO 6346,
+      it is suggested to follow Recommendation #2 “Container with non-ISO
+      identification” from SMDG.
+    type: string
+    $linkedData:
+      term: equipmentReference
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId
+  ISOEquipmentCode:
+    title: ISO Equipment Code
+    description: >-
+      Unique code for the different equipment size/type used for transporting
+      commodities. The code is a concatenation of ISO Equipment Size Code and
+      ISO Equipment Type Code A and follows the ISO 6346 standard.
+    type: string
+    $linkedData:
+      term: ISOEquipmentCode
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/ISOEquipmentCode
+  tareWeight:
+    title: Tare Weight
+    description: The weight of an empty container (gross container weight).
+    type: number
+    $linkedData:
+      term: tareWeight
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/tareWeight
+  tareWeightUnit:
+    title: Weight Unit
+    description: The unit of measure which can be expressed in imperial or metric terms
+    type: number
+    $linkedData:
+      term: weightUnit
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit
+  cargoGrossWeight:
+    title: Tare Weight
+    description: The weight of an empty container (gross container weight).
+    type: number
+    $linkedData:
+      term: tareWeight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  cargoGrossWeightUnit:
+    title: Weight Unit
+    description: The unit of measure which can be expressed in imperial or metric terms
+    type: number
+    $linkedData:
+      term: weightUnit
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/weightUnit
+  isShipperOwned:
+    title: Is Shipper Owned
+    description: Indicates whether the container is shipper owned (SOC).
+    type: string
+    $linkedData:
+      term: isShipperOwned
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/isShipperOwned
+  seals:
+    title: Is Shipper Owned
+    description: >-
+      A seal affixed to this piece of logistics or referenced logistics
+      transport equipment.
+    type: array
+    items:
+      $ref: ./Seal.yml
+    $linkedData:
+      term: isShipperOwned
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#affixedSeal
+additionalProperties: false
+example: |-
+  {
+    "type": "TransportEquipment",
+    "equipmentReference": "APZU4812090"
+  }

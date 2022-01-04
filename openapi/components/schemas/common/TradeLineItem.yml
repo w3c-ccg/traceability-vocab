@@ -1,0 +1,46 @@
+$linkedData:
+  term: TradeLineItem
+  '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem
+title: Trade Line Item
+description: >-
+  A collection of information specific to an item being used or reported on for
+  trade purposes.
+type: object
+required: []
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - TradeLineItem
+  name:
+    title: Name
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  description:
+    title: Description of product
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  productID:
+    title: Product ID
+    description: Product number of registering Legal Entity such as an ISBN
+    type: string
+    $linkedData:
+      term: productID
+      '@id': https://schema.org/productID
+  itemCount:
+    title: A quantity despatched in the trade delivery.
+    type: string
+    $linkedData:
+      term: itemCount
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity
+example: |-
+  {
+    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/236"
+  }

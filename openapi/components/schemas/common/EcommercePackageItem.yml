@@ -1,0 +1,59 @@
+$linkedData:
+  term: EcommercePackageItem
+  '@id': https://w3id.org/traceability#EcommercePackageItem
+title: EcommercePackageItem
+description: Ecommerce Package Item
+type: object
+required:
+  - productReceiptID
+  - packingListID
+  - orderID
+  - productInOrder
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EcommercePackageItem
+  productReceiptID:
+    title: productReceiptID
+    description: >-
+      The receipt VC ID issued by a shipper/carrier receiving product to be
+      packaged and shipped
+    type: string
+    $linkedData:
+      term: productReceiptID
+      '@id': https://w3id.org/traceability#EcommercePackageItem
+  packingListID:
+    title: packingListID
+    description: The packing list VC IDs issues by the seller
+    type: string
+    $linkedData:
+      term: packingListID
+      '@id': https://schema.org/identifier
+  orderID:
+    title: orderID
+    description: The seller specific Order VC ID
+    type: string
+    $linkedData:
+      term: orderID
+      '@id': https://schema.org/orderNumber
+  productInOrder:
+    title: productInOrder
+    description: Product VC IDs included in the order
+    type: array
+    $linkedData:
+      term: productInOrder
+      '@id': https://schema.org/productID
+additionalProperties: false
+example: |-
+  {
+    "type": "EcommercePackageItem",
+    "productReceiptID": "https://vc.example.com/?queryID=0xF74adE972a00d1B5C0adB9ecf3a6deBF81BDdc3c0b71c1Cd27BEC833CfF6fbBf",
+    "packingListID": "https://vc.example.com/?queryID=0xFDdB6eCedEc650A514Ee7d2d900Af7DeCc2722B2ECaEae72D8eA6B62D00f77c5",
+    "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+    "productInOrder": [
+      "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
+    ]
+  }
