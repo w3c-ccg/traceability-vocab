@@ -102,7 +102,7 @@ const buildVocabSection = (schema) => {
   <h2>Open API</h2>
   <p>
     This vocabulary can also be viewed as an
-    <a href="/openapi/">Open API Specification</a>.
+    <a href="https://w3id.org/traceability/openapi/">Open API Specification</a>.
   </p>
 </section>
 
