@@ -25,7 +25,7 @@ const buildLinkedDataTable = (schema) => {
       ? `
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="${$id}">${baseUrl + $id}</a></td>
+  <td><a href="${baseUrl + $id}">${baseUrl + $id}</a></td>
 </tr>`
       : ''
   }
