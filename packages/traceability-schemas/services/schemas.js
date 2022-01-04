@@ -22,31 +22,6 @@ const ignoreEndpoint = (endpoint) => {
   return include;
 };
 
-// const schemasFromSpec: any = Object.entries(apiSpec.components.schemas).map(
-//   ([key, value]: [string, any]) => {
-//     const $id = `#/components/schemas/${key}`;
-
-//     // OAS 3.0 supports relative refs
-//     // this code block handles loading them so they can be accesses consistently by $id.
-//     let schema = value;
-//     if (schema.$ref && schema.$ref.startsWith('./schemas/')) {
-//       schema = yaml.load(
-//         fs
-//           .readFileSync(
-//             path.join(specPath.replace('/openapi.yaml', ''), schema.$ref),
-//             { encoding: 'utf-8' }
-//           )
-//           .toString()
-//           .replace(/\.\/([A-z-0-9]+)\.yml/g, `#/components/schemas/$1`)
-//       );
-//     }
-//     return {
-//       $id,
-//       ...schema,
-//     };
-//   }
-// );
-
 const extractSchemaFromEndpoint = (endpoint) => {
   try {
     const { $ref } =
