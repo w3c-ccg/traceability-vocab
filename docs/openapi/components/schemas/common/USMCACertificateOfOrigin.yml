@@ -15,6 +15,7 @@ properties:
       - type: array
       - type: string
         enum:
+          - VerifiableCredential
           - USMCACertificateOfOrigin
   certifier:
     title: Certifier
@@ -128,14 +129,18 @@ required:
   - certifier
 example: |-
   {
-    "id": "http://example.org/credentials/",
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
     "type": [
-      "VerifiableCredential"
+      "VerifiableCredential",
+      "USMCACertificateOfOrigin"
     ],
     "issuanceDate": "2021-02-04T20:29:37+00:00",
-    "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-    "credentialSubject": {
-      "type": "USMCACertificateOfOrigin",
+    "issuer": "did:web:usmca.issuer.example.com",
+    "credentialSubject": {  
       "certifier": "Importer",
       "exporterDetails": {
         "type": "Organization",
@@ -214,10 +219,6 @@ example: |-
       "blanketPeriodFrom": "2021-06-22",
       "blanketPeriodTo": "2022-06-21"
     },
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://w3id.org/traceability/v1"
-    ],
     "proof": {
       "type": "Ed25519Signature2018",
       "created": "2019-12-11T03:50:55Z",
