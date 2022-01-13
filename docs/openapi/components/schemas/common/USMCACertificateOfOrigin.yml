@@ -90,7 +90,7 @@ properties:
     $linkedData:
       term: exporterDetails
       '@id': https://w3id.org/traceability#importerUnknown
-  goods:
+  credentialSubject: 
     title: Description of goods
     description: >-
       Full description for each good, sufficient to relate it to the invoice
@@ -141,8 +141,6 @@ example: |-
     "certifier": "Exporter",
     "issuanceDate": "2021-02-04T20:29:37+00:00",
     "issuer": "did:web:usmca.issuer.example.com",
-    "credentialSubject": {  
-      "certifier": "Importer",
       "exporterDetails": {
         "type": "Organization",
         "name": "Torphy, Fahey and Stamm",
@@ -195,7 +193,7 @@ example: |-
           "faxNumber": "555-962-5895"
         }
       ],
-      "goods": [
+      "credentialSubject": [
         {
           "type": "UsmcaProductSpecifier",
           "product": {
@@ -218,8 +216,7 @@ example: |-
         }
       ],
       "blanketPeriodFrom": "2021-06-22",
-      "blanketPeriodTo": "2022-06-21"
-    },
+      "blanketPeriodTo": "2022-06-21",
     "proof": {
       "type": "Ed25519Signature2018",
       "created": "2019-12-11T03:50:55Z",
