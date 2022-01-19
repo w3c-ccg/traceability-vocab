@@ -128,53 +128,20 @@ additionalProperties: false
 required:
   - certifier
 example: |-
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://w3id.org/traceability/v1"
-  ],
-  "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-  "type": [
-    "VerifiableCredential",
-    "USMCACertificateOfOrigin"
-  ],
-  "certifier": "Exporter",
-  "issuanceDate": "2021-02-04T20:29:37+00:00",
-  "issuer": "did:key:z6MkpeGcZg3KDoxR2a9j91Lyhh8jqa9LdcPkq8JXwr4zHBGV",
-  "exporterDetails": {
-    "type": "Organization",
-    "name": "Maxi Acero Mexicano",
-    "description": "Fusión y fabricación de acero sólido",
-    "address": {
-      "type": "PostalAddress",
-      "streetAddress": "Avenida Carlos 100",
-      "addressLocality": "Hernádez de Mara",
-      "addressRegion": "Nuevo Leon",
-      "postalCode": "32200",
-      "addressCountry": "Mexico"
-    },
-    "email": "info@example.net",
-    "phoneNumber": "555-127-7813"
-  },
-  "importerDetails": [
-    {
-      "type": "Organization",
-      "name": "American Prime Steel Inc.",
-      "description": "Quality Steel since 1952",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "1551 Keebler Knoll",
-        "addressLocality": "Vivianeburgh",
-        "addressRegion": "Oregon",
-        "postalCode": "47090",
-        "addressCountry": "US"
-      },
-      "email": "contact@example.net",
-      "phoneNumber": "555-716-2400"
-    }
-  ],
-  "producerDetails": [
-    {
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "type": [
+      "VerifiableCredential",
+      "USMCACertificateOfOrigin"
+    ],
+    "certifier": "Exporter",
+    "issuanceDate": "2021-02-04T20:29:37+00:00",
+    "issuer": "did:key:z6MkpeGcZg3KDoxR2a9j91Lyhh8jqa9LdcPkq8JXwr4zHBGV",
+    "exporterDetails": {
       "type": "Organization",
       "name": "Maxi Acero Mexicano",
       "description": "Fusión y fabricación de acero sólido",
@@ -188,37 +155,70 @@ example: |-
       },
       "email": "info@example.net",
       "phoneNumber": "555-127-7813"
-    }
-  ],
-  "credentialSubject": [
-    {
-      "type": "USMCAProductSpecifier",
-      "product": {
-        "type": [
-          "Product"
-        ],
-        "sku": "323050346937",
-        "description": "Non-alloy steel rolls",
-        "commodity": {
+    },
+    "importerDetails": [
+      {
+        "type": "Organization",
+        "name": "American Prime Steel Inc.",
+        "description": "Quality Steel since 1952",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "1551 Keebler Knoll",
+          "addressLocality": "Vivianeburgh",
+          "addressRegion": "Oregon",
+          "postalCode": "47090",
+          "addressCountry": "US"
+        },
+        "email": "contact@example.net",
+        "phoneNumber": "555-716-2400"
+      }
+    ],
+    "producerDetails": [
+      {
+        "type": "Organization",
+        "name": "Maxi Acero Mexicano",
+        "description": "Fusión y fabricación de acero sólido",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Avenida Carlos 100",
+          "addressLocality": "Hernádez de Mara",
+          "addressRegion": "Nuevo Leon",
+          "postalCode": "32200",
+          "addressCountry": "Mexico"
+        },
+        "email": "info@example.net",
+        "phoneNumber": "555-127-7813"
+      }
+    ],
+    "credentialSubject": [
+      {
+        "type": "USMCAProductSpecifier",
+        "product": {
           "type": [
-            "Commodity"
+            "Product"
           ],
-          "commodityCode": "721320",
-          "commodityCodeType": "HS",
-          "description": "Steel Coils"
-        }
-      },
-      "originCriterion": "A",
-      "countryOfOrigin": "MX"
+          "sku": "323050346937",
+          "description": "Non-alloy steel rolls",
+          "commodity": {
+            "type": [
+              "Commodity"
+            ],
+            "commodityCode": "721320",
+            "commodityCodeType": "HS",
+            "description": "Steel Coils"
+          }
+        },
+        "originCriterion": "A",
+        "countryOfOrigin": "MX"
+      }
+    ],
+    "blanketPeriodFrom": "2021-06-22",
+    "blanketPeriodTo": "2022-06-21",
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-01-19T11:25:22Z",
+      "verificationMethod": "did:key:z6MkpeGcZg3KDoxR2a9j91Lyhh8jqa9LdcPkq8JXwr4zHBGV#z6MkpeGcZg3KDoxR2a9j91Lyhh8jqa9LdcPkq8JXwr4zHBGV",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..nNBeZV_Ti17f11MZtBE02ygePL5A2xexjtGYFLXtxPuLp_3RcYBihID8w37rKVhQwJWN9Non-DWJ3c7F6zjbAA"
     }
-  ],
-  "blanketPeriodFrom": "2021-06-22",
-  "blanketPeriodTo": "2022-06-21",
-  "proof": {
-    "type": "Ed25519Signature2018",
-    "created": "2022-01-19T11:25:22Z",
-    "verificationMethod": "did:key:z6MkpeGcZg3KDoxR2a9j91Lyhh8jqa9LdcPkq8JXwr4zHBGV#z6MkpeGcZg3KDoxR2a9j91Lyhh8jqa9LdcPkq8JXwr4zHBGV",
-    "proofPurpose": "assertionMethod",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..nNBeZV_Ti17f11MZtBE02ygePL5A2xexjtGYFLXtxPuLp_3RcYBihID8w37rKVhQwJWN9Non-DWJ3c7F6zjbAA"
   }
-}
