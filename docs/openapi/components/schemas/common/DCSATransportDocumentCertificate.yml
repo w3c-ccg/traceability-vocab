@@ -1,0 +1,231 @@
+$linkedData:
+  term: DCSATransportDocumentCertificate
+  '@id': https://w3id.org/traceability#DCSATransportDocumentCertificate
+title: DCSA Transport Document Certificate
+description: Certifications made about a DCSA Transport Document
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - DCSATransportDocumentCertificate
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    $ref: ./DCSAShippingInstruction.yml
+    $linkedData:
+      term: dcsaTransportDocument
+      '@id': >-
+        https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transportDocument
+  proof:
+    type: object
+  relatedLink:
+    title: Related Link
+    description: Links related to this verifiable credential
+    type: array
+    items:
+      $ref: ./LinkRole.yml
+additionalProperties: false
+required: []
+example: |-
+  {
+      "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://w3id.org/traceability/v1"
+      ],
+      "type": [
+          "VerifiableCredential",
+          "DCSATransportDocumentCertificate"
+      ],
+      "name": "DCSA Transport Document Certificate",
+      "description": "This document includes recommended transport document fields.",
+      "issuanceDate": "2022-01-20T10:06:44.948Z",
+      "issuer": {
+          "id": "did:key:z6Mkegdt246FXuv9j5DfYpu2hnEH9fLsrzVRafXBHBKdL8N6",
+          "type": "Organization",
+          "name": "MULTI CONTAINER LINE",
+          "address": {
+              "type": "PostalAddress",
+              "organizationName": "MCL Multi Container Line LTD.",
+              "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+              "addressLocality": "Kowloon Bay",
+              "addressRegion": "Hong Kong",
+              "addressCountry": "Hong Kong SAR"
+          }
+      },
+      "credentialSubject": {
+          "type": [
+              "DCSATransportDocument"
+          ],
+          "transportDocumentReference": "XMANHR2102045",
+          "shippingInstruction": {
+              "type": "DCSAShippingInstruction",
+              "carrierBookingReference": "XMANHR2102045",
+              "transportDocumentType": "MBL",
+              "shipper": {
+                  "type": "Organization",
+                  "name": "Xxinau Manufacturing Co. Ltd.",
+                  "description": "Advanced Production - Delivered",
+                  "address": {
+                      "type": "PostalAddress",
+                      "streetAddress": "Xin Fei Da Dao 139",
+                      "addressLocality": "Xindao",
+                      "addressRegion": "Fujian Province",
+                      "postalCode": "361100",
+                      "addressCountry": "CN"
+                  },
+                  "email": "xxinau-sales@example.org",
+                  "phoneNumber": "+86-555-865-8495"
+              },
+              "consignee": {
+                  "type": "Organization",
+                  "name": "Better Life Tech",
+                  "description": "Better Lives Products",
+                  "address": {
+                      "type": "PostalAddress",
+                      "streetAddress": "Rue de la Poste 272",
+                      "addressLocality": "Ramegnies-Chin",
+                      "addressRegion": "Hainaut",
+                      "postalCode": "7520",
+                      "addressCountry": "BE"
+                  },
+                  "email": "procurement@lifetech-example.org",
+                  "phoneNumber": "+32-5555-8495"
+              },
+              "firstNotify": {
+                  "type": "Organization",
+                  "name": "Better Life Tech",
+                  "description": "Better Lives Products",
+                  "address": {
+                      "type": "PostalAddress",
+                      "streetAddress": "Rue de la Poste 272",
+                      "addressLocality": "Ramegnies-Chin",
+                      "addressRegion": "Hainaut",
+                      "postalCode": "7520",
+                      "addressCountry": "BE"
+                  },
+                  "email": "procurement@lifetech-example.org",
+                  "phoneNumber": "+32-5555-8495"
+              },
+              "consigneesFreightForwarder": {
+                  "type": "Organization",
+                  "name": "Intertrans NV [378]",
+                  "address": {
+                      "type": "PostalAddress",
+                      "streetAddress": "Belcrownlaan 25 - 3rd floor",
+                      "addressLocality": "Antwerpen",
+                      "postalCode": "BE-2100AN",
+                      "addressCountry": "BE"
+                  },
+                  "phoneNumber": "+32-3-201.98.10"
+              },
+              "cargoItems": [
+                  {
+                      "type": "CargoItem",
+                      "cargoLineItems": [
+                          {
+                              "type": "CargoLineItem",
+                              "descriptionOfGoods": "Rollators",
+                              "shippingMarks": "ByAcre Age is the new Black"
+                          },
+                          {
+                              "type": "CargoLineItem",
+                              "descriptionOfGoods": "Rollators Organizer Bags",
+                              "shippingMarks": "ByAcre Age is the new Black"
+                          },
+                          {
+                              "type": "CargoLineItem",
+                              "descriptionOfGoods": "Rollators Backrest",
+                              "shippingMarks": "ByAcre Age is the new Black"
+                          },
+                          {
+                              "type": "CargoLineItem",
+                              "descriptionOfGoods": "Rollators Cane Holder Bracket",
+                              "shippingMarks": "ByAcre Age is the new Black"
+                          },
+                          {
+                              "type": "CargoLineItem",
+                              "descriptionOfGoods": "Rollators Cardboard Box",
+                              "shippingMarks": "ByAcre Age is the new Black"
+                          }
+                      ],
+                      "weight": 1671.9,
+                      "weightUnit": "KGM",
+                      "volume": 27.23,
+                      "volumeUnit": "CBM",
+                      "numberOfPackages": 245
+                  }
+              ],
+              "utilizedTransportEquipments": [
+                  {
+                      "type": "TransportEquipment",
+                      "equipmentReference": "YMLU3380910",
+                      "ISOEquipmentCode": "20G1",
+                      "seals": [
+                          {
+                              "type": "Seal",
+                              "sealNumber": "YMAI715692"
+                          }
+                      ]
+                  }
+              ]
+          },
+          "transports": [
+              {
+                  "type": "Transport",
+                  "loadLocation": {
+                      "type": "Place",
+                      "address": {
+                          "type": "PostalAddress",
+                          "addressRegion": "Xiamen",
+                          "addressCountry": "CN"
+                      }
+                  },
+                  "dischargeLocation": {
+                      "type": "Place",
+                      "address": {
+                          "type": "PostalAddress",
+                          "addressRegion": "Antwerp",
+                          "addressCountry": "BE"
+                      }
+                  },
+                  "modeOfTransport": "Vessel",
+                  "carrier": {
+                      "type": "Organization",
+                      "name": "MULTI CONTAINER LINE",
+                      "address": {
+                          "type": "PostalAddress",
+                          "organizationName": "MCL Multi Container Line LTD.",
+                          "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+                          "addressLocality": "Kowloon Bay",
+                          "addressRegion": "Hong Kong",
+                          "addressCountry": "Hong Kong SAR"
+                      }
+                  },
+                  "vesselNumber": "HMM Algeciras",
+                  "voyageNumber": "V.0004W"
+              }
+          ]
+      },
+      "proof": {
+          "type": "Ed25519Signature2018",
+          "created": "2022-01-20T10:06:45Z",
+          "verificationMethod": "did:key:z6Mkegdt246FXuv9j5DfYpu2hnEH9fLsrzVRafXBHBKdL8N6#z6Mkegdt246FXuv9j5DfYpu2hnEH9fLsrzVRafXBHBKdL8N6",
+          "proofPurpose": "assertionMethod",
+          "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YcjpEO7FPOFiUlB2C9K-VWLorBA3uCO_ju9KOB-wsmPj-nuJFl1aBKcLocN6Lqba8Z7Jht5rVD62Fqcw6kdxCA"
+      }
+  }
