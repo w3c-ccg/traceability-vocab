@@ -15,33 +15,22 @@ description: >-
   of 2006 provided a statutory framework for the CTPAT program and imposed
   strict program oversight requirements.
 type: object
-properties:
-  type:
-    oneOf:
-      - type: array
-      - type: string
-        enum:
-          - CTPATCertificate
-  ctpatCertifiedEntity:
-    title: CTPAT Certified Entity
-    description: >-
-      In recognition of your commitment to partnerhip, and in appreciation for
-      joining with us to secure the international supply chain and protect our
-      country's security, The U.S. Customs Service is pleased to certify your
-      membership in the Customs - Trade Partnership Against Terrorism and to
-      present this certificate to
-    $ref: ./Organization.yml
-    $linkedData:
-      term: ctpatCertifiedEntity
-      '@id': https://w3id.org/traceability#ctpatCertifiedEntity
-additionalProperties: false
-required:
-  - ctpatCertifiedEntity
+additionalProperties: true
 example: |-
   {
-    "type": "CTPATCertificate",
-    "ctpatCertifiedEntity": {
-      "type": "Organization",
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "type": ["VerifiableCredential", "CTPATCertificate"],
+    "id": "https://example.gov/certificates/844362378642",
+    "name": "CTPAT Certificate",
+    "description": "In recognition of your commitment to partnership, and in appreciation for joining with us to secure the international supply chain and protect our country's security, The U.S. Customs Service is pleased to certify your membership in the Customs - Trade Partnership Against Terrorism.",
+    "issuer": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+    "issuanceDate": "2022-01-13T09:16:46Z",
+    "credentialSubject": {
+      "id": "did:key:z6MkhfZ7sNYEJ8vFSpwJaeyN7zNUaTxS4TBxW3y6R9ZKRaQ4",
+      "type": ["Organization", "CTPATCertificate"],
       "name": "Trans-Atlantic Shipping Co. Ltd.",
       "address": {
         "type": "PostalAddress",
@@ -50,6 +39,18 @@ example: |-
         "addressLocality": "Elsworth",
         "postalCode": "CB3 8NW",
         "addressCountry": "UK"
-      }
+      },
+      "sviNumber": "57118961",
+      "ctpatAccountNumber": "12008",
+      "tradeSector": "Sea Carrier",
+      "dateOfLastValidation": "2022-01-06T11:50:00Z",
+      "issuingCountry": "US"
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-01-21T19:15:47Z",
+      "verificationMethod": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn#z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..hcz0VwrGJo--M6HyNeXAGhyNvzgXoqDozPMkl5tNZOTAEkYia-aqF7X_MAyV9_i9oOWC_nQUV0F4fToJjlnOAQ"
     }
   }
