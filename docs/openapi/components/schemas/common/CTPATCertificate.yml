@@ -15,22 +15,114 @@ description: >-
   of 2006 provided a statutory framework for the CTPAT program and imposed
   strict program oversight requirements.
 type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - CTPATCertificate
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: string
+  credentialSubject:
+    type: object
+  proof:
+    type: object
+  sviNumber:
+    title: SVI Number
+    description: >-
+      Status Verification Interface number.
+    type: string
+    $linkedData:
+      term: sviNumber
+      '@id': https://w3id.org/traceability#sviNumber
+  ctpatAccountNumber:
+    title: CTPAT Account Number
+    description: >-
+      CTPAT issued account number for certified entity.
+    type: string
+    $linkedData:
+      term: ctpatAccountNumber
+      '@id': https://w3id.org/traceability#ctpatAccountNumber  
+  tradeSector:
+    title: CTPAT Trade Sector
+    description: >-
+      Trade sectors elegible for CTPAT certification. 
+    enum:
+      - U.S. Importers
+      - Highway Carriers
+      - Foreign Manufacturers
+      - Consolidators
+      - Licensed U.S. Customs Brokers
+      - Mexican Long Haul Highway Carriers
+      - U.S. Exporters
+      - Third Party Logistics Providers
+      - Sea Carrier
+      - Marine Port Authority and Terminal Operators
+      - Foreign Based Marine Port Terminal Operators
+      - Air Carriers
+      - Rail Carriers
+    $linkedData:
+      term: tradeSector
+      '@id': https://schema.org/industry
+  dateOfLastValidation:
+    title: Date of Last Validation
+    description: >-
+      Date of last validation.
+    type: string
+    $linkedData:
+      term: dateOfLastValidation
+      '@id': https://schema.org/Date
+  issuingCountry:
+    title: Issuing Country
+    description: >-
+      Issuing country.
+    type: string
+    $linkedData:
+      term: issuingCountry
+      '@id': https://schema.org/addressCountry
 additionalProperties: true
+required: []
 example: |-
   {
+    "type": [
+      "VerifiableCredential",
+      "CTPATCertificate"
+    ],
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
-      "https://w3id.org/traceability/v1"
+      "https://w3id.org/traceability/v1",
+      {
+        "@vocab": "https://w3id.org/traceability/v1/vocab#"
+      }
     ],
-    "type": ["VerifiableCredential", "CTPATCertificate"],
-    "id": "https://example.gov/certificates/844362378642",
+    "id": "did:key:z6LSpdSReUHCjYcQb1243aF1vS7sd9ArK585Mm4ktARQxatd",
     "name": "CTPAT Certificate",
     "description": "In recognition of your commitment to partnership, and in appreciation for joining with us to secure the international supply chain and protect our country's security, The U.S. Customs Service is pleased to certify your membership in the Customs - Trade Partnership Against Terrorism.",
-    "issuer": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+    "issuer": {
+      "type": "Organization",
+      "name": "United States Customs Trade Partnership Against Terrorism",
+      "description": "Your Supply Chain's Strongest Link",
+      "email": "ctpathelpdesk@cbp.dhs.gov",
+      "phoneNumber": "1-800-927-8729",
+      "id": "did:key:z6MkwYhybUcTmGCnXUCEowcXGNPxhtnJMxrR338xrv2sh8o3"
+    },
     "issuanceDate": "2022-01-13T09:16:46Z",
     "credentialSubject": {
       "id": "did:key:z6MkhfZ7sNYEJ8vFSpwJaeyN7zNUaTxS4TBxW3y6R9ZKRaQ4",
-      "type": ["Organization", "CTPATCertificate"],
+      "type": "Organization",
       "name": "Trans-Atlantic Shipping Co. Ltd.",
       "address": {
         "type": "PostalAddress",
@@ -39,18 +131,18 @@ example: |-
         "addressLocality": "Elsworth",
         "postalCode": "CB3 8NW",
         "addressCountry": "UK"
-      },
-      "sviNumber": "57118961",
-      "ctpatAccountNumber": "12008",
-      "tradeSector": "Sea Carrier",
-      "dateOfLastValidation": "2022-01-06T11:50:00Z",
-      "issuingCountry": "US"
+      }
     },
+    "sviNumber": "57118961",
+    "ctpatAccountNumber": "12008",
+    "tradeSector": "Sea Carrier",
+    "dateOfLastValidation": "2022-01-06T11:50:00Z",
+    "issuingCountry": "US",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-01-21T19:15:47Z",
-      "verificationMethod": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn#z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+      "created": "2022-01-24T12:14:56Z",
+      "verificationMethod": "did:key:z6MkwYhybUcTmGCnXUCEowcXGNPxhtnJMxrR338xrv2sh8o3#z6MkwYhybUcTmGCnXUCEowcXGNPxhtnJMxrR338xrv2sh8o3",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..hcz0VwrGJo--M6HyNeXAGhyNvzgXoqDozPMkl5tNZOTAEkYia-aqF7X_MAyV9_i9oOWC_nQUV0F4fToJjlnOAQ"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..fT5yu1w9yTMCnvRbCZTDxjOUFC_8fIKrc8xnksveK3-3QJU_C3Am9YQLbLu_gq6P1sLWCR2fZtvxAIcB6U3lCA"
     }
   }
