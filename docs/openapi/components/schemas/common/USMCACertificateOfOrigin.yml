@@ -10,26 +10,30 @@ description: >-
   completed and signed with an electronic or digital signature.
 type: object
 properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
   type:
-    oneOf:
-      - type: array
-      - type: string
-        enum:
-          - USMCACertificateOfOrigin
-  certifier:
-    title: Certifier
-    description: >-
-      Importer, Exporter, or Producer Certification of Origin: Indicate whether
-      the certifier is the exporter, producer, or importer in accordance with
-      Chapter 5, Article 5.2 (Claims for Preferential Tariff Treatment) of the
-      agreement.
-    enum:
-      - Importer
-      - Exporter
-      - Producer
-    $linkedData:
-      term: importer
-      '@id': https://w3id.org/traceability#certifier
+    type: array
+    const:
+      - VerifiableCredential
+      - USMCACertificateOfOrigin
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    type: object
+  proof:
+    type: object
   exporterDetails:
     title: Exporter's Details
     description: >-
@@ -89,17 +93,6 @@ properties:
     $linkedData:
       term: exporterDetails
       '@id': https://w3id.org/traceability#importerUnknown
-  goods:
-    title: Description of goods
-    description: >-
-      Full description for each good, sufficient to relate it to the invoice
-      description and the Harmonized System (HS) description of the goods.
-    type: array
-    items:
-      $ref: ./USMCAProductSpecifier.yml
-    $linkedData:
-      term: goods
-      '@id': https://schema.org/itemShipped
   blanketPeriodFrom:
     title: Blanket Period From
     description: >-
@@ -123,10 +116,121 @@ properties:
       term: blanketPeriodTo
       '@id': https://schema.org/validThrough
       '@type': http://www.w3.org/2001/XMLSchema#dateTime
-additionalProperties: false
-required:
-  - certifier
+additionalProperties: true
+required: []
 example: |-
   {
-    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/238"
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      {
+        "@vocab": "https://w3id.org/traceability/v1/vocab#"
+      }
+    ],
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "type": [
+      "VerifiableCredential",
+      "USMCACertificateOfOrigin"
+    ],
+    "issuanceDate": "2021-02-04T20:29:37+00:00",
+    "issuer": {
+      "id": "did:key:z6MkjSQ9SFbDEz5k6xK8R9MoTw9ViHP1XnTStioHVexRL1C9",
+      "type": "USMCACertifier",
+      "role": "Exporter",
+      "certifierDetails": {
+        "type": "Organization",
+        "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
+        "name": "Maxi Acero Mexicano",
+        "description": "Fusión y fabricación de acero sólido",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Avenida Carlos 100",
+          "addressLocality": "Hernádez de Mara",
+          "addressRegion": "Nuevo Leon",
+          "postalCode": "32200",
+          "addressCountry": "Mexico"
+        },
+        "email": "info@example.net",
+        "phoneNumber": "555-127-7813"
+      }
+    },
+    "exporterDetails": {
+      "type": "Organization",
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    },
+    "importerDetails": [
+      {
+        "type": "Organization",
+        "name": "American Prime Steel Inc.",
+        "description": "Quality Steel since 1952",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "1551 Keebler Knoll",
+          "addressLocality": "Vivianeburgh",
+          "addressRegion": "Oregon",
+          "postalCode": "47090",
+          "addressCountry": "US"
+        },
+        "email": "contact@example.net",
+        "phoneNumber": "555-716-2400"
+      }
+    ],
+    "producerDetails": [
+      {
+        "type": "Organization",
+        "name": "Maxi Acero Mexicano",
+        "description": "Fusión y fabricación de acero sólido",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Avenida Carlos 100",
+          "addressLocality": "Hernádez de Mara",
+          "addressRegion": "Nuevo Leon",
+          "postalCode": "32200",
+          "addressCountry": "Mexico"
+        },
+        "email": "info@example.net",
+        "phoneNumber": "555-127-7813"
+      }
+    ],
+    "credentialSubject": [
+      {
+        "type": "USMCAProductSpecifier",
+        "product": {
+          "type": [
+            "Product"
+          ],
+          "sku": "323050346937",
+          "description": "Non-alloy steel rolls",
+          "commodity": {
+            "type": [
+              "Commodity"
+            ],
+            "commodityCode": "721320",
+            "commodityCodeType": "HS",
+            "description": "Steel Coils"
+          }
+        },
+        "originCriterion": "A",
+        "countryOfOrigin": "MX"
+      }
+    ],
+    "blanketPeriodFrom": "2021-06-22",
+    "blanketPeriodTo": "2022-06-21",
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-01-24T14:21:52Z",
+      "verificationMethod": "did:key:z6MkjSQ9SFbDEz5k6xK8R9MoTw9ViHP1XnTStioHVexRL1C9#z6MkjSQ9SFbDEz5k6xK8R9MoTw9ViHP1XnTStioHVexRL1C9",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..iaR3CWWZZIlPV5YbOad58zhmVT46tjWjz_bFzmss20cgl8Q9-_ZbjRlI-tJgBC8JAPcDAJuaOgoPESuo8ygOBg"
+    }
   }
