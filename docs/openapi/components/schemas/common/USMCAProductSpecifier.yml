@@ -1,6 +1,6 @@
 $linkedData:
-  term: UsmcaProductSpecifier
-  '@id': https://w3id.org/traceability/UsmcaProductSpecifier
+  term: USMCAProductSpecifier
+  '@id': https://w3id.org/traceability/USMCAProductSpecifier
 title: USMCA Product Specifier
 description: USMCA product origin specifier
 type: object
@@ -10,7 +10,7 @@ properties:
       - type: array
       - type: string
         enum:
-          - UsmcaProductSpecifier
+          - USMCAProductSpecifier
   product:
     title: Product
     description: >-
@@ -47,7 +47,7 @@ properties:
       - C
       - D
     $linkedData:
-      term: importer
+      term: originCriterion
       '@id': https://w3id.org/traceability#originCriterion
   countryOfOrigin:
     title: Country of Origin
@@ -59,12 +59,18 @@ properties:
       - MX
       - US
     $linkedData:
-      term: importer
+      term: countryOfOrigin
       '@id': https://w3id.org/traceability#countryOfOrigin
-additionalProperties: false
+additionalProperties: true
 example: |-
   {
-    "type": "UsmcaProductSpecifier",
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      {
+        "@vocab": "https://w3id.org/traceability/v1/vocab#"
+      }
+    ],
+    "type": "USMCAProductSpecifier",
     "product": {
       "type": [
         "Product"

@@ -1,0 +1,64 @@
+$linkedData:
+  term: USMCACertifier
+  '@id': https://w3id.org/traceability/USMCACertifier
+title: USMCA Certifier
+description: USMCA product origin specifier
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - USMCACertifier
+  role:
+    title: Role
+    description: >-
+      Importer, Exporter, or Producer Certification of Origin: Indicate whether
+      the certifier is the exporter, producer, or importer in accordance with
+      Chapter 5, Article 5.2 (Claims for Preferential Tariff Treatment) of the
+      agreement.
+    enum:
+      - Importer
+      - Exporter
+      - Producer
+    $linkedData:
+      term: certifierRole
+      '@id': https://w3id.org/traceability#certifierRole
+  certifierDetails:
+    title: Certifier's Details
+    description: >-
+      Provide the certifier’s name, title, address (including country), telephone 
+      number and email address.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: certifierDetails
+      '@id': https://w3id.org/traceability#certifierDetails
+additionalProperties: true
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      {
+        "@vocab": "https://w3id.org/traceability/v1/vocab#"
+      }
+    ],
+    "type": "USMCACertifier",
+    "role": "Exporter",
+    "certifierDetails": {
+      "type": "Organization",
+      "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    }
+  }
