@@ -1278,8 +1278,30 @@
 
 <pre class="example">
 {
-  "type": "CTPATCertificate",
-  "ctpatCertifiedEntity": {
+  "type": [
+    "VerifiableCredential",
+    "CTPATCertificate"
+  ],
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    {
+      "@vocab": "https://w3id.org/traceability/v1/vocab#"
+    }
+  ],
+  "id": "did:key:z6LSpdSReUHCjYcQb1243aF1vS7sd9ArK585Mm4ktARQxatd",
+  "name": "CTPAT Certificate",
+  "description": "In recognition of your commitment to partnership, and in appreciation for joining with us to secure the international supply chain and protect our country's security, The U.S. Customs Service is pleased to certify your membership in the Customs - Trade Partnership Against Terrorism.",
+  "issuer": {
+    "type": "Organization",
+    "name": "United States Customs Trade Partnership Against Terrorism",
+    "description": "Your Supply Chain's Strongest Link",
+    "email": "ctpathelpdesk@cbp.dhs.gov",
+    "phoneNumber": "1-800-927-8729",
+    "id": "did:key:z6MkjArXVLoKSmFgBXNpug5eehrwpy9hLLbBq7rT2wYamdDr"
+  },
+  "issuanceDate": "2022-01-13T09:16:46Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkhfZ7sNYEJ8vFSpwJaeyN7zNUaTxS4TBxW3y6R9ZKRaQ4",
     "type": "Organization",
     "name": "Trans-Atlantic Shipping Co. Ltd.",
     "address": {
@@ -1290,6 +1312,18 @@
       "postalCode": "CB3 8NW",
       "addressCountry": "UK"
     }
+  },
+  "sviNumber": "57118961",
+  "ctpatAccountNumber": "12008",
+  "tradeSector": "Sea Carrier",
+  "dateOfLastValidation": "2022-01-06T11:50:00Z",
+  "issuingCountry": "US",
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2022-01-24T12:39:22Z",
+    "verificationMethod": "did:key:z6MkjArXVLoKSmFgBXNpug5eehrwpy9hLLbBq7rT2wYamdDr#z6MkjArXVLoKSmFgBXNpug5eehrwpy9hLLbBq7rT2wYamdDr",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..kyJoKXQIN8uNE9B0EWO7prAsMdtxBdVL6o15_mFP4KUSbRvxBp5Npy3q-sTg-CibZdBOB2qxceUM3Pt_1NYNAw"
   }
 }
 </pre>
@@ -7153,7 +7187,235 @@
 
 <pre class="example">
 {
-  "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/238"
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    {
+      "@vocab": "https://w3id.org/traceability/v1/vocab#"
+    }
+  ],
+  "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+  "type": [
+    "VerifiableCredential",
+    "USMCACertificateOfOrigin"
+  ],
+  "issuanceDate": "2021-02-04T20:29:37+00:00",
+  "issuer": {
+    "id": "did:key:z6MkjSQ9SFbDEz5k6xK8R9MoTw9ViHP1XnTStioHVexRL1C9",
+    "type": "USMCACertifier",
+    "role": "Exporter",
+    "certifierDetails": {
+      "type": "Organization",
+      "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    }
+  },
+  "exporterDetails": {
+    "type": "Organization",
+    "name": "Maxi Acero Mexicano",
+    "description": "Fusión y fabricación de acero sólido",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "Avenida Carlos 100",
+      "addressLocality": "Hernádez de Mara",
+      "addressRegion": "Nuevo Leon",
+      "postalCode": "32200",
+      "addressCountry": "Mexico"
+    },
+    "email": "info@example.net",
+    "phoneNumber": "555-127-7813"
+  },
+  "importerDetails": [
+    {
+      "type": "Organization",
+      "name": "American Prime Steel Inc.",
+      "description": "Quality Steel since 1952",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "1551 Keebler Knoll",
+        "addressLocality": "Vivianeburgh",
+        "addressRegion": "Oregon",
+        "postalCode": "47090",
+        "addressCountry": "US"
+      },
+      "email": "contact@example.net",
+      "phoneNumber": "555-716-2400"
+    }
+  ],
+  "producerDetails": [
+    {
+      "type": "Organization",
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    }
+  ],
+  "credentialSubject": [
+    {
+      "type": "USMCAProductSpecifier",
+      "product": {
+        "type": [
+          "Product"
+        ],
+        "sku": "323050346937",
+        "description": "Non-alloy steel rolls",
+        "commodity": {
+          "type": [
+            "Commodity"
+          ],
+          "commodityCode": "721320",
+          "commodityCodeType": "HS",
+          "description": "Steel Coils"
+        }
+      },
+      "originCriterion": "A",
+      "countryOfOrigin": "MX"
+    }
+  ],
+  "blanketPeriodFrom": "2021-06-22",
+  "blanketPeriodTo": "2022-06-21",
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2022-01-24T14:21:52Z",
+    "verificationMethod": "did:key:z6MkjSQ9SFbDEz5k6xK8R9MoTw9ViHP1XnTStioHVexRL1C9#z6MkjSQ9SFbDEz5k6xK8R9MoTw9ViHP1XnTStioHVexRL1C9",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..iaR3CWWZZIlPV5YbOad58zhmVT46tjWjz_bFzmss20cgl8Q9-_ZbjRlI-tJgBC8JAPcDAJuaOgoPESuo8ygOBg"
+  }
+}
+</pre>
+
+ 
+  </section>
+  
+
+  <section id="USMCACertifier">
+  <h2>USMCA Certifier</h2>
+  <p>USMCA product origin specifier</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability/USMCACertifier">https://w3id.org/traceability/USMCACertifier</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/USMCACertifier.yml">https://w3id.org/traceability/openapi/components/schemas/common/USMCACertifier.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    {
+      "@vocab": "https://w3id.org/traceability/v1/vocab#"
+    }
+  ],
+  "type": "USMCACertifier",
+  "role": "Exporter",
+  "certifierDetails": {
+    "type": "Organization",
+    "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
+    "name": "Maxi Acero Mexicano",
+    "description": "Fusión y fabricación de acero sólido",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "Avenida Carlos 100",
+      "addressLocality": "Hernádez de Mara",
+      "addressRegion": "Nuevo Leon",
+      "postalCode": "32200",
+      "addressCountry": "Mexico"
+    },
+    "email": "info@example.net",
+    "phoneNumber": "555-127-7813"
+  }
+}
+</pre>
+
+ 
+  </section>
+  
+
+  <section id="USMCAProductSpecifier">
+  <h2>USMCA Product Specifier</h2>
+  <p>USMCA product origin specifier</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability/USMCAProductSpecifier">https://w3id.org/traceability/USMCAProductSpecifier</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/USMCAProductSpecifier.yml">https://w3id.org/traceability/openapi/components/schemas/common/USMCAProductSpecifier.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    {
+      "@vocab": "https://w3id.org/traceability/v1/vocab#"
+    }
+  ],
+  "type": "USMCAProductSpecifier",
+  "product": {
+    "type": [
+      "Product"
+    ],
+    "sku": "323050346937",
+    "description": "Non-alloy steel rolls",
+    "commodity": {
+      "type": [
+        "Commodity"
+      ],
+      "commodityCode": "721320",
+      "commodityCodeType": "HS",
+      "description": "Steel Coils"
+    }
+  },
+  "originCriterion": "A",
+  "countryOfOrigin": "MX"
 }
 </pre>
 
@@ -7392,58 +7654,6 @@
   "importerSignatureDate": "2021-02-15",
   "intendedUse": "Processing",
   "intendedUseCert": "Processing"
-}
-</pre>
-
- 
-  </section>
-  
-
-  <section id="UsmcaProductSpecifier">
-  <h2>USMCA Product Specifier</h2>
-  <p>USMCA product origin specifier</p>
-
-  
-  
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability/UsmcaProductSpecifier">https://w3id.org/traceability/UsmcaProductSpecifier</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/UsmcaProductSpecifier.yml">https://w3id.org/traceability/openapi/components/schemas/common/UsmcaProductSpecifier.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-  
-
-<pre class="example">
-{
-  "type": "UsmcaProductSpecifier",
-  "product": {
-    "type": [
-      "Product"
-    ],
-    "sku": "323050346937",
-    "description": "Non-alloy steel rolls",
-    "commodity": {
-      "type": [
-        "Commodity"
-      ],
-      "commodityCode": "721320",
-      "commodityCodeType": "HS",
-      "description": "Steel Coils"
-    }
-  },
-  "originCriterion": "A",
-  "countryOfOrigin": "MX"
 }
 </pre>
 

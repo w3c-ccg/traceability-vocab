@@ -218,8 +218,20 @@
     "CTPATCertificate": {
       "@id": "https://w3id.org/traceability#CTPATCertificate",
       "@context": {
-        "ctpatCertifiedEntity": {
-          "@id": "https://w3id.org/traceability#ctpatCertifiedEntity"
+        "sviNumber": {
+          "@id": "https://w3id.org/traceability#sviNumber"
+        },
+        "ctpatAccountNumber": {
+          "@id": "https://w3id.org/traceability#ctpatAccountNumber"
+        },
+        "tradeSector": {
+          "@id": "https://schema.org/industry"
+        },
+        "dateOfLastValidation": {
+          "@id": "https://schema.org/Date"
+        },
+        "issuingCountry": {
+          "@id": "https://schema.org/addressCountry"
         }
       }
     },
@@ -2104,9 +2116,6 @@
     "USMCACertificateOfOrigin": {
       "@id": "https://w3id.org/traceability#USMCACertificateOfOrigin",
       "@context": {
-        "importer": {
-          "@id": "https://w3id.org/traceability#certifier"
-        },
         "exporterDetails": {
           "@id": "https://w3id.org/traceability#importerUnknown"
         },
@@ -2116,14 +2125,36 @@
         "importerDetails": {
           "@id": "https://w3id.org/traceability#importerDetails"
         },
-        "goods": {
-          "@id": "https://schema.org/itemShipped"
-        },
         "blanketPeriodFrom": {
           "@id": "https://schema.org/validFrom"
         },
         "blanketPeriodTo": {
           "@id": "https://schema.org/validThrough"
+        }
+      }
+    },
+    "USMCACertifier": {
+      "@id": "https://w3id.org/traceability/USMCACertifier",
+      "@context": {
+        "certifierRole": {
+          "@id": "https://w3id.org/traceability#certifierRole"
+        },
+        "certifierDetails": {
+          "@id": "https://w3id.org/traceability#certifierDetails"
+        }
+      }
+    },
+    "USMCAProductSpecifier": {
+      "@id": "https://w3id.org/traceability/USMCAProductSpecifier",
+      "@context": {
+        "product": {
+          "@id": "https://schema.org/Product"
+        },
+        "originCriterion": {
+          "@id": "https://w3id.org/traceability#originCriterion"
+        },
+        "countryOfOrigin": {
+          "@id": "https://w3id.org/traceability#countryOfOrigin"
         }
       }
     },
@@ -2174,17 +2205,6 @@
         },
         "intendedUseCert": {
           "@id": "https://w3id.org/traceability#intendedUseCert"
-        }
-      }
-    },
-    "UsmcaProductSpecifier": {
-      "@id": "https://w3id.org/traceability/UsmcaProductSpecifier",
-      "@context": {
-        "product": {
-          "@id": "https://schema.org/Product"
-        },
-        "importer": {
-          "@id": "https://w3id.org/traceability#countryOfOrigin"
         }
       }
     },
