@@ -1,0 +1,96 @@
+title: TraceablePresentation
+type: object
+description: A JSON-LD Presentation which establishes traceability linkage to a workflow instance and workflow type. 
+  - type: object
+    properties:
+      workflow:
+        $ref: "./Workflow.yml"
+        description: Establishes a traceable link from the presentation to a workflow.
+    required: 
+      - workflow
+example:
+  {
+    "@context":
+      [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://w3id.org/security/suites/jws-2020/v1",
+        "https://w3id.org/traceability/v1"
+      ],
+    "id": "urn:uuid:83432751123654",
+    "type": 
+      [
+        "VerifiablePresentation",
+        "TraceablePresentation"
+      ],
+    "workflow": {
+      "instance": [
+        "f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+      ],
+      "definition": [
+        "n1552885-cc91-4bb3-91f1-5466a0be084e"
+      ]
+    },
+    "holder": "did:web:example-holder.org",
+    "verifiableCredential":
+      [
+        {
+          "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://w3id.org/traceability/v1"
+          ],
+          "type": [
+            "VerifiableCredential",
+            "VerifiableBusinessCard"
+          ],
+          "name": "Verifiable Business Card",
+          "relatedLink": [
+            {
+              "type": "LinkRole",
+              "target": "https://example.com/organizations/example-org/presentations/available",
+              "linkRelationship": "OrganizationPresentationEndpoint"
+            }
+          ],
+          "issuanceDate": "2019-12-11T03:50:55Z",
+          "issuer": {
+            "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+            "type": "Organization",
+            "name": "Weber, Rolfson and Stroman",
+            "description": "Business-focused systemic paradigm",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "3263 Mohr Cape",
+              "addressLocality": "East Caleigh",
+              "addressRegion": "Tennessee",
+              "postalCode": "34278-9083",
+              "addressCountry": "Uruguay"
+            },
+            "email": "Julie.Muller31@example.net",
+            "phoneNumber": "555-433-6111",
+            "faxNumber": "555-356-2487"
+          },
+          "credentialSubject": {
+            "type": [
+              "Organization"
+            ],
+            "name": "Steel Manufacturer Org",
+            "url": "https://www.example.com/"
+          },
+          "proof": {
+            "type": "Ed25519Signature2018",
+            "created": "2019-12-11T03:50:55Z",
+            "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..JkMUYvr__kGNGv8Mlj24QzDtBpCLekx9FYbCZjteUHtzXKMEVgNxgsHo53DVQTQ9EwoFBTEqgwmJPifC7HvHAg",
+            "proofPurpose": "assertionMethod",
+            "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+          }
+        }
+      ],
+    "proof":
+      {
+        "type": "JsonWebSignature2020",
+        "created": "2021-10-04T17:19:20Z",
+        "verificationMethod": "did:example:123#key-2",
+        "proofPurpose": "authentication",
+        "challenge": "123",
+        "jws": "eyJhbGciOiJFUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Q0J7CcbM19fvfLdBZ44MlndvNACnmb0x1SM0cGnECye_-JC3Of29eroksqsVDTyXGAaQ_gnvcB4cqefK0jLIOg",
+      },
+  }
