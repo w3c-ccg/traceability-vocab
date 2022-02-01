@@ -14,7 +14,7 @@ This will result in a new file `./data/credential.verifiable.json`
 
 This file will contain a linked data proof which was generated over the LOCAL JSON-LD Context.
 
-This credential will not verify remotely until:
+This credential will not verify remotely until the remote context is published:
 
 ```
 ./docs/contexts/traceability-v1.jsonld -> after publish -> https://w3id.org/traceability/v1
