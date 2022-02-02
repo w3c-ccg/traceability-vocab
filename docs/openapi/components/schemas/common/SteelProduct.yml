@@ -2,7 +2,7 @@ $linkedData:
   term: SteelProduct
   '@id': https://w3id.org/traceability#SteelProduct
 title: Steel Product
-description: A finished or unfinisheed manufactured steel product
+description: A finished or unfinished manufactured steel product
 type: object
 properties:
   type:
@@ -41,6 +41,20 @@ properties:
     $linkedData:
       term: size
       '@id': https://schema.org/size
+  weight:
+    title: Weight
+    description: The weight of the product
+    type: number
+    $linkedData:
+      term: weight
+      '@id': https://schema.org/weight
+  weightUnit:
+    title: Weight Unit
+    description: The unit of the product weight
+    type: string
+    $linkedData:
+      term: weightUnit
+      '@id': http://qudt.org/schema/qudt/Unit
   originalCountryOfMeltAndPour:
     title: Original Country Of Melt and Pour
     description: The country where the product was first melted and poured.
@@ -69,6 +83,14 @@ properties:
     $linkedData:
       term: shipment
       '@id': https://schema.org/ParcelDelivery
+  commodity:
+    title: Commodity
+    description: Product commodity code, codification system and description
+    $ref: ./Commodity.yml
+    $linkedData:
+      term: commodity
+      '@id': https://w3id.org/traceability#Commodity
+  
 additionalProperties: false
 example: |-
   {
@@ -77,6 +99,14 @@ example: |-
     "specification": "ASTM-66272",
     "grade": "95913",
     "originalCountryOfMeltAndPour": "Oman",
+    "weight": 3200,
+    "weightUnit": "https://service.unece.org/trade/uncefact/vocabulary/rec20/#kilogram",
+    "commodity": {
+      "type": "Commodity",
+      "commodityCode": "721320",
+      "commodityCodeType": "HS",
+      "description": "Steel Coils"
+    },
     "inspection": {
       "type": "InspectionReport",
       "observation": [

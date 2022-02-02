@@ -1,0 +1,35 @@
+$linkedData:
+  term: SIMASteelImportProductSpecifier
+  '@id': https://w3id.org/traceability#SIMASteelImportProductSpecifier
+title: Steel Product
+description: A finished or unfinished manufactured steel product
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - SIMASteelImportProductSpecifier
+  steelProduct:
+    title: Steel Product
+    description: >-
+      Steel product details.
+    $ref: ./SteelProduct.yml
+    $linkedData:
+      term: product
+      '@id': https://w3id.org/traceability#SteelProduct
+  productCategory: 
+    title: Product Category
+    description: Category assigned to the product based on the Product HTS. This is automatically generated upon submission. 
+    type: string
+    $linkedData:
+      term: value
+      '@id': https://w3id.org/traceability#ProductCategory
+  customsValue: 
+    title: Customs Value
+    description: Entered value of this product in U.S. dollars; not invoiced value (It should not include duty, brokerage fees, or freight).
+    type: number
+    $linkedData:
+      term: value
+      '@id': https://schema.org/MonetaryAmount

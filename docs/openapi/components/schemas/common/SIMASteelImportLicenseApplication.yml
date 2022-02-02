@@ -95,10 +95,104 @@ manufacturers or as unknown.
       term: expectedDateOfImport
       '@id': https://w3id.org/traceability#importDateTime
       '@type': http://www.w3.org/2001/XMLSchema#dateTime
+  productInformation:
+    title: Product Information
+    description: Product information for each product.
+    type: array
+    items:
+      $ref: ./SIMASteelImportProductSpecifier.yml
 additionalProperties: true
 example: |-
   {
-    "type": "SIMASteelImportLicense",
-    "billOfLadingNumber": "991205182A",
-    
+    "type": "SIMASteelImportLicenseApplication", 
+    "applicantCompany": {
+      "type": "Organization",
+      "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    }, 
+    "customsEntryNumber": 34001239, 
+    "importer": {
+      "type": "Organization",
+      "name": "American Prime Steel Inc.",
+      "description": "Quality Steel since 1952",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "1551 Keebler Knoll",
+        "addressLocality": "Vivianeburgh",
+        "addressRegion": "Oregon",
+        "postalCode": "47090",
+        "addressCountry": "US"
+      },
+      "email": "contact@example.net",
+      "phoneNumber": "555-716-2400"
+    }, 
+    "exporter": {
+      "type": "Organization",
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    }, 
+    "manufacturer": {
+      "type": "Organization",
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    }, 
+    "countryOfOrigin": "MX", 
+    "countryOfExportation": "MX", 
+    "expectedPortOfEntry": "USMOB", 
+    "expectedDateOfExport": "2021-07-02", 
+    "expectedDateOfImport": "2021-07-06",
+    "productInformation": [
+      {
+        "type": [
+          "SIMASteelImportProductSpecifier"
+        ],
+        "steelProduct": {
+          "type": "SteelProduct",
+          "heatNumber": "841",
+          "specification": "ASTM-66272",
+          "grade": "95913",
+          "originalCountryOfMeltAndPour": "MX",
+          "weight": 3200,
+          "weightUnit": "https://service.unece.org/trade/uncefact/vocabulary/rec20/#kilogram",
+          "commodity": {
+            "type": "Commodity",
+            "commodityCode": "721320",
+            "commodityCodeType": "HS",
+            "description": "Steel Coils"
+          }
+        },
+        "customsValue": "4450"
+      }
+    ]
   }
