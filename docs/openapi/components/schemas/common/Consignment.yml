@@ -1,0 +1,42 @@
+$linkedData:
+  term: Consignment
+  '@id': https://w3id.org/traceability#Consignment
+title: Consignment
+description: A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Consignment
+  shipper: 
+    title: Shipper
+    description: A consignor party for the consignment.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: shipper
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
+example: |-
+  {
+    "type": [
+      "Consignment"
+    ],
+    "shipper":   {
+      "type": "Organization",
+      "name": "Glover - Gleason",
+      "description": "Future-proofed even-keeled paradigm",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "000 Jermey Fort",
+        "addressLocality": "Lake Evalyn",
+        "addressRegion": "Montana",
+        "postalCode": "71172",
+        "addressCountry": "Lesotho"
+      },
+      "email": "Kayla_Hilll60@example.net",
+      "phoneNumber": "555-758-8926",
+      "faxNumber": "555-248-4575"
+    }
+  }

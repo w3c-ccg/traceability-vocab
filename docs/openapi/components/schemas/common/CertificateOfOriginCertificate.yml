@@ -1,0 +1,84 @@
+$linkedData:
+  term: CertificateOfOriginCertificate
+  '@id': https://w3id.org/traceability#CertificateOfOriginCertificate
+title: Certificate Of Origin
+description: Certifications made about the origin of a consignment.
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - CertificateOfOriginCertificatez
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    type: object
+  proof:
+    type: object
+  relatedLink:
+    title: Related Link
+    description: Links related to this verifiable credential
+    type: array
+    items:
+      $ref: ./LinkRole.yml
+additionalProperties: false
+required: []
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "https://example.com/credential/123",
+    "type": [
+      "VerifiableCredential",
+      "CertificateOfOriginCertificate"
+    ],
+    "name": "Certificate of Origin",
+    "issuanceDate": "2019-12-11T03:50:55Z",
+    "issuer": {
+      "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+    },
+    "credentialSubject": {
+      "type": [
+        "Consignment"
+      ],
+      "shipper": {
+        "type": "Organization",
+        "name": "Glover - Gleason",
+        "description": "Future-proofed even-keeled paradigm",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "000 Jermey Fort",
+          "addressLocality": "Lake Evalyn",
+          "addressRegion": "Montana",
+          "postalCode": "71172",
+          "addressCountry": "Lesotho"
+        },
+        "email": "Kayla_Hilll60@example.net",
+        "phoneNumber": "555-758-8926",
+        "faxNumber": "555-248-4575"
+      }
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2019-12-11T03:50:55Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..g9J070BT6vKDscw8nlQ9bSXc9ONbd9gIdtnqZ8d8HWQNYVyK-y6PygSoFOuUP9wdXd8QCQNcZpXI7Rgz_NtuCQ",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+    }
+  }
