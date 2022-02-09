@@ -356,33 +356,22 @@
               <figcaption>Sample Steel Workflow</figcaption>
             </figure>
             <p>
-              A new bridge in Pennsylvania is being built, but to construct it, the contractor needs steel beams, which requires their
-              preferred American steel beam manufacturer to purchase steel slabs.
+              CTPAT issues a US Importer certificate (1) to the US Auto Manufacturer (2) and a Foreign Manufacturer certificate (3) to the Mexican Steel Mill (4). 
+            </p>
+            <p>              
+              US Auto Manufacturer Issues a Purchase Order (5) to their Mexican steel provider (6). 
             </p>
             <p>
-              A Mexican steel slab manufacturer has already produced these slabs, applied a decentralized identifier to each slab, and
-              sent the slabs for testing. During testing, an inspector certified that the physical and chemical properties of the steel
-              are up to international standards. The lab then issued a Mill Test Report VC which connects to the DIDs that the Mexican
-              steel slab manufacturer has applied to their product.
+              Mexican Steel Mill processes the order issuing a Mill Test Report (7) and a Commercial Invoice (8) reflecting shipment goods which are passed to the US Customer (9). The Mexican Steel Mill also passes its CTPAT Foreign Manufacturer certificate. 
             </p>
             <p>              
-              With these quality checks complete, the Mexican manufacturer is ready for the American steel beam manufacturer's order.
-              The Mexican manufacturer completes the sale of the steel slabs and issues a Commercial Invoice VC that references the
-              Mill Test Report VC that was issued by the inspector. An American steel importer is now ready to take the steel slabs
-              over the US-Mexico border, so they pre-register their intent to import into the US as a VC, which connects to the
-              existing VCs and DIDs in the steel supply chain.
+              SIMA issues a Steel Import Licence certificate (10) and passes it to US Auto (11) in response to their application. 
             </p>
             <p>              
-              The American importer is ready to enlist the help of their haulage carrier, who will load the steel slabs onto a vehicle
-              and issue a Bill of Lading VC. They'll work with a customs broker who organizes the increasingly long chain of
-              documentation associated with the steel slabs. The haulage carrier adds an Import Declaration to this VC chain, marking
-              another point along the steel's journey.
+              US Auto Manufacturer obtains a Steel license (11) and issues a USMCA Certificate of Origin (12). The full set of six verifiable credentials are presented to CBP in advance of the import. 
             </p>
-            <p>              
-              Finally, the truck reaches the border. CBP scans the product documentation on arrival and can easily confirm the origin
-              and journey of our steel slabs. Satisfied that this steel is suitable for processing by the American steel beam
-              manufacturer, CBP issues an Import Arrival VC. The steel is hauled to the American steel beam manufacturer, who shapes
-              it into steel products that can be used to build our new bridge.
+            <p>
+              CBP receives a Verifiable Presentation (12) from the US Auto importing steel, containing the two CTPAT certifications, USMCA Certificate of Origin, Steel Import License, Mill Test Report, and Commercial Invoice. Data is verified by CBP’s automated processes.
             </p>
 
             <h5>Featured Steel Credentials</h5>
@@ -428,7 +417,7 @@
             <dt><dfn>USMCA Certificate Of Origin</dfn></dt>
             <dd>
               <figure>
-                <img src="samples/fedex-usmca.png" alt="USMCA Certificate Of Origin" style="width:40%">
+                <img src="samples/usmca-form.png" alt="USMCA Certificate Of Origin" style="width:40%">
                 <figcaption>USMCA Certificate Of Origin</figcaption>
               </figure>
               <p>
@@ -557,46 +546,26 @@
             <figcaption>Sample E-Commerce Workflow</figcaption>
           </figure>
           <p>
-          A large and popular shoe manufacturer is ready to come out with their newest line of sneakers. First, they'll place an
-          order to a company in Anshan, China, to manufacture their new product line. Then, the Chinese company manufactures the
-          shoes to specification and issues a DID for each pair.
-        </p>
-        <p>          
-          Next, once the new sneakers have been packaged, the Chinese manufacturer ships them after issuing a Commercial Invoice
-          and Packing List. Both of these documents are issued using a DID created by and identifying the Chinese manufacturer in
-          addition to including DIDs that represent each set of sneakers.
-        </p>
-        <p>                    
-          Once safely packaged by the manufacturer, the ocean carrier takes the sneakers, carries out a consignment, and issues a
-          Bill of Lading VC. The ocean carrier can issue this VC with their own DID, adding them to this supply chain workflow. In
-          addition, the Bill of Lading can be linked to the Chinese manufacturer’s Commercial Invoice, Packing List, and the list
-          of DIDs associated with each set of sneakers.
-        </p>
-        <p>          
-          Our sneakers will find a home at a Danish vendor who specializes in Nike sneakers. They safely receive the container
-          from the ocean carrier and store the precious goods in a warehouse.
-        </p>
-        <p>          
-          The Danish sneaker vendor issues a Commercial Invoice and US Import Declaration as VCs, adding these documents to the
-          existing workflow in order to pack up the sneakers and hand them off to their express freight service.
-        </p>
-        <p>          
-          The express freight carrier takes the sneakers and issues an Air Waybill which connects the sneakers’ journey from
-          creation to importation. Each pair of sneakers lands safely, ready to be shipped to the American customers who purchased
-          them.
+            A Danish Vendor has received an online order, issues a Purchase Order (1) which is presented to the Chinese manufacturer for fulfillment (2). 
+          </p>
+        <p> 
+          The Chinese Manufacturer receives an order from their Danish customer (2). An invoice is issued (3) and presented back to customer (4). 
         </p>
         <p>
-          However, CBP first needs to verify the product documents at arrival and issue an Import Approval. This VC seamlessly
-          connects to the running collection of VCs, which track the sneakers journey in detail and provide CBP with unprecedented
-          visibility into the origin and authenticity of the sneakers. Using this new visibility, CBP is satisfied that the
-          products are legitimate and clears the product for shipment to the buyer in America.
+          Upon shipping, the manufacturer issues Shipping Instructions (5) and a Packing List (6) which is presented to the express carrier (7).  
         </p>
-        <p>          
-          The buyer can trace back the origin of their sneakers using a digital paper trail of VCs. Using DIDs and VCs, CBP and
-          American consumers gain a much deeper insight into where their products come from, which helps reduce the likelihood of
-          knock-off products being passed off as the real thing.
+        <p>
+          The Vendor issues a Proforma Invoice (8) and a Declaration of import into the US (9) both of which are passed to the Express Carrier (10) which also offers Customs Broker services.                     
         </p>
-        
+        <p>
+          An Express Carrier collects the shipment in China and issues an Air Waybill (11) based on Shipping Instructions. 
+        </p>
+        <p>
+          Air Waybill along with the Packing List, Import Declaration and Proforma Invoice from upstream is presented pre-arrival to CBP (12) import approval. 
+        </p>
+        <p>
+          CBP receives the pouch of verifiable documentation (12). The parties and data is cross referenced, commercial and physical provenance is verified, and CBP’s automated processes can issue Import Approval (13) documentation presented back to the Express Carrier (14) well in advance of the goods arrival.
+        </p>        
           <h5>Featured E-Commerce Credentials</h5>
           <dl>
             <dt><dfn>Purchase Order</dfn></dt>
