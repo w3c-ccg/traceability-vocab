@@ -206,13 +206,158 @@
       <h2>Introduction</h2>
 
       <p>
-        This specification describes a Linked Data vocabulary for asserting
-        Verifiable Credentials related to traceability information, such as
-        chemical properties, mechanical properties, country of origin, and other
-        attributes used to determine the status of a products and materials in a
-        supply chain.
+        This specification is designed to enable global supply chain stakeholders to leverage the benefits of emerging
+        technological web standards, specifically Linked Data (JSON-LD), the Verifiable Credential (VC) Data Model and the
+        Decentralized Identifier (DID) Spec. It addresses prevalent supply chain use cases across a variety of market
+        segments. The corresponding data exchange schemas are modeled for Verifiable Credentials, which is a standard for
+        cryptographically signing business data. Schema semantics are precisely defined by use of Linked Data, leveraging
+        established vocabularies such as schema.org, GS1 and UN/CEFACT, enabling interoperability and digitization.
       </p>
 
+      <h3>Chain Digitization Challenges</h3>
+      <p>
+        While digitization has revolutionized other industries with decades worth of value already created, supply chains at
+        large have been slow and fragmented in their digital transformation journey, having yet to reap the full benefits. The
+        sheer number and heterogeneity of involved actors makes technological advances incredibly difficult; physical paper,
+        manual processing and outdated technologies still support the vast majority of all supply chain information flows.
+        Paper costs the supply-chain industry upwards of $3 billion every year (not counting the additional price tag of
+        paper, ink and printing)
+        (https://www.supplychainbrain.com/blogs/1-think-tank/post/32802-paper-the-bane-of-the-supply-chain-and-how-to-combat-it).
+        The resulting data silos and blind spots throughout the supply chain have created an
+        enormous problem that enterprises and regulators can no longer ignore - in a space where the inherent global nature of
+        supply chains is in itself a coordination obstacle.
+      </p>
+      <p>
+        Semantic standards and code lists are being rigorously managed by various standards organizations. However, as long as
+        these publications depend on manual adoption or complex implementation, the actual impact of these investments are
+        limited and delayed. Language barriers and differing contexts is a major source of imprecision and errors. Even at
+        this point, most enterprises have only 20% visibility into their supply chains, as opposed to the 70% to 90% percent
+        needed to monitor these investments
+        (https://www.supplychainbrain.com/blogs/1-think-tank/post/31062-in-2020-supply-chain-digitization-is-no-longer-optional).
+        The identity of supply chain actors is a separate problem resulting in costs and
+        errors. While nations and platforms have established digital identity regimes within their relevant boundaries, no
+        useful global identity scheme has emerged therefore been adopted. Public policy, borders, and commercial obstacles
+        create large barriers for a global centralized model to be adopted. The result of this is that most businesses need to
+        invest heavily in IT infrastructure and middleware data mapping tools to be integrated with their trading partners. In
+        fact, digitizing a major supply chain will cost tens of millions of dollars at the current pace and be a three to five
+        year transformation effort (https://hbr.org/2021/09/a-simpler-way-to-modernize-your-supply-chain). This means a heavy
+        investment of capital, resulting in de-facto vendor software lock-in.
+      </p>
+
+      <h2>Technology Enablement</h2>
+      <h3>Establishing Trust</h3>
+      <p>
+        Trust is fundamental to trade. As global citizens, we rely on efficient supply chains, and the supply chains
+        themselves are actually a network of collaborative stakeholders who are economically reliant on one another - from
+        shippers and carriers to importers to regulators. Traditionally, trust is established by analogue signed contracts,
+        physical meetings, phone calls, faxes, and regular audits that prove credibility of the engaging parties and
+        compliance with relevant regulation. Digitization efforts in the “contractual trust” sphere have been limited by the
+        fact that altering digital data - like PDFs - is incredibly easy to do and difficult to detect. Noteworthy steps taken
+        to address this are encrypted communication channels like HTTPS and commercial digital signature platforms like
+        Docusign and Hellosign. However, a trusted channel does not prevent data alteration by either party, and globally
+        scaling a fully proprietary platform is inherently expensive with political, and practical implications.
+      </p>
+      <p>
+        This landscape has changed with the advent of the Verifiable Credentials standard, which makes digital contractual
+        trust accessible and affordable to use for anyone on the planet. Essentially, Verifiable Credentials apply existing
+        cryptographic standards (particularly modern curve-based digital signature algorithms) to business data that is
+        typically exchanged over APIs or XML. The Verifiable Credentials specification provides a data model for how data
+        along with a cryptographic signature should be represented in a data file. The data itself can be anything -
+        describing a shipment, an organization, a product, an agreement, etc. The cryptographic element ensures that anyone
+        being presented the data file can verify that the data is how the issuer intended it to be. In other words, the use of
+        cryptographic standards provides the verifier a sense of trust when presented the data file from the issuer.
+      </p>
+      <p>
+        The implications of this to global supply chains are immense. The analogue equivalent of contractual binding by
+        applying a signature is obvious; and it should be noted that a cryptographic signature is much safer from a security
+        point of view.
+        <br />
+        The possibilities go much further. Trust can be established remotely and fully automated, provided suitable claims are
+        presented and issued by a trustworthy third party, such as an existing business partner, a commercial agent, or
+        government. "Chains of trust" can be established by linking back through relevant claims to a known trust anchor.
+      </p>
+
+      <h3>Linked Semantics</h3>
+      <p>
+        Throughout the supply chain, organizations use different words to say the same thing. For example, “Shipper” and
+        “Consignor” are used interchangeably in shipping. A lot of effort goes into addressing this problem ensuring
+        precise communication across supply chain participants. Standards bodies govern semantic models with terms
+        definitions, APIs for common use cases, and code lists in an attempt to avoid ambiguity. The traditional challenge of
+        such technical publications has been the human element: reading the spec, interpreting the API attribute name, or
+        skimming through the code list, the data sender and data receiver has to establish the same understanding. This
+        results in effort and IT costs from both the sender and receiver to ensure this common understanding.
+      </p>
+      <p>
+        Linked Data addresses this problem by letting computers establish the semantic meaning. Leveraging how the web works,
+        Linked Data explicitly points every term used to a precise Unique Resource Identifier (URI). Much like a URL pointing
+        at a specific website, a URI defines a specific term. Thus, when the data sender defines a term by pointing at a URI,
+        there is no interpretation to be done as the receiving computer can automatically understand it. Beyond the obvious
+        benefit of establishing shared understanding, integrating Linked Data is simpler, avoiding the cost and complexity of
+        data interpretation and mapping.
+      </p>
+      <p>
+        Linked Data is not new, it is what drives internet indexing and search engines. This traceability-vocab specification
+        introduces this technology for use in the supply chain industry. Sometimes this approach is referred to as "Web 3.0."
+        All the schemas which define the data content of Verifiable Credentials are constructed with explicit pointers to the
+        most relevant URIs of the terms used. Existing term definitions, which are available in online vocabularies, can be
+        used to construct the Verifiable Credential schemas.
+      </p>
+
+      <h3>Global Identification Scheme</h3>
+      <p>
+        A final important part of modernizing the digital supply chain is targeting the problem of identification. The
+        problems of scaling centralized solutions has led to the emergence of Decentralized Identifiers (DIDs). These also
+        rely on modern use of cryptography, used here to prove that you are in control of a given identity. A variety of
+        different types of DIDs exist, serving different requirements such as a one-off usage to enterprise-security grade
+        organization long-term representation. In itself a DID is trustless, meaning anyone can make and control a DID at any
+        time. The value of a did comes from the credentials tied to it, typically by other organizations or the government.
+      </p>
+      <p>
+        While the main identity problem has to do with identification of supply chain parties, whether these be persons or
+        organizations, DIDs can just as well represent products, shipments, contractual agreements, or anything else needing
+        identification.
+      </p>
+      <p>
+        Note that traceability-vocab's use of Decentralized Identifiers is limited to example uses. Traditional means of
+        identification can be used, but use of DIDs is encouraged to ensure that actual control of an identity can be proven.
+      </p>
+      
+      <h3>Technology Summary</h3>
+      <p>
+        This section conceptualizes the introduced emerging technology standards - Verifiable Credentials, Linked Data, and
+        Decentralized Identifiers - with a real-world supply chain use case.
+      </p>
+      <p>
+        The Commercial Invoice is an critical supply chain document, essential among others to customs where it is used for
+        duty determination. This document includes the description of the goods, where the goods are being shipped from and
+        to, and a value of the goods, just to name a few of the data points. This document is supplied by the shipper.
+      </p>
+      <p>
+        The Commercial Invoice document is typically exchanged via PDF, email or EDI. With the use of Verifiable Credential
+        technology, we are able to digitalize the Commercial Invoice into a verifiable Commercial Invoice credential. Each
+        data point on the Commercial Invoice VC is mapped to a semantic model for common definition using Linked Data
+        (JSON-LD). For example, the “Consignee” field or the “Shipper” field on the Commercial Invoice are defined
+        unambiguously to precise URIs. This promotes a singular, common definition of the data labels so that organizations
+        have a shared understanding.
+        <br />
+        In addition to each data point having a shared understanding, certain data points on the Commercial Invoice are used
+        to identify an organization. For example, the “Consignee” field identifies who the receiver of the goods is and the
+        “Shipper” field identifies who the shipper of the goods is. The “who” in our example is an organization. Using a
+        Decentralized Identifier (DID), for example, the consignee organization can self-authenticate as the receiver of the
+        goods.
+        <br />
+        The Shipper’s Decentral Identifier is included as the Verifiable Credential issuer, binding the claims on the
+        Commercial Invoice back to the Shipper. Cryptographic traceability of the Commercial Invoice is thus established from
+        the Shipper to the Consignee; anyone being presented the Commercial Invoice can verify that it originates from the
+        Shipper and is targeted the Consignee.
+      </p>
+      <p>
+        This example portrays a specific use case with a Commercial Invoice and how Verifiable Credentials, Linked Data, and
+        Decentralized Identifiers apply. We apply these technologies to common trade documents in hopes to further digitize
+        documents and promote trust throughout the entire supply chain.
+      </p>
+
+      <h2>Structure</h2>
       <p>
         Generally, this vocabulary may be looked at as a set of common objects
         that are shared across multiple business verticals, and vertical or
@@ -241,7 +386,7 @@
         <br />
         These subject matter leads help identify common elements across verticals
         as well as in assessing contributions of new objects to the vocabulary.
-        <br />
+      </p>
         <table>
           <thead>
             <tr>
@@ -273,7 +418,6 @@
             </tr>
           </tbody>
         </table>
-      </p>
 
       <section class="informative">
         <h4>Vocabulary Linkage</h4>
