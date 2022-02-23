@@ -1,8 +1,8 @@
 $linkedData:
   term: CommercialInvoice
-  '@id': https://w3id.org/traceability#CommercialInvoiceCredential
+  '@id': https://schema.org/Invoice
 title: Commercial Invoice
-description: A statement of the money due for goods or services; a bill.
+description: A statement of the money due for goods or services; a bill. Aligned with data fields listed in https://unece.org/fileadmin/DAM/cefact/recommendations/rec06/rec06_ecetrd148.pdf
 type: object
 properties:
   type:
@@ -18,13 +18,41 @@ properties:
     $linkedData:
       term: identifier
       '@id': https://schema.org/identifier
+  customerReferenceNumber: 
+    title: Customer's Reference Number
+    description: Oversees customer’s reference number.
+    type: string
+    $linkedData:
+      term: customerReferenceNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Customer_reference_number
   portOfEntry:
     title: Port Of Entry
     description: Port where the purchased goods will enter first.
-    $ref: ./PostalAddress.yml
+    $ref: ./Place.yml
     $linkedData:
       term: portOfEntry
-      '@id': https://schema.org/address
+      '@id': https://schema.org/Place
+  originCountry:
+    title: Origin Country
+    description: A country of origin for the consignment, consignment item or product.
+    type: string
+    $linkedData:
+      term: originCountry
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry
+  destinationCountry:
+    title: Destination Country
+    description: Country to which the purchased product will be delivered
+    type: string
+    $linkedData:
+      term: destinationCountry
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#destinationCountry
+  invoiceDate:
+    title: Invoice Date
+    description: A date, time, date time or other date time value of the invoice in the trade settlement.
+    type: string
+    $linkedData:
+      term: invoiceDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#invoiceDateTime
   purchaseDate:
     title: Purchase Date
     description: The date that payment is made.
@@ -32,32 +60,23 @@ properties:
     $linkedData:
       term: purchaseDate
       '@id': https://schema.org/paymentDueDate
-  totalPaymentDue:
-    title: Total Payment Due
-    description: The total amount due.
-    $ref: ./PriceSpecification.yml
+  seller: 
+    title: Seller
+    description: An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
+    $ref: ./Organization.yml
     $linkedData:
-      term: totalPaymentDue
-      '@id': https://schema.org/totalPaymentDue
-  destinationCountry:
-    title: Destination Country
-    description: Country to which the purchased product will be delivered
-    type: string
+      term: seller
+      '@id': https://schema.org/seller
+  consignee: 
+    title: Consignee
+    description: Ultimate consignee or ship to party for the consignment. 
+    $ref: ./Organization.yml
     $linkedData:
-      term: destinationCountry
-      '@id': https://schema.org/addressCountry
-  merchandise:
-    title: Merchandise
-    description: Identifiers for a property.
-    type: array
-    items:
-      $ref: ./Product.yml
-    $linkedData:
-      term: merchandise
-      '@id': https://schema.org/itemShipped
-  customer:
-    title: Customer
-    description: Party placing the order or paying the invoice.
+      term: shipTo
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+  buyer:
+    title: Buyer
+    description: Importer of record. Party placing the order or paying the invoice.
     $ref: ./Organization.yml
     $linkedData:
       term: customer
@@ -72,6 +91,54 @@ properties:
     $linkedData:
       term: provider
       '@id': https://schema.org/provider
+  itemsShipped:
+    title: Items Shipped
+    description: Itemized list of shipped goods.
+    type: array
+    items:
+      $ref: ./TradeLineItem.yml
+    $linkedData:
+      term: itemsShipped
+      '@id': https://schema.org/itemShipped
+  totalWeight:
+    title: Total Weight
+    description: Total eeight of the products.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: weight
+      '@id': https://schema.org/weight
+  totalPaymentDue:
+    title: Total Payment Due
+    description: The total amount due.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: totalPaymentDue
+      '@id': https://schema.org/totalPaymentDue
+  termsOfDelivery: 
+    title: Terms of Delivery
+    description: The conditions agreed upon between the parties with regard to the delivery of goods and or services.
+    type: string
+    $linkedData:
+      term: termsOfDelivery
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedDeliveryTerms
+  termsOfPayment: 
+    title: Terms of Payment
+    description: Terms, conditions, and currency of settlement as agreed upon by the vendor and purchaser per the pro forma invoice, customer purchase order and/or the letter of credit.
+    type: string
+    $linkedData:
+      term: termsOfPayment
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPaymentTerms
+  currencyOfSettlement: 
+    title: Terms of Settlement
+    description: Currency agreed upon between seller and buyer as payment.
+    type: string
+    $linkedData:
+      term: termsOfSettlement
+      '@id': https://schema.org/currency
+required:
+  - seller
+  - consignee
+  - buyer
 additionalProperties: false
 example: |-
   {
@@ -79,32 +146,12 @@ example: |-
       "CommercialInvoice"
     ],
     "portOfEntry": {
-      "type": [
-        "PostalAddress"
-      ],
-      "addressLocality": "Seatle",
-      "addressRegion": "Washington",
-      "addressCountry": "USA"
+      "type": "Place",
+      "unLocode": "USLGB"
     },
     "destinationCountry": "MEX",
     "purchaseDate": "2021-02-21",
-    "customer": {
-      "type": [
-        "Organization"
-      ],
-      "address": {
-        "type": [
-          "PostalAddress"
-        ],
-        "organizationName": "Generic Motors of America",
-        "streetAddress": "12 Generic Motors Dr",
-        "addressLocality": "Detroit",
-        "addressRegion": "Michigain",
-        "postalCode": "48232-5170",
-        "addressCountry": "USA"
-      }
-    },
-    "provider": {
+    "seller": {
       "type": [
         "Organization"
       ],
@@ -120,65 +167,116 @@ example: |-
         "addressCountry": "Japan"
       }
     },
-    "totalPaymentDue": {
+    "buyer": {
       "type": [
-        "PriceSpecification"
+        "Organization"
       ],
-      "price": 150000,
-      "priceCurrency": "USD"
-    },
-    "merchandise": [
-      {
+      "address": {
         "type": [
-          "Product"
+          "PostalAddress"
         ],
-        "manufacturer": {
-          "type": [
-            "Organization"
-          ]
+        "organizationName": "Generic Motors of America",
+        "streetAddress": "12 Generic Motors Dr",
+        "addressLocality": "Detroit",
+        "addressRegion": "Michigain",
+        "postalCode": "48232-5170",
+        "addressCountry": "USA"
+      }
+    },
+    "consignee": {
+      "type": [
+        "Organization"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Generic Motors of America",
+        "streetAddress": "12 Generic Motors Dr",
+        "addressLocality": "Detroit",
+        "addressRegion": "Michigain",
+        "postalCode": "48232-5170",
+        "addressCountry": "USA"
+      }
+    },
+    "itemsShipped": [
+      {
+        "type": "TradeLineItem",
+        "product": {
+          "manufacturer": {
+            "type": "Organization",
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+              "streetAddress": "1651, Shimonakano, Yoshida",
+              "addressLocality": "Tsubame-shi",
+              "addressRegion": "Niigata-ken",
+              "postalCode": "959-0215",
+              "addressCountry": "Japan"
+            }
+          },
+          "description": "UNS S30400 chromium-nickel stainless steel rolls.",
+          "weight": {
+            "type": "QuantitativeValue",
+            "unitCode": "lbs",
+            "value": "16500"
+          }
         },
-        "description": "UNS S30400 chromium-nickel stainless steel rolls.",
-        "weight": {
-          "type": [
-            "QuantitativeValue"
-          ],
-          "unitCode": "lbs",
-          "value": "10000"
+        "itemCount": 5,
+        "tradeLineItemWeight": {
+          "type": "QuantitativeValue",
+          "value": "82500",
+          "unitCode": "lbs"
         },
-        "quantity": "5",
         "priceSpecification": {
-          "type": [
-            "PriceSpecification"
-          ],
-          "price": 10000,
+          "type": "PriceSpecification",
+          "price": 5200,
           "priceCurrency": "USD"
         }
       },
       {
-        "type": [
-          "Product"
-        ],
-        "manufacturer": {
-          "type": [
-            "Organization"
-          ]
+        "type": "TradeLineItem",
+        "product": {
+          "manufacturer": {
+            "type": "Organization",
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+              "streetAddress": "1651, Shimonakano, Yoshida",
+              "addressLocality": "Tsubame-shi",
+              "addressRegion": "Niigata-ken",
+              "postalCode": "959-0215",
+              "addressCountry": "Japan"
+            }
+          },
+          "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
+          "weight": {
+            "type": "QuantitativeValue",
+            "value": "12680",
+            "unitCode": "lbs"
+          }
         },
-        "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
-        "weight": {
-          "type": [
-            "QuantitativeValue"
-          ],
-          "unitCode": "lbs",
-          "value": "20000"
+        "itemCount": 20,
+        "tradeLineItemWeight": {
+          "type": "QuantitativeValue",
+          "value": "253600",
+          "unitCode": "lbs"
         },
-        "quantity": "10",
         "priceSpecification": {
-          "type": [
-            "PriceSpecification"
-          ],
-          "price": 10000,
+          "type": "PriceSpecification",
+          "price": 4400,
           "priceCurrency": "USD"
         }
       }
-    ]
+    ],
+    "totalWeight": {
+      "type": "QuantitativeValue",
+      "value": "336100",
+      "unitCode": "lbs"
+    },
+    "totalPaymentDue": {
+      "type": "PriceSpecification",
+      "price": 9600,
+      "priceCurrency": "USD"
+    }
   }

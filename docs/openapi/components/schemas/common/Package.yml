@@ -24,32 +24,20 @@ properties:
       term: shippingMarks
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks
-  itemQuantity:
-    title: Item Quantity
-    description: Number of packages.
+  quantity:
+    title: Quantity
+    description: The quantity of the product contained by a package.
     type: number
     $linkedData:
-      term: name
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity
-  perPackageUnitQuantity:
-    title: perPackageUnitQuantity
-    description: A number of units per package in the package or trade delivery.
-    type: number
+      term: quantity
+      '@id': https://www.gs1.org/voc/netContent
+  packagingType:
+    title: Packaging Type
+    description: Links to details about packaging material type, quantity and thickness
+    type: string
     $linkedData:
-      term: shippingMarks
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity
-  tradeLineItems:
-    title: Included Trade Line Item
-    description: An included trade line item.
-    type: array
-    items:
-      $ref: ./PartOfOrder.yml
-    $linkedData:
-      term: itemsShipped
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem
+      term: packagingType
+      '@id': https://www.gs1.org/voc/packagingMaterial
   netWeight:
     title: A measure of the net weight (mass).
     type: number
@@ -112,5 +100,14 @@ properties:
       '@id': https://schema.org/unitCode
 example: |-
   {
-    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/234"
+    "type": [
+      "Package"
+    ],
+    "physicalShippingMarks": "1 of 3",
+    "quantity": 10, 
+    "packagingType": "Box",
+    "grossWeight": 75,
+    "grossWeightUnit": "lbs",
+    "grossVolume": 8,
+    "grossVolumeUnit": "sqf"
   }

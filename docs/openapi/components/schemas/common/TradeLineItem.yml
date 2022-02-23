@@ -3,8 +3,7 @@ $linkedData:
   '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem
 title: Trade Line Item
 description: >-
-  A collection of information specific to an item being used or reported on for
-  trade purposes.
+  Line items on trade documents such as Commercial Invoices. A trade line item describes separately identifiable product and packaging characteristics.
 type: object
 required: []
 properties:
@@ -14,33 +13,112 @@ properties:
       - type: string
         enum:
           - TradeLineItem
-  name:
-    title: Name
-    type: string
-    $linkedData:
-      term: name
-      '@id': https://schema.org/name
   description:
     title: Description of product
     type: string
     $linkedData:
       term: description
       '@id': https://schema.org/description
-  productID:
-    title: Product ID
-    description: Product number of registering Legal Entity such as an ISBN
-    type: string
+  packageQuantity:
+    title: Package Quantity
+    type: number
     $linkedData:
-      term: productID
-      '@id': https://schema.org/productID
+      term: packageQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  package:
+    title: Package
+    $ref: ./Package.yml
+    $linkedData:
+      term: package
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalPackage
+  product:
+    title: Product
+    $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://schema.org/Product
   itemCount:
     title: A quantity despatched in the trade delivery.
-    type: string
+    type: number
     $linkedData:
       term: itemCount
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity
+  tradeLineItemWeight:
+    title: Trade Line Item Weight
+    description: Weight of the Trade Line Item.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: weight
+      '@id': https://schema.org/weight
+  priceSpecification:
+    title: Price Specification
+    description: >-
+      One or more detailed price specifications, indicating the unit price and
+      delivery or payment charges.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: priceSpecification
+      '@id': https://schema.org/priceSpecification
 example: |-
   {
-    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/236"
+    "type": [
+      "TradeLineItem"
+    ],
+    "description": "Parts and accessories for photographic cameras.",
+    "packageQuantity": 3,
+    "package": {
+      "type": [
+        "Package"
+      ],
+      "physicalShippingMarks": "Photographic accessories",
+      "quantity": 10, 
+      "packagingType": "Box",
+      "grossWeight": 75,
+      "grossWeightUnit": "lbs",
+      "grossVolume": 8,
+      "grossVolumeUnit": "sqf"
+    },
+    "product": {
+      "type": "Product",
+      "description": "Lens flare filter",
+      "manufacturer": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Premium Camera Goods, Inc." 
+      },
+      "weight": {
+        "type": "QuantitativeValue",
+        "unitCode": "lbs",
+        "value": "2.5"
+      },
+      "priceSpecification":   {
+        "type": [
+          "PriceSpecification"
+        ],
+        "price": 400,
+        "priceCurrency": "USD"
+      },
+      "commodity": {
+        "type": [
+          "Commodity"
+        ],
+        "commodityCode": "9006.9",
+        "commodityCodeType": "HS"
+      }
+    },
+    "itemCount": 30,
+    "tradeLineItemWeight": {
+      "type": "QuantitativeValue",
+      "value": "75",
+      "unitCode": "lbs"
+    },
+    "priceSpecification": {
+      "type": [
+        "PriceSpecification"
+      ],
+      "price": 12000,
+      "priceCurrency": "USD"
+    }
   }
