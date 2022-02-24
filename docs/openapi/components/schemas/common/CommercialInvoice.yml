@@ -25,6 +25,14 @@ properties:
     $linkedData:
       term: customerReferenceNumber
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Customer_reference_number
+  billOfLadingNumber:
+    title: Bill of Lading number
+    description: Carrier-issued number for the associated Bill of Lading or Waybill. 
+    type: string
+    $linkedData:
+      term: billOfLadingNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
   portOfEntry:
     title: Port Of Entry
     description: Port where the purchased goods will enter first.
@@ -66,21 +74,42 @@ properties:
     $ref: ./Organization.yml
     $linkedData:
       term: seller
-      '@id': https://schema.org/seller
-  consignee: 
-    title: Consignee
-    description: Ultimate consignee or ship to party for the consignment. 
-    $ref: ./Organization.yml
-    $linkedData:
-      term: shipTo
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
     $ref: ./Organization.yml
     $linkedData:
-      term: customer
-      '@id': https://schema.org/customer
+      term: buyer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
+  exporter:
+    title: Exporter
+    description:  The party who makes, or on whose behalf the export declaration is made, and who is the owner of the goods or has similar rights of disposal over them at the time when the declaration is accepted.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: exporter
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty
+  importer:
+    title: Importer
+    description: The party who makes, or on whose behalf a customs clearing agent or other authorized person makes, an import declaration. This may include a person who has possession of the goods or to whom the goods are consigned. Also refered to as Importer of Record.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: importer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
+  shipFromParty:
+    title: Ship From Party
+    description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
+    $ref: ./Organization.yml
+    $linkedData:
+      term: shipFromParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty
+  shipToParty:
+    title: Ship To Party
+    description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
+    $ref: ./Organization.yml
+    $linkedData:
+      term: shipToParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
   provider:
     title: Provider
     description: >-
@@ -100,9 +129,15 @@ properties:
     $linkedData:
       term: itemsShipped
       '@id': https://schema.org/itemShipped
+  packageQuantity:
+    title: Package Quantity
+    type: Total number of packages.
+    $linkedData:
+      term: packageQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
   totalWeight:
     title: Total Weight
-    description: Total eeight of the products.
+    description: Total weight of the products.
     $ref: ./QuantitativeValue.yml
     $linkedData:
       term: weight
