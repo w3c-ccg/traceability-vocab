@@ -18,11 +18,11 @@ properties:
     $linkedData:
       term: commodity
       '@id': https://w3id.org/traceability#Commodity
-  description:
+  productDescription:
     title: Description of product
     type: string
     $linkedData:
-      term: description
+      term: productDescription
       '@id': https://schema.org/description
   itemCount:
     title: A quantity despatched in the trade delivery.
@@ -46,7 +46,7 @@ properties:
       '@id': https://schema.org/Date
   freeTradeZoneStatus:
     title: Free Trade Zone Status
-    description: For Entry type 06, select P for Privileged Foreign or N for Non-privileged Foreign.  For all other entry types leave blank
+    description: For Entry type 06, select P for Privileged Foreign or N for Non-privileged Foreign. For all other entry types leave blank
     type: string
     $linkedData:
       term: freeTradeZoneStatus
@@ -60,41 +60,40 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry  
   value:
     title: Value
-    description: 
     type: string
     $linkedData:
       term: value
       '@id': https://schema.org/MonetaryAmount
 additionalProperties: false
 example: |-
-{
-  "type": "ImmediateDeliveryLineItem",
-  "commodity": {
-    "type": "Commodity",
-    "commodityCode": "9403 7000 00",
-    "commodityCodeType": "HTS"
-  },
-  "description": "Mobility assistance equipment",
-  "itemCount": 400,
-  "itemParty": {
-    "consignee": {
-      "type": "Organization",
-      "name": "Future Mobility, Inc.",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "2016 W Farmington Rd",
-        "addressLocality": "West Peoria",
-        "postalCode": "61604",
-        "addressCountry": "US"
-      }
+  {
+    "type": "ImmediateDeliveryLineItem",
+    "commodity": {
+      "type": "Commodity",
+      "commodityCode": "9403 7000 00",
+      "commodityCodeType": "HTS"
     },
-    "assignedIdentifier": "12345678",
-    "assignedIdentifierType": "CBP"
-  },
-  "freeTradeZoneFilingDate": "2022-02-25",
-  "freeTradeZoneStatus": "N",
-  "countryOfOrigin": "CN",
-  "value": "6800"
-}
+    "productDescription": "Mobility assistance equipment",
+    "itemCount": 400,
+    "itemParty": {
+      "consignee": {
+        "type": "Organization",
+        "name": "Future Mobility, Inc.",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      },
+      "assignedIdentifier": "12345678",
+      "assignedIdentifierType": "CBP"
+    },
+    "freeTradeZoneFilingDate": "2022-02-25",
+    "freeTradeZoneStatus": "N",
+    "countryOfOrigin": "CN",
+    "value": "6800"
+  }
 
 

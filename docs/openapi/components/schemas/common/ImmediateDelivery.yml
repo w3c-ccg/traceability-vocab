@@ -73,12 +73,12 @@ properties:
     title: Centralized Examination Site
     description: Provide the Facilities Information and Resources Management (FIRMS) Code of the desired devanning or centralized exam site in case this shipment is subject to an intensive exam. If there is only one site, this information is not required.
     type: string
-    $linkedData: centralizedExaminationSite
+    $linkedData: 
       term: centralizedExaminationSite
       '@id': https://w3id.org/traceability#centralizedExaminationSite
   entryType:
     title: Entry Type
-    description: >-
+    description: >- 
       Record the appropriate entry type code by selecting the two-digit code for the type of entry summary
       being filed. The first digit of the code identifies the general category of the entry (i.e., consumption = 0,
       informal = 1). The second digit further defines the specific processing type within the entry category.
@@ -114,7 +114,7 @@ properties:
       '@id': https://w3id.org/traceability#originatingWarehouseEntryNumber
   suretyCode:
     title: Surety Code
-    description: Providethe surety code.  The surety code identifies the surety company, authorized by the Department of the Treasury, for the bond. 
+    description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury, for the bond. 
     type: string
     $linkedData:
       term: suretyCode
@@ -170,7 +170,7 @@ properties:
       '@id': https://w3id.org/traceability#referenceIDNumber
   headerParties:
     title: Header Parties 
-    description: Select the Header Party Type from the available options.  Use a separate line for each Header Party Type. The Header Parties must apply to the entire entry.  If not, skip to line information (Block 24).
+    description: Select the Header Party Type from the available options. Use a separate line for each Header Party Type. The Header Parties must apply to the entire entry.  If not, skip to line information (Block 24).
     type: array
     items: 
       $ref: ./ImmediateDeliveryEntity.yml 
@@ -221,7 +221,7 @@ properties:
       '@id': https://w3id.org/traceability#inBondNumber
   bolNumber:
     title: Bill of Lading Number
-    description: Record the number listed on the manifest of the importing carrier.  Provide the Bill of Lading number
+    description: Record the number listed on the manifest of the importing carrier. Provide the Bill of Lading number
     type: string
     $linkedData:
       term: bolNumber
@@ -257,6 +257,7 @@ properties:
 additionalProperties: false
 example: |-
   {
+    "type": "ImmediateDelivery",
     "portOfEntry": {
       "type": "Place",
       "unLocode": "USLBC"
@@ -303,7 +304,7 @@ example: |-
           "commodityCode": "9403 7000 00",
           "commodityCodeType": "HTS"
         },
-        "description": "Mobility assistance equipment",
+        "productDescription": "Mobility assistance equipment",
         "itemCount": 400,
         "itemParty": { 
           "consignee": {
