@@ -1,20 +1,23 @@
+$linkedData:
+  term: Workflow
+  '@id': https://w3id.org/traceability#Workflow
 title: Workflow
-type: object
 description: A workflow instance and definition. 
-  - type: object
-    properties:
-      definition: 
-        description: Identifier of a particular type of workflow. 
-        type: array
-        items:
-          type: string
-      instance:
-        description: Identifier of an instance of a workflow type. 
-        type: array
-        items:
-          type: string
-example:
+type: object
+properties:
+  definition: 
+    description: Identifier of a particular type of workflow. 
+    type: array
+    items:
+      type: string
+  instance:
+    description: Identifier of an instance of a workflow type. 
+    type: array
+    items:
+      type: string
+example: |-
   {
+    "type": "Workflow",
     "definition": [
       "n1552885-cc91-4bb3-91f1-5466a0be084e"
     ],
