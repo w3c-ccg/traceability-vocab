@@ -119,7 +119,7 @@ properties:
 additionalProperties: true
 required: []
 example: |-
-{
+  {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://w3id.org/traceability/v1"
@@ -200,28 +200,26 @@ example: |-
         "phoneNumber": "555-127-7813"
       }
     ],
-    "credentialSubject": [
-      {
-        "type": "USMCAProductSpecifier",
-        "product": {
+    "credentialSubject": {
+      "type": "USMCAProductSpecifier",
+      "product": {
+        "type": [
+          "Product"
+        ],
+        "sku": "323050346937",
+        "description": "Non-alloy steel rolls",
+        "commodity": {
           "type": [
-            "Product"
+            "Commodity"
           ],
-          "sku": "323050346937",
-          "description": "Non-alloy steel rolls",
-          "commodity": {
-            "type": [
-              "Commodity"
-            ],
-            "commodityCode": "721320",
-            "commodityCodeType": "HS",
-            "description": "Steel Coils"
-          }
-        },
-        "originCriterion": "A",
-        "countryOfOrigin": "MX"
-      }
-    ],
+          "commodityCode": "721320",
+          "commodityCodeType": "HS",
+          "description": "Steel Coils"
+        }
+      },
+      "originCriterion": "A",
+      "countryOfOrigin": "MX"
+    },
     "blanketPeriodFrom": "2021-06-22",
     "blanketPeriodTo": "2022-06-21",
     "proof": {
