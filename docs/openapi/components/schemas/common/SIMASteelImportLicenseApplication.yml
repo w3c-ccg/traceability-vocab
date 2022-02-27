@@ -41,8 +41,7 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty
   manufacturer:
     title: Manufacturer
-    description: Name of manufacturer(s) of the product(s) or shipper(s). May list multiple
-manufacturers or as unknown.
+    description: Name of manufacturer(s) of the product(s) or shipper(s). May list multiple manufacturers or as unknown.
     type: array
     items:
       $ref: ./Organization.yml
@@ -58,7 +57,7 @@ manufacturers or as unknown.
       '@id': https://schema.org/addressCountry
   countryOfExportation:
     title: Country of Exportation
-    description: Country of Exportation: Country from which the product(s) were exported. The two-letter ISO 3166-1 alpha-2 country code.
+    description: Country from which the product(s) were exported. The two-letter ISO 3166-1 alpha-2 country code.
     type: string
     $linkedData:
       term: countryOfExportation
@@ -71,14 +70,6 @@ manufacturers or as unknown.
       term: expectedPortOfEntry
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE
-  expectedDateOfExport: 
-    title: Expected Date of Export
-    description: Date product(s) expected to be shipped from the country of exportation.
-    type: string
-    $linkedData:
-      term: expectedDateOfExport
-      '@id': >-
-        http://www.w3.org/2001/XMLSchema#dateTime
   expectedDateOfExport: 
     title: Expected Date of Export
     description: Date product(s) expected to be shipped from the country of exportation.
@@ -101,13 +92,15 @@ manufacturers or as unknown.
     type: array
     items:
       $ref: ./SIMASteelImportProductSpecifier.yml
+    $linkedData:
+      term: productInformation
+      '@id': https://w3id.org/traceability#SIMASteelImportProductSpecifier
 additionalProperties: true
 example: |-
   {
-    "type": "SIMASteelImportLicenseApplication", 
+    "type": "SIMASteelImportLicense", 
     "applicantCompany": {
       "type": "Organization",
-      "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
       "name": "Maxi Acero Mexicano",
       "description": "Fusión y fabricación de acero sólido",
       "address": {
@@ -121,7 +114,7 @@ example: |-
       "email": "info@example.net",
       "phoneNumber": "555-127-7813"
     }, 
-    "customsEntryNumber": 34001239, 
+    "customsEntryNumber": "34001239", 
     "importer": {
       "type": "Organization",
       "name": "American Prime Steel Inc.",
@@ -152,21 +145,23 @@ example: |-
       "email": "info@example.net",
       "phoneNumber": "555-127-7813"
     }, 
-    "manufacturer": {
-      "type": "Organization",
-      "name": "Maxi Acero Mexicano",
-      "description": "Fusión y fabricación de acero sólido",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "Avenida Carlos 100",
-        "addressLocality": "Hernádez de Mara",
-        "addressRegion": "Nuevo Leon",
-        "postalCode": "32200",
-        "addressCountry": "Mexico"
-      },
-      "email": "info@example.net",
-      "phoneNumber": "555-127-7813"
-    }, 
+    "manufacturer": [
+      {
+        "type": "Organization",
+        "name": "Maxi Acero Mexicano",
+        "description": "Fusión y fabricación de acero sólido",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Avenida Carlos 100",
+          "addressLocality": "Hernádez de Mara",
+          "addressRegion": "Nuevo Leon",
+          "postalCode": "32200",
+          "addressCountry": "Mexico"
+        },
+        "email": "info@example.net",
+        "phoneNumber": "555-127-7813"
+      }
+    ], 
     "countryOfOrigin": "MX", 
     "countryOfExportation": "MX", 
     "expectedPortOfEntry": "USMOB", 
@@ -192,7 +187,7 @@ example: |-
             "description": "Steel Coils"
           }
         },
-        "customsValue": "4450"
+        "customsValue": 4450
       }
     ]
   }
