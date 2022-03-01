@@ -22,3 +22,22 @@ This credential will not verify remotely until the remote context is published:
 ```
 
 These files can be added to Schemas as examples because the CI system uses the local context to verify them.
+
+## Adding Schemas
+
+A linked data term will need to be added to the top of each OpenAPI schema definition, or the CI will fail.
+Provided below is an example of the minimum required placeholder for a new schema to be added to the repository.
+
+```
+$linkedData:
+  term: PurchaseOrder
+  '@id': https://w3id.org/traceability#PurchaseOrder
+title: PurchaseOrder
+type: object
+description: A statement issued by a buyer for the sale of products or services to be delivered at a later date
+additionalProperties: true
+example: |-
+  {
+    "type": "PurchaseOrder"
+  }
+```
