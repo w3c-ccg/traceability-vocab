@@ -3,6 +3,7 @@ This directory is reserved for testing credentials that will only work with:
 ##### LOCAL JSON-LD `@context` changes.
 
 Without this directory and the associated tooling scripts, authors would need to publish examples in a 2 step process, as seen [here](https://github.com/w3c-ccg/traceability-vocab/pull/262).
+Linking to this issue does not describe how to add context.
 
 ## Usage
 
