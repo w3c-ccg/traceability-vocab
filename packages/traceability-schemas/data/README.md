@@ -21,6 +21,13 @@ npm run create:future:vc:example ./data/credential.json
 ```
 
 The signed Credential will be written to this directory as `credential.verifiable.json`.
+In addition, the content of the Verifiable Credential will also be displayed in the
+console, along with a message to indicate if the Verifiable Credential passed local verification.
+
+```
+✅  the Verifiable Credential was verified successfully.
+```
+
 Open the file and copy the content JSON into the `example:` section of your YML schema
 definition. Run `npm run test` from the root of this repository to make sure that the
 Verifiable Credential passes verification before commiting and opening a Pull Request.
