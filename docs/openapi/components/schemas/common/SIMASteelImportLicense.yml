@@ -41,11 +41,8 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty
   manufacturer:
     title: Manufacturer
-    description: Name of manufacturer(s) of the product(s) or shipper(s). May list multiple
-manufacturers or as unknown.
-    type: array
-    items:
-      $ref: ./Organization.yml
+    description: Name of manufacturer(s) of the product(s) or shipper(s). May list multiple manufacturers or as unknown.
+    $ref: ./Organization.yml
     $linkedData:
       term: manufacturer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty  
@@ -58,27 +55,25 @@ manufacturers or as unknown.
       '@id': https://schema.org/addressCountry
   countryOfExportation:
     title: Country of Exportation
-    description: Country of Exportation: Country from which the product(s) were exported. The two-letter ISO 3166-1 alpha-2 country code.
+    description: Country from which the product(s) were exported. The two-letter ISO 3166-1 alpha-2 country code.
     type: string
     $linkedData:
       term: countryOfExportation
       '@id': https://schema.org/addressCountry
+  countryOfMeltAndPour:
+    title: Country of Melt And Pour
+    description: Modified regulations pertaining to the Steel Import Monitoring and Analysis (SIMA) system to require steel import license applicants to identify the country where the steel used in the manufacture of the imported steel product was melted and poured (https://www.govinfo.gov/content/pkg/FR-2020-09-11/html/2020-19753.htm). The two-letter ISO 3166-1 alpha-2 country code.
+    type: string
+    $linkedData:
+      term: countryOfMeltAndPour
+      '@id': https://w3id.org/traceability#countryOfMeltAndPour
   expectedPortOfEntry: 
     title: Expected Port of Entry
     description: Expected port of entry. 
     type: string
     $linkedData:
       term: expectedPortOfEntry
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE
-  expectedDateOfExport: 
-    title: Expected Date of Export
-    description: Date product(s) expected to be shipped from the country of exportation.
-    type: string
-    $linkedData:
-      term: expectedDateOfExport
-      '@id': >-
-        http://www.w3.org/2001/XMLSchema#dateTime
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE
   expectedDateOfExport: 
     title: Expected Date of Export
     description: Date product(s) expected to be shipped from the country of exportation.
@@ -86,7 +81,6 @@ manufacturers or as unknown.
     $linkedData:
       term: expectedDateOfExport
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exportExitDateTime
-      '@type': http://www.w3.org/2001/XMLSchema#dateTime
   expectedDateOfImport: 
     title: Expected Date of Import
     description: Date product(s) expected to be shipped from the country of exportation.
@@ -94,20 +88,22 @@ manufacturers or as unknown.
     $linkedData:
       term: expectedDateOfImport
       '@id': https://w3id.org/traceability#importDateTime
-      '@type': http://www.w3.org/2001/XMLSchema#dateTime
   productInformation:
     title: Product Information
     description: Product information for each product.
     type: array
     items:
       $ref: ./SIMASteelImportProductSpecifier.yml
+    $linkedData:
+      term: productInformation
+      '@id': https://w3id.org/traceability#productInformation
 additionalProperties: true
+required: []
 example: |-
   {
-    "type": "SIMASteelImportLicenseApplication", 
+    "type": "SIMASteelImportLicense", 
     "applicantCompany": {
       "type": "Organization",
-      "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
       "name": "Maxi Acero Mexicano",
       "description": "Fusión y fabricación de acero sólido",
       "address": {
@@ -169,9 +165,10 @@ example: |-
     }, 
     "countryOfOrigin": "MX", 
     "countryOfExportation": "MX", 
+    "countryOfMeltAndPour": "MX", 
     "expectedPortOfEntry": "USMOB", 
-    "expectedDateOfExport": "2021-07-02", 
-    "expectedDateOfImport": "2021-07-06",
+    "expectedDateOfExport": "2022-04-02T08:00:00Z", 
+    "expectedDateOfImport": "2022-04-09T10:30:00Z",
     "productInformation": [
       {
         "type": [
