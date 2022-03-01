@@ -1,0 +1,175 @@
+$linkedData:
+  term: ImporterSecurityFilingCertificate
+  '@id': https://w3id.org/traceability#ImporterSecurityFilingCertificate
+title: Importer Security Filing Certificate
+description: Certifications made about an Importer Security Filing
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - ImporterSecurityFilingCertificate
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    type: object
+  proof:
+    type: object
+additionalProperties: false
+required: []
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "did:key:z6MkpnRaj2ajC29t2ejMS4tTtF6BZm76NRLDowLGm3ywPNHn",
+    "type": [
+      "VerifiableCredential",
+      "ImporterSecurityFilingCertificate"
+    ],
+    "name": "Importer Security Filing Certificate",
+    "issuanceDate": "2022-02-24T12:10:00Z",
+    "issuer": {
+      "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "type": "Organization",
+      "name": "Onwards A/S",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    },
+    "credentialSubject": {
+      "type": "ImporterSecurityFiling",
+      "seller": {
+        "type": "Organization",
+        "name": "Onwards A/S",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Sludevej 63",
+          "addressLocality": "Kgs. Lyngby",
+          "postalCode": "2800",
+          "addressCountry": "DK"
+        }
+      },
+      "buyer": {
+        "type": "Organization",
+        "name": "Future Mobility, Inc.",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      },
+      "importer": {
+        "type": "Organization",
+        "name": "Onwards A/S",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Sludevej 63",
+          "addressLocality": "Kgs. Lyngby",
+          "postalCode": "2800",
+          "addressCountry": "DK"
+        }
+      },
+      "consignee": {
+        "type": "Organization",
+        "name": "Future Mobility, Inc.",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      },
+      "shipToParty": {
+        "type": "Organization",
+        "name": "Future Mobility - Georgia",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "3837 Martinez Blvd",
+          "addressLocality": "Augusta",
+          "addressRegion": "Georgia",
+          "postalCode": "30907",
+          "addressCountry": "US"
+        }
+      },
+      "filingItems": [
+        {
+          "type": "ConsignmentItem",
+          "commodity": {
+            "type": "Commodity",
+            "commodityCode": "9403 7000 00",
+            "commodityCodeType": "HTS"
+          },
+          "countryOfOrigin": "CN",
+          "manufacturer": {
+            "type": "Organization",
+            "name": "Xxinau Manufacturing Co. Ltd.",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "Xin Fei Da Dao 139",
+              "addressLocality": "Xindao",
+              "addressRegion": "Fujian Province",
+              "postalCode": "361100",
+              "addressCountry": "CN"
+            }
+          }
+        }
+      ],
+      "containerStuffingLocation": [
+        {
+          "type": "Place",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "Xin Fei Da Dao 139",
+            "addressLocality": "Xindao",
+            "addressRegion": "Fujian Province",
+            "postalCode": "361100",
+            "addressCountry": "CN"
+          }
+        }
+      ],
+      "consolidator": [
+        {
+          "type": "Organization",
+          "name": "Xxinau Manufacturing Co. Ltd.",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "Xin Fei Da Dao 139",
+            "addressLocality": "Xindao",
+            "addressRegion": "Fujian Province",
+            "postalCode": "361100",
+            "addressCountry": "CN"
+          }
+        }
+      ]
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-02-24T11:37:33Z",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..GSPUv9WD_DL3Cdq5An5UxkSTHAiuEo9EhHj5Yna24Tv6nzWEfSRssTLDXgbjccAdWFPqlTWarM6qKTMb0u_5AA"
+    }
+  }
