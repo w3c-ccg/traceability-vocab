@@ -4260,9 +4260,7 @@
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    {
-      "@vocab": "https://w3id.org/traceability/v1/vocab#"
-    }
+    "https://w3id.org/traceability/v1"
   ],
   "id": "did:key:z6Mkki9HaBA2cB5kETPzsKSR661Erzw13joNt4HqhhAY7Nqi",
   "type": [
@@ -4272,7 +4270,7 @@
   "issuanceDate": "2022-01-25T11:10:00Z",
   "issuer": {
     "type": "Organization",
-    "id": "did:key:z6MkmNYBKCQGs3dhDfrnjm3S2gek2Sgr3YSVAtMETmohZKN6",
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
     "name": "MULTI CONTAINER LINE",
     "address": {
       "type": "PostalAddress",
@@ -4430,10 +4428,10 @@
   },
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2022-01-25T13:27:44Z",
-    "verificationMethod": "did:key:z6MkmNYBKCQGs3dhDfrnjm3S2gek2Sgr3YSVAtMETmohZKN6#z6MkmNYBKCQGs3dhDfrnjm3S2gek2Sgr3YSVAtMETmohZKN6",
+    "created": "2022-02-26T11:56:02Z",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
     "proofPurpose": "assertionMethod",
-    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..w8vUczDS3vubkLvchcu3csA7bNe_rLNaECumBr-5qn1YF-HUxqU9_2OKZlfSoNJlCP935W5CGmKEn-fmK97KAg"
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..uWNWuhUoN3JMs8te7zXOVXxp_XeK1FDRvOWK-XY1pLnsRBRXJMo4r6t5Qlop3UZ3v5wzmADCUcwNtZFkxFXaBw"
   }
 }
 </pre>
@@ -8462,6 +8460,123 @@
   </section>
   
 
+  <section id="TraceablePresentation">
+  <h2>Traceable Presentation</h2>
+  <p>A JSON-LD Presentation which establishes traceability linkage to a workflow instance and workflow type.</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#TraceablePresentation">https://w3id.org/traceability#TraceablePresentation</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/TraceablePresentation.yml">https://w3id.org/traceability/openapi/components/schemas/common/TraceablePresentation.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "@context":
+    [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/security/suites/jws-2020/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+  "id": "urn:uuid:83432751123654",
+  "type": 
+    [
+      "VerifiablePresentation",
+      "TraceablePresentation"
+    ],
+  "workflow": {
+    "instance": [
+      "f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+    ],
+    "definition": [
+      "n1552885-cc91-4bb3-91f1-5466a0be084e"
+    ]
+  },
+  "holder": "did:web:example-holder.org",
+  "verifiableCredential":
+    [
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://w3id.org/traceability/v1"
+        ],
+        "type": [
+          "VerifiableCredential",
+          "VerifiableBusinessCard"
+        ],
+        "name": "Verifiable Business Card",
+        "relatedLink": [
+          {
+            "type": "LinkRole",
+            "target": "https://example.com/organizations/example-org/presentations/available",
+            "linkRelationship": "OrganizationPresentationEndpoint"
+          }
+        ],
+        "issuanceDate": "2019-12-11T03:50:55Z",
+        "issuer": {
+          "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+          "type": "Organization",
+          "name": "Weber, Rolfson and Stroman",
+          "description": "Business-focused systemic paradigm",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "3263 Mohr Cape",
+            "addressLocality": "East Caleigh",
+            "addressRegion": "Tennessee",
+            "postalCode": "34278-9083",
+            "addressCountry": "Uruguay"
+          },
+          "email": "Julie.Muller31@example.net",
+          "phoneNumber": "555-433-6111",
+          "faxNumber": "555-356-2487"
+        },
+        "credentialSubject": {
+          "type": [
+            "Organization"
+          ],
+          "name": "Steel Manufacturer Org",
+          "url": "https://www.example.com/"
+        },
+        "proof": {
+          "type": "Ed25519Signature2018",
+          "created": "2019-12-11T03:50:55Z",
+          "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..JkMUYvr__kGNGv8Mlj24QzDtBpCLekx9FYbCZjteUHtzXKMEVgNxgsHo53DVQTQ9EwoFBTEqgwmJPifC7HvHAg",
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+        }
+      }
+    ],
+  "proof":
+    {
+      "type": "JsonWebSignature2020",
+      "created": "2021-10-04T17:19:20Z",
+      "verificationMethod": "did:example:123#key-2",
+      "proofPurpose": "authentication",
+      "challenge": "123",
+      "jws": "eyJhbGciOiJFUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Q0J7CcbM19fvfLdBZ44MlndvNACnmb0x1SM0cGnECye_-JC3Of29eroksqsVDTyXGAaQ_gnvcB4cqefK0jLIOg"
+    }
+}
+</pre>
+
+ 
+  </section>
+  
+
   <section id="TradeLineItem">
   <h2>Trade Line Item</h2>
   <p>A collection of information specific to an item being used or reported on for trade purposes.</p>
@@ -9145,6 +9260,47 @@
     "proofPurpose": "assertionMethod",
     "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
   }
+}
+</pre>
+
+ 
+  </section>
+  
+
+  <section id="Workflow">
+  <h2>Workflow</h2>
+  <p>A workflow instance and definition.</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#Workflow">https://w3id.org/traceability#Workflow</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/Workflow.yml">https://w3id.org/traceability/openapi/components/schemas/common/Workflow.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "type": "Workflow",
+  "definition": [
+    "n1552885-cc91-4bb3-91f1-5466a0be084e"
+  ],
+  "instance": [
+    "f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+  ]
 }
 </pre>
 
