@@ -1904,6 +1904,57 @@
   </section>
   
 
+  <section id="ConsignmentItem">
+  <h2>Consignment Item</h2>
+  <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem">https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ConsignmentItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/ConsignmentItem.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "marksAndNumbers": "Espresso Italiano",
+  "commodity": {
+    "type": "Commodity",
+    "commodityCode": "851671",
+    "commodityCodeType": "HS"
+  },
+  "quantity": 880,
+  "netWeight": {
+    "type": "QuantitativeValue",
+    "unitCode": "kg",
+    "value": "14600"
+  },
+  "netWeight": {
+    "type": "QuantitativeValue",
+    "unitCode": "kg",
+    "value": "15960"
+  }
+}
+</pre>
+
+ 
+  </section>
+  
+
   <section id="ConsignmentRatingDetail">
   <h2>Consignment Rating Details, itemized consignment items of IATA Air Waybill.</h2>
   <p>undefined</p>
@@ -4456,6 +4507,320 @@
 <pre class="example">
 {
   "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/241"
+}
+</pre>
+
+ 
+  </section>
+  
+
+  <section id="ImportSecurityFiling">
+  <h2>Import Security Filing</h2>
+  <p>An Importer Security Filing, commonly known as “10+2”, is a filing process that is required by the United States Customs and Border Protection (CPB) which requires import containerized cargo information. The information must be transmitted to the agency at least 24 hours before goods are loaded onboard a vessel to the USA. https://www.cbp.gov/border-security/ports-entry/cargo-security/importer-security-filing-102</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#ImportSecurityFiling">https://w3id.org/traceability#ImportSecurityFiling</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ImporterSecurityFiling.yml">https://w3id.org/traceability/openapi/components/schemas/common/ImporterSecurityFiling.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "type": "ImporterSecurityFiling",
+  "seller": {
+    "type": "Organization",
+    "name": "Onwards A/S",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "Sludevej 63",
+      "addressLocality": "Kgs. Lyngby",
+      "postalCode": "2800",
+      "addressCountry": "DK"
+    }
+  },
+  "buyer": {
+    "type": "Organization",
+    "name": "Future Mobility, Inc.",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "2016 W Farmington Rd",
+      "addressLocality": "West Peoria",
+      "postalCode": "61604",
+      "addressCountry": "US"
+    }
+  },
+  "importer": {
+    "type": "Organization",
+    "name": "Onwards A/S",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "Sludevej 63",
+      "addressLocality": "Kgs. Lyngby",
+      "postalCode": "2800",
+      "addressCountry": "DK"
+    }
+  },
+  "consignee": {
+    "type": "Organization",
+    "name": "Future Mobility, Inc.",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "2016 W Farmington Rd",
+      "addressLocality": "West Peoria",
+      "postalCode": "61604",
+      "addressCountry": "US"
+    }
+  },
+  "shipToParty": {
+    "type": "Organization",
+    "name": "Future Mobility - Georgia",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "3837 Martinez Blvd",
+      "addressLocality": "Augusta",
+      "addressRegion": "Georgia",
+      "postalCode": "30907",
+      "addressCountry": "US"
+    }
+  },
+  "filingItems": [
+    {
+      "type": "ConsignmentItem",
+      "commodity": {
+        "type": "Commodity",
+        "commodityCode": "9403 7000 00",
+        "commodityCodeType": "HTS"
+      },
+      "countryOfOrigin": "CN",
+      "manufacturer": {
+        "type": "Organization",
+        "name": "Xxinau Manufacturing Co. Ltd.",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Xin Fei Da Dao 139",
+          "addressLocality": "Xindao",
+          "addressRegion": "Fujian Province",
+          "postalCode": "361100",
+          "addressCountry": "CN"
+        }
+      }
+    }
+  ],
+  "containerStuffingLocation": [
+    {
+      "type": "Place",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Xin Fei Da Dao 139",
+        "addressLocality": "Xindao",
+        "addressRegion": "Fujian Province",
+        "postalCode": "361100",
+        "addressCountry": "CN"
+      }
+    }
+  ],
+  "consolidator": [
+    {
+      "type": "Organization",
+      "name": "Xxinau Manufacturing Co. Ltd.",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Xin Fei Da Dao 139",
+        "addressLocality": "Xindao",
+        "addressRegion": "Fujian Province",
+        "postalCode": "361100",
+        "addressCountry": "CN"
+      }
+    }
+  ]
+}
+</pre>
+
+ 
+  </section>
+  
+
+  <section id="ImporterSecurityFilingCertificate">
+  <h2>Importer Security Filing Certificate</h2>
+  <p>Certifications made about an Importer Security Filing</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#ImporterSecurityFilingCertificate">https://w3id.org/traceability#ImporterSecurityFilingCertificate</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ImporterSecurityFilingCertificate.yml">https://w3id.org/traceability/openapi/components/schemas/common/ImporterSecurityFilingCertificate.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "did:key:z6MkpnRaj2ajC29t2ejMS4tTtF6BZm76NRLDowLGm3ywPNHn",
+  "type": [
+    "VerifiableCredential",
+    "ImporterSecurityFilingCertificate"
+  ],
+  "name": "Importer Security Filing Certificate",
+  "issuanceDate": "2022-02-24T12:10:00Z",
+  "issuer": {
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "type": "Organization",
+    "name": "Onwards A/S",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "Sludevej 63",
+      "addressLocality": "Kgs. Lyngby",
+      "postalCode": "2800",
+      "addressCountry": "DK"
+    }
+  },
+  "credentialSubject": {
+    "type": "ImporterSecurityFiling",
+    "seller": {
+      "type": "Organization",
+      "name": "Onwards A/S",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    },
+    "buyer": {
+      "type": "Organization",
+      "name": "Future Mobility, Inc.",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    },
+    "importer": {
+      "type": "Organization",
+      "name": "Onwards A/S",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    },
+    "consignee": {
+      "type": "Organization",
+      "name": "Future Mobility, Inc.",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    },
+    "shipToParty": {
+      "type": "Organization",
+      "name": "Future Mobility - Georgia",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "3837 Martinez Blvd",
+        "addressLocality": "Augusta",
+        "addressRegion": "Georgia",
+        "postalCode": "30907",
+        "addressCountry": "US"
+      }
+    },
+    "filingItems": [
+      {
+        "type": "ConsignmentItem",
+        "commodity": {
+          "type": "Commodity",
+          "commodityCode": "9403 7000 00",
+          "commodityCodeType": "HTS"
+        },
+        "countryOfOrigin": "CN",
+        "manufacturer": {
+          "type": "Organization",
+          "name": "Xxinau Manufacturing Co. Ltd.",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "Xin Fei Da Dao 139",
+            "addressLocality": "Xindao",
+            "addressRegion": "Fujian Province",
+            "postalCode": "361100",
+            "addressCountry": "CN"
+          }
+        }
+      }
+    ],
+    "containerStuffingLocation": [
+      {
+        "type": "Place",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Xin Fei Da Dao 139",
+          "addressLocality": "Xindao",
+          "addressRegion": "Fujian Province",
+          "postalCode": "361100",
+          "addressCountry": "CN"
+        }
+      }
+    ],
+    "consolidator": [
+      {
+        "type": "Organization",
+        "name": "Xxinau Manufacturing Co. Ltd.",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Xin Fei Da Dao 139",
+          "addressLocality": "Xindao",
+          "addressRegion": "Fujian Province",
+          "postalCode": "361100",
+          "addressCountry": "CN"
+        }
+      }
+    ]
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2022-02-24T11:37:33Z",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..GSPUv9WD_DL3Cdq5An5UxkSTHAiuEo9EhHj5Yna24Tv6nzWEfSRssTLDXgbjccAdWFPqlTWarM6qKTMb0u_5AA"
+  }
 }
 </pre>
 
