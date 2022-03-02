@@ -35,45 +35,6 @@ properties:
     type: array
     items:
       $ref: ./LinkRole.yml
-  shipper: 
-    title: Shipper
-    description: A consignor party for the consignment.
-    $ref: ./Entity.yml
-    $linkedData:
-      term: shipper
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
-  consignee:
-    title: Consignee
-    description: A consignee party for the consignment.
-    $ref: ./Entity.yml
-    $linkedData:
-      term: consignee
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
-  forwardingAgent: 
-    title: Forwarding Agent
-    description: The freight forwarder party for this supply chain consignment.
-    $ref: ./Entity.yml
-    $linkedData:
-      term: notifyParty
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty
-  notifyParty:
-    title: Notify Party
-    description: The freight forwarder party for this supply chain consignment.
-    $ref: ./Entity.yml
-    $linkedData:
-      term: notifyParty
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
-  carrier:
-    title: Carrier
-    description: A carrier party.
-    $ref: ./Entity.yml
-    $linkedData:
-      term: carrier
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
   manufacturingCountry: 
     title: Manufacturing Country
     description: Manufacturing country.
@@ -81,13 +42,6 @@ properties:
     $linkedData:
       term: countryOfOrigin
       '@id': https://w3id.org/traceability#countryOfOrigin
-  totalNumberOfPackages: 
-    title: Total Number of Packages
-    description: A number of packages.
-    type: number
-    $linkedData:
-      term: totalNumberOfPackages
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
   dateOfExport:
     title: Date of Export
     description: The date, time, date time, or other date time value when this supply chain consignment will exit, or has exited from the last port, airport, or border post of the country of export.
@@ -127,54 +81,14 @@ example: |-
         }
       }
     ],
-    "shipper": {
-      "type": "Organization",
-      "name": "Espresso Italiano Co.",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "Via Vico Ferrovia 5",
-        "addressLocality": "Goro",
-        "addressRegion": "Ferrara",
-        "postalCode": "44020",
-        "addressCountry": "IT"
-      },
-      "email": "sales@espresso-italiano.example.com",
-      "phoneNumber": "+39 0351 9067195"
-    },
-    "consignee": {
-      "type": "Organization",
-      "name": "Prosumer Coffee Supplies, Ltd.",
-      "description": "Coffee Machine Imports",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "3934 Spinnaker Lane",
-        "addressLocality": "Joliet",
-        "addressRegion": "Illinois",
-        "postalCode": "60432",
-        "addressCountry": "US"
-      }
-    },
-    "carrier": {
-      "type": "Organization",
-      "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
-      "name": "MULTI CONTAINER LINE",
-      "address": {
-        "type": "PostalAddress",
-        "organizationName": "MCL Multi Container Line LTD.",
-        "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
-        "addressLocality": "Kowloon Bay",
-        "addressRegion": "Hong Kong",
-        "addressCountry": "Hong Kong SAR"
-      }
-    },
     "manufacturingCountry": "IT",
     "totalNumberOfPackages": 880,
     "dateOfExport": "2022-02-02T09:30:00Z",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-02-28T22:22:57Z",
+      "created": "2022-03-02T09:38:34Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..gYkYTRl12v2TQ70nO9Y774oWGOfckeEidtOgpjdghiEe5Fz1mAB8VPnWSLwxgTfz5Ef1Xi2Q5brZr2fEtenKCg"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..kT7zgcZ-ltCUle_fbkd9Nou6Gp29i7Frh3mCQgVNmATb6uL44il8b5MG5UyyDLoqKI7xw5m-Y_PmQYMpYNQyBA"
     }
   }
