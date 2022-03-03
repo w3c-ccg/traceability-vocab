@@ -1,0 +1,185 @@
+$linkedData:
+  term: PackingListCertificate
+  '@id': https://w3id.org/traceability#PackingListCertificate
+title: Commercial Invoice Certificate
+description: Certifications made about a purchase order
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - PackingListCertificate
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    $ref: ./PackingList.yml
+  proof:
+    type: object
+  relatedLink:
+    title: Related Link
+    description: Links related to this verifiable credential
+    type: array
+    items:
+      $ref: ./LinkRole.yml
+additionalProperties: false
+required: []
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "https://example.com/credential/123",
+    "type": [
+      "VerifiableCredential",
+      "PackingListCertificate"
+    ],
+    "name": "Packing List Certificate",
+    "description": "Evidence data for a registered eCommerce Packing List",
+    "relatedLink": [],
+    "issuanceDate": "2019-12-11T03:50:55Z",
+    "issuer": {
+      "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "type": "Organization",
+      "name": "Waters Inc",
+      "description": "Stand-alone executive benchmark",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "027 Brakus Knoll",
+        "addressLocality": "East Johnniemouth",
+        "addressRegion": "Arizona",
+        "postalCode": "25780-5840",
+        "addressCountry": "Grenada"
+      },
+      "email": "Kendrick.Spinka57@example.org",
+      "phoneNumber": "555-322-9464",
+      "faxNumber": "555-766-1744"
+    },
+    "credentialSubject": {
+      "type": "PackingList",
+      "deliveryAddress": {
+        "type": "PostalAddress",
+        "streetAddress": "IC. Modewegs Vej 1",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      },
+      "provider": {
+        "type": "Organization",
+        "name": "Xxinau Manufacturing Co. Ltd.",
+        "description": "Advanced Production - Delivered",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Xin Fei Da Dao 139",
+          "addressLocality": "Xindao",
+          "addressRegion": "Fujian Province",
+          "postalCode": "361100",
+          "addressCountry": "CN"
+        },
+        "email": "xxinau-sales@example.org",
+        "phoneNumber": "+86-555-865-8495"
+      },
+      "originAddress": {
+        "type": "PostalAddress",
+        "streetAddress": "Xin Fei Da Dao 139",
+        "addressLocality": "Xindao",
+        "addressRegion": "Fujian Province",
+        "postalCode": "361100",
+        "addressCountry": "CN"
+      },
+      "partOfOrder": [
+        {
+          "orderNumber": "PO00000329",
+          "manufacturer": {
+            "type": "Organization",
+            "name": "Xxinau Manufacturing Co. Ltd.",
+            "description": "Advanced Production - Delivered",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "Xin Fei Da Dao 139",
+              "addressLocality": "Xindao",
+              "addressRegion": "Fujian Province",
+              "postalCode": "361100",
+              "addressCountry": "CN"
+            },
+            "email": "xxinau-sales@example.org",
+            "phoneNumber": "+86-555-865-8495"
+          },
+          "transportPackages": [
+            {
+              "type": "Package",
+              "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
+              "itemQuantity": 540,
+              "perPackageUnitQuantity": 1,
+              "shippedItems": {
+                "description": "Rollators",
+                "itemCount": 540
+              },
+              "netWeight": 4302,
+              "grossWeight": 3834,
+              "weightUnit": "kg",
+              "grossVolume": 66.96,
+              "volumeUnit": "cbm"
+            },
+            {
+              "type": "Package",
+              "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
+              "itemQuantity": 2,
+              "perPackageUnitQuantity": 100,
+              "shippedItems": {
+                "description": "Rollator backrest",
+                "itemCount": 200
+              },
+              "netWeight": 42,
+              "grossWeight": 44,
+              "weightUnit": "kg",
+              "grossVolume": 0.28,
+              "volumeUnit": "cbm"
+            },
+            {
+              "type": "Package",
+              "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
+              "itemQuantity": 80,
+              "perPackageUnitQuantity": 1,
+              "shippedItems": {
+                "description": "Carton box",
+                "itemCount": 80
+              },
+              "netWeight": 50,
+              "grossWeight": 160,
+              "weightUnit": "kg",
+              "grossVolume": 0.5,
+              "volumeUnit": "cbm"
+            }
+          ],
+          "grossWeight": 4038,
+          "weightUnit": "kg",
+          "grossVolume": 67.74,
+          "volumeUnit": "cbm",
+          "packageQuantity": 622,
+          "itemQuantity": 820
+        }
+      ]
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-03-03T15:51:24Z",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..RKuV_ZeOMCelvVYSLjtlmU7_MfXzEZrkT8O06Fg1rTDeWZK0wxdgk64w_AYq6sF4fQU2oqzUz9MqjvGxJEoOBw"
+    }
+  }
