@@ -1,0 +1,27 @@
+$linkedData:
+  term: PGAHold
+  '@id': https://w3id.org/traceability#PGAHold
+title: PGAHold
+description: Status document to hold cargo
+type: object
+required:
+  - type
+  - reasonCode
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - PGAHold
+  reasonCode:
+    type: string
+  description:
+    type: string
+additionalProperties: true
+example: |-
+  {
+    "type": "PGAHold",
+    "reasonCode" : "01",
+    "description" : "DATA UNDER PGA REVIEW"
+  }
