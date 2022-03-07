@@ -6,7 +6,6 @@ description: Status document to release cargo
 type: object
 required:
   - type
-  - reasonCode
 properties:
   type:
     oneOf:
@@ -14,14 +13,8 @@ properties:
       - type: string
         enum:
           - PGARelease
-  reasonCode:
-    type: string
-  description:
-    type: string
 additionalProperties: true
 example: |-
   {
-    "type": "PGARelease",
-    "reasonCode" : "07",
-    "description" : "MAY PROCEED"
+    "type": "PGARelease"
   }
