@@ -45,7 +45,7 @@ properties:
     description: An included trade line item.
     type: array
     items:
-      $ref: ./PartOfOrder.yml
+      $ref: ./TradeLineItem.yml
     $linkedData:
       term: itemsShipped
       '@id': >-
@@ -112,5 +112,20 @@ properties:
       '@id': https://schema.org/unitCode
 example: |-
   {
-    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/234"
+    "type": "Package",
+    "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
+    "itemQuantity": 540,
+    "perPackageUnitQuantity": 1,
+    "tradeLineItems": [
+      {
+        "type": "TradeLineItem",
+        "description": "Rollators",
+        "itemCount": 540
+      }
+    ],
+    "netWeight": 4302,
+    "grossWeight": 3834,
+    "weightUnit": "kg",
+    "grossVolume": 66.96,
+    "volumeUnit": "cbm"
   }
