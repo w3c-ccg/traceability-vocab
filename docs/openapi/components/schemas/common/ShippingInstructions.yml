@@ -1,7 +1,7 @@
 $linkedData:
-  term: Consignment
-  '@id': https://w3id.org/traceability#Consignment
-title: Consignment
+  term: ShippingInstructions
+  '@id': https://w3id.org/traceability#ShippingInstructions
+title: ShippingInstructions
 description: A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.
 type: object
 properties:
@@ -10,7 +10,17 @@ properties:
       - type: array
       - type: string
         enum:
-          - Consignment
+          - ShippingInstructions
+  bookingNumber:
+    title: Booking Number
+    description:  A unique identifier assigned by the carrier to the consignment, such as a booking reference number when cargo space is reserved prior to loading.
+    type: array
+    items: 
+      type: string
+    $linkedData:
+      term: bookingNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId
   shipper: 
     title: Shipper
     description: A consignor party for the consignment.
@@ -79,9 +89,14 @@ properties:
     $linkedData:
       term: includedConsignmentItem
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem
+required:
+  - bookingNumber
 example: |-
   {
-    "type": "Consignment",
+    "type": "ShippingInstructions",
+    "bookingNumber": [
+      "EX600822199"
+    ],
     "shipper": {
       "type": "Organization",
       "name": "Espresso Italiano Co.",
@@ -111,7 +126,6 @@ example: |-
     },
     "carrier": {
       "type": "Organization",
-      "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
       "name": "MULTI CONTAINER LINE",
       "address": {
         "type": "PostalAddress",
@@ -120,36 +134,30 @@ example: |-
         "addressLocality": "Kowloon Bay",
         "addressRegion": "Hong Kong",
         "addressCountry": "Hong Kong SAR"
-      },
-      "manufacturingCountry": "IT",
-      "totalNumberOfPackages": 880,
-      "dateOfExport": "2022-02-02T09:30:00Z",
-      "consignmentItems": [
-        {
-          "marksAndNumbers": "Espresso Italiano",
-          "commodity": {
-            "type": "Commodity",
-            "commodityCode": "851671",
-            "commodityCodeType": "HS"
-          },
-          "quantity": 880,
-          "netWeight": {
-            "type": "QuantitativeValue",
-            "unitCode": "kg",
-            "value": "14600"
-          },
-          "netWeight": {
-            "type": "QuantitativeValue",
-            "unitCode": "kg",
-            "value": "15960"
-          }
+      }
+    },
+    "manufacturingCountry": "IT",
+    "totalNumberOfPackages": 880,
+    "dateOfExport": "2022-02-02T09:30:00Z",
+    "consignmentItems": [
+      {
+        "marksAndNumbers": "Espresso Italiano",
+        "commodity": {
+          "type": "Commodity",
+          "commodityCode": "851671",
+          "commodityCodeType": "HS"
+        },
+        "quantity": 880,
+        "netWeight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "14600"
+        },
+        "netWeight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "15960"
         }
-      ]
-    }
+      }
+    ]
   }
-
-
-
-
-
-
