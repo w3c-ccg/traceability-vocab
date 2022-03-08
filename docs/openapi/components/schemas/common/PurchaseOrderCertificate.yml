@@ -1,0 +1,82 @@
+$linkedData:
+  term: PurchaseOrderCertificate
+  '@id': https://w3id.org/traceability#PurchaseOrderCertificate
+title: Commercial Invoice Certificate
+description: Certifications made about a purchase order
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - PurchaseOrderCertificate
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    $ref: ./PurchaseOrder.yml
+  proof:
+    type: object
+  relatedLink:
+    title: Related Link
+    description: Links related to this verifiable credential
+    type: array
+    items:
+      $ref: ./LinkRole.yml
+additionalProperties: false
+required: []
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "https://example.com/credential/123",
+    "type": [
+      "VerifiableCredential",
+      "PurchaseOrderCertificate"
+    ],
+    "name": "Purchase Order Certificate",
+    "description": "This document includes recommended purchase order fields.",
+    "relatedLink": [],
+    "issuanceDate": "2019-12-11T03:50:55Z",
+    "issuer": {
+      "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "type": "Organization",
+      "name": "Waters Inc",
+      "description": "Stand-alone executive benchmark",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "027 Brakus Knoll",
+        "addressLocality": "East Johnniemouth",
+        "addressRegion": "Arizona",
+        "postalCode": "25780-5840",
+        "addressCountry": "Grenada"
+      },
+      "email": "Kendrick.Spinka57@example.org",
+      "phoneNumber": "555-322-9464",
+      "faxNumber": "555-766-1744"
+    },
+    "credentialSubject": {
+      "type": "PurchaseOrder"
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-03-01T17:54:40Z",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ySb9Cw-uQVuh40QKMWRrJ8OKJC1uyg3VmyKuNiR5WnLhILVI2Wy07IcBkQe0w926A8NdmcQKwGTZIN4TKyzWCQ"
+    }
+  }
