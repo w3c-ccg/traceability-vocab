@@ -329,6 +329,17 @@
         }
       }
     },
+    "CertificateOfOrigin": {
+      "@id": "https://w3id.org/traceability#CertificateOfOrigin",
+      "@context": {
+        "countryOfOrigin": {
+          "@id": "https://w3id.org/traceability#countryOfOrigin"
+        },
+        "dateOfExport": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exportExitDateTime"
+        }
+      }
+    },
     "ChargeDeclaration": {
       "@id": "https://w3id.org/traceability#ChargeDeclaration",
       "@context": {
@@ -376,31 +387,94 @@
       }
     },
     "CommercialInvoice": {
-      "@id": "https://w3id.org/traceability#CommercialInvoiceCredential",
+      "@id": "https://schema.org/Invoice",
       "@context": {
         "identifier": {
           "@id": "https://schema.org/identifier"
         },
+        "invoiceNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#invoiceIssuerReference"
+        },
+        "customerReferenceNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Customer_reference_number"
+        },
+        "billOfLadingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number"
+        },
+        "letterOfCreditNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#letterOfCreditDocument"
+        },
         "portOfEntry": {
           "@id": "https://schema.org/address"
         },
-        "purchaseDate": {
-          "@id": "https://schema.org/paymentDueDate"
-        },
-        "totalPaymentDue": {
-          "@id": "https://schema.org/totalPaymentDue"
+        "originCountry": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
         },
         "destinationCountry": {
           "@id": "https://schema.org/addressCountry"
         },
-        "merchandise": {
-          "@id": "https://schema.org/itemShipped"
+        "invoiceDate": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#invoiceDateTime"
         },
-        "customer": {
-          "@id": "https://schema.org/customer"
+        "purchaseDate": {
+          "@id": "https://schema.org/paymentDueDate"
+        },
+        "seller": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty"
+        },
+        "buyer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty"
+        },
+        "exporter": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty"
+        },
+        "importer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty"
+        },
+        "shipFromParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty"
+        },
+        "shipToParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty"
         },
         "provider": {
           "@id": "https://schema.org/provider"
+        },
+        "itemsShipped": {
+          "@id": "https://schema.org/itemShipped"
+        },
+        "merchandise": {
+          "@id": "https://schema.org/itemShipped"
+        },
+        "comments": {
+          "@id": "https://schema.org/Comment"
+        },
+        "packageQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "weight": {
+          "@id": "https://schema.org/weight"
+        },
+        "termsOfDelivery": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedDeliveryTerms"
+        },
+        "termsOfPayment": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPaymentTerms"
+        },
+        "termsOfSettlement": {
+          "@id": "https://schema.org/currency"
+        },
+        "totalPaymentDue": {
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "discounts": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#deductionAmount"
+        },
+        "tax": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#taxTotalAmount"
+        },
+        "customer": {
+          "@id": "https://schema.org/customer"
         }
       }
     },
@@ -1259,6 +1333,153 @@
         }
       }
     },
+    "ImmediateDelivery": {
+      "@id": "https://w3id.org/traceability#ImmediateDelivery",
+      "@context": {
+        "portOfEntry": {
+          "@id": "https://schema.org/Place"
+        },
+        "portOfUnlading": {
+          "@id": "https://schema.org/Place"
+        },
+        "locationOfGoods": {
+          "@id": "https://schema.org/Place"
+        },
+        "null": {
+          "@id": "https://w3id.org/traceability#bondType"
+        },
+        "importer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty"
+        },
+        "assignedIdentifier": {
+          "@id": "https://schema.org/identifier"
+        },
+        "entryNumber": {
+          "@id": "https://schema.org/identifier"
+        },
+        "assignedIdentifierType": {
+          "@id": "https://w3id.org/traceability#assignedIdentifierType"
+        },
+        "bondValue": {
+          "@id": "https://schema.org/MonetaryAmount"
+        },
+        "entryValue": {
+          "@id": "https://schema.org/MonetaryAmount"
+        },
+        "centralizedExaminationSite": {
+          "@id": "https://w3id.org/traceability#centralizedExaminationSite"
+        },
+        "entryType": {
+          "@id": "https://w3id.org/traceability#entryType"
+        },
+        "originatingWarehouseEntryNumber": {
+          "@id": "https://w3id.org/traceability#originatingWarehouseEntryNumber"
+        },
+        "suretyCode": {
+          "@id": "https://w3id.org/traceability#suretyCode"
+        },
+        "transportMode": {
+          "@id": "https://w3id.org/traceability#transportMode"
+        },
+        "generalOrderNumber": {
+          "@id": "https://w3id.org/traceability#generalOrderNumber"
+        },
+        "conveyanceNameOrFreeTradeZoneID": {
+          "@id": "https://w3id.org/traceability#conveyanceNameOrFreeTradeZoneID"
+        },
+        "referenceIDCode": {
+          "@id": "https://w3id.org/traceability#referenceIDCode"
+        },
+        "referenceIDNumber": {
+          "@id": "https://w3id.org/traceability#referenceIDNumber"
+        },
+        "headerParties": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Party"
+        },
+        "lineItems": {
+          "@id": "https://w3id.org/traceability#lineItems"
+        },
+        "nonAMS": {
+          "@id": "https://w3id.org/traceability#nonAMS"
+        },
+        "splitBill": {
+          "@id": "https://w3id.org/traceability#splitBill"
+        },
+        "bolType": {
+          "@id": "https://w3id.org/traceability#bolType"
+        },
+        "scac": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number"
+        },
+        "inBondNumber": {
+          "@id": "https://w3id.org/traceability#inBondNumber"
+        },
+        "bolNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number"
+        },
+        "quantity": {
+          "@id": "https://w3id.org/traceability#quantity"
+        },
+        "voyageFlightTrip": {
+          "@id": "https://w3id.org/traceability#voyageFlightTrip"
+        },
+        "conveyanceName": {
+          "@id": "https://w3id.org/traceability#conveyanceName"
+        },
+        "arrivalDate": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualArrivalRelatedDateTime"
+        }
+      }
+    },
+    "ImmediateDeliveryEntity": {
+      "@id": "https://w3id.org/traceability#ImmediateDeliveryEntity",
+      "@context": {
+        "importer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty"
+        },
+        "consignee": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        },
+        "seller": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty"
+        },
+        "buyer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty"
+        },
+        "assignedIdentifier": {
+          "@id": "https://schema.org/identifier"
+        },
+        "assignedIdentifierType": {
+          "@id": "https://w3id.org/traceability#assignedIdentifierType"
+        }
+      }
+    },
+    "ImmediateDeliveryLineItem": {
+      "@id": "https://w3id.org/traceability#ImmediateDeliveryLineItem",
+      "@context": {
+        "commodity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
+        },
+        "productDescription": {
+          "@id": "https://schema.org/description"
+        },
+        "itemCount": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity"
+        },
+        "itemParty": {
+          "@id": "https://w3id.org/traceability#itemParty"
+        },
+        "freeTradeZoneFilingDate": {
+          "@id": "https://schema.org/Date"
+        },
+        "freeTradeZoneStatus": {
+          "@id": "https://w3id.org/traceability#freeTradeZoneStatus"
+        },
+        "value": {
+          "@id": "https://schema.org/MonetaryAmount"
+        }
+      }
+    },
     "ImporterSecurityFiling": {
       "@id": "https://w3id.org/traceability#ImporterSecurityFiling",
       "@context": {
@@ -1384,35 +1605,6 @@
         },
         "sellByDate": {
           "@id": "https://schema.org/DateTime"
-        }
-      }
-    },
-    "Invoice": {
-      "@id": "https://schema.org/Invoice",
-      "@context": {
-        "identifier": {
-          "@id": "https://schema.org/identifier"
-        },
-        "portOfEntry": {
-          "@id": "https://schema.org/address"
-        },
-        "purchaseDate": {
-          "@id": "https://schema.org/paymentDueDate"
-        },
-        "totalPaymentDue": {
-          "@id": "https://schema.org/totalPaymentDue"
-        },
-        "destinationCountry": {
-          "@id": "https://schema.org/addressCountry"
-        },
-        "merchandise": {
-          "@id": "https://schema.org/itemShipped"
-        },
-        "customer": {
-          "@id": "https://schema.org/customer"
-        },
-        "provider": {
-          "@id": "https://schema.org/provider"
         }
       }
     },
@@ -1809,13 +2001,13 @@
       "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Package",
       "@context": {
         "shippingMarks": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks"
         },
-        "name": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity"
+        "quantity": {
+          "@id": "https://www.gs1.org/voc/netContent"
         },
-        "itemsShipped": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem"
+        "packagingType": {
+          "@id": "https://www.gs1.org/voc/packagingMaterial"
         },
         "weight": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
@@ -2067,6 +2259,9 @@
     "Product": {
       "@id": "https://schema.org/Product",
       "@context": {
+        "productID": {
+          "@id": "https://schema.org/productID"
+        },
         "manufacturer": {
           "@id": "https://schema.org/manufacturer"
         },
@@ -2094,17 +2289,14 @@
         "height": {
           "@id": "https://schema.org/height"
         },
-        "quantity": {
-          "@id": "https://www.gs1.org/voc/netContent"
-        },
-        "packagingType": {
-          "@id": "https://www.gs1.org/voc/packagingMaterial"
-        },
-        "priceSpecification": {
+        "productPrice": {
           "@id": "https://schema.org/priceSpecification"
         },
         "sku": {
           "@id": "https://schema.org/sku"
+        },
+        "batchNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#batchIdentificationId"
         },
         "commodity": {
           "@id": "https://w3id.org/traceability#Commodity"
@@ -2195,6 +2387,14 @@
           "@id": "https://schema.org/identifier"
         }
       }
+    },
+    "PurchaseOrder": {
+      "@id": "https://w3id.org/traceability#PurchaseOrder",
+      "@context": {}
+    },
+    "PurchaseOrderCertificate": {
+      "@id": "https://w3id.org/traceability#PurchaseOrderCertificate",
+      "@context": {}
     },
     "Qualification": {
       "@id": "https://schema.org/qualifications",
@@ -2379,17 +2579,38 @@
     "TradeLineItem": {
       "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem",
       "@context": {
-        "name": {
-          "@id": "https://schema.org/name"
+        "purchaseOrderNumber": {
+          "@id": "https://schema.org/orderNumber"
+        },
+        "itemCount": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity"
         },
         "description": {
           "@id": "https://schema.org/description"
         },
-        "productID": {
-          "@id": "https://schema.org/productID"
+        "packageQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
-        "itemCount": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity"
+        "package": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalPackage"
+        },
+        "product": {
+          "@id": "https://schema.org/Product"
+        },
+        "countryOfOrigin": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
+        },
+        "shipToParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty"
+        },
+        "netWeight": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure"
+        },
+        "grossWeight": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure"
+        },
+        "priceSpecification": {
+          "@id": "https://schema.org/priceSpecification"
         }
       }
     },

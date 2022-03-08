@@ -1,0 +1,99 @@
+$linkedData:
+  term: ImmediateDeliveryLineItem
+  '@id': https://w3id.org/traceability#ImmediateDeliveryLineItem
+title: Immediate Delivery Line Item
+description: Line Item identifier used on CBP 3461 Immediate Delivery Form.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ImmediateDeliveryEntity
+  commodity: 
+    title: Commodity
+    description: Commodity classification based on either WCO HS or USITS HTS codification.
+    $ref: ./Commodity.yml
+    $linkedData:
+      term: commodity
+      '@id': https://w3id.org/traceability#Commodity
+  productDescription:
+    title: Description of product
+    type: string
+    $linkedData:
+      term: productDescription
+      '@id': https://schema.org/description
+  itemCount:
+    title: A quantity despatched in the trade delivery.
+    type: number
+    $linkedData:
+      term: itemCount
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity
+  itemParty:
+    title: Item Party
+    $ref: ./ImmediateDeliveryEntity.yml
+    $linkedData:
+      term: itemParty
+      '@id': https://w3id.org/traceability#itemParty
+  freeTradeZoneFilingDate:
+    title: Free Trade Zone Filing Date
+    description: For Entry type 06, enter the date the merchandise was granted Privileged Foreign Status by CBP. For all other entry types leave blank.
+    type: string
+    $linkedData:
+      term: freeTradeZoneFilingDate
+      '@id': https://schema.org/Date
+  freeTradeZoneStatus:
+    title: Free Trade Zone Status
+    description: For Entry type 06, select P for Privileged Foreign or N for Non-privileged Foreign. For all other entry types leave blank
+    type: string
+    $linkedData:
+      term: freeTradeZoneStatus
+      '@id': https://w3id.org/traceability#freeTradeZoneStatus
+  countryOfOrigin: 
+    title: Country of Origin
+    description: The two-letter ISO 3166-1 alpha-2 country code.
+    type: string
+    $linkedData:
+      term: commodity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry  
+  value:
+    title: Value
+    type: string
+    $linkedData:
+      term: value
+      '@id': https://schema.org/MonetaryAmount
+additionalProperties: false
+example: |-
+  {
+    "type": "ImmediateDeliveryLineItem",
+    "commodity": {
+      "type": "Commodity",
+      "commodityCode": "9403 7000 00",
+      "commodityCodeType": "HTS"
+    },
+    "productDescription": "Mobility assistance equipment",
+    "itemCount": 400,
+    "itemParty": {
+      "consignee": {
+        "type": "Organization",
+        "name": "Future Mobility, Inc.",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      },
+      "assignedIdentifier": "12345678",
+      "assignedIdentifierType": "CBP"
+    },
+    "freeTradeZoneFilingDate": "2022-02-25",
+    "freeTradeZoneStatus": "N",
+    "countryOfOrigin": "CN",
+    "value": "6800"
+  }
+
+

@@ -1,0 +1,153 @@
+$linkedData:
+  term: ImmediateDeliveryCertificate
+  '@id': https://w3id.org/traceability#ImmediateDeliveryCertificate
+title: Immediate Delivery Certificate
+description: CBP Form 3461 Immediate Delivery Certification
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - ImmediateDeliveryCertificate
+  id:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  issuanceDate:
+    type: string
+  issuer:
+    type: object
+  credentialSubject:
+    type: object
+  proof:
+    type: object
+  relatedLink:
+    title: Related Link
+    description: Links related to this verifiable credential
+    type: array
+    items:
+      $ref: ./LinkRole.yml
+additionalProperties: false
+required: []
+example: |-
+  {
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "did:key:z6MkhrVRiPmbS48dKC39L65XtJaGqWFSykfUgRepcXzBwBqS",
+  "type": [
+    "VerifiableCredential",
+    "ImmediateDeliveryCertificate"
+  ],
+  "issuanceDate": "2022-02-25T14:34:00Z",
+  "issuer": {
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "type": "Organization",
+    "name": "Onwards A/S",
+    "address": {
+      "type": "PostalAddress",
+      "streetAddress": "Sludevej 63",
+      "addressLocality": "Kgs. Lyngby",
+      "postalCode": "2800",
+      "addressCountry": "DK"
+    }
+  },
+  "credentialSubject": {
+    "type": "ImmediateDelivery",
+    "portOfEntry": {
+      "type": "Place",
+      "unLocode": "USLBC"
+    },
+    "bondType": "Single Transaction Bond",
+    "importer": {
+      "type": "Organization",
+      "name": "Onwards A/S",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    },
+    "assignedIdentifier": "12345678",
+    "assignedIdentifierType": "CBP",
+    "entryNumber": "A123456",
+    "bondValue": 12000,
+    "entryValue": 12000,
+    "centralizedExaminationSite": "K682",
+    "entryType": "11",
+    "originatingWarehouseEntryNumber": "38819",
+    "suretyCode": "511",
+    "portOfUnlading": {
+      "type": "Place",
+      "unLocode": "USBBK"
+    },
+    "transportMode": "Ocean",
+    "locationOfGoods": {
+      "type": "Place",
+      "unLocode": "USMRE"
+    },
+    "generalOrderNumber": "O1000212",
+    "conveyanceNameOrFreeTradeZoneID": "FTZ0260A01",
+    "referenceIDCode": "EXCODE",
+    "referenceIDNumber": "EX123456",
+    "lineItems": [
+      {
+        "type": "ImmediateDeliveryLineItem",
+        "commodity": {
+          "type": "Commodity",
+          "commodityCode": "9403 7000 00",
+          "commodityCodeType": "HTS"
+        },
+        "productDescription": "Mobility assistance equipment",
+        "itemCount": 400,
+        "itemParty": {
+          "consignee": {
+            "type": "Organization",
+            "name": "Future Mobility, Inc.",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "2016 W Farmington Rd",
+              "addressLocality": "West Peoria",
+              "postalCode": "61604",
+              "addressCountry": "US"
+            }
+          },
+          "assignedIdentifier": "12345678",
+          "assignedIdentifierType": "CBP"
+        },
+        "freeTradeZoneFilingDate": "2022-02-25",
+        "freeTradeZoneStatus": "N",
+        "countryOfOrigin": "CN",
+        "value": "6800"
+      }
+    ],
+    "nonAMS": false,
+    "splitBill": false,
+    "bolType": "Master",
+    "scac": "NISC",
+    "inBondNumber": "B00012345",
+    "bolNumber": "87654321A",
+    "quantity": 200,
+    "voyageFlightTrip": "E002901",
+    "conveyanceName": "Gizera",
+    "arrivalDate": "2022-02-25"
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2022-02-26T11:07:51Z",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..dOwHxKokvjPLmoCuXvKvJoF-x1OE4955BHsMkZhDzDkn6oFYI1ehY80saXSOCe50X6HAUwuqrw0YiUK9QccMDw"
+  }
+}

@@ -43,85 +43,42 @@ example: |-
       "https://www.w3.org/2018/credentials/v1",
       "https://w3id.org/traceability/v1"
     ],
-    "id": "https://example.com/credential/123",
+    "id": "did:key:z6MkhNsCYEQQWJdyAbfaMZHz4UG6UZoQUGot7z7tBNsbz1JG",
     "type": [
       "VerifiableCredential",
       "CommercialInvoiceCertificate"
     ],
     "name": "Commercial Invoice Certificate",
     "description": "This document includes recommended commercial invoice fields.",
-    "relatedLink": [
-      {
-        "type": [
-          "LinkRole"
-        ],
-        "target": "https://www.example.com/template/123",
-        "linkRelationship": "templateLink"
-      },
-      {
-        "type": [
-          "LinkRole"
-        ],
-        "target": "did:example:789",
-        "linkRelationship": "billOfLadingLink"
-      },
-      {
-        "type": [
-          "LinkRole"
-        ],
-        "target": "https://www.example.com/credentials/123",
-        "linkRelationship": "millTestReportLink"
-      }
-    ],
-    "issuanceDate": "2019-12-11T03:50:55Z",
+    "issuanceDate": "2022-02-23T11:55:00Z",
     "issuer": {
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "type": "Organization",
-      "name": "Waters Inc",
-      "description": "Stand-alone executive benchmark",
+      "type": [
+        "Organization"
+      ],
       "address": {
-        "type": "PostalAddress",
-        "streetAddress": "027 Brakus Knoll",
-        "addressLocality": "East Johnniemouth",
-        "addressRegion": "Arizona",
-        "postalCode": "25780-5840",
-        "addressCountry": "Grenada"
-      },
-      "email": "Kendrick.Spinka57@example.org",
-      "phoneNumber": "555-322-9464",
-      "faxNumber": "555-766-1744"
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+        "streetAddress": "1651, Shimonakano, Yoshida",
+        "addressLocality": "Tsubame-shi",
+        "addressRegion": "Niigata-ken",
+        "postalCode": "959-0215",
+        "addressCountry": "Japan"
+      }
     },
     "credentialSubject": {
       "type": [
         "CommercialInvoice"
       ],
       "portOfEntry": {
-        "type": [
-          "PostalAddress"
-        ],
-        "addressLocality": "Seatle",
-        "addressRegion": "Washington",
-        "addressCountry": "USA"
+        "type": "Place",
+        "unLocode": "USLGB"
       },
       "destinationCountry": "MEX",
       "purchaseDate": "2021-02-21",
-      "customer": {
-        "type": [
-          "Organization"
-        ],
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "organizationName": "Generic Motors of America",
-          "streetAddress": "12 Generic Motors Dr",
-          "addressLocality": "Detroit",
-          "addressRegion": "Michigain",
-          "postalCode": "48232-5170",
-          "addressCountry": "USA"
-        }
-      },
-      "provider": {
+      "seller": {
         "type": [
           "Organization"
         ],
@@ -137,73 +94,124 @@ example: |-
           "addressCountry": "Japan"
         }
       },
-      "totalPaymentDue": {
+      "buyer": {
         "type": [
-          "PriceSpecification"
+          "Organization"
         ],
-        "price": 150000,
-        "priceCurrency": "USD"
-      },
-      "merchandise": [
-        {
+        "address": {
           "type": [
-            "Product"
+            "PostalAddress"
           ],
-          "manufacturer": {
-            "type": [
-              "Organization"
-            ]
+          "organizationName": "Generic Motors of America",
+          "streetAddress": "12 Generic Motors Dr",
+          "addressLocality": "Detroit",
+          "addressRegion": "Michigain",
+          "postalCode": "48232-5170",
+          "addressCountry": "USA"
+        }
+      },
+      "shipToParty": {
+        "type": [
+          "Organization"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "Generic Motors of America",
+          "streetAddress": "12 Generic Motors Dr",
+          "addressLocality": "Detroit",
+          "addressRegion": "Michigain",
+          "postalCode": "48232-5170",
+          "addressCountry": "USA"
+        }
+      },
+      "itemsShipped": [
+        {
+          "type": "TradeLineItem",
+          "product": {
+            "manufacturer": {
+              "type": "Organization",
+              "address": {
+                "type": "PostalAddress",
+                "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+                "streetAddress": "1651, Shimonakano, Yoshida",
+                "addressLocality": "Tsubame-shi",
+                "addressRegion": "Niigata-ken",
+                "postalCode": "959-0215",
+                "addressCountry": "Japan"
+              }
+            },
+            "description": "UNS S30400 chromium-nickel stainless steel rolls.",
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "lbs",
+              "value": "16500"
+            }
           },
-          "description": "UNS S30400 chromium-nickel stainless steel rolls.",
-          "weight": {
-            "type": [
-              "QuantitativeValue"
-            ],
-            "unitCode": "lbs",
-            "value": "10000"
+          "itemCount": 5,
+          "tradeLineItemWeight": {
+            "type": "QuantitativeValue",
+            "value": "82500",
+            "unitCode": "lbs"
           },
-          "quantity": "5",
           "priceSpecification": {
-            "type": [
-              "PriceSpecification"
-            ],
-            "price": 10000,
+            "type": "PriceSpecification",
+            "price": 5200,
             "priceCurrency": "USD"
           }
         },
         {
-          "type": [
-            "Product"
-          ],
-          "manufacturer": {
-            "type": [
-              "Organization"
-            ]
+          "type": "TradeLineItem",
+          "product": {
+            "manufacturer": {
+              "type": "Organization",
+              "address": {
+                "type": "PostalAddress",
+                "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+                "streetAddress": "1651, Shimonakano, Yoshida",
+                "addressLocality": "Tsubame-shi",
+                "addressRegion": "Niigata-ken",
+                "postalCode": "959-0215",
+                "addressCountry": "Japan"
+              }
+            },
+            "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
+            "weight": {
+              "type": "QuantitativeValue",
+              "value": "12680",
+              "unitCode": "lbs"
+            }
           },
-          "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
-          "weight": {
-            "type": [
-              "QuantitativeValue"
-            ],
-            "unitCode": "lbs",
-            "value": "20000"
+          "itemCount": 20,
+          "tradeLineItemWeight": {
+            "type": "QuantitativeValue",
+            "value": "253600",
+            "unitCode": "lbs"
           },
-          "quantity": "10",
           "priceSpecification": {
-            "type": [
-              "PriceSpecification"
-            ],
-            "price": 10000,
+            "type": "PriceSpecification",
+            "price": 4400,
             "priceCurrency": "USD"
           }
         }
-      ]
+      ],
+      "totalWeight": {
+        "type": "QuantitativeValue",
+        "value": "336100",
+        "unitCode": "lbs"
+      },
+      "totalPaymentDue": {
+        "type": "PriceSpecification",
+        "price": 9600,
+        "priceCurrency": "USD"
+      }
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2019-12-11T03:50:55Z",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..0Tzpy6qugNRix_Q7uGym1eAJ4gdBHX3NIbiewuTDsBjRbVi8ppHWxYQuf14knXckIeCyezFoejq_chd2MmVRBw",
+      "created": "2022-03-08T10:36:57Z",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..t0VWQMx2YVaP4hQahmcQ_A_qz-vTS8uuiZm67UrD9ZlW7-BELbiOyRAlpu6Lqhv3QPu3v8N_3U2bScLGyPaSDA"
     }
   }
