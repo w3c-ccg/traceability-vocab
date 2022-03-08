@@ -13,6 +13,19 @@ properties:
       - type: string
         enum:
           - TradeLineItem
+  purchaseOrderNumber: 
+    title: Purchase Order Number
+    type: string
+    $linkedData:
+      term: purchaseOrderNumber
+      '@id': https://schema.org/orderNumber
+  itemCount:
+    title: A quantity despatched in the trade delivery.
+    type: number
+    $linkedData:
+      term: itemCount
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity
   description:
     title: Description of product
     type: string
@@ -37,25 +50,44 @@ properties:
     $linkedData:
       term: product
       '@id': https://schema.org/Product
-  itemCount:
-    title: A quantity despatched in the trade delivery.
-    type: number
+  freeTradeAgreement:
+    title: Free Trade Agreement
+    description: Relevant Free Trade Agreement
+    type: string
+  countryOfOrigin:
+    title: Country of Origin
+    description: Identify the 2-digit ISO country code of the country of production.
     $linkedData:
-      term: itemCount
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity
-  tradeLineItemWeight:
-    title: Trade Line Item Weight
-    description: Weight of the Trade Line Item.
+      term: countryOfOrigin
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry
+  shipToParty:
+    title: Ship To Party
+    description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
+    $ref: ./Organization.yml
+    $linkedData:
+      term: shipToParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
+  tradeLineItemNetWeight:
+    title: Trade Line Item Net Weight
+    description: A measure of the net weight (mass).
     $ref: ./QuantitativeValue.yml
     $linkedData:
-      term: weight
-      '@id': https://schema.org/weight
-  priceSpecification:
-    title: Price Specification
+      term: netWeight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure
+  tradeLineItemGrossWeight:
+    title: Trade Line Item Net Weight
     description: >-
-      One or more detailed price specifications, indicating the unit price and
-      delivery or payment charges.
+      A measure of the gross weight (mass) which includes packaging but excludes
+      any transport equipment.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: grossWeight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  lineItemTotalPrice:
+    title: Total Price
+    description: Total line item price.
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: priceSpecification

@@ -18,6 +18,13 @@ properties:
     $linkedData:
       term: identifier
       '@id': https://schema.org/identifier
+  invoiceNumber:
+    title: Invoice Number
+    description: Invoice Number.
+    type: string
+    $linkedData:
+      term: invoiceNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#invoiceIssuerReference
   customerReferenceNumber: 
     title: Customer's Reference Number
     description: Oversees customer’s reference number.
@@ -26,13 +33,20 @@ properties:
       term: customerReferenceNumber
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Customer_reference_number
   billOfLadingNumber:
-    title: Bill of Lading number
+    title: Bill of Lading Number
     description: Carrier-issued number for the associated Bill of Lading or Waybill. 
     type: string
     $linkedData:
       term: billOfLadingNumber
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
+  letterOfCreditNumber:
+    title: Letter of Credit Number
+    description: A letter of credit document referenced in the trade agreement or settlement.
+    type: string
+    $linkedData:
+      term: letterOfCreditNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#letterOfCreditDocument
   portOfEntry:
     title: Port Of Entry
     description: Port where the purchased goods will enter first.
@@ -129,6 +143,15 @@ properties:
     $linkedData:
       term: itemsShipped
       '@id': https://schema.org/itemShipped
+  comments:
+    title: Comments
+    description: Free text comments. 
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: comments
+      '@id': https://schema.org/Comment
   packageQuantity:
     title: Package Quantity
     description: Total number of packages.
@@ -143,13 +166,6 @@ properties:
     $linkedData:
       term: weight
       '@id': https://schema.org/weight
-  totalPaymentDue:
-    title: Total Payment Due
-    description: The total amount due.
-    $ref: ./PriceSpecification.yml
-    $linkedData:
-      term: totalPaymentDue
-      '@id': https://schema.org/totalPaymentDue
   termsOfDelivery: 
     title: Terms of Delivery
     description: The conditions agreed upon between the parties with regard to the delivery of goods and or services.
@@ -171,6 +187,61 @@ properties:
     $linkedData:
       term: termsOfSettlement
       '@id': https://schema.org/currency
+  invoiceSubtotal:
+    title: Invoice Subtotal
+    description: The subtotal of line items.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: totalPaymentDue
+      '@id': https://schema.org/totalPaymentDue
+  discounts: 
+    title: Discounts
+    description: Applicable discounts.
+    type: array
+    items: 
+      $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: discounts
+      '@id': https://schema.org/discount
+  additions: 
+    title: Additions
+    description: Applicable additions.
+    $ref: ./PriceSpecification.yml
+  deductions: 
+    title: Additions
+    description: Applicable additions.
+    type: array
+    items: 
+      $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: discounts
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#deductionAmount
+  assist: 
+    title: Assist
+    description: Applicable assist.
+    $ref: ./PriceSpecification.yml
+  tax: 
+    title: Tax
+    description: Applicable tax.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: tax
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#taxTotalAmount
+  freightCost: 
+    title: Freight Cost
+    description: Included cost of freight.
+    $ref: ./PriceSpecification.yml
+  insuranceCost: 
+    title: Freight Cost
+    description: Included cost of insurance.
+    $ref: ./PriceSpecification.yml
+  totalPaymentDue:
+    title: Total Payment Due
+    description: The total amount due.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: totalPaymentDue
+      '@id': https://schema.org/totalPaymentDue
 required:
   - seller
   - buyer
