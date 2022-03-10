@@ -51,7 +51,7 @@ example: |-
     "id": "https://example.com/credential/123",
     "type": [
       "VerifiableCredential",
-      "PGAHoldCertificate"
+      "PGAStatusMessageCertificate"
     ],
     "name": "PGA Hold Certificate",
     "description": "Certificate Issued by a PGA for the status of Cargo",
@@ -77,27 +77,34 @@ example: |-
     "credentialSubject": [
       {
         "type": "PGAStatusMessage",
-        "recordNo" : "SO70",
-        "entryNo" : "AAA-1234567-8",
-        "entryLineSequence" : "L1:S1",
-        "statusCode" : "O2",
-        "statusCodeDescription" : "Hold Intact",
-        "validCodeReason" : "25",
-        "validCodeReasonDescription" : "Additional Verification Needed",
-        "subReasonCode" : "132",
-        "subReasonCodeDescription" : "Documentation Needed"
+        "recordNo": "SO70",
+        "entryNo": "AAA-1234567-8",
+        "entryLineSequence": "L1:S1",
+        "statusCode": "O2",
+        "statusCodeDescription": "Hold Intact",
+        "validCodeReason": "25",
+        "validCodeReasonDescription": "Additional Verification Needed",
+        "subReasonCode": "132",
+        "subReasonCodeDescription": "Documentation Needed"
       },
       {
         "type": "PGAStatusMessage",
-        "recordNo" : "SO70",
-        "entryNo" : "AAA-1234567-8",
-        "entryLineSequence" : "L1:S2",
-        "statusCode" : "O7",
-        "statusCodeDescription" : "May Proceed",
-        "validCodeReason" : "23",
-        "validCodeReasonDescription" : "Released",
-        "subReasonCode" : "",
-        "subReasonCodeDescription" : ""
+        "recordNo": "SO70",
+        "entryNo": "AAA-1234567-8",
+        "entryLineSequence": "L1:S2",
+        "statusCode": "O7",
+        "statusCodeDescription": "May Proceed",
+        "validCodeReason": "23",
+        "validCodeReasonDescription": "Released",
+        "subReasonCode": "",
+        "subReasonCodeDescription": ""
       }
-    ]
+    ],
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-03-10T16:49:55Z",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..7LQQScfLsGRqjWzZtdFf7ZIguMv_uE6IpFBTIfNGVcYtI1VKrx-2fciCHLw_is5ZOSKm2nAeBIlUTJLsNFc_Bw"
+    }
   }
