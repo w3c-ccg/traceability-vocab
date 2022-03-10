@@ -24,9 +24,9 @@ properties:
       term: shippingMarks
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks
-  itemQuantity:
-    title: Item Quantity
-    description: Number of packages.
+  quantity:
+    title: Quantity
+    description: The quantity of the product contained by a package.
     type: number
     $linkedData:
       term: name
@@ -47,9 +47,8 @@ properties:
     items:
       $ref: ./TradeLineItem.yml
     $linkedData:
-      term: itemsShipped
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem
+      term: packagingType
+      '@id': https://www.gs1.org/voc/packagingMaterial
   netWeight:
     title: A measure of the net weight (mass).
     type: number
