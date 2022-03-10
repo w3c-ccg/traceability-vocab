@@ -23,8 +23,21 @@ properties:
         enum:
           - PGAStatusMessage
   recordNo:
-    type: string
-    description: This is the record number
+    enum:
+      - SO70
+      - SO71
+      - SO70-71
+      - PO70
+      - PO71
+      - WO70
+      - WO71
+      - WO70-71
+    description: |-
+      Record number that describes the document type, which includes the following types. 
+      - Entry Summary Status Notification (SO70, SO71) 
+      - Cargo Release Status Notification (WO70, WO71) 
+      - Status notification for Stand-alone PE data submission (PO70, PO71)
+      - ACE Cargo Manifest/In-Bond/Entry Status Query (SO70-71, WO70-71)
   entryNo:
     type: string
     description: This is the entry number
@@ -53,8 +66,8 @@ additionalProperties: false
 example: |-
   {
     "type": "PGAStatusMessage",
-    "recordNo" : "AAA-1234567-8",
-    "entryNo" : "SO70",
+    "recordNo" : "SO70",
+    "entryNo" : "AAA-1234567-8",
     "entryLineSequence" : "L1:S1",
     "statusCode" : "O2",
     "statusCodeDescription" : "Hold Intact",
