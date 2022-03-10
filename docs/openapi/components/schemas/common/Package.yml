@@ -6,7 +6,6 @@ description: >-
   Any self-contained wrapping or container within which goods can be contained,
   such as a box or a barrel which can be filled, partially filled or empty.
 type: object
-required: []
 properties:
   type:
     oneOf:
@@ -24,34 +23,32 @@ properties:
       term: shippingMarks
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#physicalShippingMarks
-  quantity:
-    title: Quantity
-    description: The quantity of the product contained by a package.
-    type: number
+  packagingType:
+    title: Packaging Type
+    description: Links to details about packaging material type, quantity, and thickness
+    type: string
     $linkedData:
-      term: name
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#itemQuantity
+      term: packagingType
+      '@id': https://www.gs1.org/voc/packagingMaterial
   perPackageUnitQuantity:
-    title: perPackageUnitQuantity
+    title: Per Package Unit Quantity
     description: A number of units per package in the package or trade delivery.
     type: number
     $linkedData:
-      term: shippingMarks
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity
-  tradeLineItems:
+      term: perPackageUnitQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#perPackageUnitQuantity
+  includedTradeLineItems:
     title: Included Trade Line Item
     description: An included trade line item.
     type: array
     items:
       $ref: ./TradeLineItem.yml
     $linkedData:
-      term: packagingType
-      '@id': https://www.gs1.org/voc/packagingMaterial
+      term: includedTradeLineItems
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedTradeLineItem
   netWeight:
     title: A measure of the net weight (mass).
-    type: number
+    $ref: ./QuantitativeValue.yml
     $linkedData:
       term: weight
       '@id': >-
@@ -60,21 +57,14 @@ properties:
     title: >-
       A measure of the gross weight (mass) which includes packaging but excludes
       any transport equipment.
-    type: number
+    $ref: ./QuantitativeValue.yml
     $linkedData:
       term: weight
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
-  weightUnit:
-    title: Weight Unit
-    description: The unit of measure which can be expressed in imperial or metric terms
-    type: string
-    $linkedData:
-      term: weightUnit
-      '@id': https://schema.org/unitCode
   height:
     title: Height of the product
-    type: string
+    $ref: ./QuantitativeValue.yml
     $linkedData:
       term: height
       '@id': https://schema.org/height
@@ -92,39 +82,36 @@ properties:
       '@id': https://schema.org/depth
   grossVolume:
     title: Volume
-    description: >-
-      Calculated by multiplying the width, height, and length of the packed
-      cargo.
-    type: number
+    description: Calculated by multiplying the width, height, and length of the packed cargo.
+    $ref: ./QuantitativeValue.yml
     $linkedData:
-      term: volume
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
-  volumeUnit:
-    title: Volume Unit
-    description: >-
-      The unit of measure which can be expressed in either imperial or metric
-      terms
-    type: string
-    $linkedData:
-      term: volumeUnit
-      '@id': https://schema.org/unitCode
+      term: grossVolume
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
 example: |-
   {
     "type": "Package",
     "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
-    "itemQuantity": 540,
     "perPackageUnitQuantity": 1,
-    "tradeLineItems": [
+    "includedTradeLineItems": [
       {
         "type": "TradeLineItem",
         "description": "Rollators",
         "itemCount": 540
       }
     ],
-    "netWeight": 4302,
-    "grossWeight": 3834,
-    "weightUnit": "kg",
-    "grossVolume": 66.96,
-    "volumeUnit": "cbm"
+    "netWeight": {
+      "type": "QuantitativeValue",
+      "value": "3834",
+      "unitCode": "kg"
+    },
+    "grossWeight": {
+      "type": "QuantitativeValue",
+      "value": "4302",
+      "unitCode": "kg"
+    },
+    "grossVolume": {
+      "type": "QuantitativeValue",
+      "value": "66.96",
+      "unitCode": "cbm"
+    }
   }
