@@ -11,6 +11,13 @@ properties:
       - type: string
         enum:
           - Product
+  productID:
+    title: Product ID
+    description: Product number of registering Legal Entity such as an ISBN
+    type: string
+    $linkedData:
+      term: productID
+      '@id': https://schema.org/productID
   manufacturer:
     title: Manufacturer
     description: The entity manufacturing the product.
@@ -74,31 +81,17 @@ properties:
     $linkedData:
       term: height
       '@id': https://schema.org/height
-  quantity:
-    title: Quantity
-    description: The quantity of the product contained by a package.
-    type: string
-    $linkedData:
-      term: quantity
-      '@id': https://www.gs1.org/voc/netContent
-  packagingType:
-    title: Packaging Type
-    description: Links to details about packaging material type, quantity and thickness
-    type: string
-    $linkedData:
-      term: packagingType
-      '@id': https://www.gs1.org/voc/packagingMaterial
-  priceSpecification:
-    title: Price Specification
+  productPrice:
+    title: Product Price
     description: >-
       One or more detailed price specifications, indicating the unit price and
       delivery or payment charges.
     $ref: ./PriceSpecification.yml
     $linkedData:
-      term: priceSpecification
+      term: productPrice
       '@id': https://schema.org/priceSpecification
   sku:
-    title: Sku Number
+    title: SKU Number
     description: >-
       The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
       product or service, or for the product to which the offer refers.
@@ -106,6 +99,15 @@ properties:
     $linkedData:
       term: sku
       '@id': https://schema.org/sku
+  batchNumber:
+    title: Batch Number
+    description: >-
+      The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
+      product or service, or for the product to which the offer refers.
+    type: string
+    $linkedData:
+      term: batchNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#batchIdentificationId
   commodity:
     title: Commodity
     description: Product commodity code, codification system and description
@@ -145,13 +147,13 @@ example: |-
     "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
     "sizeOrAmount": {
       "type": "QuantitativeValue",
-      "unitCode": "hg/ha",
-      "value": "4710"
+      "unitCode": "sqm",
+      "value": "47"
     },
     "weight": {
       "type": "QuantitativeValue",
-      "unitCode": "hg/ha",
-      "value": "489"
+      "unitCode": "kg",
+      "value": "4890"
     },
     "sku": "712120934258"
   }

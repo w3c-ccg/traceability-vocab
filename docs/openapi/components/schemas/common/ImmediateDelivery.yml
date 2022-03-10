@@ -1,0 +1,340 @@
+$linkedData:
+  term: ImmediateDelivery
+  '@id': https://w3id.org/traceability#ImmediateDelivery
+title: Immediate Delivery
+description: CBP Form 3461 for Immediate Delivery (https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%20Form%203461%20-%20ACE%20Fillable.pdf and https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%203461%20Instructions_0.pdf).
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ImmediateDelivery
+  portOfEntry:
+    title: Port Of Entry
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfEntry
+      '@id': https://schema.org/Place
+  bondType:
+    title: Bond Type
+    description: Select the Bond Type from the available options (Single Transaction Bond, Continuous Bond, or No Bond Required).
+    type: string
+    $linkedData:
+      term: 
+      '@id': https://w3id.org/traceability#bondType
+  importer:
+    title: Importer
+    description: Importer of Record
+    $ref: ./Entity.yml
+    $linkedData:
+      term: importer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
+  assignedIdentifier: 
+    title: Assigned Identifier
+    description: Assigned Identifier
+    type: string
+    $linkedData:
+      term: assignedIdentifier
+      '@id': https://schema.org/identifier
+  assignedIdentifierType:
+    title: Assigned Identifier Type
+    description: IRS, SSN, or CBP Assigned number.
+    enum:
+      - IRS
+      - SSN
+      - CBP
+    $linkedData:
+      term: assignedIdentifierType
+      '@id': https://w3id.org/traceability#assignedIdentifierType
+  entryNumber:
+    title: Entry Number
+    description: The 11 digit alphanumeric code. The entry number is comprised of the three-digit filer code, followed by the seven-digit entry number, and completed with the one-digit check digit. The Entry Filer Code represents the three-character alphanumeric filer code assigned to the filer or importer by CBP. The Entry Number represents the seven-digit number assigned by the filer. The number may be assigned in any manner convenient, provided that the same number is not assigned to more than one CBP Form 3461. Leading zeros must be shown. The check digit is computed on the previous 10 characters. The formula for calculating the check digit can be found in Appendix 1.
+    type: string
+    $linkedData:
+      term: entryNumber
+      '@id': https://schema.org/identifier
+  bondValue:
+    title: Bond Value
+    description: The value of the bond in U.S. dollars, rounded off to the nearest whole dollar.
+    type: number
+    $linkedData:
+      term: bondValue
+      '@id': https://schema.org/MonetaryAmount
+  entryValue:
+    title: Entry Value
+    description: The value of the entry in U.S. dollars, rounded off to the nearest whole dollar.
+    type: number
+    $linkedData:
+      term: entryValue
+      '@id': https://schema.org/MonetaryAmount
+  centralizedExaminationSite:
+    title: Centralized Examination Site
+    description: Provide the Facilities Information and Resources Management (FIRMS) Code of the desired devanning or centralized exam site in case this shipment is subject to an intensive exam. If there is only one site, this information is not required.
+    type: string
+    $linkedData: 
+      term: centralizedExaminationSite
+      '@id': https://w3id.org/traceability#centralizedExaminationSite
+  entryType:
+    title: Entry Type
+    description: >- 
+      Record the appropriate entry type code by selecting the two-digit code for the type of entry summary
+      being filed. The first digit of the code identifies the general category of the entry (i.e., consumption = 0,
+      informal = 1). The second digit further defines the specific processing type within the entry category.
+      The following codes shall be used:
+      Consumption Entries
+      Free and Dutiable 01
+      Quota/Visa 02
+      Antidumping/Countervailing Duty (AD/CVD) 03
+      Foreign Trade Zone Consumption 06
+      Quota/Visa and AD/CVD combinations 07
+      Informal Entries
+      Free and Dutiable 11
+      Quota Other than textiles 12
+      Other Entries
+      Warehouse Entries 21
+      Re-Warehouse Entries 22
+      Temporary Importation Bond 23
+      Government Entries
+      Defense Contract Management Command (DCMAO NY) Military Only (P99 filer) 51
+      Any U.S. Federal Government agency (other than DCMAO NY) 52
+      Note: When the importer of record of emergency war materials is not a government
+      agency, entry type codes 01, 02, 03, etc., as appropriate, are to be used.
+    type: string
+    $linkedData:
+      term: entryType
+      '@id': https://w3id.org/traceability#entryType
+  originatingWarehouseEntryNumber:
+    title: Originating Warehouse Entry Number
+    description: The entry number of the originating warehouse entry.
+    type: string
+    $linkedData:
+      term: originatingWarehouseEntryNumber
+      '@id': https://w3id.org/traceability#originatingWarehouseEntryNumber
+  suretyCode:
+    title: Surety Code
+    description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury, for the bond. 
+    type: string
+    $linkedData:
+      term: suretyCode
+      '@id': https://w3id.org/traceability#suretyCode
+  portOfUnlading:
+    title: Port Of Unlading
+    description: Record the U.S. port code where the merchandise was unladefrom the importing vessel, aircraft or train. Do not providethe name of the port instead of the numeric code. For merchandise arriving in the U.S. by means of transportation other than vessel, rail or air, leave blank. For merchandise arriving in the customs territory from a U.S. FTZ, leave blank.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfUnlading
+      '@id': https://schema.org/Place
+  transportMode:
+    title: Mode Of Transportation
+    description: The Mode of Transportation from the available options Air, Ocean, Rail, Truck, Hand Carry, Pipeline, or Other.
+    type: string
+    $linkedData:
+      term: transportMode
+      '@id': https://w3id.org/traceability#transportMode
+  locationOfGoods:
+    title: Location of Goods
+    description: The Facilities Information and Resources Management (FIRMS) codes where the goods are available for examination. Where the FIRMS Code is not available, record the name and physical location of the goods.
+    $ref: ./Place.yml
+    $linkedData:
+      term: locationOfGoods
+      '@id': https://schema.org/Place
+  generalOrderNumber:
+    title: General Order Number 
+    description: If the shipment has been placed in a general order warehouse, enter the G.O. number (e.g., 2016--0638).
+    type: string
+    $linkedData:
+      term: generalOrderNumber
+      '@id': https://w3id.org/traceability#generalOrderNumber
+  conveyanceNameOrFreeTradeZoneID:
+    title: Conveyance Name Or Free Trade Zone ID
+    description: For entry type 06, list the Foreign Trade Zone ID. Enter the FTZ project number (2 digits); Subzone number or General Purpose Zone Acreage Site number (3 characters); Subzone Site number (2 digits) as applicable, in one of the following format(s), including any needed leading zeros:FTZ0260A01-FTZ 26, Subzone A, Subzone Site 01FTZ02610-FTZ 26, General Purpose Zone Acreage Site 10
+    type: string
+    $linkedData:
+      term: conveyanceNameOrFreeTradeZoneID
+      '@id': https://w3id.org/traceability#conveyanceNameOrFreeTradeZoneID
+  referenceIDCode:
+    title: Reference ID Code
+    description: Reference ID Code
+    type: string
+    $linkedData:
+      term: referenceIDCode
+      '@id': https://w3id.org/traceability#referenceIDCode
+  referenceIDNumber:
+    title: Reference ID Number
+    description: Reference ID Number
+    type: string
+    $linkedData:
+      term: referenceIDNumber
+      '@id': https://w3id.org/traceability#referenceIDNumber
+  headerParties:
+    title: Header Parties 
+    description: Select the Header Party Type from the available options. Use a separate line for each Header Party Type. The Header Parties must apply to the entire entry.  If not, skip to line information (Block 24).
+    type: array
+    items: 
+      $ref: ./ImmediateDeliveryEntity.yml 
+    $linkedData:
+      term: headerParties
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Party
+  lineItems:
+    title: Line Items
+    type: array
+    items: 
+      $ref: ./ImmediateDeliveryLineItem.yml 
+    $linkedData:
+      term: lineItems
+      '@id': https://w3id.org/traceability#lineItems
+  nonAMS:
+    title: Non AMS
+    description: Indicates if the Bill of Lading is not automated. 
+    type: boolean
+    $linkedData:
+      term: nonAMS
+      '@id': https://w3id.org/traceability#nonAMS
+  splitBill:
+    title: Split Bill
+    description: Indicates if the bill is a split bill.
+    type: string
+    $linkedData:
+      term: splitBill
+      '@id': https://w3id.org/traceability#splitBill
+  bolType:
+    title: Bill of Lading Type
+    description: Bill of Lading type from the available options In-Bond, Master, House, or Regular/Simple.
+    type: string
+    $linkedData:
+      term: bolType
+      '@id': https://w3id.org/traceability#bolType
+  scac:
+    title: Standard Carrier Alpha Code
+    description: For merchandise arriving in the U.S. by air, record the two digit IATA alpha code corresponding to the name of the airline which transported the merchandise from the last airport of foreign lading to the first U.S. airport of unlading.  If the carrier file does not contain a specific air carrier’s code, write the designation “*C” for Canadian airlines, “*F” for other foreign airlines, and “*U” for U.S. airlines.  These designations should be used only for unknown charter and private aircraft.  When a private aircraft is being entered under its own power (ferried), the designation “**” will be used. For merchandise arriving in the U.S. by means of transportation other than vessel or air, leave blank.  Do not record the name of a domestic carrier transporting merchandise after initial unlading in the U.S. For merchandise arriving in the customs territory from a Foreign Trade Zone (FTZ), insert “FTZ” followed by the FTZ number.  Use the following format FTZ NNNN.
+    type: string
+    $linkedData:
+      term: scac
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number
+  inBondNumber:
+    title: In Bond Number
+    type: string
+    $linkedData:
+      term: inBondNumber
+      '@id': https://w3id.org/traceability#inBondNumber
+  bolNumber:
+    title: Bill of Lading Number
+    description: Record the number listed on the manifest of the importing carrier. Provide the Bill of Lading number
+    type: string
+    $linkedData:
+      term: bolNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
+  quantity:
+    title: Quantity
+    description: Report the entered quantity for each IT/BL/AWB covered by this entry. The quantity reported should be at the most detailed level of the shipment being reported. (The quantity being reported is the smallest exterior packaging unit.) If the entry covers the entire bill of lading, AWB, or in-bond shipment, the quantity reported will be the total quantity. If the entry is for a house bill, both the master bill and house bill will be shown in Block 29, but the only quantity reported will be the house bill quantity.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: quantity
+      '@id': https://w3id.org/traceability#quantity
+  voyageFlightTrip:
+    title: Voyage or Flight Trip
+    description: Provide the voyage number if arrival by vessel, the flight number if arrival by air, and the trip number if arrival by landof the importing carrier which brought the merchandise into the United States.
+    type: string
+    $linkedData:
+      term: voyageFlightTrip
+      '@id': https://w3id.org/traceability#voyageFlightTrip
+  conveyanceName:
+    title: Conveyance Name
+    description: Provide the name of the vessel, airline, truck or rail.
+    type: string
+    $linkedData:
+      term: conveyanceName
+      '@id': https://w3id.org/traceability#conveyanceName
+  arrivalDate:
+    title: Arrival Date
+    description: Provide the month, day, year (MM/DD/YYYY) the merchandise arrived at a U.S. port of entry.  For pre-filed entries, use the scheduled date of arrival.  For merchandise arriving by vessel, the arrival date is the date the vessel enters the port limits with the intent to unlade.  For merchandise arriving by air, the arrival date is the date the air carrier landed within the port.  For merchandise arriving by truck or rail, the arrival date is the date the conveyance entered the Customs territory of the United States.  For merchandise arriving by in-bond, the date to be used is the estimated date of arrival at the port of destination.
+    type: string
+    $linkedData:
+      term: arrivalDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualArrivalRelatedDateTime
+additionalProperties: false
+example: |-
+  {
+    "type": "ImmediateDelivery",
+    "portOfEntry": {
+      "type": "Place",
+      "unLocode": "USLBC"
+    },
+    "bondType": "Single Transaction Bond",
+    "importer": {
+      "type": "Organization",
+      "name": "Onwards A/S",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    },
+    "assignedIdentifier": "12345678",
+    "assignedIdentifierType": "CBP",
+    "entryNumber": "A123456",
+    "bondValue": 12000,
+    "entryValue": 12000,
+    "centralizedExaminationSite": "K682",
+    "entryType": "11",
+    "originatingWarehouseEntryNumber": "38819",
+    "suretyCode": "511",
+    "portOfUnlading": {
+      "type": "Place",
+      "unLocode": "USBBK"
+    },
+    "transportMode": "Ocean",
+    "locationOfGoods": {
+      "type": "Place",
+      "unLocode": "USMRE"
+    },
+    "generalOrderNumber": "O1000212",
+    "conveyanceNameOrFreeTradeZoneID": "FTZ0260A01", 
+    "referenceIDCode": "EXCODE",
+    "referenceIDNumber": "EX123456",
+    "lineItems": [
+      {
+        "type": "ImmediateDeliveryLineItem",
+        "commodity": {
+          "type": "Commodity",
+          "commodityCode": "9403 7000 00",
+          "commodityCodeType": "HTS"
+        },
+        "productDescription": "Mobility assistance equipment",
+        "itemCount": 400,
+        "itemParty": { 
+          "consignee": {
+            "type": "Organization",
+            "name": "Future Mobility, Inc.",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "2016 W Farmington Rd",
+              "addressLocality": "West Peoria",
+              "postalCode": "61604",
+              "addressCountry": "US"
+            }
+          },
+          "assignedIdentifier": "12345678",
+          "assignedIdentifierType": "CBP"
+        },
+        "freeTradeZoneFilingDate": "2022-02-25",
+        "freeTradeZoneStatus": "N",
+        "countryOfOrigin": "CN",
+        "value": "6800"
+      }
+    ],
+    "nonAMS": false,
+    "splitBill": false,
+    "bolType": "Master",
+    "scac": "NISC",
+    "inBondNumber": "B00012345",
+    "bolNumber": "87654321A",
+    "quantity": 200,
+    "voyageFlightTrip": "E002901",
+    "conveyanceName": "Gizera",
+    "arrivalDate": "2022-02-25"
+  }

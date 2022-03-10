@@ -1,0 +1,187 @@
+$linkedData:
+  term: EntrySummaryLineItem
+  '@id': https://w3id.org/traceability#EntrySummaryLineItem
+title: Entry Summary Line Item
+description: A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement. 
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EntrySummaryLineItem
+  commodity:
+    title: Commodity
+    description: Product commodity code, codification system and description
+    $ref: ./Commodity.yml
+    $linkedData:
+      term: commodity
+      '@id': https://w3id.org/traceability#Commodity
+  adCvdNumber: 
+    title: AD or CVD Case Number
+    description: >- 
+      Directly below the HTS number, indicate the appropriate AD/CVD case number(s), as assigned by the Department of
+      Commerce, International Trade Administration. The following format shall be used:
+      A000-000-000 -or- A-000-000-000 (AD)
+      C000-000-000 -or- C-000-000-000 (CV) 
+    type: string
+    $linkedData:
+      term: adCvdNumber
+      '@id': https://w3id.org/traceability#adCvdNumber
+  categoryNumber:
+    title: Category Number
+    description: Directly below the HTS number record the textile category for each separate line, as applicable. Use the following format "CAT NNN".
+    type: string
+    $linkedData:
+      term: categoryNumber
+      '@id': https://w3id.org/traceability#categoryNumber
+  otherFees:
+    title: Category Number
+    description: >-
+      Directly below the pertinent line information, on the same line as the applicable rate in column 33, identify any other
+      fee, charge or exaction that applies. Examples include the beef fee, honey fee, pork fee, cotton fee, harbor
+      maintenance fee (HMF), sugar fee, and merchandise processing fee (MPF). All fees, with the exception of the HMF,
+      are to be reported at the line item level. The HMF may be shown either at the line item level or once at the bottom of
+      column 29 on the first page of the summary. 
+    type: string
+    $linkedData:
+      term: otherFees
+      '@id': https://w3id.org/traceability#otherFees
+  grossWeight:
+    title: Gross Weight
+    description: Report gross shipping weight in kilograms for merchandise imported by ALL modes of transportation. The gross weight must be reported on the same line as the entered value. 
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: grossWeight
+      '@id': https://schema.org/weight
+  manifestQuantity:
+    title: Manifest Quantity
+    description: >-
+      Where the entry summary serves as entry/entry summary, indicate the manifest quantity reported on the B/L or AWB.
+      If multiple bills are associated with an entry/entry summary, indicate the manifest quantity reported on the B/L or AWB
+      with the appropriate B/L or AWB number listed across the top of column 28. 
+    type: number
+    $linkedData:
+      term: manifestQuantity
+      '@id': https://w3id.org/traceability#manifestQuantity
+  netQuantity:
+    title: Gross Weight
+    description: Report gross shipping weight in kilograms for merchandise imported by ALL modes of transportation. The gross weight must be reported on the same line as the entered value. 
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: netQuantity
+      '@id': https://schema.org/Quantity
+  enteredValue:
+    title: Entered Value
+    description: Record the U.S. dollar value as defined in 19 U.S.C. § 1401a for all merchandise. 
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: enteredValue
+      '@id': https://schema.org/MonetaryAmount
+  charges: 
+    title: Charges
+    description: >- 
+      Record the aggregate cost in U.S. dollars of freight, insurance and all other charges, costs and expenses incurred
+      while bringing the merchandise from alongside the carrier at the port of exportation in the country of exportation and
+      placing it alongside the carrier at the first U.S. port of entry. Do not include U.S. import duties. In the case of overland
+      shipments originating in Canada or Mexico, such costs shall include freight, insurance, and all other charges, costs
+      and expenses incurred in bringing the merchandise from the point of origin (where the merchandise begins its journey
+      to the United States) in Canada or Mexico to the first U.S. port of entry.
+      This value shall be shown in whole numbers for each HTS number. It is to be placed beneath the entered value and
+      identified with the letter C (e.g., C550). Dollar signs are omitted.
+      Charges are not required to be reported for merchandise entered by mode of transportation code 60 (passenger,
+      hand-carried).” 
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: charges
+      '@id': https://schema.org/MonetaryAmount
+  relationship: 
+    title: Relationship
+    description: >-
+      Record whether the transaction was between related parties, as defined in 19 C.F.R. § 152.102(g), by placing a "Y" in
+      the column for related and an "N" for not related (the words "related" and "not related" may be used in lieu of "Y" or
+      "N"). "Y" or "N" may be recorded once, at the top of column 32, when applicable to the entire entry summary or may
+      be recorded with each line item below entered value and charges. "Y" or "N" must be recorded with each line item
+      when the relationship differs for line items. 
+    type: boolean
+    $linkedData:
+      term: relationship
+      '@id': https://schema.org/MonetaryAmount
+  htsRate:
+    title: HTS Rate
+    description: Record the rate(s) of duty for the classified item as designated in the HTS; free, ad valorem, specific, or compound. 
+    enum: 
+      - free
+      - ad valorem
+      - specific
+      - compound
+  adCvdRate:
+    title: AD/CVD Rate
+    description: Record the AD/CVD rate(s) as designated by the Department of Commerce, International Trade Administration, directly opposite the respective AD/CVD case number(s) shown in column 29. 
+    type: string
+  ircRate:
+    title: I.R.C. Rate
+    description: Record the tax rate(s) for the classified item as designated in the HTS, or record the CBP approved metric conversion tax rate.
+    $ref: ./PriceSpecification.yml
+  visaNumber:
+    title: Visa Number
+    description: >-
+      Record the letter “V” or “C” followed by the visa/certificate number associated with each line. Visa/certificate numbers are generally nine alphanumeric characters in length. The first character is numeric, the second and third character is alphabetic, and the fourth through the ninth character varies, depending on the trade agreement. 
+    type: string
+  agriculturalLicenseNumber: 
+    title: Visa Number
+    description: >-
+      For merchandise subject to agriculture licensing, report the license number in column 33 directly below the tariff rate for that line item. 
+    type: string
+  dutyAndIRTax:
+    title: Entered Value
+    description: >-
+      Record the estimated duty, AD/CVD, I.R. tax, and any other fees or charges calculated by applying the rate times the dutiable
+      value or quantity. The amount shown in this column must be directly opposite the appropriate HTS rate(s), AD/CVD rate, I.R.
+      rate and other fees or charges. This includes those instances where bonding is permitted for AD/CVD. Where bonding is
+      accomplished, enclose the AD/CVD amounts in parentheses. Where I.R. tax is deferred under 26 U.S.C. § 5232(a), leave
+      blank (See instructions for column 33). Dollar signs are omitted.
+    $ref: ./PriceSpecification.yml
+additionalProperties: false
+example: |-
+  {
+    "type": "EntrySummaryLineItem",
+    "commodity": {
+      "type": "Commodity",
+      "commodityCode": "2204.21.60 00",
+      "commodityCodeType": "HS",
+      "description": "Wine of fresh grapes"
+    },
+    "adCvdNumber": "A123-234-345",
+    "categoryNumber": "CAT ABC",
+    "grossWeight": {
+      "type": "QuantitativeValue",
+      "value": "7420",
+      "unitCode": "kg"
+    },
+    "manifestQuantity": 3500,
+    "netQuantity": {
+      "type": "QuantitativeValue",
+      "value": "6620",
+      "unitCode": "kg"
+    },
+    "enteredValue": {
+      "type": "PriceSpecification",
+      "price": 12000,
+      "priceCurrency": "USD"
+    },
+    "charges": {
+      "type": "PriceSpecification",
+      "price": 1500,
+      "priceCurrency": "USD"
+    },
+    "relationship": false,
+    "htsRate": "ad valorem",
+    "visaNumber": "V10000345",
+    "dutyAndIRTax": {
+      "type": "PriceSpecification",
+      "price": 8230,
+      "priceCurrency": "USD"
+    }
+  }

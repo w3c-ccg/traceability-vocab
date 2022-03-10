@@ -1,0 +1,396 @@
+$linkedData:
+  term: EntrySummary
+  '@id': https://w3id.org/traceability#EntrySummary
+title: Entry Summary
+description: CBP Form 7501 for Entry Summary (https://www.cbp.gov/sites/default/files/assets/documents/2021-Sep/CBP%20Form%207501.pdf).
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - EntrySummary
+  entryNumber:
+    title: Entry Number
+    description: The 11 digit alphanumeric code. The entry number is comprised of the three-digit filer code, followed by the seven-digit entry number, and completed with the one-digit check digit. The Entry Filer Code represents the three-character alphanumeric filer code assigned to the filer or importer by CBP. The Entry Number represents the seven-digit number assigned by the filer. The number may be assigned in any manner convenient, provided that the same number is not assigned to more than one CBP Form 3461. Leading zeros must be shown. The check digit is computed on the previous 10 characters. The formula for calculating the check digit can be found in Appendix 1.
+    type: string
+    $linkedData:
+      term: entryNumber
+      '@id': https://schema.org/identifier
+  entryType:
+    title: Entry Type
+    description: >- 
+      Record the appropriate entry type code by selecting the two-digit code for the type of entry summary
+      being filed. The first digit of the code identifies the general category of the entry (i.e., consumption = 0,
+      informal = 1). The second digit further defines the specific processing type within the entry category.
+      The following codes shall be used:
+      Consumption Entries
+      Free and Dutiable 01
+      Quota/Visa 02
+      Antidumping/Countervailing Duty (AD/CVD) 03
+      Foreign Trade Zone Consumption 06
+      Quota/Visa and AD/CVD combinations 07
+      Informal Entries
+      Free and Dutiable 11
+      Quota Other than textiles 12
+      Other Entries
+      Warehouse Entries 21
+      Re-Warehouse Entries 22
+      Temporary Importation Bond 23
+      Government Entries
+      Defense Contract Management Command (DCMAO NY) Military Only (P99 filer) 51
+      Any U.S. Federal Government agency (other than DCMAO NY) 52
+      Note: When the importer of record of emergency war materials is not a government
+      agency, entry type codes 01, 02, 03, etc., as appropriate, are to be used.
+    type: string
+    $linkedData:
+      term: entryType
+      '@id': https://w3id.org/traceability#entryType
+  summaryDate:
+    title: Summary Date
+    description: Record the month, day, and year on which the entry summary is filed with CBP. The record copy of the entry summary will be time stamped by the filer at the time of presentation of the entry summary. In the case of entry summaries submitted on an ABI statement, only the statement is required to be time stamped.
+    type: string
+    $linkedData:
+      term: entryDate
+      '@id': https://schema.org/Date
+  suretyNumber:
+    title: Surety Number
+    description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury. 
+    type: string
+    $linkedData:
+      term: suretyCode
+      '@id': https://w3id.org/traceability#suretyCode
+  bondType:
+    title: Bond Type
+    description: Select the Bond Type from the available options (Single Transaction Bond, Continuous Bond, or No Bond Required).
+    type: string
+    $linkedData:
+      term: 
+      '@id': https://w3id.org/traceability#bondType
+  portCode:
+    title: Port Code
+    description: Record the U.S. port code utilizing the Schedule D, Customs District and Port Codes, listed in Annex C of the Harmonized Tariff Schedule (HTS). The port is where the merchandise was entered under an entry or released under an immediate delivery permit. Use the following format DDPP (no spaces or hyphens).
+    $ref: ./Place.yml
+    $linkedData:
+      term: portCode
+      '@id': https://schema.org/Place
+  entryDate:
+    title: Entry Date
+    description: Record the month, day, and year on which the goods are released, except for immediate delivery, quota goods, or where the filer requests another date prior to release (see 19 C.F.R. § 141.68). It is the responsibility of the filer to ensure that the entry date shown for entry/entry summaries is the date of presentation (i.e., the time stamp date). The entry date for a warehouse withdrawal is the date of withdrawal.
+    type: string
+    $linkedData:
+      term: entryDate
+      '@id': https://schema.org/Date
+  importingCarrier:
+    title: Importing Carrier
+    description: For merchandise arriving in the U.S. by vessel, record the name of the vessel that transported the merchandise from the foreign port of lading to the first U.S. port of unlading. Do not record the vessel identifier code in lieu of the vessel name. Pursuant to General Statistical Note 1 (a) (ii) of the HTS, the reporting of the vessel flag is not required. For merchandise arriving in the U.S. by air, record the two digit IATA alpha code corresponding to the name of the airline which transported the merchandise from the last airport of foreign lading to the first U.S. airport of unlading. If the carrier file does not contain a specific air carrier's code, write the designation "*C" for Canadian airlines, "*F" for other foreign airlines, and "*U" for U.S. airlines. These designations should be used only for unknown charter and private aircraft. When a private aircraft is being entered under its own power (ferried), the designation "**" will be used. For merchandise arriving in the U.S. by means of transportation other than vessel or air, leave blank. Do not record the name of a domestic carrier transporting merchandise after initial lading in the U.S. For merchandise arriving in the customs territory from a U.S. Foreign Trade Zone (FTZ), insert "FTZ" followed by the FTZ number. Use the following format FTZ NNNN.
+    type: string
+    $linkedData:
+      term: importingCarrier
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
+  transportMode:
+    title: Mode Of Transportation
+    description: The Mode of Transportation from the available options Air, Ocean, Rail, Truck, Hand Carry, Pipeline, or Other.
+    type: string
+    $linkedData:
+      term: transportMode
+      '@id': https://w3id.org/traceability#transportMode
+  countryOfOrigin:
+    title: Country of Origin
+    description: >-
+      Record the country of origin utilizing the International Organization for Standardization (ISO) country code located in Annex B of the HTS. The country of origin is the country of manufacture, production, or growth of any article. If the article consists of material produced, derived from, or processed in more than one foreign territory or country, or insular possession of the U.S., it shall be considered a product of that foreign territory or country, or insular possession, where it last underwent a substantial transformation. For reporting purposes only on the CBP Form 7501, whenever merchandise has been returned to the U.S. after undergoing repair, alteration, or assembly under HTS heading 9802, the country of origin should be shown as the country in which the repair, alteration, or assembly was performed. When merchandise is invoiced in or exported from a country other than that in which it originated, the actual country of origin shall be specified rather than the country of invoice or exportation. When an entry summary covers merchandise from more than one country of origin, record the word "MULTI" in this block. In column 27, directly below the line number, prefixed with the letter "O," indicate the ISO code corresponding to each line item.
+    type: string
+    $linkedData:
+      term: countryOfOrigin
+      '@id': https://w3id.org/traceability#countryOfOrigin
+  importDate:
+    title: Import Date
+    description: For merchandise arriving in the U.S. by vessel, record the month, day, and year (MM/DD/YYYY) on which the importing vessel transporting the merchandise from the foreign country arrived within the limits of the U.S. port with the intent to unlade. For merchandise arriving in the U.S. other than by vessel, record the month, day, and year (MM/DD/YYYY) in which the merchandise arrived within the U.S. port limits. For merchandise entering the customs territory for consumption from a U.S. FTZ, in compliance with 19 C.F.R. § 146.63, if the import date is not the date of removal from the zone, leave blank.
+    type: string
+    $linkedData:
+      term: importDate
+      '@id': https://schema.org/Date
+  billOfLadingNumber:
+    title: Bill of Lading Number
+    description: Bill of Lading or Waybill number.
+    type: string
+    $linkedData:
+      term: billOfLadingNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
+  manufacturerId:
+    title: Manufacturer Identifier
+    description: This block is provided to accommodate the manufacturer/shipper identification code. This code identifies the manufacture/shipper of the merchandise by a constructed code. The method for deriving the code can be found in Appendix 2. For the purposes of this code, the manufacturer should be construed to refer to the invoicing party or parties (manufacturers or other direct suppliers). The name and address of the invoicing party, whose invoice accompanies the CBP entry, should be used to construct the MID. The manufacturer/shipper identification code is required for all entry summaries and entry/entry summaries, including informal entries, filed on the CBP Form 7501. For textile shipments, the manufacturer should be construed to refer to the actual manufacturer in accordance with 19 CFR 102.23(a) and the Appendix to 19 CFR Part102 – Textile and Apparel Manufacturer Identification. Non-textile shipments may use the invoicing party or parties (manufacturers or other direct suppliers). When an entry summary covers merchandise from more than one manufacturer, record the word "MULTI" in this block. In column 28, indicate the MID Code corresponding to each line item. If there is more than one vendor for a particular HTS number, separate line items will be required for each MID.
+    type: string
+    $linkedData:
+      term: manufacturerId
+      '@id': https://schema.org/identifier
+  exportingCountry:
+    title: Country of Origin
+    description: >-
+      Record the country of origin utilizing the International Organization for Standardization (ISO) country code located in Annex B of the HTS. The country of exportation is the country of which the merchandise was last part of the commerce and from which the merchandise was shipped to the U.S. without contingency of diversion. When an entry summary covers merchandise from more than one country of export, record the word "MULTI" in this block. In column 27, directly below the line number, prefixed with the letter "E," indicate the ISO code corresponding to each line item. Where line items are segregated by invoice, indicate the ISO code corresponding to each invoice. For merchandise entering the customs territory from a U.S. FTZ, if multiple countries of export are involved, indicate the country of export with the greatest value. In the case where the merchandise is U.S. goods returned and the filer opts to pay the duty and report only the Chapter 1 - 97 HTS number, report the country of invoice or exportation. Country of export U.S. will not be acceptable when country of origin is U.S.
+    type: string
+    $linkedData:
+      term: exportingCountry
+      '@id': https://schema.org/addressCountry
+  exportDate:
+    title: Export Date
+    description: For merchandise exported by vessel, record the month, day, and year, on which the carrier departed the last port in the exporting country.
+    type: string
+    $linkedData:
+      term: exportDate
+      '@id': https://schema.org/Date
+  immediateTransportationNumber: 
+    title: Immediate Transportation Number
+    description: Record the IT number obtained from the CBP Form 7512, AWB number from the Transit Air Cargo Manifest (TACM), or Automated Manifest System (AMS) master in-bond (MIB) movement number. 
+    type: string
+    $linkedData:
+      term: immediateTransportationNumber
+      '@id': https://schema.org/identifier
+  immediateTransportationDate:
+    title: Immediate Transportation Date
+    description: Record the month, day, and year, obtained from the CBP Form 7512, TACM, or AMS MIB record.
+    type: string
+    $linkedData:
+      term: immediateTransportationDate
+      '@id': https://schema.org/Date
+  missingDocuments: 
+    title: Missing Documents
+    description: Record the appropriate document code number(s) to indicate documents not available at the time of filing the entry summary. A maximum of two codes may be used. The bond charge should be made on the entry summary only for those documents required to be filed with the entry summary.
+    type: array
+    items: 
+      type: string 
+    $linkedData:
+      term: missingDocuments
+      '@id': https://w3id.org/traceability#missingDocuments
+  portOfLoading:
+    title: Port Of Loading
+    description: For merchandise arriving in the U.S. by vessel, record the five digit numeric code listed in the “Schedule K” (Classification of Foreign Ports by Geographic Trade Area and Country) for the foreign port at which the merchandise was actually laden on the vessel that carried the merchandise to the U.S. The “Schedule K” may be retrieved at http://www.navigationdatacenter.us/wcsc/scheduleK/schedulek.htm.  If the actual port name is not provided, use the code for "all other ports" for the country in which the merchandise was laden on the vessel that carried the merchandise to the U.S.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfLoading
+      '@id': https://schema.org/Place
+  portOfUnlading:
+    title: Port Of Unlading
+    description: Record the U.S. port code where the merchandise was unladen from the importing vessel, aircraft, or train. Do not show the name of the port instead of the numeric code.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfUnlading
+      '@id': https://schema.org/Place
+  locationOfGoods:
+    title: Location of Goods
+    description: The Facilities Information and Resources Management (FIRMS) codes where the goods are available for examination. Where the FIRMS Code is not available, record the name and physical location of the goods.
+    $ref: ./Place.yml
+    $linkedData:
+      term: locationOfGoods
+      '@id': https://schema.org/Place
+  consigneeNumber:
+    title: Manufacturer Identifier
+    description: This block is provided to accommodate the manufacturer/shipper identification code. This code identifies the manufacture/shipper of the merchandise by a constructed code. The method for deriving the code can be found in Appendix 2. For the purposes of this code, the manufacturer should be construed to refer to the invoicing party or parties (manufacturers or other direct suppliers). The name and address of the invoicing party, whose invoice accompanies the CBP entry, should be used to construct the MID. The manufacturer/shipper identification code is required for all entry summaries and entry/entry summaries, including informal entries, filed on the CBP Form 7501. For textile shipments, the manufacturer should be construed to refer to the actual manufacturer in accordance with 19 CFR 102.23(a) and the Appendix to 19 CFR Part 102 – Textile and Apparel Manufacturer Identification. Non-textile shipments may use the invoicing party or parties (manufacturers or other direct suppliers). When an entry summary covers merchandise from more than one manufacturer, record the word "MULTI" in this block. In column 28, indicate the MID Code corresponding to each line item. If there is more than one vendor for a particular HTS number, separate line items will be required for each MID.
+    type: string
+    $linkedData:
+      term: consigneeNumber
+      '@id': https://schema.org/identifier
+  importerNumber:
+    title: Importer Identifier
+    description: Record the IRS EIN, SSN, or CBP assigned number of the importer of record. Proper format is listed under the instructions for Consignee Number.
+    type: string
+    $linkedData:
+      term: importerNumber
+      '@id': https://schema.org/identifier
+  referenceNumber:
+    title: Reference Number
+    description: Record the IRS EIN, SSN, or CBP assigned number of the individual or firm to whom refunds, bills, or notices of extension or suspension of liquidation are to be sent (if other than the importer of record and only when a CBP Form 4811 is on file). Proper formatis listed under the instructions for Consignee Number. Do not use this block to recordany other information.
+    type: string
+    $linkedData:
+      term: referenceNumber
+      '@id': https://w3id.org/traceability#referenceNumber
+  ultimateConsignee:
+    title: Ultimate Consignee
+    description: At the time of Entry Summary, record the name and address of the individual or firm purchasing the merchandise or, if a consigned shipment, to whom the merchandise is consigned. If those parties are not known, indicate to whose premises the merchandise is being shipped. If this information is the same as the importer of record, leave blank.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: ultimateConsignee
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
+  importerOfRecord:
+    title: Importer
+    description: Record the name and address, including the standard postal two-letter state or territory abbreviation, of the importer of record. The importer of record is defined as the owner or purchaser of the goods, or when designated by the owner, purchaser, or consignee, a licensed customs broker. The importer of record is the individual or firm liable for payment of all duties and meeting all statutory and regulatory requirements incurred as a result of importation, as described in 19 C.F.R. § 141.1(b). The importer of record shown on the invoice should be the same party on the CBP Form 7501, unless the CBP form reflects a licensed customs broker.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: importerOfRecord
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
+  descriptionOfMerchandise: 
+    title: Description of Merchandise
+    description: A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement. 
+    $ref: ./EntrySummaryLineItem.yml
+  otherFeeSummary:
+    title: Other Fee Summary
+    description: For entries subject to payment of AD/CVD and/or any of the various fees, each applicable fee must be indicated in this area, and the individual amount of each fee must be shown on the corresponding line. AD/CVD amounts are to be included in the summary only when they are actually deposited. Bonded amounts should not be included.
+    type: string
+  totalEnteredValue:
+    title: Total Entered Value
+    description: Report the total entered value for all line items. This information is required on all entry summaries
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: totalEnteredValue
+      '@id': https://schema.org/MonetaryAmount
+  declarationOfImporter:
+    title: Declaration Of Importer
+    description: Your circumstances as an importer or agent. 
+    type: string
+  duty:
+    title: Duty
+    description: Record the total estimated duty paid (excluding AD/CVD). 
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: duty
+      '@id': https://schema.org/MonetaryAmount
+  tax:
+    title: Tax
+    description: Record the total estimated tax paid, including any amount deferred (except tax deferred under 26 U.S.C. § 5232(a)). 
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: tax
+      '@id': https://schema.org/MonetaryAmount
+  other:
+    title: Other
+    description: Record the total estimated AD/CVD or other fees, charges or exactions paid. Do not show AD/CVD amounts that were bonded. The amounts shown in block 39 of the summary should reflect the amounts actually being paid. 
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: other
+      '@id': https://schema.org/MonetaryAmount
+  total:
+    title: Total
+    description: >- 
+      Record the sum of blocks 37, 38, and 39. Do not include any I.R. deferred tax shown in column 34 and block 38. Do not
+      include any AD/CVD that has been bonded.
+      If no duty, tax, or other charges apply to the transaction, record "0" in this block.
+      HMF is required to be paid on all warehouse entry summaries (type 21), but is not due on re-warehouse (type 22) entries
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: total
+      '@id': https://schema.org/MonetaryAmount
+additionalProperties: false
+example: |-
+  {
+    "type": "EntrySummary",
+    "entryNumber": 73461882610,
+    "entryType": "01",
+    "summaryDate": "2022-03-01T12:54Z",
+    "suretyNumber": "228",
+    "bondType": "Single Transaction Bond",
+    "portCode": "USLBC",
+    "entryDate": "2022-03-01T12:54Z",
+    "importingCarrier": "NISC",
+    "transportMode": "Ocean",
+    "countryOfOrigin": "SG",
+    "importDate": "2022-03-12T00:00Z",
+    "billOfLadingNumber": "NC989877201",
+    "manufacturerId": "2300912",
+    "exportingCountry": "SG",
+    "exportDate": "2022-02-06T07:20Z",
+    "immediateTransportationNumber": "230012",
+    "immediateTransportationDate": "2022-03-01T12:54Z",
+    "missingDocuments": [],
+    "portOfLoading": {
+      "type": "Place",
+      "UNLocode": "SGSIN"
+    },
+    "portOfUnlading": {
+      "type": "Place",
+      "UNLocode": "USLBC"
+    },
+    "locationOfGoods": {
+      "type": "Place",
+      "UNLocode": "USLBC"
+    },
+    "consigneeNumber": "9982312",
+    "importerNumber": "9900127",
+    "referenceNumber": "ref199812841",
+    "ultimateConsignee": {
+      "type": "Organization",
+      "name": "Future Mobility, Inc.",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    },
+    "importerOfRecord": {
+      "type": "Organization",
+      "name": "Future Mobility, Inc.",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    },
+    "descriptionOfMerchandise": [
+      {
+        "type": "EntrySummaryLineItem",
+        "commodity": {
+          "type": "Commodity",
+          "commodityCode": "2204.21.60 00",
+          "commodityCodeType": "HS",
+          "description": "Wine of fresh grapes"
+        },
+        "adCvdNumber": "A123-234-345",
+        "categoryNumber": "CAT ABC",
+        "grossWeight": {
+          "type": "QuantitativeValue",
+          "value": "7420",
+          "unitCode": "kg"
+        },
+        "manifestQuantity": 3500,
+        "netQuantity": {
+          "type": "QuantitativeValue",
+          "value": "6620",
+          "unitCode": "kg"
+        },
+        "enteredValue": {
+          "type": "PriceSpecification",
+          "price": 12000,
+          "priceCurrency": "USD"
+        },
+        "charges": {
+          "type": "PriceSpecification",
+          "price": 1500,
+          "priceCurrency": "USD"
+        },
+        "relationship": false,
+        "htsRate": "ad valorem",
+        "visaNumber": "V10000345",
+        "dutyAndIRTax": {
+          "type": "PriceSpecification",
+          "price": 8230,
+          "priceCurrency": "USD"
+        }
+      }
+    ],
+    "otherFeeSummary": "AD",
+    "totalEnteredValue": {
+      "type": "PriceSpecification",
+      "price": 8230,
+      "priceCurrency": "USD"
+    },
+    "declarationOfImporter": "Importer of Record",
+    "duty": {
+      "type": "PriceSpecification",
+      "price": 20,
+      "priceCurrency": "USD"
+    },
+    "tax": {
+      "type": "PriceSpecification",
+      "price": 282,
+      "priceCurrency": "USD"
+    },
+    "total": {
+      "type": "PriceSpecification",
+      "price": 8532,
+      "priceCurrency": "USD"
+    }
+  }
