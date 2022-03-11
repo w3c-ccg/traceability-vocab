@@ -49,20 +49,6 @@ properties:
     $linkedData:
       term: shippersReferences
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned
-  shippedOnBoardDate:
-    title: Shipped On Board Date
-    description: >-
-      Date when the last container that is linked to the transport document is
-      physically loaded onboard the vessel indicated on the transport document.
-    type: string
-  declaredValue:
-    title: Declared Value
-    description: The monetary value of the consignment or consignment item as declared by the shipper or his agent for the purpose of varying the carrier's level of liability from that provided in the contract of carriage, in case of loss or damage to goods or delayed delivery.
-    $ref: ./PriceSpecification.yml
-    $linkedData:
-      term: declaredValue
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount
-
   shipper: 
     title: Shipper
     description: A consignor party for the consignment.
@@ -104,13 +90,60 @@ properties:
       term: carrier
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
-  manufacturingCountry: 
-    title: Manufacturing Country
-    description: Manufacturing country.
-    type: string
+  preCarriageTransportMovement:
+    title: Pre-carriage Transport Movement
+    description: A pre-carriage logistics transport movement for the consignment.
+    $ref: ./Transport.yml
     $linkedData:
-      term: countryOfOrigin
-      '@id': https://w3id.org/traceability#countryOfOrigin
+      term: preCarriageTransportMovement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#preCarriageTransportMovement
+  mainCarriageTransportMovement:
+    title: Main Carriage Transport Movement
+    description: A main carriage logistics transport movement for this supply chain consignment.
+    $ref: ./Transport.yml
+    $linkedData:
+      term: mainCarriageTransportMovement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#mainCarriageTransportMovement
+  onCarriageTransportMovement:
+    title: On-carriage Transport Movement
+    description: An on-carriage logistics transport movement for this supply chain consignment.
+    $ref: ./Transport.yml
+    $linkedData:
+      term: onCarriageTransportMovement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#onCarriageTransportMovement
+  placeOfReceipt:
+    title: Place of Receipt
+    $ref: ./Place.yml
+    $linkedData:
+      term: placeOfReceipt
+      '@id': https://schema.org/Place
+  portOfLoading:
+    title: Port of Loading
+    description: The logistics location where the supply chain consignment is loaded.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfLoading
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#loadingLocation
+  transshipmentLocation:
+    title: Transshipment Location
+    description: A transshipment location for this supply chain consignment.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfLoading
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transshipmentLocation
+  placeOfDelivery:
+    title: Place of Delivery
+    $ref: ./Place.yml
+    $linkedData:
+      term: placeOfDelivery
+      '@id': https://schema.org/Place
+  portOfDischarge:
+    title: Port of Discharge
+    description: The logistics location where the supply chain consignment is unloaded.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfDischarge
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unloadingLocation
   totalNumberOfPackages: 
     title: Total Number of Packages
     description: A number of packages.
@@ -118,21 +151,55 @@ properties:
     $linkedData:
       term: totalNumberOfPackages
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
-  dateOfExport:
-    title: Date of Export
-    description: The date, time, date time, or other date time value when this supply chain consignment will exit, or has exited from, the last port, airport, or border post of the country of export.
+  transportEquipmentQuantity: 
+    title: Transport Equipment Quantity
+    description: A number of pieces of transport equipment for the consignment or transport movement.
+    type: number
+    $linkedData:
+      term: transportEquipmentQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity
+  includedConsignmentItems:
+    title: Included Consignment Items
+    description: A consignment item included in the consignment.
+    type: array
+    items: 
+      $ref: ./ConsignmentItem.yml
+    $linkedData:
+      term: includedConsignmentItems
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem
+  utilizedTransportEquipment:
+    title: Utilized Transport Equipment
+    description: A piece of transport equipment utilized for the consignment or trade delivery.
+    type: array
+    items: 
+      $ref: ./TransportEquipment.yml
+    $linkedData:
+      term: utilizedTransportEquipment
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment
+  freightAndCharges: 
+    title: Freight and Charges
+    description: A logistics service charge, such as freight or insurance charges, applicable to this supply chain consignment, supply chain consignment item, piece of logistics transport equipment, logistics means of transport or logistics transport movement.
+    type: array
+    items: 
+      $ref: ./ServiceCharge.yml
+    $linkedData:
+      term: freightAndCharges
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge
+  declaredValue:
+    title: Declared Value
+    description: The monetary value of the consignment or consignment item as declared by the shipper or his agent for the purpose of varying the carrier's level of liability from that provided in the contract of carriage, in case of loss or damage to goods or delayed delivery.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: declaredValue
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount
+  shippedOnBoardDate:
+    title: Shipped On Board Date
+    description: >-
+      Date when the last container that is linked to the transport document is physically loaded onboard the vessel indicated on the transport document.
     type: string
     $linkedData:
-      term: dateOfExport
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exportExitDateTime
-      '@type': http://www.w3.org/2001/XMLSchema#dateTime
-  includedConsignmentItem:
-    title: Included Consignment Item
-    description: A consignment item included in the consignment.
-    $ref: ./ConsignmentItem.yml
-    $linkedData:
-      term: includedConsignmentItem
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem
+      term: shippedOnBoardDate
+      '@id': https://schema.org/Date
   termsAndConditions:
     title: Terms And Conditions
     description: Carrier general terms and conditions for this transport document.
@@ -143,13 +210,14 @@ properties:
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription
 required:
   - billOfLadingNumber
+additionalProperties: false
 example: |-
   {
-    "type": "Consignment",
+    "type": "MasterBillOfLading",
+    "billOfLadingNumber": "EX600822199A",
     "bookingNumber": [
       "EX600822199"
     ],
-    "billOfLadingNumber": "EX600822199A",
     "shipper": {
       "type": "Organization",
       "name": "Espresso Italiano Co.",
@@ -205,10 +273,46 @@ example: |-
         "addressCountry": "Hong Kong SAR"
       }
     },
-    "manufacturingCountry": "IT",
-    "totalNumberOfPackages": 880,
-    "dateOfExport": "2022-02-02T09:30:00Z",
-    "consignmentItems": [
+    "mainCarriageTransportMovement": {
+      "type": "Transport",
+      "vesselNumber": "MS Seven Seas",
+      "voyageNumber": "Atl-W0425"
+    },
+    "portOfLoading": {
+      "type": "Place",
+      "unLocode": "ITMIL"
+    },
+    "portOfDischarge": {
+      "type": "Place",
+      "unLocode": "USLGB"
+    },
+    "totalNumberOfPackages": 2200,
+    "transportEquipmentQuantity": 2,
+    "utilizedTransportEquipment": [
+      {
+        "type": "TransportEquipment",
+        "equipmentReference": "APZU4812090",
+        "ISOEquipmentCode": "40GP",
+        "seals": [
+          {
+            "type": "Seal",
+            "sealNumber": "PTW-002290109692"
+          }
+        ]
+      },
+      {
+        "type": "TransportEquipment",
+        "equipmentReference": "APZU5985096",
+        "ISOEquipmentCode": "40GP",
+        "seals": [
+          {
+            "type": "Seal",
+            "sealNumber": "PTW-002255398220"
+          }
+        ]
+      }
+    ],
+    "includedConsignmentItems": [
       {
         "marksAndNumbers": "Espresso Italiano",
         "commodity": {
@@ -216,17 +320,46 @@ example: |-
           "commodityCode": "851671",
           "commodityCodeType": "HS"
         },
-        "quantity": 880,
+        "packageQuantity": 2200,
         "netWeight": {
           "type": "QuantitativeValue",
           "unitCode": "kg",
           "value": "14600"
         },
-        "netWeight": {
+        "grossWeight": {
           "type": "QuantitativeValue",
           "unitCode": "kg",
           "value": "15960"
+        },
+        "grossVolume": {
+          "type": "QuantitativeValue",
+          "value": "856",
+          "unitCode": "cmb"
         }
       }
-    ]
+    ],
+    "freightAndCharges": {
+      "type": "ServiceCharge",
+      "chargeCode": "basicFreight",
+      "paymentTerm": "collect",
+      "chargeText": "Negotiated ocean freight",
+      "rate": {
+        "type": "PriceSpecification",
+        "price": 2250,
+        "priceCurrency": "USD"
+      },
+      "calculationBasis": "Per container",
+      "appliedAmount": {
+        "type": "PriceSpecification",
+        "price": 4500,
+        "priceCurrency": "USD"
+      }
+    },
+    "declaredValue": {
+      "type": "PriceSpecification",
+      "price": 240000,
+      "priceCurrency": "USD"
+    },
+    "shippedOnBoardDate": "2022-02-02T09:30:00Z",
+    "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
   }

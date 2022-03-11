@@ -4,10 +4,6 @@ $linkedData:
 title: Transport
 description: A transport which can be a leg of a journey.
 type: object
-required:
-  - shippingStopAddress
-  - carrier
-  - stopType
 properties:
   loadLocation:
     title: Load Location
@@ -71,5 +67,16 @@ properties:
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMovement
 example: |-
   {
-    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/237"
+    "type": "Transport",
+    "loadLocation": {
+      "type": "Place",
+      "unLocode": "ITMIL"
+    },
+    "dischargeLocation": {
+      "type": "Place",
+      "unLocode": "USLGB"
+    },
+    "modeOfTransport": "Vessel",
+    "vesselNumber": "MS Seven Seas",
+    "voyageNumber": "Atl-W0425"
   }

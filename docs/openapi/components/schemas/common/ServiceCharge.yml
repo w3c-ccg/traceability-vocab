@@ -52,5 +52,19 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#appliedAmount
 example: |-
   {
-    "type": "ServiceCharge"
+    "type": "ServiceCharge",
+    "chargeCode": "basicFreight",
+    "paymentTerm": "collect",
+    "chargeText": "Negotiated ocean freight",
+    "rate": {
+      "type": "PriceSpecification",
+      "price": 2250,
+      "priceCurrency": "USD"
+    },
+    "calculationBasis": "Per container",
+    "appliedAmount": {
+      "type": "PriceSpecification",
+      "price": 4500,
+      "priceCurrency": "USD"
+    }
   }
