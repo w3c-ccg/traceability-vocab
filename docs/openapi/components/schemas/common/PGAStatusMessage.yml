@@ -14,7 +14,12 @@ type: object
 required:
   - type
   - recordNo
+  - entryNo
+  - entryLineSequence
   - statusCode
+  - statusCodeDescription
+  - validCodeReason
+  - validCodeReasonDescription
 properties:
   type:
     oneOf:
@@ -24,32 +29,44 @@ properties:
           - PGAStatusMessage
   recordNo:
     type: string
-    description: Record number that describes the cargo notification
+    description: Record number that indicates the status, reason, and subreason codes to be referenced.
   entryNo:
     type: string
-    description: This is the entry number
+    description: This is the entry number of the cargo for which the message is being sent
   entryLineSequence:
     type: string
-    description: This is the entry Line Sequence
+    description: This is the entry Line Sequence of the entry number for the cargo for which the message is being sent.
   statusCode:
     type: string
-    description: This is the status code
+    description: This is the status code which represents the cumulative effect of all stakeholder PGA reviews on a given Entry
   statusCodeDescription:
     type: string
-    description: This is the status code description
+    description: This is a human readable description of the status code
   validCodeReason:
-    type: string
-    description: This is the valid code reason
+    type: 
+      oneOf:
+        -type: array
+        -type: string
+    description: These represent the reason(s) each PGA can provide to trade regarding the review status
   validCodeReasonDescription:
-    type: string
-    description: This is the valid code reason description
+    type: 
+      oneOf:
+        -type: array
+        -type: string
+    description: This is the human readable description of the valid code reason
   subReasonCode:
-    type: string
-    description: This is the sub reason code
+    type: 
+      oneOf:
+        -type: array
+        -type: string
+    description: PGA Line Sub Reason codes further describes the reason codes. There can be multiple sub reason codes for a given PGA line.
   subReasonCodeDescription:
-    type: string
-    description: this is the sub reason code description
-additionalProperties: false
+    type: 
+      oneOf:
+        -type: array
+        -type: string
+    description: This is the human readable description of the sub reason code
+additionalProperties: true
 example: |-
   {
     "type": "PGAStatusMessage",
