@@ -1,0 +1,595 @@
+$linkedData:
+  term: IATAAirWaybill
+  '@id': https://w3id.org/traceability#IATAAirWaybill
+title: IATA Air Waybill
+description: >-
+  Air Waybill based on IATA Air Waybill Resolution 600a
+  https://www.iata.org/contentassets/e9cb5a72b88f4f68a5cfc572a50b60c9/eacph-european-air-cargo-programme-handbook.pdf
+  and
+  https://www.iata.org/contentassets/b559d10aeb734d5196332b4953dcf312/e-awb-sop-hyd.pdf
+type: object
+required:
+  - type
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - IATAAirWaybill
+  airWaybillNumber:
+    title: Air Waybill Number
+    type: string
+    $linkedData:
+      term: airWaybillNumber
+      '@id': https://schema.org/orderNumber
+  waybillType:
+    title: Type of Air Waybill
+    enum:
+      - Master
+      - House
+    $linkedData:
+      term: waybillType
+      '@id': https://schema.org/DigitalDocument
+  airlineCodeNumber:
+    title: Airline Code Number
+    description: The issuing carrier's three-digit IATA airline code number. Box 1A.
+    type: string
+    $linkedData:
+      term: airlineCodeNumber
+      '@id': https://onerecord.iata.org/cargo/Company#airlineCode
+  serialNumber:
+    title: Serial Number
+    description: >-
+      A serial number of eight digits including a check digit placed in the
+      extreme right position. Box 1B.
+    type: string
+    $linkedData:
+      term: serialNumber
+      '@id': https://schema.org/serialNumber
+  airportOfDeparture:
+    title: Airport of Departure
+    description: >-
+      The IATA three-letter code of the airport of departure (or city when the
+      name of the airport is unknown). Box 1.
+    $ref: ./Place.yml
+    $linkedData:
+      term: airportOfDeparture
+      '@id': https://onerecord.iata.org/cargo/Location#code
+  carrier:
+    title: Issuing Carrier's Name and Address
+    description: Box 1C.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: carrier
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
+  conditionsOfContract:
+    title: Reference to Conditions of Contract
+    description: >-
+      This box shall not be completed unless used by the issuing carrier at its
+      option.
+    type: string
+    $linkedData:
+      term: conditionsOfContract
+      '@id': https://schema.org/termsOfService
+  shipper:
+    title: Shipper's Name and Address
+    description: >-
+      The name, address and country (or two-letter country code) of the shipper
+      (or IATA Cargo Intermediary when acting in its capacity as a Forwarder).
+      Box 2.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: shipper
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
+  shippersAccountNumber:
+    title: Shipper's Account Number
+    description: >-
+      This box shall not be completed unless used by the issuing carrier at its
+      option. Box 3.
+    type: string
+    $linkedData:
+      term: shippersAccountNumber
+      '@id': https://schema.org/accountId
+  consignee:
+    title: Consignee's Name and Address
+    description: >-
+      The name, address and country (or two-letter country code) of the
+      consignee. Box 4.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: consignee
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+  consigneesAccountNumber:
+    title: Consignee's Account Number
+    description: >-
+      This box shall not be completed unless used by the last carrier at its
+      option. Box 5.
+    type: string
+    $linkedData:
+      term: consigneesAccountNumber
+      '@id': https://schema.org/accountId
+  issuingCarrierAgent:
+    title: Issuing Carrier's Agent
+    description: >-
+      The name and location (airport or city) of the issuing carrier's IATA
+      Cargo Agent (or IATA Cargo Intermediary when acting in its capacity as the
+      issuing carrier's agent). Box 6.
+    type: string
+    $linkedData:
+      term: issuingCarrierAgent
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAgentParty
+  agentIATACode:
+    title: Agent's IATA Code
+    description: >-
+      IATA code of the Cargo Agent (or IATA Cargo Intermediary when acting in
+      its capacity as the issuing carrier's agent). Box 7.
+    type: string
+    $linkedData:
+      term: agentIATACode
+      '@id': https://onerecord.iata.org/cargo/Company#iataCargoAgentCode
+  agentAccountNumber:
+    title: Account No.
+    description: Box 8.
+    type: string
+    $linkedData:
+      term: agentAccountNumber
+      '@id': https://schema.org/accountId
+  requestedRouting:
+    title: Airport of Departure and Requested Routing
+    description: The name of the airport of departure. Box 9 and 11A-F.
+    type: array
+    items:
+      $ref: ./ShippingStop.yml
+    $linkedData:
+      term: requestedRouting
+      '@id': https://schema.org/Trip
+  destinationAirport:
+    title: Airport of Destination
+    description: >-
+      The airport of destination of the last carrier (or city when the name of
+      the airport is unknown because the city is served by more than one
+      airport). Box 18.
+    $ref: ./Place.yml
+    $linkedData:
+      term: destinationAirport
+      '@id': https://onerecord.iata.org/cargo/Company#airlineCode
+  requestedFlight:
+    title: Requested Flight
+    description: Completed by the carrier/agent/shipper effecting the booking. Box 19A.
+    type: string
+    $linkedData:
+      term: requestedFlight
+      '@id': https://schema.org/Flight
+  requestedDate:
+    title: Requested Date
+    description: Completed by the carrier/agent/shipper effecting the booking. Box 19B.
+    type: string
+    $linkedData:
+      term: requestedDate
+      '@id': https://w3id.org/traceability#requestDate
+      '@type': http://www.w3.org/2001/XMLSchema#dateTime     
+  accountingInformation:
+    title: Accounting Information
+    description: >-
+      Only accounting information required by the participating carriers may be
+      inserted. Box 10.
+    enum:
+      - Payment by cash or cheque
+      - >-
+        Payment by Miscellaneous Charges Order (MCO) is only acceptable for
+        baggage shipped as cargo; the MCO number and value of the Exchange
+        Coupon in the currency of the air waybill shall be shown followed, if
+        necessary, by the amount deducted from the MCO coupon and, in all cases,
+        by the passenger's ticket number and flight/date/routing used
+      - >-
+        Payment by Government Bill of Lading (GBL); the GBL number shall be
+        shown
+      - >-
+        Consignment returned because of non-delivery; the original air waybill
+        number shall be shown on the new air waybill for the returning carriage
+      - Shipper's reference number as indicated by the shipper or his agent
+      - Payment by credit card; the credit card number shall be shown
+      - >-
+        The words “Also Notify” may be printed after the title of the
+        “Accounting Information” box (applicable for domestic transportation
+        only)
+    $linkedData:
+      term: accountingInformation
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#typeCode
+  currency:
+    title: Currency
+    description: >-
+      The ISO three-letter currency code of the currency applicable in the
+      country of departure, according to the applicable rating rules,.
+    type: string
+    $linkedData:
+      term: currency
+      '@id': https://schema.org/currency
+  chargeCodes:
+    title: Charges Codes
+    description: Box 13.
+    enum:
+      - CA—partial collect credit—partial prepaid cash
+      - CB—partial collect credit—partial prepaid credit
+      - CC—all charges collect
+      - CE—partial collect credit card—partial prepaid cash
+      - CG—all charges collect by GBL
+      - CH—partial collect credit card—partial prepaid credit
+      - CP—destination collect cash
+      - CX—destination collect credit
+      - CZ—all charges collect by credit card
+      - NC—no charge
+      - NG—no weight charge—other charges prepaid by GBL
+      - NP—no weight charge—other charges prepaid cash
+      - NT—no weight charge—other charges collect
+      - NX—no weight charge—other charges prepaid credit
+      - NZ—no weight charge—other charges prepaid by credit card
+      - PC—partial prepaid cash—partial collect cash
+      - PD—partial prepaid credit—partial collect cash
+      - PE—partial prepaid credit card—partial collect cash
+      - PF—partial prepaid credit card—partial collect credit card
+      - PG—all charges prepaid by GBL
+      - >-
+        PH—partial prepaid credit card—partial collect credit PP—all charges
+        prepaid by cash
+      - PX—all charges prepaid by credit
+      - PZ—all charges prepaid by credit card
+    $linkedData:
+      term: chargeCodes
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#chargeCategoryCode
+  weightValuationChargesType:
+    title: Weight/Valuation Charges Type
+    description: Box 14A.
+    enum:
+      - Prepaid
+      - Collect
+    $linkedData:
+      term: weightValuationChargesType
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#chargeCategoryCode
+  otherChargesType:
+    title: Weight/Valuation Charges Type
+    description: Box 14B.
+    enum:
+      - Prepaid
+      - Collect
+    $linkedData:
+      term: otherChargesType
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#chargeCategoryCode
+  declaredValueForCarriage:
+    title: Declared Value For Carriage
+    description: >-
+      The declared value for carriage, as specified by the shipper,. Where no
+      value is declared, “NVD”. Box 16.
+    type: string
+    $linkedData:
+      term: declaredValueForCarriage
+      '@id': https://schema.org/value
+  declaredValueForCustoms:
+    title: Declared Value For Customs
+    description: >-
+      The shipper or agent may declare and insert a customs value, which may be
+      NCV, or leave the box blank. Box 17.
+    type: string
+    $linkedData:
+      term: declaredValueForCustoms
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#customsValueSpecifiedAmount
+  amountOfInsurance:
+    title: Amount of Insurance
+    description: Box 20.
+    type: string
+    $linkedData:
+      term: amountOfInsurance
+      '@id': https://schema.org/value
+  insuranceClauses:
+    title: Insurance Clauses
+    description: Box 20A
+    type: string
+    $linkedData:
+      term: insuranceClauses
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#contractualClause
+  handlingInformation:
+    title: Handling Information
+    description: >-
+      Only clear and concise information as required by the participating
+      carriers. In the case of dangerous goods for which a Shipper's Declaration
+      is required, a statement: “Dangerous Goods as per attached Shipper's
+      Declaration” or “Dangerous Goods as per attached DGD” and where applicable
+      the statement “Cargo Aircraft Only” or “CAO”. When dangerous goods are
+      contained in a consignment with non-dangerous goods, the number of pieces
+      of dangerous goods must be indicated either before or after the statement
+      “Dangerous Goods as per attached Shipper's Declaration” or “Dangerous
+      Goods as per attached DGD”. Other handling information using, where
+      available, the codes and abbreviations in Cargo-IMP, may be inserted, such
+      as: marks and numbers which appear on the consignment and method of
+      packing; name, address, country or two-letter country code and one or more
+      method of contact (telephone, telex or telefax) and number of any person
+      to be notified of arrival of the consignment in addition to the consignee;
+      name of documents to accompany the air waybill, such as the “Shipper's
+      Certification for Live Animals”; special handling instructions that may be
+      required; when not preprinted, and if the air waybill is issued in the
+      United States, the statement: “These commodities, technology or software
+      were exported from the United States in accordance with the Export
+      Administration Regulations. Diversion contrary to USA law prohibited”;
+      Agent Nomination when a consignment's details, including house waybill
+      details, must be reported to Customs and the agent has elected to
+      undertake that reporting, the human readable statement “House Information
+      transmitted to (country name) by:”, or the coded statement “(Country ISO
+      Code) - AGT-” shall be entered in the Handling Information box on the
+      master air waybill and either statement shall be followed by the
+      appropriate agent identifier as specified by that country (multiple
+      entries may be necessary if more than one country requires information).
+      When a local transfer at destination is required and known the statement
+      “Local transfer at destination to:” or “FIRMS-” shall be entered in the
+      Handling Information box on the air waybill followed by the appropriate
+      location identifier, e.g., FIRMS code for the United States. Box 21.
+    type: string
+    $linkedData:
+      term: handlingInformation
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#handlingInstructions
+  specialCustomsInformation:
+    title: Special Customs Information (SCI)
+    description: >-
+      When a consignment is loaded or reloaded at an airport in an European
+      Union country, the Customs Origin Code. When a consignment is not loaded
+      or reloaded at an airport in an European Union country, then this box may
+      be used for other customs information. Box 21A.
+    type: string
+    $linkedData:
+      term: specialCustomsInformation
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Declaration
+  consignmentRatingDetails:
+    title: Consignment Rating Details
+    description: >-
+      A separate set of entries shall be made for each rated group of items,
+      each set commencing on a new line, dangerous goods items, if any, being
+      entered first. Box 22.
+    type: array
+    items:
+      $ref: ./ConsignmentRatingDetail.yml
+    $linkedData:
+      term: consignmentRatingDetails
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem
+  totalNumberOfPieces:
+    title: Total Number of Pieces
+    description: >-
+      Where there is more than one numeric entry in box 22A, the total number of
+      pieces. Box 22J.
+    type: string
+    $linkedData:
+      term: totalNumberOfPieces
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  totalGrossWeight:
+    title: Total Gross Weight
+    description: >-
+      Where there is more than one entry in box 22B, the total gross weight. Box
+      22K.
+    type: string
+    $linkedData:
+      term: totalGrossWeight
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  totalCharge:
+    title: Total Charge
+    description: Where there is more than one entry in box 22H, the sum. Box 22L
+    type: string
+    $linkedData:
+      term: totalCharge
+      '@id': https://schema.org/totalPrice
+  otherCharges:
+    title: Other Charges
+    description: >-
+      Other charges incurred at origin shall be inserted at the time of air
+      waybill issuance as either wholly prepaid or wholly collect. Box 23.
+    type: string
+    $linkedData:
+      term: otherCharges
+      '@id': https://schema.org/price
+  prepaidChargeDeclaration:
+    title: Prepaid Charge Declaration
+    $ref: ./ChargeDeclaration.yml
+    $linkedData:
+      term: prepaidChargeDeclaration
+      '@id': https://w3id.org/traceability#PrepaidChargeDeclaration
+  prepaidTotal:
+    title: Total Prepaid
+    description: >-
+      The total of all the prepaid charges, i.e. weight/volume charge, valuation
+      charge, other prepaid charges due carrier and, if applicable, tax and
+      other charges due agent. Box 30A.
+    type: string
+    $linkedData:
+      term: prepaidTotal
+      '@id': https://schema.org/totalPrice
+  collectChargeDeclaration:
+    title: Collect Charge Declaration
+    $ref: ./ChargeDeclaration.yml
+    $linkedData:
+      term: collectChargeDeclaration
+      '@id': https://w3id.org/traceability#CollectChargeDeclaration
+  destinationCollectChargeDeclaration:
+    title: Destination Collect Charge Declaration
+    description: Collect charges at destination, incl. currency exchange.
+    $ref: ./ForeignChargeDeclaration.yml
+    $linkedData:
+      term: destinationCollectChargeDeclaration
+      '@id': https://w3id.org/traceability#DestinationCollectChargeDeclaration
+  collectTotal:
+    title: Total Collect Charges
+    description: The sum of boxes (33B) and (33C). Box 33D.
+    type: string
+    $linkedData:
+      term: collectTotal
+      '@id': https://schema.org/totalPrice
+  shippersCertificationBox:
+    title: Shipper's Certification Box
+    description: >-
+      When not preprinted, the signature of the shipper or his agent (printed,
+      signed or stamped). Box 31.
+    type: string
+    $linkedData:
+      term: shippersCertificationBox
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Certification
+  executedOn:
+    title: Executed on (Date)
+    description: >-
+      The date of execution of the air waybill shall be inserted in the sequence
+      of day, month and year. The month shall be expressed alphabetically,
+      either abbreviated or in full. Box 32A.
+    type: string
+    $linkedData:
+      term: executedOn
+      '@id': https://w3id.org/traceability#executionTime
+      '@type': http://www.w3.org/2001/XMLSchema#dateTime
+  executedAt:
+    title: At (Place)
+    description: >-
+      The name of the place of execution (airport or city) of the air waybill.
+      Box 32B.
+    $ref: ./Place.yml
+    $linkedData:
+      term: executedAt
+      '@id': https://schema.org/Place
+additionalProperties: false
+example: |-
+  {
+    "@context": "https://w3id.org/traceability/v1",
+    "type": "AirWaybill",
+    "airWaybillNumber": "AXM121102183",
+    "airlineCodeNumber": "172",
+    "serialNumber": "48835010",
+    "airportOfDeparture": {
+      "type": "Place",
+      "iataAirportCode": "XMN",
+      "address": {
+        "type": "PostalAddress",
+        "addressLocality": "Xiamen"
+      },
+      "carrier": {
+        "type": "Organization",
+        "name": "On Time Express Limited",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Suite 605, 6/F, Hai Tian Logistics Centre, #1 Hai Tian Road",
+          "addressLocality": "Hu-Li District",
+          "addressRegion": "Xiamen",
+          "addressCountry": "CN"
+        }
+      },
+      "conditionsOfContract": "It is agreed that the goods described herein are accepted in apparent good order and condition (except as noted) for carriage SUBJECT TO THE CONDITIONS OF CONTRACT ON THE REVERSE HEREOF. ALL GOODS MAY BE CARRIED BY ANY OTHER MEANS INCLUDING ROAD OR ANY OTHER CARRIER UNLESS SPECIFIC CONTRARY INSTRUCTIONS ARE GIVEN HEREON BY THE SHIPPER, AND SHIPPER AGREES THAT THE SHIPMENT MAY BE CARRIED VIA INTERMEDIATE STOPPING PLACES WHICH THE CARRIER DEEMS APPROPRIATE. THE SHIPPER'S ATTENTION IS DRAWN TO THE NOTICE CONCERNING CARRIER'S LIMITATION OF LIABILITY. Shipper may increase such limitation of liability by declaring a higher value for carriage and paying a supplemental charge if required.",
+      "shipper": {
+        "type": "Organization",
+        "name": "Xxinau Manufacturing Co. Ltd.",
+        "description": "Advanced Production - Delivered",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Xin Fei Da Dao 139",
+          "addressLocality": "Xindao",
+          "addressRegion": "Fujian Province",
+          "postalCode": "361100",
+          "addressCountry": "CN"
+        }
+      },
+      "shippersAccountNumber": "Trade",
+      "consignee": {
+        "type": "Organization",
+        "name": "By Acre",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "I.C.Modewegs Vej 1",
+          "addressLocality": "Kgs. Lyngby",
+          "postalCode": "2800",
+          "addressCountry": "DK"
+        }
+      },
+      "requestedRouting": [
+        {
+          "type": "ShippingStop",
+          "from": {
+            "type": "Place",
+            "address": {
+              "type": "PostalAddress",
+              "addressLocality": "Xiamen"
+            }
+          },
+          "to": {
+            "type": "Place",
+            "iataAirportCode": "LUX"
+          },
+          "by": {
+            "type": "Organization",
+            "iataCarrierCode": "CV"
+          }
+        },
+        {
+          "type": "ShippingStop",
+          "to": {
+            "type": "Place",
+            "iataAirportCode": "CPH"
+          },
+          "by": {
+            "type": "Organization",
+            "iataCarrierCode": "CV"
+          }
+        }
+      ],
+      "destinationAirport": {
+        "type": "Place",
+        "iataAirportCode": "CPH",
+        "address": {
+          "type": "PostalAddress",
+          "addressLocality": "Copenhagen"
+        }
+      },
+      "requestedFlight": "CV9586",
+      "requestedDate": "2021-07-31",
+      "accountingInformation": "Freight Collect",
+      "currency": "USD",
+      "chargeCodes": "CP—destination collect cash",
+      "weightValuationChargesType": "Collect",
+      "otherChargesType": "Prepaid",
+      "declaredValueForCarriage": "NVD",
+      "declaredValueForCustoms": "As per invoice",
+      "amountOfInsurance": "NIL",
+      "handlingInformation": "TOTAL: 13PLT (S) ONLY. INVOICE & PACKING LIST ATTD",
+      "consignmentRatingDetails": [
+        {
+          "type": "ConsignmentRatingDetail",
+          "numberOfPieces": 13,
+          "grossWeight": 971,
+          "grossWeightUnit": "Kg",
+          "rateClass": "Q—quantity rate",
+          "chargeableWeight": 2480.5,
+          "total": "As arranged",
+          "natureAndVolumeOfGoods": "ROLLATORS; DIMS: 2 / 118 X 89 X 87 CM, 11 /118 x 89 X 113 CM, 14.88 CBM"
+        }
+      ],
+      "totalNumberOfPieces": 13,
+      "totalGrossWeight": 971,
+      "totalCharge": "As arranged",
+      "collectChargeDeclaration": {
+        "weightCharge": "As arranged",
+        "total": "As arranged"
+      },
+      "shippersCertificationBox": "On Time Express Limited, Suite 605, 6/F, Hai Tian Logistics Centre, #1 Hai Tian Road, Hu-Li District, Xiamen, P.R.China",
+      "executedOn": "2021-07-31",
+      "executedAt": {
+        "type": "Place",
+        "iataAirportCode": "XMN"
+      }
+    }
+  }
