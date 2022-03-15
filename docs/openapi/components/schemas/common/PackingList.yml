@@ -1,0 +1,325 @@
+$linkedData:
+  term: PackingList
+  '@id': https://w3id.org/traceability#PackingList
+title: Packing List
+description: >-
+  A seller-prepared commercial document indicating the net and gross weights, dimensions and contents of all shipping pieces (boxes, crates, bundles, etc.) in a shipment. Each packing list should reference the shipment for which is made, and the line item totals should agree with the relevant commercial invoice. A packing list should be made for all shipments consisting of more than one shipping piece for the following reasons
+  - They aid in identifying lost cargo, especially for carrier and insurance claims.
+  - They permit selective inspection by customs authorities, and many government require them for large shipments.
+  - They provide a "map" of the shipment, enabling the buyer to easily unpack and stock the shipped goods.
+  In certain cases it is advisable elaborate the packing list considering the information requested by the importer, especially for customs purposes, as may be the case that the Customs request a "detailed document", for example, in the case of a machine, the identification of each of the parts and components.
+  (source: Olegario Llamazares: Dictionary of International Trade, Key definitions of 2000 trade terms and acronyms).
+type: object
+required:
+  - seller
+  - buyer
+  - shipFromParty
+  - shipToParty
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - PackingList
+  seller: 
+    title: Seller
+    description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: seller
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
+  buyer:
+    title: Buyer
+    description: Importer of record. Party placing the order or paying the invoice.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: buyer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
+  shipFromParty:
+    title: Ship From Party
+    description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
+    $ref: ./Entity.yml
+    $linkedData:
+      term: shipFromParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty
+  shipToParty:
+    title: Ship To Party
+    description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
+    $ref: ./Entity.yml
+    $linkedData:
+      term: shipToParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
+  orderNumber:
+    title: Order Number
+    type: string
+    $linkedData:
+      term: orderNumber
+      '@id': https://schema.org/orderNumber
+  invoiceId: 
+    title: Invoice Identifier
+    type: string
+    $linkedData:
+      term: invoiceId
+      '@id': https://schema.org/identifier
+  shipmentId: 
+    title: Shipment Identifier
+    type: string
+    $linkedData:
+      term: shipmentId
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipmentIdentificationId
+  trackingNumber: 
+    title: Tracking Number
+    type: string
+    $linkedData:
+      term: trackingNumber
+      '@id': https://schema.org/trackingNumber
+  deliveryStatus:
+    title: DeliveryStatus
+    type: string
+    $linkedData:
+      term: deliveryStatus
+      '@id': https://schema.org/deliveryStatus
+  estimatedTimeOfArrival:
+    title: The expected arrival time
+    type: string
+    $linkedData:
+      term: estimatedTimeOfArrival
+      '@id': https://schema.org/arrivalTime
+  hasDeliveryMethod:
+    title: Method of Parcel Delivery
+    type: string
+    $linkedData:
+      term: hasDeliveryMethod
+      '@id': https://schema.org/hasDeliveryMethod
+  handlingInstructions:
+    title: Handling Instructions
+    type: array
+    items:
+      $ref: ./Instructions.yml
+    $linkedData:
+      term: handlingInstructions
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#handlingInstructions
+  partOfOrder:
+    title: Part of Order
+    description: Products in Parcel that are Part of one or more Orders
+    type: array
+    items:
+      $ref: ./PartOfOrder.yml
+    $linkedData:
+      term: partOfOrder
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem
+  totalNetWeight:
+    title: Total Net Weight
+    description: A measure of the total net weight (mass).
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: totalNetWeight
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure
+  totalGrossWeight:
+    title: Total Gross Weight
+    description: >-
+      A measure of the total gross weight (mass) which includes packaging but excludes
+      any transport equipment.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: grossWeight
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  totalGrossVolume:
+    title: Total Gross Volume
+    description: >-
+      Calculated by multiplying the width, height, and length of the packed
+      cargo.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: totalGrossVolume
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
+  totalNumberOfPackages:
+    title: Total Number of Packages
+    description: Specifies the number of packages associated with this cargo item
+    type: number
+    $linkedData:
+      term: numberOfPackages
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  totalItemQuantity:
+    title: Total Item Quantity
+    description: A number of trade line items in the consignment item.
+    type: number
+    $linkedData:
+      term: itemQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity
+example: |-
+  {
+    "@context": "https://w3id.org/traceability/v1",
+    "type": "PackingList",
+    "orderNumber": "PO00000329",
+    "seller": {
+      "type": "Organization",
+      "name": "Xxinau Manufacturing Co. Ltd.",
+      "description": "Advanced Production - Delivered",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Xin Fei Da Dao 139",
+        "addressLocality": "Xindao",
+        "addressRegion": "Fujian Province",
+        "postalCode": "361100",
+        "addressCountry": "CN"
+      }
+    },
+    "buyer": {
+      "type": "Organization",
+      "name": "By ACRE",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "IC. Modewegs Vej 1",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    },
+    "shipFromParty": {
+      "type": "Organization",
+      "name": "Xxinau Manufacturing Co. Ltd.",
+      "description": "Advanced Production - Delivered",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Xin Fei Da Dao 139",
+        "addressLocality": "Xindao",
+        "addressRegion": "Fujian Province",
+        "postalCode": "361100",
+        "addressCountry": "CN"
+      }
+    },
+    "shipToParty": {
+      "type": "Organization",
+      "name": "By ACRE",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "IC. Modewegs Vej 1",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    },
+    "handlingInstructions": [
+      {
+        "type": "Instructions",
+        "description": "Handle with care"
+      }
+    ],
+    "partOfOrder": [
+      {
+        "type": "PartOfOrder",
+        "packageQuantity": 540,
+        "transportPackages": [
+          {
+            "type": "Package",
+            "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
+            "perPackageUnitQuantity": 1,
+            "includedTradeLineItems": [
+              {
+                "type": "TradeLineItem",
+                "description": "Rollators",
+                "itemCount": 540
+              }
+            ],
+            "netWeight": {
+              "type": "QuantitativeValue",
+              "value": "3834",
+              "unitCode": "kg"
+            },
+            "grossWeight": {
+              "type": "QuantitativeValue",
+              "value": "4302",
+              "unitCode": "kg"
+            },
+            "grossVolume": {
+              "type": "QuantitativeValue",
+              "value": "66.96",
+              "unitCode": "cbm"
+            }
+          }
+        ]
+      }, 
+      {
+        "type": "PartOfOrder",
+        "packageQuantity": 2, 
+        "transportPackages": [
+          {
+            "type": "Package",
+            "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
+            "perPackageUnitQuantity": 100,
+            "includedTradeLineItems": [
+              {
+                "type": "TradeLineItem",
+                "description": "Rollator backrest",
+                "itemCount": 200
+              }
+            ],
+            "netWeight": {
+              "type": "QuantitativeValue",
+              "value": "42",
+              "unitCode": "kg"
+            },
+            "grossWeight": {
+              "type": "QuantitativeValue",
+              "value": "44",
+              "unitCode": "kg"
+            },
+            "grossVolume": {
+              "type": "QuantitativeValue",
+              "value": "0.28",
+              "unitCode": "cbm"
+            }
+          }
+        ]
+      },
+      {
+        "type": "PartOfOrder",
+        "packageQuantity": 80, 
+        "transportPackages": [
+          {
+            "type": "Package",
+            "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
+            "perPackageUnitQuantity": 1,
+            "includedTradeLineItems": [
+              {
+                "type": "TradeLineItem",
+                "description": "Rollator backrest",
+                "itemCount": 80
+              }
+            ],
+            "netWeight": {
+              "type": "QuantitativeValue",
+              "value": "50",
+              "unitCode": "kg"
+            },
+            "grossWeight": {
+              "type": "QuantitativeValue",
+              "value": "160",
+              "unitCode": "kg"
+            },
+            "grossVolume": {
+              "type": "QuantitativeValue",
+              "value": "0.5",
+              "unitCode": "cbm"
+            }
+          }
+        ]
+      }
+    ],
+    "totalGrossWeight": {
+      "type": "QuantitativeValue",
+      "value": "4038",
+      "unitCode": "kg"
+    },
+    "totalGrossVolume": {
+      "type": "QuantitativeValue",
+      "value": "67.74",
+      "unitCode": "cbm"
+    },
+    "totalNumberOfPackages": 622,
+    "totalItemQuantity": 820
+  }
