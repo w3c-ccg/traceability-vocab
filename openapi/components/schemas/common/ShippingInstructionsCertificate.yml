@@ -4,7 +4,7 @@ $linkedData:
 title: Shipping Instructions Certificate
 description: >- 
   Shipping Instructions or Shipper's Letter of Instruction is a form issued by a shipper to authorize a carrier to issue a bill of lading or an air waybill on the shipper's behalf. The form contains all details of shipment (e.g., shipper, consignee, bill-to-party, commodity, pieces, weight, cube, etc.) and authorizes the carrier to sign the bill of lading in the name of the shipper.
-  (source: Olegario Llamazares: DICTIONARY OF INTERNATIONAL TRADE, Key definitions of 2000 trade terms and acronyms).
+  (source: Olegario Llamazares: Dictionary Of International Trade, Key definitions of 2000 trade terms and acronyms).
   Model based on https://service.unece.org/trade/uncefact/publication/Transport%20and%20Logistics/itigg%20unttc/Shipping%20Instructions/Multimodal%20Shipping%20Instructions_D21B/HTML/001.htm.
 type: object
 properties:
@@ -27,9 +27,9 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    type: object
+    $ref: ./Entity.yml
   credentialSubject:
-    type: object
+    $ref: ./ShippingInstructions.yml
   proof:
     type: object
   relatedLink:
@@ -39,14 +39,13 @@ properties:
     items:
       $ref: ./LinkRole.yml
 additionalProperties: false
-required: []
 example: |-
   {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://w3id.org/traceability/v1"
     ],
-    "id": "https://example.com/credential/123",
+    "id": "did:key:z6MkmT8iNWLcXDiWjc9YKiYTVogvgzc9QqdeZF5cEZ9qJzt3",
     "type": [
       "VerifiableCredential",
       "ShippingInstructionsCertificate"
@@ -56,27 +55,154 @@ example: |-
     "issuer": {
       "type": "Organization",
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "name": "Xxinau Manufacturing Co. Ltd.",
-      "description": "Advanced Production - Delivered",
+      "name": "Espresso Italiano Co.",
       "address": {
         "type": "PostalAddress",
-        "streetAddress": "Xin Fei Da Dao 139",
-        "addressLocality": "Xindao",
-        "addressRegion": "Fujian Province",
-        "postalCode": "361100",
-        "addressCountry": "CN"
+        "streetAddress": "Via Vico Ferrovia 5",
+        "addressLocality": "Goro",
+        "addressRegion": "Ferrara",
+        "postalCode": "44020",
+        "addressCountry": "IT"
       }
     },
     "credentialSubject": {
-      "type": [
-        "Consignment"
-      ]
+      "type": "ShippingInstructions",
+      "billOfLadingNumber": "EX600822199A",
+      "bookingNumber": [
+        "EX600822199"
+      ],
+      "shipper": {
+        "type": "Organization",
+        "name": "Espresso Italiano Co.",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Via Vico Ferrovia 5",
+          "addressLocality": "Goro",
+          "addressRegion": "Ferrara",
+          "postalCode": "44020",
+          "addressCountry": "IT"
+        },
+        "email": "sales@espresso-italiano.example.com",
+        "phoneNumber": "+39 0351 9067195"
+      },
+      "consignee": {
+        "type": "Organization",
+        "name": "Prosumer Coffee Supplies, Ltd.",
+        "description": "Coffee Machine Imports",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "3934 Spinnaker Lane",
+          "addressLocality": "Joliet",
+          "addressRegion": "Illinois",
+          "postalCode": "60432",
+          "addressCountry": "US"
+        }
+      },
+      "notifyParty": [
+        {
+          "type": "Organization",
+          "name": "Prosumer Coffee Supplies, Ltd.",
+          "description": "Coffee Machine Imports",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "3934 Spinnaker Lane",
+            "addressLocality": "Joliet",
+            "addressRegion": "Illinois",
+            "postalCode": "60432",
+            "addressCountry": "US"
+          }
+        }
+      ],
+      "carrier": {
+        "type": "Organization",
+        "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
+        "name": "MULTI CONTAINER LINE",
+        "address": {
+          "type": "PostalAddress",
+          "organizationName": "MCL Multi Container Line LTD.",
+          "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+          "addressLocality": "Kowloon Bay",
+          "addressRegion": "Hong Kong",
+          "addressCountry": "Hong Kong SAR"
+        }
+      },
+      "mainCarriageTransportMovement": {
+        "type": "Transport",
+        "vesselNumber": "MS Seven Seas",
+        "voyageNumber": "Atl-W0425"
+      },
+      "portOfLoading": {
+        "type": "Place",
+        "unLocode": "ITMIL"
+      },
+      "portOfDischarge": {
+        "type": "Place",
+        "unLocode": "USLGB"
+      },
+      "totalNumberOfPackages": 2200,
+      "transportEquipmentQuantity": 2,
+      "utilizedTransportEquipment": [
+        {
+          "type": "TransportEquipment",
+          "equipmentReference": "APZU4812090",
+          "ISOEquipmentCode": "40GP",
+          "seals": [
+            {
+              "type": "Seal",
+              "sealNumber": "PTW-002290109692"
+            }
+          ]
+        },
+        {
+          "type": "TransportEquipment",
+          "equipmentReference": "APZU5985096",
+          "ISOEquipmentCode": "40GP",
+          "seals": [
+            {
+              "type": "Seal",
+              "sealNumber": "PTW-002255398220"
+            }
+          ]
+        }
+      ],
+      "includedConsignmentItems": [
+        {
+          "marksAndNumbers": "Espresso Italiano",
+          "commodity": {
+            "type": "Commodity",
+            "commodityCode": "851671",
+            "commodityCodeType": "HS"
+          },
+          "packageQuantity": 2200,
+          "netWeight": {
+            "type": "QuantitativeValue",
+            "unitCode": "kg",
+            "value": "14600"
+          },
+          "grossWeight": {
+            "type": "QuantitativeValue",
+            "unitCode": "kg",
+            "value": "15960"
+          },
+          "grossVolume": {
+            "type": "QuantitativeValue",
+            "value": "856",
+            "unitCode": "cmb"
+          }
+        }
+      ],
+      "declaredValue": {
+        "type": "PriceSpecification",
+        "price": 240000,
+        "priceCurrency": "USD"
+      },
+      "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-03-04T13:07:40Z",
+      "created": "2022-03-11T13:41:20Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..xpoSNYbQ031OO08lJ2-1_-kmtW6aKZ2QXzlt2zIXMoSLzefGnfpR89Z-I1aNkxXrKUsR8LUrqfHbu1smt34aAg"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..FrmsKFqRirLwQ1LOOIeNcoenGhNniaoT0hIj0prHVmUTzMPuhIsrcZFgPfMhDiJZW02ULD8_XpNbPjoiq8bEAw"
     }
   }

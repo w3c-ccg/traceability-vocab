@@ -268,13 +268,10 @@
         "numberOfPackages": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
-        "quantity": {
+        "packageQuantity": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
         "numberOfPieces": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
-        },
-        "packageQuantity": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
         "packageCode": {
@@ -282,6 +279,9 @@
         },
         "marksAndNumbers": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ShippingMarks"
+        },
+        "descriptionOfPackagesAndGoods": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#natureIdentificationCargo"
         },
         "commodity": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
@@ -502,35 +502,6 @@
         },
         "description": {
           "@id": "https://schema.org/description"
-        }
-      }
-    },
-    "Consignment": {
-      "@id": "https://w3id.org/traceability#Consignment",
-      "@context": {
-        "shipper": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
-        },
-        "consignee": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
-        },
-        "notifyParty": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
-        },
-        "carrier": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty"
-        },
-        "countryOfOrigin": {
-          "@id": "https://w3id.org/traceability#countryOfOrigin"
-        },
-        "totalNumberOfPackages": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
-        },
-        "dateOfExport": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exportExitDateTime"
-        },
-        "includedConsignmentItem": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
         }
       }
     },
@@ -1210,6 +1181,71 @@
         }
       }
     },
+    "HouseBillOfLading": {
+      "@id": "https://w3id.org/traceability#HouseBillOfLading",
+      "@context": {
+        "billOfLadingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number"
+        },
+        "bookingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "shippersReferences": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned"
+        },
+        "shipper": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
+        },
+        "consignee": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        },
+        "notifyParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
+        },
+        "carrier": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty"
+        },
+        "preCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#preCarriageTransportMovement"
+        },
+        "mainCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#mainCarriageTransportMovement"
+        },
+        "onCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#onCarriageTransportMovement"
+        },
+        "placeOfReceipt": {
+          "@id": "https://schema.org/Place"
+        },
+        "placeOfDelivery": {
+          "@id": "https://schema.org/Place"
+        },
+        "portOfLoading": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transshipmentLocation"
+        },
+        "portOfDischarge": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unloadingLocation"
+        },
+        "totalNumberOfPackages": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "transportEquipmentQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity"
+        },
+        "includedConsignmentItems": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
+        },
+        "freightAndCharges": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge"
+        },
+        "declaredValue": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount"
+        },
+        "termsAndConditions": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription"
+        }
+      }
+    },
     "HouseBillOfLadingCertificate": {
       "@id": "https://w3id.org/traceability#HouseBillOfLadingCertificate",
       "@context": {}
@@ -1827,6 +1863,77 @@
         }
       }
     },
+    "MasterBillOfLading": {
+      "@id": "https://w3id.org/traceability#MasterBillOfLading",
+      "@context": {
+        "billOfLadingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number"
+        },
+        "bookingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "shippersReferences": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned"
+        },
+        "shipper": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
+        },
+        "consignee": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        },
+        "notifyParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
+        },
+        "carrier": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty"
+        },
+        "preCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#preCarriageTransportMovement"
+        },
+        "mainCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#mainCarriageTransportMovement"
+        },
+        "onCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#onCarriageTransportMovement"
+        },
+        "placeOfReceipt": {
+          "@id": "https://schema.org/Place"
+        },
+        "placeOfDelivery": {
+          "@id": "https://schema.org/Place"
+        },
+        "portOfLoading": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transshipmentLocation"
+        },
+        "portOfDischarge": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unloadingLocation"
+        },
+        "totalNumberOfPackages": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "transportEquipmentQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity"
+        },
+        "includedConsignmentItems": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
+        },
+        "utilizedTransportEquipment": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment"
+        },
+        "freightAndCharges": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge"
+        },
+        "declaredValue": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount"
+        },
+        "shippedOnBoardDate": {
+          "@id": "https://schema.org/Date"
+        },
+        "termsAndConditions": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription"
+        }
+      }
+    },
     "MasterBillOfLadingCertificate": {
       "@id": "https://w3id.org/traceability#MasterBillOfLadingCertificate",
       "@context": {}
@@ -1879,6 +1986,81 @@
     },
     "MillTestReportCertificate": {
       "@id": "https://w3id.org/traceability#MillTestReportCertificate",
+      "@context": {}
+    },
+    "MultiModalBillOfLading": {
+      "@id": "https://w3id.org/traceability#MultiModalBillOfLading",
+      "@context": {
+        "billOfLadingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number"
+        },
+        "bookingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "shippersReferences": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned"
+        },
+        "shipper": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
+        },
+        "consignee": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        },
+        "notifyParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
+        },
+        "carrier": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty"
+        },
+        "preCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#preCarriageTransportMovement"
+        },
+        "mainCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#mainCarriageTransportMovement"
+        },
+        "onCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#onCarriageTransportMovement"
+        },
+        "placeOfReceipt": {
+          "@id": "https://schema.org/Place"
+        },
+        "placeOfDelivery": {
+          "@id": "https://schema.org/Place"
+        },
+        "portOfLoading": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transshipmentLocation"
+        },
+        "portOfDischarge": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unloadingLocation"
+        },
+        "totalNumberOfPackages": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "transportEquipmentQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity"
+        },
+        "includedConsignmentItems": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
+        },
+        "utilizedTransportEquipment": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment"
+        },
+        "freightAndCharges": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge"
+        },
+        "declaredValue": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount"
+        },
+        "shippedOnBoardDate": {
+          "@id": "https://schema.org/Date"
+        },
+        "termsAndConditions": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#termsAndConditionsDescription"
+        }
+      }
+    },
+    "MultiModalBillOfLadingCertificate": {
+      "@id": "https://w3id.org/traceability#MultiModalBillOfLadingCertificate",
       "@context": {}
     },
     "NaturalGasProduct": {
@@ -2430,14 +2612,10 @@
         "invoice": {
           "@id": "https://w3id.org/traceability#Invoice"
         },
-        "purchaseOrder": {
+        "purchaseOrderNo": {
           "@id": "https://schema.org/identifier"
         }
       }
-    },
-    "PurchaseOrder": {
-      "@id": "https://w3id.org/traceability#PurchaseOrder",
-      "@context": {}
     },
     "PurchaseOrderCertificate": {
       "@id": "https://w3id.org/traceability#PurchaseOrderCertificate",
@@ -2551,6 +2729,76 @@
         },
         "tareWeight": {
           "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/sealType"
+        }
+      }
+    },
+    "ServiceCharge": {
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ServiceCharge",
+      "@context": {
+        "calculationBasis": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#calculationBasis"
+        },
+        "appliedAmount": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#appliedAmount"
+        }
+      }
+    },
+    "ShippingInstructions": {
+      "@id": "https://w3id.org/traceability#ShippingInstructions",
+      "@context": {
+        "billOfLadingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number"
+        },
+        "bookingNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
+        },
+        "shippersReferences": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned"
+        },
+        "shipper": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty"
+        },
+        "consignee": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty"
+        },
+        "notifyParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
+        },
+        "preCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#preCarriageTransportMovement"
+        },
+        "mainCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#mainCarriageTransportMovement"
+        },
+        "onCarriageTransportMovement": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#onCarriageTransportMovement"
+        },
+        "placeOfReceipt": {
+          "@id": "https://schema.org/Place"
+        },
+        "placeOfDelivery": {
+          "@id": "https://schema.org/Place"
+        },
+        "portOfLoading": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transshipmentLocation"
+        },
+        "portOfDischarge": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unloadingLocation"
+        },
+        "totalNumberOfPackages": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "transportEquipmentQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity"
+        },
+        "includedConsignmentItems": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem"
+        },
+        "utilizedTransportEquipment": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment"
+        },
+        "declaredValue": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount"
         }
       }
     },
