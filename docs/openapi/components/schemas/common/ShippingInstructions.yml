@@ -1,0 +1,312 @@
+$linkedData:
+  term: ShippingInstructions
+  '@id': https://w3id.org/traceability#ShippingInstructions
+title: ShippingInstructions
+description: A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - ShippingInstructions
+  billOfLadingNumber:
+    title: Bill Of Lading Number
+    description: >-
+      A unique number allocated by the shipping line to the transport document
+      and the main number used for the tracking of the status of the shipment.
+    type: string
+    $linkedData:
+      term: billOfLadingNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
+  bookingNumber:
+    title: Booking Number
+    description:  A unique identifier assigned by the carrier to the consignment, such as a booking reference number when cargo space is reserved prior to loading.
+    type: array
+    items: 
+      type: string
+    $linkedData:
+      term: bookingNumber
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId
+  shippersReferences:
+    title: Shipper's References
+    description: A number that identifies the SID (shipper's identification) number for a shipment.
+    type: array
+    items: 
+      type: string
+    $linkedData:
+      term: shippersReferences
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#SID_(Shipper's_identifying_number_for_shipment)
+  freightForwardersReferences:
+    title: Freight Forwarder's References
+    description: Reference number assigned by the freight forwarder to identify a particular consignment.
+    type: array
+    items: 
+      type: string
+    $linkedData:
+      term: shippersReferences
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned
+  shipper: 
+    title: Shipper
+    description: A consignor party for the consignment.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: shipper
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
+  consignee:
+    title: Consignee
+    description: A consignee party for the consignment.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: consignee
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+  forwardingAgent: 
+    title: Forwarding Agent
+    description: The freight forwarder party for this supply chain consignment.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: notifyParty
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty
+  notifyParty:
+    title: Notify Party
+    description: The freight forwarder party for this supply chain consignment.
+    type: array 
+    items: 
+      $ref: ./Entity.yml
+    $linkedData:
+      term: notifyParty
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
+  preCarriageTransportMovement:
+    title: Pre-carriage Transport Movement
+    description: A pre-carriage logistics transport movement for the consignment.
+    $ref: ./Transport.yml
+    $linkedData:
+      term: preCarriageTransportMovement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#preCarriageTransportMovement
+  mainCarriageTransportMovement:
+    title: Main Carriage Transport Movement
+    description: A main carriage logistics transport movement for this supply chain consignment.
+    $ref: ./Transport.yml
+    $linkedData:
+      term: mainCarriageTransportMovement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#mainCarriageTransportMovement
+  onCarriageTransportMovement:
+    title: On-carriage Transport Movement
+    description: An on-carriage logistics transport movement for this supply chain consignment.
+    $ref: ./Transport.yml
+    $linkedData:
+      term: onCarriageTransportMovement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#onCarriageTransportMovement
+  placeOfReceipt:
+    title: Place of Receipt
+    $ref: ./Place.yml
+    $linkedData:
+      term: placeOfReceipt
+      '@id': https://schema.org/Place
+  portOfLoading:
+    title: Port of Loading
+    description: The logistics location where the supply chain consignment is loaded.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfLoading
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#loadingLocation
+  transshipmentLocation:
+    title: Transshipment Location
+    description: A transshipment location for this supply chain consignment.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfLoading
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transshipmentLocation
+  placeOfDelivery:
+    title: Place of Delivery
+    $ref: ./Place.yml
+    $linkedData:
+      term: placeOfDelivery
+      '@id': https://schema.org/Place
+  portOfDischarge:
+    title: Port of Discharge
+    description: The logistics location where the supply chain consignment is unloaded.
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfDischarge
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unloadingLocation
+  totalNumberOfPackages: 
+    title: Total Number of Packages
+    description: A number of packages.
+    type: number
+    $linkedData:
+      term: totalNumberOfPackages
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  transportEquipmentQuantity: 
+    title: Transport Equipment Quantity
+    description: A number of pieces of transport equipment for the consignment or transport movement.
+    type: number
+    $linkedData:
+      term: transportEquipmentQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity
+  includedConsignmentItems:
+    title: Included Consignment Items
+    description: A consignment item included in the consignment.
+    type: array
+    items: 
+      $ref: ./ConsignmentItem.yml
+    $linkedData:
+      term: includedConsignmentItems
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem
+  utilizedTransportEquipment:
+    title: Utilized Transport Equipment
+    description: A piece of transport equipment utilized for the consignment or trade delivery.
+    type: array
+    items: 
+      $ref: ./TransportEquipment.yml
+    $linkedData:
+      term: utilizedTransportEquipment
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment
+  declaredValue:
+    title: Declared Value
+    description: The monetary value of the consignment or consignment item as declared by the shipper or his agent for the purpose of varying the carrier's level of liability from that provided in the contract of carriage, in case of loss or damage to goods or delayed delivery.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: declaredValue
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount
+additionalProperties: false
+example: |-
+  {
+    "type": "ShippingInstructions",
+    "billOfLadingNumber": "EX600822199A",
+    "bookingNumber": [
+      "EX600822199"
+    ],
+    "shipper": {
+      "type": "Organization",
+      "name": "Espresso Italiano Co.",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Via Vico Ferrovia 5",
+        "addressLocality": "Goro",
+        "addressRegion": "Ferrara",
+        "postalCode": "44020",
+        "addressCountry": "IT"
+      },
+      "email": "sales@espresso-italiano.example.com",
+      "phoneNumber": "+39 0351 9067195"
+    },
+    "consignee": {
+      "type": "Organization",
+      "name": "Prosumer Coffee Supplies, Ltd.",
+      "description": "Coffee Machine Imports",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "3934 Spinnaker Lane",
+        "addressLocality": "Joliet",
+        "addressRegion": "Illinois",
+        "postalCode": "60432",
+        "addressCountry": "US"
+      }
+    },
+    "notifyParty": [
+      {
+        "type": "Organization",
+        "name": "Prosumer Coffee Supplies, Ltd.",
+        "description": "Coffee Machine Imports",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "3934 Spinnaker Lane",
+          "addressLocality": "Joliet",
+          "addressRegion": "Illinois",
+          "postalCode": "60432",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "carrier": {
+      "type": "Organization",
+      "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
+      "name": "MULTI CONTAINER LINE",
+      "address": {
+        "type": "PostalAddress",
+        "organizationName": "MCL Multi Container Line LTD.",
+        "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+        "addressLocality": "Kowloon Bay",
+        "addressRegion": "Hong Kong",
+        "addressCountry": "Hong Kong SAR"
+      }
+    },
+    "mainCarriageTransportMovement": {
+      "type": "Transport",
+      "vesselNumber": "MS Seven Seas",
+      "voyageNumber": "Atl-W0425"
+    },
+    "portOfLoading": {
+      "type": "Place",
+      "unLocode": "ITMIL"
+    },
+    "portOfDischarge": {
+      "type": "Place",
+      "unLocode": "USLGB"
+    },
+    "totalNumberOfPackages": 2200,
+    "transportEquipmentQuantity": 2,
+    "utilizedTransportEquipment": [
+      {
+        "type": "TransportEquipment",
+        "equipmentReference": "APZU4812090",
+        "ISOEquipmentCode": "40GP",
+        "seals": [
+          {
+            "type": "Seal",
+            "sealNumber": "PTW-002290109692"
+          }
+        ]
+      },
+      {
+        "type": "TransportEquipment",
+        "equipmentReference": "APZU5985096",
+        "ISOEquipmentCode": "40GP",
+        "seals": [
+          {
+            "type": "Seal",
+            "sealNumber": "PTW-002255398220"
+          }
+        ]
+      }
+    ],
+    "includedConsignmentItems": [
+      {
+        "marksAndNumbers": "Espresso Italiano",
+        "commodity": {
+          "type": "Commodity",
+          "commodityCode": "851671",
+          "commodityCodeType": "HS"
+        },
+        "packageQuantity": 2200,
+        "netWeight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "14600"
+        },
+        "grossWeight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "15960"
+        },
+        "grossVolume": {
+          "type": "QuantitativeValue",
+          "value": "856",
+          "unitCode": "cmb"
+        }
+      }
+    ],
+    "declaredValue": {
+      "type": "PriceSpecification",
+      "price": 240000,
+      "priceCurrency": "USD"
+    },
+    "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
+  }
