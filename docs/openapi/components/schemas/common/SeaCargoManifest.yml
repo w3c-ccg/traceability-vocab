@@ -1,0 +1,446 @@
+$linkedData:
+  term: SeaCargoManifest
+  '@id': https://w3id.org/traceability#SeaCargoManifest
+title: SeaCargoManifest
+description: The Sea Cargo Manifest is issued by the ocean carrier listing out all cargo that is on board the vessel. 
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - SeaCargoManifest
+  vesselName: 
+    title: Vessel Name
+    description: Identifier of the means of transport such as IMO vessel number or truck license place. 
+    type: string
+    $linkedData:
+      term: transportMeansId
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMeans
+  vesselNumber:
+    title: Vessel Number
+    description: The unique reference for a registered vessel such as IMO number.
+    type: string
+    $linkedData:
+      term: vesselNumber
+      '@id': '@id': https://schema.org/identifier
+  voyageNumber:
+    title: Voyage Number
+    description: The vessel operator-specific identifier of the Voyage.
+    type: string
+    $linkedData:
+      term: voyageNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMovement
+  registrationCountry:
+    title: Registration Country
+    description: The country of registration of this logistics means of transport.
+    type: string
+    $linkedData:
+      term: registrationCountry
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#registrationCountry
+  plannedDepartureDateTime:
+    title: Planned Departure Date and Time
+    description: The planned date and time of departure.
+    type: string
+    $linkedData:
+      term: plannedDepartureDateTime
+      '@id': https://schema.org/Date
+  plannedArrivalDateTime:
+    title: Planned Arrival Date and Time
+    description: The planned date and time of arrival.
+    type: string
+    $linkedData:
+      term: plannedArrivalDateTime
+      '@id': https://schema.org/DateTime
+  portOfDeparture:
+    title: Port of Departure
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfDeparture
+      '@id': https://schema.org/Place
+  portOfArrival:
+    title: Port of Arrival
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfArrival
+      '@id': https://schema.org/Place
+  netTonnage:
+    title: Net Tonnage
+    description: Vessel net tonnage.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: netTonnage
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure
+  grossTonnage:
+    title: Gross Tonnage
+    description: Vessel gross tonnage.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: grossTonnage
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossWeightMeasure
+  totalNumberOfTransportDocuments: 
+    title: Total Number of Transport Documents
+    description: A number of transport documents (master bills of lading, house bills of lading and sea waybill) listed on this manifest.
+    type: number
+    $linkedData:
+      term: totalNumberOfTransportDocuments
+      '@id': https://schema.org/Number
+  transportEquipmentQuantity: 
+    title: Transport Equipment Quantity
+    description: A number of pieces of transport equipment for the consignment or transport movement.
+    type: number
+    $linkedData:
+      term: transportEquipmentQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity
+  totalNumberOfPackages: 
+    title: Total Number of Packages
+    description: A number of packages.
+    type: number
+    $linkedData:
+      term: totalNumberOfPackages
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+  transportDocumentInformation: 
+    title: Transport Document Information
+    description: A list of transport documents (master bills of lading, house bills of lading and sea waybill) detailing the manifested cargo. 
+    type: array
+    items: 
+      $ref: ./TransportDocument.yml
+    $linkedData:
+      term: transportDocumentInformation
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportContractDocument
+required:
+  - billOfLadingNumber
+additionalProperties: false
+example: |-
+  {
+    "type": "SeaCargoManifest",
+    "vesselName": "MS Seventh Sea",
+    "vesselNumber": "IMO1208812",
+    "voyageNumber": "W-0239",
+    "registrationCountry": "ES",
+    "plannedDepartureDateTime": "2022-03-11T08:10:00Z",
+    "plannedArrivalDateTime": "2022-03-13T06:30:00Z",
+    "portOfDeparture": {
+      "type": "Place",
+      "unlocode": "DEBRV"
+    },
+    "portOfArrival": {
+      "type": "Place",
+      "unlocode": "DKAAR"
+    },
+    "netTonnage": {
+      "type": "QuantitativeValue",
+      "value": "120800",
+      "unitCode": "T"
+    },
+    "grossTonnage": {
+      "type": "QuantitativeValue",
+      "value": "252100",
+      "unitCode": "T"
+    },
+    "totalNumberOfTransportDocuments": 342,
+    "transportEquipmentQuantity": 805,
+    "totalNumberOfPackages": 13044,
+    "transportDocumentInformation": [
+      {
+        "billOfLadingNumber": "EX600822199A",
+        "bookingNumber": [
+          "EX600822199"
+        ],
+        "shipper": {
+          "type": "Organization",
+          "name": "Espresso Italiano Co.",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "Via Vico Ferrovia 5",
+            "addressLocality": "Goro",
+            "addressRegion": "Ferrara",
+            "postalCode": "44020",
+            "addressCountry": "IT"
+          },
+          "email": "sales@espresso-italiano.example.com",
+          "phoneNumber": "+39 0351 9067195"
+        },
+        "consignee": {
+          "type": "Organization",
+          "name": "Prosumer Coffee Supplies, Ltd.",
+          "description": "Coffee Machine Imports",
+          "address": {
+            "type": "PostalAddress",
+            "streetAddress": "3934 Spinnaker Lane",
+            "addressLocality": "Joliet",
+            "addressRegion": "Illinois",
+            "postalCode": "60432",
+            "addressCountry": "US"
+          }
+        },
+        "notifyParty": [
+          {
+            "type": "Organization",
+            "name": "Prosumer Coffee Supplies, Ltd.",
+            "description": "Coffee Machine Imports",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "3934 Spinnaker Lane",
+              "addressLocality": "Joliet",
+              "addressRegion": "Illinois",
+              "postalCode": "60432",
+              "addressCountry": "US"
+            }
+          }
+        ],
+        "carrier": {
+          "type": "Organization",
+          "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
+          "name": "MULTI CONTAINER LINE",
+          "address": {
+            "type": "PostalAddress",
+            "organizationName": "MCL Multi Container Line LTD.",
+            "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+            "addressLocality": "Kowloon Bay",
+            "addressRegion": "Hong Kong",
+            "addressCountry": "Hong Kong SAR"
+          }
+        },
+        "mainCarriageTransportMovement": {
+          "type": "Transport",
+          "vesselNumber": "MS Seven Seas",
+          "voyageNumber": "Atl-W0425"
+        },
+        "portOfLoading": {
+          "type": "Place",
+          "unLocode": "ITMIL"
+        },
+        "portOfDischarge": {
+          "type": "Place",
+          "unLocode": "USLGB"
+        },
+        "totalNumberOfPackages": 2200,
+        "transportEquipmentQuantity": 2,
+        "utilizedTransportEquipment": [
+          {
+            "type": "TransportEquipment",
+            "equipmentReference": "APZU4812090",
+            "ISOEquipmentCode": "40GP",
+            "seals": [
+              {
+                "type": "Seal",
+                "sealNumber": "PTW-002290109692"
+              }
+            ]
+          },
+          {
+            "type": "TransportEquipment",
+            "equipmentReference": "APZU5985096",
+            "ISOEquipmentCode": "40GP",
+            "seals": [
+              {
+                "type": "Seal",
+                "sealNumber": "PTW-002255398220"
+              }
+            ]
+          }
+        ],
+        "includedConsignmentItems": [
+          {
+            "marksAndNumbers": "Espresso Italiano",
+            "commodity": {
+              "type": "Commodity",
+              "commodityCode": "851671",
+              "commodityCodeType": "HS"
+            },
+            "packageQuantity": 2200,
+            "netWeight": {
+              "type": "QuantitativeValue",
+              "unitCode": "kg",
+              "value": "14600"
+            },
+            "grossWeight": {
+              "type": "QuantitativeValue",
+              "unitCode": "kg",
+              "value": "15960"
+            },
+            "grossVolume": {
+              "type": "QuantitativeValue",
+              "value": "856",
+              "unitCode": "cmb"
+            }
+          }
+        ],
+        "freightAndCharges": {
+          "type": "ServiceCharge",
+          "chargeCode": "basicFreight",
+          "paymentTerm": "collect",
+          "chargeText": "Negotiated ocean freight",
+          "rate": {
+            "type": "PriceSpecification",
+            "price": 2250,
+            "priceCurrency": "USD"
+          },
+          "calculationBasis": "Per container",
+          "appliedAmount": {
+            "type": "PriceSpecification",
+            "price": 4500,
+            "priceCurrency": "USD"
+          }
+        },
+        "declaredValue": {
+          "type": "PriceSpecification",
+          "price": 240000,
+          "priceCurrency": "USD"
+        },
+        "shippedOnBoardDate": "2022-02-02T09:30:00Z",
+        "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
+      },
+      {
+        "type": "DCSATransportDocument",
+        "transportDocumentReference": "XMANHR2102045",
+        "shippingInstruction": {
+          "type": "DCSAShippingInstruction",
+          "carrierBookingReference": "XMANHR2102045",
+          "transportDocumentType": "MBL",
+          "shipper": {
+            "type": "Organization",
+            "name": "Xxinau Manufacturing Co. Ltd.",
+            "description": "Advanced Production - Delivered",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "Xin Fei Da Dao 139",
+              "addressLocality": "Xindao",
+              "addressRegion": "Fujian Province",
+              "postalCode": "361100",
+              "addressCountry": "CN"
+            },
+            "email": "xxinau-sales@example.org",
+            "phoneNumber": "+86-555-865-8495"
+          },
+          "consignee": {
+            "type": "Organization",
+            "name": "Better Life Tech",
+            "description": "Better Lives Products",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "Rue de la Poste 272",
+              "addressLocality": "Ramegnies-Chin",
+              "addressRegion": "Hainaut",
+              "postalCode": "7520",
+              "addressCountry": "BE"
+            },
+            "email": "procurement@lifetech-example.org",
+            "phoneNumber": "+32-5555-8495"
+          },
+          "firstNotify": {
+            "type": "Organization",
+            "name": "Better Life Tech",
+            "description": "Better Lives Products",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "Rue de la Poste 272",
+              "addressLocality": "Ramegnies-Chin",
+              "addressRegion": "Hainaut",
+              "postalCode": "7520",
+              "addressCountry": "BE"
+            },
+            "email": "procurement@lifetech-example.org",
+            "phoneNumber": "+32-5555-8495"
+          },
+          "consigneesFreightForwarder": {
+            "type": "Organization",
+            "name": "Intertrans NV [378]",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "Belcrownlaan 25 - 3rd floor",
+              "addressLocality": "Antwerpen",
+              "postalCode": "BE-2100AN",
+              "addressCountry": "BE"
+            },
+            "phoneNumber": "+32-3-201.98.10"
+          },
+          "cargoItems": [
+            {
+              "type": "CargoItem",
+              "cargoLineItems": [
+                {
+                  "type": "CargoLineItem",
+                  "descriptionOfGoods": "Rollators",
+                  "shippingMarks": "ByAcre Age is the new Black"
+                },
+                {
+                  "type": "CargoLineItem",
+                  "descriptionOfGoods": "Rollators Organizer Bags",
+                  "shippingMarks": "ByAcre Age is the new Black"
+                },
+                {
+                  "type": "CargoLineItem",
+                  "descriptionOfGoods": "Rollators Backrest",
+                  "shippingMarks": "ByAcre Age is the new Black"
+                },
+                {
+                  "type": "CargoLineItem",
+                  "descriptionOfGoods": "Rollators Cane Holder Bracket",
+                  "shippingMarks": "ByAcre Age is the new Black"
+                },
+                {
+                  "type": "CargoLineItem",
+                  "descriptionOfGoods": "Rollators Cardboard Box",
+                  "shippingMarks": "ByAcre Age is the new Black"
+                }
+              ],
+              "weight": 1671.9,
+              "weightUnit": "KGM",
+              "volume": 27.23,
+              "volumeUnit": "CBM",
+              "numberOfPackages": 245
+            }
+          ],
+          "utilizedTransportEquipments": {
+            "type": "TransportEquipment",
+            "id": "urn:epc:id:bic:YMLU3380910",
+            "equipmentReference": "YMLU3380910",
+            "ISOEquipmentCode": "20G1",
+            "seals": [
+              {
+                "type": "Seal",
+                "sealNumber": "YMAI715692"
+              }
+            ]
+          }
+        },
+        "transports": {
+          "type": "Transport",
+          "loadLocation": {
+            "type": "Place",
+            "address": {
+              "type": "PostalAddress",
+              "addressRegion": "Xiamen",
+              "addressCountry": "CN"
+            }
+          },
+          "dischargeLocation": {
+            "type": "Place",
+            "address": {
+              "type": "PostalAddress",
+              "addressRegion": "Antwerp",
+              "addressCountry": "BE"
+            }
+          },
+          "modeOfTransport": "Vessel",
+          "carrier": {
+            "type": "Organization",
+            "name": "MULTI CONTAINER LINE",
+            "address": {
+              "type": "PostalAddress",
+              "organizationName": "MCL Multi Container Line LTD.",
+              "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+              "addressLocality": "Kowloon Bay",
+              "addressRegion": "Hong Kong",
+              "addressCountry": "Hong Kong SAR"
+            }
+          },
+          "vesselNumber": "HMM Algeciras",
+          "voyageNumber": "V.0004W"
+        }
+      }
+    ]
+  }
