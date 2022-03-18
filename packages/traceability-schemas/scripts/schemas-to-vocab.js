@@ -4,9 +4,13 @@ const fs = require('fs');
 const path = require('path');
 
 const { schemas } = require('../services/schemas');
+const descriptions = require('./descriptions.json');
 
 const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
-const credentialPath = path.resolve(__dirname, '../../../docs/sections/credentials.html');
+const credentialPath = path.resolve(
+  __dirname,
+  '../../../docs/sections/credentials.html'
+);
 
 const baseUrl = 'https://w3id.org/traceability';
 
@@ -21,14 +25,15 @@ const buildLinkedDataTable = (schema) => {
     <td><a href="${$linkedData['@id']}">${$linkedData['@id']}</a></td>
   </tr>
   
-  ${$id
+  ${
+    $id
       ? `
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
   <td><a href="${baseUrl + $id}">${baseUrl + $id}</a></td>
 </tr>`
       : ''
-    }
+  }
 
   </tbody>
   </table>
@@ -36,38 +41,51 @@ const buildLinkedDataTable = (schema) => {
   return section;
 };
 
-const buildProperty = (property) => {
-  const section = `
-  <section>
-  <h2>${property.$linkedData.term}</h2>
-  <p>${property.description}</p>
-  ${buildLinkedDataTable(property)}
-  </section>
+const buildFigure = (term) => {
+  if (!descriptions[term]) {
+    return '';
+  }
+
+  console.log(term);
+  const { src, alt, caption } = descriptions[term];
+  return `
+    <figure>
+      <img src="${src}" alt="${alt}" style="width:50%"/>
+      <figcaption>
+        <span class="fig-title">${caption}</span>
+      </figcaption>
+    </figure>
   `;
-  return section;
 };
+
+const buildProperty = (property) => `
+    <section>
+      <h3>${property.$linkedData.term}</h3>
+      <p>${property.description}</p>
+      ${buildLinkedDataTable(property)}
+    </section>
+  `;
 
 const buildClass = (schema) => {
   let table = '';
-  const props = '';
+
   try {
-    table = `
-  ${buildLinkedDataTable(schema)}
-  `;
+    table = `${buildLinkedDataTable(schema)}`;
   } catch (e) {
     console.error('error building table: ', e);
   }
 
+  const figure = buildFigure(schema.$linkedData.term);
   const section = `
-  <section>
-  <h3 id="${schema.$linkedData.term}">${schema.title}</h3>
-  <p>${schema.description}</p>
-  ${table}
-<pre class="example">
-${schema.example}
-</pre>
- 
-  </section>
+    <section>
+      <h3 id="${schema.$linkedData.term}">${schema.title}</h3>
+      ${figure}
+      <p>${schema.description}</p>
+      ${table}
+      <pre class="example">
+        ${schema.example}
+      </pre>
+    </section>
   `;
   return section;
 };
@@ -79,15 +97,13 @@ const buildVocabSection = (schema) => {
   return buildProperty(schema);
 };
 
-
-
-const separateSchemas = (schemas) => {
+const separateSchemas = (schemaList) => {
   // Define Arrays to sort the schemas into
   const credentialSchemas = [];
   const vocabSchemas = [];
 
   // Separates Schemas into Credentials and Vocabulary
-  schemas.forEach((schema) => {
+  schemaList.forEach((schema) => {
     const { example } = schema;
     const obj = JSON.parse(example);
     const type = Array.isArray(obj.type) ? obj.type : [obj.type];
@@ -104,7 +120,7 @@ const separateSchemas = (schemas) => {
 
   // Return the html text for each section
   return { credentials, vocab };
-}
+};
 
 (() => {
   console.log('🧪 build vocab from schemas');
