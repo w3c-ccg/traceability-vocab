@@ -16,28 +16,33 @@ const baseUrl = 'https://w3id.org/traceability';
 
 const buildLinkedDataTable = (schema) => {
   const { $id, $linkedData } = schema;
+  const row = $id ? `
+    <tr>
+      <td>
+        <a href="https://swagger.io/specification/#schema-object">schema</a>
+      </td>
+      <td>
+        <a href="${baseUrl + $id}">${baseUrl + $id}</a>
+      </td>
+    </tr>`
+  : '';
+
   const section = `
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="${$linkedData['@id']}">${$linkedData['@id']}</a></td>
-  </tr>
-  
-  ${
-    $id
-      ? `
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="${baseUrl + $id}">${baseUrl + $id}</a></td>
-</tr>`
-      : ''
-  }
-
-  </tbody>
-  </table>
+    <table class="simple">
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a>
+          </td>
+          <td>
+            <a href="${$linkedData['@id']}">${$linkedData['@id']}</a>
+          </td>
+        </tr>
+        ${row}
+      </tbody>
+    </table>
   `;
+
   return section;
 };
 
@@ -46,7 +51,6 @@ const buildFigure = (term) => {
     return '';
   }
 
-  console.log(term);
   const { src, alt, caption } = descriptions[term];
   return `
     <figure>
