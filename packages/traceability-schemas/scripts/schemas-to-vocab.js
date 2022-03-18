@@ -6,7 +6,7 @@ const path = require('path');
 const { schemas } = require('../services/schemas');
 
 const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
-const vcPath = path.resolve(__dirname, '../../../docs/sections/vcs.html');
+const credentialPath = path.resolve(__dirname, '../../../docs/sections/credentials.html');
 
 const baseUrl = 'https://w3id.org/traceability';
 
@@ -21,15 +21,14 @@ const buildLinkedDataTable = (schema) => {
     <td><a href="${$linkedData['@id']}">${$linkedData['@id']}</a></td>
   </tr>
   
-  ${
-    $id
+  ${$id
       ? `
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
   <td><a href="${baseUrl + $id}">${baseUrl + $id}</a></td>
 </tr>`
       : ''
-  }
+    }
 
   </tbody>
   </table>
@@ -80,28 +79,38 @@ const buildVocabSection = (schema) => {
   return buildProperty(schema);
 };
 
-(async () => {
+
+
+const separateSchemas = (schemas) => {
+  // Define Arrays to sort the schemas into
+  const credentialSchemas = [];
+  const vocabSchemas = [];
+
+  // Separates Schemas into Credentials and Vocabulary
+  schemas.forEach((schema) => {
+    const { example } = schema;
+    const obj = JSON.parse(example);
+    const type = Array.isArray(obj.type) ? obj.type : [obj.type];
+    if (type.indexOf('VerifiableCredential') === -1) {
+      vocabSchemas.push(schema);
+    } else {
+      credentialSchemas.push(schema);
+    }
+  });
+
+  // Generate the text for each respective section
+  const credentials = credentialSchemas.map(buildVocabSection).join('\n');
+  const vocab = vocabSchemas.map(buildVocabSection).join('\n');
+
+  // Return the html text for each section
+  return { credentials, vocab };
+}
+
+(() => {
   console.log('🧪 build vocab from schemas');
-  const vocab = schemas
-    .filter((schema) => {
-      const { example } = schema;
-      const obj = JSON.parse(example);
-      const type = Array.isArray(obj.type) ? obj.type : [obj.type];
-      return type.indexOf('VerifiableCredential') === -1;
-    })
-    .map(buildVocabSection)
-    .join('\n');
-  const vcs = schemas
-    .filter((schema) => {
-      const { example } = schema;
-      const obj = JSON.parse(example);
-      const type = Array.isArray(obj.type) ? obj.type : [obj.type];
-      return type.indexOf('VerifiableCredential') !== -1;
-    })
-    .map(buildVocabSection)
-    .join('\n');
-  console.log(vocabPath.length);
-  console.log(vcPath.length);
+  const { credentials, vocab } = separateSchemas(schemas);
+
+  // Write the text of the sections into a file to be included
   fs.writeFileSync(vocabPath, vocab);
-  fs.writeFileSync(vcPath, vcs);
+  fs.writeFileSync(credentialPath, credentials);
 })();
