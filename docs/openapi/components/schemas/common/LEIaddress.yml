@@ -14,9 +14,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - LEIaddress
       - type: string
-        enum:
-          - LEIaddress
+        const:
+          - LEIaddress 
   language:
     title: Language
     type: string

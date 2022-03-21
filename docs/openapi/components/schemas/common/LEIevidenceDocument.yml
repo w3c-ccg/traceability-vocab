@@ -13,9 +13,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - LEIevidenceDocument
       - type: string
-        enum:
-          - LEIevidenceDocument
+        const:
+          - LEIevidenceDocument 
   lei:
     title: Lei
     type: string

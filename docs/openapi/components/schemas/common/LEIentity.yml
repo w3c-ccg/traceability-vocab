@@ -24,9 +24,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - LEIentity
       - type: string
-        enum:
-          - LEIentity
+        const:
+          - LEIentity 
   legalName:
     title: Legalname
     type: string

@@ -22,9 +22,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - IssuerAgent
       - type: string
-        enum:
-          - IssuerAgent
+        const:
+          - IssuerAgent 
   issuerAgentOrg:
     title: IssuerAgentOrg
     $ref: ./Organization.yml

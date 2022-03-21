@@ -5,6 +5,16 @@ title: Transport
 description: A transport which can be a leg of a journey.
 type: object
 properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - Transport
+      - type: string
+        const:
+          - Transport
   loadLocation:
     title: Load Location
     $ref: ./Place.yml

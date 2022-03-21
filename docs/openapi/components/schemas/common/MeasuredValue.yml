@@ -8,8 +8,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - MeasuredValue
       - type: string
-        enum:
+        const:
           - MeasuredValue
   value:
     title: Measurement Value

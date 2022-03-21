@@ -12,9 +12,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - LEIauthority
       - type: string
-        enum:
-          - LEIauthority
+        const:
+          - LEIauthority 
   validationAuthorityID:
     title: validationAuthorityID
     type: string
