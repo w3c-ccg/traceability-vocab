@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - AgInspectionReport
       - type: string
-        enum:
-          - AgInspectionReport
+        const:
+          - AgInspectionReport 
   facility:
     title: Facility
     description: Information on the inspection facility.

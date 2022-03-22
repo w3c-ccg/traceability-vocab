@@ -11,9 +11,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - CargoItem
       - type: string
-        enum:
-          - CargoItem
+        const:
+          - CargoItem 
   cargoLineItems:
     title: Cargo Line Item
     description: Identifies the specific details of packages within a cargo item.

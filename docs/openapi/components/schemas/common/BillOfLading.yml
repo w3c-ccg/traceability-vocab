@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - BillOfLading
       - type: string
-        enum:
-          - BillOfLading
+        const:
+          - BillOfLading 
   billOfLadingNumber:
     title: Bill Of Lading Number
     description: This identifier might not be globally unique.

@@ -31,8 +31,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ProductRegistrationEvidenceDocument
       - type: string
-        enum:
+        const:
           - ProductRegistrationEvidenceDocument
   category:
     title: A category for the product item.

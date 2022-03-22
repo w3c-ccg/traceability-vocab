@@ -11,9 +11,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - AgPackage
       - type: string
-        enum:
-          - AgPackage
+        const:
+          - AgPackage 
   packageName:
     title: Package Name
     description: Name of the items within the package.

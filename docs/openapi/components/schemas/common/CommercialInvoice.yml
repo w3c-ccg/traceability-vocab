@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - CommercialInvoice
       - type: string
-        enum:
-          - CommercialInvoice
+        const:
+          - CommercialInvoice 
   identifier:
     title: Property Identifier
     description: Identifiers for a property.

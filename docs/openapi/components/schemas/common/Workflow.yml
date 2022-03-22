@@ -5,6 +5,16 @@ title: Workflow
 description: A workflow instance and definition. 
 type: object
 properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - Workflow
+      - type: string
+        const:
+          - Workflow
   definition: 
     description: Identifier of a particular type of workflow. 
     type: array

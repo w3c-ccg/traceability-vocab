@@ -24,8 +24,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - PGAStatusMessage
       - type: string
-        enum:
+        const:
           - PGAStatusMessage
   recordNo:
     type: string

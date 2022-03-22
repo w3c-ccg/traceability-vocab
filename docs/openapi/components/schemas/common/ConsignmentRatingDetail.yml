@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ConsignmentRatingDetail
       - type: string
-        enum:
-          - ConsignmentRatingDetail
+        const:
+          - ConsignmentRatingDetail 
   numberOfPieces:
     title: Number of Pieces and RCP
     description: The number of pieces for the applicable rating entry. Box 22A.

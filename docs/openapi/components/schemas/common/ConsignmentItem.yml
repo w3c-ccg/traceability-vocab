@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ConsignmentItem
       - type: string
-        enum:
-          - ConsignmentItem
+        const:
+          - ConsignmentItem 
   marksAndNumbers: 
     title: Marks and Numbers
     description: Physical markings or labels on individual packages or transport units for shipping purposes.

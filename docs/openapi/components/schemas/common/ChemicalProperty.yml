@@ -10,9 +10,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ChemicalProperty
       - type: string
-        enum:
-          - ChemicalProperty
+        const:
+          - ChemicalProperty 
   identifier:
     title: Property Identifier
     description: Identifiers for a property.

@@ -8,8 +8,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ServiceCharge
       - type: string
-        enum:
+        const:
           - ServiceCharge
   chargeCode:
     description: The unique identifier for this logistics service charge.

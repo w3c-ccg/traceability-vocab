@@ -14,9 +14,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - Customer
       - type: string
-        enum:
-          - Customer
+        const:
+          - Customer 
   name:
     title: Name of the Customer
     type: string
