@@ -1,0 +1,16 @@
+$linkedData:
+  term: TransportDocument
+  '@id': https://w3id.org/traceability#TransportDocument
+title: Transport Document
+description: A generic type of transport document. 
+anyOf:
+  - $ref: ./MasterBillOfLading.yml
+  - $ref: ./HouseBillOfLading.yml
+  - $ref: ./MultiModalBillOfLading.yml
+  - $ref: ./IATAAirWaybill.yml
+  - $ref: ./DCSATransportDocument.yml
+example: |-
+  {
+    "type": "MasterBillOfLading",
+    "billOfLadingNumber": "NISC98212802"
+  }
