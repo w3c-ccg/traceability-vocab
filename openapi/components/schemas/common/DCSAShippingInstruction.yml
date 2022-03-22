@@ -14,9 +14,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - DCSAShippingInstruction
       - type: string
-        enum:
-          - DCSAShippingInstruction
+        const:
+          - DCSAShippingInstruction 
   shippingInstructionID:
     title: Shipping Instruction ID
     description: >-

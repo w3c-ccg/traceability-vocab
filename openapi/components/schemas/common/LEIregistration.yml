@@ -16,9 +16,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - LEIregistration
       - type: string
-        enum:
-          - LEIregistration
+        const:
+          - LEIregistration 
   initialRegistrationDate:
     title: Initialregistrationdate
     type: string

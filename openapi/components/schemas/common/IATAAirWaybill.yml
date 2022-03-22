@@ -14,9 +14,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - IATAAirWaybill
       - type: string
-        enum:
-          - IATAAirWaybill
+        const:
+          - IATAAirWaybill 
   airWaybillNumber:
     title: Air Waybill Number
     type: string

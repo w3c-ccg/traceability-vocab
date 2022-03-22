@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ImmediateDelivery
       - type: string
-        enum:
-          - ImmediateDelivery
+        const:
+          - ImmediateDelivery 
   portOfEntry:
     title: Port Of Entry
     $ref: ./Place.yml

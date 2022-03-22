@@ -18,9 +18,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - Inbond
       - type: string
-        enum:
-          - Inbond
+        const:
+          - Inbond 
   product:
     title: Product
     description: Product details as outlined in the Product schema

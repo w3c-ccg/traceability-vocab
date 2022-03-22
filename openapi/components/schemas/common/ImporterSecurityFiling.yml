@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ImporterSecurityFiling
       - type: string
-        enum:
-          - ImporterSecurityFiling
+        const:
+          - ImporterSecurityFiling 
   seller: 
     title: Seller
     description: An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
