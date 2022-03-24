@@ -1,0 +1,203 @@
+$linkedData:
+  term: TransformEvent
+  '@id': https://w3id.org/traceability#TransformEvent
+title: Transform Event
+description: A product transformation event, extending the Event schema.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Event
+          - TransformEvent
+  eventType:
+    oneOf:
+      - type: string
+        enum:
+          - Casting
+          - Fabricate
+          - Finishing
+          - Smelt
+          - Split
+  eventId:
+    type: string
+  eventTime:
+    type: string
+  place:
+    title: Place
+    description: Information on where the event took place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  actor:
+    title: Event Actors
+    description: >-
+      List of organizations acted on the event, https://w3id.org/traceability#Organization
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: organization
+      '@id': https://w3id.org/traceability#Organization
+  products:
+    title: Products
+    description: >-
+      List of product details as outlined in the Product schema
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://schema.org/Product
+  newProducts:
+    title: New products created from the transformation event
+    description: Identifiers for the new products.
+    type: array
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  consumedProducts:
+    title: New products created from the transformation event
+    description: Identifiers for the new products.
+    type: array
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+additionalProperties: false
+example: |-
+  {
+    "type":[
+      "Event",
+      "TransformEvent"
+    ],
+    "eventType":"Smelt",
+    "eventId":"30ee76a2-9ff9-4884-8ecf-c85c9f3343f4",
+    "eventTime":"2022-01-14T18:24:31Z",
+    "place":{
+      "geo":{
+        "type":[
+          "GeoCoordinates"
+        ],
+        "latitude":42.8864,
+        "longitude":-78.8784
+      },
+      "type":[
+        "Place"
+      ],
+      "address":{
+        "type":[
+          "PostalAddress"
+        ],
+        "postalCode":"",
+        "addressRegion":"New York",
+        "streetAddress":"",
+        "addressCountry":"USA",
+        "addressLocality":"Buffalo"
+      }
+    },
+    "actor":[
+      {
+        "name":"Fabricator Co.",
+        "type":[
+          "Organization"
+        ]
+      }
+    ],
+    "products":[
+      {
+        "id":"5c93de07-5d94-4357-85cf-aefc9ccbff97",
+        "name":"Carbon and alloy long product",
+        "type":[
+          "Product"
+        ],
+        "weight":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"3",
+          "unitCode":"Tonne"
+        },
+        "description":"Bars/rods, i/nas,hr, in irreg wnd coils of circ cross section, <14mm in dia",
+        "manufacturer":{
+          "name":"Fabricator Co.",
+          "type":[
+            "Organization"
+          ]
+        }
+      },
+      {
+        "id":"9d237753-b377-492a-a8c8-a28fe9f3457b",
+        "name":"Scrap Steel",
+        "type":[
+          "Product"
+        ],
+        "weight":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"10",
+          "unitCode":"Tonne"
+        },
+        "description":"Consumed product",
+        "manufacturer":{
+          "name":"Steel Co.",
+          "type":[
+            "Organization"
+          ]
+        }
+      },
+      {
+        "id":"adf9a0fe-a117-4728-a323-b941b5bcf011",
+        "name":"Iron Ore",
+        "type":[
+          "Product"
+        ],
+        "weight":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"12",
+          "unitCode":"Tonne"
+        },
+        "description":"Consumed product",
+        "manufacturer":{
+          "name":"Steel Co.",
+          "type":[
+            "Organization"
+          ]
+        }
+      },
+      {
+        "id":"c72a3cb7-3d2f-4d42-b398-2deb6e6ace66",
+        "name":"Scrap Steel",
+        "type":[
+          "Product"
+        ],
+        "weight":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"10",
+          "unitCode":"Tonne"
+        },
+        "description":"Consumed product",
+        "manufacturer":{
+          "name":"Steel Co.",
+          "type":[
+            "Organization"
+          ]
+        }
+      }
+    ],
+    "newProducts":[
+      "https://api-staging.fabricator.metaltrail.com/v1/credentials/verify/5c93de07-5d94-4357-85cf-aefc9ccbff97"
+    ],
+    "consumedProducts":[
+      "https://api-staging.fabricator.metaltrail.com/v1/credentials/verify/9d237753-b377-492a-a8c8-a28fe9f3457b",
+      "https://api-staging.fabricator.metaltrail.com/v1/credentials/verify/adf9a0fe-a117-4728-a323-b941b5bcf011",
+      "https://api-staging.fabricator.metaltrail.com/v1/credentials/verify/c72a3cb7-3d2f-4d42-b398-2deb6e6ace66"
+    ]
+  }
