@@ -1,8 +1,19 @@
 $linkedData:
   term: PurchaseOrderCertificate
   '@id': https://w3id.org/traceability#PurchaseOrderCertificate
-title: Commercial Invoice Certificate
-description: Certifications made about a purchase order
+title: Purchase Order Certificate
+description: >-
+  A purchaser's written offer to a supplier formally stating all terms and
+  conditions of a proposed transaction. Sometimes, in a certain number of international
+  trade operations, international sale contracts are not made. In these cases, it is usual to
+  confirm the operation with an international purchase order. This practise is usual for
+  sales of a small amount of money and for repetitive sales to the same client concerning
+  products which are not very complex or for products that do not have a high added
+  value. Usually it is the exporter who issues this document. Nevertheless, sometimes,
+  companies with international purchase experience (such trading companies) have
+  their own international purchase order template where they establish the purchase
+  conditions to their suppliers.
+  (source: Olegario Llamazares: Dictionary Of International Trade, Key definitions of 2000 trade terms and acronyms).
 type: object
 properties:
   '@context':
@@ -70,13 +81,150 @@ example: |-
       "faxNumber": "555-766-1744"
     },
     "credentialSubject": {
-      "type": "PurchaseOrder"
+      "type": [
+        "PurchaseOrder"
+      ],
+      "portOfEntry": {
+        "type": "Place",
+        "unLocode": "USLGB"
+      },
+      "purchaseOrderNo": "fe71665a-e7b3-49ba-ac89-82fc2bf1e877",
+      "destinationCountry": "MEX",
+      "orderDate": "2021-02-21",
+      "seller": {
+        "type": [
+          "Organization"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+          "streetAddress": "1651, Shimonakano, Yoshida",
+          "addressLocality": "Tsubame-shi",
+          "addressRegion": "Niigata-ken",
+          "postalCode": "959-0215",
+          "addressCountry": "Japan"
+        }
+      },
+      "buyer": {
+        "type": [
+          "Organization"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "Generic Motors of America",
+          "streetAddress": "12 Generic Motors Dr",
+          "addressLocality": "Detroit",
+          "addressRegion": "Michigain",
+          "postalCode": "48232-5170",
+          "addressCountry": "USA"
+        }
+      },
+      "consignee": {
+        "type": [
+          "Organization"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "Generic Motors of America",
+          "streetAddress": "12 Generic Motors Dr",
+          "addressLocality": "Detroit",
+          "addressRegion": "Michigain",
+          "postalCode": "48232-5170",
+          "addressCountry": "USA"
+        }
+      },
+      "itemsShipped": [
+        {
+          "type": "TradeLineItem",
+          "product": {
+            "manufacturer": {
+              "type": "Organization",
+              "address": {
+                "type": "PostalAddress",
+                "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+                "streetAddress": "1651, Shimonakano, Yoshida",
+                "addressLocality": "Tsubame-shi",
+                "addressRegion": "Niigata-ken",
+                "postalCode": "959-0215",
+                "addressCountry": "Japan"
+              }
+            },
+            "description": "UNS S30400 chromium-nickel stainless steel rolls.",
+            "weight": {
+              "type": "QuantitativeValue",
+              "unitCode": "lbs",
+              "value": "16500"
+            }
+          },
+          "itemCount": 5,
+          "tradeLineItemWeight": {
+            "type": "QuantitativeValue",
+            "value": "82500",
+            "unitCode": "lbs"
+          },
+          "priceSpecification": {
+            "type": "PriceSpecification",
+            "price": 5200,
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "type": "TradeLineItem",
+          "product": {
+            "manufacturer": {
+              "type": "Organization",
+              "address": {
+                "type": "PostalAddress",
+                "organizationName": "Aishi Metal Shinzo Co., Ltd.",
+                "streetAddress": "1651, Shimonakano, Yoshida",
+                "addressLocality": "Tsubame-shi",
+                "addressRegion": "Niigata-ken",
+                "postalCode": "959-0215",
+                "addressCountry": "Japan"
+              }
+            },
+            "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
+            "weight": {
+              "type": "QuantitativeValue",
+              "value": "12680",
+              "unitCode": "lbs"
+            }
+          },
+          "itemCount": 20,
+          "tradeLineItemWeight": {
+            "type": "QuantitativeValue",
+            "value": "253600",
+            "unitCode": "lbs"
+          },
+          "priceSpecification": {
+            "type": "PriceSpecification",
+            "price": 4400,
+            "priceCurrency": "USD"
+          }
+        }
+      ],
+      "totalWeight": {
+        "type": "QuantitativeValue",
+        "value": "336100",
+        "unitCode": "lbs"
+      },
+      "totalOrderAmount": {
+        "type": "PriceSpecification",
+        "price": 9600,
+        "priceCurrency": "USD"
+      }
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-03-01T17:54:40Z",
+      "created": "2022-03-14T18:56:45Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ySb9Cw-uQVuh40QKMWRrJ8OKJC1uyg3VmyKuNiR5WnLhILVI2Wy07IcBkQe0w926A8NdmcQKwGTZIN4TKyzWCQ"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..v0cnMAflvMI2aBBB3B8HSu80KR4hY9gSV8qu6k4uDoqcU4SjNdgCwOaSwmFMnwQ2A9FsCp1cXnM0FjkDe7UeCQ"
     }
   }

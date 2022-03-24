@@ -1,0 +1,74 @@
+$linkedData:
+  term: ServiceCharge
+  '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ServiceCharge
+title: Service Charge
+description: A charge made for services rendered or assessed, such as freight charges.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - ServiceCharge
+      - type: string
+        const:
+          - ServiceCharge
+  chargeCode:
+    description: The unique identifier for this logistics service charge.
+    type: string
+    enum:
+      - allCharges
+      - additionalCharges
+      - basicFreight
+      - destinationHaulageCharges
+      - destinationPortCharges
+      - originPortCharges
+      - originHaulageCharges
+      - otherCharges
+  paymentTerm:
+    description: Charge payment term.
+    type: string
+    enum:
+      - prepaid
+      - collect
+      - prepaidElsewhere
+  chargeText:
+    title: Charge Text
+    description: A textual description of this logistics service charge.
+    type: string
+  rate:
+    title: Rate
+    description: Per unit rate.
+    $ref: ./PriceSpecification.yml
+  calculationBasis:
+    description: The code specifying a basis on which this service charge is to be calculated such as by volume or per unit.
+    type: string
+    $linkedData:
+      term: calculationBasis
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#calculationBasis
+  appliedAmount:
+    description: A monetary value applied to this logistics service charge.
+    $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: appliedAmount
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#appliedAmount
+example: |-
+  {
+    "type": "ServiceCharge",
+    "chargeCode": "basicFreight",
+    "paymentTerm": "collect",
+    "chargeText": "Negotiated ocean freight",
+    "rate": {
+      "type": "PriceSpecification",
+      "price": 2250,
+      "priceCurrency": "USD"
+    },
+    "calculationBasis": "Per container",
+    "appliedAmount": {
+      "type": "PriceSpecification",
+      "price": 4500,
+      "priceCurrency": "USD"
+    }
+  }

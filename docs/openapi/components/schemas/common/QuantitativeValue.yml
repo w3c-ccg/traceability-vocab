@@ -8,8 +8,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - QuantitativeValue
       - type: string
-        enum:
+        const:
           - QuantitativeValue
   unitCode:
     title: Unit Code

@@ -10,8 +10,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - TradeLineItem
       - type: string
-        enum:
+        const:
           - TradeLineItem
   purchaseOrderNumber: 
     title: Purchase Order Number
@@ -100,16 +104,27 @@ example: |-
     "description": "Parts and accessories for photographic cameras.",
     "packageQuantity": 3,
     "package": {
-      "type": [
-        "Package"
-      ],
+      "type": "Package",
       "physicalShippingMarks": "Photographic accessories",
-      "quantity": 10, 
+      "perPackageUnitQuantity": 10,
       "packagingType": "Box",
-      "grossWeight": 75,
-      "grossWeightUnit": "lbs",
-      "grossVolume": 8,
-      "grossVolumeUnit": "sqf"
+      "includedTradeLineItems": [
+        {
+          "type": "TradeLineItem",
+          "description": "Rollators",
+          "itemCount": 540
+        }
+      ],
+      "grossWeight": {
+        "type": "QuantitativeValue",
+        "value": "75",
+        "unitCode": "lbs"
+      },
+      "grossVolume": {
+        "type": "QuantitativeValue",
+        "value": "8",
+        "unitCode": "sqf"
+      }
     },
     "product": {
       "type": "Product",
@@ -125,17 +140,13 @@ example: |-
         "unitCode": "lbs",
         "value": "2.5"
       },
-      "priceSpecification":   {
-        "type": [
-          "PriceSpecification"
-        ],
+      "productPrice":   {
+        "type": "PriceSpecification",
         "price": 400,
         "priceCurrency": "USD"
       },
       "commodity": {
-        "type": [
-          "Commodity"
-        ],
+        "type": "Commodity",
         "commodityCode": "9006.9",
         "commodityCodeType": "HS"
       }

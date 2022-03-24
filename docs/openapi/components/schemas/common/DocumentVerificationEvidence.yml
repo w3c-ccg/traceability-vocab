@@ -16,9 +16,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - DocumentVerificationEvidence
       - type: string
-        enum:
-          - DocumentVerificationEvidence
+        const:
+          - DocumentVerificationEvidence 
   verifier:
     title: verifier
     type: array

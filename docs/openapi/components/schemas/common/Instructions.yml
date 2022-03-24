@@ -1,0 +1,30 @@
+$linkedData:
+  term: Instructions
+  '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Instructions
+title: Instructions
+description: Information of an instructive or teaching nature that tells someone how to manage, manipulate, control, or cope with something.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - Instructions
+      - type: string
+        const:
+          - Instructions 
+  description:
+    title: First Name
+    description: A textual description.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+additionalProperties: false
+example: |-
+  {
+    "type": "Instructions",
+    "description": "Handle with care"
+  }

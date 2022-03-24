@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - CargoLineItem
       - type: string
-        enum:
-          - CargoLineItem
+        const:
+          - CargoLineItem 
   cargoLineItemID:
     title: cargoLineItemID
     description: >-

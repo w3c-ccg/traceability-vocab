@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ChargeDeclaration
       - type: string
-        enum:
-          - ChargeDeclaration
+        const:
+          - ChargeDeclaration 
   weightCharge:
     title: Weight Charge
     description: The weight/volume charge for air carriage. Box 24A and 24B.

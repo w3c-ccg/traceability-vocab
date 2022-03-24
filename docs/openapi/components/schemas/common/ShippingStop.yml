@@ -7,6 +7,16 @@ description: >-
   https://blanker.org/files/air-waybill-2.xls
 type: object
 properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - ShippingStop
+      - type: string
+        const:
+          - ShippingStop
   from:
     title: From
     $ref: ./Place.yml

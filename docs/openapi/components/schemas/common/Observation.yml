@@ -10,8 +10,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - Observation
       - type: string
-        enum:
+        const:
           - Observation
   property:
     title: Measured Property

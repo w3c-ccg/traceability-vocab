@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - GeoCoordinates
       - type: string
-        enum:
-          - GeoCoordinates
+        const:
+          - GeoCoordinates 
   latitude:
     title: Latitude
     description: >-

@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - FreightManifest
       - type: string
-        enum:
-          - FreightManifest
+        const:
+          - FreightManifest 
   carrier:
     title: Carrier
     description: >-

@@ -8,9 +8,13 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ConsignmentItem
       - type: string
-        enum:
-          - ConsignmentItem
+        const:
+          - ConsignmentItem 
   marksAndNumbers: 
     title: Marks and Numbers
     description: Physical markings or labels on individual packages or transport units for shipping purposes.
@@ -18,6 +22,13 @@ properties:
     $linkedData:
       term: marksAndNumbers
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ShippingMarks
+  descriptionOfPackagesAndGoods: 
+    title: Marks and Numbers
+    description: Transport cargo details of the consignment or consignment item sufficient to identify its nature for customs, statistical or transport purposes.
+    type: string
+    $linkedData:
+      term: descriptionOfPackagesAndGoods
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#natureIdentificationCargo
   commodity: 
     title: Commodity
     description: Commodity classification based on either WCO HS or USITS HTS codification.
@@ -25,12 +36,12 @@ properties:
     $linkedData:
       term: commodity
       '@id': https://w3id.org/traceability#Commodity
-  quantity: 
+  packageQuantity: 
     title: Number of Packages
     description: A number of packages.
     type: number
     $linkedData:
-      term: quantity
+      term: packageQuantity
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
   netWeight: 
     title: Net Weight
@@ -46,6 +57,13 @@ properties:
     $linkedData:
       term: weight
       '@id': https://schema.org/weight
+  grossVolume:   
+    title: Gross Volume
+    description: A measure of the gross volume, normally calculated by multiplying the maximum length, width and height.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: grossVolume
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
   countryOfOrigin: 
     title: Country of Origin
     description: A country of origin for the consignment, consignment item or product. The two-letter ISO 3166-1 alpha-2 country code.
@@ -68,13 +86,13 @@ example: |-
       "commodityCode": "851671",
       "commodityCodeType": "HS"
     },
-    "quantity": 880,
+    "packageQuantity": 880,
     "netWeight": {
       "type": "QuantitativeValue",
       "unitCode": "kg",
       "value": "14600"
     },
-    "netWeight": {
+    "grossWeight": {
       "type": "QuantitativeValue",
       "unitCode": "kg",
       "value": "15960"
