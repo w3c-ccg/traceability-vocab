@@ -1,0 +1,234 @@
+$linkedData:
+  term: TransferEvent
+  '@id': https://w3id.org/traceability#TransferEvent
+title: Transfer Event
+description: A transfer custody or ownership event, extending the Event schema.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Event
+          - TransferEvent
+  eventType:
+    oneOf:
+      - type: string
+        enum:
+          - TransferOwnership
+          - TransferCustody
+  eventId:
+    type: string
+  eventTime:
+    type: string
+  place:
+    title: Place
+    description: Information on where the event took place.
+    $ref: ./Place.yml
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  price:
+    title: Price
+    description: >-
+      The offer price of a product.
+    type: number
+    $linkedData:
+      term: price
+      '@id': https://schema.org/price
+  products:
+    title: Products
+    description: >-
+      List of product details as outlined in the Product schema
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://schema.org/Product
+  actor:
+    title: Event Actors
+    description: >-
+      List of organizations acted on the event, https://w3id.org/traceability#Organization
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: organization
+      '@id': https://w3id.org/traceability#Organization
+  initiator:
+    title: Initiator Identifier
+    description: Identifiers for the initiator of transfer.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  receiver:
+    title: Receiver Identifier
+    description: Identifiers for the receiver of transfer.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  portOfArrival:
+    title: Port of Arrival
+    description: 
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  portOfEntry:
+    title: Port of Entry
+    description: 
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  portOfDestination:
+    title: Port of Destination
+    description: 
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  countryOfDestination:
+    title: Country of Destination
+    description: Country in which the product(s) were transfered to.
+    type: string
+    $linkedData:
+      term: addressCountry
+      '@id': https://schema.org/addressCountry
+additionalProperties: false
+example: |-
+  {
+    "type":[
+       "EventCredential",
+       "TransferEventCredential"
+    ],
+    "eventType":"TransferOwnership",
+    "eventId": ""
+    "eventTime":"2022-03-03T16:47:16.011Z",
+    "place":{
+       "geo":{
+          "type":[
+             "GeoCoordinates"
+          ],
+          "latitude":"43.2557",
+          "longitude":"-79.8711"
+       },
+       "type":[
+          "Place"
+       ],
+       "address":{
+          "type":[
+             "PostalAddress"
+          ],
+          "postalCode":"",
+          "addressRegion":"Ontario",
+          "streetAddress":"",
+          "addressCountry":"CANADA",
+          "addressLocality":"Hamilton"
+       },
+       "globalLocationNumber":"SC720"
+    },
+    "price":1200,
+    "products":[
+      {
+         "id":"752f9fef-a028-415c-b17b-33a7aafda835",
+         "name":"Carbon and alloy long product",
+         "type":[
+            "Product"
+         ],
+         "width":{
+            "type":[
+               "MeasuredValue"
+            ],
+            "value":"1220",
+            "unitCode":"CM"
+         },
+         "length":{
+            "type":[
+               "MeasuredValue"
+            ],
+            "value":"654460",
+            "unitCode":"CM"
+         },
+         "weight":{
+            "type":[
+               "MeasuredValue"
+            ],
+            "value":"11013",
+            "unitCode":"KG"
+         },
+         "manufacturer":{
+            "name":"Steel Co.",
+            "type":[
+               "Organization"
+            ]
+         }
+      }
+    ],
+    "actor": [
+      {
+        "name":"Fabricator Co.",
+        "type":[
+          "Organization"
+        ]
+      },
+      {
+        "name":"Steel Co.",
+        "type":[
+          "Organization"
+        ]
+      }
+    ]
+    "initiator":"did:key:z6MkiQ89X1yScaGBJ5sVS62wGFAhzyz1zPiwmK8GrchJ5EKX",
+    "receiver":"did:key:z6Mko5QGjK56EwM59qdjn99TrJqQFvNcokxwwCTUJ8sfiG4Z",
+    "portOfEntry":{
+       "geo":{
+          "type":[
+             "GeoCoordinates"
+          ],
+          "latitude":"46.8139",
+          "longitude":"-71.208"
+       },
+       "type":[
+          "Place"
+       ],
+       "address":{
+          "type":[
+             "PostalAddress"
+          ],
+          "postalCode":"",
+          "addressRegion":"QC",
+          "streetAddress":"",
+          "addressCountry":"Canada",
+          "addressLocality":"Quebec City"
+       }
+    },
+    "portOfDestination":{
+       "geo":{
+          "type":[
+             "GeoCoordinates"
+          ],
+          "latitude":"43.2557",
+          "longitude":"-79.8711"
+       },
+       "type":[
+          "Place"
+       ],
+       "address":{
+          "type":[
+             "PostalAddress"
+          ],
+          "postalCode":"",
+          "addressRegion":"ON",
+          "streetAddress":"",
+          "addressCountry":"Canada",
+          "addressLocality":"Hamilton"
+       }
+    },
+    "countryOfDestination":"CAN"
+  }
