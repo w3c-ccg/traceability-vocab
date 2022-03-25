@@ -22,9 +22,9 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    type: object
+    $ref: ./Entity.yml
   credentialSubject:
-    type: object
+    $ref: ./Entity.yml
   proof:
     type: object
   relatedLink:
@@ -61,32 +61,47 @@ example: |-
     "issuer": {
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "type": "Organization",
-      "name": "Weber, Rolfson and Stroman",
-      "description": "Business-focused systemic paradigm",
+      "name": "Glover - Gleason",
+      "legalName": "Glover and Gleason, Llc.",
+      "description": "Customs Brokering since 2012",
       "address": {
         "type": "PostalAddress",
-        "streetAddress": "3263 Mohr Cape",
-        "addressLocality": "East Caleigh",
-        "addressRegion": "Tennessee",
-        "postalCode": "34278-9083",
-        "addressCountry": "Uruguay"
+        "streetAddress": "210 Jermey Fort",
+        "addressLocality": "Lake Evalyn",
+        "addressRegion": "Montana",
+        "postalCode": "71172",
+        "addressCountry": "US"
       },
-      "email": "Julie.Muller31@example.net",
-      "phoneNumber": "555-433-6111",
-      "faxNumber": "555-356-2487"
+      "email": "contact@glover-gleason.example.net",
+      "phoneNumber": "555-758-8926",
+      "faxNumber": "555-248-4575",
+      "taxId": "789-56-123",
+      "url": "glover-gleason.example.net"
     },
     "credentialSubject": {
-      "type": [
-        "Organization"
-      ],
-      "name": "Steel Manufacturer Org",
-      "url": "https://www.example.com/"
+      "type": "Organization",
+      "name": "Glover - Gleason",
+      "legalName": "Glover and Gleason, Llc.",
+      "description": "Customs Brokering since 2012",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "210 Jermey Fort",
+        "addressLocality": "Lake Evalyn",
+        "addressRegion": "Montana",
+        "postalCode": "71172",
+        "addressCountry": "US"
+      },
+      "email": "contact@glover-gleason.example.net",
+      "phoneNumber": "555-758-8926",
+      "faxNumber": "555-248-4575",
+      "taxId": "789-56-123",
+      "url": "glover-gleason.example.net"
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2019-12-11T03:50:55Z",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..JkMUYvr__kGNGv8Mlj24QzDtBpCLekx9FYbCZjteUHtzXKMEVgNxgsHo53DVQTQ9EwoFBTEqgwmJPifC7HvHAg",
+      "created": "2022-03-25T12:59:57Z",
+      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..1wPf4CF9naXpeAqVA3WZC_nRb3_DWF5kEKbytGDxhHu6tReXPvWzGbl2wB_PWmF7pDAVVnYWksZO03aQeZFUBg"
     }
   }

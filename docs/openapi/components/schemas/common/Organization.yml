@@ -22,6 +22,13 @@ properties:
     $linkedData:
       term: name
       '@id': https://schema.org/name
+  legalName:
+    title: Legal Name
+    description: The official name of the organization, e.g. the registered company name.
+    type: string
+    $linkedData:
+      term: legalName
+      '@id': https://schema.org/legalName
   leiCode:
     title: Legal Entity Identifier Code
     description: Legal entity identifier code
@@ -113,16 +120,19 @@ example: |-
   {
     "type": "Organization",
     "name": "Glover - Gleason",
-    "description": "Future-proofed even-keeled paradigm",
+    "legalName": "Glover and Gleason, Llc.",
+    "description": "Customs Brokering since 2012",
     "address": {
       "type": "PostalAddress",
-      "streetAddress": "000 Jermey Fort",
+      "streetAddress": "210 Jermey Fort",
       "addressLocality": "Lake Evalyn",
       "addressRegion": "Montana",
       "postalCode": "71172",
-      "addressCountry": "Lesotho"
+      "addressCountry": "US"
     },
-    "email": "Kayla_Hilll60@example.net",
+    "email": "contact@glover-gleason.example.net",
     "phoneNumber": "555-758-8926",
-    "faxNumber": "555-248-4575"
+    "faxNumber": "555-248-4575",
+    "taxId": "789-56-123",
+    "url": "glover-gleason.example.net"
   }
