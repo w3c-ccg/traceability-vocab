@@ -6,6 +6,7 @@ const path = require('path');
 const { schemas } = require('../services/schemas');
 
 const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
+const credentialPath = path.resolve(__dirname, '../../../docs/sections/credentials.html');
 
 const baseUrl = 'https://w3id.org/traceability';
 
@@ -91,14 +92,49 @@ const buildVocabSection = (schema) => {
   return buildProperty(schema);
 };
 
+const separateSchemas = (schemaList) => {
+  // Define Arrays to sort the schemas into
+  const credentialSchemas = [];
+  const vocabSchemas = [];
+
+  // Separates Schemas into Credentials and Vocabulary
+  schemaList.forEach((schema) => {
+    const { example } = schema;
+    const obj = JSON.parse(example);
+    const type = Array.isArray(obj.type) ? obj.type : [obj.type];
+    if (type.indexOf('VerifiableCredential') === -1) {
+      vocabSchemas.push(schema);
+    } else {
+      credentialSchemas.push(schema);
+    }
+  });
+
+  // Generate the text for each respective section
+  const credentials = credentialSchemas.map(buildVocabSection).join('\n');
+  const vocab = vocabSchemas.map(buildVocabSection).join('\n');
+
+  // Return the html text for each section
+  return { credentials, vocab };
+};
+
 (() => {
   console.log('🧪 build vocab from schemas');
-  const sections = schemas.map(buildVocabSection).join('\n');
-  const section = `
+	const { credentials, vocab } = separateSchemas(schemas);
+
+  const credentialSection = `
     <section>
-      <h2>Vocabulary</h2>
-      ${sections}
+      <h2>Credentials</h2>
+      ${credentials}
     </section>
   `;
-  fs.writeFileSync(vocabPath, section);
+
+  const vocabSection = `
+    <section>
+      <h2>Vocabulary</h2>
+      ${vocab}
+    </section>
+  `;
+
+  fs.writeFileSync(credentialPath, credentialSection);
+  fs.writeFileSync(vocabPath, vocabSection);
 })();
