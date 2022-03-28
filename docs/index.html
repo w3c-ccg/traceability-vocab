@@ -22,6 +22,7 @@
         //subtitle
         subtitle: 'A vocabulary for traceability in supply chains',
 
+
         // if there is a previously published draft,
         // uncomment this and set its YYYY-MM-DD date
         // and its maturity status
@@ -205,238 +206,170 @@
       <h2>Introduction</h2>
 
       <p>
-        This specification is designed to enable global supply chain
-        stakeholders to leverage the benefits of emerging technological web
-        standards, specifically Linked Data (JSON-LD), the Verifiable Credential
-        (VC) Data Model, and the Decentralized Identifier (DID) Spec. It
-        addresses prevalent supply chain, and allows for other provenance, use
-        cases across a variety of market segments. The corresponding data
-        exchange schemas are modeled for Verifiable Credentials, which is a
-        standard for cryptographically signing business data. Schema semantics
-        are precisely defined by use of Linked Data, leveraging established
-        vocabularies such as schema.org, GS1, and UN/CEFACT, enabling
-        interoperability and digitization.
+        This specification is designed to enable global supply chain stakeholders to leverage the benefits of emerging
+        technological web standards, specifically Linked Data (JSON-LD), the Verifiable Credential (VC) Data Model, and the
+        Decentralized Identifier (DID) Spec. It addresses prevalent supply chain, and allows for other provenance, use cases across a variety of market
+        segments. The corresponding data exchange schemas are modeled for Verifiable Credentials, which is a standard for
+        cryptographically signing business data. Schema semantics are precisely defined by use of Linked Data, leveraging
+        established vocabularies such as schema.org, GS1, and UN/CEFACT, enabling interoperability and digitization.
       </p>
 
       <h3>Supply Chain Digitization Challenges</h3>
       <p>
-        While digitization has revolutionized other industries with decades
-        worth of value already created, supply chains at large have been slow
-        and fragmented in their digital transformation journey, having yet to
-        reap the full benefits. The sheer number and heterogeneity of involved
-        actors makes technological advances incredibly difficult; physical
-        paper, manual processing, and outdated technologies still support the
-        vast majority of all supply chain information flows. Paper processing
-        costs the supply-chain industry upwards of $3 billion every year (not
-        counting the additional costs of paper, ink, and printing) (see "<a
-          href="https://www.supplychainbrain.com/blogs/1-think-tank/post/32802-paper-the-bane-of-the-supply-chain-and-how-to-combat-it"
-          >When Will Supply Chains Finally Move on From Paper?</a
-        >"). The resulting data silos and blind spots throughout the supply
-        chain have created an enormous problem that enterprises and regulators
-        can no longer ignore &mdash; in a space where the inherent global nature
-        of supply chains is itself a coordination obstacle.
+        While digitization has revolutionized other industries with decades worth of value already created, supply chains at
+        large have been slow and fragmented in their digital transformation journey, having yet to reap the full benefits. The
+        sheer number and heterogeneity of involved actors makes technological advances incredibly difficult; physical paper,
+        manual processing, and outdated technologies still support the vast majority of all supply chain information flows.
+        Paper processing costs the supply-chain industry upwards of $3 billion every year (not counting the additional costs of
+        paper, ink, and printing)
+        (see "<a href="https://www.supplychainbrain.com/blogs/1-think-tank/post/32802-paper-the-bane-of-the-supply-chain-and-how-to-combat-it">When Will Supply Chains Finally Move on From Paper?</a>").
+        The resulting data silos and blind spots throughout the supply chain have created an
+        enormous problem that enterprises and regulators can no longer ignore &mdash; in a space where the inherent global nature of
+        supply chains is itself a coordination obstacle.
       </p>
       <p>
-        Semantic standards and code lists are being rigorously managed by
-        various standards organizations. However, as long as these publications
-        depend on manual adoption and/or complex implementation, the actual
-        impacts of these investments are limited and delayed. Language barriers
-        and differing contexts is a major source of imprecision and errors. Even
-        today, most enterprises have only 20% visibility into their supply
-        chains, as opposed to the 70% to 90% percent needed to monitor these
-        investments (see "<a
-          href="https://www.supplychainbrain.com/blogs/1-think-tank/post/31062-in-2020-supply-chain-digitization-is-no-longer-optional"
-          >In 2020, Supply-Chain Digitization Is No Longer Optional</a
-        >"). The identity of supply chain actors is a separate problem resulting
-        in costs and errors. While nations and platforms have established
-        digital identity regimes within their relevant boundaries, no useful
-        global identity scheme has emerged, never mind been adopted. Public
-        policy, borders, and commercial obstacles create large barriers for a
-        global centralized model to be adopted. The result of this is that most
-        businesses need to invest heavily in IT infrastructure and middleware
-        data mapping tools to be integrated with their trading partners. In
-        fact, digitizing a major supply chain will cost tens of millions of
-        dollars at the current pace and be a three to five year transformation
-        effort (see "<a
-          href="https://hbr.org/2021/09/a-simpler-way-to-modernize-your-supply-chain"
-          >A Simpler Way to Modernize Your Supply Chain</a
-        >"). This means a heavy investment of capital, resulting in de-facto
-        vendor software lock-in.
+        Semantic standards and code lists are being rigorously managed by various standards organizations. However, as long as
+        these publications depend on manual adoption and/or complex implementation, the actual impacts of these investments are
+        limited and delayed. Language barriers and differing contexts is a major source of imprecision and errors. Even
+        today, most enterprises have only 20% visibility into their supply chains, as opposed to the 70% to 90% percent
+        needed to monitor these investments
+        (see "<a href="https://www.supplychainbrain.com/blogs/1-think-tank/post/31062-in-2020-supply-chain-digitization-is-no-longer-optional">In 2020, Supply-Chain Digitization Is No Longer Optional</a>").
+        The identity of supply chain actors is a separate problem resulting in costs and
+        errors. While nations and platforms have established digital identity regimes within their relevant boundaries, no
+        useful global identity scheme has emerged, never mind been adopted. Public policy, borders, and commercial obstacles
+        create large barriers for a global centralized model to be adopted. The result of this is that most businesses need to
+        invest heavily in IT infrastructure and middleware data mapping tools to be integrated with their trading partners. In
+        fact, digitizing a major supply chain will cost tens of millions of dollars at the current pace and be a three to five
+        year transformation effort (see "<a href="https://hbr.org/2021/09/a-simpler-way-to-modernize-your-supply-chain">A Simpler Way to Modernize Your Supply Chain</a>"). This means a heavy
+        investment of capital, resulting in de-facto vendor software lock-in.
       </p>
 
       <h2>Technology Enablement</h2>
       <h3>Establishing Trust</h3>
       <p>
-        Trust is fundamental to trade. As global citizens, we rely on efficient
-        supply chains, and the supply chains themselves are actually a network
-        of collaborative stakeholders who are economically reliant on one
-        another &mdash; from shippers and carriers to importers to regulators.
-        Traditionally, trust is established by analogue signed contracts,
-        physical meetings, phone calls, faxes, and regular audits that prove
-        credibility of the engaging parties and compliance with relevant
-        regulation. Digitization efforts in the sphere of “contractual trust”
-        have been limited by the fact that altering digital data &mdash; like
-        PDFs &mdash; is incredibly easy to do and difficult to detect.
-        Noteworthy steps taken to address this are encrypted communication
-        channels, like HTTP-over-TLS a/k/a HTTPS, and commercial digital
-        signature platforms. However, a trusted channel does not prevent data
-        alteration by either party, and globally scaling a fully proprietary
-        platform is inherently expensive, with political and practical
-        implications.
+        Trust is fundamental to trade. As global citizens, we rely on efficient supply chains, and the supply chains
+        themselves are actually a network of collaborative stakeholders who are economically reliant on one another &mdash; from
+        shippers and carriers to importers to regulators. Traditionally, trust is established by analogue signed contracts,
+        physical meetings, phone calls, faxes, and regular audits that prove credibility of the engaging parties and
+        compliance with relevant regulation. Digitization efforts in the sphere of “contractual trust” have been limited by the
+        fact that altering digital data &mdash; like PDFs &mdash; is incredibly easy to do and difficult to detect. Noteworthy steps taken
+        to address this are encrypted communication channels, like HTTP-over-TLS a/k/a HTTPS, and commercial digital signature platforms. However, a
+        trusted channel does not prevent data alteration by either party, and globally scaling a fully proprietary platform is
+        inherently expensive, with political and practical implications.
       </p>
       <p>
-        This landscape has changed with the advent of the Verifiable Credentials
-        standard, which makes digital contractual trust accessible and
-        affordable to use for anyone on the planet. Essentially, Verifiable
-        Credentials apply existing cryptographic standards (particularly modern
-        curve-based digital signature algorithms) to business data that is
-        typically exchanged over APIs or XML. The Verifiable Credentials
-        specification provides a data model for how data along with a
-        cryptographic signature should be represented in a data file. The data
-        itself can be anything &mdash; describing a shipment, an organization, a
-        product, an agreement, etc. The cryptographic element ensures that
-        anyone being presented with the data file can verify that the data is
-        how the issuer intended it to be. In other words, the use of
-        cryptographic standards provides the verifier a sense of trust when
-        presented with the data file from the issuer.
+        This landscape has changed with the advent of the Verifiable Credentials standard, which makes digital contractual
+        trust accessible and affordable to use for anyone on the planet. Essentially, Verifiable Credentials apply existing
+        cryptographic standards (particularly modern curve-based digital signature algorithms) to business data that is
+        typically exchanged over APIs or XML. The Verifiable Credentials specification provides a data model for how data
+        along with a cryptographic signature should be represented in a data file. The data itself can be anything &mdash;
+        describing a shipment, an organization, a product, an agreement, etc. The cryptographic element ensures that anyone
+        being presented with the data file can verify that the data is how the issuer intended it to be. In other words, the use of
+        cryptographic standards provides the verifier a sense of trust when presented with the data file from the issuer.
       </p>
       <p>
-        The implications for global supply chains are immense. The analogue
-        equivalent of contractual binding by applying a signature is obvious,
-        and it should be noted that a cryptographic signature is much safer from
-        a security point of view.
+        The implications for global supply chains are immense. The analogue equivalent of contractual binding by
+        applying a signature is obvious, and it should be noted that a cryptographic signature is much safer from a security
+        point of view.
         <br />
-        The possibilities go much further. Trust can be established remotely and
-        fully automated, provided suitable claims are presented and issued by a
-        trustworthy third party, such as an existing business partner, a
-        commercial agent, or a government. "Chains of trust" can be established
-        by linking back through relevant claims to a known trust anchor.
+        The possibilities go much further. Trust can be established remotely and fully automated, provided suitable claims are
+        presented and issued by a trustworthy third party, such as an existing business partner, a commercial agent, or a
+        government. "Chains of trust" can be established by linking back through relevant claims to a known trust anchor.
       </p>
 
       <h3>Linked Semantics</h3>
       <p>
-        Throughout the supply chain, organizations use different words to say
-        the same thing. For example, “Shipper” and “Consignor” are used
-        interchangeably in shipping. A lot of effort goes into ensuring precise
-        communication across supply chain participants with these varying
-        vocabularies. Standards bodies govern semantic models with term
-        definitions, APIs for common use cases, and code lists in an attempt to
-        avoid ambiguity. The traditional challenge of such technical
-        publications has been the human element: reading the spec, interpreting
-        the API attribute name, or skimming through the code lists, the data
-        sender and data receiver have to establish the same understanding. This
-        results in effort and IT costs for both the sender and receiver to
-        ensure this common understanding.
+        Throughout the supply chain, organizations use different words to say the same thing. For example, “Shipper” and
+        “Consignor” are used interchangeably in shipping. A lot of effort goes into ensuring precise communication
+        across supply chain participants with these varying vocabularies. Standards bodies govern semantic models with term
+        definitions, APIs for common use cases, and code lists in an attempt to avoid ambiguity. The traditional challenge of
+        such technical publications has been the human element: reading the spec, interpreting the API attribute name, or
+        skimming through the code lists, the data sender and data receiver have to establish the same understanding. This
+        results in effort and IT costs for both the sender and receiver to ensure this common understanding.
       </p>
       <p>
-        Linked Data addresses this problem by letting computers establish the
-        semantic meaning. Leveraging how the web works, Linked Data explicitly
-        ties every term used to a precise Uniform Resource Identifier (URI).
-        Much like a URL pointing at a specific website, a URI defines a specific
-        term. Thus, when the data sender defines a term by pointing at a URI,
-        there is no interpretation to be done, as the receiving computer can
-        automatically understand it. Beyond the obvious benefit of establishing
-        shared understanding, integrating Linked Data is simpler, avoiding the
-        cost and complexity of data interpretation and mapping.
+        Linked Data addresses this problem by letting computers establish the semantic meaning. Leveraging how the web works,
+        Linked Data explicitly ties every term used to a precise Uniform Resource Identifier (URI). Much like a URL pointing
+        at a specific website, a URI defines a specific term. Thus, when the data sender defines a term by pointing at a URI,
+        there is no interpretation to be done, as the receiving computer can automatically understand it. Beyond the obvious
+        benefit of establishing shared understanding, integrating Linked Data is simpler, avoiding the cost and complexity of
+        data interpretation and mapping.
       </p>
       <p>
-        Linked Data is not new; it is what drives internet indexing and search
-        engines. This traceability-vocab specification introduces this
-        technology for use in the supply chain industry. Sometimes this approach
-        is referred to as "Web 3.0." All the schemas which define the data
-        content of Verifiable Credentials are constructed with explicit pointers
-        to the most relevant URIs of the terms used. Existing term definitions,
-        which are available in online vocabularies, can be used to construct the
-        Verifiable Credential schemas.
+        Linked Data is not new; it is what drives internet indexing and search engines. This traceability-vocab specification
+        introduces this technology for use in the supply chain industry. Sometimes this approach is referred to as "Web 3.0."
+        All the schemas which define the data content of Verifiable Credentials are constructed with explicit pointers to the
+        most relevant URIs of the terms used. Existing term definitions, which are available in online vocabularies, can be
+        used to construct the Verifiable Credential schemas.
       </p>
 
       <h3>Global Identification Scheme</h3>
       <p>
-        A final important part of modernizing the digital supply chain is
-        targeting the problem of identification. The problems of scaling
-        centralized solutions has led to the emergence of Decentralized
-        Identifiers (DIDs). These also rely on modern use of cryptography, used
-        here to prove that you are in control of a given identity. A variety of
-        different types of DIDs exist, serving different requirements from a
-        one-off usage to an enterprise-security grade organization long-term
-        representation. In itself, a DID is trustless, meaning that anyone can
-        make and control a DID at any time. The value of a DID comes from the
-        credentials tied to it, typically by other organizations and/or
-        governments.
+        A final important part of modernizing the digital supply chain is targeting the problem of identification. The
+        problems of scaling centralized solutions has led to the emergence of Decentralized Identifiers (DIDs). These also
+        rely on modern use of cryptography, used here to prove that you are in control of a given identity. A variety of
+        different types of DIDs exist, serving different requirements from a one-off usage to an enterprise-security grade
+        organization long-term representation. In itself, a DID is trustless, meaning that anyone can make and control a DID at any
+        time. The value of a DID comes from the credentials tied to it, typically by other organizations and/or governments.
       </p>
       <p>
-        While the main identity problem has to do with identification of supply
-        chain parties, whether these be persons or organizations, DIDs can just
-        as well represent products, shipments, contractual agreements, or
-        anything else needing identification.
+        While the main identity problem has to do with identification of supply chain parties, whether these be persons or
+        organizations, DIDs can just as well represent products, shipments, contractual agreements, or anything else needing
+        identification.
       </p>
       <p>
-        Note that traceability-vocab's use of Decentralized Identifiers is
-        limited to example uses. Traditional means of identification can also be
-        used, but use of DIDs is encouraged to ensure that actual control of an
-        identity can be proven.
+        Note that traceability-vocab's use of Decentralized Identifiers is limited to example uses. Traditional means of
+        identification can also be used, but use of DIDs is encouraged to ensure that actual control of an identity can be proven.
       </p>
-
+      
       <h3>Technology Summary</h3>
       <p>
-        This section conceptualizes the introduced emerging technology standards
-        &mdash; Verifiable Credentials, Linked Data, and Decentralized
-        Identifiers &mdash; with a real-world supply chain use case.
+        This section conceptualizes the introduced emerging technology standards &mdash; Verifiable Credentials, Linked Data, and
+        Decentralized Identifiers &mdash; with a real-world supply chain use case.
       </p>
       <p>
-        The Commercial Invoice is a critical supply chain document, essential to
-        customs, where it is used for duty determination, among others. This
-        document includes the description of the goods, where the goods are
-        being shipped from and to, and a value of the goods, just to name a few
-        of the data points. This document is supplied by the shipper.
+        The Commercial Invoice is a critical supply chain document, essential to customs, where it is used for duty
+        determination, among others. This document includes the description of the goods, where the goods are being shipped from and
+        to, and a value of the goods, just to name a few of the data points. This document is supplied by the shipper.
       </p>
       <p>
-        The Commercial Invoice document is typically exchanged via PDF, email,
-        or EDI. With the use of Verifiable Credential technology, we are able to
-        digitize a Commercial Invoice into a verifiable Commercial Invoice
-        credential. Each data point on the Commercial Invoice VC is mapped to a
-        semantic model for common definition using Linked Data. For example, the
-        “Consignee” field or the “Shipper” field on the Commercial Invoice are
-        defined unambiguously to precise URIs. This promotes a singular, common
-        definition of the data labels so that organizations have a shared
-        understanding.
+        The Commercial Invoice document is typically exchanged via PDF, email, or EDI. With the use of Verifiable Credential
+        technology, we are able to digitize a Commercial Invoice into a verifiable Commercial Invoice credential. Each
+        data point on the Commercial Invoice VC is mapped to a semantic model for common definition using Linked Data.
+        For example, the “Consignee” field or the “Shipper” field on the Commercial Invoice are defined
+        unambiguously to precise URIs. This promotes a singular, common definition of the data labels so that organizations
+        have a shared understanding.
         <br />
-        In addition, certain data points on the Commercial Invoice are used to
-        identify an organization. For example, the “Consignee” field identifies
-        who the receiver of the goods is, and the “Shipper” field identifies who
-        the shipper of the goods is. Each “who” in our example is an
-        organization. Using a Decentralized Identifier (DID), for example, the
-        consignee organization can self-authenticate as the receiver of the
-        goods.
+        In addition, certain data points on the Commercial Invoice are used to identify an organization. For example,
+        the “Consignee” field identifies who the receiver of the goods is, and the “Shipper” field identifies who the
+        shipper of the goods is. Each “who” in our example is an organization. Using a Decentralized Identifier (DID),
+        for example, the consignee organization can self-authenticate as the receiver of the goods.
         <br />
-        The Shipper’s Decentralized Identifier is included as the Verifiable
-        Credential issuer, binding the claims on the Commercial Invoice back to
-        the Shipper. Cryptographic traceability of the Commercial Invoice is
-        thus established from the Shipper to the Consignee; anyone to whom the
-        Commercial Invoice is presented can verify that it originates from the
+        The Shipper’s Decentralized Identifier is included as the Verifiable Credential issuer, binding the claims on the
+        Commercial Invoice back to the Shipper. Cryptographic traceability of the Commercial Invoice is thus established from
+        the Shipper to the Consignee; anyone to whom the Commercial Invoice is presented can verify that it originates from the
         Shipper and is targeted to the Consignee.
       </p>
       <p>
-        This example portrays a specific use case with a Commercial Invoice and
-        shows how Verifiable Credentials, Linked Data, and Decentralized
-        Identifiers apply. We apply these technologies to common trade documents
-        in hopes to further digitize documents and promote trust throughout the
-        entire supply chain.
+        This example portrays a specific use case with a Commercial Invoice and shows how Verifiable Credentials, Linked Data, and
+        Decentralized Identifiers apply. We apply these technologies to common trade documents in hopes to further digitize
+        documents and promote trust throughout the entire supply chain.
       </p>
 
       <h2>Structure</h2>
       <p>
         Generally, this vocabulary may be looked at as a set of common objects
-        that are shared across multiple business verticals, and vertical or use
-        case specific items that apply to one or more specific commodities or
-        market segments. A primary goal of this specification is to standardize
-        the creation of Verifiable Credentials from standardized JSON-LD which
-        is itself created from JSON Schema definitions as would normally be
-        passed of REST and other APIs. This promotes code re-use and establishes
-        a pattern for the creation of JSON-LD and related Verifiable Credentials
-        derived from those JSON-LD objects in a manner that is friendly to code
-        and API development as well as to promote better interoperability
-        between vendors who serve common or related markets.
+        that are shared across multiple business verticals, and vertical or
+        use case specific items that apply to one or more specific commodities
+        or market segments. A primary goal of this specification is to
+        standardize the creation of Verifiable Credentials from standardized
+        JSON-LD which is itself created from JSON Schema definitions as would
+        normally be passed of REST and other APIs.  This promotes code re-use
+        and establishes a pattern for the creation of JSON-LD and related
+        Verifiable Credentials derived from those JSON-LD objects in a manner
+        that is friendly to code and API development as well as to promote
+        better interoperability between vendors who serve common or related
+        markets.
       </p>
 
       <p>
@@ -447,48 +380,47 @@
 
       <p>
         This repository has primary contributors from four main market segments,
-        and has subject matter experts from those market segments delegated as
-        leads for objects related to vocabulary items for each segment.
+        and has subject matter experts from those market segments delegated
+        as leads for objects related to vocabulary items for each segment.
         <br />
-        These subject matter leads help identify common elements across
-        verticals as well as in assessing contributions of new objects to the
-        vocabulary.
+        These subject matter leads help identify common elements across verticals
+        as well as in assessing contributions of new objects to the vocabulary.
       </p>
-      <table>
-        <thead>
-          <tr>
-            <td>Market Segment</td>
-            <td>Subject Matter Expert</td>
-            <td>Contact</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Agriculture</td>
-            <td>Michael Prorock</td>
-            <td>mprorock@mesur.io</td>
-          </tr>
-          <tr>
-            <td>E-Commerce</td>
-            <td>Nis Jespersen</td>
-            <td>nis@transmute.industries</td>
-          </tr>
-          <tr>
-            <td>Oil and Gas</td>
-            <td>Mahmoud Alkhraishi</td>
-            <td>mahmoud@mavennet.com</td>
-          </tr>
-          <tr>
-            <td>Steel and Metals</td>
-            <td>Orie Steele</td>
-            <td>orie@transmute.industries</td>
-          </tr>
-        </tbody>
-      </table>
+        <table>
+          <thead>
+            <tr>
+              <td>Market Segment</td>
+              <td>Subject Matter Expert</td>
+              <td>Contact</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agriculture</td>
+              <td>Michael Prorock</td>
+              <td>mprorock@mesur.io</td>
+            </tr>
+            <tr>
+              <td>E-Commerce</td>
+              <td>Nis Jespersen</td>
+              <td>nis@transmute.industries</td>
+            </tr>
+            <tr>
+              <td>Oil and Gas</td>
+              <td>Mahmoud Alkhraishi</td>
+              <td>mahmoud@mavennet.com</td>
+            </tr>
+            <tr>
+              <td>Steel and Metals</td>
+              <td>Orie Steele</td>
+              <td>orie@transmute.industries</td>
+            </tr>
+          </tbody>
+        </table>
 
       <section class="informative">
         <h4>Vocabulary Linkage</h4>
-        <img src="vocab-linkage.png" , width="100%" />
+        <img src="vocab-linkage.png", width="100%">
         <p>
           The traceability-vocab ensures that coherent sets of use case-specific
           schemas, blended together with corresponding resolvable @context data,
@@ -504,402 +436,365 @@
           defined in a industry-specific vocabulary. This is to ensure the
           broadest possible interoperability, within and beyond supply chain.
         </p>
-      </section>
+      </section>  
     </section>
 
-    <section class="informative">
-      <h3>Use Cases</h3>
-
-      <p>
-        The following use cases outline a number of key scenarios that readers
-        might find useful in a variety of sectors, especially those that deal
-        with cross border supply chain data interchange.
-      </p>
-
-      <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
-      <section>
-        <h4>Steel and Metals</h4>
-        <p>
-          The global steel industry relies on cross-party communication of
-          product and business information to successfully move materials from
-          mines, to manufacturers, through customs, to end customers (such as
-          automotive and construction companies). Today this information exists
-          primarily in siloed paper documents. In the current format it is very
-          difficult to make data comparisons across a small number of parties,
-          let alone across millions of shipments over time. It can also be
-          difficult to catch forged documents in the absence of digital
-          signatures and clearly defined organization data attributes.
-        </p>
+      <section class="informative">
+        <h3>Use Cases</h3>
 
         <p>
-          A shared vocabulary creates opportunities for steel trading partners
-          to work from a common digital representation of trade information.
-          Take the example of a mill report for a steel product. This document
-          provides important information about the chemical make-up of steel
-          materials, helping to ensure the desired specification and grade have
-          been met. It also acts as evidence about the origins of steel
-          materials. Unambiguous representation of mill report fields is
-          critical for assessing appropriate duties, meeting customer
-          requirements, and ultimately ensuring consumer safely.
+          The following use cases outline a number of key scenarios that readers
+          might find useful in a variety of sectors, especially those that deal
+          with cross border supply chain data interchange.
         </p>
 
-        <p>
-          By defining the schema for each field, importers can now answer
-          questions like “How many pipes of specification XYZ did we purchase
-          last year?” (i.e.,
-          <a href="https://w3id.org/traceability#schemas/ChemicalProperty.json"
-            >ChemicalProperty</a
-          >). The mill report can also be linked to other trade documentation
-          such as commercial invoices and bills of lading when those credentials
-          are specified and defined. Regulators can also ask questions across a
-          large number of mill reports to help catch transshipment issues, such
-          as “How much steel product imported last month specified Vietnam as
-          the country of origin?” (i.e.,
-          <a href="https://schema.org/addressCountry">addressCountry</a>).
-        </p>
-
-        <h5>Sample Steel Workflow</h5>
-        <figure>
-          <img
-            src="steel-workflow.png"
-            alt="Sample Steel Workflow"
-            style="width: 100%"
-          />
-          <figcaption>Sample Steel Workflow</figcaption>
-        </figure>
-        <p>
-          CTPAT issues a US Importer certificate (1) to the US Auto Manufacturer
-          (2) and a Foreign Manufacturer certificate (3) to the Mexican Steel
-          Mill (4).
-        </p>
-        <p>
-          US Auto Manufacturer Issues a Purchase Order (5) to their Mexican
-          steel provider (6).
-        </p>
-        <p>
-          Mexican Steel Mill processes the order issuing a Mill Test Report (7)
-          and a Commercial Invoice (8) reflecting shipment goods which are
-          passed to the US Customer (9). The Mexican Steel Mill also passes its
-          CTPAT Foreign Manufacturer certificate.
-        </p>
-        <p>
-          SIMA issues a Steel Import Licence certificate (10) and passes it to
-          US Auto (11) in response to their application.
-        </p>
-        <p>
-          US Auto Manufacturer obtains a Steel license (11) and issues a USMCA
-          Certificate of Origin (12). The full set of six verifiable credentials
-          are presented to CBP in advance of the import.
-        </p>
-        <p>
-          CBP receives a Verifiable Presentation (12) from the US Auto importing
-          steel, containing the two CTPAT certifications, USMCA Certificate of
-          Origin, Steel Import License, Mill Test Report, and Commercial
-          Invoice. Data is verified by CBP’s automated processes.
-        </p>
-
-        <h5>Featured Steel Credentials</h5>
-        <dl>
-          <dt>Mill Test Report Certificate</dt>
-          <dd>
-            <p>
-              The
-              <a href="#MillTestReportCertificate">Mill Test Report</a>
-              certifies steel type and quality, listing chemical and mechanical
-              properties.
-            </p>
-          </dd>
-          <dt>Commercial Invoice Certificate</dt>
-          <dd>
-            <figure>
-              <img
-                src="samples/commercial-invoice-ex.png"
-                alt="Commercial Invoice example"
-                style="width: 40%"
-              />
-              <figcaption>Sample Commercial Invoice</figcaption>
-            </figure>
-            <p>
-              <a href="#CommercialInvoiceCertificate">Commercial Invoice</a>
-              indicates to authorities the value of goods subject to tariffs and
-              duties.
-            </p>
-          </dd>
-          <dt>Bill of Lading Certificate</dt>
-          <dd>
-            <figure>
-              <img
-                src="samples/bill-of-lading-ex-2.png"
-                alt="Bill of Lading example"
-                style="width: 40%"
-              />
-              <figcaption>Sample Bill of Lading</figcaption>
-            </figure>
-            <p>
-              <a href="#BillOfLadingCertificate">Bill of Lading</a> certificates
-              are issued by the carrier, indicating a) receipt of goods, b)
-              evidence of consignment contract, and c) title of goods.
-            </p>
-          </dd>
-          <dt>Verifiable Business Card</dt>
-          <dd>
-            <p>
-              <a href="#VerifiableBusinessCard">Verifiable Business Cards</a>
-              hold verifiable presentation endpoint addresses.
-            </p>
-          </dd>
-
-          <dt>USMCA Certificate Of Origin</dt>
-          <dd>
-            <figure>
-              <img
-                src="samples/usmca-form.png"
-                alt="USMCA Certificate Of Origin"
-                style="width: 40%"
-              />
-              <figcaption>USMCA Certificate Of Origin</figcaption>
-            </figure>
-            <p>
-              The
-              <a href="#USMCACertificateOfOrigin"
-                >USMCA Certificate Of Origin</a
-              >
-              schema is adapted from
-              <a
-                href="https://www.fedex.com/content/dam/fedex/us-united-states/International/upload/FedEx_USMCA_T-MEC_CUSMA_Fillable_Form.pdf"
-              >
-                FedEx's</a
-              >
-              and
-              <a
-                href="https://www.ups.com/assets/resources/media/ups-usmca-fillable-form-us.pdf"
-                >UPS's</a
-              >
-              USMCA Forms, implementing the
-              <a href="https://trade.cbp.gov/USMCA/s/"
-                >United States - Mexico - Canada Agreement (USMCA)</a
-              >.
-            </p>
-          </dd>
-        </dl>
-      </section>
-
-      <section>
-        <h5>Food and Agriculture</h5>
-        <p>
-          Several use cases exist for common vocabulary in the food and
-          agriculture space. Key priorities for this project revolve around
-          items that are required for the safe and succesful importation of food
-          to various countries.
-        </p>
-        <p>
-          The top level
-          <a href="./schemas/AgInspectionReport.json">AgInspectionReport</a>
-          object has been created as a parent object that allows for the
-          recording of the following inspections and audits, while giving
-          flexibility to account for newly defined inspction types as needs
-          change in the food and agricultre industry. This object can be
-          sub-classed to allow for schema level validation of specific types of
-          inspections and audits as required by the specifics of a given use
-          case. Verifiable Credentials can be issued for this object or sub
-          classes of this object to allow for external verification by third
-          parties that are implementing the Verifiable Credentials sepcification
-        </p>
-        <dl>
-          <dt>Farm GAP Inspection Report</dt>
-          <dd>
-            Keep track of
-            <a href="https://www.ams.usda.gov/services/auditing/gap-ghp"
-              >Good Agricultural Practices (GAP)</a
-            >
-            audits and share results with a vendor
-          </dd>
-          <dt>FSMA Inspection</dt>
-          <dd>
-            <a
-              href="https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma"
-              >Food Safety Modernization Act</a
-            >
-            inspections and results for sharing with relevant parties,
-            regulatory bodies and vendors.
-          </dd>
-          <dt>Foreign Site Certificate of Inspection and/or Treatment</dt>
-          <dd>
-            <a
-              href="https://www.aphis.usda.gov/aphis/resources/forms/CT_PPQ_Forms"
-              >USDA APHIS PPQ FORM 203</a
-            >
-            that is required for pre-clearance of imported food and ag goods
-            into the US
-          </dd>
-        </dl>
-      </section>
-      <section>
-        <h5>Oil and Gas</h5>
-        <dl class="termlist">
+        <!-- definition styling works well for these, but we can adjust at a later data should we want to break out into another format -->
+        <section>
+          <h4>Steel and Metals</h4>
           <p>
-            A common traceability vocabulary will enable creation of a common
-            digital representation of an oil and gas assets and a variety of use
-            cases. The main priority of this project is the border clearance and
-            regulatory compliance use cases, that enable industry players to
-            rely on the asset history, origin, and composition recorded as
-            Verifiable credentials to be used in these processes.
+            The global steel industry relies on cross-party communication of
+            product and business information to successfully move materials
+            from mines, to manufacturers, through customs, to end customers
+            (such as automotive and construction companies). Today this
+            information exists primarily in siloed paper documents. In the
+            current format it is very difficult to make data comparisons
+            across a small number of parties, let alone across millions of
+            shipments over time. It can also be difficult to catch forged
+            documents in the absence of digital signatures and clearly defined
+            organization data attributes.
+          </p>
+
+          <p>
+            A shared vocabulary creates opportunities for steel trading
+            partners to work from a common digital representation of trade
+            information. Take the example of a mill report for a steel
+            product. This document provides important information about the
+            chemical make-up of steel materials, helping to ensure the desired
+            specification and grade have been met. It also acts as evidence
+            about the origins of steel materials. Unambiguous representation
+            of mill report fields is critical for assessing appropriate
+            duties, meeting customer requirements, and ultimately ensuring
+            consumer safely.
+          </p>
+
+          <p>
+            By defining the schema for each field, importers can now answer
+            questions like “How many pipes of specification XYZ did we
+            purchase last year?” (i.e.,
+            <a
+              href="https://w3id.org/traceability#schemas/ChemicalProperty.json"
+              >ChemicalProperty</a
+            >). The mill report can also be linked to other trade
+            documentation such as commercial invoices and bills of lading when
+            those credentials are specified and defined. Regulators can also
+            ask questions across a large number of mill reports to help catch
+            transshipment issues, such as “How much steel product imported
+            last month specified Vietnam as the country of origin?” (i.e.,
+            <a href="https://schema.org/addressCountry">addressCountry</a>).
+          </p>
+
+            <h5>Sample Steel Workflow</h5>
+            <figure>
+              <img src="steel-workflow.png" alt="Sample Steel Workflow" style="width:100%">
+              <figcaption>Sample Steel Workflow</figcaption>
+            </figure>
+            <p>
+CTPAT issues a US Importer certificate (1) to the US Auto Manufacturer (2)
+and a Foreign Manufacturer certificate (3) to the Mexican Steel Mill (4). 
+            </p>
+            <p>              
+              US Auto Manufacturer Issues a Purchase Order (5) to their Mexican steel provider (6). 
+            </p>
+            <p>
+Mexican Steel Mill processes the order issuing a Mill Test Report (7) and a
+Commercial Invoice (8) reflecting shipment goods which are passed to the US
+Customer (9). The Mexican Steel Mill also passes its CTPAT Foreign
+Manufacturer certificate. 
+            </p>
+            <p>              
+SIMA issues a Steel Import Licence certificate (10) and passes it to
+US Auto (11) in response to their application. 
+            </p>
+            <p>              
+US Auto Manufacturer obtains a Steel license (11) and issues a USMCA
+Certificate of Origin (12). The full set of six verifiable credentials
+are presented to CBP in advance of the import. 
+            </p>
+            <p>
+CBP receives a Verifiable Presentation (12) from the US Auto importing
+steel, containing the two CTPAT certifications, USMCA Certificate of
+Origin, Steel Import License, Mill Test Report, and Commercial Invoice.
+Data is verified by CBP’s automated processes.
+            </p>
+
+            <h5>Featured Steel Credentials</h5>
+          <dl>
+            <dt><dfn>Mill Test Report Certificate</dfn></dt>
+            <dd>
+              <p>The <a href="#MillTestReportCertificate">Mill Test Report</a> 
+                certifies steel type and quality, listing chemical and mechanical 
+                properties.</p>
+            </dd>
+            <dt><dfn>Commercial Invoice Certificate</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/commercial-invoice-ex.png" alt="Commercial Invoice example" style="width:40%">
+                <figcaption>Sample Commercial Invoice</figcaption>
+              </figure>
+              <p>
+                <a href="#CommercialInvoiceCertificate">Commercial Invoice</a> 
+                indicates to authorities the value of goods subject to tariffs 
+                and duties.
+              </p> 
+            </dd>
+            <dt><dfn>Bill of Lading Certificate</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/bill-of-lading-ex-2.png" alt="Bill of Lading example" style="width:40%">
+                <figcaption>Sample Bill of Lading</figcaption>
+              </figure>
+              <p>
+                <a href="#BillOfLadingCertificate">Bill of Lading</a> certificates 
+                are issued by the carrier, indicating a) receipt of goods, b) evidence 
+                of consignment contract, and c) title of goods. 
+              </p> 
+            </dd>
+            <dt><dfn>Verifiable Business Card</dfn></dt>
+            <dd>
+              <p>
+                <a href="#VerifiableBusinessCard">Verifiable Business Cards</a> hold 
+                verifiable presentation endpoint addresses.  
+              </p>
+            </dd>
+            
+            <dt><dfn>USMCA Certificate Of Origin</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/usmca-form.png" alt="USMCA Certificate Of Origin" style="width:40%">
+                <figcaption>USMCA Certificate Of Origin</figcaption>
+              </figure>
+              <p>
+               The <a href="#USMCACertificateOfOrigin">USMCA Certificate Of Origin</a> 
+              schema is adapted from 
+              <a href="https://www.fedex.com/content/dam/fedex/us-united-states/International/upload/FedEx_USMCA_T-MEC_CUSMA_Fillable_Form.pdf">
+                FedEx's</a> and <a href="https://www.ups.com/assets/resources/media/ups-usmca-fillable-form-us.pdf">UPS's</a> 
+                USMCA Forms, implementing the 
+                <a href="https://trade.cbp.gov/USMCA/s/">United States - Mexico - Canada 
+                Agreement (USMCA)</a>. 
+              </p> 
+            </dd>
+          </dl>
+        </section>
+
+        <section>
+          <h5>Food and Agriculture</h5>
+          <p>
+            Several use cases exist for common vocabulary in the food and
+            agriculture space. Key priorities for this project revolve around
+            items that are required for the safe and succesful importation of
+            food to various countries.
           </p>
           <p>
-            The asset-specific CrudeOil VC (and NaturalGas VC) object serves as
-            a root object that stores the key attributes of the asset as well as
-            origin and composition. In addition to the asset VC, we are planning
-            to represent key events in the asset’s lifecycle (inspection,
-            transportation, transfer of ownership) as Verifiable Credentials.
+            The top level
+            <a href="./schemas/AgInspectionReport.json">AgInspectionReport</a>
+            object has been created as a parent object that allows for the
+            recording of the following inspections and audits, while giving
+            flexibility to account for newly defined inspction types as needs
+            change in the food and agricultre industry. This object can be
+            sub-classed to allow for schema level validation of specific types
+            of inspections and audits as required by the specifics of a given
+            use case. Verifiable Credentials can be issued for this object or
+            sub classes of this object to allow for external verification by
+            third parties that are implementing the Verifiable Credentials
+            sepcification
           </p>
-        </dl>
-      </section>
-      <section>
-        <h5>E-Commerce</h5>
-        <p>
-          A common traceability vocabulary will allow complex supply chains that
-          import goods to US-resident customers to register individual packages
-          and pre-register products intended for sale to the US with US Customs.
-          For the data needs of Customs to be met by highly heterogenous supply
-          chains that might require much "internal confidentiality" (between
-          supply chain actors), a highly sharded data model is required, whereby
-          many different actors can each submit data points separately that get
-          combined at time of customs processing.
-        </p>
-        <p>
-          Without strong identification of legal entities (i.e., legally defined
-          and registered supply chain actors) and of products, and without high
-          levels of semantic flexibility, the shards can be quite hard to
-          combine usefully. Linking the registration of individual packages
-          together with the pre-registration of commercial products and actors
-          is the key value-add of this system, but could also be a burdensome
-          request on importers, retailers, and freight forwarders. To minimize
-          this burden, we are aligning wherever possible with the ontology work
-          of GS1 (GTINs and vLEIs), and with shipping and tracking semantics
-          already adopted today by international logistics consortia. We
-          distinguish between the VCs that are issued in relation to a specific
-          package and the contextual information that needs to be queried to
-          validate package information, as well as to make valuable assessments,
-          inferences, and data quality remediation on Customs pre-entry data.
-        </p>
+          <dl>
+            <dt><dfn>Farm GAP Inspection Report</dfn></dt>
+            <dd>
+              Keep track of
+              <a href="https://www.ams.usda.gov/services/auditing/gap-ghp"
+                >Good Agricultural Practices (GAP)</a
+              >
+              audits and share results with a vendor
+            </dd>
+            <dt><dfn>FSMA Inspection</dfn></dt>
+            <dd>
+              <a
+                href="https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/food-safety-modernization-act-fsma"
+                >Food Safety Modernization Act</a
+              >
+              inspections and results for sharing with relevant parties,
+              regulatory bodies and vendors.
+            </dd>
+            <dt>
+              <dfn>Foreign Site Certificate of Inspection and/or Treatment</dfn>
+            </dt>
+            <dd>
+              <a
+                href="https://www.aphis.usda.gov/aphis/resources/forms/CT_PPQ_Forms"
+                >USDA APHIS PPQ FORM 203</a
+              >
+              that is required for pre-clearance of imported food and ag goods
+              into the US
+            </dd>
+          </dl>
+        </section>
+        <section>
+          <h5>Oil and Gas</h5>
+          <dl class="termlist">
+            <p>
+              A common traceability vocabulary will enable creation of a common
+              digital representation of an oil and gas assets and a variety of
+              use cases. The main priority of this project is the border
+              clearance and regulatory compliance use cases, that enable
+              industry players to rely on the asset history, origin, and
+              composition recorded as Verifiable credentials to be used in these
+              processes.
+            </p>
+            <p>
+              The asset-specific CrudeOil VC (and NaturalGas VC) object serves
+              as a root object that stores the key attributes of the asset as
+              well as origin and composition. In addition to the asset VC, we
+              are planning to represent key events in the asset’s lifecycle
+              (inspection, transportation, transfer of ownership) as Verifiable
+              Credentials.
+            </p>
+          </dl>
+        </section>
+        <section>
+          <h5>E-Commerce</h5>
+          <p>
+            A common traceability vocabulary will allow complex supply chains
+            that import goods to US-resident customers to register individual
+            packages and pre-register products intended for sale to the US
+            with US Customs. For the data needs of Customs to be met by highly
+            heterogenous supply chains that might require much "internal
+            confidentiality" (between supply chain actors), a highly sharded
+            data model is required, whereby many different actors can each
+            submit data points separately that get combined at time of customs
+            processing.
+          </p>
+          <p>
+            Without strong identification of legal entities (i.e., legally
+            defined and registered supply chain actors) and of products, and
+            without high levels of semantic flexibility, the shards can be
+            quite hard to combine usefully. Linking the registration of
+            individual packages together with the pre-registration of
+            commercial products and actors is the key value-add of this
+            system, but could also be a burdensome request on importers,
+            retailers, and freight forwarders. To minimize this burden, we are
+            aligning wherever possible with the ontology work of GS1 (GTINs
+            and vLEIs), and with shipping and tracking semantics already
+            adopted today by international logistics consortia. We distinguish
+            between the VCs that are issued in relation to a specific package
+            and the contextual information that needs to be queried to
+            validate package information, as well as to make valuable
+            assessments, inferences, and data quality remediation on Customs
+            pre-entry data.
+          </p>
 
-        <h5>Sample E-Commerce Workflow</h5>
-        <figure>
-          <img
-            src="./ecommerce-workflow.png"
-            alt="Sample E-Commerce Workflow"
-            style="width: 100%"
-          />
-          <figcaption>Sample E-Commerce Workflow</figcaption>
-        </figure>
-        <p>
-          A Danish Vendor has received an online order, issues a Purchase Order
-          (1) which is presented to the Chinese manufacturer for fulfillment
-          (2).
+          <h5>Sample E-Commerce Workflow</h5>
+          <figure>
+            <img src="./ecommerce-workflow.png" alt="Sample E-Commerce Workflow" style="width:100%">
+            <figcaption>Sample E-Commerce Workflow</figcaption>
+          </figure>
+          <p>
+            A Danish Vendor has received an online order, issues a Purchase Order (1) which is presented to the Chinese manufacturer for fulfillment (2). 
+          </p>
+        <p> 
+          The Chinese Manufacturer receives an order from their Danish customer (2). An invoice is issued (3) and presented back to customer (4). 
         </p>
         <p>
-          The Chinese Manufacturer receives an order from their Danish customer
-          (2). An invoice is issued (3) and presented back to customer (4).
+Upon shipping, the manufacturer issues Shipping Instructions (5) and a Packing
+List (6) which is presented to the express carrier (7).  
         </p>
         <p>
-          Upon shipping, the manufacturer issues Shipping Instructions (5) and a
-          Packing List (6) which is presented to the express carrier (7).
+The Vendor issues a Pro Forma Invoice (8) and a Declaration of import into
+the US (9), both of which are passed to the Express Carrier (10), which also
+offers Customs Broker services.                     
         </p>
         <p>
-          The Vendor issues a Pro Forma Invoice (8) and a Declaration of import
-          into the US (9), both of which are passed to the Express Carrier (10),
-          which also offers Customs Broker services.
+An Express Carrier collects the shipment in China and issues an Air
+Waybill (11) based on Shipping Instructions. 
         </p>
         <p>
-          An Express Carrier collects the shipment in China and issues an Air
-          Waybill (11) based on Shipping Instructions.
+Air Waybill, along with the Packing List, Import Declaration, and Pro Forma
+Invoice from upstream, are presented pre-arrival to CBP (12) import approval. 
         </p>
         <p>
-          Air Waybill, along with the Packing List, Import Declaration, and Pro
-          Forma Invoice from upstream, are presented pre-arrival to CBP (12)
-          import approval.
-        </p>
-        <p>
-          CBP receives the pouch of verifiable documentation (12). The parties
-          and data are cross referenced; commercial and physical provenance is
-          verified; and CBP’s automated processes can issue Import Approval (13)
-          documentation for presentation back to the Express Carrier (14) well
-          in advance of the goods arrival.
-        </p>
-        <h5>Featured E-Commerce Credentials</h5>
-        <dl>
-          <dt>Purchase Order</dt>
-          <dd>
-            <figure>
-              <img
-                src="samples/purchase-order-ex.png"
-                alt="Purchase Order example"
-                style="width: 40%"
-              />
-              <figcaption>Sample Purchase Order</figcaption>
-            </figure>
-            <p>
-              The
-              <a href="#EcommerceOrderRegistrationCredential">Purchase Order</a>
-              is a formal request of goods by buyer to seller.
-            </p>
-          </dd>
-          <dt>Packing List</dt>
-          <dd>
-            <figure>
-              <img
-                src="samples/packing-list-ex.png"
-                alt="Packing List example"
-                style="width: 40%"
-              />
-              <figcaption>Sample Packing List</figcaption>
-            </figure>
-            <p>
-              The <a href="#PackingListCertificate">Packing List</a>
-              lists the goods of a shipment. It is used by the consignee and
-              Customs to practically manage and organize the consgned goods.
-            </p>
-          </dd>
-          <dt>Waybill</dt>
-          <dd>
-            <p>
-              Waybill is a transport document issued by the carrier. It serves a
-              similar purpose as a Bill of Lading, except that it does not carry
-              title. Instead, the consignee is identified on the document.
-            </p>
-          </dd>
-          <dt>Invoice</dt>
-          <dd>
-            <figure>
-              <img
-                src="samples/invoice-ex.png"
-                alt="Commercial Invoice example"
-                style="width: 40%"
-              />
-              <figcaption>Sample Invoice example</figcaption>
-            </figure>
-            <p>
-              An <a href="#CommercialInvoiceCertificate">Invoice</a>
-              requests payment for a shipment of goods. It is based on the same
-              schema as the Commercial Invoice, but is typically at a finer
-              level of details, line items corresponding to the Purchase Order.
-            </p>
-          </dd>
-        </dl>
+CBP receives the pouch of verifiable documentation (12). The parties and data
+are cross referenced; commercial and physical provenance is verified; and CBP’s
+automated processes can issue Import Approval (13) documentation for presentation
+back to the Express Carrier (14) well in advance of the goods arrival.
+        </p>        
+          <h5>Featured E-Commerce Credentials</h5>
+          <dl>
+            <dt><dfn>Purchase Order</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/purchase-order-ex.png" alt="Purchase Order example" style="width:40%">
+                <figcaption>Sample Purchase Order</figcaption>
+              </figure>
+              <p>
+                The <a href="#EcommerceOrderRegistrationCredential">Purchase Order</a> 
+                is a formal request of goods by buyer to seller. 
+              </p> 
+            </dd>
+            <dt><dfn>Packing List</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/packing-list-ex.png" alt="Packing List example" style="width:40%">
+                <figcaption>Sample Packing List</figcaption>
+              </figure>
+              <p>
+                The <a href="#PackingListCertificate">Packing List</a>
+                lists the goods of a shipment. It is used by the consignee 
+                and Customs to practically manage and organize the consgned 
+                goods. 
+              </p>
+            </dd>
+            <dt><dfn>Waybill</dfn></dt>
+            <dd>
+              <p>
+                <a href="#EcommerceWayBillRegistrationEvidenceDocument">Waybill</a> 
+                is a transport document issued by the carrier. It serves a 
+                similar purpose as a Bill of Lading, except that it does not
+                carry title. Instead, the consignee is identified on the 
+                document. 
+              </p>
+            </dd>
+            <dt><dfn>Invoice</dfn></dt>
+            <dd>
+              <figure>
+                <img src="samples/invoice-ex.png" alt="Commercial Invoice example" style="width:40%">
+                <figcaption>Sample Invoice example</figcaption>
+              </figure>
+              <p>
+                An <a href="#CommercialInvoiceCertificate">Invoice</a> 
+                requests payment for a shipment of goods. It is based on the same 
+                schema as the Commercial Invoice, but is typically at a finer
+                level of details, line items corresponding to the Purchase Order. 
+              </p> 
+            </dd>
+          </dl>
+
+        </section>
       </section>
-    </section>
+
+    
 
     <section
-      data-include="sections/vocab.html"
-      data-include-replace="true"
+    data-include="sections/vocab.html"
+    data-include-replace="true"
     ></section>
 
+ 
     <section id="conformance"></section>
 
     <section
-      data-include="sections/test-suite.html"
-      data-include-replace="true"
-    ></section>
+    data-include="sections/test-suite.html"
+    data-include-replace="true"
+  ></section>
 
     <section class="informative">
       <h2>Privacy Considerations</h2>
@@ -975,11 +870,16 @@
       <p>
         Portions of the work on this specification have been funded by the
         United States Department of Homeland Security's (US DHS) Silicon Valley
-        Innovation Program under contracts 70RSAT20T00000003, 70RSAT20T00000031,
-        70RSAT20T00000033, 70RSAT20T00000043, and 70RSAT20T00000044. The content
-        of this specification does not necessarily reflect the position or the
-        policy of the U.S. Government and no official endorsement should be
-        inferred.
+        Innovation Program under contracts
+        70RSAT20T00000003,
+        70RSAT20T00000031,
+        70RSAT20T00000033,
+        70RSAT20T00000043,
+        and
+        70RSAT20T00000044.
+        The content of this specification does not
+        necessarily reflect the position or the policy of the U.S. Government
+        and no official endorsement should be inferred.
       </p>
     </section>
   </body>
