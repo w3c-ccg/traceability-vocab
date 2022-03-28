@@ -21,15 +21,14 @@ const buildLinkedDataTable = (schema) => {
     <td><a href="${$linkedData['@id']}">${$linkedData['@id']}</a></td>
   </tr>
   
-  ${
-    $id
+  ${$id
       ? `
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
   <td><a href="${baseUrl + $id}">${baseUrl + $id}</a></td>
 </tr>`
       : ''
-  }
+    }
 
   </tbody>
   </table>
@@ -119,7 +118,7 @@ const separateSchemas = (schemaList) => {
 
 (() => {
   console.log('🧪 build vocab from schemas');
-	const { credentials, vocab } = separateSchemas(schemas);
+  const { credentials, vocab } = separateSchemas(schemas);
 
   const credentialSection = `
     <section>
