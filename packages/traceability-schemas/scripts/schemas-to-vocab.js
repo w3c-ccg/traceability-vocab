@@ -6,6 +6,7 @@ const path = require('path');
 const { schemas } = require('../services/schemas');
 
 const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
+const credentialPath = path.resolve(__dirname, '../../../docs/sections/credentials.html');
 
 const baseUrl = 'https://w3id.org/traceability';
 
@@ -20,15 +21,14 @@ const buildLinkedDataTable = (schema) => {
     <td><a href="${$linkedData['@id']}">${$linkedData['@id']}</a></td>
   </tr>
   
-  ${
-    $id
+  ${$id
       ? `
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
   <td><a href="${baseUrl + $id}">${baseUrl + $id}</a></td>
 </tr>`
       : ''
-  }
+    }
 
   </tbody>
   </table>
@@ -91,34 +91,49 @@ const buildVocabSection = (schema) => {
   return buildProperty(schema);
 };
 
-(async () => {
+const separateSchemas = (schemaList) => {
+  // Define Arrays to sort the schemas into
+  const credentialSchemas = [];
+  const vocabSchemas = [];
+
+  // Separates Schemas into Credentials and Vocabulary
+  schemaList.forEach((schema) => {
+    const { example } = schema;
+    const obj = JSON.parse(example);
+    const type = Array.isArray(obj.type) ? obj.type : [obj.type];
+    if (type.indexOf('VerifiableCredential') === -1) {
+      vocabSchemas.push(schema);
+    } else {
+      credentialSchemas.push(schema);
+    }
+  });
+
+  // Generate the text for each respective section
+  const credentials = credentialSchemas.map(buildVocabSection).join('\n');
+  const vocab = vocabSchemas.map(buildVocabSection).join('\n');
+
+  // Return the html text for each section
+  return { credentials, vocab };
+};
+
+(() => {
   console.log('🧪 build vocab from schemas');
-  const sections = schemas.map(buildVocabSection).join('\n');
-  const section = `
-<section id="vocabulary" class="normative">
-<h2>Vocabulary </h2>
+  const { credentials, vocab } = separateSchemas(schemas);
 
-<section id="Open API" class="informative">
-  <h2>Open API</h2>
-  <p>
-    This vocabulary can also be viewed as an
-    <a href="https://w3id.org/traceability/openapi/">Open API Specification</a>.
-  </p>
-</section>
-
-<section>
-<h3 id="undefinedTerm">Undefined Terms</h3>
-<p>This vocabulary uses <code> '@vocab': 'https://w3id.org/traceability/#undefinedTerm' </code>
-    to disable JSON-LD related errors associated with Verifiable Credentials, issued about
-    terms that have not yet been added here.
-</p>
-</section>
-
-<section>
-<h2>Defined Terms</h2>
-${sections}
-</section>
-</section>
+  const credentialSection = `
+    <section>
+      <h2>Credentials</h2>
+      ${credentials}
+    </section>
   `;
-  fs.writeFileSync(vocabPath, section);
+
+  const vocabSection = `
+    <section>
+      <h2>Vocabulary</h2>
+      ${vocab}
+    </section>
+  `;
+
+  fs.writeFileSync(credentialPath, credentialSection);
+  fs.writeFileSync(vocabPath, vocabSection);
 })();

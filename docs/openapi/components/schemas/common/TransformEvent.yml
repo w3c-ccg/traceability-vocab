@@ -1,0 +1,277 @@
+$linkedData:
+  term: TransformEvent
+  '@id': https://w3id.org/traceability#TransformEvent
+title: Transform Event
+description: A product transformation event, extending the Event schema.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Event
+          - TransformEvent
+  eventType:
+    oneOf:
+      - type: string
+  eventId:
+    type: string
+  eventTime:
+    type: string
+  place:
+    title: Place
+    description: Information on where the event took place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  actor:
+    title: Event Actors
+    description: >-
+      List of organizations which acted during the event, https://w3id.org/traceability#Organization
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: organization
+      '@id': https://w3id.org/traceability#Organization
+  products:
+    title: Products
+    description: >-
+      List of product details as outlined in the Product schema
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://schema.org/Product
+  newProducts:
+    title: New products created from the transformation event
+    description: Identifiers for the new products.
+    type: array
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  consumedProducts:
+    title: New products created from the transformation event
+    description: Identifiers for the new products.
+    type: array
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+additionalProperties: false
+example: |-
+  {
+    "type":[
+      "Event",
+      "TransformEvent"
+    ],
+    "eventType":"Smelt",
+    "eventId":"30ee76a2-9ff9-4884-8ecf-c85c9f3343f4",
+    "eventTime":"2022-01-14T18:24:31Z",
+    "place":{
+      "geo":{
+        "type":[
+          "GeoCoordinates"
+        ],
+        "latitude":42.8864,
+        "longitude":-78.8784
+      },
+      "type":[
+        "Place"
+      ],
+      "address":{
+        "type":[
+          "PostalAddress"
+        ],
+        "postalCode":"",
+        "addressRegion":"New York",
+        "streetAddress":"",
+        "addressCountry":"USA",
+        "addressLocality":"Buffalo"
+      }
+    },
+    "actor":[
+      {
+        "name":"Fabricator Co.",
+        "type":[
+          "Organization"
+        ]
+      }
+    ],
+    "products":[
+      {
+        "productID":"5c93de07-5d94-4357-85cf-aefc9ccbff97",
+        "type": "Product",
+        "manufacturer": {
+          "type": "Person",
+          "firstName": "Lawson",
+          "lastName": "Weber",
+          "email": "Hollie.Lindgren@example.org",
+          "phoneNumber": "555-547-4441",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Zemlak - Wyman",
+            "description": "Progressive fault-tolerant task-force",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "964 Mikayla Viaduct",
+              "addressLocality": "Runolfsdottirburgh",
+              "addressRegion": "Florida",
+              "postalCode": "48442-9522",
+              "addressCountry": "Barbados"
+            },
+            "email": "Reyna_Hamill56@example.com",
+            "phoneNumber": "555-718-9023",
+            "faxNumber": "555-523-8629"
+          },
+          "jobTitle": "District Mobility Planner"
+        },
+        "name": "Handmade Fresh Hat",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "sqm",
+          "value": "47"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "4890"
+        },
+        "sku": "712120934258"
+      },
+      {
+        "productID":"9d237753-b377-492a-a8c8-a28fe9f3457b",
+        "type": "Product",
+        "manufacturer": {
+          "type": "Person",
+          "firstName": "Lawson",
+          "lastName": "Weber",
+          "email": "Hollie.Lindgren@example.org",
+          "phoneNumber": "555-547-4441",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Zemlak - Wyman",
+            "description": "Progressive fault-tolerant task-force",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "964 Mikayla Viaduct",
+              "addressLocality": "Runolfsdottirburgh",
+              "addressRegion": "Florida",
+              "postalCode": "48442-9522",
+              "addressCountry": "Barbados"
+            },
+            "email": "Reyna_Hamill56@example.com",
+            "phoneNumber": "555-718-9023",
+            "faxNumber": "555-523-8629"
+          },
+          "jobTitle": "District Mobility Planner"
+        },
+        "name": "Handmade Fresh Hat",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "sqm",
+          "value": "47"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "4890"
+        },
+        "sku": "712120934258"
+      },
+      {
+        "productID":"adf9a0fe-a117-4728-a323-b941b5bcf011",
+        "type": "Product",
+        "manufacturer": {
+          "type": "Person",
+          "firstName": "Lawson",
+          "lastName": "Weber",
+          "email": "Hollie.Lindgren@example.org",
+          "phoneNumber": "555-547-4441",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Zemlak - Wyman",
+            "description": "Progressive fault-tolerant task-force",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "964 Mikayla Viaduct",
+              "addressLocality": "Runolfsdottirburgh",
+              "addressRegion": "Florida",
+              "postalCode": "48442-9522",
+              "addressCountry": "Barbados"
+            },
+            "email": "Reyna_Hamill56@example.com",
+            "phoneNumber": "555-718-9023",
+            "faxNumber": "555-523-8629"
+          },
+          "jobTitle": "District Mobility Planner"
+        },
+        "name": "Handmade Fresh Hat",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "sqm",
+          "value": "47"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "4890"
+        },
+        "sku": "712120934258"
+      },
+      {
+        "productID":"c72a3cb7-3d2f-4d42-b398-2deb6e6ace66",
+        "type": "Product",
+        "manufacturer": {
+          "type": "Person",
+          "firstName": "Lawson",
+          "lastName": "Weber",
+          "email": "Hollie.Lindgren@example.org",
+          "phoneNumber": "555-547-4441",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Zemlak - Wyman",
+            "description": "Progressive fault-tolerant task-force",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "964 Mikayla Viaduct",
+              "addressLocality": "Runolfsdottirburgh",
+              "addressRegion": "Florida",
+              "postalCode": "48442-9522",
+              "addressCountry": "Barbados"
+            },
+            "email": "Reyna_Hamill56@example.com",
+            "phoneNumber": "555-718-9023",
+            "faxNumber": "555-523-8629"
+          },
+          "jobTitle": "District Mobility Planner"
+        },
+        "name": "Handmade Fresh Hat",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "sqm",
+          "value": "47"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "4890"
+        },
+        "sku": "712120934258"
+      }
+    ],
+    "newProducts":[
+      "https://example.com/5c93de07-5d94-4357-85cf-aefc9ccbff97"
+    ],
+    "consumedProducts":[
+      "https://example.com/9d237753-b377-492a-a8c8-a28fe9f3457b",
+      "https://example.com/adf9a0fe-a117-4728-a323-b941b5bcf011",
+      "https://example.com/c72a3cb7-3d2f-4d42-b398-2deb6e6ace66"
+    ]
+  }
