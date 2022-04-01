@@ -73,21 +73,21 @@ properties:
       '@id': https://schema.org/identifier
   portOfArrival:
     title: Port of Arrival
-    description: 
+    description: Port of arrival to which the product(s) were transferred
     $ref: ./Place.yml
     $linkedData:
       term: place
       '@id': https://schema.org/Place
   portOfEntry:
     title: Port of Entry
-    description: 
+    description: Port of entry to which the product(s) were transferred
     $ref: ./Place.yml
     $linkedData:
       term: place
       '@id': https://schema.org/Place
   portOfDestination:
     title: Port of Destination
-    description: 
+    description: Port of destination to which the product[s) were transferred
     $ref: ./Place.yml
     $linkedData:
       term: place
@@ -103,8 +103,8 @@ additionalProperties: false
 example: |-
   {
     "type": [
-      "EventCredential",
-      "TransferEventCredential"
+      "Event",
+      "TransferEvent"
     ],
     "eventType": "TransferOwnership",
     "eventId": "b9d46bb9-9c0f-48aa-8d7d-d115aa9b1121",
@@ -114,8 +114,8 @@ example: |-
         "type": [
           "GeoCoordinates"
         ],
-        "latitude": "43.2557",
-        "longitude": "-79.8711"
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
       },
       "type": [
         "Place"
@@ -125,48 +125,54 @@ example: |-
           "PostalAddress"
         ],
         "postalCode": "",
-        "addressRegion": "Ontario",
+        "addressRegion": "New York",
         "streetAddress": "",
-        "addressCountry": "CANADA",
-        "addressLocality": "Hamilton"
-      },
-      "globalLocationNumber": "SC720"
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
+      }
     },
     "price": 1200,
     "products": [
       {
-        "id": "752f9fef-a028-415c-b17b-33a7aafda835",
-        "name": "Carbon and alloy long product",
-        "type": [
-          "Product"
-        ],
-        "width": {
-          "type": [
-            "MeasuredValue"
-          ],
-          "value": "1220",
-          "unitCode": "CM"
+        "productID": "9d237753-b377-492a-a8c8-a28fe9f3457b",
+        "type": "Product",
+        "manufacturer": {
+          "type": "Person",
+          "firstName": "Lawson",
+          "lastName": "Weber",
+          "email": "Hollie.Lindgren@example.org",
+          "phoneNumber": "555-547-4441",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Zemlak - Wyman",
+            "description": "Progressive fault-tolerant task-force",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "964 Mikayla Viaduct",
+              "addressLocality": "Runolfsdottirburgh",
+              "addressRegion": "Florida",
+              "postalCode": "48442-9522",
+              "addressCountry": "Barbados"
+            },
+            "email": "Reyna_Hamill56@example.com",
+            "phoneNumber": "555-718-9023",
+            "faxNumber": "555-523-8629"
+          },
+          "jobTitle": "District Mobility Planner"
         },
-        "length": {
-          "type": [
-            "MeasuredValue"
-          ],
-          "value": "654460",
-          "unitCode": "CM"
+        "name": "Handmade Fresh Hat",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "sqm",
+          "value": "47"
         },
         "weight": {
-          "type": [
-            "MeasuredValue"
-          ],
-          "value": "11013",
-          "unitCode": "KG"
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "4890"
         },
-        "manufacturer": {
-          "name": "Steel Co.",
-          "type": [
-            "Organization"
-          ]
-        }
+        "sku": "712120934258"
       }
     ],
     "actor": [
@@ -190,8 +196,8 @@ example: |-
         "type": [
           "GeoCoordinates"
         ],
-        "latitude": "53.727",
-        "longitude": "-127.648"
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
       },
       "type": [
         "Place"
@@ -201,10 +207,10 @@ example: |-
           "PostalAddress"
         ],
         "postalCode": "",
-        "addressRegion": "British Columbia",
+        "addressRegion": "New York",
         "streetAddress": "",
-        "addressCountry": "Canada",
-        "addressLocality": "Vancouver"
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
       }
     },
     "portOfEntry": {
@@ -212,8 +218,8 @@ example: |-
         "type": [
           "GeoCoordinates"
         ],
-        "latitude": "46.8139",
-        "longitude": "-71.208"
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
       },
       "type": [
         "Place"
@@ -223,10 +229,10 @@ example: |-
           "PostalAddress"
         ],
         "postalCode": "",
-        "addressRegion": "QC",
+        "addressRegion": "New York",
         "streetAddress": "",
-        "addressCountry": "Canada",
-        "addressLocality": "Quebec City"
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
       }
     },
     "portOfDestination": {
@@ -234,8 +240,8 @@ example: |-
         "type": [
           "GeoCoordinates"
         ],
-        "latitude": "43.2557",
-        "longitude": "-79.8711"
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
       },
       "type": [
         "Place"
@@ -245,10 +251,10 @@ example: |-
           "PostalAddress"
         ],
         "postalCode": "",
-        "addressRegion": "ON",
+        "addressRegion": "New York",
         "streetAddress": "",
-        "addressCountry": "Canada",
-        "addressLocality": "Hamilton"
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
       }
     },
     "countryOfDestination": "CAN"
