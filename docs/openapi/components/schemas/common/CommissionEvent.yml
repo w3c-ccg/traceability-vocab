@@ -1,0 +1,128 @@
+$linkedData:
+  term: CommissionEvent
+  '@id': https://w3id.org/traceability#CommissionEvent
+title: Commission Event
+description: A product commission event, extending the Event schema.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Event
+          - CommissionEvent
+  eventType:
+    oneOf:
+      - type: string
+        enum:
+          - Commission
+  eventId:
+    type: string
+  eventTime:
+    type: string
+  place:
+    title: Place
+    description: Information on where the event took place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  actor:
+    title: Event Actors
+    description: >-
+      List of organizations that acted during the event, https://w3id.org/traceability#Organization
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: organization
+      '@id': https://w3id.org/traceability#Organization
+  products:
+    title: Products
+    description: >-
+      List of product details as outlined in the Product schema
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://schema.org/Product
+additionalProperties: false
+example: |-
+  {
+    "type":[
+      "Event",
+      "CommissionEvent"
+    ],
+    "eventType":"Create",
+    "eventId":"dd0c6f9a-5df6-40a3-bb34-863cd1fda606",
+    "eventTime":"2022-04-01T18:09:00.351Z",
+    "place":{
+      "geo":{
+        "type":[
+          "GeoCoordinates"
+        ],
+        "latitude":"43.2557",
+        "longitude":"-79.8711"
+      },
+      "type":[
+        "Place"
+      ],
+      "address":{
+        "type":[
+          "PostalAddress"
+        ],
+        "postalCode":"",
+        "addressRegion":"Ontario",
+        "streetAddress":"",
+        "addressCountry":"CANADA",
+        "addressLocality":"Hamilton"
+      },
+      "globalLocationNumber":"SC720"
+    },
+    "actor":[
+      {
+        "name":"Steel Co.",
+        "type":[
+          "Organization"
+        ]
+      }
+    ],
+    "products":[
+      {
+        "id":"752f9fef-a028-415c-b17b-33a7aafda835",
+        "name":"Carbon and alloy long product",
+        "type":[
+          "Product"
+        ],
+        "width":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"1220",
+          "unitCode":"CM"
+        },
+        "length":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"654460",
+          "unitCode":"CM"
+        },
+        "weight":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"11013",
+          "unitCode":"KG"
+        },
+        "manufacturer":{
+          "name":"Steel Co.",
+          "type":[
+            "Organization"
+          ]
+        }
+      }
+    ]
+  }
