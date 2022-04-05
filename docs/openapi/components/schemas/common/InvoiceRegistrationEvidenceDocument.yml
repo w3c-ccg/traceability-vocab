@@ -1,6 +1,6 @@
 $linkedData:
-  term: EcommerceInvoiceRegistrationEvidenceDocument
-  '@id': https://w3id.org/traceability#EcommerceInvoiceRegistrationEvidenceDocument
+  term: InvoiceRegistrationEvidenceDocument
+  '@id': https://w3id.org/traceability#InvoiceRegistrationEvidenceDocument
 title: Invoice Registration Evidence Document
 description: Evidence data for a registered eCommerce Invoice
 type: object
@@ -22,7 +22,7 @@ properties:
       - type: array
       - type: string
         enum:
-          - EcommerceInvoiceRegistrationEvidenceDocument
+          - InvoiceRegistrationEvidenceDocument
   identifier:
     title: Identifier
     type: string
@@ -99,13 +99,13 @@ properties:
     title: Referencesorder
     type: array
     items:
-      $ref: ./EcommerceOrderRegistrationEvidenceDocument.yml
+      $ref: ./OrderRegistrationEvidenceDocument.yml
     $linkedData:
       term: referencesOrder
       '@id': https://schema.org/referencesOrder
 example: |-
   {
-    "type": "EcommerceInvoiceRegistrationEvidenceDocument",
+    "type": "InvoiceRegistrationEvidenceDocument",
     "identifier": "Invoice#922",
     "description": "Invoice For Eva Oberbrunner for Order#112",
     "url": "http://maureen.info?queryid=Invoice#922",
@@ -140,7 +140,7 @@ example: |-
     },
     "referencesOrder": [
       {
-        "type": "EcommerceOrderRegistrationEvidenceDocument",
+        "type": "OrderRegistrationEvidenceDocument",
         "description": "New Order For Eva Oberbrunner",
         "url": "https://claire.biz?queryid=Order#112",
         "orderNumber": "Order#112",
