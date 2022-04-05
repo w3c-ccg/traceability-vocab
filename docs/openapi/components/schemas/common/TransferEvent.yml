@@ -1,0 +1,261 @@
+$linkedData:
+  term: TransferEvent
+  '@id': https://w3id.org/traceability#TransferEvent
+title: Transfer Event
+description: A transfer custody or ownership event, extending the Event schema.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Event
+          - TransferEvent
+  eventType:
+    oneOf:
+      - type: string
+        enum:
+          - TransferOwnership
+          - TransferCustody
+  eventId:
+    type: string
+  eventTime:
+    type: string
+  place:
+    title: Place
+    description: Information on where the event took place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  price:
+    title: Price
+    description: >-
+      The offer price of a product.
+    type: number
+    $linkedData:
+      term: price
+      '@id': https://schema.org/price
+  products:
+    title: Products
+    description: >-
+      List of product details as outlined in the Product schema
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://schema.org/Product
+  actor:
+    title: Event Actors
+    description: >-
+      List of organizations acted on the event, https://w3id.org/traceability#Organization
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: organization
+      '@id': https://w3id.org/traceability#Organization
+  initiator:
+    title: Initiator Identifier
+    description: Identifiers for the initiator of transfer.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  receiver:
+    title: Receiver Identifier
+    description: Identifiers for the receiver of transfer.
+    type: string
+    $linkedData:
+      term: identifier
+      '@id': https://schema.org/identifier
+  portOfArrival:
+    title: Port of Arrival
+    description: Port of arrival to which the product(s) were transferred
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  portOfEntry:
+    title: Port of Entry
+    description: Port of entry to which the product(s) were transferred
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  portOfDestination:
+    title: Port of Destination
+    description: Port of destination to which the product[s) were transferred
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  countryOfDestination:
+    title: Country of Destination
+    description: Country to which the product(s) were transferred.
+    type: string
+    $linkedData:
+      term: addressCountry
+      '@id': https://schema.org/addressCountry
+additionalProperties: false
+example: |-
+  {
+    "type": [
+      "Event",
+      "TransferEvent"
+    ],
+    "eventType": "TransferOwnership",
+    "eventId": "b9d46bb9-9c0f-48aa-8d7d-d115aa9b1121",
+    "eventTime": "2022-04-01T19:13:48.305Z",
+    "place": {
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
+      },
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "postalCode": "",
+        "addressRegion": "New York",
+        "streetAddress": "",
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
+      }
+    },
+    "price": 1200,
+    "products": [
+      {
+        "productID": "9d237753-b377-492a-a8c8-a28fe9f3457b",
+        "type": "Product",
+        "manufacturer": {
+          "type": "Person",
+          "firstName": "Lawson",
+          "lastName": "Weber",
+          "email": "Hollie.Lindgren@example.org",
+          "phoneNumber": "555-547-4441",
+          "worksFor": {
+            "type": "Organization",
+            "name": "Zemlak - Wyman",
+            "description": "Progressive fault-tolerant task-force",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "964 Mikayla Viaduct",
+              "addressLocality": "Runolfsdottirburgh",
+              "addressRegion": "Florida",
+              "postalCode": "48442-9522",
+              "addressCountry": "Barbados"
+            },
+            "email": "Reyna_Hamill56@example.com",
+            "phoneNumber": "555-718-9023",
+            "faxNumber": "555-523-8629"
+          },
+          "jobTitle": "District Mobility Planner"
+        },
+        "name": "Handmade Fresh Hat",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+        "sizeOrAmount": {
+          "type": "QuantitativeValue",
+          "unitCode": "sqm",
+          "value": "47"
+        },
+        "weight": {
+          "type": "QuantitativeValue",
+          "unitCode": "kg",
+          "value": "4890"
+        },
+        "sku": "712120934258"
+      }
+    ],
+    "actor": [
+      {
+        "name": "Fabricator Co.",
+        "type": [
+          "Organization"
+        ]
+      },
+      {
+        "name": "Steel Co.",
+        "type": [
+          "Organization"
+        ]
+      }
+    ],
+    "initiator": "did:key:z6MkiQ89X1yScaGBJ5sVS62wGFAhzyz1zPiwmK8GrchJ5EKX",
+    "receiver": "did:key:z6Mko5QGjK56EwM59qdjn99TrJqQFvNcokxwwCTUJ8sfiG4Z",
+    "portOfArrival": {
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
+      },
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "postalCode": "",
+        "addressRegion": "New York",
+        "streetAddress": "",
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
+      }
+    },
+    "portOfEntry": {
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
+      },
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "postalCode": "",
+        "addressRegion": "New York",
+        "streetAddress": "",
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
+      }
+    },
+    "portOfDestination": {
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "42.8864",
+        "longitude": "-78.8784"
+      },
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "postalCode": "",
+        "addressRegion": "New York",
+        "streetAddress": "",
+        "addressCountry": "USA",
+        "addressLocality": "Buffalo"
+      }
+    },
+    "countryOfDestination": "CAN"
+  }
