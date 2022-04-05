@@ -1,0 +1,144 @@
+$linkedData:
+  term: TransportEvent
+  '@id': https://w3id.org/traceability#TransportEvent
+title: Transport Event
+description: A product transport event, extending the Event schema.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+      - type: string
+        enum:
+          - Event
+          - TransportEvent
+  eventType:
+    oneOf:
+      - type: string
+        enum:
+          - TransportStart
+          - TransportEnd
+  eventId:
+    type: string
+  eventTime:
+    type: string
+  place:
+    title: Place
+    description: Information on where the event took place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+  actor:
+    title: Event Actors
+    description: >-
+      List of organizations which acted during the event, https://w3id.org/traceability#Organization
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: organization
+      '@id': https://w3id.org/traceability#Organization
+  products:
+    title: Products
+    description: >-
+      List of product details as outlined in the Product schema
+    type: array
+    items:
+      $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://schema.org/Product
+  deliveryMethod:
+    title: Delivery Method
+    description: The means of transportation used in delivering the shipment.
+    type: string
+    $linkedData:
+      term: deliveryMethod
+      '@id': https://schema.org/DeliveryMethod
+  trackingNumber:
+    title: Tracking Number
+    description: Shipper tracking number.
+    type: string
+    $linkedData:
+      term: trackingNumber
+      '@id': https://schema.org/trackingNumber
+additionalProperties: false
+example: |-
+  {
+    "type":[
+      "Event",
+      "TransportEvent"
+    ],
+    "eventType":"TransportStart",
+    "eventId":"e2f47865-c465-4761-927b-f22de6335306",
+    "eventTime":"2022-03-03T16:49:31Z",
+    "place":{
+      "geo":{
+        "type":[
+          "GeoCoordinates"
+        ],
+        "latitude":"46.8139",
+        "longitude":"-71.208"
+      },
+      "type":[
+        "Place"
+      ],
+      "address":{
+        "type":[
+          "PostalAddress"
+        ],
+        "postalCode":"",
+        "addressRegion":"QC",
+        "streetAddress":"",
+        "addressCountry":"Canada",
+        "addressLocality":"Quebec City"
+      }
+    },
+    "actor":[
+      {
+        "name":"Carrier Co.",
+        "type":[
+          "Organization"
+        ]
+      }
+    ],
+    "products":[
+      {
+        "id":"752f9fef-a028-415c-b17b-33a7aafda835",
+        "name":"Carbon and alloy long product",
+        "type":[
+          "Product"
+        ],
+        "width":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"1220",
+          "unitCode":"CM"
+        },
+        "length":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"654460",
+          "unitCode":"CM"
+        },
+        "weight":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"11013",
+          "unitCode":"KG"
+        },
+        "manufacturer":{
+          "name":"Steel Co.",
+          "type":[
+            "Organization"
+          ]
+        }
+      }
+    ],
+    "deliveryMethod":"Truck",
+    "trackingNumber":"1258"
+  }
