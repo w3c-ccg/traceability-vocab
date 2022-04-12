@@ -1,0 +1,110 @@
+title: PostmanCollection
+description: |-
+  A Postman Collection is a group of saved requests.
+  Learn more at [learning.postman.com/docs/getting-started](https://learning.postman.com/docs/getting-started/creating-the-first-collection).
+$linkedData:
+  'term': 'PostmanCollection'
+  '@id': https://w3id.org/traceability#PostmanCollection
+type: object
+example: |-
+  {
+    "info": {
+      "_postman_id": "2319fa29-4ea8-4739-96ea-bda2b74f92bb",
+      "name": "DID Web Discovery",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get Organization DIDs",
+        "event": [
+          {
+            "listen": "test",
+            "script": {
+              "exec": [
+                "pm.test(\"Status code is 200\", function () {",
+                "    pm.response.to.have.status(200);",
+                "});",
+                "",
+                "pm.test(\"must include valid JSON response body\", function() {",
+                "    pm.response.json(); // will throw on parse failure",
+                "});",
+                "",
+                "// The response JSON must include a didDocument property that contains the",
+                "// resolved DID document.",
+                "pm.test(\"didDocument must be present in response body\", function() {",
+                "    const jsonData = pm.response.json();",
+                "    pm.expect(jsonData).to.have.property('didDocument');",
+                "});",
+                "",
+                "// The DID document must contain an alsoKnownAs property.",
+                "pm.test(\"alsoKnownAs MUST be present\", function () {",
+                "    const { didDocument } = pm.response.json();",
+                "    pm.expect(didDocument).to.have.property('alsoKnownAs');",
+                "});",
+                "",
+                "// The alsoKnownAs property MUST be an array.",
+                "pm.test(\"alsoKnownAs MUST be an array\", function() {",
+                "    const { alsoKnownAs } = pm.response.json().didDocument;",
+                "    pm.expect(alsoKnownAs).to.be.an('array');",
+                "});",
+                "",
+                "// The alsoKnownAs property MUST be a set.",
+                "pm.test(\"alsoKnownAs values MUST be unique\", function() {",
+                "    const { alsoKnownAs } = pm.response.json().didDocument;",
+                "    pm.expect(new Set(alsoKnownAs)).to.have.lengthOf(alsoKnownAs.length);",
+                "});",
+                "",
+                "// The second element of the alsoKnownAs property will be used as a",
+                "// credentials_issuer_id for subsequent tests.",
+                "pm.test(\"alsoKnownAs[1] must be present\", function() {",
+                "    const { alsoKnownAs } = pm.response.json().didDocument;",
+                "    pm.expect(alsoKnownAs[1]).to.be.a('string').that.is.not.empty;",
+                "});",
+                "",
+                "// If a verificationMethod property is present, the controller property must",
+                "// match the didDocument.id property.",
+                "pm.test(\"verification method controller must match did subject\", function() {",
+                "    const { didDocument } = pm.response.json();",
+                "    const vm = didDocument.verificationMethod || [];",
+                "    vm.forEach((m) => pm.expect(m.controller).to.equal(didDocument.id));",
+                "});"
+              ],
+              "type": "text/javascript"
+            }
+          }
+        ],
+        "protocolProfileBehavior": {
+          "disabledSystemHeaders": {
+            
+          }
+        },
+        "request": {
+          "auth": {
+            "type": "noauth"
+          },
+          "method": "GET",
+          "header": [
+            {
+              "key": "Accept",
+              "value": "application/json",
+              "type": "text",
+              "disabled": true
+            }
+          ],
+          "url": {
+            "raw": "{{API_BASE_URL}}/identifiers/{{ORGANIZATION_DID_WEB}}",
+            "host": [
+              "{{API_BASE_URL}}"
+            ],
+            "path": [
+              "identifiers",
+              "{{ORGANIZATION_DID_WEB}}"
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      }
+    ]
+  }

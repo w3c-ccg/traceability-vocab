@@ -1,0 +1,145 @@
+title: Verifiable Postman Collection
+description: A verifiable postman collection.
+$linkedData:
+  term: VerifiablePostmanCollection
+  '@id': https://w3id.org/traceability#VerifiablePostmanCollection
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - VerifiablePostmanCollection
+  id:
+    type: string
+  name:
+    type: string
+  issuanceDate:
+    type: string
+  credentialSubject:
+    $ref: ./PostmanCollection.yml
+  proof:
+    type: object
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "urn:uuid:07aa969e-b40d-4c1b-ab46-ded252003ded",
+    "type": [
+      "VerifiableCredential",
+      "VerifiablePostmanCollection"
+    ],
+    "issuer": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+    "issuanceDate": "2010-01-01T19:23:24Z",
+    "credentialSubject": {
+      "info": {
+        "_postman_id": "2319fa29-4ea8-4739-96ea-bda2b74f92bb",
+        "name": "DID Web Discovery",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+      },
+      "item": [
+        {
+          "name": "Get Organization DIDs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"must include valid JSON response body\", function() {",
+                  "    pm.response.json(); // will throw on parse failure",
+                  "});",
+                  "",
+                  "// The response JSON must include a didDocument property that contains the",
+                  "// resolved DID document.",
+                  "pm.test(\"didDocument must be present in response body\", function() {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property('didDocument');",
+                  "});",
+                  "",
+                  "// The DID document must contain an alsoKnownAs property.",
+                  "pm.test(\"alsoKnownAs MUST be present\", function () {",
+                  "    const { didDocument } = pm.response.json();",
+                  "    pm.expect(didDocument).to.have.property('alsoKnownAs');",
+                  "});",
+                  "",
+                  "// The alsoKnownAs property MUST be an array.",
+                  "pm.test(\"alsoKnownAs MUST be an array\", function() {",
+                  "    const { alsoKnownAs } = pm.response.json().didDocument;",
+                  "    pm.expect(alsoKnownAs).to.be.an('array');",
+                  "});",
+                  "",
+                  "// The alsoKnownAs property MUST be a set.",
+                  "pm.test(\"alsoKnownAs values MUST be unique\", function() {",
+                  "    const { alsoKnownAs } = pm.response.json().didDocument;",
+                  "    pm.expect(new Set(alsoKnownAs)).to.have.lengthOf(alsoKnownAs.length);",
+                  "});",
+                  "",
+                  "// The second element of the alsoKnownAs property will be used as a",
+                  "// credentials_issuer_id for subsequent tests.",
+                  "pm.test(\"alsoKnownAs[1] must be present\", function() {",
+                  "    const { alsoKnownAs } = pm.response.json().didDocument;",
+                  "    pm.expect(alsoKnownAs[1]).to.be.a('string').that.is.not.empty;",
+                  "});",
+                  "",
+                  "// If a verificationMethod property is present, the controller property must",
+                  "// match the didDocument.id property.",
+                  "pm.test(\"verification method controller must match did subject\", function() {",
+                  "    const { didDocument } = pm.response.json();",
+                  "    const vm = didDocument.verificationMethod || [];",
+                  "    vm.forEach((m) => pm.expect(m.controller).to.equal(didDocument.id));",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{API_BASE_URL}}/identifiers/{{ORGANIZATION_DID_WEB}}",
+              "host": [
+                "{{API_BASE_URL}}"
+              ],
+              "path": [
+                "identifiers",
+                "{{ORGANIZATION_DID_WEB}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-04-08T20:44:33Z",
+      "verificationMethod": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn#z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..7vITvZPhhiP1YpAO7uKqWvOFwTEV3UjyePlL9DCvDA2EhtRQzw0mQNHyCpHfsrzgtL-X--S39wn3z843wvAjBg"
+    }
+  }
