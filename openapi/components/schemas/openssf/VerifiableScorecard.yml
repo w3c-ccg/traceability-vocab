@@ -1,0 +1,154 @@
+title: Verifiable Scorecard
+description: A digital, verifiable scorecard.
+$linkedData:
+  term: VerifiableScorecard
+  '@id': https://w3id.org/traceability#VerifiableScorecard
+type: object
+properties:
+  '@context':
+    type: array
+    const:
+      - 'https://www.w3.org/2018/credentials/v1'
+      - 'https://w3id.org/traceability/v1'
+  type:
+    type: array
+    const:
+      - VerifiableCredential
+      - VerifiableScorecard
+  id:
+    type: string
+  name:
+    type: string
+  issuanceDate:
+    type: string
+  credentialSubject:
+    type: object
+    properties:
+      id:
+        type: string
+      table:
+        $ref: ./Scorecard.yml
+  proof:
+    type: object
+example: |-
+  {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/traceability/v1"
+    ],
+    "id": "urn:uuid:07aa969e-b40d-4c1b-ab46-ded252003ded",
+    "type": [
+      "VerifiableCredential",
+      "VerifiableScorecard"
+    ],
+    "issuer": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+    "issuanceDate": "2010-01-01T19:23:24Z",
+    "credentialSubject": {
+      "id": "https://github.com/ossf/scorecard",
+      "table": [
+        {
+          "score": "10",
+          "name": "Binary-Artifacts",
+          "reason": "no binaries found in the repo",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#binary-artifacts"
+        },
+        {
+          "score": "9",
+          "name": "Branch-Protection",
+          "reason": "branch protection is not maximal on development and all release branches",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection"
+        },
+        {
+          "score": "?",
+          "name": "CI-Tests",
+          "reason": "no pull request found",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#ci-tests"
+        },
+        {
+          "score": "0",
+          "name": "CII-Best-Practices",
+          "reason": "no badge found",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#cii-best-practices"
+        },
+        {
+          "score": "10",
+          "name": "Code-Review",
+          "reason": "branch protection for default branch is enabled",
+          "documentation": "github.com/ossf/scorecard/blob/main/docs/checks.md#code-review"
+        },
+        {
+          "score": "0",
+          "name": "Contributors",
+          "reason": "0 different companies found -- score normalized to 0",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#contributors"
+        },
+        {
+          "score": "0",
+          "name": "Dependency-Update-Tool",
+          "reason": "no update tool detected",
+          "documentation": "github.com/ossf/scorecard/blob/main/docs/checks.md#dependency-update-tool"
+        },
+        {
+          "score": "0",
+          "name": "Fuzzing",
+          "reason": "project is not fuzzed in OSS-Fuzz",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#fuzzing"
+        },
+        {
+          "score": "1",
+          "name": "Maintained",
+          "reason": "2 commit(s) found in the last 90 days -- score normalized to 1",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#maintained"
+        },
+        {
+          "score": "?",
+          "name": "Packaging",
+          "reason": "no published package detected",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#packaging"
+        },
+        {
+          "score": "8",
+          "name": "Pinned-Dependencies",
+          "reason": "unpinned dependencies detected -- score normalized to 8",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#pinned-dependencies"
+        },
+        {
+          "score": "0",
+          "name": "SAST",
+          "reason": "no SAST tool detected",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#sast"
+        },
+        {
+          "score": "0",
+          "name": "Security-Policy",
+          "reason": "security policy file not detected",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#security-policy"
+        },
+        {
+          "score": "?",
+          "name": "Signed-Releases",
+          "reason": "no releases found",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#signed-releases"
+        },
+        {
+          "score": "10",
+          "name": "Token-Permissions",
+          "reason": "tokens are read-only in GitHub workflows",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#token-permissions"
+        },
+        {
+          "score": "10",
+          "name": "Vulnerabilities",
+          "reason": "no vulnerabilities detected",
+          "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#vulnerabilities"
+        }
+      ]
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2022-04-08T20:30:24Z",
+      "verificationMethod": "did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn#z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn",
+      "proofPurpose": "assertionMethod",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..rrf2i2I8KvcVZdmIkmf1K7Xrj9qZJCocO4eYQzeNveQ0mK3pvhJF1YfRi69MfChlGHb3n2Voq90zTTKIFmmBDQ"
+    }
+  }
