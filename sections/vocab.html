@@ -8441,6 +8441,127 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </section>
   
 
+  <section id="SoftwareBillOfMaterials">
+  <h2>SPDX Software Bill Of Materials</h2>
+  <p>The structure for this Certificate is adapted from
+the Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, 
+licenses and copyrights associated with software packages. https://github.com/spdx/spdx-spec
+The specific example used as the basis for this file can be found here: 
+https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p>
+
+  
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#SoftwareBillOfMaterials">https://w3id.org/traceability#SoftwareBillOfMaterials</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/SoftwareBillOfMaterials.yml">https://w3id.org/traceability/openapi/components/schemas/common/SoftwareBillOfMaterials.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  
+
+<pre class="example">
+{
+  "type" : "SoftwareBillOfMaterials",
+  "SPDXVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentName": "hello",
+  "documentNamespace": "https://swinslow.net/spdx-examples/example1/hello-v3",
+  "creator": {
+    "type": "Person",
+    "name": "Steve Winslow",
+    "email" : "steve@swinslow.net"
+  },
+  "tool": [
+    "github.com/spdx/tools-golang/builder",
+    "github.com/spdx/tools-golang/idsearcher"
+  ],
+  "packageRelationship" : [
+    "DESCRIBES SPDXRef-Package-hello"
+  ],
+  "packages": [
+    {
+      "type": "SoftwarePackage",
+      "packageName": "hello",
+      "SPDXID": "SPDXRef-Package-hello",
+      "packageDownloadLocation": "git+https://github.com/swinslow/spdx-examples.git#example1/content",
+      "filesAnalyzed": true,
+      "packageVerificationCode": "9d20237bb72087e87069f96afb41c6ca2fa2a342",
+      "packageLicenseConcluded": "GPL-3.0-or-later",
+      "packageLicenseInfoFromFiles": "GPL-3.0-or-later",
+      "packageLicenseDeclared": "GPL-3.0-or-later",
+      "packageCopyrightText": "NOASSERTION",
+      "files" : [
+        {
+          "type" : "SoftwarePackageFile",
+          "fileName": "/build/hello",
+          "SPDXID": "SPDXRef-hello-binary",
+          "fileType": "BINARY",
+          "fileChecksum" : {
+            "SHA1": "20291a81ef065ff891b537b64d4fdccaf6f5ac02",
+            "SHA256": "83a33ff09648bb5fc5272baca88cf2b59fd81ac4cc6817b86998136af368708e",
+            "MD5": "08a12c966d776864cc1eb41fd03c3c3d"
+          },
+          "licenseConcluded": "GPL-3.0-or-later",
+          "licenseInfoInFile": "NOASSERTION",
+          "fileCopyrightText": "NOASSERTION",
+          "fileRelation" : [
+            "GENERATED_FROM SPDXRef-hello-src",
+            "GENERATED_FROM SPDXRef-Makefile"
+          ]
+        },
+        {
+          "type" : "SoftwarePackageFile",
+          "fileName": "/src/Makefile",
+          "SPDXID": "SPDXRef-Makefile",
+          "fileType": "SOURCE",
+          "fileChecksum": { 
+            "SHA1": "69a2e85696fff1865c3f0686d6c3824b59915c80",
+            "SHA256": "5da19033ba058e322e21c90e6d6d859c90b1b544e7840859c12cae5da005e79c",
+            "MD5": "559424589a4f3f75fd542810473d8bc1"
+          },
+          "licenseConcluded": "GPL-3.0-or-later",
+          "licenseInfoInFile": "GPL-3.0-or-later",
+          "fileCopyrightText": "NOASSERTION",
+          "fileRelation" : [
+            "BUILD_TOOL_OF SPDXRef-Package-hello"
+          ]
+        },
+        {
+          "type" : "SoftwarePackageFile",
+          "fileName": "/src/hello.c",
+          "SPDXID": "SPDXRef-hello-src",
+          "fileType": "SOURCE",
+          "fileChecksum": {
+            "SHA1": "20862a6d08391d07d09344029533ec644fac6b21",
+            "SHA256": "b4e5ca56d1f9110ca94ed0bf4e6d9ac11c2186eb7cd95159c6fdb50e8db5a823",
+            "MD5": "935054fe899ca782e11003bbae5e166c"
+          },
+          "licenseConcluded": "GPL-3.0-or-later",
+          "licenseInfoInFile": "GPL-3.0-or-later",
+          "fileCopyrightText": "Copyright Contributors to the spdx-examples project."
+        }
+      ]
+    }
+  ]
+}
+</pre>
+
+ 
+  </section>
+  
+
   <section id="SteelProduct">
   <h2>Steel Product</h2>
   <p>A finished or unfinished manufactured steel product</p>
