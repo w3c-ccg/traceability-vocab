@@ -1,0 +1,120 @@
+# based on https://github.com/ossf/scorecard#what-is-scorecards
+title: OssfScorecard
+description: |-
+  Scorecards is an automated tool that assesses a number of important heuristics 
+  ("checks") associated with software security and assigns each check a score of 0-10.
+  Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what-is-scorecards).
+$linkedData:
+  'term': 'OssfScorecard'
+  '@id': https://w3id.org/traceability#OssfScorecard
+type: array
+items:
+  type: object
+  properties:
+    score:
+      type: string
+    name:
+      type: string
+    reason:
+      type: string
+    documentation:
+      type: string
+example: |-
+  [
+    {
+      "score": "10",
+      "name": "Binary-Artifacts",
+      "reason": "no binaries found in the repo",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#binary-artifacts"
+    },
+    {
+      "score": "9",
+      "name": "Branch-Protection",
+      "reason": "branch protection is not maximal on development and all release branches",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection"
+    },
+    {
+      "score": "?",
+      "name": "CI-Tests",
+      "reason": "no pull request found",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#ci-tests"
+    },
+    {
+      "score": "0",
+      "name": "CII-Best-Practices",
+      "reason": "no badge found",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#cii-best-practices"
+    },
+    {
+      "score": "10",
+      "name": "Code-Review",
+      "reason": "branch protection for default branch is enabled",
+      "documentation": "github.com/ossf/scorecard/blob/main/docs/checks.md#code-review"
+    },
+    {
+      "score": "0",
+      "name": "Contributors",
+      "reason": "0 different companies found -- score normalized to 0",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#contributors"
+    },
+    {
+      "score": "0",
+      "name": "Dependency-Update-Tool",
+      "reason": "no update tool detected",
+      "documentation": "github.com/ossf/scorecard/blob/main/docs/checks.md#dependency-update-tool"
+    },
+    {
+      "score": "0",
+      "name": "Fuzzing",
+      "reason": "project is not fuzzed in OSS-Fuzz",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#fuzzing"
+    },
+    {
+      "score": "1",
+      "name": "Maintained",
+      "reason": "2 commit(s) found in the last 90 days -- score normalized to 1",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#maintained"
+    },
+    {
+      "score": "?",
+      "name": "Packaging",
+      "reason": "no published package detected",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#packaging"
+    },
+    {
+      "score": "8",
+      "name": "Pinned-Dependencies",
+      "reason": "unpinned dependencies detected -- score normalized to 8",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#pinned-dependencies"
+    },
+    {
+      "score": "0",
+      "name": "SAST",
+      "reason": "no SAST tool detected",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#sast"
+    },
+    {
+      "score": "0",
+      "name": "Security-Policy",
+      "reason": "security policy file not detected",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#security-policy"
+    },
+    {
+      "score": "?",
+      "name": "Signed-Releases",
+      "reason": "no releases found",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#signed-releases"
+    },
+    {
+      "score": "10",
+      "name": "Token-Permissions",
+      "reason": "tokens are read-only in GitHub workflows",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#token-permissions"
+    },
+    {
+      "score": "10",
+      "name": "Vulnerabilities",
+      "reason": "no vulnerabilities detected",
+      "documentation": "https://github.com/ossf/scorecard/blob/main/docs/checks.md#vulnerabilities"
+    }
+  ]
