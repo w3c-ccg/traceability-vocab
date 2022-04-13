@@ -71,6 +71,34 @@ properties:
     $linkedData:
       term: observation
       '@id': https://w3id.org/traceability#observation
+  name:
+    title: Inspection Name
+    description: The Data Field Name, or Grouping or data that is closely related.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://www.schema.org/name
+  status:
+    title: Status
+    description: Status of inspection (e.g. pending, NA, pass, fail).
+    type: string
+    $linkedData:
+      term: status
+      '@id': https://www.schema.org/status
+  regulatoryAgency:
+    title: Regulatory Agency
+    description: The regulatory agency responsible for the regulation (public or private) that mandates or implies the inspection.
+    type: string
+    $linkedData:
+      term: regulatoryAgency
+      '@id': https://schema.org/Organization
+  delegateOf:
+    title: Delegate Of
+    description: Inspector is acting on behalf of this entity (common with many ag. inspections).
+    type: string
+    $linkedData:
+      term: delegateOf
+      '@id': https://schema.org/Organization
 additionalProperties: false
 example: |-
   {
@@ -376,5 +404,43 @@ example: |-
           "unitCode": "B13"
         }
       }
-    ]
+    ],
+    "name": "Ag Inspection",
+    "status": "pass",
+    "regulatoryAgency": {
+      "type": "Organization",
+      "name": "Johnson - Lebsack",
+      "description": "Exclusive bottom-line firmware",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "76468 Kuphal Common",
+        "addressLocality": "East Stanley",
+        "addressRegion": "Oregon",
+        "postalCode": "16884-0184",
+        "addressCountry": "Germany"
+      },
+      "email": "Briana55@example.org",
+      "phoneNumber": "555-467-2604",
+      "faxNumber": "555-486-3154"
+    },
+    "delegateOf": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Brekke, Kertzmann and Yost",
+      "description": "Distributed mobile protocol",
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "streetAddress": "47831 Otis Knoll",
+        "addressLocality": "Vincentport",
+        "addressRegion": "Connecticut",
+        "postalCode": "47493",
+        "addressCountry": "Benin"
+      },
+      "email": "Priscilla.Dooley@example.com",
+      "phoneNumber": "555-426-1175",
+      "faxNumber": "555-147-8251"
+    }
   }
