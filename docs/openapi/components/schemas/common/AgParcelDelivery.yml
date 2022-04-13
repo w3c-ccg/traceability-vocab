@@ -89,7 +89,44 @@ properties:
     $linkedData:
       term: AgPackage
       '@id': https://w3id.org/traceability#AgPackage
-additionalProperties: false
+  movementPoints:
+    title: Shipping Stops
+    description: Coordinates and time of each stop, with additional metadata if provided.
+    type: array
+    items:
+      $ref: ./ShippingStop.yml
+    $linkedData:
+      term: movementPoints
+      '@id': https://schema.org/Trip
+  shipper:
+    title: Shipper
+    description: Shipper of product.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: shipper
+      '@id': https://schema.org/Organization
+  purchaser:
+    title: Purchaser
+    description: Purchaser of product.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: purchaser
+      '@id': https://schema.org/Organization
+  carrier:
+    title: Carrier
+    description: Shipping carrier for product. 
+    $ref: ./Organization.yml
+    $linkedData:
+      term: carrier
+      '@id': https://schema.org/Organization
+  broker:
+    title: Broker
+    description: Shipping broker for product (GS1 Organization).
+    $ref: ./Organization.yml
+    $linkedData:
+      term: broker
+      '@id': https://schema.org/Organization
+additionalProperties: true
 example: |-
   {
     "type": "AgParcelDelivery",
@@ -195,5 +232,48 @@ example: |-
           "AgPackage"
         ]
       }
-    ]
+    ],
+    "shipper": {
+      "type": "Organization",
+      "name": "Xxinau Manufacturing Co. Ltd.",
+      "description": "Advanced Production - Delivered",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Xin Fei Da Dao 139",
+        "addressLocality": "Xindao",
+        "addressRegion": "Fujian Province",
+        "postalCode": "361100",
+        "addressCountry": "CN"
+      },
+      "email": "xxinau-sales@example.org",
+      "phoneNumber": "+86-555-865-8495"
+    },
+    "purchaser": {
+      "type": "Organization",
+      "name": "Lueilwitz - Kuvalis",
+      "description": "Persistent dynamic definition",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "68232 Sarah Courts",
+        "addressLocality": "Nicolastown",
+        "addressRegion": "Florida",
+        "postalCode": "48217-0439",
+        "addressCountry": "Mongolia"
+      },
+      "email": "Greg_Swift94@example.net",
+      "phoneNumber": "555-149-2244",
+      "faxNumber": "555-419-4835"
+    },
+    "carrier": {
+      "type": [
+        "Organization"
+      ],
+      "email": "Adaline29@example.com",
+      "phoneNumber": "+1 555-234-9983"
+    },
+    "broker": {
+      "type": "Organization",
+      "name": "Koch LLC",
+      "leiCode": "54321351219389121979"
+    }
   }
