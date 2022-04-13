@@ -86,7 +86,14 @@ properties:
       term: agProduct
       '@id': https://schema.org/ItemList
       '@type': https://schema.org/ItemList
-additionalProperties: false
+  harvest:
+    title: Harvest
+    description: Product harvest.
+    $ref: ./AgActivity.yml
+    $linkedData:
+      term: harvest
+      '@id': https://w3id.org/traceability#AgActivity
+additionalProperties: true
 example: |-
   {
     "type": "AgPackage",
