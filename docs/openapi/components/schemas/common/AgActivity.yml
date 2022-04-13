@@ -13,12 +13,12 @@ properties:
       - type: string
         enum:
           - AgActivity
-  farm:
-    title: Farm
-    description: The Farm or business entity performing the activity.
+  business:
+    title: Business
+    description: The business entity performing the activity.
     $ref: ./Entity.yml
     $linkedData:
-      term: farm
+      term: business
       '@id': https://w3id.org/traceability#dfn-entities
   actor:
     title: Actor
@@ -30,12 +30,12 @@ properties:
       term: actor
       '@id': https://w3id.org/traceability#Person
       '@type': https://schema.org/ItemList
-  field:
-    title: Field
-    description: The field where the activity was performed.
+  location:
+    title: Location
+    description: The location where the activity was performed.
     $ref: ./Place.yml
     $linkedData:
-      term: field
+      term: location
       '@id': https://www.gs1.org/voc/Place
   activityDate:
     title: Activity Date
@@ -73,7 +73,7 @@ properties:
       term: observation
       '@id': https://w3id.org/traceability#observation
       '@type': https://schema.org/ItemList
-additionalProperties: false
+additionalProperties: true
 example: |-
   {
     "type": "AgActivity",
