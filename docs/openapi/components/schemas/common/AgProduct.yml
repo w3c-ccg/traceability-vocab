@@ -82,7 +82,30 @@ properties:
     $linkedData:
       term: labelImageHash
       '@id': https://w3id.org/traceability#labelImageHash
-additionalProperties: false
+  name:
+    title: Name
+    description: Name of the ag. product.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://www.schema.org/name
+  productImageUrl:
+    title: Product Image URL
+    description: Image of the product.
+    type: string
+    $linkedData:
+      term: productImageUrl
+      '@id': https://schema.org/url
+  productImageHash:
+    title: Product Image Hash
+    description: >-
+      Hash value for securely identifying the product image.  More information can
+      be found at the following link: https://cybersecurityglossary.com/hashing
+    type: string
+    $linkedData:
+      term: productImageHash
+      '@id': https://w3id.org/traceability#productImageHash
+additionalProperties: true
 example: |-
   {
     "type": "AgProduct",
@@ -131,5 +154,8 @@ example: |-
     },
     "scientificName": "Persea americana",
     "labelImageUrl": "https://img.example.org/033383401508/640/480/",
-    "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "name": "Avocados",
+    "productImageUrl": "https://img.example.org/102934920857/937/903/",
+    "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
   }
