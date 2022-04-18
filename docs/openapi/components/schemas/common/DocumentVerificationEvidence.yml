@@ -21,14 +21,14 @@ properties:
           enum:
             - DocumentVerificationEvidence
       - type: string
-        const:
-          - DocumentVerificationEvidence 
+        const: DocumentVerificationEvidence
   verifier:
     title: verifier
     type: array
-    $linkedData:
-      term: verifier
-      '@id': https://schema.org/Organization
+    items:
+      $linkedData:
+        term: verifier
+        '@id': https://schema.org/Organization
   evidenceDocument:
     title: evidenceDocument
     type: string
@@ -47,7 +47,7 @@ properties:
     $linkedData:
       term: documentPresence
       '@id': https://schema.org/PresentationDigitalDocument
-additionalProperties: false
+additionalProperties: true
 example: |-
   {
     "type": [
