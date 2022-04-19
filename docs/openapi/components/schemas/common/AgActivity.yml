@@ -16,12 +16,12 @@ properties:
             - AgActivity
       - type: string
         const: AgActivity
-  farm:
-    title: Farm
-    description: The Farm or business entity performing the activity.
+  business:
+    title: Business
+    description: The business entity performing the activity.
     $ref: ./Entity.yml
     $linkedData:
-      term: farm
+      term: business
       '@id': https://w3id.org/traceability#dfn-entities
   actor:
     title: Actor
@@ -33,12 +33,12 @@ properties:
       term: actor
       '@id': https://w3id.org/traceability#Person
       '@type': https://schema.org/ItemList
-  field:
-    title: Field
-    description: The field where the activity was performed.
+  location:
+    title: Location
+    description: The location where the activity was performed.
     $ref: ./Place.yml
     $linkedData:
-      term: field
+      term: location
       '@id': https://www.gs1.org/voc/Place
   activityDate:
     title: Activity Date
@@ -76,7 +76,7 @@ properties:
       term: observation
       '@id': https://w3id.org/traceability#observation
       '@type': https://schema.org/ItemList
-additionalProperties: false
+additionalProperties: true
 example: |-
   {
     "type": "AgActivity",
@@ -102,16 +102,6 @@ example: |-
           ],
           "name": "Jimbo's Awesome Farm",
           "description": "Devolved transitional functionalities",
-          "address": {
-            "type": [
-              "PostalAddress"
-            ],
-            "streetAddress": "9540 Marilou Throughway",
-            "addressLocality": "South Aniyahtown",
-            "addressRegion": "West Virginia",
-            "postalCode": "95833-0026",
-            "addressCountry": "Dominica"
-          },
           "email": "Chloe.Ondricka42@example.org",
           "phoneNumber": "555-496-7149",
           "faxNumber": "555-209-6489"
@@ -130,17 +120,6 @@ example: |-
         ],
         "latitude": "40.9090",
         "longitude": "151.8748"
-      },
-      "address": {
-        "type": [
-          "PostalAddress"
-        ],
-        "organizationName": "Bogisich LLC",
-        "streetAddress": "50938 Donavon Junctions",
-        "addressLocality": "Rhodastad",
-        "addressRegion": "Louisiana",
-        "postalCode": "26521-2810",
-        "addressCountry": "American Samoa"
       },
       "unLocode": "DKCPH"
     },
@@ -185,7 +164,10 @@ example: |-
         },
         "scientificName": "Persea americana",
         "labelImageUrl": "https://img.example.org/033383401508/640/480/",
-        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "name": "Avocados",
+        "productImageUrl": "https://img.example.org/102934920857/937/903/",
+        "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
       },
       {
         "type": [
@@ -225,7 +207,10 @@ example: |-
         },
         "scientificName": "Persea americana",
         "labelImageUrl": "https://img.example.org/033383401508/640/480/",
-        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "name": "Avocados",
+        "productImageUrl": "https://img.example.org/102934920857/937/903/",
+        "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
       },
       {
         "type": [
@@ -265,7 +250,10 @@ example: |-
         },
         "scientificName": "Persea americana",
         "labelImageUrl": "https://img.example.org/033383401508/640/480/",
-        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "name": "Avocados",
+        "productImageUrl": "https://img.example.org/102934920857/937/903/",
+        "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
       }
     ],
     "observation": [
