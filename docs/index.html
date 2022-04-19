@@ -419,7 +419,7 @@
             <tr>
               <td>Software Supply Chain</td>
               <td>Benjamin Collins</td>
-              <td>ben@transmute.industries</td>
+              <td>benjamin@transmute.industries</td>
             </tr>
             <tr>
               <td>Steel and Metals</td>
@@ -468,6 +468,169 @@
 			</section>
 
 
+    </section>
+    
+    <section id="terminology" class="informative">
+      <h2>Terminology</h2>
+      <p>
+        The following terms are used to describe concepts in this specification.
+      </p>
+
+      <dl class="termlist">
+        <dt>
+          <dfn data-lt="entities|entity's">entity</dfn>
+        </dt>
+        <dd>
+          A thing with distinct and independent existence, such as a person,
+          organization, or device, that performs one or more roles in the
+          ecosystem.
+        </dd>
+        <dt>
+          <dfn>user agent</dfn>
+        </dt>
+        <dd>
+          A program, such as a browser or other Web client, that mediates the
+          communication between the various roles in this specification.
+        </dd>
+        <dt>
+          <dfn data-lt="URI|URIs">URI</dfn>
+        </dt>
+        <dd>An identifier as defined by [[RFC3986]].</dd>
+        <dt>
+          <dfn data-lt="CORRELATION ID|CORRELATION IDs|CORRELATIONID|CORRELATIONIDs">CORRELATION ID</dfn>
+        </dt>
+        <dd>
+
+          <p>
+            A unique identifier assigned to a JSON Object complying with [[RFC4122]].
+            A CORRELATION ID MUST conform with UUID Version 4.
+          </p>
+          <p>
+            A CORRELATION ID MAY be present in a Verifiable Credential or a Verifiable Presentation.
+          </p>
+
+          <aside class="example" title="CORRELATIONID">
+            <p>
+              Use of a CORRELATION ID in a JSON.
+            <p>
+            <pre class="js">
+                  {
+                    "correlationId": "d2dfc100-9384-49e4-b547-5e7d84ec5bf5"
+                  }
+                </pre>
+          </aside>
+        </dd>
+        <dt>
+          <dfn data-lt="WorkflowDefinition">Workflow Definition</dfn>
+        </dt>
+        <dd>
+          <p>
+            The sequence of industrial, administrative, or other processes through which a
+            piece of work passes from initiation to completion.
+          </p>
+          <p>
+            In the context of this API profile, we consider the specifics of workflows out of scope.
+            We acknowledge that different use cases may have complicated workflows, which may yield
+            many individual presentations of credentials.
+          </p>
+
+          <p>
+            We enable the grouping of all presentations related to a definition, using the convention:
+          </p>
+          <pre class="js">
+                {
+                  "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://w3id.org/traceability/v1"
+                  ],
+                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
+                  "type":
+                  [
+                    "VerifiablePresentation",
+                    "TraceablePresentation"
+                  ],
+                  "workflow": {
+                    "instance": [
+                      "f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+                    ],
+                    "definition": [
+                      "n1552885-cc91-4bb3-91f1-5466a0be084e" // this refers to a Workflow Definition
+                    ]
+                  },
+                }
+                </pre>
+        </dd>
+        <dt>
+          <dfn data-lt="WorkflowInstance">Workflow Instance</dfn>
+        </dt>
+        <dd>
+          <p>
+            Each defined workflow may be executed many times for different sets of inputs and
+            among different stakeholders.
+          </p>
+          <p>
+            We refer to Workflow Instance's as an execution of a particular workflow,
+            which may or may not be formally defined.
+          </p>
+
+          <p>
+            We enable the grouping of all presentations related to an instance, using the convention:
+          </p>
+          <pre class="js">
+                {
+                  "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://w3id.org/traceability/v1"
+                  ],
+                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
+                  "type":
+                  [
+                    "VerifiablePresentation",
+                    "TraceablePresentation"
+                  ],
+                  "workflow": {
+                    "instance": [
+                      "f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0" // this refers to a Workflow Instance
+                    ],
+                    "definition": [
+                      "n1552885-cc91-4bb3-91f1-5466a0be084e"
+                    ]
+                  },
+                }
+                </pre>
+        </dd>
+        <dt>
+          <dfn data-lt="PATH|PATHs">PATH</dfn>
+        </dt>
+        <dd>
+          <p>
+            A distinct path for a distinct set of items being traced that either is declared
+            in advance by a user or system, or is a root path that has already occurred
+            (in whole or in part).
+          </p>
+          <p>
+            Properties may be attached to nodes via credentials and presentations that refer to the
+            same distinct CORRELATION ID.
+          </p>
+
+          <p>
+            In a real world context, a PATH might be created to describe one party
+            requesting a set of goods from some other location. The PATH can then
+            be used to group and associate the nodes as those goods move from the origination
+            point (a node) to the end destination. Any change in state, location, or
+            control (legal or physical responsibility of some kind for the goods) would be
+            described as a node represented by a VP which has the PATH CORRELATION ID
+            attached to it.
+          </p>
+
+          <p>
+            A path represents a strict subset of the information available to an observer
+            of all "Workflow Instance" related credentials. In other words,
+            PATHs represent partial information related to a workflow instance.
+          </p>
+        </dd>
+
+      </dl>
     </section>
 
       <section class="informative">

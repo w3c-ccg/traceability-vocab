@@ -18,14 +18,18 @@ type: object
 properties:
   '@context':
     type: array
-    const:
-      - 'https://www.w3.org/2018/credentials/v1'
-      - 'https://w3id.org/traceability/v1'
+    items:
+      type: string
+      const:
+        - https://www.w3.org/2018/credentials/v1
+        - https://w3id.org/traceability/v1
   type:
     type: array
-    const:
-      - VerifiableCredential
-      - CTPATCertificate
+    items:
+      type: string
+      const:
+        - VerifiableCredential
+        - CTPATCertificate
   id:
     type: string
   name:
@@ -55,11 +59,11 @@ properties:
     type: string
     $linkedData:
       term: ctpatAccountNumber
-      '@id': https://w3id.org/traceability#ctpatAccountNumber  
+      '@id': https://w3id.org/traceability#ctpatAccountNumber
   tradeSector:
     title: CTPAT Trade Sector
     description: >-
-      Trade sectors elegible for CTPAT certification. 
+      Trade sectors elegible for CTPAT certification.
     enum:
       - U.S. Importers
       - Highway Carriers
