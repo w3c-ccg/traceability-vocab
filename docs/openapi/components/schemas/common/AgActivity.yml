@@ -10,9 +10,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - AgActivity
       - type: string
-        enum:
-          - AgActivity
+        const: AgActivity
   business:
     title: Business
     description: The business entity performing the activity.
