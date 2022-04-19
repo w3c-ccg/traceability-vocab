@@ -71,6 +71,34 @@ properties:
     $linkedData:
       term: observation
       '@id': https://w3id.org/traceability#observation
+  name:
+    title: Inspection Name
+    description: The Data Field Name, or Grouping or data that is closely related.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://www.schema.org/name
+  status:
+    title: Status
+    description: Status of inspection (e.g. pending, NA, pass, fail).
+    type: string
+    $linkedData:
+      term: status
+      '@id': https://www.schema.org/status
+  regulatoryAgency:
+    title: Regulatory Agency
+    description: The regulatory agency responsible for the regulation (public or private) that mandates or implies the inspection.
+    type: string
+    $linkedData:
+      term: regulatoryAgency
+      '@id': https://schema.org/Organization
+  delegateOf:
+    title: Delegate Of
+    description: Inspector is acting on behalf of this entity (common with many ag. inspections).
+    type: string
+    $linkedData:
+      term: delegateOf
+      '@id': https://schema.org/Organization
 additionalProperties: false
 example: |-
   {
@@ -118,16 +146,6 @@ example: |-
           ],
           "name": "Runolfsson Inc",
           "description": "Stand-alone multimedia portal",
-          "address": {
-            "type": [
-              "PostalAddress"
-            ],
-            "streetAddress": "573 Aron Isle",
-            "addressLocality": "Lake Gayle",
-            "addressRegion": "Nevada",
-            "postalCode": "42931-4420",
-            "addressCountry": "India"
-          },
           "email": "Marina96@example.net",
           "phoneNumber": "555-521-6143",
           "faxNumber": "555-150-7668"
@@ -160,46 +178,46 @@ example: |-
         "type": [
           "PostalAddress"
         ],
-        "organizationName": "Wisozk, Luettgen and Baumbach",
-        "streetAddress": "80599 Funk Valley",
-        "addressLocality": "Maureenshire",
-        "addressRegion": "Arkansas",
-        "postalCode": "16262-4966",
-        "addressCountry": "Monaco"
+        "organizationName": "Bartell - Doyle",
+        "streetAddress": "84189 Roberts Route",
+        "addressLocality": "Kautzerstad",
+        "addressRegion": "Louisiana",
+        "postalCode": "37950-5855",
+        "addressCountry": "Mongolia"
       },
       "originAddress": {
         "type": [
           "PostalAddress"
         ],
-        "organizationName": "Ebert, Leuschke and Hilpert",
-        "streetAddress": "426 Lemke Shores",
-        "addressLocality": "Lake Nedra",
-        "addressRegion": "Arkansas",
-        "postalCode": "12176",
-        "addressCountry": "Tokelau"
+        "organizationName": "Marks, Runte and Bartell",
+        "streetAddress": "97696 Weissnat Pines",
+        "addressLocality": "Reynabury",
+        "addressRegion": "North Dakota",
+        "postalCode": "51361-9603",
+        "addressCountry": "Virgin Islands, U.S."
       },
       "foreignPortExport": {
         "type": [
           "Place"
         ],
-        "globalLocationNumber": "4457816911048",
+        "globalLocationNumber": "4947538126450",
         "geo": {
           "type": [
             "GeoCoordinates"
           ],
-          "latitude": "42.6782",
-          "longitude": "-163.6393"
+          "latitude": "40.5464",
+          "longitude": "-37.6146"
         },
         "address": {
           "type": [
             "PostalAddress"
           ],
-          "organizationName": "Goyette, Williamson and Wiegand",
-          "streetAddress": "83416 Dach Hill",
-          "addressLocality": "New Jalynbury",
-          "addressRegion": "Louisiana",
-          "postalCode": "52039",
-          "addressCountry": "Equatorial Guinea"
+          "organizationName": "Moen - Swift",
+          "streetAddress": "9746 Laron Gardens",
+          "addressLocality": "Port Flossie",
+          "addressRegion": "Hawaii",
+          "postalCode": "64687",
+          "addressCountry": "Djibouti"
         },
         "unLocode": "DKCPH"
       },
@@ -207,50 +225,40 @@ example: |-
         "type": [
           "Place"
         ],
-        "globalLocationNumber": "9875896507916",
+        "globalLocationNumber": "2184109798407",
         "geo": {
           "type": [
             "GeoCoordinates"
           ],
-          "latitude": "35.6691",
-          "longitude": "-168.3663"
+          "latitude": "38.8485",
+          "longitude": "-34.0883"
         },
         "address": {
           "type": [
             "PostalAddress"
           ],
-          "organizationName": "Goyette - Hagenes",
-          "streetAddress": "8662 Vandervort Divide",
-          "addressLocality": "Lake Tristinshire",
-          "addressRegion": "Massachusetts",
-          "postalCode": "56940-9885",
-          "addressCountry": "Aruba"
+          "organizationName": "Mills, Daugherty and Nader",
+          "streetAddress": "39514 Kulas Terrace",
+          "addressLocality": "East Avis",
+          "addressRegion": "Utah",
+          "postalCode": "45553",
+          "addressCountry": "Northern Mariana Islands"
         },
         "unLocode": "DKCPH"
       },
-      "deliveryMethod": "Rail freight transport",
-      "trackingNumber": "844442229536",
+      "deliveryMethod": "Truck transport",
+      "trackingNumber": "866440000109",
       "expectedArrival": "2021-03-14",
       "specialInstructions": "The package is top-heavy so handle with appropriate caution.",
       "consignee": {
         "type": [
           "Organization"
         ],
-        "name": "Schulist, Lesch and Zulauf",
-        "description": "Reduced zero tolerance support",
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "streetAddress": "7849 Hodkiewicz Way",
-          "addressLocality": "Nelliebury",
-          "addressRegion": "Maryland",
-          "postalCode": "88580-4041",
-          "addressCountry": "Ethiopia"
-        },
-        "email": "Kurtis_Runte75@example.com",
-        "phoneNumber": "555-112-1507",
-        "faxNumber": "555-167-8782"
+        "name": "Leannon and Sons",
+        "description": "Fundamental multi-tasking service-desk",
+        "email": "Hipolito58@example.org",
+        "phoneNumber": "555-895-1661",
+        "faxNumber": "555-497-2527"
       },
       "AgPackage": [
         {
@@ -258,7 +266,34 @@ example: |-
             "AgPackage"
           ]
         }
-      ]
+      ],
+      "shipper": {
+        "type": "Organization",
+        "name": "Xxinau Manufacturing Co. Ltd.",
+        "description": "Advanced Production - Delivered",
+        "email": "xxinau-sales@example.org",
+        "phoneNumber": "+86-555-865-8495"
+      },
+      "purchaser": {
+        "type": "Organization",
+        "name": "Lueilwitz - Kuvalis",
+        "description": "Persistent dynamic definition",
+        "email": "Greg_Swift94@example.net",
+        "phoneNumber": "555-149-2244",
+        "faxNumber": "555-419-4835"
+      },
+      "carrier": {
+        "type": [
+          "Organization"
+        ],
+        "email": "Adaline29@example.com",
+        "phoneNumber": "+1 555-234-9983"
+      },
+      "broker": {
+        "type": "Organization",
+        "name": "Koch LLC",
+        "leiCode": "54321351219389121979"
+      }
     },
     "applicant": {
       "type": [
@@ -333,5 +368,25 @@ example: |-
           "unitCode": "B13"
         }
       }
-    ]
+    ],
+    "name": "Ag Inspection",
+    "status": "pass",
+    "regulatoryAgency": {
+      "type": "Organization",
+      "name": "Johnson - Lebsack",
+      "description": "Exclusive bottom-line firmware",
+      "email": "Briana55@example.org",
+      "phoneNumber": "555-467-2604",
+      "faxNumber": "555-486-3154"
+    },
+    "delegateOf": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Brekke, Kertzmann and Yost",
+      "description": "Distributed mobile protocol",
+      "email": "Priscilla.Dooley@example.com",
+      "phoneNumber": "555-426-1175",
+      "faxNumber": "555-147-8251"
+    }
   }

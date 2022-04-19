@@ -34,13 +34,13 @@
     "AgActivity": {
       "@id": "https://w3id.org/traceability#AgActivity",
       "@context": {
-        "farm": {
+        "business": {
           "@id": "https://w3id.org/traceability#dfn-entities"
         },
         "actor": {
           "@id": "https://w3id.org/traceability#Person"
         },
-        "field": {
+        "location": {
           "@id": "https://www.gs1.org/voc/Place"
         },
         "activityDate": {
@@ -80,6 +80,18 @@
         },
         "observation": {
           "@id": "https://w3id.org/traceability#observation"
+        },
+        "name": {
+          "@id": "https://www.schema.org/name"
+        },
+        "status": {
+          "@id": "https://www.schema.org/status"
+        },
+        "regulatoryAgency": {
+          "@id": "https://schema.org/Organization"
+        },
+        "delegateOf": {
+          "@id": "https://schema.org/Organization"
         }
       }
     },
@@ -109,6 +121,9 @@
         },
         "agProduct": {
           "@id": "https://schema.org/ItemList"
+        },
+        "harvest": {
+          "@id": "https://w3id.org/traceability#AgActivity"
         }
       }
     },
@@ -142,8 +157,23 @@
         "consignee": {
           "@id": "https://schema.org/Organization"
         },
+        "shipper": {
+          "@id": "https://schema.org/Organization"
+        },
+        "purchaser": {
+          "@id": "https://schema.org/Organization"
+        },
+        "carrier": {
+          "@id": "https://schema.org/Organization"
+        },
+        "broker": {
+          "@id": "https://schema.org/Organization"
+        },
         "AgPackage": {
           "@id": "https://w3id.org/traceability#AgPackage"
+        },
+        "movementPoints": {
+          "@id": "https://schema.org/Trip"
         }
       }
     },
@@ -168,8 +198,17 @@
         "labelImageUrl": {
           "@id": "https://schema.org/url"
         },
+        "productImageUrl": {
+          "@id": "https://schema.org/url"
+        },
         "labelImageHash": {
           "@id": "https://w3id.org/traceability#labelImageHash"
+        },
+        "name": {
+          "@id": "https://www.schema.org/name"
+        },
+        "productImageHash": {
+          "@id": "https://w3id.org/traceability#productImageHash"
         }
       }
     },
@@ -3220,6 +3259,22 @@
           "@id": "https://w3id.org/traceability#intendedUse"
         }
       }
+    },
+    "OssfScorecard": {
+      "@id": "https://w3id.org/traceability#OssfScorecard",
+      "@context": {}
+    },
+    "VerifiableScorecard": {
+      "@id": "https://w3id.org/traceability#VerifiableScorecard",
+      "@context": {}
+    },
+    "PostmanCollection": {
+      "@id": "https://w3id.org/traceability#PostmanCollection",
+      "@context": {}
+    },
+    "VerifiablePostmanCollection": {
+      "@id": "https://w3id.org/traceability#VerifiablePostmanCollection",
+      "@context": {}
     }
   }
 }
