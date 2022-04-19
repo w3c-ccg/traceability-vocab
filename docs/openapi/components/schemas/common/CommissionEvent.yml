@@ -6,17 +6,17 @@ description: A product commission event, extending the Event schema.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-      - type: string
-        enum:
-          - Event
-          - CommissionEvent
+    type: array
+    items:
+      type: string
+      const:
+        - Event
+        - CommissionEvent
   eventType:
-    oneOf:
-      - type: string
-        enum:
-          - Commission
+    type: string
+    enum:
+      - Create
+      - Commission
   eventId:
     type: string
   eventTime:

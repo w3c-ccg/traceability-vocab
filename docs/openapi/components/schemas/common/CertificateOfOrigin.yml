@@ -7,14 +7,18 @@ type: object
 properties:
   '@context':
     type: array
-    const:
-      - 'https://www.w3.org/2018/credentials/v1'
-      - 'https://w3id.org/traceability/v1'
+    items:
+      type: string
+      const:
+        - https://www.w3.org/2018/credentials/v1
+        - https://w3id.org/traceability/v1
   type:
     type: array
-    const:
-      - VerifiableCredential
-      - CertificateOfOrigin
+    items:
+      type: string
+      const:
+        - VerifiableCredential
+        - CertificateOfOrigin
   id:
     type: string
   name:
@@ -35,7 +39,7 @@ properties:
     type: array
     items:
       $ref: ./LinkRole.yml
-  manufacturingCountry: 
+  manufacturingCountry:
     title: Manufacturing Country
     description: Manufacturing country.
     type: string
