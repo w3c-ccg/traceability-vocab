@@ -29,8 +29,7 @@ properties:
           enum:
             - LEIentity
       - type: string
-        const:
-          - LEIentity 
+        const: LEIentity
   legalName:
     title: Legalname
     type: string
@@ -47,16 +46,18 @@ properties:
     title: Othernames
     type: array
     default: []
-    $linkedData:
-      term: otherNames
-      '@id': https://schema.org/alternateName
+    items:
+      $linkedData:
+        term: otherNames
+        '@id': https://schema.org/alternateName
   transliteratedOtherNames:
     title: Transliteratedothernames
     type: array
     default: []
-    $linkedData:
-      term: transliteratedOtherNames
-      '@id': https://schema.org/name
+    items:
+      $linkedData:
+        term: transliteratedOtherNames
+        '@id': https://schema.org/name
   legalAddress:
     title: LegalAddress
     $ref: ./LEIaddress.yml

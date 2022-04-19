@@ -19,8 +19,7 @@ properties:
           enum:
             - LEIaddress
       - type: string
-        const:
-          - LEIaddress 
+        const: LEIaddress
   language:
     title: Language
     type: string
@@ -31,16 +30,18 @@ properties:
   addressLines:
     title: Addresslines
     type: array
-    $linkedData:
-      term: addressLines
-      '@id': https://schema.org/streetAddress
+    items:
+      $linkedData:
+        term: addressLines
+        '@id': https://schema.org/streetAddress
   addressNumber:
     title: Addressnumber
     type: string
     default: null
-    $linkedData:
-      term: addressNumber
-      '@id': https://schema.org/Number
+    items:
+      $linkedData:
+        term: addressNumber
+        '@id': https://schema.org/Number
   addressNumberWithinBuilding:
     title: Addressnumberwithinbuilding
     type: string
