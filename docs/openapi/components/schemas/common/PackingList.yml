@@ -26,31 +26,31 @@ properties:
       - type: string
         const:
           - PackingList
-  seller: 
+  seller:
     title: Seller
     description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: seller
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
   shipFromParty:
     title: Ship From Party
     description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipFromParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipToParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
@@ -60,19 +60,19 @@ properties:
     $linkedData:
       term: orderNumber
       '@id': https://schema.org/orderNumber
-  invoiceId: 
+  invoiceId:
     title: Invoice Identifier
     type: string
     $linkedData:
       term: invoiceId
       '@id': https://schema.org/identifier
-  shipmentId: 
+  shipmentId:
     title: Shipment Identifier
     type: string
     $linkedData:
       term: shipmentId
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipmentIdentificationId
-  trackingNumber: 
+  trackingNumber:
     title: Tracking Number
     type: string
     $linkedData:

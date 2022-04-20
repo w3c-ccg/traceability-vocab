@@ -27,9 +27,9 @@ properties:
         https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
   bookingNumber:
     title: Booking Number
-    description:  A unique identifier assigned by the carrier to the consignment, such as a booking reference number when cargo space is reserved prior to loading.
+    description: A unique identifier assigned by the carrier to the consignment, such as a booking reference number when cargo space is reserved prior to loading.
     type: array
-    items: 
+    items:
       type: string
     $linkedData:
       term: bookingNumber
@@ -39,7 +39,7 @@ properties:
     title: Shipper's References
     description: A number that identifies the SID (shipper's identification) number for a shipment.
     type: array
-    items: 
+    items:
       type: string
     $linkedData:
       term: shippersReferences
@@ -48,30 +48,30 @@ properties:
     title: Freight Forwarder's References
     description: Reference number assigned by the freight forwarder to identify a particular consignment.
     type: array
-    items: 
+    items:
       type: string
     $linkedData:
       term: shippersReferences
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned
-  shipper: 
+  shipper:
     title: Shipper
     description: A consignor party for the consignment.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipper
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
   consignee:
     title: Consignee
     description: A consignee party for the consignment.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: consignee
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
-  forwardingAgent: 
+  forwardingAgent:
     title: Forwarding Agent
     description: The freight forwarder party for this supply chain consignment.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: notifyParty
       '@id': >-
@@ -79,9 +79,9 @@ properties:
   notifyParty:
     title: Notify Party
     description: The freight forwarder party for this supply chain consignment.
-    type: array 
-    items: 
-      $ref: ./Entity.yml
+    type: array
+    items:
+      $ref: ./Organization.yml
     $linkedData:
       term: notifyParty
       '@id': >-
@@ -140,14 +140,14 @@ properties:
     $linkedData:
       term: portOfDischarge
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unloadingLocation
-  totalNumberOfPackages: 
+  totalNumberOfPackages:
     title: Total Number of Packages
     description: A number of packages.
     type: number
     $linkedData:
       term: totalNumberOfPackages
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
-  transportEquipmentQuantity: 
+  transportEquipmentQuantity:
     title: Transport Equipment Quantity
     description: A number of pieces of transport equipment for the consignment or transport movement.
     type: number
@@ -158,7 +158,7 @@ properties:
     title: Included Consignment Items
     description: A consignment item included in the consignment.
     type: array
-    items: 
+    items:
       $ref: ./ConsignmentItem.yml
     $linkedData:
       term: includedConsignmentItems
@@ -167,7 +167,7 @@ properties:
     title: Utilized Transport Equipment
     description: A piece of transport equipment utilized for the consignment or trade delivery.
     type: array
-    items: 
+    items:
       $ref: ./TransportEquipment.yml
     $linkedData:
       term: utilizedTransportEquipment

@@ -14,7 +14,7 @@ properties:
             - ImmediateDelivery
       - type: string
         const:
-          - ImmediateDelivery 
+          - ImmediateDelivery
   portOfEntry:
     title: Port Of Entry
     $ref: ./Place.yml
@@ -26,16 +26,16 @@ properties:
     description: Select the Bond Type from the available options (Single Transaction Bond, Continuous Bond, or No Bond Required).
     type: string
     $linkedData:
-      term: 
+      term:
       '@id': https://w3id.org/traceability#bondType
   importer:
     title: Importer
     description: Importer of Record
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
-  assignedIdentifier: 
+  assignedIdentifier:
     title: Assigned Identifier
     description: Assigned Identifier
     type: string
@@ -77,12 +77,12 @@ properties:
     title: Centralized Examination Site
     description: Provide the Facilities Information and Resources Management (FIRMS) Code of the desired devanning or centralized exam site in case this shipment is subject to an intensive exam. If there is only one site, this information is not required.
     type: string
-    $linkedData: 
+    $linkedData:
       term: centralizedExaminationSite
       '@id': https://w3id.org/traceability#centralizedExaminationSite
   entryType:
     title: Entry Type
-    description: >- 
+    description: >-
       Record the appropriate entry type code by selecting the two-digit code for the type of entry summary
       being filed. The first digit of the code identifies the general category of the entry (i.e., consumption = 0,
       informal = 1). The second digit further defines the specific processing type within the entry category.
@@ -118,7 +118,7 @@ properties:
       '@id': https://w3id.org/traceability#originatingWarehouseEntryNumber
   suretyCode:
     title: Surety Code
-    description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury, for the bond. 
+    description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury, for the bond.
     type: string
     $linkedData:
       term: suretyCode
@@ -145,7 +145,7 @@ properties:
       term: locationOfGoods
       '@id': https://schema.org/Place
   generalOrderNumber:
-    title: General Order Number 
+    title: General Order Number
     description: If the shipment has been placed in a general order warehouse, enter the G.O. number (e.g., 2016--0638).
     type: string
     $linkedData:
@@ -173,25 +173,25 @@ properties:
       term: referenceIDNumber
       '@id': https://w3id.org/traceability#referenceIDNumber
   headerParties:
-    title: Header Parties 
+    title: Header Parties
     description: Select the Header Party Type from the available options. Use a separate line for each Header Party Type. The Header Parties must apply to the entire entry.  If not, skip to line information (Block 24).
     type: array
-    items: 
-      $ref: ./ImmediateDeliveryEntity.yml 
+    items:
+      $ref: ./ImmediateDeliveryEntity.yml
     $linkedData:
       term: headerParties
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Party
   lineItems:
     title: Line Items
     type: array
-    items: 
-      $ref: ./ImmediateDeliveryLineItem.yml 
+    items:
+      $ref: ./ImmediateDeliveryLineItem.yml
     $linkedData:
       term: lineItems
       '@id': https://w3id.org/traceability#lineItems
   nonAMS:
     title: Non AMS
-    description: Indicates if the Bill of Lading is not automated. 
+    description: Indicates if the Bill of Lading is not automated.
     type: boolean
     $linkedData:
       term: nonAMS

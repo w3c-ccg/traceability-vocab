@@ -14,13 +14,13 @@ properties:
             - FreightManifest
       - type: string
         const:
-          - FreightManifest 
+          - FreightManifest
   carrier:
     title: Carrier
     description: >-
       The party providing the transport of goods in this consignment between
       named points.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: carrier
       '@id': >-
@@ -33,7 +33,7 @@ properties:
       term: carrierCode
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number
-  transportMeans: 
+  transportMeans:
     title: Means of Transport
     description: A means of transport, expressed as text, for this transport route.
     type: string
@@ -41,14 +41,14 @@ properties:
       term: transportMeans
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportMeans
-  transportMeansId: 
+  transportMeansId:
     title: Transport Means Identifier
-    description: Identifier of the means of transport such as IMO vessel number or truck license place. 
+    description: Identifier of the means of transport such as IMO vessel number or truck license place.
     type: string
     $linkedData:
       term: transportMeansId
       '@id': https://schema.org/identifier
-  voyage: 
+  voyage:
     title: Voyage
     description: The conveyance (physical carriage) of people, animals, goods, or other objects from place to place.
     type: string
@@ -212,8 +212,3 @@ example: |-
       }
     ]
   }
-
-
-
-
-  

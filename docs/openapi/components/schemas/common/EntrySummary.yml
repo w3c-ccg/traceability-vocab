@@ -14,7 +14,7 @@ properties:
             - EntrySummary
       - type: string
         const:
-          - EntrySummary 
+          - EntrySummary
   entryNumber:
     title: Entry Number
     description: The 11 digit alphanumeric code. The entry number is comprised of the three-digit filer code, followed by the seven-digit entry number, and completed with the one-digit check digit. The Entry Filer Code represents the three-character alphanumeric filer code assigned to the filer or importer by CBP. The Entry Number represents the seven-digit number assigned by the filer. The number may be assigned in any manner convenient, provided that the same number is not assigned to more than one CBP Form 3461. Leading zeros must be shown. The check digit is computed on the previous 10 characters. The formula for calculating the check digit can be found in Appendix 1.
@@ -24,7 +24,7 @@ properties:
       '@id': https://schema.org/identifier
   entryType:
     title: Entry Type
-    description: >- 
+    description: >-
       Record the appropriate entry type code by selecting the two-digit code for the type of entry summary
       being filed. The first digit of the code identifies the general category of the entry (i.e., consumption = 0,
       informal = 1). The second digit further defines the specific processing type within the entry category.
@@ -60,7 +60,7 @@ properties:
       '@id': https://schema.org/Date
   suretyNumber:
     title: Surety Number
-    description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury. 
+    description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury.
     type: string
     $linkedData:
       term: suretyCode
@@ -70,7 +70,7 @@ properties:
     description: Select the Bond Type from the available options (Single Transaction Bond, Continuous Bond, or No Bond Required).
     type: string
     $linkedData:
-      term: 
+      term:
       '@id': https://w3id.org/traceability#bondType
   portCode:
     title: Port Code
@@ -144,9 +144,9 @@ properties:
     $linkedData:
       term: exportDate
       '@id': https://schema.org/Date
-  immediateTransportationNumber: 
+  immediateTransportationNumber:
     title: Immediate Transportation Number
-    description: Record the IT number obtained from the CBP Form 7512, AWB number from the Transit Air Cargo Manifest (TACM), or Automated Manifest System (AMS) master in-bond (MIB) movement number. 
+    description: Record the IT number obtained from the CBP Form 7512, AWB number from the Transit Air Cargo Manifest (TACM), or Automated Manifest System (AMS) master in-bond (MIB) movement number.
     type: string
     $linkedData:
       term: immediateTransportationNumber
@@ -158,12 +158,12 @@ properties:
     $linkedData:
       term: immediateTransportationDate
       '@id': https://schema.org/Date
-  missingDocuments: 
+  missingDocuments:
     title: Missing Documents
     description: Record the appropriate document code number(s) to indicate documents not available at the time of filing the entry summary. A maximum of two codes may be used. The bond charge should be made on the entry summary only for those documents required to be filed with the entry summary.
     type: array
-    items: 
-      type: string 
+    items:
+      type: string
     $linkedData:
       term: missingDocuments
       '@id': https://w3id.org/traceability#missingDocuments
@@ -212,20 +212,20 @@ properties:
   ultimateConsignee:
     title: Ultimate Consignee
     description: At the time of Entry Summary, record the name and address of the individual or firm purchasing the merchandise or, if a consigned shipment, to whom the merchandise is consigned. If those parties are not known, indicate to whose premises the merchandise is being shipped. If this information is the same as the importer of record, leave blank.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: ultimateConsignee
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
   importerOfRecord:
     title: Importer
     description: Record the name and address, including the standard postal two-letter state or territory abbreviation, of the importer of record. The importer of record is defined as the owner or purchaser of the goods, or when designated by the owner, purchaser, or consignee, a licensed customs broker. The importer of record is the individual or firm liable for payment of all duties and meeting all statutory and regulatory requirements incurred as a result of importation, as described in 19 C.F.R. § 141.1(b). The importer of record shown on the invoice should be the same party on the CBP Form 7501, unless the CBP form reflects a licensed customs broker.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: importerOfRecord
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
-  descriptionOfMerchandise: 
+  descriptionOfMerchandise:
     title: Description of Merchandise
-    description: A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement. 
+    description: A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement.
     $ref: ./EntrySummaryLineItem.yml
   otherFeeSummary:
     title: Other Fee Summary
@@ -240,32 +240,32 @@ properties:
       '@id': https://schema.org/MonetaryAmount
   declarationOfImporter:
     title: Declaration Of Importer
-    description: Your circumstances as an importer or agent. 
+    description: Your circumstances as an importer or agent.
     type: string
   duty:
     title: Duty
-    description: Record the total estimated duty paid (excluding AD/CVD). 
+    description: Record the total estimated duty paid (excluding AD/CVD).
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: duty
       '@id': https://schema.org/MonetaryAmount
   tax:
     title: Tax
-    description: Record the total estimated tax paid, including any amount deferred (except tax deferred under 26 U.S.C. § 5232(a)). 
+    description: Record the total estimated tax paid, including any amount deferred (except tax deferred under 26 U.S.C. § 5232(a)).
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: tax
       '@id': https://schema.org/MonetaryAmount
   other:
     title: Other
-    description: Record the total estimated AD/CVD or other fees, charges or exactions paid. Do not show AD/CVD amounts that were bonded. The amounts shown in block 39 of the summary should reflect the amounts actually being paid. 
+    description: Record the total estimated AD/CVD or other fees, charges or exactions paid. Do not show AD/CVD amounts that were bonded. The amounts shown in block 39 of the summary should reflect the amounts actually being paid.
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: other
       '@id': https://schema.org/MonetaryAmount
   total:
     title: Total
-    description: >- 
+    description: >-
       Record the sum of blocks 37, 38, and 39. Do not include any I.R. deferred tax shown in column 34 and block 38. Do not
       include any AD/CVD that has been bonded.
       If no duty, tax, or other charges apply to the transaction, record "0" in this block.
