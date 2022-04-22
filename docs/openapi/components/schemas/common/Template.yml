@@ -51,6 +51,13 @@ properties:
     title: Organization
     description: The organization creating the template.
     $ref: ./Organization.yml
+  image: 
+    title: Image
+    description: Image which can serve as an icon for the template.
+    type: string
+    $linkedData:
+      term: image
+      '@id': https://schema.org/image
   created:
     title: Created
     description: Template creation date.
@@ -65,7 +72,6 @@ required:
   - industryRoleTags
   - tags
   - schema
-  - uiSchema
   - formData
   - organization
 additionalProperties: false
@@ -222,6 +228,7 @@ example: |-
         "type": "Organization",
         "name": "Traceability Vocab"
     },
+    "image": "bill-of-lading-icon.png",
     "created": "2022-04-21T10:00:00.000Z",
     "updated": "2022-04-21T10:00:00.000Z"
   }
