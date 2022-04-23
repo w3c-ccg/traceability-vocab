@@ -8,9 +8,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - SeaCargoManifest
       - type: string
-        enum:
-          - SeaCargoManifest
+        const: SeaCargoManifest 
   vesselName: 
     title: Vessel Name
     description: Identifier of the means of transport such as IMO vessel number or truck license place. 
