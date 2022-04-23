@@ -10,14 +10,16 @@ type: object
 properties:
   '@context':
     type: array
-    const:
-      - 'https://www.w3.org/2018/credentials/v1'
-      - 'https://w3id.org/traceability/v1'
+    items:
+      const:
+        - 'https://www.w3.org/2018/credentials/v1'
+        - 'https://w3id.org/traceability/v1'
   type:
     type: array
-    const:
-      - VerifiableCredential
-      - ShippingInstructionsCertificate
+    items:
+      const:
+        - VerifiableCredential
+        - ShippingInstructionsCertificate
   id:
     type: string
   name:
