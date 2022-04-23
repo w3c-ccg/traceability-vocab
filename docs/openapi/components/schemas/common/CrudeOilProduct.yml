@@ -5,30 +5,15 @@ title: Crude Oil Product
 description: Tombstone information regarding a crude oil product
 type: object
 properties:
-  '@context':
-    type: array
-    const:
-      - 'https://www.w3.org/2018/credentials/v1'
-      - 'https://w3id.org/traceability/v1'
-  id:
-    type: string
-
-  proof:
-    type: object
-  issuanceDate:
-    type: string
-  credentialSubject:
-    type: object
-  issuer:
-    oneOf:
-      - type: string
-      - type: object
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - CrudeOilProduct
       - type: string
-        enum:
-          - CrudeOilProduct
+        const: CrudeOilProduct 
   product:
     title: Product
     description: Product details as outlined in the Product schema
@@ -75,151 +60,132 @@ properties:
     $linkedData:
       term: observation
       '@id': https://w3id.org/traceability#observation
-additionalProperties: false
+additionalProperties: true
 example: |-
   {
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://w3id.org/traceability/v1"
-    ],
-    "id": "http://example.org/credentials/",
-    "type": [
-      "VerifiableCredential"
-    ],
-    "issuanceDate": "2021-02-04T20:29:37+00:00",
-    "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-    "credentialSubject": {
-      "type": [
-        "CrudeOilProduct"
+   "type":[
+      "CrudeOilProduct"
+   ],
+   "HSCode":"270900",
+   "UWI":"100.12-04-091-05-W5.00",
+   "productionDate":"2020-03-30",
+   "facility":{
+      "type":[
+         "Place"
       ],
-      "HSCode": "270900",
-      "UWI": "100.12-04-091-05-W5.00",
-      "productionDate": "2020-03-30",
-      "facility": {
-        "type": [
-          "Place"
-        ],
-        "globalLocationNumber": "3177794693200",
-        "geo": {
-          "type": [
+      "globalLocationNumber":"3177794693200",
+      "geo":{
+         "type":[
             "GeoCoordinates"
-          ],
-          "latitude": "82.9129",
-          "longitude": "-140.7984"
-        },
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "organizationName": "Nienow Group",
-          "streetAddress": "9479 Keven Wall",
-          "addressLocality": "East Jadonview",
-          "addressRegion": "Virginia",
-          "postalCode": "10260-9018",
-          "addressCountry": "Serbia"
-        },
-        "unLocode": "DKCPH"
+         ],
+         "latitude":"82.9129",
+         "longitude":"-140.7984"
       },
-      "observation": [
-        {
-          "type": [
+      "address":{
+         "type":[
+            "PostalAddress"
+         ],
+         "organizationName":"Nienow Group",
+         "streetAddress":"9479 Keven Wall",
+         "addressLocality":"East Jadonview",
+         "addressRegion":"Virginia",
+         "postalCode":"10260-9018",
+         "addressCountry":"Serbia"
+      },
+      "unLocode":"DKCPH"
+   },
+   "observation":[
+      {
+         "type":[
             "Observation"
-          ],
-          "date": "2019-12-11T03:50:55Z",
-          "property": {
-            "type": [
-              "MechanicalProperty"
+         ],
+         "date":"2019-12-11T03:50:55Z",
+         "property":{
+            "type":[
+               "MechanicalProperty"
             ],
-            "identifier": "ISO 180",
-            "name": "Izod Impact Strength Test",
-            "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
-          },
-          "measurement": {
-            "type": [
-              "MeasuredValue"
+            "identifier":"ISO 180",
+            "name":"Izod Impact Strength Test",
+            "description":"ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+         },
+         "measurement":{
+            "type":[
+               "MeasuredValue"
             ],
-            "value": "95.699",
-            "unitCode": "B13"
-          }
-        },
-        {
-          "type": [
+            "value":"95.699",
+            "unitCode":"B13"
+         }
+      },
+      {
+         "type":[
             "Observation"
-          ],
-          "date": "2019-12-11T03:50:55Z",
-          "property": {
-            "type": [
-              "MechanicalProperty"
+         ],
+         "date":"2019-12-11T03:50:55Z",
+         "property":{
+            "type":[
+               "MechanicalProperty"
             ],
-            "identifier": "ISO 180",
-            "name": "Izod Impact Strength Test",
-            "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
-          },
-          "measurement": {
-            "type": [
-              "MeasuredValue"
+            "identifier":"ISO 180",
+            "name":"Izod Impact Strength Test",
+            "description":"ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+         },
+         "measurement":{
+            "type":[
+               "MeasuredValue"
             ],
-            "value": "52.953",
-            "unitCode": "B13"
-          }
-        },
-        {
-          "type": [
+            "value":"52.953",
+            "unitCode":"B13"
+         }
+      },
+      {
+         "type":[
             "Observation"
-          ],
-          "date": "2019-12-11T03:50:55Z",
-          "property": {
-            "type": [
-              "MechanicalProperty"
+         ],
+         "date":"2019-12-11T03:50:55Z",
+         "property":{
+            "type":[
+               "MechanicalProperty"
             ],
-            "identifier": "ISO 1352",
-            "name": "Torque-controlled fatigue testing",
-            "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
-          },
-          "measurement": {
-            "type": [
-              "MeasuredValue"
+            "identifier":"ISO 1352",
+            "name":"Torque-controlled fatigue testing",
+            "description":"ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+         },
+         "measurement":{
+            "type":[
+               "MeasuredValue"
             ],
-            "value": "00.00",
-            "unitCode": "UNKNOWN"
-          }
-        }
-      ],
-      "product": {
-        "type": [
-          "Product"
-        ],
-        "manufacturer": {
-          "type": [
-            "Person"
-          ],
-          "email": "Kellen.Cummerata48@example.org",
-          "phoneNumber": "555-591-2622"
-        },
-        "name": "Crude Oil Barrel",
-        "description": "Heavy Sour Dilbit",
-        "sizeOrAmount": {
-          "type": [
-            "QuantitativeValue"
-          ],
-          "unitCode": "hg/ha",
-          "value": "8438"
-        },
-        "weight": {
-          "type": [
-            "QuantitativeValue"
-          ],
-          "unitCode": "hg/ha",
-          "value": "9813"
-        },
-        "sku": "391864383008"
+            "value":"00.00",
+            "unitCode":"UNKNOWN"
+         }
       }
-    },
-    "proof": {
-      "type": "Ed25519Signature2018",
-      "created": "2019-12-11T03:50:55Z",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..f1YGGXzkmlXgLzZgvFYqsTI6thlWTwb0AmhP7b3hSwICXb76_ri4gMNPgyN-QHq92b1iKUxA13yY2YGBdNmACw",
-      "proofPurpose": "assertionMethod",
-      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
-    }
+   ],
+   "product":{
+      "type":[
+         "Product"
+      ],
+      "manufacturer":{
+         "type":[
+            "Person"
+         ],
+         "email":"Kellen.Cummerata48@example.org",
+         "phoneNumber":"555-591-2622"
+      },
+      "name":"Crude Oil Barrel",
+      "description":"Heavy Sour Dilbit",
+      "sizeOrAmount":{
+         "type":[
+            "QuantitativeValue"
+         ],
+         "unitCode":"hg/ha",
+         "value":"8438"
+      },
+      "weight":{
+         "type":[
+            "QuantitativeValue"
+         ],
+         "unitCode":"hg/ha",
+         "value":"9813"
+      },
+      "sku":"391864383008"
+   }
   }
