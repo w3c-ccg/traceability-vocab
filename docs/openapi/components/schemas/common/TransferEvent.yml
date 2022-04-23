@@ -6,18 +6,17 @@ description: A transfer custody or ownership event, extending the Event schema.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-      - type: string
-        enum:
-          - Event
-          - TransferEvent
+    type: array
+    items:
+      type: string
+      enum:
+        - Event
+        - TransferEvent
   eventType:
-    oneOf:
-      - type: string
-        enum:
-          - TransferOwnership
-          - TransferCustody
+    type: string
+    enum:
+      - TransferOwnership
+      - TransferCustody
   eventId:
     type: string
   eventTime:
