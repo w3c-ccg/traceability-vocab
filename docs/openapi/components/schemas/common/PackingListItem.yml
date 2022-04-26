@@ -11,9 +11,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - PackingListItem
       - type: string
-        enum:
-          - PackingListItem
+        const: PackingListItem 
   orderID:
     title: orderID
     description: The seller specific Order VC ID
@@ -25,6 +28,8 @@ properties:
     title: productInOrder
     description: Product VC IDs included in the order
     type: array
+    items:
+      type: string
     $linkedData:
       term: productInOrder
       '@id': https://schema.org/productID

@@ -13,9 +13,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - PackageItem
       - type: string
-        enum:
-          - PackageItem
+        const: PackageItem 
   productReceiptID:
     title: productReceiptID
     description: >-
@@ -43,6 +46,8 @@ properties:
     title: productInOrder
     description: Product VC IDs included in the order
     type: array
+    items:
+      type: string
     $linkedData:
       term: productInOrder
       '@id': https://schema.org/productID

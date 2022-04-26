@@ -12,9 +12,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - RevocationList2020Status
       - type: string
-        enum:
-          - RevocationList2020Status
+        const: RevocationList2020Status
   revocationListIndex:
     title: revocationListIndex
     type: string
@@ -30,5 +33,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-      "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/235"
+    "type" : "RevocationList2020Status",
+    "revocationListIndex" : "0",
+    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/235"
   }

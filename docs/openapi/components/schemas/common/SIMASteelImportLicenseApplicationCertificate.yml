@@ -7,14 +7,18 @@ type: object
 properties:
   '@context':
     type: array
-    const:
-      - 'https://www.w3.org/2018/credentials/v1'
-      - 'https://w3id.org/traceability/v1'
+    items:
+      type: string
+      const:
+        - 'https://www.w3.org/2018/credentials/v1'
+        - 'https://w3id.org/traceability/v1'
   type:
     type: array
-    const:
-      - VerifiableCredential
-      - SIMASteelImportLicenseApplicationCertificate
+    items:
+      type: string
+      const:
+        - VerifiableCredential
+        - SIMASteelImportLicenseApplicationCertificate
   id:
     type: string
   name:

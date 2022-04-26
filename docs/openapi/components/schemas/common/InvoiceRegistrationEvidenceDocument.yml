@@ -20,9 +20,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - InvoiceRegistrationEvidenceDocument
       - type: string
-        enum:
-          - InvoiceRegistrationEvidenceDocument
+        const: InvoiceRegistrationEvidenceDocument 
   identifier:
     title: Identifier
     type: string
