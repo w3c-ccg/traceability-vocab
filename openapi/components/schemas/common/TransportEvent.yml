@@ -6,18 +6,17 @@ description: A product transport event, extending the Event schema.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-      - type: string
-        enum:
-          - Event
-          - TransportEvent
+    type: array
+    items:
+      type: string
+      enum:
+        - Event
+        - TransportEvent
   eventType:
-    oneOf:
-      - type: string
-        enum:
-          - TransportStart
-          - TransportEnd
+    type: string
+    enum:
+      - TransportStart
+      - TransportEnd
   eventId:
     type: string
   eventTime:

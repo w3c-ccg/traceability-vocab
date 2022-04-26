@@ -8,9 +8,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - ImmediateDeliveryEntity
       - type: string
-        enum:
-          - ImmediateDeliveryEntity
+        const: ImmediateDeliveryEntity 
   commodity: 
     title: Commodity
     description: Commodity classification based on either WCO HS or USITS HTS codification.

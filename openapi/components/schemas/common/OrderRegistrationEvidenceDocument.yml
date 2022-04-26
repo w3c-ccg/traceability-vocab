@@ -20,9 +20,12 @@ properties:
   type:
     oneOf:
       - type: array
+        items:
+          type: string
+          enum:
+            - OrderRegistrationEvidenceDocument
       - type: string
-        enum:
-          - OrderRegistrationEvidenceDocument
+        const: OrderRegistrationEvidenceDocument
   orderNumber:
     title: Number for eCommerce Order
     type: string
