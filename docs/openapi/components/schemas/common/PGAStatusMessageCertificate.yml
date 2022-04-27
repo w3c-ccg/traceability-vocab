@@ -76,35 +76,37 @@ example: |-
       "phoneNumber": "555-322-9464",
       "faxNumber": "555-766-1744"
     },
-    "credentialSubject": [
-      {
-        "type": "PGAStatusMessage",
-        "recordNo": "SO70",
-        "entryNo": "AAA-1234567-8",
-        "entryLineSequence": "L1:S1",
-        "statusCode": "O2",
-        "statusCodeDescription": "Hold Intact",
-        "validCodeReason": "25",
-        "validCodeReasonDescription": "Additional Verification Needed",
-        "subReasonCode": "132",
-        "subReasonCodeDescription": "Documentation Needed"
-      },
-      {
-        "type": "PGAStatusMessage",
-        "recordNo": "SO70",
-        "entryNo": "AAA-1234567-8",
-        "entryLineSequence": "L1:S2",
-        "statusCode": "O7",
-        "statusCodeDescription": "May Proceed",
-        "validCodeReason": "23",
-        "validCodeReasonDescription": "Released"
-      }
-    ],
+    "credentialSubject": {
+      "items": [
+        {
+          "type": "PGAStatusMessage",
+          "recordNo": "SO70",
+          "entryNo": "AAA-1234567-8",
+          "entryLineSequence": "L1:S1",
+          "statusCode": "O2",
+          "statusCodeDescription": "Hold Intact",
+          "validCodeReason": "25",
+          "validCodeReasonDescription": "Additional Verification Needed",
+          "subReasonCode": "132",
+          "subReasonCodeDescription": "Documentation Needed"
+        },
+        {
+          "type": "PGAStatusMessage",
+          "recordNo": "SO70",
+          "entryNo": "AAA-1234567-8",
+          "entryLineSequence": "L1:S2",
+          "statusCode": "O7",
+          "statusCodeDescription": "May Proceed",
+          "validCodeReason": "23",
+          "validCodeReasonDescription": "Released"
+        }
+      ]
+    },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-03-14T14:06:41Z",
+      "created": "2022-04-27T18:39:53Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..OiJawjqsly83sWxcb_0WsUKmmGHi0pyyhCpE06NGZCmL4XQcStbjj1SmiCim9I2GAjN_NNR20twYOxDJ2ry0CQ"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..mYJZpYWqhqJLXVpiKpKK1aseFFx7Y3aUZHgp3DvwNcIiWfc0cwvn9eDI5_Bi1cK4fLVRP-PMhtv7n4L1a83aDw"
     }
   }
