@@ -1,0 +1,29 @@
+$linkedData:
+  term: Entity2
+  '@id': https://w3id.org/traceability#Entity2
+title: Entity2
+description: A natural person or legal entity such as a corporation or government.
+type: object
+required:
+  - name
+properties:
+  name:
+    type: string
+    description: The name of the entity
+    $linkedData:
+      'term': 'name'
+      '@id': 'https://schema.org/name'
+  type:
+    description: The type of entity
+    type: array
+      items:
+        type: string
+        enum:
+          - Person
+          - Organization
+
+example: |-
+  {
+    "type": "Person",
+    "name": "Alice"
+  }
