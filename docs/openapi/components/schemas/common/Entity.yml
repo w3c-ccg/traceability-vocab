@@ -1,0 +1,104 @@
+$linkedData:
+  term: Entity
+  '@id': https://w3id.org/traceability#Entity
+title: Entity
+description: A person or organization
+type: object
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - Entity
+      - type: string
+        const: Entity
+  entityType:
+    description: The type of entity
+    type: string
+    enum:
+      - Person
+      - Organization
+  name:
+    title: Name
+    description: Name of the organization.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  legalName:
+    title: Legal Name
+    description: The official name of the organization, i.e., the registered company name.
+    type: string
+    $linkedData:
+      term: legalName
+      '@id': https://schema.org/legalName
+  url:
+    title: URL
+    description: URL of the person or organization.
+    type: string
+    $linkedData:
+      term: url
+      '@id': https://schema.org/url
+  taxId:
+    title: Tax Identification Number
+    description: >-
+      The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US
+      or the CIF/NIF in Spain.
+    type: string
+    $linkedData:
+      term: taxId
+      '@id': https://schema.org/taxID
+  address:
+    title: Postal Address
+    description: The postal address for an organization or place.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: address
+      '@id': https://schema.org/PostalAddress
+  email:
+    title: Email Address
+    description: Contact email address.
+    type: string
+    $linkedData:
+      term: email
+      '@id': https://schema.org/email
+  phoneNumber:
+    title: Phone Number
+    description: Contact phone number.
+    type: string
+    $linkedData:
+      term: phoneNumber
+      '@id': https://schema.org/telephone
+required:
+  - type
+  - entityType
+  - name
+additionalProperties: true
+example: |-
+  {
+    "type": "Entity",
+    "entityType" : "Person",
+    "name" : "Kane Heller",
+    "firstName": "Kane",
+    "lastName": "Heller",
+    "email": "Laury96@example.org",
+    "phoneNumber": "555-998-3940",
+    "worksFor": {
+      "type": "Organization",
+      "name": "Hyatt - Spencer",
+      "description": "Cross-platform 24/7 interface",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "705 Hyman Streets",
+        "addressLocality": "Evelinemouth",
+        "addressRegion": "Nevada",
+        "postalCode": "06775-7181",
+        "addressCountry": "Colombia"
+      },
+      "email": "Bernhard81@example.org",
+      "phoneNumber": "555-265-4610",
+      "faxNumber": "555-151-9530"
+    },
+    "jobTitle": "Lead Division Producer"
+  }
