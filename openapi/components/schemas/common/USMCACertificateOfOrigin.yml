@@ -124,115 +124,117 @@ additionalProperties: true
 required: []
 example: |-
   {
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://w3id.org/traceability/v1"
-    ],
-    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-    "type": [
-      "VerifiableCredential",
-      "USMCACertificateOfOrigin"
-    ],
-    "issuanceDate": "2021-02-04T20:29:37+00:00",
-    "issuer": {
-      "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "type": "USMCACertifier",
-      "role": "Exporter",
-      "certifierDetails": {
-        "type": "Organization",
-        "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
-        "name": "Maxi Acero Mexicano",
-        "description": "Fusión y fabricación de acero sólido",
-        "address": {
-          "type": "PostalAddress",
-          "streetAddress": "Avenida Carlos 100",
-          "addressLocality": "Hernádez de Mara",
-          "addressRegion": "Nuevo Leon",
-          "postalCode": "32200",
-          "addressCountry": "Mexico"
-        },
-        "email": "info@example.net",
-        "phoneNumber": "555-127-7813"
-      }
-    },
-    "exporterDetails": {
-      "type": "Organization",
-      "name": "Maxi Acero Mexicano",
-      "description": "Fusión y fabricación de acero sólido",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "Avenida Carlos 100",
-        "addressLocality": "Hernádez de Mara",
-        "addressRegion": "Nuevo Leon",
-        "postalCode": "32200",
-        "addressCountry": "Mexico"
-      },
-      "email": "info@example.net",
-      "phoneNumber": "555-127-7813"
-    },
-    "importerDetails": [
-      {
-        "type": "Organization",
-        "name": "American Prime Steel Inc.",
-        "description": "Quality Steel since 1952",
-        "address": {
-          "type": "PostalAddress",
-          "streetAddress": "1551 Keebler Knoll",
-          "addressLocality": "Vivianeburgh",
-          "addressRegion": "Oregon",
-          "postalCode": "47090",
-          "addressCountry": "US"
-        },
-        "email": "contact@example.net",
-        "phoneNumber": "555-716-2400"
-      }
-    ],
-    "producerDetails": [
-      {
-        "type": "Organization",
-        "name": "Maxi Acero Mexicano",
-        "description": "Fusión y fabricación de acero sólido",
-        "address": {
-          "type": "PostalAddress",
-          "streetAddress": "Avenida Carlos 100",
-          "addressLocality": "Hernádez de Mara",
-          "addressRegion": "Nuevo Leon",
-          "postalCode": "32200",
-          "addressCountry": "Mexico"
-        },
-        "email": "info@example.net",
-        "phoneNumber": "555-127-7813"
-      }
-    ],
-    "credentialSubject": [
-      {
-        "type": "USMCAProductSpecifier",
-        "product": {
-          "type": [
-            "Product"
-          ],
-          "sku": "323050346937",
-          "description": "Non-alloy steel rolls",
-          "commodity": {
-            "type": [
-              "Commodity"
-            ],
-            "commodityCode": "721320",
-            "commodityCodeType": "HS",
-            "description": "Steel Coils"
-          }
-        },
-        "originCriterion": "A",
-        "countryOfOrigin": "MX"
-      }
-    ],
-    "blanketPeriodFrom": "2021-06-22",
-    "blanketPeriodTo": "2022-06-21",
-    "proof": {
-      "type": "Ed25519Signature2018",
-      "created": "2022-02-28T13:51:43Z",
-      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..vLP_D5EMn6lETU4_vBh4tMm47i65w4wrc5XvuGvygPtc3H_vvM8xxEoMWemo5Zx-Q0VNBEWNcCdp6s6vAxu3DQ"
-    }
-  }
+     "@context": [
+       "https://www.w3.org/2018/credentials/v1",
+       "https://w3id.org/traceability/v1"
+     ],
+     "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+     "type": [
+       "VerifiableCredential",
+       "USMCACertificateOfOrigin"
+     ],
+     "issuanceDate": "2021-02-04T20:29:37+00:00",
+     "issuer": {
+       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+       "type": "USMCACertifier",
+       "role": "Exporter",
+       "certifierDetails": {
+         "type": "Organization",
+         "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
+         "name": "Maxi Acero Mexicano",
+         "description": "Fusión y fabricación de acero sólido",
+         "address": {
+           "type": "PostalAddress",
+           "streetAddress": "Avenida Carlos 100",
+           "addressLocality": "Hernádez de Mara",
+           "addressRegion": "Nuevo Leon",
+           "postalCode": "32200",
+           "addressCountry": "Mexico"
+         },
+         "email": "info@example.net",
+         "phoneNumber": "555-127-7813"
+       }
+     },
+     "exporterDetails": {
+       "type": "Organization",
+       "name": "Maxi Acero Mexicano",
+       "description": "Fusión y fabricación de acero sólido",
+       "address": {
+         "type": "PostalAddress",
+         "streetAddress": "Avenida Carlos 100",
+         "addressLocality": "Hernádez de Mara",
+         "addressRegion": "Nuevo Leon",
+         "postalCode": "32200",
+         "addressCountry": "Mexico"
+       },
+       "email": "info@example.net",
+       "phoneNumber": "555-127-7813"
+     },
+     "importerDetails": [
+       {
+         "type": "Organization",
+         "name": "American Prime Steel Inc.",
+         "description": "Quality Steel since 1952",
+         "address": {
+           "type": "PostalAddress",
+           "streetAddress": "1551 Keebler Knoll",
+           "addressLocality": "Vivianeburgh",
+           "addressRegion": "Oregon",
+           "postalCode": "47090",
+           "addressCountry": "US"
+         },
+         "email": "contact@example.net",
+         "phoneNumber": "555-716-2400"
+       }
+     ],
+     "producerDetails": [
+       {
+         "type": "Organization",
+         "name": "Maxi Acero Mexicano",
+         "description": "Fusión y fabricación de acero sólido",
+         "address": {
+           "type": "PostalAddress",
+           "streetAddress": "Avenida Carlos 100",
+           "addressLocality": "Hernádez de Mara",
+           "addressRegion": "Nuevo Leon",
+           "postalCode": "32200",
+           "addressCountry": "Mexico"
+         },
+         "email": "info@example.net",
+         "phoneNumber": "555-127-7813"
+       }
+     ],
+     "credentialSubject": {
+       "items": [
+         {
+           "type": "USMCAProductSpecifier",
+           "product": {
+             "type": [
+               "Product"
+             ],
+             "sku": "323050346937",
+             "description": "Non-alloy steel rolls",
+             "commodity": {
+               "type": [
+                 "Commodity"
+               ],
+               "commodityCode": "721320",
+               "commodityCodeType": "HS",
+               "description": "Steel Coils"
+             }
+           },
+           "originCriterion": "A",
+           "countryOfOrigin": "MX"
+         }
+       ]
+     },
+     "blanketPeriodFrom": "2021-06-22",
+     "blanketPeriodTo": "2022-06-21",
+     "proof": {
+       "type": "Ed25519Signature2018",
+       "created": "2022-04-27T18:38:43Z",
+       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+       "proofPurpose": "assertionMethod",
+       "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..lE9woHa6ZMdujPSTs83BV-YYH9ffLkuZcZIz7N38yNtFgIia2fTlPkQzSX3VPf9R_bk5an0UjXRoHAgdVPN-Cg"
+     }
+   }
