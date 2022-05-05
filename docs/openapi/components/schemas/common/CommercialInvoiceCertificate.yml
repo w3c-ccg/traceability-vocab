@@ -31,7 +31,7 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
   credentialSubject:
     $ref: ./Invoice.yml
   proof:
@@ -58,10 +58,10 @@ example: |-
     "name": "Commercial Invoice Certificate",
     "issuanceDate": "2022-02-23T11:55:00Z",
     "issuer": {
+      "type": "Entity",
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "type": [
-        "Organization"
-      ],
+      "entityType": "Organization",
+      "name": "Aishi Metal Shinzo Co., Ltd.",
       "address": {
         "type": [
           "PostalAddress"
@@ -215,9 +215,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:25Z",
+      "created": "2022-05-05T15:23:51Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LJWmED2znnFYUvHUZDDoA2FhLod2RtOW8mxc1MZY1K0xw7lNDvaDMMQEKQQYLJs3vLVo6QcCzr6vWdOO53CxDQ"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..a7L1cukN6ZkJlDqiJpilLuyRfvgJO4NPQFnlyoGHqEc2rTNzKoNn48PdXbD7dJDrL87g3_wWC9cwUVrxhTGmBg"
     }
   }
