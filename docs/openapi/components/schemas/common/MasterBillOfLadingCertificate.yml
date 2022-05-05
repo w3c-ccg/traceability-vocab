@@ -31,7 +31,7 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
   credentialSubject:
     $ref: ./MasterBillOfLading.yml
   proof:
@@ -51,7 +51,7 @@ example: |-
     "name": "Master Bill Of Lading",
     "issuanceDate": "2022-03-04T13:40:00Z",
     "issuer": {
-      "type": "Organization",
+      "type": "Entity",
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "name": "MULTI CONTAINER LINE",
       "address": {
@@ -61,7 +61,8 @@ example: |-
         "addressLocality": "Kowloon Bay",
         "addressRegion": "Hong Kong",
         "addressCountry": "Hong Kong SAR"
-      }
+      },
+      "entityType": "Organization"
     },
     "credentialSubject": {
       "type": "MasterBillOfLading",
@@ -216,9 +217,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:26Z",
+      "created": "2022-05-05T18:26:57Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..RkwuA0dOvpqejHUx_EoZQi61sfGV6w107Dxn9Fgymksib7x8rWZyoDTJV5YYOdsyG9sLW-jm7rA7WaIvkTr7Dg"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..wx_sKQTcQFU3Z_fh4sjHLvZfeV5aDApFZoiX1hABr150vyhAG7jFXk9IBRdjQojfH-GIG94b0rGfj06vmQckAw"
     }
   }
