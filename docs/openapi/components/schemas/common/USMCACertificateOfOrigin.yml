@@ -46,7 +46,7 @@ properties:
       if the producer is completing the Certification of Origin and does not
       know the identity of the exporter. The address of the exporter shall be
       the place of export of the good in a Party’s territory.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: exporterDetails
       '@id': https://w3id.org/traceability#exporterDetails
@@ -62,7 +62,7 @@ properties:
       territory.
     type: array
     items:
-      $ref: ./EntityCompat.yml
+      $ref: ./Entity.yml
     $linkedData:
       term: producerDetails
       '@id': https://schema.org/manufacturer
@@ -84,7 +84,7 @@ properties:
       please check the appropriate box.
     type: array
     items:
-      $ref: ./EntityCompat.yml
+      $ref: ./Entity.yml
     $linkedData:
       term: importerDetails
       '@id': https://w3id.org/traceability#importerDetails
@@ -156,7 +156,7 @@ example: |-
       }
     },
     "exporterDetails": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Maxi Acero Mexicano",
       "description": "Fusión y fabricación de acero sólido",
       "address": {
@@ -168,11 +168,12 @@ example: |-
         "addressCountry": "Mexico"
       },
       "email": "info@example.net",
-      "phoneNumber": "555-127-7813"
+      "phoneNumber": "555-127-7813",
+      "entityType": "Organization"
     },
     "importerDetails": [
       {
-        "type": "Organization",
+        "type": "Entity",
         "name": "American Prime Steel Inc.",
         "description": "Quality Steel since 1952",
         "address": {
@@ -184,12 +185,13 @@ example: |-
           "addressCountry": "US"
         },
         "email": "contact@example.net",
-        "phoneNumber": "555-716-2400"
+        "phoneNumber": "555-716-2400",
+        "entityType": "Organization"
       }
     ],
     "producerDetails": [
       {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Maxi Acero Mexicano",
         "description": "Fusión y fabricación de acero sólido",
         "address": {
@@ -201,7 +203,8 @@ example: |-
           "addressCountry": "Mexico"
         },
         "email": "info@example.net",
-        "phoneNumber": "555-127-7813"
+        "phoneNumber": "555-127-7813",
+        "entityType": "Organization"
       }
     ],
     "credentialSubject": {
@@ -232,9 +235,9 @@ example: |-
     "blanketPeriodTo": "2022-06-21",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:26Z",
+      "created": "2022-05-05T19:03:43Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ouaQF9h-ZOaFAVKsFxrOqjQYpoIF4BqEMKKkF_ZJDG5NyGA3OQ73geY_UGa2AnZQL3udvO6iZvONCb_x_fpEBw"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..S4UdjLFktxMR9H2o9TqkVOOuP1_bhJmypZjxk9jtr-pwh0bwkSzJsUh7hP-uDKVke-quru_9jaH6PUig0zw_Dw"
     }
   }
