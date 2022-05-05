@@ -8,6 +8,18 @@ const {
 const documentLoader = require('../services/documentLoader');
 const keyPair = require('../services/keyPair.json');
 
+const checkVerififcation = async (verifiableCredential, filename) => {
+  const { verified } = await transmute.verifiable.credential.verify({
+    credential: verifiableCredential,
+    format: ['vc'],
+    documentLoader,
+    suite: [new Ed25519Signature2018()],
+    // Ignore revocation lists...
+    checkStatus: () => ({ verified: true }),
+  });
+  return verified;
+};
+
 const issueCredential = async (candidate, filename) => {
   const credential = JSON.parse(candidate);
   delete credential.proof;
@@ -49,28 +61,33 @@ const issueCredential = async (candidate, filename) => {
 const main = async () => {
   const path = '../../../docs/openapi/components/schemas/common';
   const files = fs.readdirSync(path);
-  for (let i = 0; i < files.length; i += 1) {
-    const filename = files[i];
-    const file = fs.readFileSync(`${path}/${filename}`, 'utf-8');
-    const start = file.indexOf('  {');
-    const jsonStr = file.substring(start);
-    const example = JSON.parse(jsonStr);
-    if (!example.proof) {
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-    // eslint-disable-next-line no-await-in-loop
-    const vc = await issueCredential(jsonStr, filename);
-    const yml = file.substring(0, start);
-    console.log(vc);
-    const lines = JSON.stringify(vc, null, 2)
-      .split('\n')
-      .map((line) => `  ${line}`)
-      .join('\n');
-    const updatedFile = `${yml}${lines}`;
-    console.log(updatedFile);
-    fs.writeFileSync(`${path}/${filename}`, updatedFile);
-  }
+  await Promise.all(
+    files.map(async (filename) => {
+      const file = fs.readFileSync(`${path}/${filename}`, 'utf-8');
+      const start = file.indexOf('  {');
+      const jsonStr = file.substring(start);
+      const example = JSON.parse(jsonStr);
+      if (!example.proof) {
+        return;
+      }
+
+      const verified = await checkVerififcation(example, filename);
+      if (verified) {
+        return;
+      }
+
+      const vc = await issueCredential(jsonStr, filename);
+      const yml = file.substring(0, start);
+      console.log(vc);
+      const lines = JSON.stringify(vc, null, 2)
+        .split('\n')
+        .map((line) => `  ${line}`)
+        .join('\n');
+      const updatedFile = `${yml}${lines}`;
+      console.log(updatedFile);
+      fs.writeFileSync(`${path}/${filename}`, updatedFile);
+    })
+  );
 };
 
 main();
