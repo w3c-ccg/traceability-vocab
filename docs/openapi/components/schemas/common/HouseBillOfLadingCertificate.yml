@@ -30,7 +30,7 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
   credentialSubject:
     $ref: ./HouseBillOfLading.yml
   proof:
@@ -56,7 +56,7 @@ example: |-
     "name": "House Bill Of Lading",
     "issuanceDate": "2022-03-04T13:40:00Z",
     "issuer": {
-      "type": "Organization",
+      "type": "Entity",
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "name": "World Forward, Inc.",
       "address": {
@@ -66,7 +66,8 @@ example: |-
         "addressLocality": "Kwai Chung",
         "addressRegion": "Hong Kong",
         "addressCountry": "Hong Kong"
-      }
+      },
+      "entityType": "Organization"
     },
     "credentialSubject": {
       "type": "HouseBillOfLading",
@@ -196,9 +197,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:25Z",
+      "created": "2022-05-05T17:53:41Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..cA53-zb3Wxkak9VcuOm0vKcOvxxXfCivmBZYNKqN5tawEeYAO4vnPksnJO1TrXZbuJQjutFS387i_S8lKXXDCA"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YOHh4sNRZwQYIxGGrF3CxKWyN1g4g9Xlorg0Lt7Y5Pi5hPhrhgV6CmNgY3l6lENF1hnfVdbjQ3agsU-kQocZBw"
     }
   }
