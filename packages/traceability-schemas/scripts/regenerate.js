@@ -71,12 +71,10 @@ const main = async () => {
         return;
       }
 
-      /*
       const verified = await checkVerififcation(example, filename);
       if (verified) {
         return;
       }
-      */
 
       const vc = await issueCredential(jsonStr, filename);
       const yml = file.substring(0, start);

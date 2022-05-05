@@ -30,7 +30,7 @@ properties:
   issuer:
     type: object
   credentialSubject:
-    type: object
+    $ref: ./DCSAShippingInstruction.yml
   proof:
     type: object
 additionalProperties: true
@@ -66,7 +66,7 @@ example: |-
       "carrierBookingReference": "XMANHR2102045",
       "transportDocumentType": "MBL",
       "shipper": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Xxinau Manufacturing Co. Ltd.",
         "description": "Advanced Production - Delivered",
         "address": {
@@ -78,10 +78,11 @@ example: |-
           "addressCountry": "CN"
         },
         "email": "xxinau-sales@example.org",
-        "phoneNumber": "+86-555-865-8495"
+        "phoneNumber": "+86-555-865-8495",
+        "entityType": "Organization"
       },
       "consignee": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Better Life Tech",
         "description": "Better Lives Products",
         "address": {
@@ -93,10 +94,11 @@ example: |-
           "addressCountry": "BE"
         },
         "email": "procurement@lifetech-example.org",
-        "phoneNumber": "+32-5555-8495"
+        "phoneNumber": "+32-5555-8495",
+        "entityType": "Organization"
       },
       "firstNotify": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Better Life Tech",
         "description": "Better Lives Products",
         "address": {
@@ -108,10 +110,11 @@ example: |-
           "addressCountry": "BE"
         },
         "email": "procurement@lifetech-example.org",
-        "phoneNumber": "+32-5555-8495"
+        "phoneNumber": "+32-5555-8495",
+        "entityType": "Organization"
       },
       "consigneesFreightForwarder": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Intertrans NV [378]",
         "address": {
           "type": "PostalAddress",
@@ -120,7 +123,8 @@ example: |-
           "postalCode": "BE-2100AN",
           "addressCountry": "BE"
         },
-        "phoneNumber": "+32-3-201.98.10"
+        "phoneNumber": "+32-3-201.98.10",
+        "entityType": "Organization"
       },
       "cargoItems": [
         {
@@ -174,9 +178,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:24Z",
+      "created": "2022-05-05T17:04:15Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..nV-ZwI1BMHVDfKlFOz10id89-MqJU_HxyNmLDvqin2STnGHJoKeulIL_I9AXzqz047lKhqwZDRXr3FPL9K25Bg"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19.._37v-HqWwacMdtSUXBmPaqOS6hfDOtmv_zAtAAeO9t7vuSijrXif800B3ZWrZR-3srkHoZ3huELGj1BmewGZBA"
     }
   }

@@ -110,7 +110,7 @@ properties:
   shipper:
     title: Shipper
     description: Original shipper
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: shipper
       '@id': >-
@@ -118,7 +118,7 @@ properties:
   consignee:
     title: Consignee
     description: Consignee
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -126,7 +126,7 @@ properties:
   invoicePayerShipper:
     title: Shippers's Invoice Payer
     description: Invoice payer on behalf of the shipper
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: invoicePayerShipper
       '@id': >-
@@ -134,7 +134,7 @@ properties:
   invoicePayerConsignee:
     title: Consignee's Invoice Payer
     description: Invoice payer on behalf of the consignee
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: invoicePayerConsignee
       '@id': >-
@@ -142,7 +142,7 @@ properties:
   firstNotify:
     title: First Notify
     description: First notify party.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: notify
       '@id': >-
@@ -150,7 +150,7 @@ properties:
   secondNotify:
     title: Second Notify
     description: Second notify party.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: notify
       '@id': >-
@@ -158,7 +158,7 @@ properties:
   otherNotify:
     title: Other Notify
     description: Other notify party.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: notify
       '@id': >-
@@ -166,7 +166,7 @@ properties:
   shippersFreightForwarder:
     title: Consignor's freight forwarder
     description: Consignor's freight forwarder
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: shippersFreightForwarder
       '@id': >-
@@ -174,7 +174,7 @@ properties:
   consigneesFreightForwarder:
     title: Consignee's freight forwarder
     description: Consignee's freight forwarder
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: consigneesFreightForwarder
       '@id': >-
@@ -186,7 +186,7 @@ example: |-
     "carrierBookingReference": "XMANHR2102045",
     "transportDocumentType": "MBL",
     "shipper": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
@@ -198,10 +198,11 @@ example: |-
         "addressCountry": "CN"
       },
       "email": "xxinau-sales@example.org",
-      "phoneNumber": "+86-555-865-8495"
+      "phoneNumber": "+86-555-865-8495",
+      "entityType": "Organization"
     },
     "consignee": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Better Life Tech",
       "description": "Better Lives Products",
       "address": {
@@ -213,10 +214,11 @@ example: |-
         "addressCountry": "BE"
       },
       "email": "procurement@lifetech-example.org",
-      "phoneNumber": "+32-5555-8495"
+      "phoneNumber": "+32-5555-8495",
+      "entityType": "Organization"
     },
     "firstNotify": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Better Life Tech",
       "description": "Better Lives Products",
       "address": {
@@ -228,10 +230,11 @@ example: |-
         "addressCountry": "BE"
       },
       "email": "procurement@lifetech-example.org",
-      "phoneNumber": "+32-5555-8495"
+      "phoneNumber": "+32-5555-8495",
+      "entityType": "Organization"
     },
     "consigneesFreightForwarder": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Intertrans NV [378]",
       "address": {
         "type": "PostalAddress",
@@ -240,7 +243,8 @@ example: |-
         "postalCode": "BE-2100AN",
         "addressCountry": "BE"
       },
-      "phoneNumber": "+32-3-201.98.10"
+      "phoneNumber": "+32-3-201.98.10",
+      "entityType": "Organization"
     },
     "cargoItems": [
       {
