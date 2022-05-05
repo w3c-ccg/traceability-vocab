@@ -13,12 +13,11 @@ properties:
           enum:
             - Purchase
       - type: string
-        const:
-          - Purchase
+        const: Purchase
   customer:
     title: Customer
     description: The buying party of a purchase
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: customer
       '@id': https://w3id.org/traceability#Entity
@@ -42,9 +41,10 @@ example: |-
     "type": [
       "Purchase"
     ],
-    "purchaseOrderNo" : "fe71665a-e7b3-49ba-ac89-82fc2bf1e877",
+    "purchaseOrderNo": "fe71665a-e7b3-49ba-ac89-82fc2bf1e877",
     "customer": {
-      "type": "Person",
+      "type": "Entity",
+      "name": "Audreanne Pollich",
       "firstName": "Audreanne",
       "lastName": "Pollich",
       "email": "Rory_Hessel@example.net",
@@ -65,6 +65,7 @@ example: |-
         "phoneNumber": "555-464-6401",
         "faxNumber": "555-289-5622"
       },
-      "jobTitle": "Global Marketing Specialist"
+      "jobTitle": "Global Marketing Specialist",
+      "entityType": "Person"
     }
   }
