@@ -27,7 +27,7 @@ properties:
     description: >-
       Entity that is declaring their intention for a product to be used at a
       different location than where it was created.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: seller
       '@id': https://w3id.org/traceability#Entity
@@ -36,7 +36,7 @@ properties:
     description: >-
       Entity that is expected to receive some amount of the product, though
       possibly a reseller.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: purchaser
       '@id': https://w3id.org/traceability#Entity
@@ -66,7 +66,7 @@ example: |-
   {
     "type": "IntentToSell",
     "seller": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Berge and Sons",
       "description": "Persistent clear-thinking matrix",
       "address": {
@@ -79,10 +79,11 @@ example: |-
       },
       "email": "Anita_Graham54@example.org",
       "phoneNumber": "555-615-9236",
-      "faxNumber": "555-999-5186"
+      "faxNumber": "555-999-5186",
+      "entityType": "Organization"
     },
     "purchaser": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Lueilwitz - Kuvalis",
       "description": "Persistent dynamic definition",
       "address": {
@@ -95,7 +96,8 @@ example: |-
       },
       "email": "Greg_Swift94@example.net",
       "phoneNumber": "555-149-2244",
-      "faxNumber": "555-419-4835"
+      "faxNumber": "555-419-4835",
+      "entityType": "Organization"
     },
     "product": {
       "type": "Product",
