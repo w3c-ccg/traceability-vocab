@@ -30,7 +30,7 @@ properties:
   issuer:
     type: object
   credentialSubject:
-    type: object
+    $ref: ./FreightManifest.yml
   proof:
     type: object
 additionalProperties: true
@@ -62,7 +62,7 @@ example: |-
     "credentialSubject": {
       "type": "FreightManifest",
       "carrier": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "MULTI CONTAINER LINE",
         "address": {
           "type": "PostalAddress",
@@ -71,7 +71,8 @@ example: |-
           "addressLocality": "Kowloon Bay",
           "addressRegion": "Hong Kong",
           "addressCountry": "Hong Kong SAR"
-        }
+        },
+        "entityType": "Organization"
       },
       "carrierCode": "MCML",
       "transportMeans": "HMM Algeciras",
@@ -206,9 +207,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:26Z",
+      "created": "2022-05-05T17:44:56Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..ao4aqHdqQHTf855f3dJT_JvYWyvg5kmcqQVzCP2DJL-vxfJ-CeEcM60fLjtIh8U-RFFqkYab2cxFaIRISaXAAw"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Vuj6psLomNtz2dSwQb8bFylnmZmvLXrXAT74M7vWPiqS1Rr2_VoZcwbG5q8pRySPoErDkxgHgp7759Y3ub9GBQ"
     }
   }
