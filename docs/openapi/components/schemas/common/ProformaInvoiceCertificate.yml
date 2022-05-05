@@ -31,7 +31,7 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
   credentialSubject:
     $ref: ./Invoice.yml
   proof:
@@ -59,9 +59,8 @@ example: |-
     "issuanceDate": "2022-02-23T11:55:00Z",
     "issuer": {
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Aishi Metal Shinzo Co., Ltd.",
       "address": {
         "type": [
           "PostalAddress"
@@ -72,7 +71,8 @@ example: |-
         "addressRegion": "Niigata-ken",
         "postalCode": "959-0215",
         "addressCountry": "Japan"
-      }
+      },
+      "entityType": "Organization"
     },
     "credentialSubject": {
       "type": [
@@ -215,9 +215,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:25Z",
+      "created": "2022-05-05T18:53:45Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LJWmED2znnFYUvHUZDDoA2FhLod2RtOW8mxc1MZY1K0xw7lNDvaDMMQEKQQYLJs3vLVo6QcCzr6vWdOO53CxDQ"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..W24-IGBNp9LKQuG2Y2UvrwCwegeaDnoOeBPuRbI-w6PcnSiVqQ74FVJjaSOPE0uJMvLNOSBqhgxghWTPFL6UAQ"
     }
   }
