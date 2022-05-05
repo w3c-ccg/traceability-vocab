@@ -30,7 +30,7 @@ properties:
   importer:
     title: Importer
     description: Importer of Record
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
@@ -267,7 +267,7 @@ example: |-
     },
     "bondType": "Single Transaction Bond",
     "importer": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Onwards A/S",
       "address": {
         "type": "PostalAddress",
@@ -275,7 +275,8 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      }
+      },
+      "entityType": "Organization"
     },
     "assignedIdentifier": "12345678",
     "assignedIdentifierType": "CBP",
@@ -296,7 +297,7 @@ example: |-
       "unLocode": "USMRE"
     },
     "generalOrderNumber": "O1000212",
-    "conveyanceNameOrFreeTradeZoneID": "FTZ0260A01", 
+    "conveyanceNameOrFreeTradeZoneID": "FTZ0260A01",
     "referenceIDCode": "EXCODE",
     "referenceIDNumber": "EX123456",
     "lineItems": [
@@ -309,7 +310,7 @@ example: |-
         },
         "productDescription": "Mobility assistance equipment",
         "itemCount": 400,
-        "itemParty": { 
+        "itemParty": {
           "consignee": {
             "type": "Organization",
             "name": "Future Mobility, Inc.",
