@@ -58,7 +58,7 @@ properties:
     description: >-
       The party providing the transport of goods in this consignment between
       named points.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: carrier
       '@id': >-
@@ -68,7 +68,7 @@ properties:
     description: >-
       The party consigning goods, as stipulated in the transport contract by the
       party ordering transport.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: consignor
       '@id': >-
@@ -76,7 +76,7 @@ properties:
   consignee:
     title: Consignee
     description: A party to which goods are consigned.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -87,7 +87,7 @@ properties:
       The party to be notified upon arrival of goods and when special
       occurrences (usually pre-defined) take place during a transportation
       service.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: notify
       '@id': >-
@@ -99,7 +99,7 @@ properties:
       shipment (the consolidated shipment), which is sent to a counterpart that
       mirrors the consolidator's activity by dividing the consolidated
       consignment into its original components.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: freightForwarder
       '@id': >-
@@ -174,32 +174,32 @@ example: |-
     ],
     "scac": "NISC",
     "carrier": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Carrior Goods And More",
       "email": "Adaline29@example.com",
-      "phoneNumber": "+1 555-234-9983"
+      "phoneNumber": "+1 555-234-9983",
+      "entityType": "Organization"
     },
     "consignor": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Consignor Is Us",
       "email": "Idella60@example.org",
-      "phoneNumber": "555-953-9479"
+      "phoneNumber": "555-953-9479",
+      "entityType": "Organization"
     },
     "consignee": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Victorian Consignee",
       "email": "Victoria.Hane74@example.org",
-      "phoneNumber": "555-455-9053"
+      "phoneNumber": "555-455-9053",
+      "entityType": "Organization"
     },
     "notify": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Florida Contact Org",
       "email": "Florida91@example.net",
-      "phoneNumber": "555-104-1126"
+      "phoneNumber": "555-104-1126",
+      "entityType": "Organization"
     },
     "freight": {
       "type": [
