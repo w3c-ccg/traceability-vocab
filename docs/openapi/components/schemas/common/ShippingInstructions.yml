@@ -13,8 +13,7 @@ properties:
           enum:
             - ShippingInstructions
       - type: string
-        const:
-          - ShippingInstructions
+        const: ShippingInstructions
   billOfLadingNumber:
     title: Bill Of Lading Number
     description: >-
@@ -56,14 +55,14 @@ properties:
   shipper: 
     title: Shipper
     description: A consignor party for the consignment.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: shipper
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
   consignee:
     title: Consignee
     description: A consignee party for the consignment.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -71,7 +70,7 @@ properties:
   forwardingAgent: 
     title: Forwarding Agent
     description: The freight forwarder party for this supply chain consignment.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: notifyParty
       '@id': >-
@@ -81,7 +80,7 @@ properties:
     description: The freight forwarder party for this supply chain consignment.
     type: array 
     items: 
-      $ref: ./EntityCompat.yml
+      $ref: ./Entity.yml
     $linkedData:
       term: notifyParty
       '@id': >-
@@ -188,7 +187,7 @@ example: |-
       "EX600822199"
     ],
     "shipper": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Espresso Italiano Co.",
       "address": {
         "type": "PostalAddress",
@@ -199,10 +198,11 @@ example: |-
         "addressCountry": "IT"
       },
       "email": "sales@espresso-italiano.example.com",
-      "phoneNumber": "+39 0351 9067195"
+      "phoneNumber": "+39 0351 9067195",
+      "entityType": "Organization"
     },
     "consignee": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Prosumer Coffee Supplies, Ltd.",
       "description": "Coffee Machine Imports",
       "address": {
@@ -212,11 +212,12 @@ example: |-
         "addressRegion": "Illinois",
         "postalCode": "60432",
         "addressCountry": "US"
-      }
+      },
+      "entityType": "Organization"
     },
     "notifyParty": [
       {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Prosumer Coffee Supplies, Ltd.",
         "description": "Coffee Machine Imports",
         "address": {
@@ -226,7 +227,8 @@ example: |-
           "addressRegion": "Illinois",
           "postalCode": "60432",
           "addressCountry": "US"
-        }
+        },
+        "entityType": "Organization"
       }
     ],
     "mainCarriageTransportMovement": {

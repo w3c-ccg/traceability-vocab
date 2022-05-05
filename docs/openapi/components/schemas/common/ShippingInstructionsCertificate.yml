@@ -31,7 +31,7 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
   credentialSubject:
     $ref: ./ShippingInstructions.yml
   proof:
@@ -57,7 +57,7 @@ example: |-
     "name": "Shipping Instructions",
     "issuanceDate": "2022-03-04T13:40:00Z",
     "issuer": {
-      "type": "Organization",
+      "type": "Entity",
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "name": "Espresso Italiano Co.",
       "address": {
@@ -67,7 +67,8 @@ example: |-
         "addressRegion": "Ferrara",
         "postalCode": "44020",
         "addressCountry": "IT"
-      }
+      },
+      "entityType": "Organization"
     },
     "credentialSubject": {
       "type": "ShippingInstructions",
@@ -76,7 +77,7 @@ example: |-
         "EX600822199"
       ],
       "shipper": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Espresso Italiano Co.",
         "address": {
           "type": "PostalAddress",
@@ -87,10 +88,11 @@ example: |-
           "addressCountry": "IT"
         },
         "email": "sales@espresso-italiano.example.com",
-        "phoneNumber": "+39 0351 9067195"
+        "phoneNumber": "+39 0351 9067195",
+        "entityType": "Organization"
       },
       "consignee": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Prosumer Coffee Supplies, Ltd.",
         "description": "Coffee Machine Imports",
         "address": {
@@ -100,11 +102,12 @@ example: |-
           "addressRegion": "Illinois",
           "postalCode": "60432",
           "addressCountry": "US"
-        }
+        },
+        "entityType": "Organization"
       },
       "notifyParty": [
         {
-          "type": "Organization",
+          "type": "Entity",
           "name": "Prosumer Coffee Supplies, Ltd.",
           "description": "Coffee Machine Imports",
           "address": {
@@ -114,7 +117,8 @@ example: |-
             "addressRegion": "Illinois",
             "postalCode": "60432",
             "addressCountry": "US"
-          }
+          },
+          "entityType": "Organization"
         }
       ],
       "mainCarriageTransportMovement": {
@@ -191,9 +195,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:25Z",
+      "created": "2022-05-05T19:01:37Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..k62aFMiXDvbt4Gu6HqQQmfbpJBBL7-EmmKfSycf2zghud6anwPden3gFnoJ_HU6P_5Sr9w9DN_X5l1Pn7iwZCQ"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..AzOwI7_CJdh51dGXYTbtSGTZBAYJ8w8YjIEB2BfBzYbrowqOHRgF1T58Hn5Sid449qBh2N3NoeRKKa9O9GGbCQ"
     }
   }
