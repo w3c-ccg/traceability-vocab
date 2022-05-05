@@ -15,8 +15,7 @@ properties:
           enum:
             - UsdaSc6
       - type: string
-        const:
-          - UsdaSc6
+        const: UsdaSc6
   serialNumber:
     title: Serial Number
     description: Serial number of the form.
@@ -100,7 +99,7 @@ properties:
   applicant:
     title: Applicant
     description: Entity that is applying for the inspection.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: applicant
       '@id': https://w3id.org/traceability#applicant
@@ -335,11 +334,11 @@ example: |-
       }
     },
     "applicant": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Example Application Organization",
       "email": "Marjorie68@example.org",
-      "phoneNumber": "555-313-6010"
+      "phoneNumber": "555-313-6010",
+      "entityType": "Organization"
     },
     "inspectionDate": "2020-03-15",
     "serialNumber": "645034884751",

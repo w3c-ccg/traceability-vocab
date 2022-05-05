@@ -26,9 +26,9 @@ properties:
   issuanceDate:
     type: string
   issuer:
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
   credentialSubject:
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
   proof:
     type: object
   relatedLink:
@@ -64,7 +64,7 @@ example: |-
     "issuanceDate": "2019-12-11T03:50:55Z",
     "issuer": {
       "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "type": "Organization",
+      "type": "Entity",
       "name": "Glover - Gleason",
       "legalName": "Glover and Gleason, Llc.",
       "description": "Customs Brokering since 2012",
@@ -80,10 +80,11 @@ example: |-
       "phoneNumber": "555-758-8926",
       "faxNumber": "555-248-4575",
       "taxId": "789-56-123",
-      "url": "glover-gleason.example.net"
+      "url": "glover-gleason.example.net",
+      "entityType": "Organization"
     },
     "credentialSubject": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Glover - Gleason",
       "legalName": "Glover and Gleason, Llc.",
       "description": "Customs Brokering since 2012",
@@ -99,13 +100,14 @@ example: |-
       "phoneNumber": "555-758-8926",
       "faxNumber": "555-248-4575",
       "taxId": "789-56-123",
-      "url": "glover-gleason.example.net"
+      "url": "glover-gleason.example.net",
+      "entityType": "Organization"
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-05-05T08:59:24Z",
+      "created": "2022-05-05T19:46:30Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..7X4jUYjXLThKBwHCR5Nked_rD72QU0jj3mH9DuiA6KdxlNzGgM7QDAdT894dUuwBK8vKrg8ovnLDsHeD8HrfAg"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..j5Q1IQeQkfnhC-K6iDgjO3eb_LT0-D4MBCZ3cgbklgpyIftRekvFeLvXUiTymtbn3upqpfo9xgDemYw03QdcDg"
     }
   }

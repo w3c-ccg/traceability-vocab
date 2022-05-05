@@ -42,7 +42,7 @@ properties:
   applicant:
     title: Applicant
     description: Entity that is applying for the inspection.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: applicant
       '@id': https://w3id.org/traceability#dfn-entities
@@ -211,11 +211,11 @@ example: |-
       }
     },
     "applicant": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Example Applicant Organization",
       "email": "Jensen85@example.com",
-      "phoneNumber": "555-941-9125"
+      "phoneNumber": "555-941-9125",
+      "entityType": "Organization"
     },
     "signatureDate": "2021-02-16",
     "intendedUse": "Fruits and Vegetables"
