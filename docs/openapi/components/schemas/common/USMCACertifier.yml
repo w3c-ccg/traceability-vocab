@@ -34,7 +34,7 @@ properties:
     description: >-
       Provide the certifier’s name, title, address (including country), telephone 
       number and email address.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: certifierDetails
       '@id': https://w3id.org/traceability#certifierDetails
@@ -44,7 +44,7 @@ example: |-
     "type": "USMCACertifier",
     "role": "Exporter",
     "certifierDetails": {
-      "type": "Organization",
+      "type": "Entity",
       "id": "did:key:z6Mkj8LpyahD8sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
       "name": "Maxi Acero Mexicano",
       "description": "Fusión y fabricación de acero sólido",
@@ -57,6 +57,7 @@ example: |-
         "addressCountry": "Mexico"
       },
       "email": "info@example.net",
-      "phoneNumber": "555-127-7813"
+      "phoneNumber": "555-127-7813",
+      "entityType": "Organization"
     }
   }
