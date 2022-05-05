@@ -18,35 +18,35 @@ properties:
   seller: 
     title: Seller
     description: An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: seller
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
   importer:
     title: Importer
     description: The party who makes, or on whose behalf a customs clearing agent or other authorized person makes, an import declaration. This may include a person who has possession of the goods or to whom the goods are consigned. Also refered to as Importer of Record.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
   consignee:
     title: Consignee
     description: Consignee
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: consignee
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: shipToParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
@@ -73,7 +73,7 @@ properties:
     description: The consolidator (stuffer) is the party who stuffed the container or arranged for the stuffing of the container. For break bulk shipments this is the party who made the goods ship-ready or arranged for the goods to be made ship-ready.
     type: array
     items: 
-      $ref: ./EntityCompat.yml
+      $ref: ./Entity.yml
     $linkedData:
       term: consolidator
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consolidatorParty
@@ -82,7 +82,7 @@ example: |-
   {
     "type": "ImporterSecurityFiling",
     "seller": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Onwards A/S",
       "address": {
         "type": "PostalAddress",
@@ -90,10 +90,11 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      }
+      },
+      "entityType": "Organization"
     },
     "buyer": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Future Mobility, Inc.",
       "address": {
         "type": "PostalAddress",
@@ -101,10 +102,11 @@ example: |-
         "addressLocality": "West Peoria",
         "postalCode": "61604",
         "addressCountry": "US"
-      }
+      },
+      "entityType": "Organization"
     },
     "importer": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Onwards A/S",
       "address": {
         "type": "PostalAddress",
@@ -112,10 +114,11 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      }
+      },
+      "entityType": "Organization"
     },
     "consignee": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Future Mobility, Inc.",
       "address": {
         "type": "PostalAddress",
@@ -123,10 +126,11 @@ example: |-
         "addressLocality": "West Peoria",
         "postalCode": "61604",
         "addressCountry": "US"
-      }
+      },
+      "entityType": "Organization"
     },
     "shipToParty": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Future Mobility - Georgia",
       "address": {
         "type": "PostalAddress",
@@ -135,7 +139,8 @@ example: |-
         "addressRegion": "Georgia",
         "postalCode": "30907",
         "addressCountry": "US"
-      }
+      },
+      "entityType": "Organization"
     },
     "filingItems": [
       {
@@ -175,7 +180,7 @@ example: |-
     ],
     "consolidator": [
       {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Xxinau Manufacturing Co. Ltd.",
         "address": {
           "type": "PostalAddress",
@@ -184,7 +189,8 @@ example: |-
           "addressRegion": "Fujian Province",
           "postalCode": "361100",
           "addressCountry": "CN"
-        }
+        },
+        "entityType": "Organization"
       }
     ]
   }
