@@ -42,7 +42,7 @@ properties:
   applicant:
     title: Applicant
     description: Entity that is applying for the inspection.
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: applicant
       '@id': https://w3id.org/traceability#dfn-entities
@@ -95,7 +95,7 @@ properties:
   delegateOf:
     title: Delegate Of
     description: Inspector is acting on behalf of this entity (common with many ag. inspections).
-    type: string
+    $ref: ./Entity.yml
     $linkedData:
       term: delegateOf
       '@id': https://schema.org/Organization
@@ -296,9 +296,9 @@ example: |-
       }
     },
     "applicant": {
-      "type": [
-        "Organization"
-      ],
+      "type" : "Entity",
+      "entityType": "Organization",
+      "name" : "Jessica Sherawat",
       "email": "Jessica58@example.com",
       "phoneNumber": "555-581-2077"
     },
@@ -380,9 +380,8 @@ example: |-
       "faxNumber": "555-486-3154"
     },
     "delegateOf": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "entityType" : "Organization",
       "name": "Brekke, Kertzmann and Yost",
       "description": "Distributed mobile protocol",
       "email": "Priscilla.Dooley@example.com",
