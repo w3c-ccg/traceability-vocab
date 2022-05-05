@@ -91,7 +91,7 @@ properties:
   carrier:
     title: Carrier
     description: Entity responsible for transporting product
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: carrier
       '@id': https://w3id.org/traceability#Entity
@@ -105,7 +105,7 @@ properties:
   recipient:
     title: Recipient
     description: Entity that will recieve product
-    $ref: ./EntityCompat.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: recipient
       '@id': https://w3id.org/traceability#Entity
@@ -172,18 +172,18 @@ example: |-
       "unLocode": "DKCPH"
     },
     "carrier": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Example Carrier Organization",
       "email": "Griffin_Trantow65@example.org",
-      "phoneNumber": "555-227-3190"
+      "phoneNumber": "555-227-3190",
+      "entityType": "Organization"
     },
     "recipient": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "name": "Example Recipient Organization",
       "email": "Gustave.Dicki37@example.net",
-      "phoneNumber": "555-238-5681"
+      "phoneNumber": "555-238-5681",
+      "entityType": "Organization"
     },
     "portOfArrival": {
       "type": [
