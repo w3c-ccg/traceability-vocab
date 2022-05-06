@@ -11,7 +11,7 @@ properties:
 required: 
   - workflow
 example: |-
- {
+  {
     "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://w3id.org/security/suites/jws-2020/v1",
@@ -55,7 +55,7 @@ example: |-
           "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
           "type": "Entity",
           "name": "Glover - Gleason",
-          "legalName": "Glover and Gleason, Llc.",
+          "legalName": "Glover and Gleason, LLC",
           "description": "Customs Brokering since 2012",
           "address": {
             "type": "PostalAddress",
@@ -75,7 +75,7 @@ example: |-
         "credentialSubject": {
           "type": "Entity",
           "name": "Glover - Gleason",
-          "legalName": "Glover and Gleason, Llc.",
+          "legalName": "Glover and Gleason, LLC",
           "description": "Customs Brokering since 2012",
           "address": {
             "type": "PostalAddress",
@@ -94,19 +94,29 @@ example: |-
         },
         "proof": {
           "type": "Ed25519Signature2018",
-          "created": "2022-05-05T19:46:30Z",
+          "created": "2022-05-06T18:50:52Z",
           "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
           "proofPurpose": "assertionMethod",
-          "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..j5Q1IQeQkfnhC-K6iDgjO3eb_LT0-D4MBCZ3cgbklgpyIftRekvFeLvXUiTymtbn3upqpfo9xgDemYw03QdcDg"
+          "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..lyQosr21ARCG0HQXzEwVcR1YyL8HFydIbWJ2pTIO3tWjfsy3DrpFGuszhY0-t-i0iUZQtZZZmexMMUT5XDfuDg"
         }
       }
     ],
-    "proof": {
-      "type": "Ed25519Signature2018",
-      "created": "2022-05-06T18:48:17Z",
-      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "proofPurpose": "authentication",
-      "challenge": "0ef66594-3ea5-47c8-afc8-0987ae8bf04b",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..guktp9PtVicvgP-o_OHqo6zp15euXevolL2JRzVkb_F8BcGcj8kwpGUa9Gs_hLVez0IeMEL0fWLP2jdvk5zfBA"
-    }
+    "proof": [
+      {
+        "type": "JsonWebSignature2020",
+        "created": "2021-10-04T17:19:20Z",
+        "verificationMethod": "did:example:123#key-2",
+        "proofPurpose": "authentication",
+        "challenge": "123",
+        "jws": "eyJhbGciOiJFUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Q0J7CcbM19fvfLdBZ44MlndvNACnmb0x1SM0cGnECye_-JC3Of29eroksqsVDTyXGAaQ_gnvcB4cqefK0jLIOg"
+      },
+      {
+        "type": "Ed25519Signature2018",
+        "created": "2022-05-06T18:59:15Z",
+        "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+        "proofPurpose": "authentication",
+        "challenge": "0ef66594-3ea5-47c8-afc8-0987ae8bf04b",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..9dYaR4mmQfSQXYvxvcPtjDdS_s2plBCaNwGJu1Gc1wq1YZR6xlLg2DADQos48wKePjBFipRAYNWjawZ43WpwBA"
+      }
+    ]
   }
