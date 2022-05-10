@@ -30,7 +30,7 @@ properties:
   issuer:
     type: object
   credentialSubject:
-    type: object
+    $ref: ./EntrySummary.yml
   proof:
     type: object
   relatedLink:
@@ -101,7 +101,7 @@ example: |-
       "importerNumber": "9900127",
       "referenceNumber": "ref199812841",
       "ultimateConsignee": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Future Mobility, Inc.",
         "address": {
           "type": "PostalAddress",
@@ -109,10 +109,11 @@ example: |-
           "addressLocality": "West Peoria",
           "postalCode": "61604",
           "addressCountry": "US"
-        }
+        },
+        "entityType": "Organization"
       },
       "importerOfRecord": {
-        "type": "Organization",
+        "type": "Entity",
         "name": "Future Mobility, Inc.",
         "address": {
           "type": "PostalAddress",
@@ -120,7 +121,8 @@ example: |-
           "addressLocality": "West Peoria",
           "postalCode": "61604",
           "addressCountry": "US"
-        }
+        },
+        "entityType": "Organization"
       },
       "descriptionOfMerchandise": [
         {
@@ -189,9 +191,9 @@ example: |-
     },
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2022-03-03T14:21:32Z",
+      "created": "2022-05-05T17:06:59Z",
       "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
       "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..cyUIAkW9wD2AEEAdBU162c6-qNO9OnPHkRALouRYQXkYDV0EVa6Oo0wkFN2ovDlMtPGKlT_di4dBIKvgUX56AA"
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..wUP3dzGbyna-NHsrzqPETvmYeGx141migWRzqVVUFLNnZs__JlMcXqHLOdhBHuHxNYbSFdmOzFJC0N2pUZbCCg"
     }
   }

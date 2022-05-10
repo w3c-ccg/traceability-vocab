@@ -2,13 +2,85 @@ $linkedData:
   term: Entity
   '@id': https://w3id.org/traceability#Entity
 title: Entity
-description: A person or organization.
-oneOf:
-  - $ref: ./Person.yml
-  - $ref: ./Organization.yml
+description: A person or organization
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - Entity
+      - type: string
+        const: Entity
+  entityType:
+    description: The type of entity
+    type: string
+    enum:
+      - Person
+      - Organization
+  name:
+    title: Name
+    description: Name of the organization.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  legalName:
+    title: Legal Name
+    description: The official name of the organization, i.e., the registered company name.
+    type: string
+    $linkedData:
+      term: legalName
+      '@id': https://schema.org/legalName
+  url:
+    title: URL
+    description: URL of the person or organization.
+    type: string
+    $linkedData:
+      term: url
+      '@id': https://schema.org/url
+  taxId:
+    title: Tax Identification Number
+    description: >-
+      The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US
+      or the CIF/NIF in Spain.
+    type: string
+    $linkedData:
+      term: taxId
+      '@id': https://schema.org/taxID
+  address:
+    title: Postal Address
+    description: The postal address for an organization or place.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: address
+      '@id': https://schema.org/PostalAddress
+  email:
+    title: Email Address
+    description: Contact email address.
+    type: string
+    $linkedData:
+      term: email
+      '@id': https://schema.org/email
+  phoneNumber:
+    title: Phone Number
+    description: Contact phone number.
+    type: string
+    $linkedData:
+      term: phoneNumber
+      '@id': https://schema.org/telephone
+required:
+  - type
+  - entityType
+  - name
+additionalProperties: true
 example: |-
   {
-    "type": "Person",
+    "type": "Entity",
+    "entityType" : "Person",
+    "name" : "Kane Heller",
     "firstName": "Kane",
     "lastName": "Heller",
     "email": "Laury96@example.org",

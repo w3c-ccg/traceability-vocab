@@ -95,7 +95,7 @@ properties:
   delegateOf:
     title: Delegate Of
     description: Inspector is acting on behalf of this entity (common with many ag. inspections).
-    type: string
+    $ref: ./Entity.yml
     $linkedData:
       term: delegateOf
       '@id': https://schema.org/Organization
@@ -296,11 +296,11 @@ example: |-
       }
     },
     "applicant": {
-      "type": [
-        "Organization"
-      ],
+      "type" : "Entity",
+      "entityType": "Organization",
+      "name" : "Jessica Sherawat",
       "email": "Jessica58@example.com",
-      "phoneNumber": "555-581-2077"
+      "phoneNumber": "+1-555-581-2077"
     },
     "inspectionDate": "2020-03-15",
     "inspectionType": "Contamination",
@@ -377,12 +377,11 @@ example: |-
       "description": "Exclusive bottom-line firmware",
       "email": "Briana55@example.org",
       "phoneNumber": "555-467-2604",
-      "faxNumber": "555-486-3154"
+      "faxNumber": "+1-555-486-3154"
     },
     "delegateOf": {
-      "type": [
-        "Organization"
-      ],
+      "type": "Entity",
+      "entityType" : "Organization",
       "name": "Brekke, Kertzmann and Yost",
       "description": "Distributed mobile protocol",
       "email": "Priscilla.Dooley@example.com",
