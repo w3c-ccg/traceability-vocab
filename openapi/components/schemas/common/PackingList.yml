@@ -156,11 +156,10 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity
 example: |-
   {
-    "@context": "https://w3id.org/traceability/v1",
     "type": "PackingList",
     "orderNumber": "PO00000329",
     "seller": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
@@ -170,10 +169,11 @@ example: |-
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      }
+      },
+      "entityType": "Organization"
     },
     "buyer": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "By ACRE",
       "address": {
         "type": "PostalAddress",
@@ -181,10 +181,11 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      }
+      },
+      "entityType": "Organization"
     },
     "shipFromParty": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
@@ -194,10 +195,11 @@ example: |-
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      }
+      },
+      "entityType": "Organization"
     },
     "shipToParty": {
-      "type": "Organization",
+      "type": "Entity",
       "name": "By ACRE",
       "address": {
         "type": "PostalAddress",
@@ -205,7 +207,8 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      }
+      },
+      "entityType": "Organization"
     },
     "handlingInstructions": [
       {
@@ -246,10 +249,10 @@ example: |-
             }
           }
         ]
-      }, 
+      },
       {
         "type": "PartOfOrder",
-        "packageQuantity": 2, 
+        "packageQuantity": 2,
         "transportPackages": [
           {
             "type": "Package",
@@ -282,7 +285,7 @@ example: |-
       },
       {
         "type": "PartOfOrder",
-        "packageQuantity": 80, 
+        "packageQuantity": 80,
         "transportPackages": [
           {
             "type": "Package",
