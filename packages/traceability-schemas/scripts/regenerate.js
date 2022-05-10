@@ -52,7 +52,7 @@ const issueCredential = async (candidate, filename) => {
   });
 
   if (!verified) {
-    throw new Error('what the effff?');
+    throw new Error('Could not verify credential immediately after signing it');
   }
 
   return verifiableCredential;
@@ -61,6 +61,7 @@ const issueCredential = async (candidate, filename) => {
 const main = async () => {
   const path = '../../../docs/openapi/components/schemas/common';
   const files = fs.readdirSync(path);
+
   await Promise.all(
     files.map(async (filename) => {
       const file = fs.readFileSync(`${path}/${filename}`, 'utf-8');
@@ -68,6 +69,10 @@ const main = async () => {
       const jsonStr = file.substring(start);
       const example = JSON.parse(jsonStr);
       if (!example.proof) {
+        return;
+      }
+
+      if (example.type.indexOf('VerifiablePresentation') !== -1) {
         return;
       }
 
