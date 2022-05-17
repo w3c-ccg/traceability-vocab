@@ -59,7 +59,7 @@ const issueCredential = async (candidate, filename) => {
 };
 
 const main = async () => {
-  const path = '../../../docs/openapi/components/schemas/common';
+  const path = '../../../docs/openapi/components/schemas/credentials';
   const files = fs.readdirSync(path);
 
   await Promise.all(
