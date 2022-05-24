@@ -1,0 +1,35 @@
+$linkedData:
+  term: TraceabilityAPI
+  '@id': https://w3id.org/traceability#TraceabilityAPI
+title: Traceability API
+description: An object which can be listed as a DID `service` to enable discovery for subsequent presentation exchange.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - TraceabilityAPI
+      - type: string
+        const:
+          - TraceabilityAPI
+  serviceEndpoint: 
+    description: |-
+      The serviceEndpoint definition implies the following endpoints:
+      - https://platform.example/organization/123/credentials/issue
+      - https://platform.example/organization/123/credentials/verify
+      - https://platform.example/organization/123/presentations/prove
+      - https://platform.example/organization/123/presentations/verify
+      - https://platform.example/organization/123/presentations/available
+      - https://platform.example/organization/123/presentations/submissions
+    type: string
+required: 
+  - serviceEndpoint
+example: |-
+  {
+    "id": "did:web:platform.example:organization:123#traceability-api",
+    "type": "TraceabilityAPI",
+    "serviceEndpoint": "https://platform.example/organization/123"
+  }
