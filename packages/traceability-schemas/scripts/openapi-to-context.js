@@ -6,6 +6,7 @@ const path = require('path');
 const jsonldSchema = require('@transmute/jsonld-schema');
 const { schemas } = require('../services/schemas');
 const rootTerms = require('./rootTerms.json');
+const stringify = require('json-stringify-deterministic')
 
 const contextPath = path.resolve(
   __dirname,
@@ -21,5 +22,5 @@ const contextPath = path.resolve(
     type: '@type',
     rootTerms,
   });
-  fs.writeFileSync(contextPath, JSON.stringify(context, null, 2));
+  fs.writeFileSync(contextPath, stringify(context, { space: '  ' }));
 })();
