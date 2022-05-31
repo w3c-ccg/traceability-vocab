@@ -4,9 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 const jsonldSchema = require('@transmute/jsonld-schema');
+const stringify = require('json-stringify-deterministic');
 const { schemas } = require('../services/schemas');
 const rootTerms = require('./rootTerms.json');
-const stringify = require('json-stringify-deterministic')
 
 const contextPath = path.resolve(
   __dirname,
