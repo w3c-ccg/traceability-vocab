@@ -13,8 +13,7 @@ properties:
           enum:
             - Organization
       - type: string
-        const:
-          - Organization 
+        const: Organization 
   name:
     title: Name
     description: Name of the organization.
@@ -64,6 +63,13 @@ properties:
     $linkedData:
       term: address
       '@id': https://schema.org/PostalAddress
+  location:
+    title: Location
+    description: The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: location
+      '@id': https://schema.org/location
   email:
     title: Email Address
     description: Organization's primary email address.
@@ -122,6 +128,14 @@ example: |-
     "name": "Glover - Gleason",
     "legalName": "Glover and Gleason, Llc.",
     "description": "Customs Brokering since 2012",
+    "location" : {
+      "type": "Place",
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "68.7083",
+        "longitude": "4.6377"
+      }
+    },
     "address": {
       "type": "PostalAddress",
       "streetAddress": "210 Jermey Fort",
