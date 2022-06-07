@@ -34,7 +34,9 @@ properties:
   grade:
     title: Grade
     description: The grade of the product
-    type: string
+    type: array
+    items: 
+      type: string
     $linkedData:
       term: grade
       '@id': https://schema.org/Rating
@@ -101,7 +103,7 @@ example: |-
     "type": "SteelProduct",
     "heatNumber": "4761",
     "specification": "ASTM-66272",
-    "grade": "95913",
+    "grade": ["95913"],
     "originalCountryOfMeltAndPour": "Oman",
     "weight": 3200,
     "weightUnit": "https://service.unece.org/trade/uncefact/vocabulary/rec20/#kilogram",
