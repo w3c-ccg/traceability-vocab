@@ -1,0 +1,61 @@
+$linkedData:
+  term: AgGradeInspectionDefect
+  '@id': https://w3id.org/traceability#AgGradeInspectionDefect
+title: Agriculture Grade Inspection Defect
+description: Information on a type of offsize / defect observed.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - AgGradeInspectionDefect
+      - type: string
+        const:
+          - AgGradeInspectionDefect
+  offsizeDefect:
+    title: Offsize / Defect
+    description: Brief description of this offsize / defect.
+    type: string
+    $linkedData:
+      term: offsizeDefect
+      '@id': https://schema.org/description
+  averageDefects:
+    title: Average Defects
+    description: Percent of sample items with defects for the grade standards.
+    type: number
+    $linkedData:
+      term: averageDefects
+      '@id': https://schema.org/Number
+  damage:
+    title: Percent Damage
+    description: Percent of sample items with damage (but not serious or very serious damage).
+    type: number
+    $linkedData:
+      term: damage
+      '@id': https://schema.org/Number
+  seriousDamage:
+    title: Serious Damage
+    description: Number of sample items with serious damage (incl. decay, soft rot, or soft).
+    type: number
+    $linkedData:
+      term: seriousDamage
+      '@id': https://schema.org/Number
+  verySeriousDamage:
+    title: Very Serious Damage
+    description: Number of sample items with very serious damage (incl. significant decay, soft rot, or soft).
+    type: number
+    $linkedData:
+      term: verySeriousDamage
+      '@id': https://schema.org/Number
+additionalProperties: false
+example: |-
+  {
+    "type": "AgGradeInspectionDefect",
+    "offsizeDefect": "Quality - Dry Sunken Areas",
+    "averageDefects": 2,
+    "seriousDamage": 0,
+    "verySeriousDamage": 0
+  }

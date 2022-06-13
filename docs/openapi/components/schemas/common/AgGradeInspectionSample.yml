@@ -1,0 +1,94 @@
+$linkedData:
+  term: AgGradeInspectionSample
+  '@id': https://w3id.org/traceability#AgGradeInspectionSample
+title: Agriculture Grade Inspection Sample
+description: Details regarding a sample taken from an inspected lot.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - AgGradeInspectionSample
+      - type: string
+        const:
+          - AgGradeInspectionSample
+  sampleSizeValue:
+    title: Sample Size Value
+    description: Value for sample size (not including units used), e.g. "24".
+    type: number
+    $linkedData:
+      term: sampleSizeValue
+      '@id': https://schema.org/Number
+  sampleSizeUnits:
+    title: Sample Size Unit
+    description: Unit used, e.g. "items", "lbs", "kg".
+    type: string
+    $linkedData:
+      term: sampleSizeUnit
+      '@id': https://schema.org/unitText
+  sampleProperties:
+    title: Sample Properties
+    description: Properties of the current sample, indicating information such as "25 green/breakers", "4 percent decay or soft", "0 percent off-size".
+    type: array
+    items:
+      $ref: ./AgGradeInspectionSampleProperty.yml
+    $linkedData:
+      term: sampleProperty
+      '@id': https://w3id.org/traceability#AgGradeInspectionSampleProperty
+additionalProperties: false
+example: |-
+  {
+    "type": "AgGradeInspectionSample",
+    "sampleSize": 10,
+    "sampleSizeUnits": "items",
+    "sampleProperties": [
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "Temp °F",
+        "propertyValue": "53"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "BMR Quality D",
+        "propertyValue": "2"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "BMR Quality SD",
+        "propertyValue": "0"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "BMR Quality DK",
+        "propertyValue": "0"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "Caked Dirt Quality D",
+        "propertyValue": "0"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "Caked Dirt Quality SD",
+        "propertyValue": "0"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "Caked Dirt Quality DK",
+        "propertyValue": "0"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "< 1-3/4 In. Dia.",
+        "propertyValue": "1"
+      },
+      {
+        "type": "AgGradeInspectionSampleProperty",
+        "propertyName": "> 3 In. Dia.",
+        "propertyValue": "2"
+      }
+    ]
+  }

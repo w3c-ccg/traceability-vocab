@@ -1,0 +1,38 @@
+$linkedData:
+  term: AgGradeInspectionSampleProperty
+  '@id': https://w3id.org/traceability#AgGradeInspectionSampleProperty
+title: Agriculture Grade Inspection Sample Property
+description: A property of some agriculture grade inspection sample.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - AgGradeInspectionSampleProperty
+      - type: string
+        const:
+          - AgGradeInspectionSampleProperty
+  propertyName:
+    title: Property Name
+    description: Name of the sample property observed (e.g. "Percent off-size", "Type of Defects", "Net Wt. Within 2 lb. Range").
+    type: string
+    $linkedData:
+      term: propertyName
+      '@id': https://schema.org/name
+  propertyValue:
+    title: Property Value
+    description: Value of the sample property observed (e.g. "0", "SIL CT", "Yes").
+    type: string
+    $linkedData:
+      term: propertValue
+      '@id': https://schema.org/description
+additionalProperties: false
+example: |-
+  {
+    "type": "AgGradeInspectionSampleProperty",
+    "propertyName": "Temp °F",
+    "propertyValue": "53"
+  }

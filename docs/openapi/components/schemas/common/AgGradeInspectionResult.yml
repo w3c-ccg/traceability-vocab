@@ -1,0 +1,45 @@
+$linkedData:
+  term: AgGradeInspectionResult
+  '@id': https://w3id.org/traceability#AgGradeInspectionResult
+title: Agriculture Grade Inspection Result
+description: Information on the grade assigned to an inspected lot.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - AgGradeInspectionResult
+      - type: string
+        const:
+          - AgGradeInspectionResult
+  gradeInspected:
+    title: Grade Inspected
+    description: Grade the lot was inspected for, even if the requirements were not met. When there is no U.S. grade standard for a product, and a quality and condition inspection is performed, enter "No established U.S. Grade".
+    type: string
+    $linkedData:
+      term: gradeInspected
+      '@id': https://w3id.org/traceability#gradeInspected
+  requirementsMet:
+    title: Requirements Met
+    description: Whether the inspected lot meets grade standards or other specifications on which the inspection was based.
+    type: boolean
+    $linkedData:
+      term: requirementsMet
+      '@id': https://w3id.org/traceability#requirementsMet
+  details:
+    title: Details
+    description: Additional information regarding inspection grade. In some circumstances failing lots should include account condition details such as "Green peppers in a red lot", or "Staining". For certain fruits condition details should be included even for passing lots, e.g. "Decay being a factor of condition".
+    type: string
+    $linkedData:
+      term: details
+      '@id': https://schema.org/description
+additionalProperties: false
+example: |-
+  {
+    "type": "AgGradeInspectionResult",
+    "gradeInspected": "U.S. No. 1",
+    "requirementsMet": true
+  }
