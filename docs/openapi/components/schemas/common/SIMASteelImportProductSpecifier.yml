@@ -33,31 +33,31 @@ properties:
   customsValue: 
     title: Customs Value
     description: Entered value of this product in U.S. dollars; not invoiced value (It should not include duty, brokerage fees, or freight).
-    type: customsValue
+    type: number
     $linkedData:
-      term: value
+      term: customsValue
       '@id': https://schema.org/MonetaryAmount
 additionalProperties: true
 required: []
 example: |-
-        {
-          "type": [
-            "SIMASteelImportProductSpecifier"
-          ],
-          "steelProduct": {
-            "type": "SteelProduct",
-            "heatNumber": "841",
-            "specification": "ASTM-66272",
-            "grade": "95913",
-            "originalCountryOfMeltAndPour": "MX",
-            "weight": 3200,
-            "weightUnit": "https://service.unece.org/trade/uncefact/vocabulary/rec20/#kilogram",
-            "commodity": {
-              "type": "Commodity",
-              "commodityCode": "721320",
-              "commodityCodeType": "HS",
-              "description": "Steel Coils"
-            }
-          },
-          "customsValue": 4450
-        }
+  {
+    "type": [
+      "SIMASteelImportProductSpecifier"
+    ],
+    "steelProduct": {
+      "type": "SteelProduct",
+      "heatNumber": "841",
+      "specification": "ASTM-66272",
+      "grade": "95913",
+      "originalCountryOfMeltAndPour": "MX",
+      "weight": 3200,
+      "weightUnit": "https://service.unece.org/trade/uncefact/vocabulary/rec20/#kilogram",
+      "commodity": {
+        "type": "Commodity",
+        "commodityCode": "721320",
+        "commodityCodeType": "HS",
+        "description": "Steel Coils"
+      }
+    },
+    "customsValue": 4450
+  }
