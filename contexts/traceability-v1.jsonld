@@ -1531,8 +1531,14 @@
         "comment": {
           "@id": "https://schema.org/comment"
         },
+        "inspectors": {
+          "@id": "https://schema.org/Person"
+        },
         "observation": {
           "@id": "https://schema.org/ItemList"
+        },
+        "place": {
+          "@id": "https://schema.org/Place"
         }
       },
       "@id": "https://w3id.org/traceability#InspectionReport"
@@ -2902,7 +2908,10 @@
     },
     "SIMASteelImportLicenseCertificate": {
       "@context": {
-        "expectedDateOfImport": {
+        "licenseValidFrom": {
+          "@id": "https://schema.org/validFrom"
+        },
+        "licenseValidThrough": {
           "@id": "https://schema.org/validThrough"
         }
       },
@@ -2910,11 +2919,14 @@
     },
     "SIMASteelImportProductSpecifier": {
       "@context": {
+        "customsValue": {
+          "@id": "https://schema.org/MonetaryAmount"
+        },
         "product": {
           "@id": "https://w3id.org/traceability#SteelProduct"
         },
-        "value": {
-          "@id": "https://schema.org/MonetaryAmount"
+        "productCategory": {
+          "@id": "https://w3id.org/traceability#ProductCategory"
         }
       },
       "@id": "https://w3id.org/traceability#SIMASteelImportProductSpecifier"
