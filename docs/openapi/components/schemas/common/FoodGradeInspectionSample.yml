@@ -1,7 +1,7 @@
 $linkedData:
-  term: AgGradeInspectionSample
-  '@id': https://w3id.org/traceability#AgGradeInspectionSample
-title: Agriculture Grade Inspection Sample
+  term: FoodGradeInspectionSample
+  '@id': https://w3id.org/traceability#FoodGradeInspectionSample
+title: Food Grade Inspection Sample
 description: Details regarding a sample taken from an inspected lot.
 type: object
 properties:
@@ -11,17 +11,16 @@ properties:
         items:
           type: string
           enum:
-            - AgGradeInspectionSample
+            - FoodGradeInspectionSample
       - type: string
-        const:
-          - AgGradeInspectionSample
+        const: FoodGradeInspectionSample
   sampleSizeValue:
     title: Sample Size Value
     description: Value for sample size (not including units used), e.g. "24".
     type: number
     $linkedData:
       term: sampleSizeValue
-      '@id': https://schema.org/Number
+      '@id': https://schema.org/value
   sampleSizeUnits:
     title: Sample Size Unit
     description: Unit used, e.g. "items", "lbs", "kg".
@@ -34,59 +33,59 @@ properties:
     description: Properties of the current sample, indicating information such as "25 green/breakers", "4 percent decay or soft", "0 percent off-size".
     type: array
     items:
-      $ref: ./AgGradeInspectionSampleProperty.yml
+      $ref: ./FoodGradeInspectionSampleProperty.yml
     $linkedData:
       term: sampleProperty
-      '@id': https://w3id.org/traceability#AgGradeInspectionSampleProperty
+      '@id': https://w3id.org/traceability#FoodGradeInspectionSampleProperty
 additionalProperties: false
 example: |-
   {
-    "type": "AgGradeInspectionSample",
+    "type": "FoodGradeInspectionSample",
     "sampleSize": 10,
     "sampleSizeUnits": "items",
     "sampleProperties": [
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "Temp °F",
         "propertyValue": "53"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "BMR Quality D",
         "propertyValue": "2"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "BMR Quality SD",
         "propertyValue": "0"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "BMR Quality DK",
         "propertyValue": "0"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "Caked Dirt Quality D",
         "propertyValue": "0"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "Caked Dirt Quality SD",
         "propertyValue": "0"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "Caked Dirt Quality DK",
         "propertyValue": "0"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "< 1-3/4 In. Dia.",
         "propertyValue": "1"
       },
       {
-        "type": "AgGradeInspectionSampleProperty",
+        "type": "FoodGradeInspectionSampleProperty",
         "propertyName": "> 3 In. Dia.",
         "propertyValue": "2"
       }

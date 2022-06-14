@@ -1,7 +1,7 @@
 $linkedData:
-  term: AgGradeInspectionLot
-  '@id': https://w3id.org/traceability#AgGradeInspectionLot
-title: Agriculture Grade Inspection Lot
+  term: FoodGradeInspectionLot
+  '@id': https://w3id.org/traceability#FoodGradeInspectionLot
+title: Food Grade Inspection Lot
 description: Information regarding the inspected lot including samples, defects and grades.
 type: object
 properties:
@@ -11,10 +11,9 @@ properties:
         items:
           type: string
           enum:
-            - AgGradeInspectionLot
+            - FoodGradeInspectionLot
       - type: string
-        const:
-          - AgInspectionLotesult
+        const: FoodGradeInspectionLot
   agProduct:
     title: Product
     description: The product inspected.
@@ -28,7 +27,7 @@ properties:
     type: string
     $linkedData:
       term: lotIdentifier
-      '@id': https://schema.org/identifier
+      '@id': https://www.gs1.org/voc/hasBatchLotNumber
   numberContainers:
     title: Number of Containers
     description: Number of containers in the lot or portion of lot inspected, as well as type of package or container in which the product was shipped (e.g. "672 cartons", "20,000 LBS.").
@@ -55,26 +54,26 @@ properties:
     description: List of samples taken for this lot.
     type: array
     items:
-      $ref: ./AgGradeInspectionSample.yml
+      $ref: ./FoodGradeInspectionSample.yml
     $linkedData:
       term: sample
-      '@id': https://w3id.org/traceability#AgGradeInspectionSample
+      '@id': https://w3id.org/traceability#FoodGradeInspectionSample
   defects:
     title: Defects
     description: List of defects observed for this lot.
     type: array
     items:
-      $ref: ./AgGradeInspectionDefect.yml
+      $ref: ./FoodGradeInspectionDefect.yml
     $linkedData:
       term: defect
-      '@id': https://w3id.org/traceability#AgGradeInspectionDefect
+      '@id': https://w3id.org/traceability#FoodGradeInspectionDefect
   grade:
     title: Grade
     description: The grade assigned to this lot.
-    $ref: ./AgGradeInspectionResult.yml
+    $ref: ./FoodGradeInspectionResult.yml
     $linkedData:
       term: grade
-      '@id': https://w3id.org/traceability#AgGradeInspectionResult
+      '@id': https://w3id.org/traceability#FoodGradeInspectionResult
   remarks:
     title: Remarks
     description: Additional information, such as a description of the lot (e.g. size, color, quality). Generally includes factors which do not affect grade.
@@ -88,25 +87,18 @@ properties:
     $ref: ./MeasuredValue.yml
     $linkedData:
       term: minTemperature
-      '@id': https://schema.org/MeasuredValue
+      '@id': https://schema.org/measuredValue
   maxTemperature:
     title: Maximum Temperature
     description: Maximum product temperature measured.
     $ref: ./MeasuredValue.yml
     $linkedData:
       term: maxTemperature
-      '@id': https://schema.org/MeasuredValue
-  pli:
-    title: PLI
-    description: "Positive Lot Identification (PLI) is the application of identifying marks to an inspected lot. For more information see: https://www.ams.usda.gov/publications/content/positive-lot-identification-pli-manual-worksheets"
-    type: string
-    $linkedData:
-      term: pli
-      '@id': https://w3id.org/traceability#pli
+      '@id': https://schema.org/measuredValue
 additionalProperties: false
 example: |-
   {
-    "type": "AgGradeInspectionLot",
+    "type": "FoodGradeInspectionLot",
     "agProduct": {
       "type": [
         "AgProduct"
@@ -156,52 +148,52 @@ example: |-
     "brandMarkings": "\"Green Fields\"; Packed by Ace Foodstuffs; Produce of U.S.A.",
     "samples": [
       {
-        "type": "AgGradeInspectionSample",
+        "type": "FoodGradeInspectionSample",
         "sampleSize": 10,
         "sampleSizeUnits": "items",
         "sampleProperties": [
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "Temp °F",
             "propertyValue": "53"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "BMR Quality D",
             "propertyValue": "2"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "BMR Quality SD",
             "propertyValue": "0"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "BMR Quality DK",
             "propertyValue": "0"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "Caked Dirt Quality D",
             "propertyValue": "0"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "Caked Dirt Quality SD",
             "propertyValue": "0"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "Caked Dirt Quality DK",
             "propertyValue": "0"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "< 1-3/4 In. Dia.",
             "propertyValue": "1"
           },
           {
-            "type": "AgGradeInspectionSampleProperty",
+            "type": "FoodGradeInspectionSampleProperty",
             "propertyName": "> 3 In. Dia.",
             "propertyValue": "2"
           }
@@ -210,21 +202,21 @@ example: |-
     ],
     "defects": [
       {
-        "type": "AgGradeInspectionDefect",
+        "type": "FoodGradeInspectionDefect",
         "offsizeDefect": "Quality - Staining",
         "averageDefects": 6,
         "seriousDamage": 2,
         "verySeriousDamage": 0
       },
       {
-        "type": "AgGradeInspectionDefect",
+        "type": "FoodGradeInspectionDefect",
         "offsizeDefect": "Quality - Dry Sunken Areas",
         "averageDefects": 2,
         "seriousDamage": 0,
         "verySeriousDamage": 0
       },
       {
-        "type": "AgGradeInspectionDefect",
+        "type": "FoodGradeInspectionDefect",
         "offsizeDefect": "Quality - Surface Mold",
         "averageDefects": 1,
         "seriousDamage": 0,
@@ -232,7 +224,7 @@ example: |-
       }
     ],
     "grade": {
-      "type": "AgGradeInspectionResult",
+      "type": "FoodGradeInspectionResult",
       "gradeInspected": "U.S. No. 1",
       "requirementsMet": true
     },

@@ -1,7 +1,7 @@
 $linkedData:
-  term: AgGradeInspectionResult
-  '@id': https://w3id.org/traceability#AgGradeInspectionResult
-title: Agriculture Grade Inspection Result
+  term: FoodGradeInspectionResult
+  '@id': https://w3id.org/traceability#FoodGradeInspectionResult
+title: Food Grade Inspection Result
 description: Information on the grade assigned to an inspected lot.
 type: object
 properties:
@@ -11,10 +11,9 @@ properties:
         items:
           type: string
           enum:
-            - AgGradeInspectionResult
+            - FoodGradeInspectionResult
       - type: string
-        const:
-          - AgGradeInspectionResult
+        const: FoodGradeInspectionResult
   gradeInspected:
     title: Grade Inspected
     description: Grade the lot was inspected for, even if the requirements were not met. When there is no U.S. grade standard for a product, and a quality and condition inspection is performed, enter "No established U.S. Grade".
@@ -39,7 +38,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "AgGradeInspectionResult",
+    "type": "FoodGradeInspectionResult",
     "gradeInspected": "U.S. No. 1",
     "requirementsMet": true
   }
