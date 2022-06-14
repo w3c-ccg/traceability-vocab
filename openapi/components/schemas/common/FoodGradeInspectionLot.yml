@@ -1,0 +1,247 @@
+$linkedData:
+  term: FoodGradeInspectionLot
+  '@id': https://w3id.org/traceability#FoodGradeInspectionLot
+title: Food Grade Inspection Lot
+description: Information regarding the inspected lot including samples, defects and grades.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FoodGradeInspectionLot
+      - type: string
+        const: FoodGradeInspectionLot
+  agProduct:
+    title: Product
+    description: The product inspected.
+    $ref: ./AgProduct.yml
+    $linkedData:
+      term: agProduct
+      '@id': https://w3id.org/traceability#AgProduct
+  lotIdentifier:
+    title: Lot Identifier
+    description: Use to further add to identification of the lot inspected, or to distinguish between lots / sublots for certification purposes (e.g. "Loaded", "Main Lot", "U.S. Fancy", "Film Wrapped").
+    type: string
+    $linkedData:
+      term: lotIdentifier
+      '@id': https://www.gs1.org/voc/hasBatchLotNumber
+  numberContainers:
+    title: Number of Containers
+    description: Number of containers in the lot or portion of lot inspected, as well as type of package or container in which the product was shipped (e.g. "672 cartons", "20,000 LBS.").
+    type: number
+    $linkedData:
+      term: numberContainers
+      '@id': https://schema.org/Integer
+  countInspected:
+    title: Count Inspected
+    description: Whether the number of containers was accurately inspected. If false, report the reason for not being able to count the containers in the "Remarks" section.
+    type: boolean
+    $linkedData:
+      term: countInspected
+      '@id': https://w3id.org/traceability#countInspected
+  brandMarkings:
+    title: Brand / Markings
+    description: Brand or Markings on inspected product. ALways have brand name enclosed in quotation marks as first entry (e.g. "Unkle Okey's Onions"), with other markings as necessary to identify lot NOT enclosed in quotation marks (e.g. U.S. No. 1; or Grown & Packed by Unkle Okey, Inc.; or Produce of U.S.A.).
+    type: string
+    $linkedData:
+      term: brandMarkings
+      '@id': https://schema.org/description    
+  samples:
+    title: Samples
+    description: List of samples taken for this lot.
+    type: array
+    items:
+      $ref: ./FoodGradeInspectionSample.yml
+    $linkedData:
+      term: sample
+      '@id': https://w3id.org/traceability#FoodGradeInspectionSample
+  defects:
+    title: Defects
+    description: List of defects observed for this lot.
+    type: array
+    items:
+      $ref: ./FoodGradeInspectionDefect.yml
+    $linkedData:
+      term: defect
+      '@id': https://w3id.org/traceability#FoodGradeInspectionDefect
+  grade:
+    title: Grade
+    description: The grade assigned to this lot.
+    $ref: ./FoodGradeInspectionResult.yml
+    $linkedData:
+      term: grade
+      '@id': https://w3id.org/traceability#FoodGradeInspectionResult
+  remarks:
+    title: Remarks
+    description: Additional information, such as a description of the lot (e.g. size, color, quality). Generally includes factors which do not affect grade.
+    type: string
+    $linkedData:
+      term: remarks
+      '@id': https://schema.org/description
+  minTemperature:
+    title: Minimum Temperature
+    description: Minimum product temperature measured.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: minTemperature
+      '@id': https://schema.org/measuredValue
+  maxTemperature:
+    title: Maximum Temperature
+    description: Maximum product temperature measured.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: maxTemperature
+      '@id': https://schema.org/measuredValue
+additionalProperties: false
+example: |-
+  {
+    "type": "FoodGradeInspectionLot",
+    "agProduct": {
+      "type": [
+        "AgProduct"
+      ],
+      "upc": "033383401508",
+      "plu": "94225",
+      "gtin": "033383401508",
+      "product": {
+        "type": [
+          "Product"
+        ],
+        "manufacturer": {
+          "type": [
+            "Organization"
+          ],
+          "email": "Ashlee.Grady@example.net",
+          "phoneNumber": "555-899-1399"
+        },
+        "name": "Avocados",
+        "description": "Avocados, 4 pack boxes",
+        "sizeOrAmount": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "hg/ha",
+          "value": "60"
+        },
+        "weight": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "hg/ha",
+          "value": "6960"
+        },
+        "sku": "81055399441"
+      },
+      "scientificName": "Persea americana",
+      "labelImageUrl": "https://img.example.org/033383401508/640/480/",
+      "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "Avocados",
+      "productImageUrl": "https://img.example.org/102934920857/937/903/",
+      "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+    },
+    "lotIdentifier": "Main Lot",
+    "numberContainers": 320,
+    "countInspected": true,
+    "brandMarkings": "\"Green Fields\"; Packed by Ace Foodstuffs; Produce of U.S.A.",
+    "samples": [
+      {
+        "type": "FoodGradeInspectionSample",
+        "sampleSize": 10,
+        "sampleSizeUnits": "items",
+        "sampleProperties": [
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "Temp °F",
+            "propertyValue": "53"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "BMR Quality D",
+            "propertyValue": "2"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "BMR Quality SD",
+            "propertyValue": "0"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "BMR Quality DK",
+            "propertyValue": "0"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "Caked Dirt Quality D",
+            "propertyValue": "0"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "Caked Dirt Quality SD",
+            "propertyValue": "0"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "Caked Dirt Quality DK",
+            "propertyValue": "0"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "< 1-3/4 In. Dia.",
+            "propertyValue": "1"
+          },
+          {
+            "type": "FoodGradeInspectionSampleProperty",
+            "propertyName": "> 3 In. Dia.",
+            "propertyValue": "2"
+          }
+        ]
+      }
+    ],
+    "defects": [
+      {
+        "type": "FoodGradeInspectionDefect",
+        "offsizeDefect": "Quality - Staining",
+        "averageDefects": 6,
+        "seriousDamage": 2,
+        "verySeriousDamage": 0
+      },
+      {
+        "type": "FoodGradeInspectionDefect",
+        "offsizeDefect": "Quality - Dry Sunken Areas",
+        "averageDefects": 2,
+        "seriousDamage": 0,
+        "verySeriousDamage": 0
+      },
+      {
+        "type": "FoodGradeInspectionDefect",
+        "offsizeDefect": "Quality - Surface Mold",
+        "averageDefects": 1,
+        "seriousDamage": 0,
+        "verySeriousDamage": 0
+      }
+    ],
+    "grade": {
+      "type": "FoodGradeInspectionResult",
+      "gradeInspected": "U.S. No. 1",
+      "requirementsMet": true
+    },
+    "remarks": "Size: Mostly large, many medium, few small",
+    "minTemperature": {
+      "type": [
+        "MeasuredValue"
+      ],
+      "value": 51,
+      "unitCode": "FAH"
+    },
+    "maxTemperature": {
+      "type": [
+        "MeasuredValue"
+      ],
+      "value": 55,
+      "unitCode": "FAH"
+    },
+    "pli": "Fed-State ID-345-0515"
+  }
