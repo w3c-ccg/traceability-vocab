@@ -22,6 +22,22 @@ properties:
     $linkedData:
       term: comment
       '@id': https://schema.org/comment
+  inspectors:
+    title: inspectors
+    description: Persons responsible for identifying and documenting the observations.
+    type: array
+    $linkedData:
+      term: inspectors
+      '@id': https://schema.org/Person
+      '@type': https://schema.org/Person
+  inspectionFacility:
+    title: inspectionFacility
+    description: Location where the inspection report observations were made.
+    type: string
+    $linkedData:
+      term: place
+      '@id': https://schema.org/Place
+      '@type': https://schema.org/Place
   observation:
     title: Observation List
     description: List of observations
@@ -36,6 +52,64 @@ additionalProperties: false
 example: |-
   {
     "type": "InspectionReport",
+    "inspectors": [ 
+      {
+        "type": "Person",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john@doe.com",
+        "phoneNumber": "555-615-4231",
+        "worksFor": {
+            "type": "Organization",
+            "name": "IRON APPROVERS INC.",
+            "description": "Inpsections for Iron Commodities",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "21 Jump Street",
+                "addressLocality": "Salem",
+                "addressRegion": "Oregon",
+                "postalCode": "21445",
+                "addressCountry": "US"
+            }
+        },
+        "jobTitle": "Cheif Inspector"
+      },
+      {
+        "type": "Person",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "jane@doe.com",
+        "phoneNumber": "555-615-9876",
+        "worksFor": {
+            "type": "Organization",
+            "globalLocationNumber": "3348622345363",
+            "name": "IRON APPROVERS INC.",
+            "description": "Inpsections for Iron Commodities",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "76468 Jump Street",
+                "addressLocality": "Salem",
+                "addressRegion": "Oregon",
+                "postalCode": "21445",
+                "addressCountry": "US"
+            }
+        },
+        "jobTitle": "Chemical Specialist"
+      }
+    ],
+    "inspectionFacility" : {
+      "type": "Place",
+      "globalLocationNumber": "3177794693200",
+      "address": {
+          "@type": "PostalAddress",
+          "organizationName": "Canada Border Services Agency",
+          "streetAddress": "Highway 12",
+          "addressLocality": "Sprague",
+          "addressRegion": "Manitoba",
+          "postalCode": "R0A1Z0",
+          "addressCountry": "CA"
+      }
+    },
     "observation": [
       {
         "type": "Observation",
