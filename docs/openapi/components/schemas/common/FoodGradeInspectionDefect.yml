@@ -1,0 +1,60 @@
+$linkedData:
+  term: FoodGradeInspectionDefect
+  '@id': https://w3id.org/traceability#FoodGradeInspectionDefect
+title: Food Grade Inspection Defect
+description: Information on a type of offsize / defect observed.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FoodGradeInspectionDefect
+      - type: string
+        const: FoodGradeInspectionDefect
+  offsizeDefect:
+    title: Offsize / Defect
+    description: Brief description of this offsize / defect.
+    type: string
+    $linkedData:
+      term: offsizeDefect
+      '@id': https://schema.org/description
+  averageDefects:
+    title: Average Defects
+    description: Percent of sample items with defects for the grade standards.
+    type: number
+    $linkedData:
+      term: averageDefects
+      '@id': https://qudt.org/vocab/unit/PERCENT
+  damage:
+    title: Percent Damage
+    description: Percent of sample items with damage (but not serious or very serious damage).
+    type: number
+    $linkedData:
+      term: damage
+      '@id': https://qudt.org/vocab/unit/PERCENT
+  seriousDamage:
+    title: Serious Damage
+    description: Number of sample items with serious damage (incl. decay, soft rot, or soft).
+    type: number
+    $linkedData:
+      term: seriousDamage
+      '@id': https://qudt.org/vocab/unit/PERCENT
+  verySeriousDamage:
+    title: Very Serious Damage
+    description: Number of sample items with very serious damage (incl. significant decay, soft rot, or soft).
+    type: number
+    $linkedData:
+      term: verySeriousDamage
+      '@id': https://qudt.org/vocab/unit/PERCENT
+additionalProperties: false
+example: |-
+  {
+    "type": "FoodGradeInspectionDefect",
+    "offsizeDefect": "Quality - Dry Sunken Areas",
+    "averageDefects": 2,
+    "seriousDamage": 0,
+    "verySeriousDamage": 0
+  }
