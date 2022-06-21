@@ -520,29 +520,6 @@
         </dd>
         <dt>URI</dt>
         <dd>An identifier as defined by [[RFC3986]].</dd>
-        <dt>CORRELATION ID</dt>
-        <dd>
-          <p>
-            A unique identifier assigned to a JSON Object complying with
-            [[RFC4122]]. A CORRELATION ID MUST conform with UUID Version 4.
-          </p>
-          <p>
-            A CORRELATION ID MAY be present in a Verifiable Credential or a
-            Verifiable Presentation.
-          </p>
-
-          <aside class="example" title="CORRELATIONID">
-            <p>Use of a CORRELATION ID in a JSON.</p>
-
-            <p></p>
-            <pre class="js">
-                  {
-                    "correlationId": "d2dfc100-9384-49e4-b547-5e7d84ec5bf5"
-                  }
-                </pre
-            >
-          </aside>
-        </dd>
         <dt>Workflow Definition</dt>
         <dd>
           <p>
@@ -623,37 +600,32 @@
                 </pre
           >
         </dd>
-        <dt>PATH</dt>
-        <dd>
-          <p>
-            A distinct path for a distinct set of items being traced that either
-            is declared in advance by a user or system, or is a root path that
-            has already occurred (in whole or in part).
-          </p>
-          <p>
-            Properties may be attached to nodes via credentials and
-            presentations that refer to the same distinct CORRELATION ID.
-          </p>
-
-          <p>
-            In a real world context, a PATH might be created to describe one
-            party requesting a set of goods from some other location. The PATH
-            can then be used to group and associate the nodes as those goods
-            move from the origination point (a node) to the end destination. Any
-            change in state, location, or control (legal or physical
-            responsibility of some kind for the goods) would be described as a
-            node represented by a VP which has the PATH CORRELATION ID attached
-            to it.
-          </p>
-
-          <p>
-            A path represents a strict subset of the information available to an
-            observer of all "Workflow Instance" related credentials. In other
-            words, PATHs represent partial information related to a workflow
-            instance.
-          </p>
-        </dd>
       </dl>
+
+
+      <section>
+        <h3>Extensions to Standard</h3>
+
+        <section>
+          <h4>Verifiable Credential</h4>
+
+          <p>The object must conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+
+          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+
+          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+        </section>
+
+        <section>
+          <h4>Verifiable Presentation</h4>
+
+          <p>The object must conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+
+          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+
+          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+        </section>
+      </section>
     </section>
 
     <section class="informative">

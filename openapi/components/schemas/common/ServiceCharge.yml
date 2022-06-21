@@ -27,6 +27,9 @@ properties:
       - originPortCharges
       - originHaulageCharges
       - otherCharges
+    $linkedData:
+      term: paymentTerm
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#chargeCategoryCode
   paymentTerm:
     description: Charge payment term.
     type: string
@@ -34,14 +37,23 @@ properties:
       - prepaid
       - collect
       - prepaidElsewhere
+    $linkedData:
+      term: paymentTerm
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#PaymentTerms
   chargeText:
     title: Charge Text
     description: A textual description of this logistics service charge.
     type: string
+    $linkedData:
+      term: chargeText
+      '@id': https://schema.org/description
   rate:
     title: Rate
     description: Per unit rate.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: rate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unitPrice
   calculationBasis:
     description: The code specifying a basis on which this service charge is to be calculated such as by volume or per unit.
     type: string

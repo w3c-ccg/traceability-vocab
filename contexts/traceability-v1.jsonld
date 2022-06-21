@@ -318,10 +318,13 @@
           "@id": "https://schema.org/weight"
         },
         "commodity": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
+          "@id": "https://w3id.org/traceability#Commodity"
         },
         "commodityItemNumber": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#discountIndicator"
+        },
+        "countryOfOrigin": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
         },
         "descriptionOfPackagesAndGoods": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#natureIdentificationCargo"
@@ -578,6 +581,9 @@
         "description": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description"
         },
+        "firstNotify": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
+        },
         "invoicePayableAt": {
           "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/invoicePayableAt"
         },
@@ -587,11 +593,14 @@
         "invoicePayerShipper": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipperParty"
         },
-        "notify": {
+        "otherNotify": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
         },
         "preCarriageUnderShippersResponsibility": {
           "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/preCarriageUnderShippersResponsibility"
+        },
+        "secondNotify": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty"
         },
         "shipmentLocations": {
           "@id": "https://api.swaggerhub.com/domains/dcsaorg/DOCUMENTATION_DOMAIN/1.0.0#/components/schemas/shipmentLocation"
@@ -2314,6 +2323,33 @@
     },
     "PGAStatusMessage": {
       "@context": {
+        "entryLineSequence": {
+          "@id": "https://w3id.org/traceability#entryLineSequence"
+        },
+        "entryNo": {
+          "@id": "https://w3id.org/traceability#entryNo"
+        },
+        "recordNo": {
+          "@id": "https://w3id.org/traceability#recordNo"
+        },
+        "statusCode": {
+          "@id": "https://w3id.org/traceability#statusCode"
+        },
+        "statusCodeDescription": {
+          "@id": "https://w3id.org/traceability#statusCodeDescription"
+        },
+        "subReasonCode": {
+          "@id": "https://w3id.org/traceability#subReasonCode"
+        },
+        "subReasonCodeDescription": {
+          "@id": "https://w3id.org/traceability#subReasonCodeDescription"
+        },
+        "validCodeReason": {
+          "@id": "https://w3id.org/traceability#validCodeReason"
+        },
+        "validCodeReasonDescription": {
+          "@id": "https://w3id.org/traceability#validCodeReasonDescription"
+        }
       },
       "@id": "https://w3id.org/traceability#PGAStatusMessage"
     },
@@ -2605,8 +2641,11 @@
         "globalLocationNumber": {
           "@id": "https://schema.org/globalLocationNumber"
         },
-        "unLocode": {
+        "iataAirportCode": {
           "@id": "https://onerecord.iata.org/cargo/Location#code"
+        },
+        "unLocode": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE"
         }
       },
       "@id": "https://schema.org/Place"
@@ -2930,11 +2969,11 @@
         "customsValue": {
           "@id": "https://schema.org/MonetaryAmount"
         },
-        "product": {
-          "@id": "https://w3id.org/traceability#SteelProduct"
-        },
         "productCategory": {
           "@id": "https://w3id.org/traceability#ProductCategory"
+        },
+        "steelProduct": {
+          "@id": "https://w3id.org/traceability#SteelProduct"
         }
       },
       "@id": "https://w3id.org/traceability#SIMASteelImportProductSpecifier"
@@ -2974,7 +3013,7 @@
         "transportEquipmentQuantity": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportEquipmentQuantity"
         },
-        "transportMeansId": {
+        "vesselName": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMeans"
         },
         "vesselNumber": {
@@ -2993,14 +3032,14 @@
     },
     "Seal": {
       "@context": {
-        "ISOEquipmentCode": {
-          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/sealSource"
-        },
-        "equipmentReference": {
+        "sealNumber": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#seal_number"
         },
-        "tareWeight": {
-          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/sealType"
+        "sealSource": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/sealSource"
+        },
+        "sealType": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sealTypeCode"
         }
       },
       "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Seal"
@@ -3012,6 +3051,15 @@
         },
         "calculationBasis": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#calculationBasis"
+        },
+        "chargeText": {
+          "@id": "https://schema.org/description"
+        },
+        "paymentTerm": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#PaymentTerms"
+        },
+        "rate": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unitPrice"
         }
       },
       "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ServiceCharge"
@@ -3287,6 +3335,9 @@
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId"
         },
         "isShipperOwned": {
+          "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/isShipperOwned"
+        },
+        "seals": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#affixedSeal"
         },
         "tareWeight": {
