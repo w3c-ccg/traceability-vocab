@@ -23,8 +23,8 @@ properties:
       term: marksAndNumbers
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ShippingMarks
   descriptionOfPackagesAndGoods: 
-    title: Marks and Numbers
-    description: Transport cargo details of the consignment or consignment item sufficient to identify its nature for customs, statistical or transport purposes.
+    title: Description of Packages and Goods
+    description: Transport cargo details of the consignment or consignment item sufficient to identify its nature for customs, statistical, or transport purposes.
     type: string
     $linkedData:
       term: descriptionOfPackagesAndGoods
@@ -48,14 +48,14 @@ properties:
     description: Net weight of the product.
     $ref: ./QuantitativeValue.yml
     $linkedData:
-      term: weight
+      term: netWeight
       '@id': https://schema.org/weight
   grossWeight:   
     title: Gross Weight
     description: Gross weight of the product.
     $ref: ./QuantitativeValue.yml
     $linkedData:
-      term: weight
+      term: grossWeight
       '@id': https://schema.org/weight
   grossVolume:   
     title: Gross Volume
@@ -66,10 +66,10 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
   countryOfOrigin: 
     title: Country of Origin
-    description: A country of origin for the consignment, consignment item or product. The two-letter ISO 3166-1 alpha-2 country code.
+    description: A country of origin for the consignment, consignment item, or product. The two-letter ISO 3166-1 alpha-2 country code is recommended.
     type: string
     $linkedData:
-      term: commodity
+      term: countryOfOrigin
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry
   manufacturer:
     title: Manufacturer
@@ -80,6 +80,7 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty
 example: |-
   {
+    "type": "ConsignmentItem",
     "marksAndNumbers": "Espresso Italiano",
     "commodity": {
       "type": "Commodity",
