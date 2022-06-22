@@ -65,7 +65,7 @@ properties:
     $linkedData:
       term: shipToParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
-  tradeLineItemNetWeight:
+  netWeight:
     title: Trade Line Item Net Weight
     description: A measure of the net weight (mass).
     $ref: ./QuantitativeValue.yml
@@ -73,8 +73,8 @@ properties:
       term: netWeight
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#netWeightMeasure
-  tradeLineItemGrossWeight:
-    title: Trade Line Item Net Weight
+  grossWeight:
+    title: Trade Line Item Gross Weight
     description: >-
       A measure of the gross weight (mass) which includes packaging but excludes
       any transport equipment.
@@ -101,12 +101,11 @@ example: |-
       "type": "Product",
       "description": "Lens flare filter",
       "manufacturer": {
-        "type": [
-          "Organization"
-        ],
+        "type": "Entity",
+        "entityType": "Organization",
         "name": "Premium Camera Goods, Inc." 
       },
-      "weight": {
+      "grossWeight": {
         "type": "QuantitativeValue",
         "unitCode": "lbs",
         "value": "2.5"
@@ -123,7 +122,7 @@ example: |-
       }
     },
     "itemCount": 30,
-    "tradeLineItemWeight": {
+    "grossWeight": {
       "type": "QuantitativeValue",
       "value": "75",
       "unitCode": "lbs"

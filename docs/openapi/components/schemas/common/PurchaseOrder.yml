@@ -126,7 +126,7 @@ properties:
     description: Total weight of the products.
     $ref: ./QuantitativeValue.yml
     $linkedData:
-      term: weight
+      term: totalWeight
       '@id': https://schema.org/weight
   termsOfDelivery:
     title: Terms of Delivery
@@ -253,8 +253,11 @@ example: |-
       {
         "type": "TradeLineItem",
         "product": {
+          "type": "Product",
           "manufacturer": {
-            "type": "Organization",
+            "type": "Entity",
+            "entityType": "Organization",
+            "name": "Aishi Metal Shinzo Co., Ltd.",
             "address": {
               "type": "PostalAddress",
               "organizationName": "Aishi Metal Shinzo Co., Ltd.",
@@ -273,7 +276,7 @@ example: |-
           }
         },
         "itemCount": 5,
-        "tradeLineItemWeight": {
+        "grossWeight": {
           "type": "QuantitativeValue",
           "value": "82500",
           "unitCode": "lbs"
@@ -287,8 +290,11 @@ example: |-
       {
         "type": "TradeLineItem",
         "product": {
+          "type": "Product",
           "manufacturer": {
-            "type": "Organization",
+            "type": "Entity",
+            "entityType": "Organization",
+            "name": "Aishi Metal Shinzo Co., Ltd.",
             "address": {
               "type": "PostalAddress",
               "organizationName": "Aishi Metal Shinzo Co., Ltd.",
@@ -307,7 +313,7 @@ example: |-
           }
         },
         "itemCount": 20,
-        "tradeLineItemWeight": {
+        "grossWeight": {
           "type": "QuantitativeValue",
           "value": "253600",
           "unitCode": "lbs"
