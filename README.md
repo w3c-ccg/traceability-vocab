@@ -37,6 +37,18 @@ channel automatically.
    log, audio, and video). If you want to clean up the minutes, it takes about
    5-10 minutes to clean up the transcription and publish it.
 
+#### Retrieving Minutes
+
+1. Go to [Scribe tool](https://w3c-ccg.github.io/meetings/scribe-tool/)
+2. Select "Traceability" from the drop-down at the bottom right.
+3. Select a day for the call you're interested in.
+4. Click "Retrieve Raw Logs".
+5. The display will then render the minutes.
+
+#### Publishing Minutes
+
+[Publish Instructions](https://github.com/w3c-ccg/meetings#publish-the-minutes-for-ccg-meetings-task-forces-and-other-recorded-meetings)
+
 ### Development
 
 ```
