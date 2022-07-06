@@ -1,5 +1,7 @@
 ## Testing
 
+Small change to test CI
+
 There is also a [**test
 suite**](https://w3c-ccg.github.io/traceability-vocab/testsuite/) that is run
 against PRs, checking separately both the JSON Schema-based data shape
