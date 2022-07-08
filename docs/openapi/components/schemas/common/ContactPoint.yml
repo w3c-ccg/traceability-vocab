@@ -6,14 +6,11 @@ description: Contact information for entities.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ContactPoint
-      - type: string
-        const: ContactPoint 
+    type: array
+    items:
+      type: string
+      enum:
+        - ContactPoint
   name:
     title: Name
     description: Name of the entity.
@@ -45,7 +42,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "ContactPoint",
+    "type": [ "ContactPoint" ],
     "name": "Cassin, Mayer and Auer",
     "place" : {
       "type" : "Place",
