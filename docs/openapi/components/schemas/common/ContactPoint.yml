@@ -21,13 +21,13 @@ properties:
     $linkedData:
       term: name
       '@id': https://schema.org/name
-  address:
-    title: Postal Address
-    description: The postal address for an organization or place.
-    $ref: ./PostalAddress.yml
+  place:
+    title: Place
+    description: The address and geocoordinates for the contact point
+    $ref: ./Place.yml
     $linkedData:
-      term: address
-      '@id': https://schema.org/PostalAddress
+      term: place
+      '@id': https://w3id.org/traceability#place
   email:
     title: Email Address
     description: Contact email address.
@@ -47,13 +47,16 @@ example: |-
   {
     "type": "ContactPoint",
     "name": "Cassin, Mayer and Auer",
-    "address": {
-      "type": "PostalAddress",
-      "streetAddress": "3595 Reilly Freeway",
-      "addressLocality": "Port Vincenzo",
-      "addressRegion": "Arizona",
-      "postalCode": "36734-7272",
-      "addressCountry": "Macedonia"
+    "place" : {
+      "type" : "Place",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "3595 Reilly Freeway",
+        "addressLocality": "Port Vincenzo",
+        "addressRegion": "Arizona",
+        "postalCode": "36734-7272",
+        "addressCountry": "Macedonia"
+      }
     },
     "email": "Okey.Homenick12@example.org",
     "phoneNumber": "555-218-9784"
