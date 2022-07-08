@@ -6,15 +6,11 @@ description: Details on a shipment or delivery.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ParcelDelivery
-      - type: string
-        const:
-          - ParcelDelivery
+    type: array
+    items:
+      type: string
+      enum:
+        - ParcelDelivery
   deliveryAddress:
     title: Delivery Address
     description: Final destination address to which the shipment is being sent.
@@ -78,7 +74,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "ParcelDelivery",
+    "type": [ "ParcelDelivery" ] ,
     "deliveryAddress": {
       "type": "PostalAddress",
       "organizationName": "Reichel, Feil and Botsford",
