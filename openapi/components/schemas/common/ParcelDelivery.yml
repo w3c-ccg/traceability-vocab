@@ -6,26 +6,22 @@ description: Details on a shipment or delivery.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ParcelDelivery
-      - type: string
-        const:
-          - ParcelDelivery
+    type: array
+    items:
+      type: string
+      enum:
+        - ParcelDelivery
   deliveryAddress:
     title: Delivery Address
     description: Final destination address to which the shipment is being sent.
-    $ref: ./PostalAddress.yml
+    $ref: ./Place.yml
     $linkedData:
       term: deliveryAddress
       '@id': https://schema.org/deliveryAddress
   originAddress:
     title: Origin Address
     description: Address from where the shipment was sent.
-    $ref: ./PostalAddress.yml
+    $ref: ./Place.yml
     $linkedData:
       term: originAddress
       '@id': https://schema.org/originAddress
@@ -78,24 +74,40 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "ParcelDelivery",
+    "type": [ "ParcelDelivery" ] ,
     "deliveryAddress": {
-      "type": "PostalAddress",
-      "organizationName": "Reichel, Feil and Botsford",
-      "streetAddress": "632 Adelbert Avenue",
-      "addressLocality": "Jaidenland",
-      "addressRegion": "Missouri",
-      "postalCode": "03612-8503",
-      "addressCountry": "Gambia"
+      "type": "Place",
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "13.439524698695452",
+        "longitude": "-14.657778853024668"
+      },
+      "address" : {
+        "type": "PostalAddress",
+        "organizationName": "Reichel, Feil and Botsford",
+        "streetAddress": "632 Adelbert Avenue",
+        "addressLocality": "Jaidenland",
+        "addressRegion": "Missouri",
+        "postalCode": "03612-8503",
+        "addressCountry": "Gambia"
+      }
     },
     "originAddress": {
-      "type": "PostalAddress",
-      "organizationName": "Jaskolski Inc",
-      "streetAddress": "25015 Crona Mission",
-      "addressLocality": "Marcoston",
-      "addressRegion": "Pennsylvania",
-      "postalCode": "13480",
-      "addressCountry": "Nicaragua"
+      "type": "Place",
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "13.086211925429193",
+        "longitude": "-86.3588054628698"
+      },
+      "address": {
+        "type": "PostalAddress",
+        "organizationName": "Jaskolski Inc",
+        "streetAddress": "25015 Crona Mission",
+        "addressLocality": "Marcoston",
+        "addressRegion": "Pennsylvania",
+        "postalCode": "13480",
+        "addressCountry": "Nicaragua"
+      }
     },
     "deliveryMethod": "Rail freight transport",
     "trackingNumber": "598186458445"
