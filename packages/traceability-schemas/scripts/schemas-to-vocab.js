@@ -78,9 +78,7 @@ const buildClass = (schema) => {
       <h2>${schema.title}</h2>
       <p>${schema.description}</p>
       ${table}
-      <pre class="example">
-        ${schema.example}
-      </pre>
+      <pre class="example">${schema.example}</pre>
       ${depList}
     </section>
   `;
