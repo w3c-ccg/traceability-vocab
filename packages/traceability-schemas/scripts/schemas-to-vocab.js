@@ -6,7 +6,10 @@ const path = require('path');
 const { schemas } = require('../services/schemas');
 
 const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
-const credentialPath = path.resolve(__dirname, '../../../docs/sections/credentials.html');
+const credentialPath = path.resolve(
+  __dirname,
+  '../../../docs/sections/credentials.html'
+);
 
 const baseUrl = 'https://w3id.org/traceability';
 
@@ -21,14 +24,15 @@ const buildLinkedDataTable = (schema) => {
     <td><a href="${$linkedData['@id']}">${$linkedData['@id']}</a></td>
   </tr>
   
-  ${$id
+  ${
+    $id
       ? `
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
   <td><a href="${baseUrl + $id}">${baseUrl + $id}</a></td>
 </tr>`
       : ''
-    }
+  }
 
   </tbody>
   </table>
@@ -49,38 +53,38 @@ const buildProperty = (property) => {
 
 const buildClass = (schema) => {
   let table = '';
-  const props = '';
   try {
-    table = `
-  ${buildLinkedDataTable(schema)}
-  `;
+    table = buildLinkedDataTable(schema);
   } catch (e) {
     console.error('error building table: ', e);
   }
 
-  // lets not render props for now.
-  // try {
-  //   props = `
-  // ${Object.values(schema.properties).map(buildProperty).join('\n')}
-  // `;
-  // } catch (e) {
-  //   console.error('error building props: ', e);
-  // }
+  const props = schema.properties ? Object.keys(schema.properties) : [];
+  const dependencies = props
+    .filter((key) => schema.properties[key].$ref)
+    .map((key) => schema.properties[key].$ref)
+    .map((key) => key.split('/').pop().split('.').shift())
+    .filter((key, index, self) => self.indexOf(key) === index)
+    .sort();
+
+  const depList = dependencies.length
+    ? `<b>Dependencies</b><ul>${dependencies
+        .map((key) => `<li><a href='#${key}'>${key}</a></li>`)
+        .join('\n')}</ul>`
+    : '';
 
   const section = `
-  <section id="${schema.$linkedData.term}">
-  <h2>${schema.title}</h2>
-  <p>${schema.description}</p>
-
-  ${table}
-
-<pre class="example">
-${schema.example}
-</pre>
-
- 
-  </section>
+    <section id="${schema.$linkedData.term}">
+      <h2>${schema.title}</h2>
+      <p>${schema.description}</p>
+      ${table}
+      <pre class="example">
+        ${schema.example}
+      </pre>
+      ${depList}
+    </section>
   `;
+
   return section;
 };
 
