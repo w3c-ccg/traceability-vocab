@@ -528,88 +528,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         </dd>
         <dt>URI</dt>
         <dd>An identifier as defined by [[RFC3986]].</dd>
-        <dt>Workflow Definition</dt>
-        <dd>
-          <p>
-            The sequence of industrial, administrative, or other processes
-            through which a piece of work passes from initiation to completion.
-          </p>
-          <p>
-            In the context of this vocabulary, we consider the specifics of
-            workflows out of scope. We acknowledge that different use cases may
-            have complicated workflows, which may yield many individual
-            presentations of credentials.
-          </p>
-
-          <p>
-            We enable the grouping of all presentations related to a definition,
-            using the convention:
-          </p>
-          <pre class="js">
-                {
-                  "@context": [
-                    "https://www.w3.org/2018/credentials/v1",
-                    "https://w3id.org/traceability/v1"
-                  ],
-                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
-                  "type":
-                  [
-                    "VerifiablePresentation",
-                    "TraceablePresentation"
-                  ],
-                  "workflow": {
-                    "instance": [
-                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
-                    ],
-                    "definition": [
-                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e" // this refers to a Workflow Definition
-                    ]
-                  },
-                }
-                </pre
-          >
-        </dd>
-        <dt>Workflow Instance</dt>
-        <dd>
-          <p>
-            Each defined workflow may be executed many times for different sets
-            of inputs and among different stakeholders.
-          </p>
-          <p>
-            We refer to Workflow Instance's as an execution of a particular
-            workflow, which may or may not be formally defined.
-          </p>
-
-          <p>
-            We enable the grouping of all presentations related to an instance,
-            using the convention:
-          </p>
-          <pre class="js">
-                {
-                  "@context": [
-                    "https://www.w3.org/2018/credentials/v1",
-                    "https://w3id.org/traceability/v1"
-                  ],
-                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
-                  "type":
-                  [
-                    "VerifiablePresentation",
-                    "TraceablePresentation"
-                  ],
-                  "workflow": {
-                    "instance": [
-                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0" // this refers to a Workflow Instance
-                    ],
-                    "definition": [
-                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
-                    ]
-                  },
-                }
-                </pre
-          >
-        </dd>
       </dl>
-
 
       <section>
         <h3>Extensions to Standard</h3>
@@ -632,6 +551,150 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
 
           <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+        </section>
+
+        <section>
+          <h4>Workflow Definition</h4>
+          <p>
+            The sequence of industrial, administrative, or other processes
+            through which a piece of work passes from initiation to completion.
+          </p>
+
+          <p>
+            In the context of this vocabulary, we consider the specifics of
+            workflows out of scope. We acknowledge that different use cases may
+            have complicated workflows, which may yield many individual
+            presentations of credentials.
+          </p>
+          
+          <p class="note">
+            There are several systems for workflow definitions, see 
+            <a href="https://www.omg.org/spec/BPMN/2.0/About-BPMN/" target="_blank">BPMN</a>,
+            <a href="https://en.wikipedia.org/wiki/YAWL" target="_blank">YAWL</a>,
+            <a href="https://docs.github.com/en/actions/using-workflows/about-workflows" target="_blank">GitHub Workflows</a>.
+          </p>
+
+          <p>
+            We enable the grouping of all presentations related to a definition,
+            using the convention:
+          </p>
+
+          <pre class="js">
+                {
+                  "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://w3id.org/traceability/v1"
+                  ],
+                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
+                  "type":
+                  [
+                    "VerifiablePresentation",
+                    "TraceablePresentation"
+                  ],
+                  "workflow": {
+                    // This refers to a Workflow Definition
+                    "definition": [
+                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e" 
+                    ],
+                    "instance": [
+                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+                    ],
+                  },
+                  "holder":{
+                    "id":"did:web:sender.example",
+                    "type":"Organization",
+                    "location":{
+                       "type":"Place",
+                       "geo":{
+                          "type":"GeoCoordinates",
+                          "latitude":"68.7083",
+                          "longitude":"4.6377"
+                       },
+                       "address":{
+                          "type":"PostalAddress",
+                          "organizationName":"Ratke - Bergstrom",
+                          "streetAddress":"21851 Ima Heights",
+                          "addressLocality":"O'Connellborough",
+                          "addressRegion":"Missouri",
+                          "postalCode":"65587",
+                          "addressCountry":"Cyprus"
+                       }
+                    }
+                 }
+                }
+                </pre
+          >
+        </section>
+
+        <section>
+          <h4>Workflow Instance</h4>
+          <p>
+            Each defined workflow may be executed many times for different sets
+            of inputs and among different stakeholders.
+          </p>
+          <p>
+            We refer to Workflow Instance's as an execution of a particular
+            workflow, which may or may not be formally defined.
+          </p>
+
+          <p class="note">
+            An example of a workflow definition is 
+            <a href="https://www.cbp.gov/trade/programs-administration/entry-summary/ace-process-and-policy">US Customs ACE Entry Summary Process</a>, 
+            where specific instances are used to track cross border imports, it is important to be able to identify specific 
+            collections of documents associated with a given import, 
+            workflow instances help achieve this by providing a topic 
+            identifier enabling the grouping of related credentials and presentations.
+          </p>
+
+          <p>
+            We enable the grouping of all presentations related to an instance,
+            using the convention:
+          </p>
+          <pre class="js">
+                {
+                  "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://w3id.org/traceability/v1"
+                  ],
+                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
+                  "type":
+                  [
+                    "VerifiablePresentation",
+                    "TraceablePresentation"
+                  ],
+                  "workflow": {
+                    "definition": [
+                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
+                    ],
+                    // This refers to a Workflow Instance
+                    "instance": [
+                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+                    ]
+                  },
+                  "holder":{
+                    "id":"did:web:sender.example",
+                    "type":"Organization",
+                    "location":{
+                       "type":"Place",
+                       "geo":{
+                          "type":"GeoCoordinates",
+                          "latitude":"68.7083",
+                          "longitude":"4.6377"
+                       },
+                       "address":{
+                          "type":"PostalAddress",
+                          "organizationName":"Ratke - Bergstrom",
+                          "streetAddress":"21851 Ima Heights",
+                          "addressLocality":"O'Connellborough",
+                          "addressRegion":"Missouri",
+                          "postalCode":"65587",
+                          "addressCountry":"Cyprus"
+                       }
+                    }
+                 }
+                }
+                </pre
+          >
         </section>
       </section>
     </section>
