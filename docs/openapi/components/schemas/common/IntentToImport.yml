@@ -1,7 +1,7 @@
 $linkedData:
-  term: IntentToSell
-  '@id': https://w3id.org/traceability#IntentToSell
-title: Intent To Sell
+  term: IntentToImport
+  '@id': https://w3id.org/traceability#IntentToImport
+title: Intent To Import
 description: >-
   A simple case where an entity (person or organization) wishes to notify some
   third party that they intend to sell some product, likely into a different
@@ -18,28 +18,28 @@ properties:
         items:
           type: string
           enum:
-            - IntentToSell
+            - IntentToImport
       - type: string
         const:
-          - IntentToSell 
+          - IntentToImport 
   seller:
     title: Seller
     description: >-
-      Entity that is declaring their intention for a product to be used at a
+      Organization that is declaring their intention for a product to be used at a
       different location than where it was created.
-    $ref: ./Entity.yml
+    type: object
     $linkedData:
       term: seller
-      '@id': https://w3id.org/traceability#Entity
+      '@id': https://gs1.org/voc/OrganizationRoleType-SELLER
   purchaser:
     title: Purchaser
     description: >-
-      Entity that is expected to receive some amount of the product, though
+      Organization that is expected to receive some amount of the product, though
       possibly a reseller.
-    $ref: ./Entity.yml
+    type: object
     $linkedData:
       term: purchaser
-      '@id': https://w3id.org/traceability#Entity
+      '@id': https://gs1.org/voc/OrganizationRoleType-BUYER
   product:
     title: Product
     description: Product details as specified in the Product schema
@@ -53,20 +53,20 @@ properties:
     type: string
     $linkedData:
       term: declarationDate
-      '@id': https://schema.org/DateTime
+      '@id': https://schema.org/startDate
   sellByDate:
     title: Sell By Date
     description: Date delcared as a non-binding target to sell product by.
     type: string
     $linkedData:
       term: sellByDate
-      '@id': https://schema.org/DateTime
+      '@id': https://gs1.org/voc/sellByDate
 additionalProperties: false
 example: |-
   {
-    "type": "IntentToSell",
+    "type": "IntentToImport",
     "seller": {
-      "type": "Entity",
+      "type": "Organization",
       "name": "Berge and Sons",
       "description": "Persistent clear-thinking matrix",
       "address": {
@@ -79,11 +79,10 @@ example: |-
       },
       "email": "Anita_Graham54@example.org",
       "phoneNumber": "+1-555-615-9236",
-      "faxNumber": "+1-555-999-5186",
-      "entityType": "Organization"
+      "faxNumber": "+1-555-999-5186"
     },
     "purchaser": {
-      "type": "Entity",
+      "type": "Organization",
       "name": "Lueilwitz - Kuvalis",
       "description": "Persistent dynamic definition",
       "address": {
@@ -97,7 +96,6 @@ example: |-
       "email": "Greg_Swift94@example.net",
       "phoneNumber": "+1-555-149-2244",
       "faxNumber": "+1-555-419-4835",
-      "entityType": "Organization"
     },
     "product": {
       "type": "Product",
