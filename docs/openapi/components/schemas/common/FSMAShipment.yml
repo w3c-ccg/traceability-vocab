@@ -1,0 +1,198 @@
+$linkedData:
+  term: FSMAShipment
+  '@id': https://w3id.org/traceability#FSMAShipment
+title: FSMA Shipment
+description: >-
+  "Information regarding an FSMA Shipment, a collection of KDEs (Key Data Elements) common to the
+  Shipping and Receiving CTEs (Critical Tracking Events). This schema is designed to meet reporting
+  requirements for the FDA Traceability Rule as specified here:
+  https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FSMAShipment
+      - type: string
+        const: FSMAShipment
+  product:
+    title: Product
+    description: The product being tracked.
+    $ref: ./FSMAProduct.yml
+    $linkedData:
+      term: product
+      '@id': https://w3id.org/traceability#FSMAProduct
+  from:
+    title: From
+    description: The shipment's immediate origin. 
+    $ref: ./Place.yml
+    $linkedData:
+      term: from
+      '@id': https://schema.org/Place
+  to:
+    title: Ships To
+    description: The shipment's immediate destination.
+    $ref: ./Place.yml
+    $linkedData:
+      term: to
+      '@id': https://schema.org/Place
+  additionalData:
+    title: Additional Data
+    description: Additional Key Data Elements (KDEs).
+    type: array
+    items:
+      $ref: ./FSMAAbstractKDE.yml
+    $linkedData:
+      term: additionalData
+      '@id': https://w3id.org/traceability#FSMAAbstractKDE
+additionalProperties: false
+example: |-
+  {
+    "type": "FSMAShipment",
+    "product": {
+      "type": "FSMAProduct",
+      "traceabilityLot": {
+        "type": "FSMATraceabilityLot",
+        "lotCode": "CHE-MIG-TTF1-061321-H37J",
+        "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+        "lotCodeGeneratorLocation": {
+          "type": [
+            "Place"
+          ],
+          "address": {
+            "type": [
+              "PostalAddress"
+            ],
+            "organizationName": "John's Produce",
+            "streetAddress": "4335 Walsh Underpass",
+            "addressLocality": "Port Mark",
+            "addressRegion": "LA",
+            "postalCode": "67391",
+            "addressCountry": "United States"
+          },
+          "locationName": "John's Tomato Farm #1"
+        },
+        "lotCodeGeneratorPOC": {
+          "type": "Entity",
+          "entityType" : "Person",
+          "name" : "John Davis",
+          "email": "jdavis@johnsproduce.com",
+          "phoneNumber": "129.697.0673"
+        },
+        "lotType": "originated"
+      },
+      "quantityUnitMeasure": {
+        "type": [
+          "QuantitativeValue"
+        ],
+        "unitCode": "Field Bins",
+        "value": "103"
+      },
+      "additionalData": [
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category code",
+          "value": "659351253"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category name",
+          "value": "Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Brand name",
+          "value": "John's Produce"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Commodity",
+          "value": "Cherry Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Variety",
+          "value": "Mighty Sweet Hybrid"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Product name",
+          "value": "N/A"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging size",
+          "value": "Bulk"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging style",
+          "value": "Field Bins"
+        }
+      ]
+    },
+    "from": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "44.859038",
+        "longitude": "70.916213"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "John's Produce",
+        "streetAddress": "4335 Walsh Underpass",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "John's Tomato Farm #1"
+    },
+    "to": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "31.319706",
+        "longitude": "-92.117524"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Pattie's Packers",
+        "streetAddress": "8974 Bolton Drive",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "PP Packing Shed"
+    },
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Reference record type and number",
+        "value": "BOL 24884"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Import entry number",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Transporter name",
+        "value": "Local Trucking Co."
+      }
+    ]
+  }

@@ -1,0 +1,202 @@
+$linkedData:
+  term: FSMATransformingCTE
+  '@id': https://w3id.org/traceability#FSMATransformingCTE
+title: FSMA Transforming CTE
+description: >-
+  "Information regarding an FSMA Transforming CTE (Critical Tracking Event), designed to meet
+  reporting requirements for the FDA Traceability Rule as specified here:
+  https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FSMATransformingCTE
+      - type: string
+        const: FSMATransformingCTE
+  foodUsed:
+    title: Food Used
+    description: The food used in transformation.
+    $ref: ./FSMAProduct.yml
+    $linkedData:
+      term: foodUsed
+      '@id': https://w3id.org/traceability#FSMAProduct
+  foodProduced:
+    title: Product
+    description: The food produced by transformation.
+    $ref: ./FSMAProduct.yml
+    $linkedData:
+      term: foodProduced
+      '@id': https://w3id.org/traceability#FSMAProduct
+  locationTransformed:
+    title: Location Transformed
+    description: Where the food was transformed.
+    $ref: ./Place.yml
+    $linkedData:
+      term: locationTransformed
+      '@id': https://schema.org/Place
+  dateCompleted:
+    title: Date Completed
+    description: The date transformation was completed in 24hr ISO 8601 format (e.g. 1970-01-01T00:00Z for UTC, or 1970:01:01T00:00-5:00 for New York on standard time).
+    type: string
+    $linkedData:
+      term: dateCompleted
+      '@id': https://schema.org/DateTime
+  additionalData:
+    title: Additional Data
+    description: Additional Key Data Elements (KDEs).
+    type: array
+    items:
+      $ref: ./FSMAAbstractKDE.yml
+    $linkedData:
+      term: additionalData
+      '@id': https://w3id.org/traceability#FSMAAbstractKDE
+additionalProperties: false
+example: |-
+  {
+    "type": "FSMATransformingCTE",
+    "foodUsed": {
+      "type": "FSMAProduct",
+      "traceabilityLot": {
+        "type": "FSMATraceabilityLot",
+        "lotCode": "CHE-MIG-TTF1-061321-H37J",
+        "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+        "lotCodeGeneratorLocation": {
+          "type": [
+            "Place"
+          ],
+          "address": {
+            "type": [
+              "PostalAddress"
+            ],
+            "organizationName": "John's Produce",
+            "streetAddress": "4335 Walsh Underpass",
+            "addressLocality": "Port Mark",
+            "addressRegion": "LA",
+            "postalCode": "67391",
+            "addressCountry": "United States"
+          },
+          "locationName": "John's Tomato Farm #1"
+        },
+        "lotCodeGeneratorPOC": {
+          "type": "Entity",
+          "entityType" : "Person",
+          "name" : "John Davis",
+          "email": "jdavis@johnsproduce.com",
+          "phoneNumber": "129.697.0673"
+        },
+        "lotType": "originated"
+      },
+      "quantityUnitMeasure": {
+        "type": [
+          "QuantitativeValue"
+        ],
+        "unitCode": "Field Bins",
+        "value": "7"
+      },
+      "additionalData": [
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category code",
+          "value": "659351253"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category name",
+          "value": "Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Brand name",
+          "value": "John's Produce"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Commodity",
+          "value": "Cherry Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Variety",
+          "value": "Mighty Sweet Hybrid"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Product name",
+          "value": "N/A"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging size",
+          "value": "Bulk"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging style",
+          "value": "Field Bins"
+        }
+      ]
+    },
+    "foodProduced": {
+      "type": "FSMAProduct",
+      "traceabilityLot": {
+        "type": "FSMATraceabilityLot",
+        "lotCode": "638854954425-FP-PP16-061221-6H08",
+        "lotCodeAssignmentMethod": "Lot codes are assigned based on the product ID, location, process date and a randomly generated string.",
+        "lotType": "transformed"
+      },
+      "quantityUnitMeasure": {
+        "type": [
+          "QuantitativeValue"
+        ],
+        "unitCode": "Cartons",
+        "value": "19"
+      },
+      "additionalData": [
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category code",
+          "value": "212271504"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category name",
+          "value": "Fruits and Vegetables (Fresh-Cut)"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Brand name",
+          "value": "Fresh Promise"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Commodity",
+          "value": "N/A"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Variety",
+          "value": "N/A"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Product name",
+          "value": "Garden Salad Kit 10 X 12 OZ"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging size",
+          "value": "8 LB"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging style",
+          "value": "Cartons"
+        }
+      ]
+    },
+    "dateCompleted": "2022-01-06T00:00Z"
+  }
