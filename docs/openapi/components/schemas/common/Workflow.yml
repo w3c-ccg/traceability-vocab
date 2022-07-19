@@ -2,7 +2,7 @@ $linkedData:
   term: Workflow
   '@id': https://w3id.org/traceability#Workflow
 title: Workflow
-description: A workflow instance and definition. 
+description: A Workflow Definition and Instance.
 type: object
 properties:
   type:
@@ -16,12 +16,12 @@ properties:
         const:
           - Workflow
   definition: 
-    description: Identifier of a particular type of workflow. 
+    description: The Workflow Definition indicates the intention of the presentation. 
     type: array
     items:
       type: string
   instance:
-    description: Identifier of an instance of a workflow type. 
+    description: The Workflow Instance identifies this particular workflow. Subsequent presentations may indicate correlation by referencing the same instance identifier.
     type: array
     items:
       type: string
@@ -29,7 +29,7 @@ example: |-
   {
     "type": "Workflow",
     "definition": [
-      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
+      "https://w3id.org/traceability/#sima-steel-license"
     ],
     "instance": [
       "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
