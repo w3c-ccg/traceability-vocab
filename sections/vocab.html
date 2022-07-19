@@ -2,12 +2,10 @@
     <section>
       <h2>Vocabulary</h2>
       
-  <section id="AdditionalProductCodeRegistrationCredential">
-  <h2>Additional Product Code Registration Credential</h2>
-  <p>Ecommerce Additional Product Code Registration Credential</p>
-
-  
-  
+    <section id="AdditionalProductCodeRegistrationCredential">
+      <h2>Additional Product Code Registration Credential</h2>
+      <p>Ecommerce Additional Product Code Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -25,50 +23,40 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "AdditionalProductCodeRegistrationCredential",
   "productVCid": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
   "addProductCode": 99746411868836,
   "addProductCodeType": "UPC",
   "certificateName": "ACME Ecommerce Universal Product Code Product Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="AgActivity">
-  <h2>Agricultural Activity</h2>
-  <p>An activity that takes place on the farm that needs to be recorded, such as planting, harvesting, applying fertilizer, etc.</p>
-
-  
-  
+    <section id="AgricultureActivity">
+      <h2>Agriculture Activity</h2>
+      <p>An activity that takes place on the farm that needs to be recorded, such as planting, harvesting, applying fertilizer, etc.</p>
+      
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#AgActivity">https://w3id.org/traceability#AgActivity</a></td>
+    <td><a href="https://w3id.org/traceability#AgricultureActivity">https://w3id.org/traceability#AgricultureActivity</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgActivity.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgActivity.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgricultureActivity.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgricultureActivity.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
-  "type": "AgActivity",
+      <pre class="example">{
+  "type": "AgricultureActivity",
   "farm": {
     "type": [
       "Person"
@@ -114,10 +102,10 @@
   },
   "activityDate": "2020-02-15",
   "activityType": "spray",
-  "agProduct": [
+  "agricultureProduct": [
     {
       "type": [
-        "AgProduct"
+        "AgricultureProduct"
       ],
       "upc": "033383401508",
       "plu": "94225",
@@ -160,7 +148,7 @@
     },
     {
       "type": [
-        "AgProduct"
+        "AgricultureProduct"
       ],
       "upc": "033383401508",
       "plu": "94225",
@@ -244,41 +232,35 @@
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="AgInspectionReport">
-  <h2>Agriculture Inspection Report</h2>
-  <p>Information on the Inspection and the observations made</p>
-
-  
-  
+    <section id="AgricultureInspectionReport">
+      <h2>Agriculture Inspection Report</h2>
+      <p>Information on the Inspection and the observations made</p>
+      
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#AgInspectionReport">https://w3id.org/traceability#AgInspectionReport</a></td>
+    <td><a href="https://w3id.org/traceability#AgricultureInspectionReport">https://w3id.org/traceability#AgricultureInspectionReport</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgInspectionReport.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgInspectionReport.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgricultureInspectionReport.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgricultureInspectionReport.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
-  "type": "AgInspectionReport",
+      <pre class="example">{
+  "type": "AgricultureInspectionReport",
   "facility": {
     "type": [
       "Place"
@@ -348,7 +330,7 @@
   },
   "shipment": {
     "type": [
-      "AgParcelDelivery"
+      "AgricultureParcelDelivery"
     ],
     "deliveryAddress": {
       "type": [
@@ -436,10 +418,10 @@
       "phoneNumber": "555-895-1661",
       "faxNumber": "555-497-2527"
     },
-    "AgPackage": [
+    "agriculturePackage": [
       {
         "type": [
-          "AgPackage"
+          "AgriculturePackage"
         ]
       }
     ],
@@ -541,41 +523,37 @@
     "phoneNumber": "555-521-6143",
     "faxNumber": "555-150-7668"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgricultureParcelDelivery'>AgricultureParcelDelivery</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#Inspector'>Inspector</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="AgPackage">
-  <h2>AgPackage</h2>
-  <p>A package (container, crate, etc.) which holds agricultural products. The contents or the package itself should meet the requirements as specified here: https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf</p>
-
-  
-  
+    <section id="AgriculturePackage">
+      <h2>Agriculture Package</h2>
+      <p>A package (container, crate, etc.) which holds agricultural products. The contents or the package itself should meet the requirements as specified here: https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf</p>
+      
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#AgPackage">https://w3id.org/traceability#AgPackage</a></td>
+    <td><a href="https://w3id.org/traceability#AgriculturePackage">https://w3id.org/traceability#AgriculturePackage</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgPackage.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgPackage.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgriculturePackage.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgriculturePackage.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
-  "type": "AgPackage",
+      <pre class="example">{
+  "type": "AgriculturePackage",
   "packageName": "Avocados, Bulk",
   "grade": "AA",
   "responsibleParty": {
@@ -589,10 +567,10 @@
   "date": "2021-03-14",
   "labelImageUrl": "https://img.example.org/640/480/",
   "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "agProduct": [
+  "agricultureProduct": [
     {
       "type": [
-        "AgProduct"
+        "AgricultureProduct"
       ],
       "upc": "033383401508",
       "plu": "94225",
@@ -635,7 +613,7 @@
     },
     {
       "type": [
-        "AgProduct"
+        "AgricultureProduct"
       ],
       "upc": "033383401508",
       "plu": "94225",
@@ -677,41 +655,35 @@
       "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgricultureActivity'>AgricultureActivity</a></li>
+<li><a href='#Entity'>Entity</a></li></ul>
+    </section>
   
 
-  <section id="AgParcelDelivery">
-  <h2>Ag Parcel Delivery</h2>
-  <p>Details on a shipment or delivery.</p>
-
-  
-  
+    <section id="AgricultureParcelDelivery">
+      <h2>Agriculture Parcel Delivery</h2>
+      <p>Details on a shipment or delivery.</p>
+      
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#AgParcelDelivery">https://w3id.org/traceability#AgParcelDelivery</a></td>
+    <td><a href="https://w3id.org/traceability#AgricultureParcelDelivery">https://w3id.org/traceability#AgricultureParcelDelivery</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgParcelDelivery.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgParcelDelivery.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgricultureParcelDelivery.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgricultureParcelDelivery.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
-  "type": "AgParcelDelivery",
+      <pre class="example">{
+  "type": "AgricultureParcelDelivery",
   "deliveryAddress": {
     "type": [
       "PostalAddress"
@@ -798,10 +770,10 @@
     "phoneNumber": "555-895-1661",
     "faxNumber": "555-497-2527"
   },
-  "AgPackage": [
+  "agriculturePackage": [
     {
       "type": [
-        "AgPackage"
+        "AgriculturePackage"
       ],
       "packageName": "Avocados, Bulk",
       "grade": "AA",
@@ -816,10 +788,10 @@
       "date": "2021-03-14",
       "labelImageUrl": "https://img.example.org/640/480/",
       "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "agProduct": [
+      "agricultureProduct": [
         {
           "type": [
-            "AgProduct"
+            "AgricultureProduct"
           ],
           "upc": "033383401508",
           "plu": "94225",
@@ -890,41 +862,36 @@
     "name": "Koch LLC",
     "leiCode": "54321351219389121979"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PostalAddress'>PostalAddress</a></li></ul>
+    </section>
   
 
-  <section id="AgProduct">
-  <h2>AgProduct</h2>
-  <p>An agricultural product, extending the Product schema.  This schema accounts for the FDA lebeling data requirements at the crate level as specified here: https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf</p>
-
-  
-  
+    <section id="AgricultureProduct">
+      <h2>Agriculture Product</h2>
+      <p>An agricultural product, extending the Product schema.  This schema accounts for the FDA lebeling data requirements at the crate level as specified here: https://www.producetraceability.org/documents/FINAL_PTI_Harmonized_Traceabilty_Case_Label_April_2020_(003).pdf</p>
+      
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#AgProduct">https://w3id.org/traceability#AgProduct</a></td>
+    <td><a href="https://w3id.org/traceability#AgricultureProduct">https://w3id.org/traceability#AgricultureProduct</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgProduct.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgProduct.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AgricultureProduct.yml">https://w3id.org/traceability/openapi/components/schemas/common/AgricultureProduct.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
-  "type": "AgProduct",
+      <pre class="example">{
+  "type": "AgricultureProduct",
   "upc": "033383401508",
   "plu": "94225",
   "gtin": "033383401508",
@@ -970,19 +937,15 @@
   "name": "Avocados",
   "productImageUrl": "https://img.example.org/102934920857/937/903/",
   "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Product'>Product</a></li></ul>
+    </section>
   
 
-  <section id="BillOfLading">
-  <h2>Bill Of Lading</h2>
-  <p>Bill Of Lading</p>
-
-  
-  
+    <section id="BillOfLading">
+      <h2>Bill Of Lading</h2>
+      <p>Bill Of Lading</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1000,10 +963,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "BillOfLading",
   "billOfLadingNumber": "991205182A",
   "bookingNumber": "991205182",
@@ -1097,19 +1057,17 @@
     "type": "Place",
     "unLocode": "MXATM"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#ParcelDelivery'>ParcelDelivery</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="BindingDataRegistrationCredential">
-  <h2>Binding Data Registration Credential</h2>
-  <p>Ecommerce Binding Data Registration Credential</p>
-
-  
-  
+    <section id="BindingDataRegistrationCredential">
+      <h2>Binding Data Registration Credential</h2>
+      <p>Ecommerce Binding Data Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1127,10 +1085,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "BindingDataRegistrationCredential",
   "finalCarrierName": "Howe, Dach and Ondricka",
   "finalVesselID": "ACMEVessel#842",
@@ -1169,19 +1124,15 @@
     "https://vc.example.com/?queryID=0x1eBBCBaAF4B1BfA83940a5509DD5Ccd0CeB79D4Db7AD9FeC2CA5Bcf1F2CFD7EA"
   ],
   "certificateName": "ACME Carrier Binding Data Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#ShippingStop'>ShippingStop</a></li></ul>
+    </section>
   
 
-  <section id="Brand">
-  <h2>Brand</h2>
-  <p>Brand information for entities.</p>
-
-  
-  
+    <section id="Brand">
+      <h2>Brand</h2>
+      <p>Brand information for entities.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1199,25 +1150,18 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "logo": "https://source.unsplash.com/random",
   "url": "https://cool.example"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="CargoItem">
-  <h2>Cargo Item</h2>
-  <p>Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.</p>
-
-  
-  
+    <section id="CargoItem">
+      <h2>Cargo Item</h2>
+      <p>Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1235,10 +1179,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "CargoItem",
   "cargoLineItems": [{
     "type": "CargoLineItem",
@@ -1254,19 +1195,15 @@
   "volumeUnit": "CBM",
   "numberOfPackages": 18,
   "packageCode": "5H"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="CargoLineItem">
-  <h2>Cargo Line Item</h2>
-  <p>Identifies the specific details of packages within a cargo item.</p>
-
-  
-  
+    <section id="CargoLineItem">
+      <h2>Cargo Line Item</h2>
+      <p>Identifies the specific details of packages within a cargo item.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1284,26 +1221,19 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "CargoLineItem",
   "cargoLineItemID": "3312591",
   "shippingMarks": "Premium break pads"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ChargeDeclaration">
-  <h2>Charge Declaration</h2>
-  <p>Charge Declaration definition based on IATA electronic Air Waybill.</p>
-
-  
-  
+    <section id="ChargeDeclaration">
+      <h2>Charge Declaration</h2>
+      <p>Charge Declaration definition based on IATA electronic Air Waybill.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1321,10 +1251,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ChargeDeclaration",
   "weightCharge": {
     "type": "chargeAndPaymentType",
@@ -1357,19 +1284,15 @@
     "chargesDestination": 998,
     "totalCollectCharge": 249.5
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ChemicalProperty">
-  <h2>Chemical Property</h2>
-  <p>A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.</p>
-
-  
-  
+    <section id="ChemicalProperty">
+      <h2>Chemical Property</h2>
+      <p>A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1387,28 +1310,21 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ChemicalProperty",
   "name": "Terbium",
   "formula": "Tb",
   "inchi": "InChI=1S/Tb",
   "inchikey": "GZCRRIHWUXGPOV-UHFFFAOYSA-N"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="CommissionEvent">
-  <h2>Commission Event</h2>
-  <p>A product commission event, extending the Event schema.</p>
-
-  
-  
+    <section id="CommissionEvent">
+      <h2>Commission Event</h2>
+      <p>A product commission event, extending the Event schema.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1426,10 +1342,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type":[
     "Event",
     "CommissionEvent"
@@ -1504,19 +1417,15 @@
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="Commodity">
-  <h2>Commodity</h2>
-  <p>Commodity classification based on either WCO HS or USITS HTS codification.</p>
-
-  
-  
+    <section id="Commodity">
+      <h2>Commodity</h2>
+      <p>Commodity classification based on either WCO HS or USITS HTS codification.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1534,29 +1443,22 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "Commodity"
   ],
   "commodityCode": "199301.20",
   "commodityCodeType": "HS",
   "description": "Rocket launchers; flame-throwers; grenade launchers; torpedo tubes and similar projectors"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ConsignmentItem">
-  <h2>Consignment Item</h2>
-  <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
-
-  
-  
+    <section id="ConsignmentItem">
+      <h2>Consignment Item</h2>
+      <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1574,10 +1476,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ConsignmentItem",
   "marksAndNumbers": "Espresso Italiano",
   "commodity": {
@@ -1596,19 +1495,17 @@
     "unitCode": "kg",
     "value": "15960"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="ConsignmentRatingDetail">
-  <h2>Consignment Rating Details, itemized consignment items of IATA Air Waybill.</h2>
-  <p>undefined</p>
-
-  
-  
+    <section id="ConsignmentRatingDetail">
+      <h2>Consignment Rating Detail</h2>
+      <p>Consignment Rating Details, itemized consignment items of IATA Air Waybill.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1626,10 +1523,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ConsignmentRatingDetail",
   "numberOfPieces": 13,
   "grossWeight": 971,
@@ -1638,19 +1532,15 @@
   "chargeableWeight": 2480.5,
   "total": "As arranged",
   "natureAndVolumeOfGoods": "ROLLATORS; DIMS: 2 / 118 X 89 X 87 CM, 11 /118 x 89 X 113 CM, 14.88 CBM"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ContactPoint">
-  <h2>Contact Point</h2>
-  <p>Contact information for entities.</p>
-
-  
-  
+    <section id="ContactPoint">
+      <h2>Contact Point</h2>
+      <p>Contact information for entities.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1668,10 +1558,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [ "ContactPoint" ],
   "name": "Cassin, Mayer and Auer",
   "place" : {
@@ -1687,19 +1574,15 @@
   },
   "email": "Okey.Homenick12@example.org",
   "phoneNumber": "555-218-9784"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="CrudeOilProduct">
-  <h2>Crude Oil Product</h2>
-  <p>Tombstone information regarding a crude oil product</p>
-
-  
-  
+    <section id="CrudeOilProduct">
+      <h2>Crude Oil Product</h2>
+      <p>Tombstone information regarding a crude oil product</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1717,10 +1600,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
  "type":[
     "CrudeOilProduct"
  ],
@@ -1846,19 +1726,16 @@
     },
     "sku":"391864383008"
  }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li>
+<li><a href='#Product'>Product</a></li></ul>
+    </section>
   
 
-  <section id="Customer">
-  <h2>Customer</h2>
-  <p>Customer record based on Customer from schema.org</p>
-
-  
-  
+    <section id="Customer">
+      <h2>Customer</h2>
+      <p>Customer record based on Customer from schema.org</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1876,10 +1753,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Customer",
   "name": "Catharine Glover",
   "address": {
@@ -1892,19 +1766,15 @@
   },
   "telephone": "555-738-1186",
   "email": "Joseph95@example.net"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#PostalAddress'>PostalAddress</a></li></ul>
+    </section>
   
 
-  <section id="DCSAShippingInstruction">
-  <h2>DCSA Shipping Instruction</h2>
-  <p>The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)</p>
-
-  
-  
+    <section id="DCSAShippingInstruction">
+      <h2>DCSA Shipping Instruction</h2>
+      <p>The Shipping Instruction is an enrichment to the original booking shared by the shipper to the carrier. The shipping instruction includes volume or weight, cargo items, shipping dates, origin, destination, and other special instructions. The information given by the shipper through the shipping instruction is the information required to create a Transport Document. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)</p>
+      
   <table class="simple">
   <tbody>
 
@@ -1922,10 +1792,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "DCSAShippingInstruction",
   "carrierBookingReference": "XMANHR2102045",
   "transportDocumentType": "MBL",
@@ -2039,19 +1906,16 @@
       }
     ]
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="DCSATransportDocument">
-  <h2>DCSA Transport Document</h2>
-  <p>The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)</p>
-
-  
-  
+    <section id="DCSATransportDocument">
+      <h2>DCSA Transport Document</h2>
+      <p>The document that governs the terms of carriage between shipper and carrier for maritime transportation. Two distinct types of transport documents exist: Bill of Lading, Sea Waybill. Based on DCSA's eBL specification (https://dcsa.org/standards/ebill-of-lading)</p>
+      
   <table class="simple">
   <tbody>
 
@@ -2069,10 +1933,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "DCSATransportDocument",
   "transportDocumentReference": "XMANHR2102045",
   "shippingInstruction": {
@@ -2220,19 +2081,16 @@
     "vesselNumber": "HMM Algeciras",
     "voyageNumber": "V.0004W"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#DCSAShippingInstruction'>DCSAShippingInstruction</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="DocumentVerificationEvidence">
-  <h2>DocumentVerificationEvidence</h2>
-  <p>Verifiable Credential Evidence Document Schema</p>
-
-  
-  
+    <section id="DocumentVerificationEvidence">
+      <h2>DocumentVerificationEvidence</h2>
+      <p>Verifiable Credential Evidence Document Schema</p>
+      
   <table class="simple">
   <tbody>
 
@@ -2250,10 +2108,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "DocumentVerificationEvidence"
   ],
@@ -2264,19 +2119,15 @@
   "evidenceDocument": "ACME-Evidence-Document-0x2b440EbE-2-4-2021",
   "subjectPresence": "InPerson",
   "documentPresence": "Digital"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="Entity">
-  <h2>Entity</h2>
-  <p>A person or organization</p>
-
-  
-  
+    <section id="Entity">
+      <h2>Entity</h2>
+      <p>A person or organization</p>
+      
   <table class="simple">
   <tbody>
 
@@ -2294,10 +2145,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Entity",
   "entityType" : "Person",
   "name" : "Kane Heller",
@@ -2322,19 +2170,15 @@
     "faxNumber": "555-151-9530"
   },
   "jobTitle": "Lead Division Producer"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#PostalAddress'>PostalAddress</a></li></ul>
+    </section>
   
 
-  <section id="EntrySummary">
-  <h2>Entry Summary</h2>
-  <p>CBP Form 7501 for Entry Summary (https://www.cbp.gov/sites/default/files/assets/documents/2021-Sep/CBP%20Form%207501.pdf).</p>
-
-  
-  
+    <section id="EntrySummary">
+      <h2>Entry Summary</h2>
+      <p>CBP Form 7501 for Entry Summary (https://www.cbp.gov/sites/default/files/assets/documents/2021-Sep/CBP%20Form%207501.pdf).</p>
+      
   <table class="simple">
   <tbody>
 
@@ -2352,10 +2196,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "EntrySummary",
   "entryNumber": 73461882610,
   "entryType": "01",
@@ -2478,19 +2319,18 @@
     "price": 8532,
     "priceCurrency": "USD"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#EntrySummaryLineItem'>EntrySummaryLineItem</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
+    </section>
   
 
-  <section id="EntrySummaryLineItem">
-  <h2>Entry Summary Line Item</h2>
-  <p>A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement.</p>
-
-  
-  
+    <section id="EntrySummaryLineItem">
+      <h2>Entry Summary Line Item</h2>
+      <p>A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -2508,10 +2348,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "EntrySummaryLineItem",
   "commodity": {
     "type": "Commodity",
@@ -2550,19 +2387,17 @@
     "price": 8230,
     "priceCurrency": "USD"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="Event">
-  <h2>Organization</h2>
-  <p>An event such as a transformation, aggregation, commission, etc.</p>
-
-  
-  
+    <section id="Event">
+      <h2>Organization</h2>
+      <p>An event such as a transformation, aggregation, commission, etc.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -2580,10 +2415,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Event",
   "eventType": "commission",
   "eventId": "12345",
@@ -2709,19 +2541,1117 @@
       "sku": "500038921455"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="FoodGradeInspection">
-  <h2>Food Grade Inspection</h2>
-  <p>Information regarding the grade inspection and results</p>
+    <section id="FSMAAbstractKDE">
+      <h2>FSMA Abstract KDE</h2>
+      <p>"An FSMA abstract KDE (Key Data Element), a key/value pair representing a KDE attached to some CTE (Critical Tracking Event). This schema is designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
 
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMAAbstractKDE">https://w3id.org/traceability#FSMAAbstractKDE</a></td>
+  </tr>
   
   
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMAAbstractKDE.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMAAbstractKDE.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMAAbstractKDE",
+  "name": "Reference record type and number",
+  "value": "BOL 1324"
+}</pre>
+      
+    </section>
+  
+
+    <section id="FSMACreatingCTE">
+      <h2>FSMA Creating CTE</h2>
+      <p>"Information regarding an FSMA Creating CTE (Critical Tracking Event), designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMACreatingCTE">https://w3id.org/traceability#FSMACreatingCTE</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMACreatingCTE.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMACreatingCTE.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMACreatingCTE",
+  "food": {
+    "type": "FSMAProduct",
+    "traceabilityLot": {
+      "type": "FSMATraceabilityLot",
+      "lotCode": "2b1ed51f-f1da-49f6-8130-ac81d1e5e61d",
+      "lotCodeAssignmentMethod": "Lot codes are generated as a random UUID.",
+      "lotType": "created"
+    },
+    "quantity": 50,
+    "unit": "Crates",
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category code",
+        "value": "659351253"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category name",
+        "value": "Nut butter"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Brand name",
+        "value": "Delicious Dips"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Commodity",
+        "value": "Peanut Butter"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Product name",
+        "value": "DD PB"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging size",
+        "value": "24 LB"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging style",
+        "value": "Crates"
+      }
+    ]
+  },
+  "location": {
+    "type": [
+      "Place"
+    ],
+    "address": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "Delicious Dips",
+      "streetAddress": "755 Stephanie Gardens",
+      "addressLocality": "Rasmussenborough",
+      "addressRegion": "KS",
+      "postalCode": "90819",
+      "addressCountry": "United States"
+    },
+    "locationName": "Delicious Dips Production Center"
+  },
+  "dateCompleted": "2022-02-01T00:00Z"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMAProduct'>FSMAProduct</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="FSMAFirstReceiverCTE">
+      <h2>FSMA First Receiver Data</h2>
+      <p>"Information regarding FSMA First Receiver data, a collection of KDEs (Key Data Elements) for which a product's first receiver is responsible. This schema is designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMAFirstReceiverCTE">https://w3id.org/traceability#FSMAFirstReceiverCTE</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMAFirstReceiverData.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMAFirstReceiverData.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMAFirstReceiverData",
+  "traceabilityLot": {
+    "type": "FSMATraceabilityLot",
+    "lotCode": "CHE-MIG-TTF1-061321-H37J",
+    "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+    "lotCodeGeneratorLocation": {
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "John's Produce",
+        "streetAddress": "4335 Walsh Underpass",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "John's Tomato Farm #1"
+    },
+    "lotCodeGeneratorPOC": {
+      "type": "Entity",
+      "entityType" : "Person",
+      "name" : "John Davis",
+      "email": "produce@example.com",
+      "phoneNumber": "129-697-0673"
+    },
+    "lotType": "originated"
+  },
+  "originatorLocation": {
+    "type": [
+      "Place"
+    ],
+    "address": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "John's Produce",
+      "streetAddress": "4335 Walsh Underpass",
+      "addressLocality": "Port Mark",
+      "addressRegion": "LA",
+      "postalCode": "67391",
+      "addressCountry": "United States"
+    },
+    "locationName": "John's Tomato Farm #1"
+  },
+  "harvestDate": "2022-01-03T00:00Z",
+  "coolingDate": "2022-01-07T00:00Z",
+  "packingDate": "2022-02-03T00:00Z"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMATraceabilityLot'>FSMATraceabilityLot</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="FSMAGrowingCTE">
+      <h2>FSMA Growing CTE</h2>
+      <p>"Information regarding an FSMA Growing CTE (Critical Tracking Event), designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMAGrowingCTE">https://w3id.org/traceability#FSMAGrowingCTE</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMAGrowingCTE.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMAGrowingCTE.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMAGrowingCTE",
+  "traceabilityLot": {
+    "type": "FSMATraceabilityLot",
+    "lotCode": "CHE-MIG-TTF1-061321-H37J",
+    "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+    "lotCodeGeneratorLocation": {
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "John's Produce",
+        "streetAddress": "4335 Walsh Underpass",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "John's Tomato Farm #1"
+    },
+    "lotCodeGeneratorPOC": {
+      "type": "Entity",
+      "entityType" : "Person",
+      "name" : "John Davis",
+      "email": "produce@example.com",
+      "phoneNumber": "129-697-0673"
+    },
+    "lotType": "originated"
+  },
+  "growingAreaCoordinates": {
+    "type": [
+      "GeoCoordinates"
+    ],
+    "latitude": "44.859038",
+    "longitude": "70.916213"
+  }
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMATraceabilityLot'>FSMATraceabilityLot</a></li>
+<li><a href='#GeoCoordinates'>GeoCoordinates</a></li></ul>
+    </section>
+  
+
+    <section id="FSMAProduct">
+      <h2>FSMA Product</h2>
+      <p>"Information regarding an FSMA Product, a collection of KDEs (Key Data Elements) common to several CTEs (Critical Tracking Events). This schema is designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMAProduct">https://w3id.org/traceability#FSMAProduct</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMAProduct.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMAProduct.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMAProduct",
+  "traceabilityLot": {
+    "type": "FSMATraceabilityLot",
+    "lotCode": "CHE-MIG-TTF1-061321-H37J",
+    "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+    "lotCodeGeneratorLocation": {
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "John's Produce",
+        "streetAddress": "4335 Walsh Underpass",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "John's Tomato Farm #1"
+    },
+    "lotCodeGeneratorPOC": {
+      "type": "Entity",
+      "entityType" : "Person",
+      "name" : "John Davis",
+      "email": "produce@example.com",
+      "phoneNumber": "129-697.-673"
+    },
+    "lotType": "originated"
+  },
+  "quantity": 82,
+  "unit": "Boxes",
+  "additionalData": [
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Category code",
+      "value": "659351253"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Category name",
+      "value": "Tomatoes"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Brand name",
+      "value": "John's Produce"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Commodity",
+      "value": "Cherry Tomatoes"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Variety",
+      "value": "Mighty Sweet Hybrid"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Product name",
+      "value": "N/A"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Packaging size",
+      "value": "Bulk"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Packaging style",
+      "value": "Field Bins"
+    }
+  ]
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMATraceabilityLot'>FSMATraceabilityLot</a></li></ul>
+    </section>
+  
+
+    <section id="FSMAReceivingCTE">
+      <h2>FSMA Receiving CTE</h2>
+      <p>"Information regarding an FSMA Receiving CTE (Critical Tracking Event), designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMAReceivingCTE">https://w3id.org/traceability#FSMAReceivingCTE</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMAReceivingCTE.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMAReceivingCTE.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMAReceivingCTE",
+  "shipment": {
+    "type": "FSMAShipment",
+    "product": {
+      "type": "FSMAProduct",
+      "traceabilityLot": {
+        "type": "FSMATraceabilityLot",
+        "lotCode": "CHE-MIG-TTF1-061321-H37J",
+        "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+        "lotCodeGeneratorLocation": {
+          "type": [
+            "Place"
+          ],
+          "address": {
+            "type": [
+              "PostalAddress"
+            ],
+            "organizationName": "John's Produce",
+            "streetAddress": "4335 Walsh Underpass",
+            "addressLocality": "Port Mark",
+            "addressRegion": "LA",
+            "postalCode": "67391",
+            "addressCountry": "United States"
+          },
+          "locationName": "John's Tomato Farm #1"
+        },
+        "lotCodeGeneratorPOC": {
+          "type": "Entity",
+          "entityType" : "Person",
+          "name" : "John Davis",
+          "email": "produce@example.com",
+          "phoneNumber": "129-697-0673"
+        },
+        "lotType": "originated"
+      },
+      "quantity": 103,
+      "unit": "Field Bins",
+      "additionalData": [
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category code",
+          "value": "659351253"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category name",
+          "value": "Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Brand name",
+          "value": "John's Produce"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Commodity",
+          "value": "Cherry Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Variety",
+          "value": "Mighty Sweet Hybrid"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Product name",
+          "value": "N/A"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging size",
+          "value": "Bulk"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging style",
+          "value": "Field Bins"
+        }
+      ]
+    },
+    "from": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "44.859038",
+        "longitude": "70.916213"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "John's Produce",
+        "streetAddress": "4335 Walsh Underpass",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "John's Tomato Farm #1"
+    },
+    "to": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "31.319706",
+        "longitude": "-92.117524"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Pattie's Packers",
+        "streetAddress": "8974 Bolton Drive",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "PP Packing Shed"
+    },
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Reference record type and number",
+        "value": "BOL 24884"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Import entry number",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Transporter name",
+        "value": "Local Trucking Co."
+      }
+    ]
+  },
+  "dateShipped": "2022-01-03T00:00Z"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMAShipment'>FSMAShipment</a></li></ul>
+    </section>
+  
+
+    <section id="FSMAShipment">
+      <h2>FSMA Shipment</h2>
+      <p>"Information regarding an FSMA Shipment, a collection of KDEs (Key Data Elements) common to the Shipping and Receiving CTEs (Critical Tracking Events). This schema is designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMAShipment">https://w3id.org/traceability#FSMAShipment</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMAShipment.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMAShipment.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMAShipment",
+  "product": {
+    "type": "FSMAProduct",
+    "traceabilityLot": {
+      "type": "FSMATraceabilityLot",
+      "lotCode": "CHE-MIG-TTF1-061321-H37J",
+      "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+      "lotCodeGeneratorLocation": {
+        "type": [
+          "Place"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "John's Produce",
+          "streetAddress": "4335 Walsh Underpass",
+          "addressLocality": "Port Mark",
+          "addressRegion": "LA",
+          "postalCode": "67391",
+          "addressCountry": "United States"
+        },
+        "locationName": "John's Tomato Farm #1"
+      },
+      "lotCodeGeneratorPOC": {
+        "type": "Entity",
+        "entityType" : "Person",
+        "name" : "John Davis",
+        "email": "produce@example.com",
+        "phoneNumber": "129-697-0673"
+      },
+      "lotType": "originated"
+    },
+    "quantity": 103,
+    "unit": "Field Bins",
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category code",
+        "value": "659351253"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category name",
+        "value": "Tomatoes"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Brand name",
+        "value": "John's Produce"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Commodity",
+        "value": "Cherry Tomatoes"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Variety",
+        "value": "Mighty Sweet Hybrid"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Product name",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging size",
+        "value": "Bulk"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging style",
+        "value": "Field Bins"
+      }
+    ]
+  },
+  "from": {
+    "type": [
+      "Place"
+    ],
+    "geo": {
+      "type": "GeoCoordinates",
+      "latitude": "44.859038",
+      "longitude": "70.916213"
+    },
+    "address": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "John's Produce",
+      "streetAddress": "4335 Walsh Underpass",
+      "addressLocality": "Port Mark",
+      "addressRegion": "LA",
+      "postalCode": "67391",
+      "addressCountry": "United States"
+    },
+    "locationName": "John's Tomato Farm #1"
+  },
+  "to": {
+    "type": [
+      "Place"
+    ],
+    "geo": {
+      "type": "GeoCoordinates",
+      "latitude": "31.319706",
+      "longitude": "-92.117524"
+    },
+    "address": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "Pattie's Packers",
+      "streetAddress": "8974 Bolton Drive",
+      "addressLocality": "Port Mark",
+      "addressRegion": "LA",
+      "postalCode": "67391",
+      "addressCountry": "United States"
+    },
+    "locationName": "PP Packing Shed"
+  },
+  "additionalData": [
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Reference record type and number",
+      "value": "BOL 24884"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Import entry number",
+      "value": "N/A"
+    },
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Transporter name",
+      "value": "Local Trucking Co."
+    }
+  ]
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMAProduct'>FSMAProduct</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="FSMAShippingCTE">
+      <h2>FSMA Shipping CTE</h2>
+      <p>"Information regarding an FSMA Shipping CTE (Critical Tracking Event), designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMAShippingCTE">https://w3id.org/traceability#FSMAShippingCTE</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMAShippingCTE.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMAShippingCTE.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMAShippingCTE",
+  "shipment": {
+    "type": "FSMAShipment",
+    "product": {
+      "type": "FSMAProduct",
+      "traceabilityLot": {
+        "type": "FSMATraceabilityLot",
+        "lotCode": "CHE-MIG-TTF1-061321-H37J",
+        "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+        "lotCodeGeneratorLocation": {
+          "type": [
+            "Place"
+          ],
+          "address": {
+            "type": [
+              "PostalAddress"
+            ],
+            "organizationName": "John's Produce",
+            "streetAddress": "4335 Walsh Underpass",
+            "addressLocality": "Port Mark",
+            "addressRegion": "LA",
+            "postalCode": "67391",
+            "addressCountry": "United States"
+          },
+          "locationName": "John's Tomato Farm #1"
+        },
+        "lotCodeGeneratorPOC": {
+          "type": "Entity",
+          "entityType" : "Person",
+          "name" : "John Davis",
+          "email": "produce@example.com",
+          "phoneNumber": "129-697-0673"
+        },
+        "lotType": "originated"
+      },
+      "quantity": 103,
+      "unit": "Field Bins",
+      "additionalData": [
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category code",
+          "value": "659351253"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Category name",
+          "value": "Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Brand name",
+          "value": "John's Produce"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Commodity",
+          "value": "Cherry Tomatoes"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Variety",
+          "value": "Mighty Sweet Hybrid"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Product name",
+          "value": "N/A"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging size",
+          "value": "Bulk"
+        },
+        {
+          "type": "FSMAAbstractKDE",
+          "name": "Packaging style",
+          "value": "Field Bins"
+        }
+      ]
+    },
+    "from": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "44.859038",
+        "longitude": "70.916213"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "John's Produce",
+        "streetAddress": "4335 Walsh Underpass",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "John's Tomato Farm #1"
+    },
+    "to": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "31.319706",
+        "longitude": "-92.117524"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Pattie's Packers",
+        "streetAddress": "8974 Bolton Drive",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "PP Packing Shed"
+    },
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Reference record type and number",
+        "value": "BOL 24884"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Import entry number",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Transporter name",
+        "value": "Local Trucking Co."
+      }
+    ]
+  },
+  "dateShipped": "2022-01-01T00:00Z",
+  "additionalData": [
+    {
+      "type": "FSMAAbstractKDE",
+      "name": "Statement if the shipper is a farm",
+      "value": "TRUE"
+    }
+  ]
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMAShipment'>FSMAShipment</a></li></ul>
+    </section>
+  
+
+    <section id="FSMATraceabilityLot">
+      <h2>FSMA Traceability Lot</h2>
+      <p>"Information regarding an FSMA Traceability Lot, a collection of KDEs (Key Data Elements) common to several CTEs (Critical Tracking Events). This schema is designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMATraceabilityLot">https://w3id.org/traceability#FSMATraceabilityLot</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMATraceabilityLot.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMATraceabilityLot.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMATraceabilityLot",
+  "lotCode": "CHE-MIG-TTF1-061321-H37J",
+  "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+  "lotCodeGeneratorLocation": {
+    "type": [
+      "Place"
+    ],
+    "address": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "John's Produce",
+      "streetAddress": "4335 Walsh Underpass",
+      "addressLocality": "Port Mark",
+      "addressRegion": "LA",
+      "postalCode": "67391",
+      "addressCountry": "United States"
+    },
+    "locationName": "John's Tomato Farm #1"
+  },
+  "lotCodeGeneratorPOC": {
+    "type": "Entity",
+    "entityType" : "Person",
+    "name" : "John Davis",
+    "email": "produce@example.com",
+    "phoneNumber": "129-697-0673"
+  },
+  "lotType": "originated"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="FSMATransformingCTE">
+      <h2>FSMA Transforming CTE</h2>
+      <p>"Information regarding an FSMA Transforming CTE (Critical Tracking Event), designed to meet reporting requirements for the FDA Traceability Rule as specified here: https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FSMATransformingCTE">https://w3id.org/traceability#FSMATransformingCTE</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FSMATransformingCTE.yml">https://w3id.org/traceability/openapi/components/schemas/common/FSMATransformingCTE.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "FSMATransformingCTE",
+  "foodUsed": {
+    "type": "FSMAProduct",
+    "traceabilityLot": {
+      "type": "FSMATraceabilityLot",
+      "lotCode": "CHE-MIG-TTF1-061321-H37J",
+      "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+      "lotCodeGeneratorLocation": {
+        "type": [
+          "Place"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "John's Produce",
+          "streetAddress": "4335 Walsh Underpass",
+          "addressLocality": "Port Mark",
+          "addressRegion": "LA",
+          "postalCode": "67391",
+          "addressCountry": "United States"
+        },
+        "locationName": "John's Tomato Farm #1"
+      },
+      "lotCodeGeneratorPOC": {
+        "type": "Entity",
+        "entityType" : "Person",
+        "name" : "John Davis",
+        "email": "produce@example.com",
+        "phoneNumber": "129-697-0673"
+      },
+      "lotType": "originated"
+    },
+    "quantity": 7,
+    "unit": "Field Bins",
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category code",
+        "value": "659351253"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category name",
+        "value": "Tomatoes"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Brand name",
+        "value": "John's Produce"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Commodity",
+        "value": "Cherry Tomatoes"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Variety",
+        "value": "Mighty Sweet Hybrid"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Product name",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging size",
+        "value": "Bulk"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging style",
+        "value": "Field Bins"
+      }
+    ]
+  },
+  "foodProduced": {
+    "type": "FSMAProduct",
+    "traceabilityLot": {
+      "type": "FSMATraceabilityLot",
+      "lotCode": "638854954425-FP-PP16-061221-6H08",
+      "lotCodeAssignmentMethod": "Lot codes are assigned based on the product ID, location, process date and a randomly generated string.",
+      "lotType": "transformed"
+    },
+    "quantity": 19,
+    "unit": "Cartons",
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category code",
+        "value": "212271504"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category name",
+        "value": "Fruits and Vegetables (Fresh-Cut)"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Brand name",
+        "value": "Fresh Promise"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Commodity",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Variety",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Product name",
+        "value": "Garden Salad Kit 10 X 12 OZ"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging size",
+        "value": "8 LB"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging style",
+        "value": "Cartons"
+      }
+    ]
+  },
+  "dateCompleted": "2022-01-06T00:00Z"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#FSMAProduct'>FSMAProduct</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="FoodGradeInspection">
+      <h2>Food Grade Inspection</h2>
+      <p>Information regarding the grade inspection and results</p>
+      
   <table class="simple">
   <tbody>
 
@@ -2739,10 +3669,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "FoodGradeInspection",
   "facility": {
     "type": [
@@ -2830,7 +3757,7 @@
   },
   "shipment": {
     "type": [
-      "AgParcelDelivery"
+      "AgricultureParcelDelivery"
     ],
     "deliveryAddress": {
       "type": [
@@ -2868,10 +3795,10 @@
       "phoneNumber": "555-895-1661",
       "faxNumber": "555-497-2527"
     },
-    "AgPackage": [
+    "agriculturePackage": [
       {
         "type": [
-          "AgPackage"
+          "AgriculturePackage"
         ],
         "packageName": "Avocados, Bulk",
         "grade": "AA",
@@ -2886,10 +3813,10 @@
         "date": "2021-03-14",
         "labelImageUrl": "https://img.example.org/640/480/",
         "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "agProduct": [
+        "agricultureProduct": [
           {
             "type": [
-              "AgProduct"
+              "AgricultureProduct"
             ],
             "upc": "033383401508",
             "plu": "94225",
@@ -2977,9 +3904,9 @@
   "lots": [
     {
       "type": "FoodGradeInspectionLot",
-      "agProduct": {
+      "agricultureProduct": {
         "type": [
-          "AgProduct"
+          "AgricultureProduct"
         ],
         "upc": "033383401508",
         "plu": "94225",
@@ -3125,19 +4052,20 @@
     }
   ],
   "estimatedCharges": "$135.00"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgricultureParcelDelivery'>AgricultureParcelDelivery</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#Inspector'>Inspector</a></li>
+<li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
+    </section>
   
 
-  <section id="FoodGradeInspectionDefect">
-  <h2>Food Grade Inspection Defect</h2>
-  <p>Information on a type of offsize / defect observed.</p>
-
-  
-  
+    <section id="FoodGradeInspectionDefect">
+      <h2>Food Grade Inspection Defect</h2>
+      <p>Information on a type of offsize / defect observed.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3155,28 +4083,21 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "FoodGradeInspectionDefect",
   "offsizeDefect": "Quality - Dry Sunken Areas",
   "averageDefects": 2,
   "seriousDamage": 0,
   "verySeriousDamage": 0
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="FoodGradeInspectionLot">
-  <h2>Food Grade Inspection Lot</h2>
-  <p>Information regarding the inspected lot including samples, defects and grades.</p>
-
-  
-  
+    <section id="FoodGradeInspectionLot">
+      <h2>Food Grade Inspection Lot</h2>
+      <p>Information regarding the inspected lot including samples, defects and grades.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3194,14 +4115,11 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "FoodGradeInspectionLot",
-  "agProduct": {
+  "agricultureProduct": {
     "type": [
-      "AgProduct"
+      "agricultureProduct"
     ],
     "upc": "033383401508",
     "plu": "94225",
@@ -3344,19 +4262,17 @@
     "unitCode": "FAH"
   },
   "pli": "Fed-State ID-345-0515"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgricultureProduct'>AgricultureProduct</a></li>
+<li><a href='#FoodGradeInspectionResult'>FoodGradeInspectionResult</a></li>
+<li><a href='#MeasuredValue'>MeasuredValue</a></li></ul>
+    </section>
   
 
-  <section id="FoodGradeInspectionResult">
-  <h2>Food Grade Inspection Result</h2>
-  <p>Information on the grade assigned to an inspected lot.</p>
-
-  
-  
+    <section id="FoodGradeInspectionResult">
+      <h2>Food Grade Inspection Result</h2>
+      <p>Information on the grade assigned to an inspected lot.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3374,26 +4290,19 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "FoodGradeInspectionResult",
   "gradeInspected": "U.S. No. 1",
   "requirementsMet": true
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="FoodGradeInspectionSample">
-  <h2>Food Grade Inspection Sample</h2>
-  <p>Details regarding a sample taken from an inspected lot.</p>
-
-  
-  
+    <section id="FoodGradeInspectionSample">
+      <h2>Food Grade Inspection Sample</h2>
+      <p>Details regarding a sample taken from an inspected lot.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3411,10 +4320,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "FoodGradeInspectionSample",
   "sampleSize": 10,
   "sampleSizeUnits": "items",
@@ -3465,19 +4371,15 @@
       "propertyValue": "2"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="FoodGradeInspectionSampleProperty">
-  <h2>Food Grade Inspection Sample Property</h2>
-  <p>A property of some agriculture grade inspection sample.</p>
-
-  
-  
+    <section id="FoodGradeInspectionSampleProperty">
+      <h2>Food Grade Inspection Sample Property</h2>
+      <p>A property of some agriculture grade inspection sample.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3495,26 +4397,19 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "FoodGradeInspectionSampleProperty",
   "propertyName": "Temp °F",
   "propertyValue": "53"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ForeignChargeDeclaration">
-  <h2>Foreign Charge Declaration</h2>
-  <p>Foreign charge declaration definition based on IATA electronic Air Waybill.</p>
-
-  
-  
+    <section id="ForeignChargeDeclaration">
+      <h2>Foreign Charge Declaration</h2>
+      <p>Foreign charge declaration definition based on IATA electronic Air Waybill.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3532,24 +4427,17 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/231"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="FreightManifest">
-  <h2>Freight Manifest</h2>
-  <p>Manifest documenting the cargo and freight of a vessel at time of arrival or departure.</p>
-
-  
-  
+    <section id="FreightManifest">
+      <h2>Freight Manifest</h2>
+      <p>Manifest documenting the cargo and freight of a vessel at time of arrival or departure.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3567,10 +4455,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "FreightManifest",
   "carrier": {
     "type": "Entity",
@@ -3727,19 +4612,15 @@
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li></ul>
+    </section>
   
 
-  <section id="GeoCoordinates">
-  <h2>Geographic Coordinates</h2>
-  <p>The geographic coordinates of a place or event.</p>
-
-  
-  
+    <section id="GeoCoordinates">
+      <h2>Geographic Coordinates</h2>
+      <p>The geographic coordinates of a place or event.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3757,26 +4638,19 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "GeoCoordinates",
   "latitude": "-80.5898",
   "longitude": "-13.4603"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="HouseBillOfLading">
-  <h2>HouseBillOfLading</h2>
-  <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
-
-  
-  
+    <section id="HouseBillOfLading">
+      <h2>HouseBillOfLading</h2>
+      <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3794,10 +4668,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "HouseBillOfLading",
   "billOfLadingNumber": "FF873363210A",
   "bookingNumber": [
@@ -3927,19 +4798,18 @@
     "priceCurrency": "USD"
   },
   "termsAndConditions": "https://terms-of-shipment.freightforwarder.example.com"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#Transport'>Transport</a></li></ul>
+    </section>
   
 
-  <section id="IATAAirWaybill">
-  <h2>IATA Air Waybill</h2>
-  <p>Air Waybill based on IATA Air Waybill Resolution 600a https://www.iata.org/contentassets/e9cb5a72b88f4f68a5cfc572a50b60c9/eacph-european-air-cargo-programme-handbook.pdf and https://www.iata.org/contentassets/b559d10aeb734d5196332b4953dcf312/e-awb-sop-hyd.pdf</p>
-
-  
-  
+    <section id="IATAAirWaybill">
+      <h2>IATA Air Waybill</h2>
+      <p>Air Waybill based on IATA Air Waybill Resolution 600a https://www.iata.org/contentassets/e9cb5a72b88f4f68a5cfc572a50b60c9/eacph-european-air-cargo-programme-handbook.pdf and https://www.iata.org/contentassets/b559d10aeb734d5196332b4953dcf312/e-awb-sop-hyd.pdf</p>
+      
   <table class="simple">
   <tbody>
 
@@ -3957,10 +4827,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "IATAAirWaybill",
   "airWaybillNumber": "AXM121102183",
   "airlineCodeNumber": "172",
@@ -4086,19 +4953,19 @@
     "type": "Place",
     "iataAirportCode": "XMN"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#ChargeDeclaration'>ChargeDeclaration</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#ForeignChargeDeclaration'>ForeignChargeDeclaration</a></li>
+<li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="ImmediateDelivery">
-  <h2>Immediate Delivery</h2>
-  <p>CBP Form 3461 for Immediate Delivery (https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%20Form%203461%20-%20ACE%20Fillable.pdf and https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%203461%20Instructions_0.pdf).</p>
-
-  
-  
+    <section id="ImmediateDelivery">
+      <h2>Immediate Delivery</h2>
+      <p>CBP Form 3461 for Immediate Delivery (https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%20Form%203461%20-%20ACE%20Fillable.pdf and https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%203461%20Instructions_0.pdf).</p>
+      
   <table class="simple">
   <tbody>
 
@@ -4116,10 +4983,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ImmediateDelivery",
   "portOfEntry": {
     "type": "Place",
@@ -4202,19 +5066,17 @@
   "voyageFlightTrip": "E002901",
   "conveyanceName": "Gizera",
   "arrivalDate": "2022-02-25"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#MeasuredValue'>MeasuredValue</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="ImmediateDeliveryEntity">
-  <h2>Immediate Delivery Entity</h2>
-  <p>Entity identifier used on CBP 3461 Immediate Delivery Form.</p>
-
-  
-  
+    <section id="ImmediateDeliveryEntity">
+      <h2>Immediate Delivery Entity</h2>
+      <p>Entity identifier used on CBP 3461 Immediate Delivery Form.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -4232,10 +5094,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ImmediateDeliveryEntity",
   "consignee": {
     "type": "Entity",
@@ -4251,19 +5110,15 @@
   },
   "assignedIdentifier": "12345678",
   "assignedIdentifierType": "CBP"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li></ul>
+    </section>
   
 
-  <section id="ImmediateDeliveryLineItem">
-  <h2>Immediate Delivery Line Item</h2>
-  <p>Line Item identifier used on CBP 3461 Immediate Delivery Form.</p>
-
-  
-  
+    <section id="ImmediateDeliveryLineItem">
+      <h2>Immediate Delivery Line Item</h2>
+      <p>Line Item identifier used on CBP 3461 Immediate Delivery Form.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -4281,10 +5136,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ImmediateDeliveryLineItem",
   "commodity": {
     "type": "Commodity",
@@ -4314,19 +5166,16 @@
   "freeTradeZoneStatus": "N",
   "countryOfOrigin": "CN",
   "value": "6800"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
+<li><a href='#ImmediateDeliveryEntity'>ImmediateDeliveryEntity</a></li></ul>
+    </section>
   
 
-  <section id="ImporterSecurityFiling">
-  <h2>Importer Security Filing</h2>
-  <p>An Importer Security Filing, commonly known as “10+2”, is a filing process that is required by the United States Customs and Border Protection (CPB) which requires import containerized cargo information. The information must be transmitted to the agency at least 24 hours before goods are loaded onboard a vessel to the USA. https://www.cbp.gov/border-security/ports-entry/cargo-security/importer-security-filing-102</p>
-
-  
-  
+    <section id="ImporterSecurityFiling">
+      <h2>Importer Security Filing</h2>
+      <p>An Importer Security Filing, commonly known as “10+2”, is a filing process that is required by the United States Customs and Border Protection (CPB) which requires import containerized cargo information. The information must be transmitted to the agency at least 24 hours before goods are loaded onboard a vessel to the USA. https://www.cbp.gov/border-security/ports-entry/cargo-security/importer-security-filing-102</p>
+      
   <table class="simple">
   <tbody>
 
@@ -4344,10 +5193,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ImporterSecurityFiling",
   "seller": {
     "type": "Entity",
@@ -4461,19 +5307,15 @@
       "entityType": "Organization"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li></ul>
+    </section>
   
 
-  <section id="Inbond">
-  <h2>Inbond</h2>
-  <p></p>
-
-  
-  
+    <section id="Inbond">
+      <h2>Inbond</h2>
+      <p></p>
+      
   <table class="simple">
   <tbody>
 
@@ -4491,10 +5333,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "Inbond"
   ],
@@ -4651,19 +5490,18 @@
     },
     "sku": "493485066776"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#ParcelDelivery'>ParcelDelivery</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#Product'>Product</a></li></ul>
+    </section>
   
 
-  <section id="InspectionReport">
-  <h2>Inspection Report</h2>
-  <p>Series of observations</p>
-
-  
-  
+    <section id="InspectionReport">
+      <h2>Inspection Report</h2>
+      <p>Series of observations</p>
+      
   <table class="simple">
   <tbody>
 
@@ -4681,10 +5519,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "InspectionReport",
   "inspectors": [ 
     {
@@ -4807,19 +5642,15 @@
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="Inspector">
-  <h2>Inspector</h2>
-  <p>Information on the person performing an inspection</p>
-
-  
-  
+    <section id="Inspector">
+      <h2>Inspector</h2>
+      <p>Information on the person performing an inspection</p>
+      
   <table class="simple">
   <tbody>
 
@@ -4837,10 +5668,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Inspector",
   "person": {
     "type": "Person",
@@ -4883,19 +5711,15 @@
       "qualificationValue": "Administrator"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Person'>Person</a></li></ul>
+    </section>
   
 
-  <section id="Instructions">
-  <h2>Instructions</h2>
-  <p>Information of an instructive or teaching nature that tells someone how to manage, manipulate, control, or cope with something.</p>
-
-  
-  
+    <section id="Instructions">
+      <h2>Instructions</h2>
+      <p>Information of an instructive or teaching nature that tells someone how to manage, manipulate, control, or cope with something.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -4913,128 +5737,109 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Instructions",
   "description": "Handle with care"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="IntentToSell">
-  <h2>Intent To Sell</h2>
-  <p>A simple case where an entity (person or organization) wishes to notify some third party that they intend to sell some product, likely into a different geographic region than in originated in.  This is a highly simplified version of an LOI that can be used to identify and declare intent earlier in the process than would be possible otherwise.  This object may be easily subclassed for extension with other data for other cases where additional regulatory data may be required</p>
-
-  
-  
+    <section id="IntentToImport">
+      <h2>Intent To Import</h2>
+      <p>A simple case where an entity (person or organization) wishes to notify some third party that they intend to import some product, likely into a different geographic region than it originated in.  This is a highly simplified version geographic region than in originated in.  This is a highly simplified version of an LOI that can be used to identify and declare intent earlier in the process than would be possible otherwise.  This object may be easily subclassed for extension with other data for other cases where additional regulatory data may be required</p>
+      
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#IntentToSell">https://w3id.org/traceability#IntentToSell</a></td>
+    <td><a href="https://w3id.org/traceability#IntentToImport">https://w3id.org/traceability#IntentToImport</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/IntentToSell.yml">https://w3id.org/traceability/openapi/components/schemas/common/IntentToSell.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/IntentToImport.yml">https://w3id.org/traceability/openapi/components/schemas/common/IntentToImport.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
-  "type": "IntentToSell",
+      <pre class="example">{
+  "type": "IntentToImport",
   "seller": {
-    "type": "Entity",
-    "name": "Berge and Sons",
-    "description": "Persistent clear-thinking matrix",
-    "address": {
-      "type": "PostalAddress",
-      "streetAddress": "947 Lynch Glen",
-      "addressLocality": "Ellisstad",
-      "addressRegion": "California",
-      "postalCode": "09418",
-      "addressCountry": "China"
+    "type": "Organization",
+    "name": "Maxi Acero Mexicano",
+    "description": "Fusion y fabricacion de acero solido",
+    "location": {
+      "type": "Place",
+      "address": {
+        "type": "PostalAddress",
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      }
     },
-    "email": "Anita_Graham54@example.org",
-    "phoneNumber": "+1-555-615-9236",
-    "faxNumber": "+1-555-999-5186",
-    "entityType": "Organization"
+    "email": "info@example.net",
+    "phoneNumber": "555-127-7813"
   },
   "purchaser": {
-    "type": "Entity",
-    "name": "Lueilwitz - Kuvalis",
-    "description": "Persistent dynamic definition",
-    "address": {
-      "type": "PostalAddress",
-      "streetAddress": "68232 Sarah Courts",
-      "addressLocality": "Nicolastown",
-      "addressRegion": "Florida",
-      "postalCode": "48217-0439",
-      "addressCountry": "Mongolia"
-    },
-    "email": "Greg_Swift94@example.net",
-    "phoneNumber": "+1-555-149-2244",
-    "faxNumber": "+1-555-419-4835",
-    "entityType": "Organization"
+    "type": "Organization",
+    "id": "did:web:generic-motor-company.example.com",
+    "location": {
+      "type": "Place",
+        "address": {
+        "type": "PostalAddress",
+        "organizationName": "Generic Motors of America",
+        "streetAddress": "12 Generic Motors Dr",
+        "addressLocality": "Detroit",
+        "addressRegion": "Michigan",
+        "postalCode": "48232-5170",
+        "addressCountry": "USA"
+      }
+    }
   },
   "product": {
     "type": "Product",
     "manufacturer": {
       "type": "Organization",
-      "name": "Murazik Inc",
-      "description": "Horizontal high-level internet solution",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "8331 Halvorson Keys",
-        "addressLocality": "Jamisonberg",
-        "addressRegion": "Iowa",
-        "postalCode": "99310",
-        "addressCountry": "Cameroon"
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusion y fabricacion de acero solido",
+      "location": {
+        "type": "Place",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "Avenida Carlos 100",
+          "addressLocality": "Hernádez de Mara",
+          "addressRegion": "Nuevo Leon",
+          "postalCode": "32200",
+          "addressCountry": "Mexico"
+        }
       },
-      "email": "Pascale_Schmidt95@example.com",
-      "phoneNumber": "555-574-1888",
-      "faxNumber": "555-151-6218"
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
     },
-    "name": "Incredible Wooden Cheese",
-    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-    "sizeOrAmount": {
-      "type": "QuantitativeValue",
-      "unitCode": "hg/ha",
-      "value": "8245"
-    },
+    "description": "UNS S30400 chromium-nickel stainless steel rolls.",
     "weight": {
       "type": "QuantitativeValue",
-      "unitCode": "hg/ha",
-      "value": "5653"
-    },
-    "sku": "52081891843"
+      "unitCode": "lbs",
+      "value": "16500"
+    }
   },
-  "declarationDate": "2020-03-21",
-  "sellByDate": "2021-06-30"
-}
-</pre>
-
- 
-  </section>
+  "declarationDate": "2022-03-21",
+  "sellByDate": "2022-09-30"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Product'>Product</a></li></ul>
+    </section>
   
 
-  <section id="Invoice">
-  <h2>Invoice</h2>
-  <p>A statement of the money due for goods or services; a bill.</p>
-
-  
-  
+    <section id="Invoice">
+      <h2>Invoice</h2>
+      <p>A statement of the money due for goods or services; a bill.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5052,10 +5857,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Invoice",
   "portOfEntry": {
     "type": "Place",
@@ -5206,19 +6008,18 @@
     "price": 9600,
     "priceCurrency": "USD"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="InvoiceRegistrationCredential">
-  <h2>Invoice Registration Credential</h2>
-  <p>Ecommerce Invoice Registration Credential</p>
-
-  
-  
+    <section id="InvoiceRegistrationCredential">
+      <h2>Invoice Registration Credential</h2>
+      <p>Ecommerce Invoice Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5236,10 +6037,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
     "type": "InvoiceRegistrationCredential",
     "invoiceID": "Invoice#490",
     "orderID": [],
@@ -5249,19 +6047,15 @@
       "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
     ],
     "certificateName": "ACME Ecommerce Invoice Registration Certificate"
-  }
-</pre>
-
- 
-  </section>
+  }</pre>
+      
+    </section>
   
 
-  <section id="InvoiceRegistrationEvidenceDocument">
-  <h2>Invoice Registration Evidence Document</h2>
-  <p>Evidence data for a registered eCommerce Invoice</p>
-
-  
-  
+    <section id="InvoiceRegistrationEvidenceDocument">
+      <h2>Invoice Registration Evidence Document</h2>
+      <p>Evidence data for a registered eCommerce Invoice</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5279,10 +6073,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "InvoiceRegistrationEvidenceDocument",
   "identifier": "Invoice#922",
   "description": "Invoice For Eva Oberbrunner for Order#112",
@@ -5386,19 +6177,16 @@
       ]
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Customer'>Customer</a></li>
+<li><a href='#Organization'>Organization</a></li></ul>
+    </section>
   
 
-  <section id="IssuerAgent">
-  <h2>IssuerAgent</h2>
-  <p>IssuerAgent definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls</p>
-
-  
-  
+    <section id="IssuerAgent">
+      <h2>IssuerAgent</h2>
+      <p>IssuerAgent definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5416,10 +6204,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "IssuerAgent",
   "issuerAgentOrg": {
     "type": "Organization",
@@ -5462,19 +6247,16 @@
     "price": 2421,
     "priceCurrency": "AFN"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
+    </section>
   
 
-  <section id="LEIaddress">
-  <h2>LEIaddress</h2>
-  <p>GLEIF LEI Redord Level 1 Schema for LEI Address</p>
-
-  
-  
+    <section id="LEIaddress">
+      <h2>LEIaddress</h2>
+      <p>GLEIF LEI Redord Level 1 Schema for LEI Address</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5492,10 +6274,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "LEIaddress",
   "language": "ru",
   "addressLines": [
@@ -5509,19 +6288,15 @@
   "region": "Cambridgeshire",
   "country": "Faroe Islands",
   "postalCode": "30067-5197"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="LEIauthority">
-  <h2>LEIauthority</h2>
-  <p>GLEIF LEI Redord Level 1 Schema for LEI Authority</p>
-
-  
-  
+    <section id="LEIauthority">
+      <h2>LEIauthority</h2>
+      <p>GLEIF LEI Redord Level 1 Schema for LEI Authority</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5539,27 +6314,20 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "LEIauthority",
   "validationAuthorityID": "RA000004",
   "otherValidationAuthorityID": "I9LWK4HR",
   "validationAuthorityEntityID": "IR6TTVJ948RGX9YQDM4V"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="LEIentity">
-  <h2>LEIentity</h2>
-  <p>GLEIF LEI Redord Level 1 Schema for LEI Entity</p>
-
-  
-  
+    <section id="LEIentity">
+      <h2>LEIentity</h2>
+      <p>GLEIF LEI Redord Level 1 Schema for LEI Entity</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5577,10 +6345,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "LEIentity",
   "legalName": "Dicki Group",
   "legalNameLanguage": "cz",
@@ -5645,19 +6410,17 @@
     "name": "Zemlak - Feest"
   },
   "otherAddresses": []
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#LEIaddress'>LEIaddress</a></li>
+<li><a href='#LEIauthority'>LEIauthority</a></li>
+<li><a href='#Organization'>Organization</a></li></ul>
+    </section>
   
 
-  <section id="LEIevidenceDocument">
-  <h2>LEIevidenceDocument</h2>
-  <p>GLEIF LEI Redord Level 1 Schema</p>
-
-  
-  
+    <section id="LEIevidenceDocument">
+      <h2>LEIevidenceDocument</h2>
+      <p>GLEIF LEI Redord Level 1 Schema</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5675,10 +6438,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "LEIevidenceDocument",
   "lei": "1GS89XTLP3YKEINUGJM9",
   "entity": {
@@ -5767,19 +6527,16 @@
   "bic": [
     "ZNZNLCZTEY"
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#LEIentity'>LEIentity</a></li>
+<li><a href='#LEIregistration'>LEIregistration</a></li></ul>
+    </section>
   
 
-  <section id="LEIregistration">
-  <h2>LEIregistration</h2>
-  <p>GLEIF LEI Redord Level 1 Schema for LEI Registration</p>
-
-  
-  
+    <section id="LEIregistration">
+      <h2>LEIregistration</h2>
+      <p>GLEIF LEI Redord Level 1 Schema for LEI Registration</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5797,10 +6554,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "LEIregistration",
   "initialRegistrationDate": "2020-01-01",
   "lastUpdateDate": "2020-01-01",
@@ -5816,19 +6570,15 @@
       "validationAuthorityEntityID": "622LO2SWTJWOVTZ581RV"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="LegalEntityIdentifierCredential">
-  <h2>LegalEntityIdentifierCredential</h2>
-  <p>GLEIF verifiable Legal Entity Identifier Credential (verifiable leiCode Credential)</p>
-
-  
-  
+    <section id="LegalEntityIdentifierCredential">
+      <h2>LegalEntityIdentifierCredential</h2>
+      <p>GLEIF verifiable Legal Entity Identifier Credential (verifiable leiCode Credential)</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5846,26 +6596,19 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "LegalEntityIdentifierCredential",
   "leiCode": "X1VP3GQ3TP91GVP4F446",
   "certificateName": "US Legal Entity Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="LinkRole">
-  <h2>Link Role</h2>
-  <p>A Role that represents a Web link e.g. as expressed via the 'url' property.</p>
-
-  
-  
+    <section id="LinkRole">
+      <h2>Link Role</h2>
+      <p>A Role that represents a Web link e.g. as expressed via the 'url' property.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5883,26 +6626,19 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "LinkRole",
   "target": "https://example.com/related/link/123",
   "linkRelationship": "alternate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="MasterBillOfLading">
-  <h2>Master Bill Of Lading</h2>
-  <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
-
-  
-  
+    <section id="MasterBillOfLading">
+      <h2>Master Bill Of Lading</h2>
+      <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -5920,10 +6656,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "MasterBillOfLading",
   "billOfLadingNumber": "EX600822199A",
   "bookingNumber": [
@@ -6078,11 +6811,12 @@
   },
   "shippedOnBoardDate": "2022-02-02T09:30:00Z",
   "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#Transport'>Transport</a></li></ul>
+    </section>
   
 
   <section>
@@ -6109,12 +6843,10 @@
   </section>
   
 
-  <section id="MeasuredValue">
-  <h2>Measured Value</h2>
-  <p>The measurement of an Observation.</p>
-
-  
-  
+    <section id="MeasuredValue">
+      <h2>Measured Value</h2>
+      <p>The measurement of an Observation.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6132,28 +6864,21 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "MeasuredValue"
   ],
   "value": "42.757",
   "unitCode": "P1"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="MechanicalProperty">
-  <h2>Mechanical Property</h2>
-  <p>A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.</p>
-
-  
-  
+    <section id="MechanicalProperty">
+      <h2>Mechanical Property</h2>
+      <p>A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6171,29 +6896,22 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "MechanicalProperty"
   ],
   "identifier": "ISO 1352",
   "name": "Torque-controlled fatigue testing",
   "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="MultiModalBillOfLading">
-  <h2>Multi-Modal Bill Of Lading</h2>
-  <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
-
-  
-  
+    <section id="MultiModalBillOfLading">
+      <h2>Multi-Modal Bill Of Lading</h2>
+      <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6211,10 +6929,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "MultiModalBillOfLading",
   "billOfLadingNumber": "EX600822199A",
   "bookingNumber": [
@@ -6369,19 +7084,18 @@
   },
   "shippedOnBoardDate": "2022-02-02T09:30:00Z",
   "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#Transport'>Transport</a></li></ul>
+    </section>
   
 
-  <section id="NaturalGasProduct">
-  <h2>Natural Gas Product</h2>
-  <p>Tombstone information regarding a natural gas product</p>
-
-  
-  
+    <section id="NaturalGasProduct">
+      <h2>Natural Gas Product</h2>
+      <p>Tombstone information regarding a natural gas product</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6399,10 +7113,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "NaturalGasProduct",
   "HSCode": "270900",
   "UWI": "100.12-04-091-05-W5.00",
@@ -6482,19 +7193,16 @@
     },
     "sku": "523162922635"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li>
+<li><a href='#Product'>Product</a></li></ul>
+    </section>
   
 
-  <section id="OGBillOfLading">
-  <h2>Bill of Lading for an Oil and Gas Product</h2>
-  <p>Information on the Inspection and the observations made</p>
-
-  
-  
+    <section id="OGBillOfLading">
+      <h2>Bill of Lading for an Oil and Gas Product</h2>
+      <p>Information on the Inspection and the observations made</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6512,10 +7220,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "OGBillOfLading"
   ],
@@ -6716,19 +7421,16 @@
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#BillOfLading'>BillOfLading</a></li>
+<li><a href='#MeasuredValue'>MeasuredValue</a></li></ul>
+    </section>
   
 
-  <section id="Observation">
-  <h2>Observation</h2>
-  <p>Instances of the class Observation are used to specify observations about an entity at a particular time.</p>
-
-  
-  
+    <section id="Observation">
+      <h2>Observation</h2>
+      <p>Instances of the class Observation are used to specify observations about an entity at a particular time.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6746,10 +7448,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Observation",
   "date": "2019-12-11T03:50:55Z",
   "property": {
@@ -6762,19 +7461,16 @@
     "value": "00.00",
     "unitCode": "UNKNOWN"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#MeasuredProperty'>MeasuredProperty</a></li>
+<li><a href='#MeasuredValue'>MeasuredValue</a></li></ul>
+    </section>
   
 
-  <section id="OrderRegistrationCredential">
-  <h2>Order Registration Credential</h2>
-  <p>Ecommerce Order Registration Credential</p>
-
-  
-  
+    <section id="OrderRegistrationCredential">
+      <h2>Order Registration Credential</h2>
+      <p>Ecommerce Order Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6792,29 +7488,22 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "OrderRegistrationCredential",
   "orderID": "Order#51",
   "productInOrder": [
     "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
   ],
   "certificateName": "ACME Order Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="OrderRegistrationEvidenceDocument">
-  <h2>Order Registration Evidence Document</h2>
-  <p>Evidence data for a registered eCommerce Order</p>
-
-  
-  
+    <section id="OrderRegistrationEvidenceDocument">
+      <h2>Order Registration Evidence Document</h2>
+      <p>Evidence data for a registered eCommerce Order</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6832,10 +7521,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "OrderRegistrationEvidenceDocument",
   "orderNumber": "Order#538",
   "orderDate": "2020-01-07",
@@ -6902,19 +7588,16 @@
       "price": 2
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Customer'>Customer</a></li>
+<li><a href='#Organization'>Organization</a></li></ul>
+    </section>
   
 
-  <section id="OrderedItem">
-  <h2>Order Item Record</h2>
-  <p>Order Item Record based on orderedItem from schema.org</p>
-
-  
-  
+    <section id="OrderedItem">
+      <h2>Order Item Record</h2>
+      <p>Order Item Record based on orderedItem from schema.org</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6932,29 +7615,22 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "OrderedItem",
   "name": "ACME Laptop 3000",
   "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
   "unitPrice": 0,
   "orderQuantity": 4,
   "price": 0
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="Organization">
-  <h2>Organization</h2>
-  <p>An organization such as a corporation, firm, club, etc.</p>
-
-  
-  
+    <section id="Organization">
+      <h2>Organization</h2>
+      <p>An organization such as a corporation, firm, club, etc.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -6972,10 +7648,7 @@
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Organization",
   "name": "Glover - Gleason",
   "legalName": "Glover and Gleason, Llc.",
@@ -7001,25 +7674,24 @@
   "faxNumber": "555-248-4575",
   "taxId": "789-56-123",
   "url": "glover-gleason.example.net"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Brand'>Brand</a></li>
+<li><a href='#ContactPoint'>ContactPoint</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PostalAddress'>PostalAddress</a></li></ul>
+    </section>
   
 
-  <section id="PGAStatusMessage">
-  <h2>PGAStatusMessage</h2>
-  <p>Partner Government Agencies (PGAs) use PGA Status Notification Codes to communicate 
+    <section id="PGAStatusMessage">
+      <h2>PGAStatusMessage</h2>
+      <p>Partner Government Agencies (PGAs) use PGA Status Notification Codes to communicate 
 with ACE on the following CBP documents: Entry Summary Status Notification, 
 Cargo Release Status Notification, Status notification for Stand-alone PE data submission,
 and ACE Cargo Manifest/In-Bond/Entry Status Query. Each Code provides a description 
 from the PGA explaining the current status. For reference, here is a link to the 
 CATAIR document with all approved codes: 
 https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%20PGA%20Status%20Notification%20Codes_13Dec2021_508c.pdf</p>
-
-  
-  
+      
   <table class="simple">
   <tbody>
 
@@ -7037,10 +7709,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PGAStatusMessage",
   "recordNo" : "SO70",
   "entryNo" : "AAA-1234567-8",
@@ -7051,19 +7720,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "validCodeReasonDescription" : "Additional Verification Needed",
   "subReasonCode" : "132",
   "subReasonCodeDescription" : "Documentation Needed"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="Package">
-  <h2>Package</h2>
-  <p>Any self-contained wrapping or container within which goods can be contained, such as a box or a barrel which can be filled, partially filled or empty.</p>
-
-  
-  
+    <section id="Package">
+      <h2>Package</h2>
+      <p>Any self-contained wrapping or container within which goods can be contained, such as a box or a barrel which can be filled, partially filled or empty.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7081,10 +7746,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Package",
   "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
   "perPackageUnitQuantity": 1,
@@ -7110,19 +7772,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "value": "66.96",
     "unitCode": "cbm"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="PackageItem">
-  <h2>Package Item</h2>
-  <p>Ecommerce Package Item</p>
-
-  
-  
+    <section id="PackageItem">
+      <h2>Package Item</h2>
+      <p>Ecommerce Package Item</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7140,10 +7798,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PackageItem",
   "productReceiptID": "https://vc.example.com/?queryID=0xF74adE972a00d1B5C0adB9ecf3a6deBF81BDdc3c0b71c1Cd27BEC833CfF6fbBf",
   "packingListID": "https://vc.example.com/?queryID=0xFDdB6eCedEc650A514Ee7d2d900Af7DeCc2722B2ECaEae72D8eA6B62D00f77c5",
@@ -7151,19 +7806,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "productInOrder": [
     "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="PackageRegistrationCredential">
-  <h2>Package Registration Credential</h2>
-  <p>Ecommerce Package Registration Credential</p>
-
-  
-  
+    <section id="PackageRegistrationCredential">
+      <h2>Package Registration Credential</h2>
+      <p>Ecommerce Package Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7181,10 +7832,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PackageRegistrationCredential",
   "trackingID": "662796962028",
   "packageItems": [
@@ -7201,19 +7849,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     }
   ],
   "certificateName": "ACME Carrier Package Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="PackingList">
-  <h2>Packing List</h2>
-  <p>A seller-prepared commercial document indicating the net and gross weights, dimensions and contents of all shipping pieces (boxes, crates, bundles, etc.) in a shipment. Each packing list should reference the shipment for which is made, and the line item totals should agree with the relevant commercial invoice. A packing list should be made for all shipments consisting of more than one shipping piece for the following reasons - They aid in identifying lost cargo, especially for carrier and insurance claims. - They permit selective inspection by customs authorities, and many government require them for large shipments. - They provide a "map" of the shipment, enabling the buyer to easily unpack and stock the shipped goods. In certain cases it is advisable elaborate the packing list considering the information requested by the importer, especially for customs purposes, as may be the case that the Customs request a "detailed document", for example, in the case of a machine, the identification of each of the parts and components. (source: Olegario Llamazares: Dictionary of International Trade, Key definitions of 2000 trade terms and acronyms).</p>
-
-  
-  
+    <section id="PackingList">
+      <h2>Packing List</h2>
+      <p>A seller-prepared commercial document indicating the net and gross weights, dimensions and contents of all shipping pieces (boxes, crates, bundles, etc.) in a shipment. Each packing list should reference the shipment for which is made, and the line item totals should agree with the relevant commercial invoice. A packing list should be made for all shipments consisting of more than one shipping piece for the following reasons - They aid in identifying lost cargo, especially for carrier and insurance claims. - They permit selective inspection by customs authorities, and many government require them for large shipments. - They provide a "map" of the shipment, enabling the buyer to easily unpack and stock the shipped goods. In certain cases it is advisable elaborate the packing list considering the information requested by the importer, especially for customs purposes, as may be the case that the Customs request a "detailed document", for example, in the case of a machine, the identification of each of the parts and components. (source: Olegario Llamazares: Dictionary of International Trade, Key definitions of 2000 trade terms and acronyms).</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7231,10 +7875,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PackingList",
   "orderNumber": "PO00000329",
   "seller": {
@@ -7408,19 +8049,16 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   },
   "totalNumberOfPackages": 622,
   "totalItemQuantity": 820
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="PackingListItem">
-  <h2>Packing List Item</h2>
-  <p>Ecommerce Packing List Item</p>
-
-  
-  
+    <section id="PackingListItem">
+      <h2>Packing List Item</h2>
+      <p>Ecommerce Packing List Item</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7438,10 +8076,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PackingListItem",
   "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
   "productInOrder": [
@@ -7449,19 +8084,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
     "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="PackingListRegistrationCredential">
-  <h2>Packing List Registration Credential</h2>
-  <p>Ecommerce Packing List Registration Credential</p>
-
-  
-  
+    <section id="PackingListRegistrationCredential">
+      <h2>Packing List Registration Credential</h2>
+      <p>Ecommerce Packing List Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7479,10 +8110,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PackingListRegistrationCredential",
   "packageItems": [
     {
@@ -7494,19 +8122,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     }
   ],
   "certificateName": "ACME Packing List Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ParcelDelivery">
-  <h2>Parcel Delivery</h2>
-  <p>Details on a shipment or delivery.</p>
-
-  
-  
+    <section id="ParcelDelivery">
+      <h2>Parcel Delivery</h2>
+      <p>Details on a shipment or delivery.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7524,10 +8148,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [ "ParcelDelivery" ] ,
   "deliveryAddress": {
     "type": "Place",
@@ -7565,19 +8186,16 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   },
   "deliveryMethod": "Rail freight transport",
   "trackingNumber": "598186458445"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="PartOfOrder">
-  <h2>Part of an Order</h2>
-  <p>Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org</p>
-
-  
-  
+    <section id="PartOfOrder">
+      <h2>Part of an Order</h2>
+      <p>Part of an Order listed in the Evidence data for a registered eCommerce Packing List based on schema.org</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7595,10 +8213,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PartOfOrder",
   "packageQuantity": 540,
   "transportPackages": [
@@ -7630,19 +8245,16 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="Person">
-  <h2>Person</h2>
-  <p>A person</p>
-
-  
-  
+    <section id="Person">
+      <h2>Person</h2>
+      <p>A person</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7660,10 +8272,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Person",
   "firstName": "Amelie",
   "lastName": "Pfeffer",
@@ -7686,19 +8295,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "faxNumber": "555-109-6587"
   },
   "jobTitle": "Legacy Functionality Associate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
   
 
-  <section id="Phytosanitary">
-  <h2>Phytosanitary</h2>
-  <p>Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas, unless it seems like the properties are more universal and should be added to this schema.</p>
-
-  
-  
+    <section id="Phytosanitary">
+      <h2>Phytosanitary</h2>
+      <p>Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas, unless it seems like the properties are more universal and should be added to this schema.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -7716,10 +8321,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Phytosanitary",
   "facility": {
     "type": [
@@ -7785,7 +8387,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   },
   "shipment": {
     "type": [
-      "AgParcelDelivery"
+      "AgricultureParcelDelivery"
     ],
     "deliveryAddress": {
       "type": [
@@ -7873,10 +8475,10 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
       "phoneNumber": "555-895-1661",
       "faxNumber": "555-497-2527"
     },
-    "AgPackage": [
+    "agriculturePackage": [
       {
         "type": [
-          "AgPackage"
+          "AgriculturePackage"
         ]
       }
     ],
@@ -7994,19 +8596,20 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "unitCode": "Percent"
   },
   "signatureDate": "2021-03-12"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgriculturePackage'>AgriculturePackage</a></li>
+<li><a href='#AgricultureParcelDelivery'>AgricultureParcelDelivery</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#Inspector'>Inspector</a></li>
+<li><a href='#MeasuredValue'>MeasuredValue</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="Place">
-  <h2>Place</h2>
-  <p>Entities that have a somewhat fixed, physical location.</p>
-
-  
-  
+    <section id="Place">
+      <h2>Place</h2>
+      <p>Entities that have a somewhat fixed, physical location.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8024,10 +8627,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Place",
   "globalLocationNumber": "7472903507697",
   "geo": {
@@ -8044,20 +8644,18 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "postalCode": "65587",
     "addressCountry": "Cyprus"
   },
-  "unLocode": "DKCPH"
-}
-</pre>
-
- 
-  </section>
+  "unLocode": "DKCPH",
+  "locationName": "Northwest Office"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#GeoCoordinates'>GeoCoordinates</a></li>
+<li><a href='#PostalAddress'>PostalAddress</a></li></ul>
+    </section>
   
 
-  <section id="PostalAddress">
-  <h2>Postal Address</h2>
-  <p>The location at which a particular organization or person may be found or reached.</p>
-
-  
-  
+    <section id="PostalAddress">
+      <h2>Postal Address</h2>
+      <p>The location at which a particular organization or person may be found or reached.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8075,10 +8673,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "PostalAddress",
   "organizationName": "Lebsack Inc",
   "streetAddress": "758 Huel Neck",
@@ -8086,19 +8681,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "addressRegion": "Illinois",
   "postalCode": "38421-3292",
   "addressCountry": "Tonga"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="PriceSpecification">
-  <h2>PriceSpecification</h2>
-  <p>A structured value representing a price or price range.</p>
-
-  
-  
+    <section id="PriceSpecification">
+      <h2>PriceSpecification</h2>
+      <p>A structured value representing a price or price range.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8116,28 +8707,21 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "PriceSpecification"
   ],
   "price": 150000,
   "priceCurrency": "USD"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="Product">
-  <h2>Product</h2>
-  <p>A product</p>
-
-  
-  
+    <section id="Product">
+      <h2>Product</h2>
+      <p>A product</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8155,10 +8739,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Product",
   "manufacturer": {
     "type": "Entity",
@@ -8199,19 +8780,18 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "value": "4890"
   },
   "sku": "712120934258"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="ProductReceiptRegistrationCredential">
-  <h2>Product Receipt Registration Credential</h2>
-  <p>Ecommerce Product Receipt Registration Credential</p>
-
-  
-  
+    <section id="ProductReceiptRegistrationCredential">
+      <h2>Product Receipt Registration Credential</h2>
+      <p>Ecommerce Product Receipt Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8229,10 +8809,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ProductReceiptRegistrationCredential",
   "receiptID": "Receipt#663",
   "packingListID": [
@@ -8248,19 +8825,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
   ],
   "certificateName": "ACME Carrier Product Receipt Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ProductRegistrationCredential">
-  <h2>Product Registration Credential</h2>
-  <p>Ecommerce Product Registration Credential</p>
-
-  
-  
+    <section id="ProductRegistrationCredential">
+      <h2>Product Registration Credential</h2>
+      <p>Ecommerce Product Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8278,27 +8851,20 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ProductRegistrationCredential",
   "productCode": 10,
   "productCodeType": "UPC",
   "certificateName": "ACME Product Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ProductRegistrationEvidenceDocument">
-  <h2>Product Registration Evidence Document</h2>
-  <p>Evidence data for a registered eCommerce Product</p>
-
-  
-  
+    <section id="ProductRegistrationEvidenceDocument">
+      <h2>Product Registration Evidence Document</h2>
+      <p>Evidence data for a registered eCommerce Product</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8316,10 +8882,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ProductRegistrationEvidenceDocument",
   "category": "Specialty Goods",
   "inProductGroupWithID": "Group537",
@@ -8343,19 +8906,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "url": "https://example.com/Intelligent Granite Cheese",
   "isBasedOn": "Generic Frozen Shoes",
   "image": "http://placeimg.com/640/480"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="Purchase">
-  <h2>Purchase</h2>
-  <p>A purchase of a Product</p>
-
-  
-  
+    <section id="Purchase">
+      <h2>Purchase</h2>
+      <p>A purchase of a Product</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8373,10 +8932,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "Purchase"
   ],
@@ -8407,19 +8963,16 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "jobTitle": "Global Marketing Specialist",
     "entityType": "Person"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Invoice'>Invoice</a></li></ul>
+    </section>
   
 
-  <section id="PurchaseOrder">
-  <h2>Purchase Order</h2>
-  <p>A statement issued by a buyer for the sale of products or services to be delivered at a later date</p>
-
-  
-  
+    <section id="PurchaseOrder">
+      <h2>Purchase Order</h2>
+      <p>A statement issued by a buyer for the sale of products or services to be delivered at a later date</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8437,10 +8990,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "PurchaseOrder"
   ],
@@ -8569,19 +9119,18 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "price": 9600,
     "priceCurrency": "USD"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="Qualification">
-  <h2>Qualification</h2>
-  <p>Skills, certifications, etc., required to perform a job properly.</p>
-
-  
-  
+    <section id="Qualification">
+      <h2>Qualification</h2>
+      <p>Skills, certifications, etc., required to perform a job properly.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8599,26 +9148,19 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Qualification",
   "qualificationCategory": "National Directives Engineer",
   "qualificationValue": "Consultant"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="QuantitativeValue">
-  <h2>Quantitative Value</h2>
-  <p>A point value or interval for product characteristics and other purposes</p>
-
-  
-  
+    <section id="QuantitativeValue">
+      <h2>Quantitative Value</h2>
+      <p>A point value or interval for product characteristics and other purposes</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8636,26 +9178,19 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "QuantitativeValue",
   "unitCode": "hg/ha",
   "value": "4121"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="RevocationList2020Status">
-  <h2>RevocationList2020Status</h2>
-  <p>Verifiable Credential credentialStatus Schema for RevocationList2020Status</p>
-
-  
-  
+    <section id="RevocationList2020Status">
+      <h2>RevocationList2020Status</h2>
+      <p>Verifiable Credential credentialStatus Schema for RevocationList2020Status</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8673,26 +9208,19 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
-  "type" : "RevocationList2020Status",
+      <pre class="example">{
+  "type" : ["RevocationList2020Status"],
   "revocationListIndex" : "0",
-  "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/235"
-}
-</pre>
-
- 
-  </section>
+  "revocationListCredential": "https://example.gov/revocation-lists/urn:uuid:3bc24f87-b47b-43a0-b5bf-b9fde7913746"
+}</pre>
+      
+    </section>
   
 
-  <section id="SIMASteelImportLicense">
-  <h2>SIMA Steel Import License</h2>
-  <p>SIMA Steel Import License</p>
-
-  
-  
+    <section id="SIMASteelImportLicense">
+      <h2>SIMA Steel Import License</h2>
+      <p>SIMA Steel Import License</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8710,10 +9238,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "SIMASteelImportLicense", 
   "applicantCompany": {
     "type": "Organization",
@@ -8805,19 +9330,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
       "customsValue": "4450"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
   
 
-  <section id="SIMASteelImportProductSpecifier">
-  <h2>Steel Product</h2>
-  <p>A finished or unfinished manufactured steel product</p>
-
-  
-  
+    <section id="SIMASteelImportProductSpecifier">
+      <h2>Steel Product</h2>
+      <p>A finished or unfinished manufactured steel product</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8835,10 +9356,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "SIMASteelImportProductSpecifier"
   ],
@@ -8858,19 +9376,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     }
   },
   "customsValue": 4450
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#SteelProduct'>SteelProduct</a></li></ul>
+    </section>
   
 
-  <section id="SeaCargoManifest">
-  <h2>Sea Cargo Manifest</h2>
-  <p>The Sea Cargo Manifest is issued by the ocean carrier listing out all cargo that is on board the vessel.</p>
-
-  
-  
+    <section id="SeaCargoManifest">
+      <h2>Sea Cargo Manifest</h2>
+      <p>The Sea Cargo Manifest is issued by the ocean carrier listing out all cargo that is on board the vessel.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -8888,10 +9402,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "SeaCargoManifest",
   "vesselName": "MS Seventh Sea",
   "vesselNumber": "IMO1208812",
@@ -9223,19 +9734,16 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="Seal">
-  <h2>Seal</h2>
-  <p>addresses the seal-related information associated with the shipment equipment. A seal is put on a shipment equipment once it is loaded. This seal is meant to stay on until the shipment equipment reaches its final destination.</p>
-
-  
-  
+    <section id="Seal">
+      <h2>Seal</h2>
+      <p>addresses the seal-related information associated with the shipment equipment. A seal is put on a shipment equipment once it is loaded. This seal is meant to stay on until the shipment equipment reaches its final destination.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -9253,27 +9761,20 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Seal",
   "sealNumber": "PTW-002290109692",
   "sealSource": "SHI",
   "sealType": "BLT"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ServiceCharge">
-  <h2>Service Charge</h2>
-  <p>A charge made for services rendered or assessed, such as freight charges.</p>
-
-  
-  
+    <section id="ServiceCharge">
+      <h2>Service Charge</h2>
+      <p>A charge made for services rendered or assessed, such as freight charges.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -9291,10 +9792,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ServiceCharge",
   "chargeCode": "basicFreight",
   "paymentTerm": "collect",
@@ -9310,19 +9808,15 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "price": 4500,
     "priceCurrency": "USD"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
+    </section>
   
 
-  <section id="ShippingInstructions">
-  <h2>ShippingInstructions</h2>
-  <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
-
-  
-  
+    <section id="ShippingInstructions">
+      <h2>ShippingInstructions</h2>
+      <p>A separately identifiable collection of goods items to be transported or available to be transported from one consignor to one consignee via one or more modes of transport where each consignment is the subject of one single transport contract.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -9340,10 +9834,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ShippingInstructions",
   "billOfLadingNumber": "EX600822199A",
   "bookingNumber": [
@@ -9466,19 +9957,18 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     "priceCurrency": "USD"
   },
   "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#Transport'>Transport</a></li></ul>
+    </section>
   
 
-  <section id="ShippingStop">
-  <h2>Shipping Stop</h2>
-  <p>Shipping Stop definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls</p>
-
-  
-  
+    <section id="ShippingStop">
+      <h2>Shipping Stop</h2>
+      <p>Shipping Stop definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls</p>
+      
   <table class="simple">
   <tbody>
 
@@ -9496,10 +9986,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ShippingStop",
   "shippingStopAddress": {
     "type": "PostalAddress",
@@ -9529,23 +10016,20 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "vesselNumber": "ACMECarrierVessel#770",
   "arrivalDate": "2021-03-09",
   "stopType": "Departure"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="SoftwareBillOfMaterials">
-  <h2>SPDX Software Bill Of Materials</h2>
-  <p>The structure for this Certificate is adapted from
+    <section id="SoftwareBillOfMaterials">
+      <h2>SPDX Software Bill Of Materials</h2>
+      <p>The structure for this Certificate is adapted from
 the Software Package Data Exchange® (SPDX®) specification is a standard format for communicating the components, 
 licenses and copyrights associated with software packages. https://github.com/spdx/spdx-spec
 The specific example used as the basis for this file can be found here: 
 https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p>
-
-  
-  
+      
   <table class="simple">
   <tbody>
 
@@ -9563,10 +10047,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type" : "SoftwareBillOfMaterials",
   "SPDXVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
@@ -9650,19 +10131,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       ]
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="SteelProduct">
-  <h2>Steel Product</h2>
-  <p>A finished or unfinished manufactured steel product</p>
-
-  
-  
+    <section id="SteelProduct">
+      <h2>Steel Product</h2>
+      <p>A finished or unfinished manufactured steel product</p>
+      
   <table class="simple">
   <tbody>
 
@@ -9680,10 +10157,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "SteelProduct",
   "heatNumber": "4761",
   "specification": "ASTM-66272",
@@ -9858,19 +10332,18 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       }
     ]
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
+<li><a href='#InspectionReport'>InspectionReport</a></li>
+<li><a href='#ParcelDelivery'>ParcelDelivery</a></li>
+<li><a href='#Purchase'>Purchase</a></li></ul>
+    </section>
   
 
-  <section id="Template">
-  <h2>Template</h2>
-  <p>A template for rendering schemas for example with JSON Schema Forms.</p>
-
-  
-  
+    <section id="Template">
+      <h2>Template</h2>
+      <p>A template for rendering schemas for example with JSON Schema Forms.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -9888,10 +10361,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "id": "d35f9540-7390-4130-904d-3dfb560cf1d9",
   "industryTags": [
       "E-Commerce",
@@ -10046,19 +10516,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "image": "bill-of-lading-icon.png",
   "created": "2022-04-21T10:00:00.000Z",
   "updated": "2022-04-21T10:00:00.000Z"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
   
 
-  <section id="TraceabilityAPI">
-  <h2>Traceability API</h2>
-  <p>An object which can be listed as a DID `service` to enable discovery for subsequent presentation exchange.</p>
-
-  
-  
+    <section id="TraceabilityAPI">
+      <h2>Traceability API</h2>
+      <p>An object which can be listed as a DID `service` to enable discovery for subsequent presentation exchange.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10076,26 +10542,19 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "id": "did:web:platform.example:organization:123#traceability-api",
   "type": "TraceabilityAPI",
   "serviceEndpoint": "https://platform.example/organization/123"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="TradeLineItem">
-  <h2>Trade Line Item</h2>
-  <p>Line items on trade documents such as Commercial Invoices. A trade line item describes separately identifiable product and packaging characteristics.</p>
-
-  
-  
+    <section id="TradeLineItem">
+      <h2>Trade Line Item</h2>
+      <p>Line items on trade documents such as Commercial Invoices. A trade line item describes separately identifiable product and packaging characteristics.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10113,10 +10572,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "TradeLineItem"
   ],
@@ -10159,19 +10615,18 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     "price": 12000,
     "priceCurrency": "USD"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#Product'>Product</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
   
 
-  <section id="TransferEvent">
-  <h2>Transfer Event</h2>
-  <p>A transfer custody or ownership event, extending the Event schema.</p>
-
-  
-  
+    <section id="TransferEvent">
+      <h2>Transfer Event</h2>
+      <p>A transfer custody or ownership event, extending the Event schema.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10189,10 +10644,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "Event",
     "TransferEvent"
@@ -10349,19 +10801,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     }
   },
   "countryOfDestination": "CAN"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="TransformEvent">
-  <h2>Transform Event</h2>
-  <p>A product transformation event, extending the Event schema.</p>
-
-  
-  
+    <section id="TransformEvent">
+      <h2>Transform Event</h2>
+      <p>A product transformation event, extending the Event schema.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10379,10 +10827,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type":[
     "Event",
     "TransformEvent"
@@ -10594,19 +11039,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     "https://example.com/adf9a0fe-a117-4728-a323-b941b5bcf011",
     "https://example.com/c72a3cb7-3d2f-4d42-b398-2deb6e6ace66"
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="Transport">
-  <h2>Transport</h2>
-  <p>A transport which can be a leg of a journey.</p>
-
-  
-  
+    <section id="Transport">
+      <h2>Transport</h2>
+      <p>A transport which can be a leg of a journey.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10624,10 +11065,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Transport",
   "loadLocation": {
     "type": "Place",
@@ -10640,19 +11078,16 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "modeOfTransport": "Vessel",
   "vesselNumber": "MS Seven Seas",
   "voyageNumber": "Atl-W0425"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="TransportDocument">
-  <h2>Transport Document</h2>
-  <p>A generic type of transport document.</p>
-
-  
-  
+    <section id="TransportDocument">
+      <h2>Transport Document</h2>
+      <p>A generic type of transport document.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10670,25 +11105,18 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "MasterBillOfLading",
   "billOfLadingNumber": "NISC98212802"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="TransportEquipment">
-  <h2>Transport Equipment</h2>
-  <p>A piece of equipment used to hold, protect or secure cargo for transportation purposes.</p>
-
-  
-  
+    <section id="TransportEquipment">
+      <h2>Transport Equipment</h2>
+      <p>A piece of equipment used to hold, protect or secure cargo for transportation purposes.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10706,10 +11134,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "TransportEquipment",
   "equipmentReference": "APZU4812090",
   "ISOEquipmentCode": "40GP",
@@ -10721,19 +11146,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "sealType": "BLT"
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="TransportEvent">
-  <h2>Transport Event</h2>
-  <p>A product transport event, extending the Event schema.</p>
-
-  
-  
+    <section id="TransportEvent">
+      <h2>Transport Event</h2>
+      <p>A product transport event, extending the Event schema.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10751,10 +11172,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type":[
     "Event",
     "TransportEvent"
@@ -10830,19 +11248,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   ],
   "deliveryMethod":"Truck",
   "trackingNumber":"1258"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="USMCACertifier">
-  <h2>USMCA Certifier</h2>
-  <p>USMCA product origin specifier</p>
-
-  
-  
+    <section id="USMCACertifier">
+      <h2>USMCA Certifier</h2>
+      <p>USMCA product origin specifier</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10860,10 +11274,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "USMCACertifier",
   "role": "Exporter",
   "certifierDetails": {
@@ -10882,19 +11293,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     "email": "info@example.net",
     "phoneNumber": "555-127-7813"
   }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li></ul>
+    </section>
   
 
-  <section id="USMCAProductSpecifier">
-  <h2>USMCA Product Specifier</h2>
-  <p>USMCA product origin specifier</p>
-
-  
-  
+    <section id="USMCAProductSpecifier">
+      <h2>USMCA Product Specifier</h2>
+      <p>USMCA product origin specifier</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10912,10 +11319,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "USMCAProductSpecifier",
   "product": {
     "type": [
@@ -10934,19 +11338,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   },
   "originCriterion": "A",
   "countryOfOrigin": "MX"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Product'>Product</a></li></ul>
+    </section>
   
 
-  <section id="UsdaSc6">
-  <h2>USDA Form SC-6</h2>
-  <p>Importer's Exempt Commodity Form (SC-6) to declare the intent to import an agricultural commodity exempt from grade requirements for the commodity.</p>
-
-  
-  
+    <section id="UsdaSc6">
+      <h2>USDA Form SC-6</h2>
+      <p>Importer's Exempt Commodity Form (SC-6) to declare the intent to import an agricultural commodity exempt from grade requirements for the commodity.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -10964,10 +11364,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "UsdaSc6",
   "facility": {
     "type": [
@@ -11038,7 +11435,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   },
   "shipment": {
     "type": [
-      "AgParcelDelivery"
+      "AgricultureParcelDelivery"
     ],
     "deliveryAddress": {
       "type": [
@@ -11126,10 +11523,10 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "phoneNumber": "555-895-1661",
       "faxNumber": "555-497-2527"
     },
-    "AgPackage": [
+    "agriculturePackage": [
       {
         "type": [
-          "AgPackage"
+          "agriculturePackage"
         ]
       }
     ],
@@ -11179,19 +11576,18 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "importerSignatureDate": "2021-02-15",
   "intendedUse": "Processing",
   "intendedUseCert": "Processing"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgricultureParcelDelivery'>AgricultureParcelDelivery</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#Inspector'>Inspector</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="WayBillRegistrationCredential">
-  <h2>WayBill Registration Credential</h2>
-  <p>Ecommerce Way Bill Registration Credential</p>
-
-  
-  
+    <section id="WayBillRegistrationCredential">
+      <h2>WayBill Registration Credential</h2>
+      <p>Ecommerce Way Bill Registration Credential</p>
+      
   <table class="simple">
   <tbody>
 
@@ -11209,10 +11605,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "WayBillRegistrationCredential",
   "wayBillID": "ACMEWayBill#956",
   "carrierName": "Veum LLC",
@@ -11260,19 +11653,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     "https://vc.example.com/?queryID=0x2CE71f6F667e3CBE2fd62710EA40CDb213Fa5AC339Ca04b2ACEbE0CBDF4d6b6D"
   ],
   "certificateName": "ACME Carrier Way Bill Registration Certificate"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#ShippingStop'>ShippingStop</a></li></ul>
+    </section>
   
 
-  <section id="Workflow">
-  <h2>Workflow</h2>
-  <p>A workflow instance and definition.</p>
-
-  
-  
+    <section id="Workflow">
+      <h2>Workflow</h2>
+      <p>A workflow instance and definition.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -11290,10 +11679,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "Workflow",
   "definition": [
     "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
@@ -11301,19 +11687,15 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "instance": [
     "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="ppq203">
-  <h2>PPQ 203 Agricultural Foreign Site Inspection</h2>
-  <p>United States Department of Agriculture Foreign Site Certificate of Inspection and/or Treatment.</p>
-
-  
-  
+    <section id="ppq203">
+      <h2>PPQ 203 Agricultural Foreign Site Inspection</h2>
+      <p>United States Department of Agriculture Foreign Site Certificate of Inspection and/or Treatment.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -11331,10 +11713,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": [
     "ppq203"
   ],
@@ -11380,19 +11759,18 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       }
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Inspector'>Inspector</a></li>
+<li><a href='#ParcelDelivery'>ParcelDelivery</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
-  <section id="ppq587">
-  <h2>PPQ 587 Application</h2>
-  <p>United States Department of Agriculture Animal and Plant Health Inspection Service.  Application for permit to import plants or plant products.</p>
-
-  
-  
+    <section id="ppq587">
+      <h2>PPQ 587 Application</h2>
+      <p>United States Department of Agriculture Animal and Plant Health Inspection Service.  Application for permit to import plants or plant products.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -11410,10 +11788,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "type": "ppq587",
   "facility": {
     "type": [
@@ -11442,7 +11817,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   },
   "shipment": {
     "type": [
-      "AgParcelDelivery"
+      "AgricultureParcelDelivery"
     ],
     "deliveryAddress": {
       "type": [
@@ -11530,10 +11905,10 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "phoneNumber": "555-895-1661",
       "faxNumber": "555-497-2527"
     },
-    "AgPackage": [
+    "agriculturePackage": [
       {
         "type": [
-          "AgPackage"
+          "AgriculturePackage"
         ]
       }
     ],
@@ -11574,11 +11949,11 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   },
   "signatureDate": "2021-02-16",
   "intendedUse": "Fruits and Vegetables"
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgricultureParcelDelivery'>AgricultureParcelDelivery</a></li>
+<li><a href='#Entity'>Entity</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
   
 
   <section>
@@ -11607,13 +11982,11 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
   </section>
   
 
-  <section id="PostmanCollection">
-  <h2>PostmanCollection</h2>
-  <p>A Postman Collection is a group of saved requests.
+    <section id="PostmanCollection">
+      <h2>PostmanCollection</h2>
+      <p>A Postman Collection is a group of saved requests.
 Learn more at [learning.postman.com/docs/getting-started](https://learning.postman.com/docs/getting-started/creating-the-first-collection).</p>
-
-  
-  
+      
   <table class="simple">
   <tbody>
 
@@ -11631,10 +12004,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
   "info": {
     "_postman_id": "2319fa29-4ea8-4739-96ea-bda2b74f92bb",
     "name": "DID Web Discovery",
@@ -11734,19 +12104,15 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
       ]
     }
   ]
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      
+    </section>
   
 
-  <section id="TraceablePresentation">
-  <h2>Traceable Presentation</h2>
-  <p>A JSON-LD Presentation which establishes traceability linkage to a workflow instance and workflow type.</p>
-
-  
-  
+    <section id="TraceablePresentation">
+      <h2>Traceable Presentation</h2>
+      <p>A JSON-LD Presentation which establishes traceability linkage to a workflow instance and workflow type.</p>
+      
   <table class="simple">
   <tbody>
 
@@ -11764,10 +12130,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   </tbody>
   </table>
   
-  
-
-<pre class="example">
-{
+      <pre class="example">{
    "@context":[
       "https://www.w3.org/2018/credentials/v1",
       "https://w3id.org/security/suites/jws-2020/v1",
@@ -11816,11 +12179,9 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
       "challenge":"123",
       "jws":"eyJhbGciOiJFUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Q0J7CcbM19fvfLdBZ44MlndvNACnmb0x1SM0cGnECye_-JC3Of29eroksqsVDTyXGAaQ_gnvcB4cqefK0jLIOg"
    }
-}
-</pre>
-
- 
-  </section>
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Workflow'>Workflow</a></li></ul>
+    </section>
   
     </section>
   

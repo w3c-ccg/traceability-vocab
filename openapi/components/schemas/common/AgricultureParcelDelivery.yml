@@ -1,7 +1,7 @@
 $linkedData:
-  term: AgParcelDelivery
-  '@id': https://w3id.org/traceability#AgParcelDelivery
-title: Ag Parcel Delivery
+  term: AgricultureParcelDelivery
+  '@id': https://w3id.org/traceability#AgricultureParcelDelivery
+title: Agriculture Parcel Delivery
 description: Details on a shipment or delivery.
 type: object
 properties:
@@ -11,10 +11,10 @@ properties:
         items:
           type: string
           enum:
-            - AgParcelDelivery
+            - AgricultureParcelDelivery
       - type: string
         const:
-          - AgParcelDelivery 
+          - AgricultureParcelDelivery 
   deliveryAddress:
     title: Delivery Address
     description: Final destination address to which the shipment is being sent.
@@ -80,15 +80,15 @@ properties:
     $linkedData:
       term: consignee
       '@id': https://schema.org/Organization
-  AgPackage:
+  agriculturePackage:
     title: Packages of items being shipped
     description: Item(s) being shipped.
     type: array
     items:
-      $ref: ./AgPackage.yml
+      $ref: ./AgriculturePackage.yml
     $linkedData:
-      term: AgPackage
-      '@id': https://w3id.org/traceability#AgPackage
+      term: agriculturePackage
+      '@id': https://w3id.org/traceability#AgriculturePackage
   movementPoints:
     title: Shipping Stops
     description: Coordinates and time of each stop, with additional metadata if provided.
@@ -129,7 +129,7 @@ properties:
 additionalProperties: true
 example: |-
   {
-    "type": "AgParcelDelivery",
+    "type": "AgricultureParcelDelivery",
     "deliveryAddress": {
       "type": [
         "PostalAddress"
@@ -216,10 +216,10 @@ example: |-
       "phoneNumber": "555-895-1661",
       "faxNumber": "555-497-2527"
     },
-    "AgPackage": [
+    "agriculturePackage": [
       {
         "type": [
-          "AgPackage"
+          "AgriculturePackage"
         ],
         "packageName": "Avocados, Bulk",
         "grade": "AA",
@@ -234,10 +234,10 @@ example: |-
         "date": "2021-03-14",
         "labelImageUrl": "https://img.example.org/640/480/",
         "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "agProduct": [
+        "agricultureProduct": [
           {
             "type": [
-              "AgProduct"
+              "AgricultureProduct"
             ],
             "upc": "033383401508",
             "plu": "94225",

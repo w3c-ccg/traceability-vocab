@@ -1,0 +1,41 @@
+$linkedData:
+  term: FSMAAbstractKDE
+  '@id': https://w3id.org/traceability#FSMAAbstractKDE
+title: FSMA Abstract KDE
+description: >-
+  "An FSMA abstract KDE (Key Data Element), a key/value pair representing a KDE attached to some
+  CTE (Critical Tracking Event). This schema is designed to meet reporting requirements for the FDA
+  Traceability Rule as specified here:
+  https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FSMAAbstractKDE
+      - type: string
+        const: FSMAAbstractKDE
+  name:
+    title: Name
+    description: The name of the KDE.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/propertyID
+  value:
+    title: Value
+    description: The value of the KDE.
+    type: string
+    $linkedData:
+      term: value
+      '@id': https://schema.org/value
+additionalProperties: false
+example: |-
+  {
+    "type": "FSMAAbstractKDE",
+    "name": "Reference record type and number",
+    "value": "BOL 1324"
+  }

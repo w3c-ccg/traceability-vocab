@@ -1,0 +1,96 @@
+$linkedData:
+  term: FSMATraceabilityLot
+  '@id': https://w3id.org/traceability#FSMATraceabilityLot
+title: FSMA Traceability Lot
+description: >-
+  "Information regarding an FSMA Traceability Lot, a collection of KDEs (Key Data Elements) common
+  to several CTEs (Critical Tracking Events). This schema is designed to meet reporting
+  requirements for the FDA Traceability Rule as specified here:
+  https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FSMATraceabilityLot
+      - type: string
+        const: FSMATraceabilityLot
+  lotCode:
+    title: Lot Code
+    description: The code used to track this traceability lot along the supply chain.
+    type: string
+    $linkedData:
+      term: lotCode
+      '@id': https://www.gs1.org/voc/hasBatchLotNumber
+  lotCodeAssignmentMethod:
+    title: Lot Code Assignment Method
+    description: The method used to determine the code assigned to this traceability lot.
+    type: string
+    $linkedData:
+      term: lotCodeAssignmentMethod
+      '@id': https://schema.org/description
+  lotCodeGeneratorLocation:
+    title: Lot Code Generator Location
+    description: The location of the entity responsible for generating this lot code.
+    $ref: ./Place.yml
+    $linkedData:
+      term: lotCodeGeneratorLocation
+      '@id': https://schema.org/location
+  lotCodeGeneratorPOC:
+    title: Lot Code Generator Point of Contact
+    description: The point of contact for the party responsible for generating this lot code.
+    $ref: ./Entity.yml
+    $linkedData:
+      term: lotCodeGeneratorPOC
+      '@id': https://schema.org/contactPoint
+  lotType:
+    title: Lot Type
+    description: Value should be one of "originated" (i.e. grown), "transformed", or "created" (i.e. created from multiple ingredients NOT on traceability list).
+    type: string
+    $linkedData:
+      term: lotType
+      '@id': https://schema.org/additionalType
+  additionalData:
+    title: Additional Data
+    description: Additional Key Data Elements (KDEs).
+    type: array
+    items:
+      $ref: ./FSMAAbstractKDE.yml
+    $linkedData:
+      term: additionalData
+      '@id': https://w3id.org/traceability#FSMAAbstractKDE
+additionalProperties: false
+example: |-
+  {
+    "type": "FSMATraceabilityLot",
+    "lotCode": "CHE-MIG-TTF1-061321-H37J",
+    "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+    "lotCodeGeneratorLocation": {
+      "type": [
+        "Place"
+      ],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "John's Produce",
+        "streetAddress": "4335 Walsh Underpass",
+        "addressLocality": "Port Mark",
+        "addressRegion": "LA",
+        "postalCode": "67391",
+        "addressCountry": "United States"
+      },
+      "locationName": "John's Tomato Farm #1"
+    },
+    "lotCodeGeneratorPOC": {
+      "type": "Entity",
+      "entityType" : "Person",
+      "name" : "John Davis",
+      "email": "produce@example.com",
+      "phoneNumber": "129-697-0673"
+    },
+    "lotType": "originated"
+  }

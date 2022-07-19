@@ -1,0 +1,129 @@
+$linkedData:
+  term: FSMAProduct
+  '@id': https://w3id.org/traceability#FSMAProduct
+title: FSMA Product
+description: >-
+  "Information regarding an FSMA Product, a collection of KDEs (Key Data Elements) common to several
+  CTEs (Critical Tracking Events). This schema is designed to meet reporting requirements for the
+  FDA Traceability Rule as specified here:
+  https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-proposed-rule-food-traceability"
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FSMAProduct
+      - type: string
+        const: FSMAProduct
+  traceabilityLot:
+    title: Traceability Lot
+    description: The lot of food being tracked.
+    $ref: ./FSMATraceabilityLot.yml
+    $linkedData:
+      term: traceabilityLot
+      '@id': https://w3id.org/traceability#FSMATraceabilityLot
+  quantity:
+    title: Quantity
+    description: The quantity of some unit of measure for this product.
+    type: number
+    $linkedData:
+      term: quantity
+      '@id': https://schema.org/value
+  unit:
+    title: Unit
+    description: The unit of measure used to describe this product.
+    type: string
+    $linkedData:
+      term: unit
+      '@id': https://schema.org/unitText
+  additionalData:
+    title: Additional Data
+    description: Additional Key Data Elements (KDEs).
+    type: array
+    items:
+      $ref: ./FSMAAbstractKDE.yml
+    $linkedData:
+      term: additionalData
+      '@id': https://w3id.org/traceability#FSMAAbstractKDE
+additionalProperties: false
+example: |-
+  {
+    "type": "FSMAProduct",
+    "traceabilityLot": {
+      "type": "FSMATraceabilityLot",
+      "lotCode": "CHE-MIG-TTF1-061321-H37J",
+      "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
+      "lotCodeGeneratorLocation": {
+        "type": [
+          "Place"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "organizationName": "John's Produce",
+          "streetAddress": "4335 Walsh Underpass",
+          "addressLocality": "Port Mark",
+          "addressRegion": "LA",
+          "postalCode": "67391",
+          "addressCountry": "United States"
+        },
+        "locationName": "John's Tomato Farm #1"
+      },
+      "lotCodeGeneratorPOC": {
+        "type": "Entity",
+        "entityType" : "Person",
+        "name" : "John Davis",
+        "email": "produce@example.com",
+        "phoneNumber": "129-697.-673"
+      },
+      "lotType": "originated"
+    },
+    "quantity": 82,
+    "unit": "Boxes",
+    "additionalData": [
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category code",
+        "value": "659351253"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Category name",
+        "value": "Tomatoes"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Brand name",
+        "value": "John's Produce"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Commodity",
+        "value": "Cherry Tomatoes"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Variety",
+        "value": "Mighty Sweet Hybrid"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Product name",
+        "value": "N/A"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging size",
+        "value": "Bulk"
+      },
+      {
+        "type": "FSMAAbstractKDE",
+        "name": "Packaging style",
+        "value": "Field Bins"
+      }
+    ]
+  }

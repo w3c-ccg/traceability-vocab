@@ -134,19 +134,19 @@ properties:
   shipment:
     title: Shipment
     description: Details for a shipment of goods.
-    $ref: ./AgParcelDelivery.yml
+    $ref: ./AgricultureParcelDelivery.yml
     $linkedData:
       term: shipment
-      '@id': https://schema.org/AgParcelDelivery
-  agPackage:
+      '@id': https://schema.org/AgricultureParcelDelivery
+  agriculturePackage:
     title: Agriculture Package
     description: >-
       Package, crate, or other container holding an agricultural product or
       products for inspection.
-    $ref: ./AgPackage.yml
+    $ref: ./AgriculturePackage.yml
     $linkedData:
-      term: agPackage
-      '@id': https://w3id.org/traceability#AgPackage
+      term: agriculturePackage
+      '@id': https://w3id.org/traceability#AgriculturePackage
   applicant:
     title: Applicant
     description: Entity that is applying for the inspection.
@@ -255,7 +255,7 @@ example: |-
     },
     "shipment": {
       "type": [
-        "AgParcelDelivery"
+        "AgricultureParcelDelivery"
       ],
       "deliveryAddress": {
         "type": [
@@ -343,10 +343,10 @@ example: |-
         "phoneNumber": "555-895-1661",
         "faxNumber": "555-497-2527"
       },
-      "AgPackage": [
+      "agriculturePackage": [
         {
           "type": [
-            "AgPackage"
+            "AgriculturePackage"
           ]
         }
       ],

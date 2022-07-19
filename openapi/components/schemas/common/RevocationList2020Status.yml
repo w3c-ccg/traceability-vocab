@@ -10,14 +10,11 @@ required:
   - revocationListCredential
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - RevocationList2020Status
-      - type: string
-        const: RevocationList2020Status
+    type: array
+    items:
+      type: string
+      enum:
+        - RevocationList2020Status
   revocationListIndex:
     title: revocationListIndex
     type: string
@@ -33,7 +30,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type" : "RevocationList2020Status",
+    "type" : ["RevocationList2020Status"],
     "revocationListIndex" : "0",
-    "issue": "https://github.com/w3c-ccg/traceability-vocab/issues/235"
+    "revocationListCredential": "https://example.gov/revocation-lists/urn:uuid:3bc24f87-b47b-43a0-b5bf-b9fde7913746"
   }

@@ -1,6 +1,6 @@
 $linkedData:
-  term: AgInspectionReport
-  '@id': https://w3id.org/traceability#AgInspectionReport
+  term: AgricultureInspectionReport
+  '@id': https://w3id.org/traceability#AgricultureInspectionReport
 title: Agriculture Inspection Report
 description: Information on the Inspection and the observations made
 type: object
@@ -11,10 +11,10 @@ properties:
         items:
           type: string
           enum:
-            - AgInspectionReport
+            - AgricultureInspectionReport
       - type: string
         const:
-          - AgInspectionReport 
+          - AgricultureInspectionReport 
   facility:
     title: Facility
     description: Information on the inspection facility.
@@ -35,7 +35,7 @@ properties:
   shipment:
     title: Shipment
     description: Details for a shipment of goods.
-    $ref: ./AgParcelDelivery.yml
+    $ref: ./AgricultureParcelDelivery.yml
     $linkedData:
       term: shipment
       '@id': https://schema.org/ParcelDelivery
@@ -102,7 +102,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "AgInspectionReport",
+    "type": "AgricultureInspectionReport",
     "facility": {
       "type": [
         "Place"
@@ -172,7 +172,7 @@ example: |-
     },
     "shipment": {
       "type": [
-        "AgParcelDelivery"
+        "AgricultureParcelDelivery"
       ],
       "deliveryAddress": {
         "type": [
@@ -260,10 +260,10 @@ example: |-
         "phoneNumber": "555-895-1661",
         "faxNumber": "555-497-2527"
       },
-      "AgPackage": [
+      "agriculturePackage": [
         {
           "type": [
-            "AgPackage"
+            "AgriculturePackage"
           ]
         }
       ],
