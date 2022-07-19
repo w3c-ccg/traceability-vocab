@@ -14,13 +14,13 @@ properties:
             - FoodGradeInspectionLot
       - type: string
         const: FoodGradeInspectionLot
-  agProduct:
+  agricultureProduct:
     title: Product
     description: The product inspected.
-    $ref: ./AgProduct.yml
+    $ref: ./AgricultureProduct.yml
     $linkedData:
-      term: agProduct
-      '@id': https://w3id.org/traceability#AgProduct
+      term: agricultureProduct
+      '@id': https://w3id.org/traceability#AgricultureProduct
   lotIdentifier:
     title: Lot Identifier
     description: Use to further add to identification of the lot inspected, or to distinguish between lots / sublots for certification purposes (e.g. "Loaded", "Main Lot", "U.S. Fancy", "Film Wrapped").
@@ -99,9 +99,9 @@ additionalProperties: false
 example: |-
   {
     "type": "FoodGradeInspectionLot",
-    "agProduct": {
+    "agricultureProduct": {
       "type": [
-        "AgProduct"
+        "agricultureProduct"
       ],
       "upc": "033383401508",
       "plu": "94225",
