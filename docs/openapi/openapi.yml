@@ -680,7 +680,7 @@ paths:
                 $ref: './components/schemas/common/Instructions.yml'
     
 
-  /schemas/common/IntentToSell.yml:
+  /schemas/common/IntentToImport.yml:
     get:
       tags:
       - common
@@ -689,7 +689,7 @@ paths:
           content:
             application/yml:
               schema:
-                $ref: './components/schemas/common/IntentToSell.yml'
+                $ref: './components/schemas/common/IntentToImport.yml'
     
 
   /schemas/common/Invoice.yml:
@@ -1628,6 +1628,18 @@ paths:
                 $ref: './components/schemas/credentials/DCSATransportDocumentCertificate.yml'
     
 
+  /schemas/credentials/DeMinimisExemptionCertificate.yml:
+    get:
+      tags:
+      - credentials
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './components/schemas/credentials/DeMinimisExemptionCertificate.yml'
+    
+
   /schemas/credentials/EntrySummaryCertificate.yml:
     get:
       tags:
@@ -1782,6 +1794,18 @@ paths:
             application/yml:
               schema:
                 $ref: './components/schemas/credentials/ImporterSecurityFilingCertificate.yml'
+    
+
+  /schemas/credentials/IntentToImportCertificate.yml:
+    get:
+      tags:
+      - credentials
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './components/schemas/credentials/IntentToImportCertificate.yml'
     
 
   /schemas/credentials/MasterBillOfLadingCertificate.yml:
