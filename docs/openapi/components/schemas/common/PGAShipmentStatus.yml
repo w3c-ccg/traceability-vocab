@@ -1,7 +1,7 @@
 $linkedData:
-  term: PGAStatusMessage
-  '@id': https://w3id.org/traceability#PGAStatusMessage
-title: PGAStatusMessage
+  term: PGAShipmentStatus
+  '@id': https://w3id.org/traceability#PGAShipmentStatus
+title: PGA Shipment Status
 description: |-
   Partner Government Agencies (PGAs) use PGA Status Notification Codes to communicate 
   with ACE on the following CBP documents: Entry Summary Status Notification, 
@@ -27,10 +27,10 @@ properties:
         items:
           type: string
           enum:
-            - PGAStatusMessage
+            - PGAShipmentStatus
       - type: string
         const:
-          - PGAStatusMessage
+          - PGAShipmentStatus
   recordNo:
     type: string
     description: Record number that indicates the status, reason, and subreason codes to be referenced.
@@ -88,7 +88,7 @@ properties:
 additionalProperties: true
 example: |-
   {
-    "type": "PGAStatusMessage",
+    "type": "PGAShipmentStatus",
     "recordNo" : "SO70",
     "entryNo" : "AAA-1234567-8",
     "entryLineSequence" : "L1:S1",
