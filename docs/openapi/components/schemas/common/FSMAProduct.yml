@@ -25,13 +25,21 @@ properties:
     $linkedData:
       term: traceabilityLot
       '@id': https://w3id.org/traceability#FSMATraceabilityLot
-  quantityUnitMeasure:
-    title: Quantity and unit of measure
-    description: The quantity and unit measure of this product (e.g. 10 Cartons, or 20 Crates).
-    $ref: ./QuantitativeValue.yml
+  quantity:
+    title: Quantity
+    description: The quantity of some unit of measure for this product.
+    type: number
     $linkedData:
-      term: quantityUnitMeasure
-      '@id': https://schema.org/QuantitativeValue
+      term: quantity
+      '@id': https://schema.org/value
+  unit:
+    title: Unit
+    description: The unit of measure used to describe this product.
+    type: string
+    $linkedData:
+      term: unit
+      '@id': https://schema.org/unitText
+  quantity:
   additionalData:
     title: Additional Data
     description: Additional Key Data Elements (KDEs).
@@ -70,18 +78,13 @@ example: |-
         "type": "Entity",
         "entityType" : "Person",
         "name" : "John Davis",
-        "email": "jdavis@johnsproduce.com",
-        "phoneNumber": "129.697.0673"
+        "email": "produce@example.com",
+        "phoneNumber": "129-697.-673"
       },
       "lotType": "originated"
     },
-    "quantityUnitMeasure": {
-      "type": [
-        "QuantitativeValue"
-      ],
-      "unitCode": "Boxes",
-      "value": "82"
-    },
+    "quantity": 82,
+    "unit": "Boxes",
     "additionalData": [
       {
         "type": "FSMAAbstractKDE",
