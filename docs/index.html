@@ -906,19 +906,19 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Freight Forwarder Consignment Workflow</figcaption>
         </figure>
         <p>
-          The product importer of record issues a Proforma Invoice (1) which is presented to CBP with instance id [instance_1] well ahead of shipping (2). 
+          The product importer of record issues Proforma Invoice (1) and Intent To Import (2) credentials which is presented to CBP (3) with instance id [inst_1] well ahead of shipping. 
         </p>
         <p>
-          CBP verifies the Proforma Invoice (3) from the Importer.
+          CBP verifies the initial import documentation submitted by the Importer (4).
         </p>
         <p>
-          The importer issues the final Commercial Invoice (7) which is presented to the Freight Forwarder (8) also with instance id [instance_1].
+          Upon shipping, the Freight Forwarder issues a House BL (5) which is presented to CBP (6) with a separate instance id [inst_2].
         </p>
         <p>
-          Upon shipping, the Freight Forwarder issues a House BL (4) which is presented (5) with instance id [instance_2]. Passing on the Commercial Invoice (9), the Freight Forwarder joins includes both its own and the Importer’s instance ids [instance_1, instance_2]. 
+          The Importer issues the final Commercial Invoice (8) which is presented to the Freight Forwarder (9) also with instance id [inst_1]. Passing on the Commercial Invoice, the Freight Forwarder includes both its own and the Importer’s instance ids [inst_1, inst_2], indicating to Customs that the workflows are related.
         </p>
         <p>
-          CBP verifies the House BL from the Freight Forwarder (6). Receiving the Commercial Invoice (10), CBP can also join the two graphs, thus knowing that the original Proforma Invoice relates to the Freight Forwarder’s presentations. 
+          Receiving the Commercial Invoice (10), CBP can also join the two graphs, thus knowing that the original Proforma Invoice relates to the Freight Forwarder’s presentations. 
         </p>
       </section>
       <section>
