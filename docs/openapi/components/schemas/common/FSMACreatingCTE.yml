@@ -17,19 +17,19 @@ properties:
             - FSMACreatingCTE
       - type: string
         const: FSMACreatingCTE
-  foodCreated:
-    title: Food Created
+  food:
+    title: Food
     description: The traceability food that was created.
     $ref: ./FSMAProduct.yml
     $linkedData:
-      term: foodCreated
+      term: food
       '@id': https://w3id.org/traceability#FSMAProduct
-  locationCreated:
-    title: Location Created
+  location:
+    title: Location
     description: Where the product was created.
     $ref: ./Place.yml
     $linkedData:
-      term: locationCreated
+      term: location
       '@id': https://schema.org/Place
   dateCompleted:
     title: Date Completed
@@ -51,7 +51,7 @@ additionalProperties: false
 example: |-
   {
     "type": "FSMACreatingCTE",
-    "foodCreated": {
+    "food": {
       "type": "FSMAProduct",
       "traceabilityLot": {
         "type": "FSMATraceabilityLot",
@@ -104,7 +104,7 @@ example: |-
         }
       ]
     },
-    "locationCreated": {
+    "location": {
       "type": [
         "Place"
       ],
