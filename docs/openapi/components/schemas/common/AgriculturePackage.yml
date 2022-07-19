@@ -1,7 +1,7 @@
 $linkedData:
-  term: AgPackage
-  '@id': https://w3id.org/traceability#AgPackage
-title: AgPackage
+  term: AgriculturePackage
+  '@id': https://w3id.org/traceability#AgriculturePackage
+title: Agriculture Package
 description: >-
   A package (container, crate, etc.) which holds agricultural products. The
   contents or the package itself should meet the requirements as specified here:
@@ -14,10 +14,10 @@ properties:
         items:
           type: string
           enum:
-            - AgPackage
+            - AgriculturePackage
       - type: string
         const:
-          - AgPackage 
+          - AgriculturePackage 
   packageName:
     title: Package Name
     description: Name of the items within the package.
@@ -76,27 +76,27 @@ properties:
     $linkedData:
       term: labelImageHash
       '@id': https://w3id.org/traceability#labelImageHash
-  agProduct:
+  agricultureProduct:
     title: Product List
     description: List of agricultural products contained within this package.
     type: array
     items:
-      $ref: ./AgProduct.yml
+      $ref: ./AgricultureProduct.yml
     $linkedData:
-      term: agProduct
+      term: agricultureProduct
       '@id': https://schema.org/ItemList
       '@type': https://schema.org/ItemList
   harvest:
     title: Harvest
     description: Product harvest.
-    $ref: ./AgActivity.yml
+    $ref: ./AgricultureActivity.yml
     $linkedData:
       term: harvest
-      '@id': https://w3id.org/traceability#AgActivity
+      '@id': https://w3id.org/traceability#AgricultureActivity
 additionalProperties: true
 example: |-
   {
-    "type": "AgPackage",
+    "type": "AgriculturePackage",
     "packageName": "Avocados, Bulk",
     "grade": "AA",
     "responsibleParty": {
@@ -110,10 +110,10 @@ example: |-
     "date": "2021-03-14",
     "labelImageUrl": "https://img.example.org/640/480/",
     "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "agProduct": [
+    "agricultureProduct": [
       {
         "type": [
-          "AgProduct"
+          "AgricultureProduct"
         ],
         "upc": "033383401508",
         "plu": "94225",
@@ -156,7 +156,7 @@ example: |-
       },
       {
         "type": [
-          "AgProduct"
+          "AgricultureProduct"
         ],
         "upc": "033383401508",
         "plu": "94225",
