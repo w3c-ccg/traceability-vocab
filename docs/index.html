@@ -528,23 +528,57 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         </dd>
         <dt>URI</dt>
         <dd>An identifier as defined by [[RFC3986]].</dd>
-        <dt>Workflow Definition</dt>
-        <dd>
+      </dl>
+
+      <section>
+        <h3>Extensions to Standard</h3>
+
+        <section>
+          <h4>Verifiable Credential</h4>
+
+          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+
+          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+
+          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+        </section>
+
+        <section>
+          <h4>Verifiable Presentation</h4>
+
+          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+
+          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+
+          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+        </section>
+
+        <section>
+          <h4>Workflow Definition</h4>
           <p>
             The sequence of industrial, administrative, or other processes
             through which a piece of work passes from initiation to completion.
           </p>
+
           <p>
             In the context of this vocabulary, we consider the specifics of
             workflows out of scope. We acknowledge that different use cases may
             have complicated workflows, which may yield many individual
             presentations of credentials.
           </p>
+          
+          <p class="note">
+            There are several systems for workflow definitions. See 
+            <a href="https://www.omg.org/spec/BPMN/2.0/About-BPMN/" target="_blank">BPMN</a>,
+            <a href="https://en.wikipedia.org/wiki/YAWL" target="_blank">YAWL</a>, and/or
+            <a href="https://docs.github.com/en/actions/using-workflows/about-workflows" target="_blank">GitHub Workflows</a>.
+          </p>
 
           <p>
             We enable the grouping of all presentations related to a definition,
             using the convention:
           </p>
+
           <pre class="js">
                 {
                   "@context": [
@@ -558,19 +592,42 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
                     "TraceablePresentation"
                   ],
                   "workflow": {
+                    // This refers to a Workflow Definition
+                    "definition": [
+                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e" 
+                    ],
                     "instance": [
                       "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
                     ],
-                    "definition": [
-                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e" // this refers to a Workflow Definition
-                    ]
                   },
+                  "holder":{
+                    "id":"did:web:sender.example",
+                    "type":"Organization",
+                    "location":{
+                       "type":"Place",
+                       "geo":{
+                          "type":"GeoCoordinates",
+                          "latitude":"68.7083",
+                          "longitude":"4.6377"
+                       },
+                       "address":{
+                          "type":"PostalAddress",
+                          "organizationName":"Ratke - Bergstrom",
+                          "streetAddress":"21851 Ima Heights",
+                          "addressLocality":"O'Connellborough",
+                          "addressRegion":"Missouri",
+                          "postalCode":"65587",
+                          "addressCountry":"Cyprus"
+                       }
+                    }
+                 }
                 }
                 </pre
           >
-        </dd>
-        <dt>Workflow Instance</dt>
-        <dd>
+        </section>
+
+        <section>
+          <h4>Workflow Instance</h4>
           <p>
             Each defined workflow may be executed many times for different sets
             of inputs and among different stakeholders.
@@ -578,6 +635,15 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <p>
             We refer to Workflow Instance's as an execution of a particular
             workflow, which may or may not be formally defined.
+          </p>
+
+          <p class="note">
+            An example of a workflow definition is 
+            <a href="https://www.cbp.gov/trade/programs-administration/entry-summary/ace-process-and-policy">US Customs ACE Entry Summary Process</a>.
+            Where specific instances are used to track cross border imports, it is important to be able to identify specific
+            collections of documents associated with a given import.
+            Workflow instances help achieve this by providing a topic
+            identifier enabling the grouping of related credentials and presentations.
           </p>
 
           <p>
@@ -597,41 +663,38 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
                     "TraceablePresentation"
                   ],
                   "workflow": {
-                    "instance": [
-                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0" // this refers to a Workflow Instance
-                    ],
                     "definition": [
                       "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
+                    ],
+                    // This refers to a Workflow Instance
+                    "instance": [
+                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
                     ]
                   },
+                  "holder":{
+                    "id":"did:web:sender.example",
+                    "type":"Organization",
+                    "location":{
+                       "type":"Place",
+                       "geo":{
+                          "type":"GeoCoordinates",
+                          "latitude":"68.7083",
+                          "longitude":"4.6377"
+                       },
+                       "address":{
+                          "type":"PostalAddress",
+                          "organizationName":"Ratke - Bergstrom",
+                          "streetAddress":"21851 Ima Heights",
+                          "addressLocality":"O'Connellborough",
+                          "addressRegion":"Missouri",
+                          "postalCode":"65587",
+                          "addressCountry":"Cyprus"
+                       }
+                    }
+                 }
                 }
                 </pre
           >
-        </dd>
-      </dl>
-
-
-      <section>
-        <h3>Extensions to Standard</h3>
-
-        <section>
-          <h4>Verifiable Credential</h4>
-
-          <p>The object must conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
-
-          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
-
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
-        </section>
-
-        <section>
-          <h4>Verifiable Presentation</h4>
-
-          <p>The object must conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
-
-          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
-
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
         </section>
       </section>
     </section>
@@ -696,7 +759,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           Steel Inspection Agency issues Mill Test Report Certificate (1) for the Steel Manufacturer, which gets presented (2) and verifies the Mill Test Report (3).
         </p>
         <p>
-          Steel Manufacturer issues a Commercial Invoice (4) as part of a sales transaction. The documents are presented to the customer, Steel Importer (5), which can verify the originality of both documents, respectively tracing the Commercial Invoice back to the Manufacturer (6) and the Mill Test Report back to a trusted steel certifying agent (7). 
+          Steel Manufacturer issues a Commercial Invoice as part of a sales transaction and an Intent To Import to initiate the import (4). The documents are presented to the customer, Steel Importer (5), which can verify the originality of both documents, respectively tracing the Commercial Invoice back to the Manufacturer (6) and the Mill Test Report back to a trusted steel certifying agent (7). 
         </p>
       <h5>SIMA Steel License</h5>
         <figure>
@@ -710,10 +773,10 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           Steel Import Monitoring and Analysis verifies (3) and processes Steel Inc’s application, issues a SIMA Certificate (4) which is presented back to Steel Inc. (5).
         </p>
         <p>
-          At time of import, Steel Inc. issues a Commercial Invoice  of imported metals (6) which is presented to CBP together with the SIMA License (7).
+          At time of import, Steel Inc. issues an Intent To Import and Entry Summary credentials (6) which are presented to CBP together with the SIMA License (7).
         </p>
         <p>
-          CBP Verifies that the SIMA Certificate originates from the SIMA issuer (8) and that the certified organization match the issuer of the Commercial Invoice (9). 
+          CBP Verifies that the SIMA Certificate originates from the SIMA issuer (8) and that the certified organization match the issuer of the import credentials (9). 
         </p>
       <h5>Steel Import Under USMCA Free Trade Agreement</h5>
       <figure>
@@ -721,7 +784,13 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         <figcaption>USMCA Steel Import Workflow</figcaption>
       </figure>
       <p>
-        Steel Importer issues USCMA Certificate (1). Steel Importer presents USCMA Certificate along with a MTR Certificate to Customs (2). Customs verifies the USMCA and cross checks HTS codes with the Mill Test Report (4).            
+        Steel Importer issues USCMA Certificate (1). Initiating the Importing workflow, Steel Importer also issues an Intent To Import (2). 
+      </p>
+      <p>
+        Steel Importer presents the USCMA and Intent To Import certificates along with a MTR Certificate to Customs (3).
+      </p>
+      <p>
+        Customs verifies the USMCA (4), cross checks HTS codes with the Mill Test Report (5) and initiates the import procedures (6). 
       </p>
       <h5>Steel Import Customs Brokerage</h5>
       <figure>
@@ -732,10 +801,12 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         Steel Importer issues Commercial Invoice (1) and Packing List (2) in relation to a shipment of steel. These are presented to the Customs Broker along a SIMA License, a USMCA Declaration, a Mill Test Report and a CTPAT Importer Certificate. 
       </p>
       <p>
-        The Customs Broker issues a 3461 Immediate Delivery certificate (3), and has received the Bill of Lading from the carriers. The full pouch of documents are presented to Customs (4) for verification (5) and import processing. 
+        The Customs Broker issues 3461 Immediate Delivery (3) and Intent To Import certificates (4), and has received the Bill of Lading from the carrier. 
       </p>
-      
-      </section>
+      <p>
+        The full pouch of documents are presented to Customs (5) for verification (6) and import processing.
+      </p>
+    </section>
 
       <section>
         <h5>Food and Agriculture</h5>
@@ -836,6 +907,17 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           inferences, and data quality remediation on Customs pre-entry data.
         </p>
 
+        <h5>De Minimis Shipment</h5>
+        <figure>
+          <img src="resources/de-minimis-shipment.png" alt="De Minimis Shipment Workflow" style="width:100%">
+          <figcaption>De Minimis Shipment Workflow</figcaption>
+        </figure>
+        <p>
+          As part of an international ecommerce sale, the Ecommerce platform issues a De Minimis Shipment credential (1) indicating importing duties exemption. An Intent To Import credential is also issued (2) for initiating the import workflow (3). 
+        </p>
+        <p>
+          Customs verifies both credentials (4) and (5) and allows the shipment direct pass through customs. 
+        </p>
         <h5>Packing and Shipping</h5>
         <figure>
           <img src="resources/shipping-workflow.png" alt="Packing and Shipping Workflow" style="width:100%">
@@ -859,13 +941,13 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Import Procedures Workflow</figcaption>
         </figure>
         <p>
-          Express Carrier issues House Bill of Lading (1) which is presented along with other documents associated to the Packing List (2) to the customs broker.
+          Express Carrier issues House Bill of Lading (1) which is presented along with other documents associated to the Packing List (2) to the Customs Broker. 
         </p>
         <p>
-          The Customs Broker Issues an 3461 Immediate Delivery Certificate (3) which is presented to Customs (4).
+          The Customs Broker Issues 3461 Immediate Delivery (3) and Intent To Import (4) certificates. The documents are submitted to Customs through a Traceable Presentation with a defined workflow instance id “a123-b456” (5).
         </p>
         <p>
-          Customs verifies the full pouch of documents associated with the shipment (5). 
+          Customs verifies the pouch of documents associated with the shipment (6) and initiates importing procedures based on submitted data (7). 
         </p>
         <h5>Import Completion</h5>
         <figure>
@@ -873,7 +955,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Import Procedures Workflow</figcaption>
         </figure>
         <p>
-          The Customs Broker completes the importing procedures by issuing the 7501 Entry Summary (1), presenting it to Customs (2), associating it to the earlier submission by correlating the workflow instance id ("instance_1234").
+          The Customs Broker completes the importing procedures by issuing the 7501 Entry Summary (1), presenting it to Customs (2), associating it to the earlier submission by correlating the workflow instance id ("a123-b456").
         </p>
         <p>
           Customs verifies the Entry Summary (3) and completes the importing assessment. 
@@ -887,7 +969,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           CTPAT runs vetting procedures, issues and presents a CTPAT Certificate (1) which is presented to the Importer (2).
         </p>
         <p>
-          Upon goods importing the Importer issues a 7501 Entry Summary (4) which is presented along with the CTPAT Certificate to CBP (5). 
+          Upon goods importing the Importer issues 7501 Entry Summary (4) and Intent To Import (5) credentials which are presented along with the CTPAT Certificate to CBP (6). 
         </p>
         <h5>Freight Forwarder Consignment</h5>
         <p>
@@ -898,19 +980,19 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Freight Forwarder Consignment Workflow</figcaption>
         </figure>
         <p>
-          The product importer of record issues a Proforma Invoice (1) which is presented to CBP with instance id [instance_1] well ahead of shipping (2). 
+          The product importer of record issues Proforma Invoice (1) and Intent To Import (2) credentials which is presented to CBP (3) with instance id [inst_1] well ahead of shipping. 
         </p>
         <p>
-          CBP verifies the Proforma Invoice (3) from the Importer.
+          CBP verifies the initial import documentation submitted by the Importer (4).
         </p>
         <p>
-          The importer issues the final Commercial Invoice (7) which is presented to the Freight Forwarder (8) also with instance id [instance_1].
+          Upon shipping, the Freight Forwarder issues a House BL (5) which is presented to CBP (6) with a separate instance id [inst_2].
         </p>
         <p>
-          Upon shipping, the Freight Forwarder issues a House BL (4) which is presented (5) with instance id [instance_2]. Passing on the Commercial Invoice (9), the Freight Forwarder joins includes both its own and the Importer’s instance ids [instance_1, instance_2]. 
+          The Importer issues the final Commercial Invoice (8) which is presented to the Freight Forwarder (9) also with instance id [inst_1]. Passing on the Commercial Invoice, the Freight Forwarder includes both its own and the Importer’s instance ids [inst_1, inst_2], indicating to Customs that the workflows are related.
         </p>
         <p>
-          CBP verifies the House BL from the Freight Forwarder (6). Receiving the Commercial Invoice (10), CBP can also join the two graphs, thus knowing that the original Proforma Invoice relates to the Freight Forwarder’s presentations. 
+          Receiving the Commercial Invoice (10), CBP can also join the two graphs, thus knowing that the original Proforma Invoice relates to the Freight Forwarder’s presentations. 
         </p>
       </section>
       <section>

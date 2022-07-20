@@ -1,7 +1,7 @@
 $linkedData:
-  term: AgActivity
-  '@id': https://w3id.org/traceability#AgActivity
-title: Agricultural Activity
+  term: AgricultureActivity
+  '@id': https://w3id.org/traceability#AgricultureActivity
+title: Agriculture Activity
 description: >-
   An activity that takes place on the farm that needs to be recorded, such as
   planting, harvesting, applying fertilizer, etc.
@@ -13,9 +13,9 @@ properties:
         items:
           type: string
           enum:
-            - AgActivity
+            - AgricultureActivity
       - type: string
-        const: AgActivity
+        const: AgricultureActivity
   business:
     title: Business
     description: The business entity performing the activity.
@@ -54,14 +54,14 @@ properties:
     $linkedData:
       term: activityType
       '@id': https://www.schema.org/value
-  agProduct:
+  agricultureProduct:
     title: Product List
     description: Agricultural Product the Activity was performed on if known
     type: array
     items:
-      $ref: ./AgProduct.yml
+      $ref: ./AgricultureProduct.yml
     $linkedData:
-      term: agProduct
+      term: agricultureProduct
       '@id': https://schema.org/ItemList
       '@type': https://schema.org/ItemList
   observation:
@@ -79,7 +79,7 @@ properties:
 additionalProperties: true
 example: |-
   {
-    "type": "AgActivity",
+    "type": "AgricultureActivity",
     "farm": {
       "type": [
         "Person"
@@ -125,10 +125,10 @@ example: |-
     },
     "activityDate": "2020-02-15",
     "activityType": "spray",
-    "agProduct": [
+    "agricultureProduct": [
       {
         "type": [
-          "AgProduct"
+          "AgricultureProduct"
         ],
         "upc": "033383401508",
         "plu": "94225",
@@ -171,7 +171,7 @@ example: |-
       },
       {
         "type": [
-          "AgProduct"
+          "AgricultureProduct"
         ],
         "upc": "033383401508",
         "plu": "94225",
