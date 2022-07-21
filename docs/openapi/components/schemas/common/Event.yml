@@ -55,13 +55,13 @@ properties:
       '@id': https://schema.org/DateTime
   products:
     title: Products
-    description: The products referenced by the event.
+    description: The products referenced by the event in hashlinks.
     type: array
     items:
-      $ref: ./Product.yml
+      type: string
     $linkedData:
       term: products
-      '@id': https://schema.org/Product
+      '@id': https://w3c-ccg.github.io/hashlink/#hl-url-params
 additionalProperties: false
 example: |-
   {
@@ -125,69 +125,6 @@ example: |-
     },
     "eventTime": "2019-12-11T03:50:55Z",
     "products": [
-      {
-        "type": "Product",
-        "manufacturer": {
-          "type": "Organization",
-          "name": "Ferry, Von and Boehm",
-          "description": "Object-based real-time project",
-          "address": {
-            "type": "PostalAddress",
-            "streetAddress": "485 Bayer Drives",
-            "addressLocality": "New Tabithaside",
-            "addressRegion": "Indiana",
-            "postalCode": "80982",
-            "addressCountry": "Barbados"
-          },
-          "email": "Bridget.Yundt96@example.com",
-          "phoneNumber": "555-338-4723",
-          "faxNumber": "555-696-7109"
-        },
-        "name": "Sleek Wooden Bike",
-        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "sizeOrAmount": {
-          "type": "QuantitativeValue",
-          "unitCode": "hg/ha",
-          "value": "1645"
-        },
-        "weight": {
-          "type": "QuantitativeValue",
-          "unitCode": "hg/ha",
-          "value": "3001"
-        },
-        "sku": "781731172154"
-      },
-      {
-        "type": "Product",
-        "manufacturer": {
-          "type": "Organization",
-          "name": "Schaefer - Ward",
-          "description": "Ergonomic hybrid encryption",
-          "address": {
-            "type": "PostalAddress",
-            "streetAddress": "03394 Hattie Plaza",
-            "addressLocality": "Cassieside",
-            "addressRegion": "Wyoming",
-            "postalCode": "80200",
-            "addressCountry": "Cambodia"
-          },
-          "email": "Jaylon70@example.net",
-          "phoneNumber": "555-150-6921",
-          "faxNumber": "555-208-7547"
-        },
-        "name": "Fantastic Plastic Cheese",
-        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "sizeOrAmount": {
-          "type": "QuantitativeValue",
-          "unitCode": "hg/ha",
-          "value": "7322"
-        },
-        "weight": {
-          "type": "QuantitativeValue",
-          "unitCode": "hg/ha",
-          "value": "1748"
-        },
-        "sku": "500038921455"
-      }
+      "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
     ]
   }
