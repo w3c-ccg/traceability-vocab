@@ -1,0 +1,397 @@
+$linkedData:
+  term: EDDSHP
+  '@id': https://w3id.org/traceability#EDDSHP
+title: EDD Shapefile
+description: EDD (Early Detection and Distribution) mapping system shapefile.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EDDSHP
+      - type: string
+        const: EDDSHP
+  meta:
+    title: Metainformation
+    description: The corresponding EDD Shapefile Metainformation.
+    $ref: ./EDDSHPMeta.yml
+    $linkedData:
+      term: meta
+      '@id': https://w3id.org/traceability#EDDSHPMeta
+  reporter:
+    title: Reporter
+    description: Name of the person, agency, group, organization reporting the data.
+    type: string
+    $linkedData:
+      term: reporter
+      '@id': https://schema.org/name
+  scientificName:
+    title: Scientific Name
+    description: Scientific Name of the subject as Genus Species Subspecies/Variety (to greatest specificity known).
+    type: string
+    $linkedData:
+      term: scientificName
+      '@id': http://rs.tdwg.org/dwc/terms/scientificName
+  commonName:
+    title: Common Name
+    description: Common name of the subject of the record.
+    type: string
+    $linkedData:
+      term: commonName
+      '@id': http://rs.tdwg.org/dwc/terms/vernacularName
+  subjectNativity:
+    title: Subject Nativity
+    description: Describes species nativity relative to United States.
+    type: string
+    $linkedData:
+      term: subjectNativity
+      '@id': http://rs.tdwg.org/dwc/terms/establishmentMeans
+  occurrenceStatus:
+    title: Occurrence Status
+    description: Was the subject Detected (0) or Undetected (1).
+    type: string
+    $linkedData:
+      term: occurrenceStatus
+      '@id': https://schema.org/value
+  status:
+    title: Status
+    description: Status of the population at time of recording.
+    type: string
+    $linkedData:
+      term: status
+      '@id': https://schema.org/description
+  observationDate:
+    title: Observation Date
+    description: Date the subject was observed/recorded in the field.
+    type: string
+    $linkedData:
+      term: observationDate
+      '@id': http://rs.tdwg.org/dwc/terms/eventDate
+  dateEntered:
+    title: Date Entered
+    description: Date record is entered into the database.
+    type: string
+    $linkedData:
+      term: dateEntered
+      '@id': http://rs.tdwg.org/dwc/terms/eventDate
+  dateUpdated:
+    title: Date Updated
+    description: Date record information was updated.
+    type: string
+    $linkedData:
+      term: dateUpdated
+      '@id': http://rs.tdwg.org/dwc/terms/eventDate
+  location:
+    title: Location
+    description: County, State, and Country in which the subject was recorded.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: location
+      '@id': https://schema.org/location
+  mapResources:
+    title: Map Resources
+    description: Collection of included or external map resources.
+    type: array
+    items:
+      $ref: ./MapResource.yml
+    $linkedData:
+      term: mapResources
+      '@id': https://w3id.org/traceability#MapResource
+  naDatum:
+    title: NADatum
+    description: North America Datum coordinate system.
+    type: string
+    $linkedData:
+      term: naDatum
+      '@id': http://rs.tdwg.org/dwc/terms/geodeticDatum
+  coordinateUncertainty:
+    title: Coordinate Uncertainty in Meters
+    description: Accuracy of the coordinates in meters.
+    type: number
+    $linkedData:
+      term: coordinateUncertainty
+      '@id': http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters
+  centroidType:
+    title: Centroid Type
+    description: Notes that the coordinates are not exact, but are the center of a type of geographic shape by naming the shape.
+    type: string
+    $linkedData:
+      term: centroidType
+      '@id': https://schema.org/polygon
+  abundance:
+    title: Abundance
+    description: Distribution pattern and amount of plants.
+    type: string
+    $linkedData:
+      term: abundance
+      '@id': https://schema.org/description
+  infestedAreaAcres:
+    title: Infested Area in Acres
+    description: Actual amount of infested area within the gross area.
+    type: number
+    $linkedData:
+      term: infestedAreaAcres
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  grossAreaAcres:
+    title: Gross Area in Acres
+    description: Entire area that was surveyed or contains discontinuous infestations.
+    type: number
+    $linkedData:
+      term: grossAreaAcres
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  percentCover:
+    title: Percent Cover
+    description: Percent cover of invasive species as decimal (e.g. 0.5).
+    type: number
+    $linkedData:
+      term: percentCover
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  density:
+    title: Density
+    description: Range of percent cover or description (low, medium, common, rare, etc.).
+    type: string
+    $linkedData:
+      term: density
+      '@id': http://rs.tdwg.org/dwc/terms/measurementRemarks
+  quantity:
+    title: Quantity
+    description: Exact number of the observed subject or number of biocontrol agents released.
+    type: number
+    $linkedData:
+      term: quantity
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantity
+  quantityUnits:
+    title: Quantity Units
+    description: Unit of measure (individuals, adults, grams, etc.).
+    type: string
+    $linkedData:
+      term: quantityUnits
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantityType
+  approximateQuantity:
+    title: Approximate Quantity
+    description: Approximate or range of subjects observed or biocontrol agents released.
+    type: string
+    $linkedData:
+      term: approximateQuantity
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantity
+  incidence:
+    title: Incidence
+    description: Number of measure for disease occurrence on subject population.
+    type: string
+    $linkedData:
+      term: incidence
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  severity:
+    title: Severity
+    description: Number of measure for disease impact on individual or sampled subject.
+    type: string
+    $linkedData:
+      term: severity
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  managementStatus:
+    title: Management Status
+    description: Stage of management activities on the subject.
+    type: string
+    $linkedData:
+      term: managementStatus
+      '@id': https://schema.org/status
+  habitat:
+    title: Habitat
+    description: Ecosystem where the subject was located.
+    type: string
+    $linkedData:
+      term: habitat
+      '@id': http://rs.tdwg.org/dwc/terms/habitat
+  siteName:
+    title: Site Name
+    description: Specific name of area by organization.
+    type: string
+    $linkedData:
+      term: siteName
+      '@id': http://rs.tdwg.org/dwc/terms/locationID
+  recordBasis:
+    title: Record Basis
+    description: The basis of the occurrence.
+    type: string
+    $linkedData:
+      term: recordBasis
+      '@id': http://rs.tdwg.org/dwc/terms/samplingProtocol
+  surveyor:
+    title: Surveyor
+    description: Name or initials of surveyor other than Reporter.
+    type: string
+    $linkedData:
+      term: surveyor
+      '@id': http://rs.tdwg.org/dwc/terms/recordedBy
+  dateUncertaintyDays:
+    title: Date Uncertainty in Days
+    description: Date Accuracy in Days.
+    type: number
+    $linkedData:
+      term: dateUncertaintyDays
+      '@id': https://schema.org/value
+  visitType:
+    title: Visit Type
+    description: Purpose of visit to area for collected data.
+    type: string
+    $linkedData:
+      term: visitType
+      '@id': https://schema.org/description
+  persistentId:
+    title: Persistent Identifier
+    description: URL link or persistent identifier to source data record.
+    type: string
+    $linkedData:
+      term: persistentId
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceID
+  dateReviewed:
+    title: Date Reviewed
+    description: Date record is reviewed by a person or group for record information accuracy.
+    type: string
+    $linkedData:
+      term: uuid
+      '@id': http://rs.tdwg.org/dwc/terms/dateIdentified
+  reviewer:
+    title: Reviewer
+    description: Name of Reviewer.
+    type: string
+    $linkedData:
+      term: reviewer
+      '@id': http://rs.tdwg.org/dwc/terms/identifiedBy
+  verificationMethod:
+    title: Verification Method
+    description: Reviewer describing verification method for record.
+    type: string
+    $linkedData:
+      term: verificationMethod
+      '@id': http://rs.tdwg.org/dwc/terms/identificationRemarks
+  verified:
+    title: Verified
+    description: Review Status of record.
+    type: string
+    $linkedData:
+      term: verified
+      '@id': http://rs.tdwg.org/dwc/terms/identificationVerificationStatus
+  identificationCredibility:
+    title: Identification Credibility
+    description: Reviewers determination on record information accuracy.
+    type: string
+    $linkedData:
+      term: identificationCredibility
+      '@id': http://rs.tdwg.org/dwc/terms/identificationRemarks
+additionalProperties: false
+example: |-
+  {
+    "type": "EDDSHP",
+    "meta": {
+      "type": "EDDSHP",
+      "recordOwner": "Federal Agency",
+      "shapeType": "Point",
+      "method": "Google Earth",
+      "numberCollected": "4 Beetles",
+      "populationStatus": "Established",
+      "smallestOrganismSampled": {
+        "type": "QuantitativeValue",
+        "unitCode": "cm",
+        "value": "1"
+      },
+      "largestOrganismSampled": {
+        "type": "QuantitativeValue",
+        "unitCode": "cm",
+        "value": "3"
+      },
+      "hostScientificName": "Euphorbia esula",
+      "hostName": "Leafy spurge",
+      "hostPhenology": "Mature",
+      "hostDamage": "26 - 50%",
+      "localOwnership": "Stephen Foster State Park",
+      "museum": "University of Georgia Herbarium",
+      "museumRecord": "1354832",
+      "voucher": "TRUE",
+      "observationId": "Florida Fish and Wildlife Conservation Commission",
+      "collectionTimeMinutes": 30,
+      "originalRecordId": "fp-391d988",
+      "originalReportedName": "leafy spurge",
+      "recordSourceType": "USB",
+      "dataCollectionMethod": "Aerial Survey",
+      "trapType": "8-10 hole clear 32 oz-yeast-sugar solution",
+      "numberTraps": 10,
+      "targetName": "tree",
+      "targetCount": 10,
+      "targetRange": "42135",
+      "phenology": "Flowering",
+      "lifeStatus": "Alive",
+      "sex": "Male",
+      "waterBodyName": "Eramosa River",
+      "waterBodyType": "river",
+      "substrate": "sand",
+      "treatmentArea": {
+        "type": "QuantitativeValue",
+        "unitCode": "ac",
+        "value": "2"
+      },
+      "plantsTreated": 14,
+      "treatmentComments": "Very windy on day of treatment",
+      "reference": "Wunderlin, R.P., and B.F. Hansen. 2002. Atlas of Florida vascular plants (http://www.plantatlas.usf.edu/). University of South Florida, Tampa",
+      "locality": "Located at the East edge of forest near pond",
+      "comments": "Infestation across road from landscaping with many documented invasive species",
+      "publicReviewerComments": "Species name was changed based on flower characteristics"
+    },
+    "reporter": "Florida Fish and Wildlife Conservation Commission",
+    "scientificName": "Albizia julibrissin",
+    "commonName": "mimosa",
+    "subjectNativity": "Introduced",
+    "occurrenceStatus": "Detected",
+    "status": "Treated",
+    "observationDate": "10/17/2009",
+    "dateEntered": "10/17/2009",
+    "dateUpdated": "11/27/2009",
+    "location": {
+      "type": "PostalAddress",
+      "streetAddress": "267 Keira Crescent",
+      "addressLocality": "Lake Jonathonchester",
+      "addressRegion": "Montana",
+      "postalCode": "39948",
+      "addressCountry": "Cape Verde"
+    },
+    "mapResources": [
+      {
+        "type": "MapResource",
+        "resourceType": "External",
+        "external": {
+          "type": "ExternalResource",
+          "uri": "https://img.example.org/102934920857/937/903/",
+          "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+        }
+      }
+    ],
+    "naDatum": "NAD83",
+    "coordinateUncertainty": 5,
+    "centroidType": "HUC 8",
+    "habitat": "Forest",
+    "abundance": "Single Plant",
+    "infestedAreaAcres": 2,
+    "grossAreaAcres": 2,
+    "percentCover": 0.5,
+    "density": "Low",
+    "quantity": 500,
+    "quantityUnits": "adults",
+    "approximateQuantity": "300-600",
+    "incidence": "50 percent",
+    "severity": "17",
+    "managementStatus": "Untreated",
+    "siteName": "GH135",
+    "recordBasis": "Human Observation",
+    "surveyor": "John Smith",
+    "dateUncertaintyDays": 5,
+    "visitType": "Invasive Species Survey",
+    "persistentId": "www.invasiveplants.org/specimen/IP65461",
+    "dateReviewed": "12/17/2009",
+    "reviewer": "Jane Carpenter",
+    "verificationMethod": "Photographs",
+    "verified": "Verified",
+    "identificationCredibility": "Credible"
+  }

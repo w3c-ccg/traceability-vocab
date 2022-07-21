@@ -1,0 +1,37 @@
+$linkedData:
+  term: ExternalResource
+  '@id': https://w3id.org/traceability#ExternalResource
+title: External Resource
+description: Information to access & verify an external resource.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - ExternalResource
+      - type: string
+        const: ExternalResource
+  uri:
+    title: URI
+    description: URI (Universal Resource Identifier) for resource.
+    type: string
+    $linkedData:
+      term: uri
+      '@id': https://schema.org/contentUrl
+  hash:
+    title: Hash
+    description: Hash value for securely identifying resource.
+    type: string
+    $linkedData:
+      term: hash
+      '@id': https://schema.org/sha256
+additionalProperties: false
+example: |-
+  {
+    "type": "ExternalResource",
+    "uri": "https://img.example.org/102934920857/937/903/",
+    "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+  }
