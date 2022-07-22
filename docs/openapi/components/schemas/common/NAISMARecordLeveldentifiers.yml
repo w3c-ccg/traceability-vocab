@@ -1,0 +1,45 @@
+$linkedData:
+  term: NAISMARecordLevelIdentifiers
+  '@id': https://w3id.org/traceability#NAISMARecordLevelIdentifiers
+title: NAISMA Record Level Identifiers
+description: Identifiers for a NAISMA record.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - NAISMARecordLevelIdentifiers
+      - type: string
+        const: NAISMARecordLevelIdentifiers
+  uuid:
+    title: UUID
+    description: A universally unique identifier that can be assigned to each record.
+    type: string
+    $linkedData:
+      term: uuid
+      '@id': https://schema.org/identifier
+  pid:
+    title: Persistent Identifier
+    description: A unique identifier that can be assigned to each record, such as a URL or DOI.
+    type: string
+    $linkedData:
+      term: pid
+      '@id': https://schema.org/identifier
+  catalogNumber:
+    title: Catalog Number
+    description: An ID that records the museum/herbarium catalog number or other collection number.
+    type: string
+    $linkedData:
+      term: catalogNumber
+      '@id': https://schema.org/identifier
+additionalProperties: false
+example: |-
+  {
+    "type": "NAISMARecordLevelIdentifiers",
+    "uuid": "defeaa69-703d-403a-a3cd-69eee650fd8c",
+    "pid": "https://doi.org/10.1109/5.771073",
+    "catalogNumber": "HVD-154356"
+  }

@@ -1,0 +1,89 @@
+$linkedData:
+  term: NAISMAInfestation
+  '@id': https://w3id.org/traceability#NAISMAInfestation
+title: NAISMA Infestation
+description: Details regarding an observed infestation.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - NAISMAInfestation
+      - type: string
+        const: NAISMAInfestation
+  infestedArea:
+    title: Infested Area
+    description: The calculated area containing one invasive species type.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: infestedArea
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  areaSurveyed:
+    title: Area Surveyed
+    description: The entire land area surveyed for an invasive species, whether or not invasive species were found.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: areaSurveyed
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  incidence:
+    title: Incidence
+    description: The proportion (as a percentage) of the host community that is affected by an insect or pathogen, or the proportion of an area that is infested by independent living organisms (e.g., plants, wildlife, etc.).
+    type: number
+    $linkedData:
+      term: incidence
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  severity:
+    title: Severity
+    description: The proportion (percentage) of an individual sample (i.e. one plant, one leaf, one animal, etc.) that is affected by a pathogen.
+    type: number
+    $linkedData:
+      term: severity
+      '@id': http://rs.tdwg.org/dwc/terms/measurementValue
+  severityUnits:
+    title: Severity
+    description: The units for the proportion (percentage) of an individual sample (i.e. one plant, one leaf, one animal, etc.) that is affected by a pathogen.
+    type: string
+    $linkedData:
+      term: severityUnits
+      '@id': https://schema.org/unitText
+  organismQuantity:
+    title: Organism Quantity
+    description: A count of subjects observed, captured, treated, or released (for biological control agents) within the surveyed/infested area.
+    type: number
+    $linkedData:
+      term: organismQuantity
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantity
+  organismQuantityUnits:
+    title: Organism Quantity Units
+    description: A descriptor of what kind of quantity was measured.
+    type: string
+    $linkedData:
+      term: organismQuantityUnits
+      '@id': https://schema.org/unitText
+additionalProperties: false
+example: |-
+  {
+    "type": "NAISMAInfestation",
+    "infestedArea": {
+      "type": [
+        "QuantitativeValue"
+      ],
+      "unitCode": "ha",
+      "value": "1.6"
+    },
+    "areaSurveyed": {
+      "type": [
+        "QuantitativeValue"
+      ],
+      "unitCode": "ha",
+      "value": "17"
+    },
+    "incidence": 20,
+    "severity": 50,
+    "severityUnits": "percent of sampled leaves from one plant",
+    "organismQuantity": 50,
+    "organismQuantityUnits": "Trees"
+  }
