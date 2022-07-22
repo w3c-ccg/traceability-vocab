@@ -127,7 +127,7 @@ const separateSchemas = (schemaList) => {
       <h2>Credentials</h2>
       <p>
         This section lists Verifiable Credential schemas, targeting specific business use cases. These are issued, presented and verified in order to execute business workflows. 
-        Technically, these are all of \"type\": \"VerifiableCredential\". 
+        Technically, these are all of <code>"type": "VerifiableCredential"</code>. 
       </p>      
       ${credentials}
     </section>
