@@ -1,0 +1,44 @@
+$linkedData:
+  term: Claim
+  '@id': https://w3id.org/traceability#Claim
+title: Claim
+description: A claim's subject and value.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - Claim
+      - type: string
+        const: Claim
+  claim:
+    title: Claim
+    description: The subject of a claim.
+    type: string
+    $linkedData:
+      term: claim
+      '@id': https://schema.org/name
+  value:
+    title: Value
+    description: The value of a claim.
+    type: string
+    $linkedData:
+      term: value
+      '@id': https://schema.org/value
+  valueObject:
+    title: Value
+    description: The object value of a claim.
+    type: object
+    $linkedData:
+      term: valueObject
+      '@id': https://schema.org/value
+additionalProperties: false
+example: |-
+  {
+    "type": "Claim",
+    "claim": "ImporterOfRecordNumber",
+    "value": "12-3456789"
+  }

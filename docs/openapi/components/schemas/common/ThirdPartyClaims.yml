@@ -1,0 +1,42 @@
+$linkedData:
+  term: ThirdPartyClaims
+  '@id': https://w3id.org/traceability#ThirdPartyClaims
+title: Third Party Claims
+description: A set of claims made by a third party.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - ThirdPartyClaims
+      - type: string
+        const: ThirdPartyClaims
+  claims:
+    title: Claims
+    description: A list of claims made.
+    type: array
+    items:
+      $ref: ./Claim.yml
+    $linkedData:
+      term: claims
+      '@id': https://w3id.org/traceability#Claim
+additionalProperties: false
+example: |-
+  {
+    "type": "ThirdPartyClaims",
+    "claims": [
+      {
+        "type": "Claim",
+        "claim": "SomeClaimedValue",
+        "value": "0"
+      },
+      {
+        "type": "Claim",
+        "claim": "ImporterOfRecordNumber",
+        "value": "12-3456789"
+      }
+    ]
+  }
