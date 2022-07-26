@@ -1,0 +1,71 @@
+$linkedData:
+  term: PGAShipmentStatusList
+  '@id': https://w3id.org/traceability#PGAShipmentStatusList
+title: PGA Shipment Status
+description: |-
+  Partner Government Agencies (PGAs) use PGA Status Notification Codes to communicate 
+  with ACE on the following CBP documents: Entry Summary Status Notification, 
+  Cargo Release Status Notification, Status notification for Stand-alone PE data submission,
+  and ACE Cargo Manifest/In-Bond/Entry Status Query. Each Code provides a description 
+  from the PGA explaining the current status. For reference, here is a link to the 
+  CATAIR document with all approved codes: 
+  https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%20PGA%20Status%20Notification%20Codes_13Dec2021_508c.pdf
+type: object
+required:
+  - type
+  - recordNo
+  - entryNo
+  - entryLineSequence
+  - statusCode
+  - statusCodeDescription
+  - validCodeReason
+  - validCodeReasonDescription
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - PGAShipmentStatusList
+      - type: string
+        const:
+          - PGAShipmentStatusList  
+  properties:
+    pgaShipmentStatusItems:
+      title: PGA Shipment Status Items
+      description: List of PGA Status Messages pertaining to per-line items
+      type: array
+      items:
+        $ref: ../common/PGAShipmentStatus.yml
+      $linkedData:
+        term: pgaShipmentStatusItems
+        '@id': https://w3id.org/traceability#pgaShipmentStatusItems
+additionalProperties: true
+example: |-
+  {
+    "pgaShipmentStatusItems": [
+      {
+        "type": "PGAShipmentStatus",
+        "recordNo": "SO70",
+        "entryNo": "AAA-1234567-8",
+        "entryLineSequence": "L1:S1",
+        "statusCode": "O2",
+        "statusCodeDescription": "Hold Intact",
+        "validCodeReason": "25",
+        "validCodeReasonDescription": "Additional Verification Needed",
+        "subReasonCode": "132",
+        "subReasonCodeDescription": "Documentation Needed"
+      },
+      {
+        "type": "PGAShipmentStatus",
+        "recordNo": "SO70",
+        "entryNo": "AAA-1234567-8",
+        "entryLineSequence": "L1:S2",
+        "statusCode": "O7",
+        "statusCodeDescription": "May Proceed",
+        "validCodeReason": "23",
+        "validCodeReasonDescription": "Released"
+      }
+    ]
+  }
