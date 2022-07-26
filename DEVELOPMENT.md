@@ -45,7 +45,7 @@ When the `npm i` command is run, it will generate the JSON-LD context from the s
 
 There are several scripts in this repository for compiling trace vocabulary. These scripts can be found in the
 `/packages/traceability-schemas/scripts/` directory from the root of this repository. That directory contains
-`README.md` which describes the specific of each script and what they do.
+`README.md` which describes the specifics of each script and what it does.
 
 The specification is in the `/docs` folder from the root of the repository. The `index.html` file contains the static
 text that can be found in the spec. This document references different sections which can be found in the `/docs/sections`
