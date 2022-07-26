@@ -12,7 +12,7 @@ traceability-vocabulary.
 
 ## openapi-to-context.js
 
-Used to generate the `/docs/contexts/traceability-v1.jsonld` file when running `npm run build`.
+This script is used to generate the `/docs/contexts/traceability-v1.jsonld` file when running `npm run build`.
 
 ## regenerate.js
 
