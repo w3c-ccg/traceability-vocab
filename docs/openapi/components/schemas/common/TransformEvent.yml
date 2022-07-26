@@ -36,33 +36,23 @@ properties:
       term: organization
       '@id': https://w3id.org/traceability#Organization
   products:
-    title: Products
-    description: >-
-      List of product details as outlined in the Product schema
-    type: array
-    items:
-      $ref: ./Product.yml
-    $linkedData:
-      term: product
-      '@id': https://schema.org/Product
-  newProducts:
     title: New products created from the transformation event
-    description: Identifiers for the new products.
+    description: The created products referenced by the event in hashlinks.
     type: array
     items:
       type: string
     $linkedData:
-      term: identifier
-      '@id': https://schema.org/identifier
+      term: products
+      '@id': https://w3c-ccg.github.io/hashlink/#hl-url-params
   consumedProducts:
-    title: New products created from the transformation event
-    description: Identifiers for the new products.
+    title: Old products consumed from the transformation event
+    description: The consumed products referenced by the event in hashlinks.
     type: array
     items:
       type: string
     $linkedData:
-      term: identifier
-      '@id': https://schema.org/identifier
+      term: products
+      '@id': https://w3c-ccg.github.io/hashlink/#hl-url-params
 additionalProperties: false
 example: |-
   {
@@ -103,178 +93,12 @@ example: |-
         ]
       }
     ],
-    "products":[
-      {
-        "productID":"5c93de07-5d94-4357-85cf-aefc9ccbff97",
-        "type": "Product",
-        "manufacturer": {
-          "type": "Person",
-          "firstName": "Lawson",
-          "lastName": "Weber",
-          "email": "Hollie.Lindgren@example.org",
-          "phoneNumber": "555-547-4441",
-          "worksFor": {
-            "type": "Organization",
-            "name": "Zemlak - Wyman",
-            "description": "Progressive fault-tolerant task-force",
-            "address": {
-              "type": "PostalAddress",
-              "streetAddress": "964 Mikayla Viaduct",
-              "addressLocality": "Runolfsdottirburgh",
-              "addressRegion": "Florida",
-              "postalCode": "48442-9522",
-              "addressCountry": "Barbados"
-            },
-            "email": "Reyna_Hamill56@example.com",
-            "phoneNumber": "555-718-9023",
-            "faxNumber": "555-523-8629"
-          },
-          "jobTitle": "District Mobility Planner"
-        },
-        "name": "Handmade Fresh Hat",
-        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "sizeOrAmount": {
-          "type": "QuantitativeValue",
-          "unitCode": "sqm",
-          "value": "47"
-        },
-        "weight": {
-          "type": "QuantitativeValue",
-          "unitCode": "kg",
-          "value": "4890"
-        },
-        "sku": "712120934258"
-      },
-      {
-        "productID":"9d237753-b377-492a-a8c8-a28fe9f3457b",
-        "type": "Product",
-        "manufacturer": {
-          "type": "Person",
-          "firstName": "Lawson",
-          "lastName": "Weber",
-          "email": "Hollie.Lindgren@example.org",
-          "phoneNumber": "555-547-4441",
-          "worksFor": {
-            "type": "Organization",
-            "name": "Zemlak - Wyman",
-            "description": "Progressive fault-tolerant task-force",
-            "address": {
-              "type": "PostalAddress",
-              "streetAddress": "964 Mikayla Viaduct",
-              "addressLocality": "Runolfsdottirburgh",
-              "addressRegion": "Florida",
-              "postalCode": "48442-9522",
-              "addressCountry": "Barbados"
-            },
-            "email": "Reyna_Hamill56@example.com",
-            "phoneNumber": "555-718-9023",
-            "faxNumber": "555-523-8629"
-          },
-          "jobTitle": "District Mobility Planner"
-        },
-        "name": "Handmade Fresh Hat",
-        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "sizeOrAmount": {
-          "type": "QuantitativeValue",
-          "unitCode": "sqm",
-          "value": "47"
-        },
-        "weight": {
-          "type": "QuantitativeValue",
-          "unitCode": "kg",
-          "value": "4890"
-        },
-        "sku": "712120934258"
-      },
-      {
-        "productID":"adf9a0fe-a117-4728-a323-b941b5bcf011",
-        "type": "Product",
-        "manufacturer": {
-          "type": "Person",
-          "firstName": "Lawson",
-          "lastName": "Weber",
-          "email": "Hollie.Lindgren@example.org",
-          "phoneNumber": "555-547-4441",
-          "worksFor": {
-            "type": "Organization",
-            "name": "Zemlak - Wyman",
-            "description": "Progressive fault-tolerant task-force",
-            "address": {
-              "type": "PostalAddress",
-              "streetAddress": "964 Mikayla Viaduct",
-              "addressLocality": "Runolfsdottirburgh",
-              "addressRegion": "Florida",
-              "postalCode": "48442-9522",
-              "addressCountry": "Barbados"
-            },
-            "email": "Reyna_Hamill56@example.com",
-            "phoneNumber": "555-718-9023",
-            "faxNumber": "555-523-8629"
-          },
-          "jobTitle": "District Mobility Planner"
-        },
-        "name": "Handmade Fresh Hat",
-        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "sizeOrAmount": {
-          "type": "QuantitativeValue",
-          "unitCode": "sqm",
-          "value": "47"
-        },
-        "weight": {
-          "type": "QuantitativeValue",
-          "unitCode": "kg",
-          "value": "4890"
-        },
-        "sku": "712120934258"
-      },
-      {
-        "productID":"c72a3cb7-3d2f-4d42-b398-2deb6e6ace66",
-        "type": "Product",
-        "manufacturer": {
-          "type": "Person",
-          "firstName": "Lawson",
-          "lastName": "Weber",
-          "email": "Hollie.Lindgren@example.org",
-          "phoneNumber": "555-547-4441",
-          "worksFor": {
-            "type": "Organization",
-            "name": "Zemlak - Wyman",
-            "description": "Progressive fault-tolerant task-force",
-            "address": {
-              "type": "PostalAddress",
-              "streetAddress": "964 Mikayla Viaduct",
-              "addressLocality": "Runolfsdottirburgh",
-              "addressRegion": "Florida",
-              "postalCode": "48442-9522",
-              "addressCountry": "Barbados"
-            },
-            "email": "Reyna_Hamill56@example.com",
-            "phoneNumber": "555-718-9023",
-            "faxNumber": "555-523-8629"
-          },
-          "jobTitle": "District Mobility Planner"
-        },
-        "name": "Handmade Fresh Hat",
-        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "sizeOrAmount": {
-          "type": "QuantitativeValue",
-          "unitCode": "sqm",
-          "value": "47"
-        },
-        "weight": {
-          "type": "QuantitativeValue",
-          "unitCode": "kg",
-          "value": "4890"
-        },
-        "sku": "712120934258"
-      }
-    ],
     "newProducts":[
-      "https://example.com/5c93de07-5d94-4357-85cf-aefc9ccbff97"
+      "http://example.org/products/429d2c3b-73d3-429d-9bd0-91db17c1e2ec?hl=t10H2RwsspADWwmbwR2xCISYwBEJ49MoTi3heucZrKs="
     ],
     "consumedProducts":[
-      "https://example.com/9d237753-b377-492a-a8c8-a28fe9f3457b",
-      "https://example.com/adf9a0fe-a117-4728-a323-b941b5bcf011",
-      "https://example.com/c72a3cb7-3d2f-4d42-b398-2deb6e6ace66"
+      "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk=",
+      "http://example.org/products/0f67ab5c-1a78-4744-8392-19c21ad0f6c7?hl=EK1bNv2VcnbjBlHe1v+JnZ1cBgI8jfVuS6jh1+hTH1A=",
+      "http://example.org/products/2c748483-cdde-49ec-826b-8b7c00584568?hl=yibnswLb+ROwnWWq0MJd5StoFe97iihzGpusGgwIex0="
     ]
   }
