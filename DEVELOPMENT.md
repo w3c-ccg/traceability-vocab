@@ -33,7 +33,7 @@ equivalent signed form of a document. These credentials can be found in the `/do
 directory, starting from the root of this repository.
 
 To enable standard re-usable parts for defining RDF classes in credentials, we have a `common` folder located at
-`/docs/openapi/components/schemas/common/` to store these classes. As a comparison to React think of `credentials` as
+`/docs/openapi/components/schemas/common/` in which we store these classes. As a comparison to React, think of `credentials` as
 top-level pages, and think of `common` as the components that make up these pages.
 
 Presentations are a way to exchange credentials between parties. Presentations can have a specific schema or structure
