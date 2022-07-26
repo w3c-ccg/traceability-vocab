@@ -70,7 +70,7 @@ These tests can be run in the local developer environment by running `npm test` 
 of the repository. This will run the tests located in the `/packages/traceability-schemas/__tests__/`
 folder.
 
-Common errors for not passing these tests include:
+Common errors when not passing these tests include:
 
 1. Malformed incorrect yml indentation
 2. Incorrect OpenAPI yml syntax
