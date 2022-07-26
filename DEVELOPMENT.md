@@ -8,7 +8,7 @@
 6. Generating Proofs
 
 The purpose of this document is to describe to developers how to navigate this repository
-in order make meaningful contributions to this product.
+in order to make meaningful contributions to this product.
 
 ## Getting Started
 
