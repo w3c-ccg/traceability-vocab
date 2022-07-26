@@ -91,6 +91,6 @@ The scripts which produce this document are described as follows.
 ## Generating Proofs
 
 New credentials can be added to the vocabulary by adding a new file inside `/docs/openapi/components/schemas/credentials/`
-with an issuer `did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn`. From there you can goto the
+with issuer `did:key:z6MktiSzqF9kqwdU8VkdBKx56EYzXfpgnNPUAGznpicNiWfn`. From there you can go to the
 `/packages/traceability-schemas/scripts/` directory and run `node regenerate.js`. This will generate a proof for credentials
-without a proof or otherwise fail to validate because of a broken proof.
+without a proof, or fail to validate because of a broken proof.
