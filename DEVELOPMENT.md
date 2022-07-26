@@ -84,9 +84,9 @@ After a pull request is merged, the Continuous Delivery (CD) script will create 
 which is deployed to [https://w3c-ccg.github.io/traceability-vocab/](https://w3c-ccg.github.io/traceability-vocab/).
 The scripts which produce this document are described as follows.
 
-1. `schemas-to-openapi.js` builds the yml file for the [Open API Spec](https://w3c-ccg.github.io/traceability-vocab/openapi/)
-2. `openapi-to-context.js` builds the JSON-LD context from the Open API spec which is written to `/docs/contexts/traceability-v1.jsonld`
-3. `schemas-to-vocab.js` builds the html files for the schemas which are referenced from `/docs/index.html` in the spec
+1. `schemas-to-openapi.js` builds the YAML (`.yml`) file for the [OpenAPI Spec](https://w3c-ccg.github.io/traceability-vocab/openapi/)
+2. `openapi-to-context.js` builds the JSON-LD context from the OpenAPI spec which is written to `/docs/contexts/traceability-v1.jsonld`
+3. `schemas-to-vocab.js` builds the HTML (`.html`) files for the schemas which are referenced from `/docs/index.html` in the spec
 
 ## Generating Proofs
 
