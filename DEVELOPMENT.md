@@ -61,7 +61,7 @@ for defining a consistent style with respect to schemas. They are described as f
 3. `type` properties should be declared as an array for simplification
 4. An attempt should be made to use existing `common` types before declaring new ones
 5. RDF classes should not be declared with any undefined terms
-6. Example JSON files must include _all_ or the properties defined in the JSON schema
+6. Example JSON files must include _all_ of the properties defined in the JSON schema
 
 ## Continuous Integreation
 
