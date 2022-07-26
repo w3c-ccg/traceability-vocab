@@ -29,7 +29,7 @@ npx serve ./docs
 ## Directory Structure
 
 The primary focus of this repository is to define schemas which describe Verifiable Credentials which act as a digitally
-equavalent signed form of a document. These credentials can be found in the `/docs/openapi/components/schemas/credentials/`
+equivalent signed form of a document. These credentials can be found in the `/docs/openapi/components/schemas/credentials/`
 directory from the root of this repository.
 
 In order to use standard re-usable parts for defining RDF classes in credentials, we have a `common` folder located at
