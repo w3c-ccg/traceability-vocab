@@ -40,14 +40,13 @@ properties:
       '@id': https://w3id.org/traceability#Organization
   products:
     title: Products
-    description: >-
-      List of product details as outlined in the Product schema
+    description: The products referenced by the event in hashlinks.
     type: array
     items:
-      $ref: ./Product.yml
+      type: string
     $linkedData:
-      term: product
-      '@id': https://schema.org/Product
+      term: products
+      '@id': https://w3c-ccg.github.io/hashlink/#hl-url-params
 additionalProperties: false
 example: |-
   {
@@ -90,39 +89,6 @@ example: |-
       }
     ],
     "products":[
-      {
-        "id":"752f9fef-a028-415c-b17b-33a7aafda835",
-        "name":"Carbon and alloy long product",
-        "type":[
-          "Product"
-        ],
-        "width":{
-          "type":[
-            "MeasuredValue"
-          ],
-          "value":"1220",
-          "unitCode":"CM"
-        },
-        "length":{
-          "type":[
-            "MeasuredValue"
-          ],
-          "value":"654460",
-          "unitCode":"CM"
-        },
-        "weight":{
-          "type":[
-            "MeasuredValue"
-          ],
-          "value":"11013",
-          "unitCode":"KG"
-        },
-        "manufacturer":{
-          "name":"Steel Co.",
-          "type":[
-            "Organization"
-          ]
-        }
-      }
+      "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
     ]
   }

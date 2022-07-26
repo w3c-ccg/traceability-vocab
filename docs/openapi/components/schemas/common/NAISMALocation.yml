@@ -1,0 +1,110 @@
+$linkedData:
+  term: NAISMALocation
+  '@id': https://w3id.org/traceability#NAISMALocation
+title: NAISMA Location
+description: Details regarding the location of an occurrence.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - NAISMALocation
+      - type: string
+        const: NAISMALocation
+  location:
+    title: Location
+    description: The core location information for the occurrence.
+    $ref: ./Place.yml
+    $linkedData:
+      term: location
+      '@id': https://w3id.org/traceability#Place
+  description:
+    title: Description
+    description: A text based description of the place of the occurrence.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  datum:
+    title: Datum
+    description: The geodetic data system that the coordinates are based on.
+    type: string
+    $linkedData:
+      term: datum
+      '@id': http://rs.tdwg.org/dwc/terms/geodeticDatum
+  wellKnownText:
+    title: Well-Known Text
+    description: A text representation of the exact geographic shape fo the infestation.
+    type: string
+    $linkedData:
+      term: wellKnownText
+      '@id': http://rs.tdwg.org/dwc/terms/footprintWKT
+  centroidType:
+    title: Centroid Type
+    description: A descriptor for records with non-point spatial information.
+    type: string
+    $linkedData:
+      term: centroidType
+      '@id': https://schema.org/polygon
+  dataType:
+    title: Data Type
+    description: The nature of the geographic mapped shape of the infestation (not the same as Area Surveyed).
+    type: string
+    enum:
+      - Point
+      - Polyline
+      - Polygon
+    $linkedData:
+      term: dataType
+      '@id': https://schema.org/additionalType
+  coordinateUncertainty:
+    title: Coordinate Uncertainty
+    description: The variability of a pair of latitude and longitude values, in meters.
+    type: string
+    $linkedData:
+      term: coordinateUncertainty
+      '@id': http://rs.tdwg.org/dwc/terms/coordinateUncertaintyInMeters
+  sourceOfLocation:
+    title: Source of Location
+    description: How the Latitude and Longitude coordinates of the observation were determined.
+    type: string
+    $linkedData:
+      term: sourceOfLocation
+      '@id': http://rs.tdwg.org/dwc/terms/georeferenceProtocol
+  ecosystem:
+    title: Ecosystem
+    description: A descriptive term for the environment where the subject was observed.
+    type: string
+    $linkedData:
+      term: ecosystem
+      '@id': http://rs.tdwg.org/dwc/terms/locationRemarks
+additionalProperties: false
+example: |-
+  {
+    "type": "NAISMALocation",
+    "location": {
+      "type": "Place",
+      "geo": {
+        "type": "GeoCoordinates",
+        "latitude": "-23.25979250428427",
+        "longitude": "-58.36431415044023"
+      },
+      "address": {
+        "type": ["PostalAddress"],
+        "addressLocality": "West Gerhardview",
+        "addressRegion": "North Carolina",
+        "addressCountry": "United States"
+      }
+    },
+    "description": "Dock on east side of Gerhardview River",
+    "datum": "WGS84",
+    "wellKnownText": "POINT (-84.306466 32.565250)",
+    "centroidType": "HUC12",
+    "dataType": "Polyline",
+    "coordinateUncertainty": 10,
+    "sourceOfLocation": "Ground Survey, Smartphone GPS",
+    "ecosystem": "Conifer Forest"
+  }

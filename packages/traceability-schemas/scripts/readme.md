@@ -5,22 +5,14 @@ traceability-vocabulary.
 
 ### Table of Contents
 
-1. create-future-vc.js
-2. openapi-to-context.js
-3. regenerate.js
-4. schemas-to-openapi.js
-5. schemas-to-vocab.js
-
-## create-future-vc.js
-
-This script is used to sign a new credential to be added into the `credentials` directory. For schemas
-that are defined as a Veriable Credential with an `issuer`, `credentialSubject` and `proof`.
-
-**Note:** This script has been effectively replaced with `regenerate.js`
+1. openapi-to-context.js
+2. regenerate.js
+3. schemas-to-openapi.js
+4. schemas-to-vocab.js
 
 ## openapi-to-context.js
 
-Used to generate the `/docs/contexts/traceability-v1.jsonld` file when running `npm run build`. 
+This script is used to generate the `/docs/contexts/traceability-v1.jsonld` file when running `npm run build`.
 
 ## regenerate.js
 
@@ -34,7 +26,7 @@ node regenerate.js
 
 ## schemas-to-openapi.js
 
-This script is used to generate the `/docs/openapi/openapi.yml` file when running `npm run build`. 
+This script is used to generate the `/docs/openapi/openapi.yml` file when running `npm run build`.
 
 ## schemas-to-vocab.js
 

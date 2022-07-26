@@ -1,0 +1,346 @@
+$linkedData:
+  term: EDDSHPMeta
+  '@id': https://w3id.org/traceability#EDDSHPMeta
+title: EDD Shapefile Metainformation
+description: EDD (Early Detection and Distribution) mapping system shapefile metainformation.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EDDSHPMeta
+      - type: string
+        const: EDDSHPMeta
+  recordOwner:
+    title: Record Owner
+    description: If known, the owner of the data.
+    type: string
+    $linkedData:
+      term: recordOwner
+      '@id': https://schema.org/name
+  shapeType:
+    title: Shape Type
+    description: Description of geographical shape of documented subject.
+    type: string
+    $linkedData:
+      term: shapeType
+      '@id': https://schema.org/description
+  method:
+    title: Method
+    description: Method of documenting coordinates.
+    type: string
+    $linkedData:
+      term: method
+      '@id': http://rs.tdwg.org/dwc/terms/locationRemarks
+  numberCollected:
+    title: Number Collected
+    description: Number and/or description of species collected.
+    type: string
+    $linkedData:
+      term: numberCollected
+      '@id': http://rs.tdwg.org/dwc/terms/measurementRemarks
+  populationStatus:
+    title: Population Status
+    description: The establishment history of the population documented.
+    type: string
+    $linkedData:
+      term: populationStatus
+      '@id': http://rs.tdwg.org/dwc/terms/degreeOfEstablishment
+  smallestOrganismSampled:
+    title: Smallest Organism Observed
+    description: Size of smallest subject observed.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: smallestOrganismSampled
+      '@id': https://schema.org/size
+  largestOrganismSampled:
+    title: Largest Organism Observed
+    description: Size of largest subject observed.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: largestOrganismSampled
+      '@id': https://schema.org/size
+  hostScientificName:
+    title: Host Scientific Name
+    description: Scientific Name of host as Genus Species Subspecies/Variety (to greatest specificity known).
+    type: string
+    $linkedData:
+      term: hostScientificName
+      '@id': http://rs.tdwg.org/dwc/terms/scientificName
+  hostName:
+    title: Host Name
+    description: Common or imprecise name of host.
+    type: string
+    $linkedData:
+      term: hostName
+      '@id': http://rs.tdwg.org/dwc/terms/vernacularName
+  hostPhenology:
+    title: Host Phenology
+    description: Describes the life stage of the host.
+    type: string
+    $linkedData:
+      term: hostPhenology
+      '@id': http://rs.tdwg.org/dwc/terms/lifeStage
+  hostDamage:
+    title: Host Damage
+    description: Describes the damage done to the host by subject.
+    type: string
+    $linkedData:
+      term: hostDamage
+      '@id': https://schema.org/description
+  localOwnership:
+    title: Local Ownership
+    description: State, regional, or local land ownership.
+    type: string
+    $linkedData:
+      term: localOwnership
+      '@id': http://rs.tdwg.org/dwc/terms/locality
+  museum:
+    title: Museum
+    description: Name of Herbarium or Museum Voucher Location.
+    type: string
+    $linkedData:
+      term: museum
+      '@id': https://schema.org/name
+  museumRecord:
+    title: Museum Record
+    description: Code associated with the record at Herbarium or Museum.
+    type: string
+    $linkedData:
+      term: museumRecord
+      '@id': http://rs.tdwg.org/dwc/terms/catalogNumber
+  voucher:
+    title: Voucher
+    description: Was a herbarium or museum specimen was made (true = 1) or not made (false = 0).
+    type: string
+    $linkedData:
+      term: voucher
+      '@id': http://rs.tdwg.org/dwc/terms/disposition
+  observationId:
+    title: Observation Identifier
+    description: Person or group who identified subject at time of observation.
+    type: string
+    $linkedData:
+      term: observationId
+      '@id': http://rs.tdwg.org/dwc/terms/identifiedBy
+  collectionTimeMinutes:
+    title: Collection Time in Minutes
+    description: Time in Minutes to collect sample/observe/survey.
+    type: string
+    $linkedData:
+      term: collectionTimeMinutes
+      '@id': https://schema.org/activityDuration
+  originalRecordId:
+    title: Original Record ID
+    description: Organizational number or identifier for record in their data set.
+    type: string
+    $linkedData:
+      term: originalRecordId
+      '@id': http://rs.tdwg.org/dwc/terms/recordNumber
+  originalReportedName:
+    title: Original Reported Name
+    description: Original name subject was reported as.
+    type: string
+    $linkedData:
+      term: originalReportedName
+      '@id': http://rs.tdwg.org/dwc/terms/verbatimIdentification
+  recordSourceType:
+    title: Record Source Type
+    description: Technological source of the record.
+    type: string
+    $linkedData:
+      term: recordSourceType
+      '@id': http://rs.tdwg.org/dwc/terms/measurementRemarks
+  dataCollectionMethod:
+    title: Data Collection Method
+    description: Methodology or protocol used to take the data.
+    type: string
+    $linkedData:
+      term: dataCollectionMethod
+      '@id': http://rs.tdwg.org/dwc/terms/measurementMethod
+  trapType:
+    title: Trap Type
+    description: Type of trap utilized to capture insects, wildlife, etc..
+    type: string
+    $linkedData:
+      term: trapType
+      '@id': http://rs.tdwg.org/dwc/terms/samplingProtocol
+  numberTraps:
+    title: Number of Traps
+    description: Number of traps used.
+    type: number
+    $linkedData:
+      term: numberTraps
+      '@id': http://rs.tdwg.org/dwc/terms/samplingEffort
+  targetName:
+    title: Target Name
+    description: Name used to describe what was surveyed.
+    type: string
+    $linkedData:
+      term: targetName
+      '@id': http://rs.tdwg.org/dwc/terms/organismName
+  targetCount:
+    title: Target Count
+    description: Count of targets surveyed.
+    type: number
+    $linkedData:
+      term: targetCount
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantity
+  targetRange:
+    title: Target Range
+    description: Range or estimation of the count of targets surveyed.
+    type: string
+    $linkedData:
+      term: targetRange
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantity
+  phenology:
+    title: Phenology
+    description: Description of subject life stage and characteristics.
+    type: string
+    $linkedData:
+      term: phenology
+      '@id': http://rs.tdwg.org/dwc/terms/organismRemarks
+  lifeStatus:
+    title: Life Status
+    description: Notes if subject is alive or dead.
+    type: string
+    $linkedData:
+      term: lifeStatus
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+  sex:
+    title: Sex
+    description: Sex of the subject, if known.
+    type: string
+    $linkedData:
+      term: sex
+      '@id': http://rs.tdwg.org/dwc/terms/sex
+  waterBodyName:
+    title: Water Body Name
+    description: Name of water body where subject was observed.
+    type: string
+    $linkedData:
+      term: waterBodyName
+      '@id': http://rs.tdwg.org/dwc/terms/waterBody
+  waterBodyType:
+    title: Water Body Type
+    description: Type of water body for aquatic observations.
+    type: string
+    $linkedData:
+      term: waterBodyType
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+  substrate:
+    title: Substrate
+    description: substrate of water body or material subject was observed on.
+    type: string
+    $linkedData:
+      term: substrate
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+  treatmentArea:
+    title: Treatment Area
+    description: Area of site treated for invasive population control.
+    type: string
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: treatmentArea
+      '@id': https://schema.org/value
+  plantsTreated:
+    title: Plants Treated
+    description: Number of plants treated to control invasive population.
+    type: string
+    $linkedData:
+      term: plantsTreated
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantity
+  treatmentComments:
+    title: Treatment Comments
+    description: Description and/or date of treatment.
+    type: string
+    $linkedData:
+      term: treatmentComments
+      '@id': http://rs.tdwg.org/dwc/terms/eventRemarks
+  reference:
+    title: Reference
+    description: Citation of document, if record of observation is taken from literature.
+    type: string
+    $linkedData:
+      term: reference
+      '@id': http://rs.tdwg.org/dwc/terms/associatedReferences
+  locality:
+    title: Locality
+    description: Description about the location of observation.
+    type: string
+    $linkedData:
+      term: locality
+      '@id': http://rs.tdwg.org/dwc/terms/locationRemarks
+  comments:
+    title: Comments
+    description: Anything that is relevant to the subject, environment, mapping.
+    type: string
+    $linkedData:
+      term: comments
+      '@id': http://rs.tdwg.org/dwc/terms/eventRemarks
+  publicReviewerComments:
+    title: Public Reviewer Comments
+    description: Comments left by the reviewer of the record to be displayed publicly.
+    type: string
+    $linkedData:
+      term: publicReviewerComments
+      '@id': http://rs.tdwg.org/dwc/terms/identificationRemarks
+additionalProperties: false
+example: |-
+  {
+    "type": "EDDSHP",
+    "recordOwner": "Federal Agency",
+    "shapeType": "Point",
+    "method": "Google Earth",
+    "numberCollected": "4 Beetles",
+    "populationStatus": "Established",
+    "smallestOrganismSampled": {
+      "type": "QuantitativeValue",
+      "unitCode": "cm",
+      "value": "1"
+    },
+    "largestOrganismSampled": {
+      "type": "QuantitativeValue",
+      "unitCode": "cm",
+      "value": "3"
+    },
+    "hostScientificName": "Euphorbia esula",
+    "hostName": "Leafy spurge",
+    "hostPhenology": "Mature",
+    "hostDamage": "26 - 50%",
+    "localOwnership": "Stephen Foster State Park",
+    "museum": "University of Georgia Herbarium",
+    "museumRecord": "1354832",
+    "voucher": "TRUE",
+    "observationId": "Florida Fish and Wildlife Conservation Commission",
+    "collectionTimeMinutes": 30,
+    "originalRecordId": "fp-391d988",
+    "originalReportedName": "leafy spurge",
+    "recordSourceType": "USB",
+    "dataCollectionMethod": "Aerial Survey",
+    "trapType": "8-10 hole clear 32 oz-yeast-sugar solution",
+    "numberTraps": 10,
+    "targetName": "tree",
+    "targetCount": 10,
+    "targetRange": "42135",
+    "phenology": "Flowering",
+    "lifeStatus": "Alive",
+    "sex": "Male",
+    "waterBodyName": "Eramosa River",
+    "waterBodyType": "river",
+    "substrate": "sand",
+    "treatmentArea": {
+      "type": "QuantitativeValue",
+      "unitCode": "ac",
+      "value": "2"
+    },
+    "plantsTreated": 14,
+    "treatmentComments": "Very windy on day of treatment",
+    "reference": "Wunderlin, R.P., and B.F. Hansen. 2002. Atlas of Florida vascular plants ( http://www.plantatlas.usf.edu/). University of South Florida, Tampa",
+    "locality": "Located at the East edge of forest near pond",
+    "comments": "Infestation across road from landscaping with many documented invasive species",
+    "publicReviewerComments": "Species name was changed based on flower characteristics"
+  }

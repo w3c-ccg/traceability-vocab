@@ -1,0 +1,51 @@
+$linkedData:
+  term: NAISMATaxonomy
+  '@id': https://w3id.org/traceability#NAISMATaxonomy
+title: NAISMA Taxonomy
+description: Taxonomic information for an observed subject.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - NAISMATaxonomy
+      - type: string
+        const: NAISMATaxonomy
+  speciesName:
+    title: Species Name
+    description: The scientific or taxonomic name of the species of the occurrence.
+    $ref: ./Taxonomy.yml
+    $linkedData:
+      term: speciesName
+      '@id': https://w3id.org/traceability#Taxonomy
+  commonName:
+    title: Common Name
+    description: The species name expressed in the common language(s) of the country and/or region.
+    type: string
+    $linkedData:
+      term: commonName
+      '@id': http://rs.tdwg.org/dwc/terms/vernacularName
+  taxonomicSerialNumber:
+    title: Taxonomic Serial Number
+    description: The Taxonomic Serial Number (TSN) from the Integrated Taxonomic Information System.
+    type: string
+    $linkedData:
+      term: taxonomicSerialNumber
+      '@id': http://rs.tdwg.org/dwc/terms/taxonID
+additionalProperties: false
+example: |-
+  {
+    "type": "NAISMATaxonomy",
+    "speciesName": {
+      "type": "Taxonomy",
+      "kingdom": "Plantae",
+      "family": "Asteraceae",
+      "genus": "Centaurea",
+      "species": "solstitialis"
+    },
+    "commonName": "spotted knapweed",
+    "taxonomicSerialNumber": "81339"
+  }

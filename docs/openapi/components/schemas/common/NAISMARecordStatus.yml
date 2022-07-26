@@ -1,0 +1,77 @@
+$linkedData:
+  term: NAISMARecordStatus
+  '@id': https://w3id.org/traceability#NAISMARecordStatus
+title: NAISMA Record Status
+description: Status information for a NAISMA record.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - NAISMARecordStatus
+      - type: string
+        const: NAISMARecordStatus
+  occurrenceStatus:
+    title: Occurrence Status
+    description: Whether or not a species is found at a location during a survey.
+    type: string
+    $linkedData:
+      term: occurrenceStatus
+      '@id': https://schema.org/status
+  populationStatus:
+    title: Population Status
+    description: Whether or not a group of species is observed in an area.
+    type: string
+    $linkedData:
+      term: populationStatus
+      '@id': http://rs.tdwg.org/dwc/terms/degreeOfEstablishment
+  managementStatus:
+    title: Management Status
+    description: Allows the collector to denote if the organism or population, at time of observation, is being managed or if control efforts are being conducted.
+    type: string
+    $linkedData:
+      term: managementStatus
+      '@id': https://schema.org/status
+  recordBasis:
+    title: Record Basis
+    description: Allows the collector to document how the occurrence was observed.
+    type: string
+    $linkedData:
+      term: recordBasis
+      '@id': http://rs.tdwg.org/dwc/terms/samplingProtocol
+  recordType:
+    title: Record Type
+    description: Conveys the purpose of the record.
+    type: string
+    $linkedData:
+      term: recordType
+      '@id': https://schema.org/description
+  method:
+    title: Method
+    description: A descriptor for the methodology by which the data was collected.
+    type: string
+    $linkedData:
+      term: method
+      '@id': http://rs.tdwg.org/dwc/terms/measurementMethod
+  verificationMethod:
+    title: Verification Method
+    description: How the species was identified or verified.
+    type: string
+    $linkedData:
+      term: verificationMethod
+      '@id': http://rs.tdwg.org/dwc/terms/identificationRemarks
+additionalProperties: false
+example: |-
+  {
+    "type": "NAISMARecordStatus",
+    "occurrenceStatus": "Undetected",
+    "populationStatus": "Established",
+    "managementStatus": "Treated",
+    "recordBasis": "Human Observation",
+    "recordType": "Biological Control Agent Release",
+    "method": "Digital Aerial Sketch Mapping",
+    "verificationMethod": "Expertise"
+  }
