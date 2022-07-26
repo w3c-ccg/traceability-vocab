@@ -38,14 +38,13 @@ properties:
       '@id': https://schema.org/price
   products:
     title: Products
-    description: >-
-      List of product details as outlined in the Product schema
+    description: The products referenced by the event in hashlinks.
     type: array
     items:
-      $ref: ./Product.yml
+      type: string
     $linkedData:
-      term: product
-      '@id': https://schema.org/Product
+      term: products
+      '@id': https://w3c-ccg.github.io/hashlink/#hl-url-params
   actor:
     title: Event Actors
     description: >-
@@ -132,47 +131,7 @@ example: |-
     },
     "price": 1200,
     "products": [
-      {
-        "productID": "9d237753-b377-492a-a8c8-a28fe9f3457b",
-        "type": "Product",
-        "manufacturer": {
-          "type": "Person",
-          "firstName": "Lawson",
-          "lastName": "Weber",
-          "email": "Hollie.Lindgren@example.org",
-          "phoneNumber": "555-547-4441",
-          "worksFor": {
-            "type": "Organization",
-            "name": "Zemlak - Wyman",
-            "description": "Progressive fault-tolerant task-force",
-            "address": {
-              "type": "PostalAddress",
-              "streetAddress": "964 Mikayla Viaduct",
-              "addressLocality": "Runolfsdottirburgh",
-              "addressRegion": "Florida",
-              "postalCode": "48442-9522",
-              "addressCountry": "Barbados"
-            },
-            "email": "Reyna_Hamill56@example.com",
-            "phoneNumber": "555-718-9023",
-            "faxNumber": "555-523-8629"
-          },
-          "jobTitle": "District Mobility Planner"
-        },
-        "name": "Handmade Fresh Hat",
-        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "sizeOrAmount": {
-          "type": "QuantitativeValue",
-          "unitCode": "sqm",
-          "value": "47"
-        },
-        "weight": {
-          "type": "QuantitativeValue",
-          "unitCode": "kg",
-          "value": "4890"
-        },
-        "sku": "712120934258"
-      }
+      "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
     ],
     "actor": [
       {

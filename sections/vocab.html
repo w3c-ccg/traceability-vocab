@@ -1382,40 +1382,7 @@
     }
   ],
   "products":[
-    {
-      "id":"752f9fef-a028-415c-b17b-33a7aafda835",
-      "name":"Carbon and alloy long product",
-      "type":[
-        "Product"
-      ],
-      "width":{
-        "type":[
-          "MeasuredValue"
-        ],
-        "value":"1220",
-        "unitCode":"CM"
-      },
-      "length":{
-        "type":[
-          "MeasuredValue"
-        ],
-        "value":"654460",
-        "unitCode":"CM"
-      },
-      "weight":{
-        "type":[
-          "MeasuredValue"
-        ],
-        "value":"11013",
-        "unitCode":"KG"
-      },
-      "manufacturer":{
-        "name":"Steel Co.",
-        "type":[
-          "Organization"
-        ]
-      }
-    }
+    "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
   ]
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
@@ -2611,7 +2578,7 @@
   
 
     <section id="Event">
-      <h2>Organization</h2>
+      <h2>Event</h2>
       <p>An event such as a transformation, aggregation, commission, etc.</p>
       
   <table class="simple">
@@ -2692,70 +2659,7 @@
   },
   "eventTime": "2019-12-11T03:50:55Z",
   "products": [
-    {
-      "type": "Product",
-      "manufacturer": {
-        "type": "Organization",
-        "name": "Ferry, Von and Boehm",
-        "description": "Object-based real-time project",
-        "address": {
-          "type": "PostalAddress",
-          "streetAddress": "485 Bayer Drives",
-          "addressLocality": "New Tabithaside",
-          "addressRegion": "Indiana",
-          "postalCode": "80982",
-          "addressCountry": "Barbados"
-        },
-        "email": "Bridget.Yundt96@example.com",
-        "phoneNumber": "555-338-4723",
-        "faxNumber": "555-696-7109"
-      },
-      "name": "Sleek Wooden Bike",
-      "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-      "sizeOrAmount": {
-        "type": "QuantitativeValue",
-        "unitCode": "hg/ha",
-        "value": "1645"
-      },
-      "weight": {
-        "type": "QuantitativeValue",
-        "unitCode": "hg/ha",
-        "value": "3001"
-      },
-      "sku": "781731172154"
-    },
-    {
-      "type": "Product",
-      "manufacturer": {
-        "type": "Organization",
-        "name": "Schaefer - Ward",
-        "description": "Ergonomic hybrid encryption",
-        "address": {
-          "type": "PostalAddress",
-          "streetAddress": "03394 Hattie Plaza",
-          "addressLocality": "Cassieside",
-          "addressRegion": "Wyoming",
-          "postalCode": "80200",
-          "addressCountry": "Cambodia"
-        },
-        "email": "Jaylon70@example.net",
-        "phoneNumber": "555-150-6921",
-        "faxNumber": "555-208-7547"
-      },
-      "name": "Fantastic Plastic Cheese",
-      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-      "sizeOrAmount": {
-        "type": "QuantitativeValue",
-        "unitCode": "hg/ha",
-        "value": "7322"
-      },
-      "weight": {
-        "type": "QuantitativeValue",
-        "unitCode": "hg/ha",
-        "value": "1748"
-      },
-      "sku": "500038921455"
-    }
+    "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
   ]
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
@@ -9327,6 +9231,133 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     </section>
   
 
+    <section id="PostmanCollection">
+      <h2>PostmanCollection</h2>
+      <p>A Postman Collection is a group of saved requests.
+Learn more at [learning.postman.com/docs/getting-started](https://learning.postman.com/docs/getting-started/creating-the-first-collection).</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#PostmanCollection">https://w3id.org/traceability#PostmanCollection</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/PostmanCollection.yml">https://w3id.org/traceability/openapi/components/schemas/common/PostmanCollection.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "info": {
+    "_postman_id": "2319fa29-4ea8-4739-96ea-bda2b74f92bb",
+    "name": "DID Web Discovery",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Organization DIDs",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"must include valid JSON response body\", function() {",
+              "    pm.response.json(); // will throw on parse failure",
+              "});",
+              "",
+              "// The response JSON must include a didDocument property that contains the",
+              "// resolved DID document.",
+              "pm.test(\"didDocument must be present in response body\", function() {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property('didDocument');",
+              "});",
+              "",
+              "// The DID document must contain an alsoKnownAs property.",
+              "pm.test(\"alsoKnownAs MUST be present\", function () {",
+              "    const { didDocument } = pm.response.json();",
+              "    pm.expect(didDocument).to.have.property('alsoKnownAs');",
+              "});",
+              "",
+              "// The alsoKnownAs property MUST be an array.",
+              "pm.test(\"alsoKnownAs MUST be an array\", function() {",
+              "    const { alsoKnownAs } = pm.response.json().didDocument;",
+              "    pm.expect(alsoKnownAs).to.be.an('array');",
+              "});",
+              "",
+              "// The alsoKnownAs property MUST be a set.",
+              "pm.test(\"alsoKnownAs values MUST be unique\", function() {",
+              "    const { alsoKnownAs } = pm.response.json().didDocument;",
+              "    pm.expect(new Set(alsoKnownAs)).to.have.lengthOf(alsoKnownAs.length);",
+              "});",
+              "",
+              "// The second element of the alsoKnownAs property will be used as a",
+              "// credentials_issuer_id for subsequent tests.",
+              "pm.test(\"alsoKnownAs[1] must be present\", function() {",
+              "    const { alsoKnownAs } = pm.response.json().didDocument;",
+              "    pm.expect(alsoKnownAs[1]).to.be.a('string').that.is.not.empty;",
+              "});",
+              "",
+              "// If a verificationMethod property is present, the controller property must",
+              "// match the didDocument.id property.",
+              "pm.test(\"verification method controller must match did subject\", function() {",
+              "    const { didDocument } = pm.response.json();",
+              "    const vm = didDocument.verificationMethod || [];",
+              "    vm.forEach((m) => pm.expect(m.controller).to.equal(didDocument.id));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "{{API_BASE_URL}}/identifiers/{{ORGANIZATION_DID_WEB}}",
+          "host": [
+            "{{API_BASE_URL}}"
+          ],
+          "path": [
+            "identifiers",
+            "{{ORGANIZATION_DID_WEB}}"
+          ]
+        }
+      },
+      "response": [
+        
+      ]
+    }
+  ]
+}</pre>
+      
+    </section>
+  
+
     <section id="PriceSpecification">
       <h2>PriceSpecification</h2>
       <p>A structured value representing a price or price range.</p>
@@ -10020,6 +10051,32 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
 }</pre>
       <b>Dependencies</b><ul><li><a href='#SteelProduct'>SteelProduct</a></li></ul>
     </section>
+  
+
+  <section>
+  <h2>OssfScorecard</h2>
+  <p>Scorecards is an automated tool that assesses a number of important heuristics 
+("checks") associated with software security and assigns each check a score of 0-10.
+Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what-is-scorecards).</p>
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#OssfScorecard">https://w3id.org/traceability#OssfScorecard</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/Scorecard.yml">https://w3id.org/traceability/openapi/components/schemas/common/Scorecard.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+  </section>
   
 
     <section id="SeaCargoManifest">
@@ -11349,47 +11406,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   },
   "price": 1200,
   "products": [
-    {
-      "productID": "9d237753-b377-492a-a8c8-a28fe9f3457b",
-      "type": "Product",
-      "manufacturer": {
-        "type": "Person",
-        "firstName": "Lawson",
-        "lastName": "Weber",
-        "email": "Hollie.Lindgren@example.org",
-        "phoneNumber": "555-547-4441",
-        "worksFor": {
-          "type": "Organization",
-          "name": "Zemlak - Wyman",
-          "description": "Progressive fault-tolerant task-force",
-          "address": {
-            "type": "PostalAddress",
-            "streetAddress": "964 Mikayla Viaduct",
-            "addressLocality": "Runolfsdottirburgh",
-            "addressRegion": "Florida",
-            "postalCode": "48442-9522",
-            "addressCountry": "Barbados"
-          },
-          "email": "Reyna_Hamill56@example.com",
-          "phoneNumber": "555-718-9023",
-          "faxNumber": "555-523-8629"
-        },
-        "jobTitle": "District Mobility Planner"
-      },
-      "name": "Handmade Fresh Hat",
-      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-      "sizeOrAmount": {
-        "type": "QuantitativeValue",
-        "unitCode": "sqm",
-        "value": "47"
-      },
-      "weight": {
-        "type": "QuantitativeValue",
-        "unitCode": "kg",
-        "value": "4890"
-      },
-      "sku": "712120934258"
-    }
+    "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
   ],
   "actor": [
     {
@@ -11538,179 +11555,13 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       ]
     }
   ],
-  "products":[
-    {
-      "productID":"5c93de07-5d94-4357-85cf-aefc9ccbff97",
-      "type": "Product",
-      "manufacturer": {
-        "type": "Person",
-        "firstName": "Lawson",
-        "lastName": "Weber",
-        "email": "Hollie.Lindgren@example.org",
-        "phoneNumber": "555-547-4441",
-        "worksFor": {
-          "type": "Organization",
-          "name": "Zemlak - Wyman",
-          "description": "Progressive fault-tolerant task-force",
-          "address": {
-            "type": "PostalAddress",
-            "streetAddress": "964 Mikayla Viaduct",
-            "addressLocality": "Runolfsdottirburgh",
-            "addressRegion": "Florida",
-            "postalCode": "48442-9522",
-            "addressCountry": "Barbados"
-          },
-          "email": "Reyna_Hamill56@example.com",
-          "phoneNumber": "555-718-9023",
-          "faxNumber": "555-523-8629"
-        },
-        "jobTitle": "District Mobility Planner"
-      },
-      "name": "Handmade Fresh Hat",
-      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-      "sizeOrAmount": {
-        "type": "QuantitativeValue",
-        "unitCode": "sqm",
-        "value": "47"
-      },
-      "weight": {
-        "type": "QuantitativeValue",
-        "unitCode": "kg",
-        "value": "4890"
-      },
-      "sku": "712120934258"
-    },
-    {
-      "productID":"9d237753-b377-492a-a8c8-a28fe9f3457b",
-      "type": "Product",
-      "manufacturer": {
-        "type": "Person",
-        "firstName": "Lawson",
-        "lastName": "Weber",
-        "email": "Hollie.Lindgren@example.org",
-        "phoneNumber": "555-547-4441",
-        "worksFor": {
-          "type": "Organization",
-          "name": "Zemlak - Wyman",
-          "description": "Progressive fault-tolerant task-force",
-          "address": {
-            "type": "PostalAddress",
-            "streetAddress": "964 Mikayla Viaduct",
-            "addressLocality": "Runolfsdottirburgh",
-            "addressRegion": "Florida",
-            "postalCode": "48442-9522",
-            "addressCountry": "Barbados"
-          },
-          "email": "Reyna_Hamill56@example.com",
-          "phoneNumber": "555-718-9023",
-          "faxNumber": "555-523-8629"
-        },
-        "jobTitle": "District Mobility Planner"
-      },
-      "name": "Handmade Fresh Hat",
-      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-      "sizeOrAmount": {
-        "type": "QuantitativeValue",
-        "unitCode": "sqm",
-        "value": "47"
-      },
-      "weight": {
-        "type": "QuantitativeValue",
-        "unitCode": "kg",
-        "value": "4890"
-      },
-      "sku": "712120934258"
-    },
-    {
-      "productID":"adf9a0fe-a117-4728-a323-b941b5bcf011",
-      "type": "Product",
-      "manufacturer": {
-        "type": "Person",
-        "firstName": "Lawson",
-        "lastName": "Weber",
-        "email": "Hollie.Lindgren@example.org",
-        "phoneNumber": "555-547-4441",
-        "worksFor": {
-          "type": "Organization",
-          "name": "Zemlak - Wyman",
-          "description": "Progressive fault-tolerant task-force",
-          "address": {
-            "type": "PostalAddress",
-            "streetAddress": "964 Mikayla Viaduct",
-            "addressLocality": "Runolfsdottirburgh",
-            "addressRegion": "Florida",
-            "postalCode": "48442-9522",
-            "addressCountry": "Barbados"
-          },
-          "email": "Reyna_Hamill56@example.com",
-          "phoneNumber": "555-718-9023",
-          "faxNumber": "555-523-8629"
-        },
-        "jobTitle": "District Mobility Planner"
-      },
-      "name": "Handmade Fresh Hat",
-      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-      "sizeOrAmount": {
-        "type": "QuantitativeValue",
-        "unitCode": "sqm",
-        "value": "47"
-      },
-      "weight": {
-        "type": "QuantitativeValue",
-        "unitCode": "kg",
-        "value": "4890"
-      },
-      "sku": "712120934258"
-    },
-    {
-      "productID":"c72a3cb7-3d2f-4d42-b398-2deb6e6ace66",
-      "type": "Product",
-      "manufacturer": {
-        "type": "Person",
-        "firstName": "Lawson",
-        "lastName": "Weber",
-        "email": "Hollie.Lindgren@example.org",
-        "phoneNumber": "555-547-4441",
-        "worksFor": {
-          "type": "Organization",
-          "name": "Zemlak - Wyman",
-          "description": "Progressive fault-tolerant task-force",
-          "address": {
-            "type": "PostalAddress",
-            "streetAddress": "964 Mikayla Viaduct",
-            "addressLocality": "Runolfsdottirburgh",
-            "addressRegion": "Florida",
-            "postalCode": "48442-9522",
-            "addressCountry": "Barbados"
-          },
-          "email": "Reyna_Hamill56@example.com",
-          "phoneNumber": "555-718-9023",
-          "faxNumber": "555-523-8629"
-        },
-        "jobTitle": "District Mobility Planner"
-      },
-      "name": "Handmade Fresh Hat",
-      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-      "sizeOrAmount": {
-        "type": "QuantitativeValue",
-        "unitCode": "sqm",
-        "value": "47"
-      },
-      "weight": {
-        "type": "QuantitativeValue",
-        "unitCode": "kg",
-        "value": "4890"
-      },
-      "sku": "712120934258"
-    }
-  ],
   "newProducts":[
-    "https://example.com/5c93de07-5d94-4357-85cf-aefc9ccbff97"
+    "http://example.org/products/429d2c3b-73d3-429d-9bd0-91db17c1e2ec?hl=t10H2RwsspADWwmbwR2xCISYwBEJ49MoTi3heucZrKs="
   ],
   "consumedProducts":[
-    "https://example.com/9d237753-b377-492a-a8c8-a28fe9f3457b",
-    "https://example.com/adf9a0fe-a117-4728-a323-b941b5bcf011",
-    "https://example.com/c72a3cb7-3d2f-4d42-b398-2deb6e6ace66"
+    "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk=",
+    "http://example.org/products/0f67ab5c-1a78-4744-8392-19c21ad0f6c7?hl=EK1bNv2VcnbjBlHe1v+JnZ1cBgI8jfVuS6jh1+hTH1A=",
+    "http://example.org/products/2c748483-cdde-49ec-826b-8b7c00584568?hl=yibnswLb+ROwnWWq0MJd5StoFe97iihzGpusGgwIex0="
   ]
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
@@ -11884,40 +11735,8 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     }
   ],
   "products":[
-    {
-      "id":"752f9fef-a028-415c-b17b-33a7aafda835",
-      "name":"Carbon and alloy long product",
-      "type":[
-        "Product"
-      ],
-      "width":{
-        "type":[
-          "MeasuredValue"
-        ],
-        "value":"1220",
-        "unitCode":"CM"
-      },
-      "length":{
-        "type":[
-          "MeasuredValue"
-        ],
-        "value":"654460",
-        "unitCode":"CM"
-      },
-      "weight":{
-        "type":[
-          "MeasuredValue"
-        ],
-        "value":"11013",
-        "unitCode":"KG"
-      },
-      "manufacturer":{
-        "name":"Steel Co.",
-        "type":[
-          "Organization"
-        ]
-      }
-    }
+    "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
+
   ],
   "deliveryMethod":"Truck",
   "trackingNumber":"1258"
@@ -12626,159 +12445,6 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       <b>Dependencies</b><ul><li><a href='#AgricultureParcelDelivery'>AgricultureParcelDelivery</a></li>
 <li><a href='#Entity'>Entity</a></li>
 <li><a href='#Place'>Place</a></li></ul>
-    </section>
-  
-
-  <section>
-  <h2>OssfScorecard</h2>
-  <p>Scorecards is an automated tool that assesses a number of important heuristics 
-("checks") associated with software security and assigns each check a score of 0-10.
-Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what-is-scorecards).</p>
-  
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#OssfScorecard">https://w3id.org/traceability#OssfScorecard</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/openssf/Scorecard.yml">https://w3id.org/traceability/openapi/components/schemas/openssf/Scorecard.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-  </section>
-  
-
-    <section id="PostmanCollection">
-      <h2>PostmanCollection</h2>
-      <p>A Postman Collection is a group of saved requests.
-Learn more at [learning.postman.com/docs/getting-started](https://learning.postman.com/docs/getting-started/creating-the-first-collection).</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#PostmanCollection">https://w3id.org/traceability#PostmanCollection</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/postman/PostmanCollection.yml">https://w3id.org/traceability/openapi/components/schemas/postman/PostmanCollection.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "info": {
-    "_postman_id": "2319fa29-4ea8-4739-96ea-bda2b74f92bb",
-    "name": "DID Web Discovery",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Get Organization DIDs",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test(\"Status code is 200\", function () {",
-              "    pm.response.to.have.status(200);",
-              "});",
-              "",
-              "pm.test(\"must include valid JSON response body\", function() {",
-              "    pm.response.json(); // will throw on parse failure",
-              "});",
-              "",
-              "// The response JSON must include a didDocument property that contains the",
-              "// resolved DID document.",
-              "pm.test(\"didDocument must be present in response body\", function() {",
-              "    const jsonData = pm.response.json();",
-              "    pm.expect(jsonData).to.have.property('didDocument');",
-              "});",
-              "",
-              "// The DID document must contain an alsoKnownAs property.",
-              "pm.test(\"alsoKnownAs MUST be present\", function () {",
-              "    const { didDocument } = pm.response.json();",
-              "    pm.expect(didDocument).to.have.property('alsoKnownAs');",
-              "});",
-              "",
-              "// The alsoKnownAs property MUST be an array.",
-              "pm.test(\"alsoKnownAs MUST be an array\", function() {",
-              "    const { alsoKnownAs } = pm.response.json().didDocument;",
-              "    pm.expect(alsoKnownAs).to.be.an('array');",
-              "});",
-              "",
-              "// The alsoKnownAs property MUST be a set.",
-              "pm.test(\"alsoKnownAs values MUST be unique\", function() {",
-              "    const { alsoKnownAs } = pm.response.json().didDocument;",
-              "    pm.expect(new Set(alsoKnownAs)).to.have.lengthOf(alsoKnownAs.length);",
-              "});",
-              "",
-              "// The second element of the alsoKnownAs property will be used as a",
-              "// credentials_issuer_id for subsequent tests.",
-              "pm.test(\"alsoKnownAs[1] must be present\", function() {",
-              "    const { alsoKnownAs } = pm.response.json().didDocument;",
-              "    pm.expect(alsoKnownAs[1]).to.be.a('string').that.is.not.empty;",
-              "});",
-              "",
-              "// If a verificationMethod property is present, the controller property must",
-              "// match the didDocument.id property.",
-              "pm.test(\"verification method controller must match did subject\", function() {",
-              "    const { didDocument } = pm.response.json();",
-              "    const vm = didDocument.verificationMethod || [];",
-              "    vm.forEach((m) => pm.expect(m.controller).to.equal(didDocument.id));",
-              "});"
-            ],
-            "type": "text/javascript"
-          }
-        }
-      ],
-      "protocolProfileBehavior": {
-        "disabledSystemHeaders": {
-          
-        }
-      },
-      "request": {
-        "auth": {
-          "type": "noauth"
-        },
-        "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/json",
-            "type": "text",
-            "disabled": true
-          }
-        ],
-        "url": {
-          "raw": "{{API_BASE_URL}}/identifiers/{{ORGANIZATION_DID_WEB}}",
-          "host": [
-            "{{API_BASE_URL}}"
-          ],
-          "path": [
-            "identifiers",
-            "{{ORGANIZATION_DID_WEB}}"
-          ]
-        }
-      },
-      "response": [
-        
-      ]
-    }
-  ]
-}</pre>
-      
     </section>
   
 
