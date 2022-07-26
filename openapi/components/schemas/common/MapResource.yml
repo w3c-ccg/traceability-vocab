@@ -1,0 +1,50 @@
+$linkedData:
+  term: MapResource
+  '@id': https://w3id.org/traceability#MapResource
+title: Map Resource
+description: Map resource in the form of an external reference or included data.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - MapResource
+      - type: string
+        const: MapResource
+  resourceType:
+    description: The type of resource.
+    type: string
+    enum:
+      - External
+      - GeoJSON
+    $linkedData:
+      term: resourceType
+      '@id': https://schema.org/additionalType
+  external:
+    title: External
+    description: An external map resource.
+    $ref: ./ExternalResource.yml
+    $linkedData:
+      term: external
+      '@id': https://w3id.org/traceability#ExternalResource
+  geoJson:
+    title: GeoJSON
+    description: GeoJSON Data.
+    type: string
+    $linkedData:
+      term: geoJson
+      '@id': https://schema.org/geo
+additionalProperties: false
+example: |-
+  {
+    "type": "MapResource",
+    "resourceType": "External",
+    "external": {
+      "type": "ExternalResource",
+      "uri": "https://img.example.org/102934920857/937/903/",
+      "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+    }
+  }

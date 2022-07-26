@@ -1,0 +1,58 @@
+$linkedData:
+  term: NAISMASubject
+  '@id': https://w3id.org/traceability#NAISMASubject
+title: NAISMA Subject
+description: Characteristics of an observed subject.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - NAISMASubject
+      - type: string
+        const: NAISMASubject
+  lifeStage:
+    title: Life Stage
+    description: A brief description of the phenological or life stage of development of the plants, animals, insects, biocontrol agents, or pathogens observed.
+    type: string
+    $linkedData:
+      term: lifeStage
+      '@id': http://rs.tdwg.org/dwc/terms/lifeStage
+  sex:
+    title: Sex
+    description: A brief description of the sex of the organism observed.
+    type: string
+    $linkedData:
+      term: sex
+      '@id': http://rs.tdwg.org/dwc/terms/sex
+  hostSpecies:
+    title: Host Species
+    description: Scientific name of the host of the observed subject (infestations or diseases or biological control agent).
+    $ref: ./Taxonomy.yml
+    $linkedData:
+      term: hostSpecies
+      '@id': https://w3id.org/traceability#Taxonomy
+  comments:
+    title: Comments
+    description: Additional notes to be included with the record to document important information which cannot be assigned to another field.
+    type: string
+    $linkedData:
+      term: comments
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+additionalProperties: false
+example: |-
+  {
+    "type": "NAISMASubject",
+    "lifestage": "Adult",
+    "sex": "Male",
+    "hostSpecies": {
+      "type": "Taxonomy",
+      "genus": "Linaria",
+      "species": "dalmatica",
+      "subspecies": "dalmatica"
+    },
+    "comments": "Population appears to have some unknown insect herbivore feeding on it; revisit with supplies to sample insect population."
+  }
