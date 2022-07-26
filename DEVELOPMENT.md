@@ -82,7 +82,7 @@ Common errors when not passing these tests include:
 
 After a pull request is merged, the Continuous Delivery (CD) script will create the spec document
 which is deployed to [https://w3c-ccg.github.io/traceability-vocab/](https://w3c-ccg.github.io/traceability-vocab/).
-A summary of scripts which produce this document are described as follows.
+The scripts which produce this document are described as follows.
 
 1. `schemas-to-openapi.js` builds the yml file for the [Open API Spec](https://w3c-ccg.github.io/traceability-vocab/openapi/)
 2. `openapi-to-context.js` builds the JSON-LD context from the Open API spec which is written to `/docs/contexts/traceability-v1.jsonld`
