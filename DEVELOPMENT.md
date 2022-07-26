@@ -67,7 +67,7 @@ for defining a consistent style with respect to schemas. They are described as f
 
 When submitting a pull request, the proposed changes must pass the Continuous Integration tests.
 These tests can be run in the local developer environment by running `npm test` from the root
-of the repository. This will run the test located in the `/packages/traceability-schemas/__tests__/`
+of the repository. This will run the tests located in the `/packages/traceability-schemas/__tests__/`
 folder.
 
 Common errors for not passing these tests include:
