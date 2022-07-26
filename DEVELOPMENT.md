@@ -20,7 +20,7 @@ cd traceability-vocab
 npm i
 ```
 
-You can local a version of the [spec](https://w3c-ccg.github.io/traceability-vocab/) you can run:
+To run a local version of the [spec](https://w3c-ccg.github.io/traceability-vocab/) you can run:
 
 ```
 npx serve ./docs
