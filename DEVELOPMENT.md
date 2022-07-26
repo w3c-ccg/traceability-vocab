@@ -1,5 +1,11 @@
 # Development
 
+1. Getting Started
+2. Directory Structure
+3. Conventions
+4. Continuous Integreation
+5. Continuous Deployment
+
 The purpose of this document is to describe to developers how to navigate this repository
 in order make meaningful contributions to this product.
 
@@ -40,6 +46,10 @@ There are several scripts in this repository for compiling trace vocabulary. The
 `/packages/traceability-schemas/scripts/` directory from the root of this repository. That repository contains
 `README.md` which describes the specific of each script and what they do.
 
+The specification is in the `/docs` folder from the root of the repository. The `index.html` file contains the static
+text that can be found in the spec. This document references different sections which can be found in the `/docs/sections`
+directory.
+
 ## Conventions
 
 While there are not any strict conventions, there are specific guidelines that are followed
@@ -69,4 +79,10 @@ Common errors for not passing these tests include:
 
 ## Continuous Deployment
 
-Here we define continuous deployment and the script associated with it
+After a pull request is merged, the Continuous Delivery (CD) script will create the spec document
+which is deployed to [https://w3c-ccg.github.io/traceability-vocab/](https://w3c-ccg.github.io/traceability-vocab/).
+A summary of scripts which produce this document are described as follows.
+
+1. `schemas-to-openapi.js` builds the yml file for the [Open API Spec](https://w3c-ccg.github.io/traceability-vocab/openapi/)
+2. `openapi-to-context.js` builds the JSON-LD context from the Open API spec which is written to `/docs/contexts/traceability-v1.jsonld`
+3. `schemas-to-vocab.js` builds the html files for the schemas which are referenced from `/docs/index.html` in the spec
