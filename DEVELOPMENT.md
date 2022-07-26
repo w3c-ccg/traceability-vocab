@@ -73,7 +73,7 @@ folder.
 Common errors when not passing these tests include:
 
 1. Malformed or incorrect `.yml` indentation
-2. Incorrect OpenAPI yml syntax
+2. Incorrect OpenAPI `.yml` syntax
 3. Broken proofs as a result of context changes
 4. Example JSON files that don't pass schema validation
 5. Cascading changes as a result of changing a `common` RDF class used by multiple files
