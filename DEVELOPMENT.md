@@ -43,11 +43,29 @@ There are several scripts in this repository for compiling trace vocabulary. The
 ## Conventions
 
 While there are not any strict conventions, there are specific guidelines that are followed
-for defining a consistent style with respect to schemas.
+for defining a consistent style with respect to schemas. They are described as follows.
+
+1. Verifiable Credentials should not declare any top-level properties not defined in the [vc-core spec](https://www.w3.org/TR/vc-data-model/)
+2. All of the properties for a credential type should be declared in the `credentialSubject`
+3. `type` properties should be declared as an array for simplification
+4. An attempt should be made to use existing `common` types before declaring new ones
+5. RDF classes should not be declared with any undefined terms
+6. Example JSON files must include _all_ or the properties defined in the JSON schema
 
 ## Continuous Integreation
 
-Here we describe the CI process that runs on a pull request and how to run the tests locally
+When submitting a pull request, the proposed changes must pass the Continuous Integration tests.
+These tests can be run in the local developer environment by running `npm test` from the root
+of the repository. This will run the test located in the `/packages/traceability-schemas/__tests__/`
+folder.
+
+Common errors for not passing these tests include:
+
+1. Malformed incorrect yml indentation
+2. Incorrect OpenAPI yml syntax
+3. Broken proofs as a result of context changes
+4. Example JSON files that don't pass schema validation
+5. Cascading changes as a result of changing a `common` RDF class used by multiple files
 
 ## Continuous Deployment
 
