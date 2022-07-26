@@ -22,24 +22,23 @@ properties:
       - type: string
         const:
           - IntentToImport 
-  seller:
-    title: Seller
+  exporter:
+    title: Exporter
     description: >-
-      Organization that is declaring their intention for a product to be used at a
+      Organization that is declaring their intention for a product to be exported to a
       different location than where it was created.
     type: object
     $linkedData:
-      term: seller
-      '@id': https://gs1.org/voc/OrganizationRoleType-SELLER
-  purchaser:
-    title: Purchaser
+      term: exporter
+      '@id': https://gs1.org/voc/OrganizationRoleType-EXPORTER
+  importer:
+    title: Importer
     description: >-
-      Organization that is expected to receive some amount of the product, though
-      possibly a reseller.
+      Organization that is expected to receive some amount of the product.
     type: object
     $linkedData:
-      term: purchaser
-      '@id': https://gs1.org/voc/OrganizationRoleType-BUYER
+      term: importer
+      '@id': https://gs1.org/voc/OrganizationRoleType-IMPORTER
   product:
     title: Product
     description: Product details as specified in the Product schema
@@ -54,18 +53,11 @@ properties:
     $linkedData:
       term: declarationDate
       '@id': https://schema.org/startDate
-  sellByDate:
-    title: Sell By Date
-    description: Date declared as a non-binding target to sell product by.
-    type: string
-    $linkedData:
-      term: sellByDate
-      '@id': https://gs1.org/voc/sellByDate
 additionalProperties: false
 example: |-
   {
     "type": "IntentToImport",
-    "seller": {
+    "exporter": {
       "type": "Organization",
       "name": "Maxi Acero Mexicano",
       "description": "Fusion y fabricacion de acero solido",
@@ -83,7 +75,7 @@ example: |-
       "email": "info@example.net",
       "phoneNumber": "555-127-7813"
     },
-    "purchaser": {
+    "importer": {
       "type": "Organization",
       "id": "did:web:generic-motor-company.example.com",
       "location": {
@@ -126,6 +118,5 @@ example: |-
         "value": "16500"
       }
     },
-    "declarationDate": "2022-03-21",
-    "sellByDate": "2022-09-30"
+    "declarationDate": "2022-03-21"
   }
