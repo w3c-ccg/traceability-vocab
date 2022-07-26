@@ -32,7 +32,7 @@ The primary focus of this repository is to define schemas which describe Verifia
 equivalent signed form of a document. These credentials can be found in the `/docs/openapi/components/schemas/credentials/`
 directory, starting from the root of this repository.
 
-In order to use standard re-usable parts for defining RDF classes in credentials, we have a `common` folder located at
+To enable standard re-usable parts for defining RDF classes in credentials, we have a `common` folder located at
 `/docs/openapi/components/schemas/common/` to store these classes. As a comparison to React think of `credentials` as
 top-level pages, and think of `common` as the components that make up these pages.
 
