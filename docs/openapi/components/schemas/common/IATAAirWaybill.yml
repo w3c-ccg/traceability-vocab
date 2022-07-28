@@ -19,7 +19,7 @@ properties:
           enum:
             - IATAAirWaybill
       - type: string
-        const:
+        enum:
           - IATAAirWaybill 
   airWaybillNumber:
     title: Air Waybill Number
@@ -182,7 +182,6 @@ properties:
     description: >-
       Only accounting information required by the participating carriers may be
       inserted. Box 10.
-    enum:
       - Payment by cash or cheque
       - >-
         Payment by Miscellaneous Charges Order (MCO) is only acceptable for
@@ -202,6 +201,7 @@ properties:
         The words “Also Notify” may be printed after the title of the
         “Accounting Information” box (applicable for domestic transportation
         only)
+    type: string
     $linkedData:
       term: accountingInformation
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#typeCode
@@ -371,7 +371,7 @@ properties:
     description: >-
       Where there is more than one numeric entry in box 22A, the total number of
       pieces. Box 22J.
-    type: string
+    type: number
     $linkedData:
       term: totalNumberOfPieces
       '@id': >-
@@ -381,7 +381,7 @@ properties:
     description: >-
       Where there is more than one entry in box 22B, the total gross weight. Box
       22K.
-    type: string
+    type: number
     $linkedData:
       term: totalGrossWeight
       '@id': >-
@@ -471,15 +471,15 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "IATAAirWaybill",
+    "type": ["IATAAirWaybill"],
     "airWaybillNumber": "AXM121102183",
     "airlineCodeNumber": "172",
     "serialNumber": "48835010",
     "airportOfDeparture": {
-      "type": "Place",
+      "type": ["Place"],
       "iataAirportCode": "XMN",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "addressLocality": "Xiamen"
       }
     },
@@ -487,7 +487,7 @@ example: |-
       "type": "Organization",
       "name": "On Time Express Limited",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Suite 605, 6/F, Hai Tian Logistics Centre, #1 Hai Tian Road",
         "addressLocality": "Hu-Li District",
         "addressRegion": "Xiamen",
@@ -496,66 +496,68 @@ example: |-
     },
     "conditionsOfContract": "It is agreed that the goods described herein are accepted in apparent good order and condition (except as noted) for carriage SUBJECT TO THE CONDITIONS OF CONTRACT ON THE REVERSE HEREOF. ALL GOODS MAY BE CARRIED BY ANY OTHER MEANS INCLUDING ROAD OR ANY OTHER CARRIER UNLESS SPECIFIC CONTRARY INSTRUCTIONS ARE GIVEN HEREON BY THE SHIPPER, AND SHIPPER AGREES THAT THE SHIPMENT MAY BE CARRIED VIA INTERMEDIATE STOPPING PLACES WHICH THE CARRIER DEEMS APPROPRIATE. THE SHIPPER'S ATTENTION IS DRAWN TO THE NOTICE CONCERNING CARRIER'S LIMITATION OF LIABILITY. Shipper may increase such limitation of liability by declaring a higher value for carriage and paying a supplemental charge if required.",
     "shipper": {
-      "type": "Organization",
+      "type": ["Entity"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Xin Fei Da Dao 139",
         "addressLocality": "Xindao",
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      }
+      },
+      "entityType": "Organization"
     },
     "shippersAccountNumber": "Trade",
     "consignee": {
-      "type": "Organization",
+      "type": ["Entity"],
       "name": "By Acre",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "I.C.Modewegs Vej 1",
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      }
+      },
+      "entityType": "Organization"
     },
     "requestedRouting": [
       {
-        "type": "ShippingStop",
+        "type": ["ShippingStop"],
         "from": {
-          "type": "Place",
+          "type": ["Place"],
           "address": {
-            "type": "PostalAddress",
+            "type": ["PostalAddress"],
             "addressLocality": "Xiamen"
           }
         },
         "to": {
-          "type": "Place",
+          "type": ["Place"],
           "iataAirportCode": "LUX"
         },
         "by": {
-          "type": "Organization",
+          "type": ["Organization"],
           "iataCarrierCode": "CV"
         }
       },
       {
-        "type": "ShippingStop",
+        "type": ["ShippingStop"],
         "to": {
-          "type": "Place",
+          "type": ["Place"],
           "iataAirportCode": "CPH"
         },
         "by": {
-          "type": "Organization",
+          "type": ["Organization"],
           "iataCarrierCode": "CV"
         }
       }
     ],
     "destinationAirport": {
-      "type": "Place",
+      "type": ["Place"],
       "iataAirportCode": "CPH",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "addressLocality": "Copenhagen"
       }
     },
@@ -572,7 +574,7 @@ example: |-
     "handlingInformation": "TOTAL: 13PLT (S) ONLY. INVOICE & PACKING LIST ATTD",
     "consignmentRatingDetails": [
       {
-        "type": "ConsignmentRatingDetail",
+        "type": ["ConsignmentRatingDetail"],
         "numberOfPieces": 13,
         "grossWeight": 971,
         "grossWeightUnit": "Kg",
@@ -585,15 +587,10 @@ example: |-
     "totalNumberOfPieces": 13,
     "totalGrossWeight": 971,
     "totalCharge": "As arranged",
-    "collectChargeDeclaration": {
-      "type": "ChargeDeclaration",
-      "weightCharge": "As arranged",
-      "total": "As arranged"
-    },
     "shippersCertificationBox": "On Time Express Limited, Suite 605, 6/F, Hai Tian Logistics Centre, #1 Hai Tian Road, Hu-Li District, Xiamen, P.R.China",
     "executedOn": "2021-07-31",
     "executedAt": {
-      "type": "Place",
+      "type": ["Place"],
       "iataAirportCode": "XMN"
     }
   }
