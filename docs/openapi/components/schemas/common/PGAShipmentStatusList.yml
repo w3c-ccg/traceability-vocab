@@ -1,36 +1,16 @@
 $linkedData:
   term: PGAShipmentStatusList
   '@id': https://w3id.org/traceability#PGAShipmentStatusList
-title: PGA Shipment Status
-description: |-
-  Partner Government Agencies (PGAs) use PGA Status Notification Codes to communicate 
-  with ACE on the following CBP documents: Entry Summary Status Notification, 
-  Cargo Release Status Notification, Status notification for Stand-alone PE data submission,
-  and ACE Cargo Manifest/In-Bond/Entry Status Query. Each Code provides a description 
-  from the PGA explaining the current status. For reference, here is a link to the 
-  CATAIR document with all approved codes: 
-  https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%20PGA%20Status%20Notification%20Codes_13Dec2021_508c.pdf
+title: PGA Shipment Status List
+description: List of PGA Status messages.
 type: object
-required:
-  - type
-  - recordNo
-  - entryNo
-  - entryLineSequence
-  - statusCode
-  - statusCodeDescription
-  - validCodeReason
-  - validCodeReasonDescription
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - PGAShipmentStatusList
-      - type: string
-        const:
-          - PGAShipmentStatusList  
+    type: array
+    items:
+      type: string
+      enum:
+        - PGAShipmentStatusList
   properties:
     pgaShipmentStatusItems:
       title: PGA Shipment Status Items
@@ -40,13 +20,14 @@ properties:
         $ref: ../common/PGAShipmentStatus.yml
       $linkedData:
         term: pgaShipmentStatusItems
-        '@id': https://w3id.org/traceability#pgaShipmentStatusItems
+        '@id': https://schema.org/ItemList
 additionalProperties: true
 example: |-
   {
+    "type": ["PGAShipmentStatusList"],
     "pgaShipmentStatusItems": [
       {
-        "type": "PGAShipmentStatus",
+        "type": ["PGAShipmentStatus"],
         "recordNo": "SO70",
         "entryNo": "AAA-1234567-8",
         "entryLineSequence": "L1:S1",
@@ -58,7 +39,7 @@ example: |-
         "subReasonCodeDescription": "Documentation Needed"
       },
       {
-        "type": "PGAShipmentStatus",
+        "type": ["PGAShipmentStatus"],
         "recordNo": "SO70",
         "entryNo": "AAA-1234567-8",
         "entryLineSequence": "L1:S2",
