@@ -9,15 +9,18 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - TransportEquipment
-      - type: string
-        const:
-          - TransportEquipment
+    type: array
+    items:
+      type: string
+      enum:
+        - TransportEquipment
+  id: 
+    title: Identifier
+    description: Transport Equipment Identifier
+    type: string
+    $linkedData:
+      term: id
+      '@id': https://schema.org/identifier
   equipmentReference:
     title: Equipment Reference
     description: >-
@@ -100,6 +103,7 @@ additionalProperties: false
 example: |-
   {
     "type": "TransportEquipment",
+    "id": "urn:epc:id:bic:APZU4812090",
     "equipmentReference": "APZU4812090",
     "ISOEquipmentCode": "40GP",
     "seals": [
