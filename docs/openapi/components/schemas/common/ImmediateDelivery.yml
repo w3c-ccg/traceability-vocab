@@ -6,14 +6,11 @@ description: CBP Form 3461 for Immediate Delivery (https://www.cbp.gov/sites/def
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ImmediateDelivery
-      - type: string
-        const: ImmediateDelivery 
+    type: array
+    items:
+      type: string
+      enum:
+        - ImmediateDelivery
   portOfEntry:
     title: Port Of Entry
     $ref: ./Place.yml
@@ -198,7 +195,7 @@ properties:
   splitBill:
     title: Split Bill
     description: Indicates if the bill is a split bill.
-    type: string
+    type: boolean
     $linkedData:
       term: splitBill
       '@id': https://w3id.org/traceability#splitBill
@@ -260,17 +257,17 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "ImmediateDelivery",
+    "type": ["ImmediateDelivery"],
     "portOfEntry": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "USLBC"
     },
     "bondType": "Single Transaction Bond",
     "importer": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Onwards A/S",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Sludevej 63",
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
@@ -288,12 +285,12 @@ example: |-
     "originatingWarehouseEntryNumber": "38819",
     "suretyCode": "511",
     "portOfUnlading": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "USBBK"
     },
     "transportMode": "Ocean",
     "locationOfGoods": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "USMRE"
     },
     "generalOrderNumber": "O1000212",
@@ -302,9 +299,9 @@ example: |-
     "referenceIDNumber": "EX123456",
     "lineItems": [
       {
-        "type": "ImmediateDeliveryLineItem",
+        "type": ["ImmediateDeliveryLineItem"],
         "commodity": {
-          "type": "Commodity",
+          "type": ["Commodity"],
           "commodityCode": "9403 7000 00",
           "commodityCodeType": "HTS"
         },
@@ -312,10 +309,10 @@ example: |-
         "itemCount": 400,
         "itemParty": {
           "consignee": {
-            "type": "Entity",
+            "type": ["Entity"],
             "name": "Future Mobility, Inc.",
             "address": {
-              "type": "PostalAddress",
+              "type": ["PostalAddress"],
               "streetAddress": "2016 W Farmington Rd",
               "addressLocality": "West Peoria",
               "postalCode": "61604",

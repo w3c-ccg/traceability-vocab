@@ -226,11 +226,19 @@ properties:
   descriptionOfMerchandise: 
     title: Description of Merchandise
     description: A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement. 
-    $ref: ./EntrySummaryLineItem.yml
+    array: 
+      items: 
+      $ref: ./EntrySummaryLineItem.yml
+    $linkedData:
+      term: descriptionOfMerchandise
+      '@id': https://w3id.org/traceability#descriptionOfMerchandise
   otherFeeSummary:
     title: Other Fee Summary
     description: For entries subject to payment of AD/CVD and/or any of the various fees, each applicable fee must be indicated in this area, and the individual amount of each fee must be shown on the corresponding line. AD/CVD amounts are to be included in the summary only when they are actually deposited. Bonded amounts should not be included.
     type: string
+    $linkedData:
+      term: otherFeeSummary
+      '@id': https://w3id.org/traceability#otherFeeSummary
   totalEnteredValue:
     title: Total Entered Value
     description: Report the total entered value for all line items. This information is required on all entry summaries
@@ -277,13 +285,16 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "EntrySummary",
-    "entryNumber": 73461882610,
+    "type": ["EntrySummary"],
+    "entryNumber": "73461882610",
     "entryType": "01",
     "summaryDate": "2022-03-01T12:54Z",
     "suretyNumber": "228",
     "bondType": "Single Transaction Bond",
-    "portCode": "USLBC",
+    "portCode": {
+      "type": ["Place"], 
+      "unLocode": "USLBC"
+    },
     "entryDate": "2022-03-01T12:54Z",
     "importingCarrier": "NISC",
     "transportMode": "Ocean",
@@ -297,25 +308,25 @@ example: |-
     "immediateTransportationDate": "2022-03-01T12:54Z",
     "missingDocuments": [],
     "portOfLoading": {
-      "type": "Place",
-      "UNLocode": "SGSIN"
+      "type": ["Place"],
+      "unLocode": "SGSIN"
     },
     "portOfUnlading": {
-      "type": "Place",
-      "UNLocode": "USLBC"
+      "type": ["Place"],
+      "unLocode": "USLBC"
     },
     "locationOfGoods": {
-      "type": "Place",
-      "UNLocode": "USLBC"
+      "type": ["Place"],
+      "unLocode": "USLBC"
     },
     "consigneeNumber": "9982312",
     "importerNumber": "9900127",
     "referenceNumber": "ref199812841",
     "ultimateConsignee": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Future Mobility, Inc.",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "2016 W Farmington Rd",
         "addressLocality": "West Peoria",
         "postalCode": "61604",
@@ -324,10 +335,10 @@ example: |-
       "entityType": "Organization"
     },
     "importerOfRecord": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Future Mobility, Inc.",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "2016 W Farmington Rd",
         "addressLocality": "West Peoria",
         "postalCode": "61604",
@@ -337,9 +348,9 @@ example: |-
     },
     "descriptionOfMerchandise": [
       {
-        "type": "EntrySummaryLineItem",
+        "type": ["EntrySummaryLineItem"],
         "commodity": {
-          "type": "Commodity",
+          "type": ["Commodity"],
           "commodityCode": "2204.21.60 00",
           "commodityCodeType": "HS",
           "description": "Wine of fresh grapes"
@@ -347,23 +358,23 @@ example: |-
         "adCvdNumber": "A123-234-345",
         "categoryNumber": "CAT ABC",
         "grossWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "7420",
           "unitCode": "kg"
         },
         "manifestQuantity": 3500,
         "netQuantity": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "6620",
           "unitCode": "kg"
         },
         "enteredValue": {
-          "type": "PriceSpecification",
+          "type": ["PriceSpecification"],
           "price": 12000,
           "priceCurrency": "USD"
         },
         "charges": {
-          "type": "PriceSpecification",
+          "type": ["PriceSpecification"],
           "price": 1500,
           "priceCurrency": "USD"
         },
@@ -371,7 +382,7 @@ example: |-
         "htsRate": "ad valorem",
         "visaNumber": "V10000345",
         "dutyAndIRTax": {
-          "type": "PriceSpecification",
+          "type": ["PriceSpecification"],
           "price": 8230,
           "priceCurrency": "USD"
         }
@@ -379,23 +390,23 @@ example: |-
     ],
     "otherFeeSummary": "AD",
     "totalEnteredValue": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 8230,
       "priceCurrency": "USD"
     },
     "declarationOfImporter": "Importer of Record",
     "duty": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 20,
       "priceCurrency": "USD"
     },
     "tax": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 282,
       "priceCurrency": "USD"
     },
     "total": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 8532,
       "priceCurrency": "USD"
     }
