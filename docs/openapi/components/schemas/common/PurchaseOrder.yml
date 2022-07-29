@@ -6,15 +6,11 @@ description: A statement issued by a buyer for the sale of products or services 
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - PurchaseOrder
-      - type: string
-        const:
-          - PurchaseOrder
+    type: array
+    items:
+      type: string
+      enum:
+        - PurchaseOrder
   purchaseOrderNo:
     title: Purchase Order Number
     description: Number for Purchase order
@@ -212,7 +208,7 @@ example: |-
     ],
     "purchaseOrderNo" : "fe71665a-e7b3-49ba-ac89-82fc2bf1e877",
     "portOfEntry": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "USLGB"
     },
     "destinationCountry": "MEX",
@@ -251,15 +247,15 @@ example: |-
     },
     "itemsShipped": [
       {
-        "type": "TradeLineItem",
+        "type": ["TradeLineItem"],
         "product": {
-          "type": "Product",
+          "type": ["Product"],
           "manufacturer": {
-            "type": "Entity",
+            "type": ["Entity"],
             "entityType": "Organization",
             "name": "Aishi Metal Shinzo Co., Ltd.",
             "address": {
-              "type": "PostalAddress",
+              "type": ["PostalAddress"],
               "organizationName": "Aishi Metal Shinzo Co., Ltd.",
               "streetAddress": "1651, Shimonakano, Yoshida",
               "addressLocality": "Tsubame-shi",
@@ -270,33 +266,33 @@ example: |-
           },
           "description": "UNS S30400 chromium-nickel stainless steel rolls.",
           "weight": {
-            "type": "QuantitativeValue",
+            "type": ["QuantitativeValue"],
             "unitCode": "lbs",
             "value": "16500"
           }
         },
         "itemCount": 5,
         "grossWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "82500",
           "unitCode": "lbs"
         },
         "priceSpecification": {
-          "type": "PriceSpecification",
+          "type": ["PriceSpecification"],
           "price": 5200,
           "priceCurrency": "USD"
         }
       },
       {
-        "type": "TradeLineItem",
+        "type": ["TradeLineItem"],
         "product": {
-          "type": "Product",
+          "type": ["Product"],
           "manufacturer": {
-            "type": "Entity",
+            "type": ["Entity"],
             "entityType": "Organization",
             "name": "Aishi Metal Shinzo Co., Ltd.",
             "address": {
-              "type": "PostalAddress",
+              "type": ["PostalAddress"],
               "organizationName": "Aishi Metal Shinzo Co., Ltd.",
               "streetAddress": "1651, Shimonakano, Yoshida",
               "addressLocality": "Tsubame-shi",
@@ -307,31 +303,31 @@ example: |-
           },
           "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
           "weight": {
-            "type": "QuantitativeValue",
+            "type": ["QuantitativeValue"],
             "value": "12680",
             "unitCode": "lbs"
           }
         },
         "itemCount": 20,
         "grossWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "253600",
           "unitCode": "lbs"
         },
         "priceSpecification": {
-          "type": "PriceSpecification",
+          "type": ["PriceSpecification"],
           "price": 4400,
           "priceCurrency": "USD"
         }
       }
     ],
     "totalWeight": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "value": "336100",
       "unitCode": "lbs"
     },
     "totalOrderAmount": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 9600,
       "priceCurrency": "USD"
     }
