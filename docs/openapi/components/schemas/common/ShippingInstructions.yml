@@ -6,14 +6,11 @@ description: A separately identifiable collection of goods items to be transport
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ShippingInstructions
-      - type: string
-        const: ShippingInstructions
+    type: array
+    items:
+      type: string
+      enum:
+        - ShippingInstructions
   billOfLadingNumber:
     title: Bill Of Lading Number
     description: >-
@@ -181,16 +178,16 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "ShippingInstructions",
+    "type": ["ShippingInstructions"],
     "billOfLadingNumber": "EX600822199A",
     "bookingNumber": [
       "EX600822199"
     ],
     "shipper": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Espresso Italiano Co.",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Via Vico Ferrovia 5",
         "addressLocality": "Goro",
         "addressRegion": "Ferrara",
@@ -202,11 +199,11 @@ example: |-
       "entityType": "Organization"
     },
     "consignee": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Prosumer Coffee Supplies, Ltd.",
       "description": "Coffee Machine Imports",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "3934 Spinnaker Lane",
         "addressLocality": "Joliet",
         "addressRegion": "Illinois",
@@ -217,11 +214,11 @@ example: |-
     },
     "notifyParty": [
       {
-        "type": "Entity",
+        "type": ["Entity"],
         "name": "Prosumer Coffee Supplies, Ltd.",
         "description": "Coffee Machine Imports",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "3934 Spinnaker Lane",
           "addressLocality": "Joliet",
           "addressRegion": "Illinois",
@@ -232,39 +229,39 @@ example: |-
       }
     ],
     "mainCarriageTransportMovement": {
-      "type": "Transport",
+      "type": ["Transport"],
       "vesselNumber": "MS Seven Seas",
       "voyageNumber": "Atl-W0425"
     },
     "portOfLoading": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "ITMIL"
     },
     "portOfDischarge": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "USLGB"
     },
     "totalNumberOfPackages": 2200,
     "transportEquipmentQuantity": 2,
     "utilizedTransportEquipment": [
       {
-        "type": "TransportEquipment",
+        "type": ["TransportEquipment"],
         "equipmentReference": "APZU4812090",
         "ISOEquipmentCode": "40GP",
         "seals": [
           {
-            "type": "Seal",
+            "type": ["Seal"],
             "sealNumber": "PTW-002290109692"
           }
         ]
       },
       {
-        "type": "TransportEquipment",
+        "type": ["TransportEquipment"],
         "equipmentReference": "APZU5985096",
         "ISOEquipmentCode": "40GP",
         "seals": [
           {
-            "type": "Seal",
+            "type": ["Seal"],
             "sealNumber": "PTW-002255398220"
           }
         ]
@@ -272,35 +269,34 @@ example: |-
     ],
     "includedConsignmentItems": [
       {
-        "type": "ConsignmentItem",
+        "type": ["ConsignmentItem"],
         "marksAndNumbers": "Espresso Italiano",
         "commodity": {
-          "type": "Commodity",
+          "type": ["Commodity"],
           "commodityCode": "851671",
           "commodityCodeType": "HS"
         },
         "packageQuantity": 2200,
         "netWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "unitCode": "kg",
           "value": "14600"
         },
         "grossWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "unitCode": "kg",
           "value": "15960"
         },
         "grossVolume": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "856",
-          "unitCode": "cmb"
+          "unitCode": "cbm"
         }
       }
     ],
     "declaredValue": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 240000,
       "priceCurrency": "USD"
-    },
-    "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
+    }
   }
