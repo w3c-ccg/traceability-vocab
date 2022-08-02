@@ -6,15 +6,11 @@ description: An object which can be listed as a DID `service` to enable discover
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - TraceabilityAPI
-      - type: string
-        const:
-          - TraceabilityAPI
+    type: array
+    items:
+      type: string
+      enum:
+        - TraceabilityAPI
   serviceEndpoint: 
     description: |-
       The serviceEndpoint definition implies the following endpoints:
@@ -30,6 +26,6 @@ required:
 example: |-
   {
     "id": "did:web:platform.example:organization:123#traceability-api",
-    "type": "TraceabilityAPI",
+    "type": ["TraceabilityAPI"],
     "serviceEndpoint": "https://platform.example/organization/123"
   }
