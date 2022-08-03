@@ -6,14 +6,11 @@ description: Line Item identifier used on CBP 3461 Immediate Delivery Form.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ImmediateDeliveryEntity
-      - type: string
-        const: ImmediateDeliveryEntity 
+    type: array
+    items:
+      type: string
+      enum:
+        - ImmediateDeliveryLineItem
   commodity: 
     title: Commodity
     description: Commodity classification based on either WCO HS or USITS HTS codification.

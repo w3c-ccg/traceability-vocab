@@ -6,18 +6,14 @@ description: An Importer Security Filing, commonly known as “10+2”, is a fil
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ImporterSecurityFiling
-      - type: string
-        const:
-          - ImporterSecurityFiling 
+    type: array
+    items:
+      type: string
+      enum:
+        - ImporterSecurityFiling
   seller: 
     title: Seller
-    description: An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
+    description: An entity which offers (sells, leases, lends, loans, etc.) the services or goods. A seller may also be a provider.
     $ref: ./Entity.yml
     $linkedData:
       term: seller
@@ -80,12 +76,12 @@ properties:
 additionalProperties: true
 example: |-
   {
-    "type": "ImporterSecurityFiling",
+    "type": ["ImporterSecurityFiling"],
     "seller": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Onwards A/S",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Sludevej 63",
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
@@ -94,10 +90,10 @@ example: |-
       "entityType": "Organization"
     },
     "buyer": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Future Mobility, Inc.",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "2016 W Farmington Rd",
         "addressLocality": "West Peoria",
         "postalCode": "61604",
@@ -106,10 +102,10 @@ example: |-
       "entityType": "Organization"
     },
     "importer": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Onwards A/S",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Sludevej 63",
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
@@ -118,10 +114,10 @@ example: |-
       "entityType": "Organization"
     },
     "consignee": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Future Mobility, Inc.",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "2016 W Farmington Rd",
         "addressLocality": "West Peoria",
         "postalCode": "61604",
@@ -130,10 +126,10 @@ example: |-
       "entityType": "Organization"
     },
     "shipToParty": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Future Mobility - Georgia",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "3837 Martinez Blvd",
         "addressLocality": "Augusta",
         "addressRegion": "Georgia",
@@ -144,32 +140,33 @@ example: |-
     },
     "filingItems": [
       {
-        "type": "ConsignmentItem",
+        "type": ["ConsignmentItem"],
         "commodity": {
-          "type": "Commodity",
+          "type": ["Commodity"],
           "commodityCode": "9403 7000 00",
           "commodityCodeType": "HTS"
         },
         "countryOfOrigin": "CN",
         "manufacturer": {
-          "type": "Organization",
+          "type": ["Entity"],
           "name": "Xxinau Manufacturing Co. Ltd.",
           "address": {
-            "type": "PostalAddress",
+            "type": ["PostalAddress"],
             "streetAddress": "Xin Fei Da Dao 139",
             "addressLocality": "Xindao",
             "addressRegion": "Fujian Province",
             "postalCode": "361100",
             "addressCountry": "CN"
-          }
+          },
+          "entityType": "Organization"
         }
       }
     ],
     "containerStuffingLocation": [
       {
-        "type": "Place",
+        "type": ["Place"],
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Xin Fei Da Dao 139",
           "addressLocality": "Xindao",
           "addressRegion": "Fujian Province",
@@ -180,10 +177,10 @@ example: |-
     ],
     "consolidator": [
       {
-        "type": "Entity",
+        "type": ["Entity"],
         "name": "Xxinau Manufacturing Co. Ltd.",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Xin Fei Da Dao 139",
           "addressLocality": "Xindao",
           "addressRegion": "Fujian Province",
