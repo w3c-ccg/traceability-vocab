@@ -12,9 +12,6 @@ properties:
           type: string
           enum:
             - Invoice
-      - type: string
-        const:
-          - Invoice 
   identifier:
     title: Property Identifier
     description: Identifiers for a property.
@@ -252,26 +249,26 @@ required:
 additionalProperties: false
 example: |-
   {
-    "type": "Invoice",
+    "type": ["Invoice"],
     "portOfEntry": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "USLGB"
     },
-    "destinationCountry": "MEX",
+    "destinationCountry": "MX",
     "purchaseDate": "2021-02-21",
     "seller": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Maxi Acero Mexicano",
       "description": "Fusión y fabricación de acero sólido",
       "location": {
-        "type": "Place",
+        "type": ["Place"],
         "geo": {
-          "type": "GeoCoordinates",
+          "type": ["GeoCoordinates"],
           "latitude": "25.682338876065607",
           "longitude": "-100.31373788104028"
         },
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Avenida Carlos 100",
           "addressLocality": "Hernádez de Mara",
           "addressRegion": "Nuevo Leon",
@@ -300,22 +297,22 @@ example: |-
     },
     "itemsShipped": [
       {
-        "type": "TradeLineItem",
+        "type": ["TradeLineItem"],
         "product": {
-          "type": "Product",
+          "type": ["Product"],
           "manufacturer": {
-            "type": "Organization",
+            "type": ["Organization"],
             "name": "Maxi Acero Mexicano",
             "description": "Fusión y fabricación de acero sólido",
             "location": {
-              "type": "Place",
+              "type": ["Place"],
               "geo": {
-                "type": "GeoCoordinates",
+                "type": ["GeoCoordinates"],
                 "latitude": "25.682338876065607",
                 "longitude": "-100.31373788104028"
               },
               "address": {
-                "type": "PostalAddress",
+                "type": ["PostalAddress"],
                 "streetAddress": "Avenida Carlos 100",
                 "addressLocality": "Hernádez de Mara",
                 "addressRegion": "Nuevo Leon",
@@ -328,40 +325,40 @@ example: |-
           },
           "description": "UNS S30400 chromium-nickel stainless steel rolls.",
           "weight": {
-            "type": "QuantitativeValue",
+            "type": ["QuantitativeValue"],
             "unitCode": "lbs",
             "value": "16500"
           }
         },
         "itemCount": 5,
         "grossWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "82500",
           "unitCode": "lbs"
         },
         "priceSpecification": {
-          "type": "PriceSpecification",
+          "type": ["PriceSpecification"],
           "price": 5200,
           "priceCurrency": "USD"
         }
       },
       {
-        "type": "TradeLineItem",
+        "type": ["TradeLineItem"],
         "product": {
-          "type": "Product",
+          "type": ["Product"],
           "manufacturer": {
-            "type": "Organization",
+            "type": ["Organization"],
             "name": "Maxi Acero Mexicano",
             "description": "Fusión y fabricación de acero sólido",
             "location": {
-              "type": "Place",
+              "type": ["Place"],
               "geo": {
-                "type": "GeoCoordinates",
+                "type": ["GeoCoordinates"],
                 "latitude": "25.682338876065607",
                 "longitude": "-100.31373788104028"
               },
               "address": {
-                "type": "PostalAddress",
+                "type": ["PostalAddress"],
                 "streetAddress": "Avenida Carlos 100",
                 "addressLocality": "Hernádez de Mara",
                 "addressRegion": "Nuevo Leon",
@@ -374,14 +371,14 @@ example: |-
           },
           "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
           "weight": {
-            "type": "QuantitativeValue",
+            "type": ["QuantitativeValue"],
             "value": "12680",
             "unitCode": "lbs"
           }
         },
         "itemCount": 20,
         "grossWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "253600",
           "unitCode": "lbs"
         },
@@ -393,12 +390,12 @@ example: |-
       }
     ],
     "totalWeight": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "value": "336100",
       "unitCode": "lbs"
     },
     "totalPaymentDue": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 9600,
       "priceCurrency": "USD"
     }
