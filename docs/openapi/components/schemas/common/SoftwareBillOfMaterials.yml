@@ -13,26 +13,22 @@ required:
   - type
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - SoftwareBillOfMaterials
-      - type: string
-        const:
-          - SoftwareBillOfMaterials
+    type: array
+    items:
+      type: string
+      enum:
+        - SoftwareBillOfMaterials
 additionalProperties: true
 example: |-
   {
-    "type" : "SoftwareBillOfMaterials",
+    "type" : ["SoftwareBillOfMaterials"],
     "SPDXVersion": "SPDX-2.2",
     "dataLicense": "CC0-1.0",
     "SPDXID": "SPDXRef-DOCUMENT",
     "documentName": "hello",
     "documentNamespace": "https://swinslow.net/spdx-examples/example1/hello-v3",
     "creator": {
-      "type": "Person",
+      "type": ["Person"],
       "name": "Steve Winslow",
       "email" : "steve@swinslow.net"
     },
@@ -45,7 +41,7 @@ example: |-
     ],
     "packages": [
       {
-        "type": "SoftwarePackage",
+        "type": ["SoftwarePackage"],
         "packageName": "hello",
         "SPDXID": "SPDXRef-Package-hello",
         "packageDownloadLocation": "git+https://github.com/swinslow/spdx-examples.git#example1/content",
@@ -57,7 +53,7 @@ example: |-
         "packageCopyrightText": "NOASSERTION",
         "files" : [
           {
-            "type" : "SoftwarePackageFile",
+            "type" : ["SoftwarePackageFile"],
             "fileName": "/build/hello",
             "SPDXID": "SPDXRef-hello-binary",
             "fileType": "BINARY",
@@ -75,7 +71,7 @@ example: |-
             ]
           },
           {
-            "type" : "SoftwarePackageFile",
+            "type" : ["SoftwarePackageFile"],
             "fileName": "/src/Makefile",
             "SPDXID": "SPDXRef-Makefile",
             "fileType": "SOURCE",
@@ -92,7 +88,7 @@ example: |-
             ]
           },
           {
-            "type" : "SoftwarePackageFile",
+            "type" : ["SoftwarePackageFile"],
             "fileName": "/src/hello.c",
             "SPDXID": "SPDXRef-hello-src",
             "fileType": "SOURCE",
