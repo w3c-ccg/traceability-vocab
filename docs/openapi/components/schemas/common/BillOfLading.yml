@@ -6,15 +6,11 @@ description: Bill Of Lading
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - BillOfLading
-      - type: string
-        const:
-          - BillOfLading 
+    type: array
+    items:
+      type: string
+      enum:
+        - BillOfLading
   billOfLadingNumber:
     title: Bill Of Lading Number
     description: This identifier might not be globally unique.
@@ -58,7 +54,7 @@ properties:
     description: >-
       The party providing the transport of goods in this consignment between
       named points.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: carrier
       '@id': >-
@@ -68,7 +64,7 @@ properties:
     description: >-
       The party consigning goods, as stipulated in the transport contract by the
       party ordering transport.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: consignor
       '@id': >-
@@ -76,7 +72,7 @@ properties:
   consignee:
     title: Consignee
     description: A party to which goods are consigned.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -87,7 +83,7 @@ properties:
       The party to be notified upon arrival of goods and when special
       occurrences (usually pre-defined) take place during a transportation
       service.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: notify
       '@id': >-
@@ -99,7 +95,7 @@ properties:
       shipment (the consolidated shipment), which is sent to a counterpart that
       mirrors the consolidator's activity by dividing the consolidated
       consignment into its original components.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: freightForwarder
       '@id': >-
@@ -155,58 +151,40 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "BillOfLading",
+    "type": ["BillOfLading"],
     "billOfLadingNumber": "991205182A",
     "bookingNumber": "991205182",
-    "relatedDocuments": [
-      {
-        "type": [
-          "Purchase"
-        ],
-        "customer": {
-          "type": ["Entity"],
-          "name": "Willie Pollich",
-          "entityType": "Person",
-          "email": "Willie78@example.net",
-          "phoneNumber": "+1-555-152-7258"
-        }
-      }
-    ],
     "scac": "NISC",
     "carrier": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Carrior Goods And More",
       "email": "Adaline29@example.com",
-      "phoneNumber": "+1 555-234-9983",
-      "entityType": "Organization"
+      "phoneNumber": "+1 555-234-9983"
     },
     "consignor": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Consignor Is Us",
       "email": "Idella60@example.org",
-      "phoneNumber": "+1-555-953-9479",
-      "entityType": "Organization"
+      "phoneNumber": "+1-555-953-9479"
     },
     "consignee": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Victorian Consignee",
       "email": "Victoria.Hane74@example.org",
-      "phoneNumber": "+1-555-455-9053",
-      "entityType": "Organization"
+      "phoneNumber": "+1-555-455-9053"
     },
     "notify": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Florida Contact Org",
       "email": "Florida91@example.net",
-      "phoneNumber": "+1-555-104-1126",
-      "entityType": "Organization"
+      "phoneNumber": "+1-555-104-1126"
     },
     "freight": {
       "type": ["ParcelDelivery"],
       "deliveryAddress": {
-        "type": "Place",
+        "type": ["Place"],
         "geo": {
-          "type": "GeoCoordinates",
+          "type": ["GeoCoordinates"],
           "latitude": "-20.840731978309044",
           "longitude": "-159.78393883134225"
         },
@@ -221,9 +199,9 @@ example: |-
         }
       },
       "originAddress": {
-        "type": "Place",
+        "type": ["Place"],
         "geo": {
-          "type": "GeoCoordinates",
+          "type": ["GeoCoordinates"],
           "latitude": "-23.25979250428427",
           "longitude": "-58.36431415044023"
         },
