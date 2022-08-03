@@ -68,17 +68,12 @@ const main = async () => {
       const start = file.indexOf('  {');
       const jsonStr = file.substring(start);
       const example = JSON.parse(jsonStr);
-      if (!example.proof) {
-        return;
-      }
 
-      if (example.type.indexOf('VerifiablePresentation') !== -1) {
-        return;
-      }
-
-      const verified = await checkVerififcation(example, filename);
-      if (verified) {
-        return;
+      if (example.proof) {
+        const verified = await checkVerififcation(example, filename);
+        if (verified) {
+          return;
+        }
       }
 
       const vc = await issueCredential(jsonStr, filename);

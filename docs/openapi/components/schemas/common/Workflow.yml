@@ -6,15 +6,11 @@ description: A Workflow Definition and Instance.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Workflow
-      - type: string
-        const:
-          - Workflow
+    type: array
+    items:
+      type: string
+      enum:
+        - Workflow
   definition: 
     description: The Workflow Definition indicates the intention behind the presentation. 
     type: array
@@ -33,7 +29,9 @@ properties:
       '@id': https://w3id.org/traceability/#workflow-instance
 example: |-
   {
-    "type": "Workflow",
+    "type": [
+      "Workflow"
+    ],
     "definition": [
       "https://w3id.org/traceability/#sima-steel-license"
     ],

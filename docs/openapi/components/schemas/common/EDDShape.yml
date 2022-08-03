@@ -1,6 +1,6 @@
 $linkedData:
-  term: EDDSHP
-  '@id': https://w3id.org/traceability#EDDSHP
+  term: EDDShape
+  '@id': https://w3id.org/traceability#EDDShape
 title: EDD Shapefile
 description: EDD (Early Detection and Distribution) mapping system shapefile.
 type: object
@@ -11,16 +11,16 @@ properties:
         items:
           type: string
           enum:
-            - EDDSHP
+            - EDDShape
       - type: string
-        const: EDDSHP
+        const: EDDShape
   meta:
     title: Metainformation
     description: The corresponding EDD Shapefile Metainformation.
-    $ref: ./EDDSHPMeta.yml
+    $ref: ./EDDShapeMeta.yml
     $linkedData:
       term: meta
-      '@id': https://w3id.org/traceability#EDDSHPMeta
+      '@id': https://w3id.org/traceability#EDDShapeMeta
   reporter:
     title: Reporter
     description: Name of the person, agency, group, or organization reporting the data.
@@ -285,9 +285,9 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "EDDSHP",
+    "type": "EDDShape",
     "meta": {
-      "type": "EDDSHP",
+      "type": "EDDShape",
       "recordOwner": "Federal Agency",
       "shapeType": "Point",
       "method": "Google Earth",
