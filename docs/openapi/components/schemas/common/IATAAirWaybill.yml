@@ -79,7 +79,7 @@ properties:
       The name, address and country (or two-letter country code) of the shipper
       (or IATA Cargo Intermediary when acting in its capacity as a Forwarder).
       Box 2.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipper
       '@id': >-
@@ -98,7 +98,7 @@ properties:
     description: >-
       The name, address and country (or two-letter country code) of the
       consignee. Box 4.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -118,7 +118,7 @@ properties:
       The name and location (airport or city) of the issuing carrier's IATA
       Cargo Agent (or IATA Cargo Intermediary when acting in its capacity as the
       issuing carrier's agent). Box 6.
-    type: string
+    $ref: ./Organization.yml
     $linkedData:
       term: issuingCarrierAgent
       '@id': >-
@@ -492,7 +492,7 @@ example: |-
     },
     "conditionsOfContract": "It is agreed that the goods described herein are accepted in apparent good order and condition (except as noted) for carriage SUBJECT TO THE CONDITIONS OF CONTRACT ON THE REVERSE HEREOF. ALL GOODS MAY BE CARRIED BY ANY OTHER MEANS INCLUDING ROAD OR ANY OTHER CARRIER UNLESS SPECIFIC CONTRARY INSTRUCTIONS ARE GIVEN HEREON BY THE SHIPPER, AND SHIPPER AGREES THAT THE SHIPMENT MAY BE CARRIED VIA INTERMEDIATE STOPPING PLACES WHICH THE CARRIER DEEMS APPROPRIATE. THE SHIPPER'S ATTENTION IS DRAWN TO THE NOTICE CONCERNING CARRIER'S LIMITATION OF LIABILITY. Shipper may increase such limitation of liability by declaring a higher value for carriage and paying a supplemental charge if required.",
     "shipper": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
@@ -502,12 +502,11 @@ example: |-
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      },
-      "entityType": "Organization"
+      }
     },
     "shippersAccountNumber": "Trade",
     "consignee": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "By Acre",
       "address": {
         "type": ["PostalAddress"],
@@ -515,8 +514,7 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      },
-      "entityType": "Organization"
+      }
     },
     "requestedRouting": [
       {
