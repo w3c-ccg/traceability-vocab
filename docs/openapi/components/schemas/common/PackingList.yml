@@ -17,40 +17,36 @@ required:
   - shipToParty
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - PackingList
-      - type: string
-        const:
-          - PackingList
+    type: array
+    items:
+      type: string
+      enum:
+        - PackingList
   seller: 
     title: Seller
     description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: seller
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
   shipFromParty:
     title: Ship From Party
     description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipFromParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipToParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
@@ -156,94 +152,90 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity
 example: |-
   {
-    "type": "PackingList",
+    "type": ["PackingList"],
     "orderNumber": "PO00000329",
     "seller": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Xin Fei Da Dao 139",
         "addressLocality": "Xindao",
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      },
-      "entityType": "Organization"
+      }
     },
     "buyer": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "By ACRE",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "IC. Modewegs Vej 1",
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      },
-      "entityType": "Organization"
+      }
     },
     "shipFromParty": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Xin Fei Da Dao 139",
         "addressLocality": "Xindao",
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      },
-      "entityType": "Organization"
+      }
     },
     "shipToParty": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "By ACRE",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "IC. Modewegs Vej 1",
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      },
-      "entityType": "Organization"
+      }
     },
     "handlingInstructions": [
       {
-        "type": "Instructions",
+        "type": ["Instructions"],
         "description": "Handle with care"
       }
     ],
     "partOfOrder": [
       {
-        "type": "PartOfOrder",
+        "type": ["PartOfOrder"],
         "packageQuantity": 540,
         "transportPackages": [
           {
-            "type": "Package",
+            "type": ["Package"],
             "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
             "perPackageUnitQuantity": 1,
             "includedTradeLineItems": [
               {
-                "type": "TradeLineItem",
+                "type": ["TradeLineItem"],
                 "description": "Rollators",
                 "itemCount": 540
               }
             ],
             "netWeight": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "3834",
               "unitCode": "kg"
             },
             "grossWeight": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "4302",
               "unitCode": "kg"
             },
             "grossVolume": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "66.96",
               "unitCode": "cbm"
             }
@@ -251,32 +243,32 @@ example: |-
         ]
       },
       {
-        "type": "PartOfOrder",
+        "type": ["PartOfOrder"],
         "packageQuantity": 2,
         "transportPackages": [
           {
-            "type": "Package",
+            "type": ["Package"],
             "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
             "perPackageUnitQuantity": 100,
             "includedTradeLineItems": [
               {
-                "type": "TradeLineItem",
+                "type": ["TradeLineItem"],
                 "description": "Rollator backrest",
                 "itemCount": 200
               }
             ],
             "netWeight": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "42",
               "unitCode": "kg"
             },
             "grossWeight": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "44",
               "unitCode": "kg"
             },
             "grossVolume": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "0.28",
               "unitCode": "cbm"
             }
@@ -284,32 +276,32 @@ example: |-
         ]
       },
       {
-        "type": "PartOfOrder",
+        "type": ["PartOfOrder"],
         "packageQuantity": 80,
         "transportPackages": [
           {
-            "type": "Package",
+            "type": ["Package"],
             "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
             "perPackageUnitQuantity": 1,
             "includedTradeLineItems": [
               {
-                "type": "TradeLineItem",
+                "type": ["TradeLineItem"],
                 "description": "Rollator backrest",
                 "itemCount": 80
               }
             ],
             "netWeight": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "50",
               "unitCode": "kg"
             },
             "grossWeight": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "160",
               "unitCode": "kg"
             },
             "grossVolume": {
-              "type": "QuantitativeValue",
+              "type": ["QuantitativeValue"],
               "value": "0.5",
               "unitCode": "cbm"
             }
@@ -318,12 +310,12 @@ example: |-
       }
     ],
     "totalGrossWeight": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "value": "4038",
       "unitCode": "kg"
     },
     "totalGrossVolume": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "value": "67.74",
       "unitCode": "cbm"
     },
