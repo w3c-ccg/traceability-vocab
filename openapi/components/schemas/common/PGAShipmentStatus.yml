@@ -22,15 +22,11 @@ required:
   - validCodeReasonDescription
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - PGAShipmentStatus
-      - type: string
-        const:
-          - PGAShipmentStatus
+    type: array
+    items:
+      type: string
+      enum:
+        - PGAShipmentStatus
   recordNo:
     type: string
     description: Record number that indicates the status, reason, and subreason codes to be referenced.
@@ -88,7 +84,7 @@ properties:
 additionalProperties: true
 example: |-
   {
-    "type": "PGAShipmentStatus",
+    "type": ["PGAShipmentStatus"],
     "recordNo" : "SO70",
     "entryNo" : "AAA-1234567-8",
     "entryLineSequence" : "L1:S1",

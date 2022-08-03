@@ -2362,13 +2362,16 @@
   </table>
   
       <pre class="example">{
-  "type": "EntrySummary",
-  "entryNumber": 73461882610,
+  "type": ["EntrySummary"],
+  "entryNumber": "73461882610",
   "entryType": "01",
   "summaryDate": "2022-03-01T12:54Z",
   "suretyNumber": "228",
   "bondType": "Single Transaction Bond",
-  "portCode": "USLBC",
+  "portCode": {
+    "type": ["Place"], 
+    "unLocode": "USLBC"
+  },
   "entryDate": "2022-03-01T12:54Z",
   "importingCarrier": "NISC",
   "transportMode": "Ocean",
@@ -2382,25 +2385,25 @@
   "immediateTransportationDate": "2022-03-01T12:54Z",
   "missingDocuments": [],
   "portOfLoading": {
-    "type": "Place",
-    "UNLocode": "SGSIN"
+    "type": ["Place"],
+    "unLocode": "SGSIN"
   },
   "portOfUnlading": {
-    "type": "Place",
-    "UNLocode": "USLBC"
+    "type": ["Place"],
+    "unLocode": "USLBC"
   },
   "locationOfGoods": {
-    "type": "Place",
-    "UNLocode": "USLBC"
+    "type": ["Place"],
+    "unLocode": "USLBC"
   },
   "consigneeNumber": "9982312",
   "importerNumber": "9900127",
   "referenceNumber": "ref199812841",
   "ultimateConsignee": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Future Mobility, Inc.",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "2016 W Farmington Rd",
       "addressLocality": "West Peoria",
       "postalCode": "61604",
@@ -2409,10 +2412,10 @@
     "entityType": "Organization"
   },
   "importerOfRecord": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Future Mobility, Inc.",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "2016 W Farmington Rd",
       "addressLocality": "West Peoria",
       "postalCode": "61604",
@@ -2422,9 +2425,9 @@
   },
   "descriptionOfMerchandise": [
     {
-      "type": "EntrySummaryLineItem",
+      "type": ["EntrySummaryLineItem"],
       "commodity": {
-        "type": "Commodity",
+        "type": ["Commodity"],
         "commodityCode": "2204.21.60 00",
         "commodityCodeType": "HS",
         "description": "Wine of fresh grapes"
@@ -2432,23 +2435,23 @@
       "adCvdNumber": "A123-234-345",
       "categoryNumber": "CAT ABC",
       "grossWeight": {
-        "type": "QuantitativeValue",
+        "type": ["QuantitativeValue"],
         "value": "7420",
         "unitCode": "kg"
       },
       "manifestQuantity": 3500,
       "netQuantity": {
-        "type": "QuantitativeValue",
+        "type": ["QuantitativeValue"],
         "value": "6620",
         "unitCode": "kg"
       },
       "enteredValue": {
-        "type": "PriceSpecification",
+        "type": ["PriceSpecification"],
         "price": 12000,
         "priceCurrency": "USD"
       },
       "charges": {
-        "type": "PriceSpecification",
+        "type": ["PriceSpecification"],
         "price": 1500,
         "priceCurrency": "USD"
       },
@@ -2456,7 +2459,7 @@
       "htsRate": "ad valorem",
       "visaNumber": "V10000345",
       "dutyAndIRTax": {
-        "type": "PriceSpecification",
+        "type": ["PriceSpecification"],
         "price": 8230,
         "priceCurrency": "USD"
       }
@@ -2464,29 +2467,28 @@
   ],
   "otherFeeSummary": "AD",
   "totalEnteredValue": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 8230,
     "priceCurrency": "USD"
   },
   "declarationOfImporter": "Importer of Record",
   "duty": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 20,
     "priceCurrency": "USD"
   },
   "tax": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 282,
     "priceCurrency": "USD"
   },
   "total": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 8532,
     "priceCurrency": "USD"
   }
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
-<li><a href='#EntrySummaryLineItem'>EntrySummaryLineItem</a></li>
 <li><a href='#Place'>Place</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
     </section>
@@ -2514,9 +2516,9 @@
   </table>
   
       <pre class="example">{
-  "type": "EntrySummaryLineItem",
+  "type": ["EntrySummaryLineItem"],
   "commodity": {
-    "type": "Commodity",
+    "type": ["Commodity"],
     "commodityCode": "2204.21.60 00",
     "commodityCodeType": "HS",
     "description": "Wine of fresh grapes"
@@ -2524,23 +2526,23 @@
   "adCvdNumber": "A123-234-345",
   "categoryNumber": "CAT ABC",
   "grossWeight": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "value": "7420",
     "unitCode": "kg"
   },
   "manifestQuantity": 3500,
   "netQuantity": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "value": "6620",
     "unitCode": "kg"
   },
   "enteredValue": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 12000,
     "priceCurrency": "USD"
   },
   "charges": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 1500,
     "priceCurrency": "USD"
   },
@@ -2548,7 +2550,7 @@
   "htsRate": "ad valorem",
   "visaNumber": "V10000345",
   "dutyAndIRTax": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 8230,
     "priceCurrency": "USD"
   }
@@ -5110,17 +5112,17 @@
   </table>
   
       <pre class="example">{
-  "type": "ImmediateDelivery",
+  "type": ["ImmediateDelivery"],
   "portOfEntry": {
-    "type": "Place",
+    "type": ["Place"],
     "unLocode": "USLBC"
   },
   "bondType": "Single Transaction Bond",
   "importer": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Onwards A/S",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "Sludevej 63",
       "addressLocality": "Kgs. Lyngby",
       "postalCode": "2800",
@@ -5138,12 +5140,12 @@
   "originatingWarehouseEntryNumber": "38819",
   "suretyCode": "511",
   "portOfUnlading": {
-    "type": "Place",
+    "type": ["Place"],
     "unLocode": "USBBK"
   },
   "transportMode": "Ocean",
   "locationOfGoods": {
-    "type": "Place",
+    "type": ["Place"],
     "unLocode": "USMRE"
   },
   "generalOrderNumber": "O1000212",
@@ -5152,9 +5154,9 @@
   "referenceIDNumber": "EX123456",
   "lineItems": [
     {
-      "type": "ImmediateDeliveryLineItem",
+      "type": ["ImmediateDeliveryLineItem"],
       "commodity": {
-        "type": "Commodity",
+        "type": ["Commodity"],
         "commodityCode": "9403 7000 00",
         "commodityCodeType": "HTS"
       },
@@ -5162,10 +5164,10 @@
       "itemCount": 400,
       "itemParty": {
         "consignee": {
-          "type": "Entity",
+          "type": ["Entity"],
           "name": "Future Mobility, Inc.",
           "address": {
-            "type": "PostalAddress",
+            "type": ["PostalAddress"],
             "streetAddress": "2016 W Farmington Rd",
             "addressLocality": "West Peoria",
             "postalCode": "61604",
@@ -5320,12 +5322,12 @@
   </table>
   
       <pre class="example">{
-  "type": "ImporterSecurityFiling",
+  "type": ["ImporterSecurityFiling"],
   "seller": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Onwards A/S",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "Sludevej 63",
       "addressLocality": "Kgs. Lyngby",
       "postalCode": "2800",
@@ -5334,10 +5336,10 @@
     "entityType": "Organization"
   },
   "buyer": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Future Mobility, Inc.",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "2016 W Farmington Rd",
       "addressLocality": "West Peoria",
       "postalCode": "61604",
@@ -5346,10 +5348,10 @@
     "entityType": "Organization"
   },
   "importer": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Onwards A/S",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "Sludevej 63",
       "addressLocality": "Kgs. Lyngby",
       "postalCode": "2800",
@@ -5358,10 +5360,10 @@
     "entityType": "Organization"
   },
   "consignee": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Future Mobility, Inc.",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "2016 W Farmington Rd",
       "addressLocality": "West Peoria",
       "postalCode": "61604",
@@ -5370,10 +5372,10 @@
     "entityType": "Organization"
   },
   "shipToParty": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Future Mobility - Georgia",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "3837 Martinez Blvd",
       "addressLocality": "Augusta",
       "addressRegion": "Georgia",
@@ -5384,32 +5386,33 @@
   },
   "filingItems": [
     {
-      "type": "ConsignmentItem",
+      "type": ["ConsignmentItem"],
       "commodity": {
-        "type": "Commodity",
+        "type": ["Commodity"],
         "commodityCode": "9403 7000 00",
         "commodityCodeType": "HTS"
       },
       "countryOfOrigin": "CN",
       "manufacturer": {
-        "type": "Organization",
+        "type": ["Entity"],
         "name": "Xxinau Manufacturing Co. Ltd.",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Xin Fei Da Dao 139",
           "addressLocality": "Xindao",
           "addressRegion": "Fujian Province",
           "postalCode": "361100",
           "addressCountry": "CN"
-        }
+        },
+        "entityType": "Organization"
       }
     }
   ],
   "containerStuffingLocation": [
     {
-      "type": "Place",
+      "type": ["Place"],
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Xin Fei Da Dao 139",
         "addressLocality": "Xindao",
         "addressRegion": "Fujian Province",
@@ -5420,10 +5423,10 @@
   ],
   "consolidator": [
     {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Xin Fei Da Dao 139",
         "addressLocality": "Xindao",
         "addressRegion": "Fujian Province",
@@ -8174,7 +8177,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "PGAShipmentStatus",
+  "type": ["PGAShipmentStatus"],
   "recordNo" : "SO70",
   "entryNo" : "AAA-1234567-8",
   "entryLineSequence" : "L1:S1",
@@ -8190,14 +8193,8 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   
 
     <section id="PGAShipmentStatusList">
-      <h2>PGA Shipment Status</h2>
-      <p>Partner Government Agencies (PGAs) use PGA Status Notification Codes to communicate 
-with ACE on the following CBP documents: Entry Summary Status Notification, 
-Cargo Release Status Notification, Status notification for Stand-alone PE data submission,
-and ACE Cargo Manifest/In-Bond/Entry Status Query. Each Code provides a description 
-from the PGA explaining the current status. For reference, here is a link to the 
-CATAIR document with all approved codes: 
-https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%20PGA%20Status%20Notification%20Codes_13Dec2021_508c.pdf</p>
+      <h2>PGA Shipment Status List</h2>
+      <p>List of PGA Status messages.</p>
       
   <table class="simple">
   <tbody>
@@ -8217,9 +8214,10 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
+  "type": ["PGAShipmentStatusList"],
   "pgaShipmentStatusItems": [
     {
-      "type": "PGAShipmentStatus",
+      "type": ["PGAShipmentStatus"],
       "recordNo": "SO70",
       "entryNo": "AAA-1234567-8",
       "entryLineSequence": "L1:S1",
@@ -8231,7 +8229,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
       "subReasonCodeDescription": "Documentation Needed"
     },
     {
-      "type": "PGAShipmentStatus",
+      "type": ["PGAShipmentStatus"],
       "recordNo": "SO70",
       "entryNo": "AAA-1234567-8",
       "entryLineSequence": "L1:S2",

@@ -6,15 +6,11 @@ description: A description of the articles in sufficient detail to permit the cl
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - EntrySummaryLineItem
-      - type: string
-        const:
-          - EntrySummaryLineItem 
+    type: array
+    items:
+      type: string
+      enum:
+        - EntrySummaryLineItem
   commodity:
     title: Commodity
     description: Product commodity code, codification system and description
@@ -150,9 +146,9 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "EntrySummaryLineItem",
+    "type": ["EntrySummaryLineItem"],
     "commodity": {
-      "type": "Commodity",
+      "type": ["Commodity"],
       "commodityCode": "2204.21.60 00",
       "commodityCodeType": "HS",
       "description": "Wine of fresh grapes"
@@ -160,23 +156,23 @@ example: |-
     "adCvdNumber": "A123-234-345",
     "categoryNumber": "CAT ABC",
     "grossWeight": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "value": "7420",
       "unitCode": "kg"
     },
     "manifestQuantity": 3500,
     "netQuantity": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "value": "6620",
       "unitCode": "kg"
     },
     "enteredValue": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 12000,
       "priceCurrency": "USD"
     },
     "charges": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 1500,
       "priceCurrency": "USD"
     },
@@ -184,7 +180,7 @@ example: |-
     "htsRate": "ad valorem",
     "visaNumber": "V10000345",
     "dutyAndIRTax": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 8230,
       "priceCurrency": "USD"
     }
