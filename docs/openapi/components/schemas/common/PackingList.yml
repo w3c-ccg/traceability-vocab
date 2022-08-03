@@ -25,28 +25,28 @@ properties:
   seller: 
     title: Seller
     description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: seller
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
   shipFromParty:
     title: Ship From Party
     description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipFromParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipToParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
@@ -155,7 +155,7 @@ example: |-
     "type": ["PackingList"],
     "orderNumber": "PO00000329",
     "seller": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
@@ -165,11 +165,10 @@ example: |-
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      },
-      "entityType": "Organization"
+      }
     },
     "buyer": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "By ACRE",
       "address": {
         "type": ["PostalAddress"],
@@ -177,11 +176,10 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      },
-      "entityType": "Organization"
+      }
     },
     "shipFromParty": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
       "address": {
@@ -191,11 +189,10 @@ example: |-
         "addressRegion": "Fujian Province",
         "postalCode": "361100",
         "addressCountry": "CN"
-      },
-      "entityType": "Organization"
+      }
     },
     "shipToParty": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "By ACRE",
       "address": {
         "type": ["PostalAddress"],
@@ -203,8 +200,7 @@ example: |-
         "addressLocality": "Kgs. Lyngby",
         "postalCode": "2800",
         "addressCountry": "DK"
-      },
-      "entityType": "Organization"
+      }
     },
     "handlingInstructions": [
       {
