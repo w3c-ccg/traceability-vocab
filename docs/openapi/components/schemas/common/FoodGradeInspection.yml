@@ -20,14 +20,14 @@ properties:
     $ref: ./Entity.yml
     $linkedData:
       term: applicant
-      '@id': https://w3id.org/traceability#dfn-entities
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
   facility:
     title: Facility
     description: Information on the inspection facility.
     $ref: ./Place.yml
     $linkedData:
       term: facility
-      '@id': https://www.gs1.org/voc/Place
+      '@id': https://www.gs1.org/voc/location
   inspector:
     title: Inspector
     description: >-
@@ -44,63 +44,63 @@ properties:
     $ref: ./Entity.yml
     $linkedData:
       term: delegateOf
-      '@id': https://schema.org/Organization
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization
   regulatoryAgency:
     title: Regulatory Agency
     description: The regulatory agency responsible for the regulation (public or private) that mandates or implies the inspection.
     $ref: ./Organization.yml
     $linkedData:
       term: regulatoryAgency
-      '@id': https://schema.org/Organization
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization
   inspectionStarted:
     title: Inspection Started
     description: Date and time inspection started in 24hr ISO 8601 format (e.g. 1970-01-01T00:00Z for UTC, or 1970:01:01T00:00-5:00 for New York on standard time).
     type: string
     $linkedData:
       term: inspectionStarted
-      '@id': https://schema.org/DateTime
+      '@id': https://schema.org/startDate
   inspectionEnded:
     title: Inspection Ended
     description: Date and time inspection ended in ISO 8601 format (e.g. 1970-01-01T00:00Z for UTC, or 1970:01:01T00:00-5:00 for New York on standard time).
     type: string
     $linkedData:
       term: inspectionEnded
-      '@id': https://schema.org/DateTime
+      '@id': https://schema.org/endDate
   shipment:
     title: Shipment
     description: Details for a shipment of goods.
     $ref: ./AgricultureParcelDelivery.yml
     $linkedData:
       term: shipment
-      '@id': https://schema.org/ParcelDelivery
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportPackage
   loadingStatus:
     title: Loading Status Code
     description: '"LO" for Loaded; "PU" for Partly Unloaded; "UL" for Unloaded; "LI" for Lot Inspection'
     type: string
     $linkedData:
       term: loadingStatus
-      '@id': https://w3id.org/traceability#loadingStatus
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
   carrierTypeName:
     title: Carrier Type / Name
     description: Type or name of carrier e.g. "Mechanical refrigerated", "open top trailer", "insulated box car".
     type: string
     $linkedData:
       term: carrierTypeName
-      '@id': https://schema.org/additionalType
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment
   refrigerationUnitOn:
     title: Refrigeration Unit On
     description: Whether the carrier refrigeration unit was on.
     type: boolean
     $linkedData:
       term: refrigerationUnitOn
-      '@id': https://w3id.org/traceability#refrigerationUnitOn
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
   doorsOpen:
     title: Doors Open
     description: Whether the carrier doors were open.
     type: boolean
     $linkedData:
       term: doorsOpen
-      '@id': https://w3id.org/traceability#doorsOpen
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
   lots:
     title: Lots
     description: Information for each lot including samples, defects and grades.
@@ -116,14 +116,14 @@ properties:
     type: string
     $linkedData:
       term: generalRemarks
-      '@id': https://schema.org/description
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks
   estimatedCharges:
     title: Estimated Charges
     description: Estimated charges for inspection including fees, travel time, overtime, mileage, tolls, any other appropriate expenses.
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: estimatedCharges
-      '@id': https://schema.org/totalPrice
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge
 additionalProperties: false
 example: |-
   {
@@ -412,7 +412,7 @@ example: |-
           {
             "type": "FoodGradeInspectionSample",
             "sampleSizeValue": 10,
-            "sampleSizeUnits": "items",
+            "sampleSizeUnit": "items",
             "sampleProperties": [
               {
                 "type": "FoodGradeInspectionSampleProperty",
