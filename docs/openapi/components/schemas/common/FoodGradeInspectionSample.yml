@@ -22,11 +22,11 @@ properties:
       term: sampleSizeValue
       '@id': https://schema.org/value
   sampleSizeUnits:
-    title: Sample Size Unit
-    description: Unit used, e.g. "items", "lbs", "kg".
+    title: Sample Size Units
+    description: Units used, e.g. "items", "lbs", "kg".
     type: string
     $linkedData:
-      term: sampleSizeUnit
+      term: sampleSizeUnits
       '@id': https://schema.org/unitText
   sampleProperties:
     title: Sample Properties
@@ -35,13 +35,13 @@ properties:
     items:
       $ref: ./FoodGradeInspectionSampleProperty.yml
     $linkedData:
-      term: sampleProperty
+      term: sampleProperties
       '@id': https://w3id.org/traceability#FoodGradeInspectionSampleProperty
 additionalProperties: false
 example: |-
   {
     "type": "FoodGradeInspectionSample",
-    "sampleSize": 10,
+    "sampleSizeValue": 10,
     "sampleSizeUnits": "items",
     "sampleProperties": [
       {

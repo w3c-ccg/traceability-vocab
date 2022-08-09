@@ -34,21 +34,21 @@ properties:
     type: number
     $linkedData:
       term: numberContainers
-      '@id': https://schema.org/Integer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
   countInspected:
     title: Count Inspected
     description: Whether the number of containers was accurately inspected. If false, report the reason for not being able to count the containers in the "Remarks" section.
     type: boolean
     $linkedData:
       term: countInspected
-      '@id': https://w3id.org/traceability#countInspected
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remark
   brandMarkings:
     title: Brand / Markings
-    description: Brand or Markings on inspected product. ALways have brand name enclosed in quotation marks as first entry (e.g. "Unkle Okey's Onions"), with other markings as necessary to identify lot NOT enclosed in quotation marks (e.g. U.S. No. 1; or Grown & Packed by Unkle Okey, Inc.; or Produce of U.S.A.).
+    description: Brand or Markings on inspected product. Always have brand name enclosed in quotation marks as first entry (e.g. "Unkle Okey's Onions"), with other markings as necessary to identify lot NOT enclosed in quotation marks (e.g. U.S. No. 1; or Grown & Packed by Unkle Okey, Inc.; or Produce of U.S.A.).
     type: string
     $linkedData:
       term: brandMarkings
-      '@id': https://schema.org/description    
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#brandName
   samples:
     title: Samples
     description: List of samples taken for this lot.
@@ -56,7 +56,7 @@ properties:
     items:
       $ref: ./FoodGradeInspectionSample.yml
     $linkedData:
-      term: sample
+      term: samples
       '@id': https://w3id.org/traceability#FoodGradeInspectionSample
   defects:
     title: Defects
@@ -65,7 +65,7 @@ properties:
     items:
       $ref: ./FoodGradeInspectionDefect.yml
     $linkedData:
-      term: defect
+      term: defects
       '@id': https://w3id.org/traceability#FoodGradeInspectionDefect
   grade:
     title: Grade
@@ -80,7 +80,7 @@ properties:
     type: string
     $linkedData:
       term: remarks
-      '@id': https://schema.org/description
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remark
   minTemperature:
     title: Minimum Temperature
     description: Minimum product temperature measured.
@@ -149,7 +149,7 @@ example: |-
     "samples": [
       {
         "type": "FoodGradeInspectionSample",
-        "sampleSize": 10,
+        "sampleSizeValue": 10,
         "sampleSizeUnits": "items",
         "sampleProperties": [
           {
@@ -242,6 +242,5 @@ example: |-
       ],
       "value": 55,
       "unitCode": "FAH"
-    },
-    "pli": "Fed-State ID-345-0515"
+    }
   }
