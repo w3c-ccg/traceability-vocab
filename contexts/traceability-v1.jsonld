@@ -1426,49 +1426,49 @@
     "FoodGradeInspection": {
       "@context": {
         "applicant": {
-          "@id": "https://w3id.org/traceability#dfn-entities"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty"
         },
         "carrierTypeName": {
-          "@id": "https://schema.org/additionalType"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment"
         },
         "delegateOf": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization"
         },
         "doorsOpen": {
-          "@id": "https://w3id.org/traceability#doorsOpen"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus"
         },
         "estimatedCharges": {
-          "@id": "https://schema.org/totalPrice"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge"
         },
         "facility": {
-          "@id": "https://www.gs1.org/voc/Place"
+          "@id": "https://www.gs1.org/voc/location"
         },
         "generalRemarks": {
-          "@id": "https://schema.org/description"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks"
         },
         "inspectionEnded": {
-          "@id": "https://schema.org/DateTime"
+          "@id": "https://schema.org/endDate"
         },
         "inspectionStarted": {
-          "@id": "https://schema.org/DateTime"
+          "@id": "https://schema.org/startDate"
         },
         "inspector": {
           "@id": "https://w3id.org/traceability#Inspector"
         },
         "loadingStatus": {
-          "@id": "https://w3id.org/traceability#loadingStatus"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus"
         },
-        "lot": {
+        "lots": {
           "@id": "https://w3id.org/traceability#FoodGradeInspectionLot"
         },
         "refrigerationUnitOn": {
-          "@id": "https://w3id.org/traceability#refrigerationUnitOn"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus"
         },
         "regulatoryAgency": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization"
         },
         "shipment": {
-          "@id": "https://schema.org/ParcelDelivery"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportPackage"
         }
       },
       "@id": "https://w3id.org/traceability#FoodGradeInspection"
@@ -1487,7 +1487,7 @@
           "@id": "https://qudt.org/vocab/unit/PERCENT"
         },
         "offsizeDefect": {
-          "@id": "https://schema.org/description"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#damageRemarks"
         },
         "seriousDamage": {
           "@id": "https://qudt.org/vocab/unit/PERCENT"
@@ -1504,12 +1504,12 @@
           "@id": "https://w3id.org/traceability#AgricultureProduct"
         },
         "brandMarkings": {
-          "@id": "https://schema.org/description"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#brandName"
         },
         "countInspected": {
-          "@id": "https://w3id.org/traceability#countInspected"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remark"
         },
-        "defect": {
+        "defects": {
           "@id": "https://w3id.org/traceability#FoodGradeInspectionDefect"
         },
         "grade": {
@@ -1525,12 +1525,12 @@
           "@id": "https://schema.org/measuredValue"
         },
         "numberContainers": {
-          "@id": "https://schema.org/Integer"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
         "remarks": {
-          "@id": "https://schema.org/description"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remark"
         },
-        "sample": {
+        "samples": {
           "@id": "https://w3id.org/traceability#FoodGradeInspectionSample"
         }
       },
@@ -1539,23 +1539,23 @@
     "FoodGradeInspectionResult": {
       "@context": {
         "details": {
-          "@id": "https://schema.org/description"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#additionalInformationNote"
         },
         "gradeInspected": {
-          "@id": "https://w3id.org/traceability#gradeInspected"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#standard"
         },
         "requirementsMet": {
-          "@id": "https://w3id.org/traceability#requirementsMet"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#assertion"
         }
       },
       "@id": "https://w3id.org/traceability#FoodGradeInspectionResult"
     },
     "FoodGradeInspectionSample": {
       "@context": {
-        "sampleProperty": {
+        "sampleProperties": {
           "@id": "https://w3id.org/traceability#FoodGradeInspectionSampleProperty"
         },
-        "sampleSizeUnit": {
+        "sampleSizeUnits": {
           "@id": "https://schema.org/unitText"
         },
         "sampleSizeValue": {
@@ -1570,7 +1570,7 @@
           "@id": "https://schema.org/name"
         },
         "propertyValue": {
-          "@id": "https://schema.org/description"
+          "@id": "https://schema.org/value"
         }
       },
       "@id": "https://w3id.org/traceability#FoodGradeInspectionSampleProperty"
@@ -3616,6 +3616,17 @@
         }
       },
       "@id": "https://schema.org/QuantitativeValue"
+    },
+    "RawMaterial": {
+      "@context": {
+        "inchiKey": {
+          "@id": "https://w3id.org/traceability#inchiKey"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
+        }
+      },
+      "@id": "https://w3id.org/traceability#RawMaterial"
     },
     "RevocationList2020Status": {
       "@context": {
