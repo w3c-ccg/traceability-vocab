@@ -17,13 +17,13 @@ properties:
       - type: string
         const:
           - PostalAddress   
-  organizationName:
-    title: Organization Name
-    description: The name of the organization expressed in text.
+  name:
+    title: Name
+    description: The name of the entity in text.
     type: string
     $linkedData:
-      term: organizationName
-      '@id': https://gs1.org/voc/organizationName
+      term: name
+      '@id': https://schema.org/name
   streetAddress:
     title: Street Address
     description: >-
@@ -98,7 +98,7 @@ additionalProperties: false
 example: |-
   {
     "type": "PostalAddress",
-    "organizationName": "Lebsack Inc",
+    "name": "Lebsack Inc",
     "streetAddress": "758 Huel Neck",
     "addressLocality": "Hagenesstad",
     "addressRegion": "Illinois",
