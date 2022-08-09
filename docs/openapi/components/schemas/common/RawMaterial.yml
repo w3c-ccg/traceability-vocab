@@ -1,0 +1,36 @@
+$linkedData:
+  term: RawMaterial
+  '@id': https://w3id.org/traceability#RawMaterial
+title: RawMaterial
+description: Basic material used to produce finished goods. 
+type: object
+properties:
+  type:
+    type: array
+    items:
+      type: string
+      enum:
+        - RawMaterial
+  name:
+    title: Name
+    description: Raw material name.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  inchiKey:
+    title: International Chemical Identifier
+    description: The condensed, 27 character InChIKey is a hashed version of the full InChI (using the SHA-256 algorithm), designed to allow for easy web searches of chemical compounds.
+    type: string
+    $linkedData:
+      term: inchiKey
+      '@id': https://w3id.org/traceability#inchiKey
+additionalProperties: false
+example: |-
+  {
+    "type": [
+      "RawMaterial"
+    ],
+      "name": "Scrap Metal (Iron)",
+      "inchiKey": "AEIXRCIKZIZYPM-UHFFFAOYSA-M"  
+  }
