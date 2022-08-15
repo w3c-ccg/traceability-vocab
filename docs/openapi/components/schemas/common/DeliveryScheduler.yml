@@ -1,0 +1,309 @@
+$linkedData:
+  term: DeliveryScheduler
+  '@id': https://w3id.org/traceability#DeliveryScheduler
+title: Delivery DeliveryScheduler
+description: information regarding delivery schedule of a crude oil product
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - DeliveryScheduler
+      - type: string
+        const: DeliveryScheduler
+  pipeline:
+    title: Pipeline
+    description: the pipeline organization
+    $ref: ./Organization.yml
+    $linkedData:
+      term: actor
+      '@id': https://w3id.org/traceability#Organization
+  deliveryFacility:
+    title: Delivery Facility
+    description: The address where the delivery facility is located.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+  deliveryLocation:
+    title: Delivery Location
+    description: The address where the delivery location is.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+  NOSPeriod:
+    title: NOS Period
+    description: NOS Period
+    type: string
+    $linkedData:
+      term: NOSPeriod
+      '@id': https://schema.org/Date
+  injectionStart:
+    title: Injection Start Time
+    description: The time when injection starts.
+    type: string
+    $linkedData:
+      term: injectionStart
+      '@id': https://schema.org/DateTime
+  injectionEnd:
+    title: Injection End Time
+    description: The time when injection ends.
+    type: string
+    $linkedData:
+      term: injectionEnd
+      '@id': https://schema.org/DateTime
+  deliveryStart:
+    title: Delivery Start Time
+    description: The time when delivery starts.
+    type: string
+    $linkedData:
+      term: deliveryStart
+      '@id': https://schema.org/DateTime
+  deliveryEnd:
+    title: Delivery End Time
+    description: The time when delivery ends.
+    type: string
+    $linkedData:
+      term: deliveryEnd
+      '@id': https://schema.org/DateTime
+  product:
+    title: Product
+    description: The product referenced by the delivery scheduler in hashlinks.
+    type: string
+    $linkedData:
+      term: product
+      '@id': https://w3c-ccg.github.io/hashlink/#hl-url-params
+  commodityRatio:
+    title: Commodity Ratio
+    description: commodityRatio
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: commodityRatio
+      '@id': https://schema.org
+  batchNumber:
+    title: Batch Number
+    description: >-
+      The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
+      product or service, or for the product to which the offer refers.
+    type: string
+    $linkedData:
+      term: batchNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#batchIdentificationId
+  consignor:
+    title: Consignor
+    description: the consignor organization
+    $ref: ./Organization.yml
+    $linkedData:
+      term: actor
+      '@id': https://w3id.org/traceability#Organization
+  consignee:
+    title: Consignee
+    description: the consignee organization
+    $ref: ./Organization.yml
+    $linkedData:
+      term: actor
+      '@id': https://w3id.org/traceability#Organization
+  receiptSite:
+    title: Receipt Site
+    description: The address where the delivery location is.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+  intermediarySite:
+    title: Intermediary Site
+    description: The address where the delivery location is.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+  route:
+    title: Route
+    description: delivery route
+    type: string
+    $linkedData:
+      term: route
+      '@id': https://schema.org/itinerary
+  injectionVolumeM3:
+    title: Injection Volume in M3
+    description: Volume of the injection in cubic meter
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: injectionVolumeM3
+      '@id': https://schema.org/size
+  deliveryVolumeM3:
+    title: Delivery Volume in M3
+    description: Volume of the delivery in cubic meter
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: deliveryVolumeM3
+      '@id': https://schema.org/size
+  deliveryVolumeBbl:
+    title: Delivery Volume in Barrels
+    description: Volume of the delivery in barrels
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: deliveryVolumeBbl
+      '@id': https://schema.org/size
+  TotaldeliveryVolumeM3:
+    title: Total Delivery Volume in M3
+    description: Total volume of the delivery in cubic meter
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: TotaldeliveryVolumeM3
+      '@id': https://schema.org/size
+  TotaldeliveryVolumeBbl:
+    title: Total Delivery Volume in Barrels
+    description: Total volume of the delivery in barrels
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: TotaldeliveryVolumeBbl
+      '@id': https://schema.org/size
+  intemediarySiteArrivalStart:
+    title: Intemediary Site Arrival Start Time
+    description: The time when the intemediary site arrival starts.
+    type: string
+    $linkedData:
+      term: intemediarySiteArrivalStart
+      '@id': https://schema.org/DateTime
+  intemediarySiteDepartureStart:
+    title: Intemediary Site Departure Start Time
+    description: The time when the intemediary site departure starts.
+    type: string
+    $linkedData:
+      term: intemediarySiteDepartureStart
+      '@id': https://schema.org/DateTime
+  blendTypeCode:
+    title: Blend Type Code
+    description: Blend type code
+    type: string
+additionalProperties: false
+example: |-
+  {
+    "type": "DeliveryScheduler",
+    "pipeline": {
+      "type": ["Organization"],
+      "name": "Enbridge"
+    },
+    "deliveryFacility": {
+      "type":  ["Place"],
+      "geo": {
+        "type":  ["GeoCoordinates"],
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "SAXNFS", 
+        "streetAddress": "",
+        "addressLocality": "",
+        "addressRegion": "",
+        "postalCode": "",
+        "addressCountry": ""
+      }
+    },
+    "deliveryLocation": {
+      "type":  ["Place"],
+      "geo": {
+        "type":  ["GeoCoordinates"],
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "Anacortes",
+        "streetAddress": "",
+        "addressLocality": "",
+        "addressRegion": "",
+        "postalCode": "",
+        "addressCountry": ""
+      }
+    },
+    "NOSPeriod": "2022-05-01",
+    "injectionStart": "2022-05-01  10:13:00 PM",
+    "injectionEnd": "2022-05-01  11:57:00 PM",
+    "deliveryStart": "2022-05-17  2:34:00 AM",
+    "deliveryEnd": "2022-05-17  3:44:00 AM PM",
+    "product": "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk=", 
+    "commodityRatio": {
+      "type": ["QuantitativeValue"],
+      "value": "30",
+      "unitCode": "percentage"
+    },
+    "batchNumber": "CDB-0284-00",
+    "consignor": {
+      "type": ["Organization"],
+      "name": "MPCTS"
+    },
+    "consignee": {
+      "type": ["Organization"],
+      "name": "MASH"
+    },
+    "receiptSite": {
+      "type":  ["Place"],
+      "geo": {
+        "type":  ["GeoCoordinates"],
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "HARDISTY",
+        "streetAddress": "",
+        "addressLocality": "",
+        "addressRegion": "",
+        "postalCode": "",
+        "addressCountry": ""
+      }
+    },
+    "intermediarySite": {
+      "type":  ["Place"],
+      "geo": {
+        "type":  ["GeoCoordinates"],
+        "latitude": 0.0,
+        "longitude": 0.0
+      },
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "CR",
+        "streetAddress": "",
+        "addressLocality": "",
+        "addressRegion": "",
+        "postalCode": "",
+        "addressCountry": ""
+      }
+    },
+    "route": "03,93,14,64,62",
+    "injectionVolumeM3": {
+      "type": ["QuantitativeValue"],
+      "value": "8806",
+      "unitCode": "M3"
+    },
+    "deliveryVolumeM3": {
+      "type": ["QuantitativeValue"],
+      "value": "8727",
+      "unitCode": "M3"
+    },
+    "deliveryVolumeBbl": {
+      "type": ["QuantitativeValue"],
+      "value": "9564",
+      "unitCode": "bbl"
+    },
+    "TotaldeliveryVolumeM3": {
+      "type": ["QuantitativeValue"],
+      "value": "9564",
+      "unitCode": "M3"
+    },
+    "TotaldeliveryVolumeBbl": {
+      "type": ["QuantitativeValue"],
+      "value": "9564",
+      "unitCode": "bbl"
+    },  
+    "intemediarySiteArrivalStart": "2022-05-10  6:54:00 AM",
+    "intemediarySiteDepartureStart": "2022-05-10  6:54:00 AM",
+    "blendTypeCode": "ARLB"
+  }
