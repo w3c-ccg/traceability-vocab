@@ -6,15 +6,11 @@ description: A separately identifiable collection of goods items to be transport
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - MultiModalBillOfLading
-      - type: string
-        const:
-          - MultiModalBillOfLading
+    type: array
+    items:
+      type: string
+      enum:
+        - MultiModalBillOfLading
   billOfLadingNumber:
     title: Bill Of Lading Number
     description: >-
@@ -217,7 +213,7 @@ required:
 additionalProperties: false
 example: |-
   {
-    "type": "MultiModalBillOfLading",
+    "type": ["MultiModalBillOfLading"],
     "billOfLadingNumber": "EX600822199A",
     "bookingNumber": [
       "EX600822199"

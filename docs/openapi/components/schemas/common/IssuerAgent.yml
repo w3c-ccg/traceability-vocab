@@ -20,15 +20,11 @@ required:
   - amountInsurance
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - IssuerAgent
-      - type: string
-        const:
-          - IssuerAgent 
+    type: array
+    items:
+      type: string
+      enum:
+        - IssuerAgent
   issuerAgentOrg:
     title: IssuerAgentOrg
     $ref: ./Organization.yml
@@ -95,7 +91,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "IssuerAgent",
+    "type": ["IssuerAgent"],
     "issuerAgentOrg": {
       "type": "Organization",
       "name": "Lesch - Smith",

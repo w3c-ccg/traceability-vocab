@@ -14,15 +14,11 @@ required:
   - validationAuthority
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - LEIregistration
-      - type: string
-        const:
-          - LEIregistration 
+    type: array
+    items:
+      type: string
+      enum:
+        - LEIregistration
   initialRegistrationDate:
     title: Initialregistrationdate
     type: string
@@ -70,7 +66,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "LEIregistration",
+    "type": ["LEIregistration"],
     "initialRegistrationDate": "2020-01-01",
     "lastUpdateDate": "2020-01-01",
     "status": "CONFIRMED",
