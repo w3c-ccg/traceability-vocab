@@ -6,15 +6,11 @@ description: Skills, certifications, etc., required to perform a job properly.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Qualification
-      - type: string
-        const:
-          - Qualification
+    type: array
+    items:
+      type: string
+      enum:
+        - Qualification
   qualificationCategory:
     title: Qualification Category
     description: The type of qualification, credential, or certification the person has.
@@ -34,7 +30,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Qualification",
+    "type": ["Qualification"],
     "qualificationCategory": "National Directives Engineer",
     "qualificationValue": "Consultant"
   }

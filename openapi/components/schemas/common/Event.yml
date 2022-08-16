@@ -6,15 +6,11 @@ description: An event such as a transformation, aggregation, commission, etc.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Event
-      - type: string
-        const:
-          - Event 
+    type: array
+    items:
+      type: string
+      enum:
+        - Event
   eventType:
     title: Event Type
     description: The Type of the Event.
@@ -65,7 +61,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Event",
+    "type": ["Event"],
     "eventType": "commission",
     "eventId": "12345",
     "actor": [

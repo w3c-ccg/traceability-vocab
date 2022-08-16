@@ -12,14 +12,11 @@ required:
   - postalCode
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - LEIaddress
-      - type: string
-        const: LEIaddress
+    type: array
+    items:
+      type: string
+      enum:
+        - LEIaddress
   language:
     title: Language
     type: string
@@ -83,7 +80,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "LEIaddress",
+    "type": ["LEIaddress"],
     "language": "ru",
     "addressLines": [
       "Baumbach, O'Keefe and Feil",

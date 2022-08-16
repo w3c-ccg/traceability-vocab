@@ -9,15 +9,11 @@ type: object
 required: []
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - PartOfOrder
-      - type: string
-        const:
-          - PartOfOrder
+    type: array
+    items:
+      type: string
+      enum:
+        - PartOfOrder
   manufacturer:
     title: Manufacturer
     $ref: ./Organization.yml
@@ -81,7 +77,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "PartOfOrder",
+    "type": ["PartOfOrder"],
     "packageQuantity": 540,
     "transportPackages": [
       {

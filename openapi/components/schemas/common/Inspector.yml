@@ -6,15 +6,11 @@ description: Information on the person performing an inspection
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Inspector
-      - type: string
-        const:
-          - Inspector 
+    type: array
+    items:
+      type: string
+      enum:
+        - Inspector
   person:
     title: Person
     description: Person doing the inspection.
@@ -34,7 +30,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Inspector",
+    "type": ["Inspector"],
     "person": {
       "type": "Person",
       "firstName": "Ilene",

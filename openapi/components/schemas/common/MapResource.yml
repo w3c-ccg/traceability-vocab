@@ -6,14 +6,11 @@ description: Map resource in the form of an external reference or included data.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - MapResource
-      - type: string
-        const: MapResource
+    type: array
+    items:
+      type: string
+      enum:
+        - MapResource
   resourceType:
     description: The type of resource.
     type: string
@@ -40,7 +37,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "MapResource",
+    "type": ["MapResource"],
     "resourceType": "External",
     "external": {
       "type": "ExternalResource",

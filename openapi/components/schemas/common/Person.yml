@@ -6,15 +6,11 @@ description: A person
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Person
-      - type: string
-        const:
-          - Person 
+    type: array
+    items:
+      type: string
+      enum:
+        - Person
   firstName:
     title: First Name
     description: Person's first name.
@@ -69,7 +65,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Person",
+    "type": ["Person"],
     "firstName": "Amelie",
     "lastName": "Pfeffer",
     "email": "Felton_Hauck15@example.com",

@@ -9,15 +9,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - CargoItem
-      - type: string
-        const:
-          - CargoItem 
+    type: array
+    items:
+      type: string
+      enum:
+        - CargoItem
   cargoLineItems:
     title: Cargo Line Item
     description: Identifies the specific details of packages within a cargo item.
@@ -92,7 +88,7 @@ properties:
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageTypeCode
 example: |-
   {
-    "type": "CargoItem",
+    "type": ["CargoItem"],
     "cargoLineItems": [{
       "type": "CargoLineItem",
       "cargoLineItemID": "3312591",

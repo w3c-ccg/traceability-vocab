@@ -24,7 +24,7 @@
   </table>
   
       <pre class="example">{
-  "type": "AdditionalProductCodeRegistrationCredential",
+  "type": ["AdditionalProductCodeRegistrationCredential"],
   "productVCid": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
   "addProductCode": 99746411868836,
   "addProductCodeType": "UPC",
@@ -1140,6 +1140,56 @@
     </section>
   
 
+    <section id="CTPAT">
+      <h2>CTPAT</h2>
+      <p>CTPAT classification based on either WCO HS or USITS HTS codification.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#CTPAT">https://w3id.org/traceability#CTPAT</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CTPAT.yml">https://w3id.org/traceability/openapi/components/schemas/common/CTPAT.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": "CTPAT",
+  "ctpatMember": {
+    "type": [
+      "Organization"
+    ],
+    "id": "did:key:z6MkhfZ7sNYEJ8vFSpwJaeyN7zNUaTxS4TBxW3y6R9ZKRaQ4",
+    "name": "Trans-Atlantic Shipping Co. Ltd.",
+    "address": {
+      "type": [
+        "PostalAddress"
+      ],
+      "organizationName": "Trans-Atlantic Shipping Co. Ltd.",
+      "streetAddress": "82 Whitchurch Road",
+      "addressLocality": "Elsworth",
+      "postalCode": "CB3 8NW",
+      "addressCountry": "UK"
+    }
+  },
+  "sviNumber": "57118961",
+  "ctpatAccountNumber": "12008",
+  "tradeSector": "Sea Carrier",
+  "dateOfLastValidation": "2022-01-06T11:50:00Z",
+  "issuingCountry": "US"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
+  
+
     <section id="CargoItem">
       <h2>Cargo Item</h2>
       <p>Addresses the cargo items to be stuffed into a container for a shipment. A cargo item cannot be split across containers.</p>
@@ -1162,7 +1212,7 @@
   </table>
   
       <pre class="example">{
-  "type": "CargoItem",
+  "type": ["CargoItem"],
   "cargoLineItems": [{
     "type": "CargoLineItem",
     "cargoLineItemID": "3312591",
@@ -1204,7 +1254,7 @@
   </table>
   
       <pre class="example">{
-  "type": "CargoLineItem",
+  "type": ["CargoLineItem"],
   "cargoLineItemID": "3312591",
   "shippingMarks": "Premium break pads"
 }</pre>
@@ -1234,7 +1284,7 @@
   </table>
   
       <pre class="example">{
-  "type": "ChargeDeclaration",
+  "type": ["ChargeDeclaration"],
   "weightCharge": {
     "type": "chargeAndPaymentType",
     "chargeCollect": 822,
@@ -1293,7 +1343,7 @@
   </table>
   
       <pre class="example">{
-  "type": "ChemicalProperty",
+  "type": ["ChemicalProperty"],
   "name": "Terbium",
   "formula": "Tb",
   "inchi": "InChI=1S/Tb",
@@ -1426,7 +1476,7 @@
   </table>
   
       <pre class="example">{
-  "type": "ConsignmentItem",
+  "type": ["ConsignmentItem"],
   "marksAndNumbers": "Espresso Italiano",
   "commodity": {
     "type": "Commodity",
@@ -1473,7 +1523,7 @@
   </table>
   
       <pre class="example">{
-  "type": "ConsignmentRatingDetail",
+  "type": ["ConsignmentRatingDetail"],
   "numberOfPieces": 13,
   "grossWeight": 971,
   "grossWeightUnit": "Kg",
@@ -1703,7 +1753,7 @@
   </table>
   
       <pre class="example">{
-  "type": "Customer",
+  "type": ["Customer"],
   "name": "Catharine Glover",
   "address": {
     "type": "PostalAddress",
@@ -1742,7 +1792,7 @@
   </table>
   
       <pre class="example">{
-  "type": "DCSAShippingInstruction",
+  "type": ["DCSAShippingInstruction"],
   "carrierBookingReference": "XMANHR2102045",
   "transportDocumentType": "MBL",
   "shipper": {
@@ -2311,7 +2361,7 @@
   </table>
   
       <pre class="example">{
-  "type": "Entity",
+  "type": ["Entity"],
   "entityType" : "Person",
   "name" : "Kane Heller",
   "firstName": "Kane",
@@ -2583,7 +2633,7 @@
   </table>
   
       <pre class="example">{
-  "type": "Event",
+  "type": ["Event"],
   "eventType": "commission",
   "eventId": "12345",
   "actor": [
@@ -4588,7 +4638,7 @@
   </table>
   
       <pre class="example">{
-  "type": "FreightManifest",
+  "type": ["FreightManifest"],
   "carrier": {
     "type": "Entity",
     "name": "MULTI CONTAINER LINE",
@@ -4771,7 +4821,7 @@
   </table>
   
       <pre class="example">{
-  "type": "GeoCoordinates",
+  "type": ["GeoCoordinates"],
   "latitude": "-80.5898",
   "longitude": "-13.4603"
 }</pre>
@@ -4801,7 +4851,7 @@
   </table>
   
       <pre class="example">{
-  "type": "HouseBillOfLading",
+  "type": ["HouseBillOfLading"],
   "billOfLadingNumber": "FF873363210A",
   "bookingNumber": [
     "FF873363210"
@@ -5647,7 +5697,7 @@
   </table>
   
       <pre class="example">{
-  "type": "InspectionReport",
+  "type": ["InspectionReport"],
   "inspectors": [ 
     {
       "type": "Person",
@@ -5796,7 +5846,7 @@
   </table>
   
       <pre class="example">{
-  "type": "Inspector",
+  "type": ["Inspector"],
   "person": {
     "type": "Person",
     "firstName": "Ilene",
@@ -5865,7 +5915,7 @@
   </table>
   
       <pre class="example">{
-  "type": "Instructions",
+  "type": ["Instructions"],
   "description": "Handle with care"
 }</pre>
       
@@ -5894,7 +5944,7 @@
   </table>
   
       <pre class="example">{
-  "type": "IntentToImport",
+  "type": ["IntentToImport"],
   "exporter": {
     "type": "Organization",
     "name": "Maxi Acero Mexicano",
@@ -6164,7 +6214,7 @@
   </table>
   
       <pre class="example">{
-    "type": "InvoiceRegistrationCredential",
+    "type": ["InvoiceRegistrationCredential"],
     "invoiceID": "Invoice#490",
     "orderID": [],
     "productInOrder": [
@@ -6200,7 +6250,7 @@
   </table>
   
       <pre class="example">{
-  "type": "InvoiceRegistrationEvidenceDocument",
+  "type": ["InvoiceRegistrationEvidenceDocument"],
   "identifier": "Invoice#922",
   "description": "Invoice For Eva Oberbrunner for Order#112",
   "url": "http://maureen.info?queryid=Invoice#922",
@@ -6331,7 +6381,7 @@
   </table>
   
       <pre class="example">{
-  "type": "IssuerAgent",
+  "type": ["IssuerAgent"],
   "issuerAgentOrg": {
     "type": "Organization",
     "name": "Lesch - Smith",
@@ -6401,7 +6451,7 @@
   </table>
   
       <pre class="example">{
-  "type": "LEIaddress",
+  "type": ["LEIaddress"],
   "language": "ru",
   "addressLines": [
     "Baumbach, O'Keefe and Feil",
@@ -6441,7 +6491,7 @@
   </table>
   
       <pre class="example">{
-  "type": "LEIauthority",
+  "type": ["LEIauthority"],
   "validationAuthorityID": "RA000004",
   "otherValidationAuthorityID": "I9LWK4HR",
   "validationAuthorityEntityID": "IR6TTVJ948RGX9YQDM4V"
@@ -6472,7 +6522,7 @@
   </table>
   
       <pre class="example">{
-  "type": "LEIentity",
+  "type": ["LEIentity"],
   "legalName": "Dicki Group",
   "legalNameLanguage": "cz",
   "otherNames": [
@@ -6565,7 +6615,7 @@
   </table>
   
       <pre class="example">{
-  "type": "LEIevidenceDocument",
+  "type": ["LEIevidenceDocument"],
   "lei": "1GS89XTLP3YKEINUGJM9",
   "entity": {
     "type": "LEIentity",
@@ -6681,7 +6731,7 @@
   </table>
   
       <pre class="example">{
-  "type": "LEIregistration",
+  "type": ["LEIregistration"],
   "initialRegistrationDate": "2020-01-01",
   "lastUpdateDate": "2020-01-01",
   "status": "CONFIRMED",
@@ -6723,7 +6773,7 @@
   </table>
   
       <pre class="example">{
-  "type": "LegalEntityIdentifierCredential",
+  "type": ["LegalEntityIdentifierCredential"],
   "leiCode": "X1VP3GQ3TP91GVP4F446",
   "certificateName": "US Legal Entity Certificate"
 }</pre>
@@ -6753,7 +6803,7 @@
   </table>
   
       <pre class="example">{
-  "type": "LinkRole",
+  "type": ["LinkRole"],
   "target": "https://example.com/related/link/123",
   "linkRelationship": "alternate"
 }</pre>
@@ -6783,7 +6833,7 @@
   </table>
   
       <pre class="example">{
-  "type": "MapResource",
+  "type": ["MapResource"],
   "resourceType": "External",
   "external": {
     "type": "ExternalResource",
@@ -6817,7 +6867,7 @@
   </table>
   
       <pre class="example">{
-  "type": "MasterBillOfLading",
+  "type": ["MasterBillOfLading"],
   "billOfLadingNumber": "EX600822199A",
   "bookingNumber": [
     "EX600822199"
@@ -7090,7 +7140,7 @@
   </table>
   
       <pre class="example">{
-  "type": "MultiModalBillOfLading",
+  "type": ["MultiModalBillOfLading"],
   "billOfLadingNumber": "EX600822199A",
   "bookingNumber": [
     "EX600822199"
@@ -7914,7 +7964,7 @@
   </table>
   
       <pre class="example">{
-  "type": "Observation",
+  "type": ["Observation"],
   "date": "2019-12-11T03:50:55Z",
   "property": {
     "type": "ChemicalProperty",
@@ -7987,7 +8037,7 @@
   </table>
   
       <pre class="example">{
-  "type": "OrderRegistrationEvidenceDocument",
+  "type": ["OrderRegistrationEvidenceDocument"],
   "orderNumber": "Order#538",
   "orderDate": "2020-01-07",
   "orderStatus": "OrderPaymentDue",
@@ -8081,7 +8131,7 @@
   </table>
   
       <pre class="example">{
-  "type": "OrderedItem",
+  "type": ["OrderedItem"],
   "name": "ACME Laptop 3000",
   "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
   "unitPrice": 0,
@@ -8114,7 +8164,7 @@
   </table>
   
       <pre class="example">{
-  "type": "Organization",
+  "type": ["Organization"],
   "name": "Glover - Gleason",
   "legalName": "Glover and Gleason, Llc.",
   "description": "Customs Brokering since 2012",
@@ -8264,7 +8314,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "Package",
+  "type": ["Package"],
   "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
   "perPackageUnitQuantity": 1,
   "includedTradeLineItems": [
@@ -8316,7 +8366,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "PackageItem",
+  "type": ["PackageItem"],
   "productReceiptID": "https://vc.example.com/?queryID=0xF74adE972a00d1B5C0adB9ecf3a6deBF81BDdc3c0b71c1Cd27BEC833CfF6fbBf",
   "packingListID": "https://vc.example.com/?queryID=0xFDdB6eCedEc650A514Ee7d2d900Af7DeCc2722B2ECaEae72D8eA6B62D00f77c5",
   "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
@@ -8350,7 +8400,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "PackageRegistrationCredential",
+  "type": ["PackageRegistrationCredential"],
   "trackingID": "662796962028",
   "packageItems": [
     {
@@ -8590,7 +8640,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "PackingListItem",
+  "type": ["PackingListItem"],
   "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
   "productInOrder": [
     "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
@@ -8624,7 +8674,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "PackingListRegistrationCredential",
+  "type": ["PackingListRegistrationCredential"],
   "packageItems": [
     {
       "type": "PackingListItem",
@@ -8727,7 +8777,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "PartOfOrder",
+  "type": ["PartOfOrder"],
   "packageQuantity": 540,
   "transportPackages": [
     {
@@ -8786,7 +8836,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "Person",
+  "type": ["Person"],
   "firstName": "Amelie",
   "lastName": "Pfeffer",
   "email": "Felton_Hauck15@example.com",
@@ -9141,7 +9191,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "Place",
+  "type": ["Place"],
   "globalLocationNumber": "7472903507697",
   "geo": {
     "type": "GeoCoordinates",
@@ -9187,7 +9237,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "PostalAddress",
+  "type": ["PostalAddress"],
   "organizationName": "Lebsack Inc",
   "streetAddress": "758 Huel Neck",
   "addressLocality": "Hagenesstad",
@@ -9380,7 +9430,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   </table>
   
       <pre class="example">{
-  "type": "Product",
+  "type": ["Product"],
   "manufacturer": {
     "type": "Organization",
     "name": "Lawson Weber",
@@ -9786,7 +9836,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   </table>
   
       <pre class="example">{
-  "type": "Qualification",
+  "type": ["Qualification"],
   "qualificationCategory": "National Directives Engineer",
   "qualificationValue": "Consultant"
 }</pre>
@@ -9816,7 +9866,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   </table>
   
       <pre class="example">{
-  "type": "QuantitativeValue",
+  "type": ["QuantitativeValue"],
   "unitCode": "hg/ha",
   "value": "4121"
 }</pre>
@@ -10098,7 +10148,7 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
   </table>
   
       <pre class="example">{
-  "type": "SeaCargoManifest",
+  "type": ["SeaCargoManifest"],
   "vesselName": "MS Seventh Sea",
   "vesselNumber": "IMO1208812",
   "voyageNumber": "W-0239",
@@ -10457,7 +10507,7 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
   </table>
   
       <pre class="example">{
-  "type": "Seal",
+  "type": ["Seal"],
   "sealNumber": "PTW-002290109692",
   "sealSource": "SHI",
   "sealType": "BLT"
@@ -10488,7 +10538,7 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
   </table>
   
       <pre class="example">{
-  "type": "ServiceCharge",
+  "type": ["ServiceCharge"],
   "chargeCode": "basicFreight",
   "paymentTerm": "collect",
   "chargeText": "Negotiated ocean freight",
@@ -10678,7 +10728,7 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
   </table>
   
       <pre class="example">{
-  "type": "ShippingStop",
+  "type": ["ShippingStop"],
   "shippingStopAddress": {
     "type": "PostalAddress",
     "organizationName": "Tremblay, Prosacco and Beatty",
@@ -10849,7 +10899,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
-  "type": "SteelProduct",
+  "type": ["SteelProduct"],
   "heatNumber": "4761",
   "specification": "ASTM-66272",
   "grade": ["95913"],
@@ -11085,6 +11135,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
+  "type": ["Template"],
   "id": "d35f9540-7390-4130-904d-3dfb560cf1d9",
   "industryTags": [
       "E-Commerce",
@@ -11583,7 +11634,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
-  "type": "Transport",
+  "type": ["Transport"],
   "loadLocation": {
     "type": "Place",
     "unLocode": "ITMIL"
@@ -11652,7 +11703,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
-  "type": "TransportEquipment",
+  "type": ["TransportEquipment"],
   "equipmentReference": "APZU4812090",
   "ISOEquipmentCode": "40GP",
   "seals": [
@@ -11805,7 +11856,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
-  "type": "USMCAProductSpecifier",
+  "type": ["USMCAProductSpecifier"],
   "product": {
     "type": [
       "Product"
@@ -12091,7 +12142,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
-  "type": "WayBillRegistrationCredential",
+  "type": ["WayBillRegistrationCredential"],
   "wayBillID": "ACMEWayBill#956",
   "carrierName": "Veum LLC",
   "modeOfTransport": "Sea",

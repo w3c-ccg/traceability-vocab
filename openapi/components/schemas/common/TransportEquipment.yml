@@ -9,15 +9,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - TransportEquipment
-      - type: string
-        const:
-          - TransportEquipment
+    type: array
+    items:
+      type: string
+      enum:
+        - TransportEquipment
   equipmentReference:
     title: Equipment Reference
     description: >-
@@ -99,7 +95,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "TransportEquipment",
+    "type": ["TransportEquipment"],
     "equipmentReference": "APZU4812090",
     "ISOEquipmentCode": "40GP",
     "seals": [

@@ -6,15 +6,11 @@ description: Entities that have a somewhat fixed, physical location.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Place
-      - type: string
-        const:
-          - Place
+    type: array
+    items:
+      type: string
+      enum:
+        - Place
   globalLocationNumber:
     title: Global Location Number (GLN)
     description: >-
@@ -67,7 +63,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Place",
+    "type": ["Place"],
     "globalLocationNumber": "7472903507697",
     "geo": {
       "type": "GeoCoordinates",

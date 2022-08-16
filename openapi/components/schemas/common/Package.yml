@@ -8,15 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Package
-      - type: string
-        const:
-          - Package
+    type: array
+    items:
+      type: string
+      enum:
+        - Package
   physicalShippingMarks:
     title: Physical Shipping Marks
     description: >-
@@ -93,7 +89,7 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure
 example: |-
   {
-    "type": "Package",
+    "type": ["Package"],
     "physicalShippingMarks": "by ACRE AGE IS THE NEW BLACK",
     "perPackageUnitQuantity": 1,
     "includedTradeLineItems": [

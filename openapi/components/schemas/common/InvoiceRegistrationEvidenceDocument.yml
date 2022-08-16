@@ -18,14 +18,11 @@ required:
   - referencesOrder
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - InvoiceRegistrationEvidenceDocument
-      - type: string
-        const: InvoiceRegistrationEvidenceDocument 
+    type: array
+    items:
+      type: string
+      enum:
+        - InvoiceRegistrationEvidenceDocument
   identifier:
     title: Identifier
     type: string
@@ -108,7 +105,7 @@ properties:
       '@id': https://schema.org/referencesOrder
 example: |-
   {
-    "type": "InvoiceRegistrationEvidenceDocument",
+    "type": ["InvoiceRegistrationEvidenceDocument"],
     "identifier": "Invoice#922",
     "description": "Invoice For Eva Oberbrunner for Order#112",
     "url": "http://maureen.info?queryid=Invoice#922",

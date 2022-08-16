@@ -12,15 +12,11 @@ required:
   - email
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Customer
-      - type: string
-        const:
-          - Customer 
+    type: array
+    items:
+      type: string
+      enum:
+        - Customer
   name:
     title: Name of the Customer
     type: string
@@ -51,7 +47,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Customer",
+    "type": ["Customer"],
     "name": "Catharine Glover",
     "address": {
       "type": "PostalAddress",

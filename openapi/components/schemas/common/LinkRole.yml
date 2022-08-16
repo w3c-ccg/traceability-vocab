@@ -6,15 +6,11 @@ description: A Role that represents a Web link e.g. as expressed via the 'url' p
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - LinkRole
-      - type: string
-        const:
-          - LinkRole 
+    type: array
+    items:
+      type: string
+      enum:
+        - LinkRole
   target:
     title: Target
     description: An entry point, within some Web-based protocol.
@@ -32,7 +28,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "LinkRole",
+    "type": ["LinkRole"],
     "target": "https://example.com/related/link/123",
     "linkRelationship": "alternate"
   }

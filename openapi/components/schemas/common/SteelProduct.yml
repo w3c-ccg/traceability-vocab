@@ -6,20 +6,15 @@ description: A finished or unfinished manufactured steel product
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - SteelProduct
-      - type: string
-        const:
-          - SteelProduct
+    type: array
+    items:
+      type: string
+      enum:
+        - SteelProduct
   heatNumber:
     title: Heat Number
     description: >-
-      The only way to trace a steel plate back to its mill sheet is the heat
-      number
+      A heat number is an identification coupon number that is stamped on a material plate after it is removed from the ladle and rolled at a steel mill. (source: https://en.wikipedia.org/wiki/Heat_number)
     type: string
     $linkedData:
       term: heatNumber
@@ -100,7 +95,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "SteelProduct",
+    "type": ["SteelProduct"],
     "heatNumber": "4761",
     "specification": "ASTM-66272",
     "grade": ["95913"],

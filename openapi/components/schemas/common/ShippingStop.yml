@@ -8,15 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ShippingStop
-      - type: string
-        const:
-          - ShippingStop
+    type: array
+    items:
+      type: string
+      enum:
+        - ShippingStop
   from:
     title: From
     $ref: ./Place.yml
@@ -55,7 +51,7 @@ properties:
       '@id': https://schema.org/description
 example: |-
   {
-    "type": "ShippingStop",
+    "type": ["ShippingStop"],
     "shippingStopAddress": {
       "type": "PostalAddress",
       "organizationName": "Tremblay, Prosacco and Beatty",
