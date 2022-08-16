@@ -1,0 +1,199 @@
+$linkedData:
+  term: DeliverySchedule
+  '@id': https://w3id.org/traceability#DeliverySchedule
+title: Delivery Schedule
+description: a set of data used to plan transportation of commodities from receipt facilities to delivery facilities.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - DeliverySchedule
+      - type: string
+        const: DeliverySchedule
+  pipeline:
+    title: Pipeline
+    description: the organization carries out the transportation event
+    $ref: ./Organization.yml
+    $linkedData:
+      term: actor
+      '@id': https://w3id.org/traceability#Organization
+  batchNumber:
+    title: Batch Number
+    description: A tracking number for commodities. 
+    type: string
+    $linkedData:
+      term: batchNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#batchIdentificationId
+  commodity:
+    title: Commodity
+    description: Product commodity code, codification system and description
+    $ref: ./Commodity.yml
+    $linkedData:
+      term: commodity
+      '@id': https://w3id.org/traceability#Commodity
+  receiptLocation:
+    title: Receipt Location
+    description: The address where the commodity is being shipped from
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+  deliveryDestination:
+    title: Delivery Destination
+    description: The address where the commodity is being shipped to.
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+  consignor:
+    title: Consignor
+    description: The organization plans and organizes the transportation event
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignor
+      '@id': https://w3id.org/traceability#Organization
+  consignee:
+    title: Consignee
+    description: The organization receives the transportated commodities
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignee
+      '@id': https://w3id.org/traceability#Organization
+  injectionVolume:
+    title: Injection Volume
+    description: Volume of the shipped commodities at the begining of the transportation event
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: injectionVolume
+      '@id': https://schema.org/Quantity
+  injectionDate:
+    title: Injection Date
+    description: The planned time for injection starts.
+    type: string
+    $linkedData:
+      term: injectionDate
+      '@id': https://schema.org/departureTime
+  deliveryDate:
+    title: Delivery Date
+    description: The planned time for delivery starts.
+    type: string
+    $linkedData:
+      term: deliveryDate
+      '@id': https://schema.org/arrivalTime
+  portOfEntry:
+    title: Port of Entry
+    description: The address where the commodity crosses the border
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://w3id.org/traceability#place
+additionalProperties: false
+example: |-
+  {
+     "type":"DeliverySchedule",
+     "pipeline":{
+        "type":[
+           "Organization"
+        ],
+        "name":"Enbridge"
+     },
+     "batchNumber":"CDB-0284-00",
+     "commodity":{
+        "type":[
+           "commodity"
+        ],
+        "commodityCode":"2714.10.00.00",
+        "commodityCodeType":"HTS"
+     },
+     "receiptLocation":{
+        "type":[
+           "Place"
+        ],
+        "geo":{
+           "type":[
+              "GeoCoordinates"
+           ],
+           "latitude":"52.6735",
+           "longitude":"-111.3075"
+        },
+        "address":{
+           "type":[
+              "PostalAddress"
+           ],
+           "streetAddress":"",
+           "addressLocality":"Hardisty",
+           "addressRegion":"AB",
+           "postalCode":"",
+           "addressCountry":"CAN"
+        }
+     },
+     "deliveryDestination":{
+        "geo":{
+           "type":[
+              "GeoCoordinates"
+           ],
+           "latitude":"41.8781",
+           "longitude":"-87.6298"
+        },
+        "type":[
+           "Place"
+        ],
+        "address":{
+           "type":[
+              "PostalAddress"
+           ],
+           "postalCode":"",
+           "addressRegion":"IL",
+           "streetAddress":"",
+           "addressCountry":"USA",
+           "addressLocality":"Chicago"
+        }
+     },
+     "consignor":{
+        "type":[
+           "Organization"
+        ],
+        "name":"MPCTS"
+     },
+     "consignee":{
+        "type":[
+           "Organization"
+        ],
+        "name":"MASH"
+     },
+     "injectionVolume":{
+        "type":[
+           "QuantitativeValue"
+        ],
+        "value":"8806",
+        "unitCode":"M3"
+     },
+     "injectionDate":"2022-05-01  10:13:00 PM",
+     "deliveryDate":"2022-05-01  10:13:00 PM",
+     "portOfEntry":{
+        "geo":{
+           "type":[
+              "GeoCoordinates"
+           ],
+           "latitude":"40.6936",
+           "longitude":"-89.589"
+        },
+        "type":[
+           "Place"
+        ],
+        "address":{
+           "type":[
+              "PostalAddress"
+           ],
+           "postalCode":"",
+           "addressRegion":"IL",
+           "streetAddress":"",
+           "addressCountry":"USA",
+           "addressLocality":"Peoria"
+        }
+     }
+  }
