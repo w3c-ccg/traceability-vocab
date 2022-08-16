@@ -18,14 +18,11 @@ required:
   - orderedItem
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - OrderRegistrationEvidenceDocument
-      - type: string
-        const: OrderRegistrationEvidenceDocument
+    type: array
+    items:
+      type: string
+      enum:
+        - OrderRegistrationEvidenceDocument
   orderNumber:
     title: Number for eCommerce Order
     type: string
@@ -104,7 +101,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "OrderRegistrationEvidenceDocument",
+    "type": ["OrderRegistrationEvidenceDocument"],
     "orderNumber": "Order#538",
     "orderDate": "2020-01-07",
     "orderStatus": "OrderPaymentDue",

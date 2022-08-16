@@ -8,15 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ChemicalProperty
-      - type: string
-        const:
-          - ChemicalProperty 
+    type: array
+    items:
+      type: string
+      enum:
+        - ChemicalProperty
   identifier:
     title: Property Identifier
     description: Identifiers for a property.
@@ -77,7 +73,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "ChemicalProperty",
+    "type": ["ChemicalProperty"],
     "name": "Terbium",
     "formula": "Tb",
     "inchi": "InChI=1S/Tb",

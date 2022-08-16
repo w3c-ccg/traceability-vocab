@@ -11,14 +11,11 @@ required:
   - bic
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - LEIevidenceDocument
-      - type: string
-        const: LEIevidenceDocument
+    type: array
+    items:
+      type: string
+      enum:
+        - LEIevidenceDocument
   lei:
     title: Lei
     type: string
@@ -48,7 +45,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "LEIevidenceDocument",
+    "type": ["LEIevidenceDocument"],
     "lei": "1GS89XTLP3YKEINUGJM9",
     "entity": {
       "type": "LEIentity",

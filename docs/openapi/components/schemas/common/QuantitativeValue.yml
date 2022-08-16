@@ -6,15 +6,11 @@ description: A point value or interval for product characteristics and other pur
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - QuantitativeValue
-      - type: string
-        const:
-          - QuantitativeValue
+    type: array
+    items:
+      type: string
+      enum:
+        - QuantitativeValue
   unitCode:
     title: Unit Code
     description: Unit of measurement.
@@ -32,7 +28,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "unitCode": "hg/ha",
     "value": "4121"
   }

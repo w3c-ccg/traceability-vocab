@@ -12,15 +12,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - IntentToImport
-      - type: string
-        const:
-          - IntentToImport 
+    type: array
+    items:
+      type: string
+      enum:
+        - IntentToImport
   exporter:
     title: Exporter
     description: >-
@@ -55,7 +51,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "IntentToImport",
+    "type": ["IntentToImport"],
     "exporter": {
       "type": "Organization",
       "name": "Maxi Acero Mexicano",

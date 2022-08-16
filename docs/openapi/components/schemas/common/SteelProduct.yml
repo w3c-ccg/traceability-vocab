@@ -6,15 +6,11 @@ description: A finished or unfinished manufactured steel product
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - SteelProduct
-      - type: string
-        const:
-          - SteelProduct
+    type: array
+    items:
+      type: string
+      enum:
+        - SteelProduct
   heatNumber:
     title: Heat Number
     description: >-
@@ -100,7 +96,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "SteelProduct",
+    "type": ["SteelProduct"],
     "heatNumber": "4761",
     "specification": "ASTM-66272",
     "grade": ["95913"],

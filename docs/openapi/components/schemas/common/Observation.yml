@@ -8,15 +8,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Observation
-      - type: string
-        const:
-          - Observation
+    type: array
+    items:
+      type: string
+      enum:
+        - Observation
   property:
     title: Measured Property
     description: The property of an Observation.
@@ -41,7 +37,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Observation",
+    "type": ["Observation"],
     "date": "2019-12-11T03:50:55Z",
     "property": {
       "type": "ChemicalProperty",

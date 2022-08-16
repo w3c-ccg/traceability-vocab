@@ -6,14 +6,11 @@ description: An organization such as a corporation, firm, club, etc.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Organization
-      - type: string
-        const: Organization 
+    type: array
+    items:
+      type: string
+      enum:
+        - Organization
   name:
     title: Name
     description: Name of the organization.
@@ -128,7 +125,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Glover - Gleason",
     "legalName": "Glover and Gleason, Llc.",
     "description": "Customs Brokering since 2012",

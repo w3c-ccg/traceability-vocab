@@ -6,15 +6,11 @@ description: A transport which can be a leg of a journey.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Transport
-      - type: string
-        const:
-          - Transport
+    type: array
+    items:
+      type: string
+      enum:
+        - Transport
   loadLocation:
     title: Load Location
     $ref: ./Place.yml
@@ -77,7 +73,7 @@ properties:
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMovement
 example: |-
   {
-    "type": "Transport",
+    "type": ["Transport"],
     "loadLocation": {
       "type": "Place",
       "unLocode": "ITMIL"

@@ -6,15 +6,11 @@ description: A charge made for services rendered or assessed, such as freight ch
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ServiceCharge
-      - type: string
-        const:
-          - ServiceCharge
+    type: array
+    items:
+      type: string
+      enum:
+        - ServiceCharge
   chargeCode:
     description: The unique identifier for this logistics service charge.
     type: string
@@ -68,7 +64,7 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#appliedAmount
 example: |-
   {
-    "type": "ServiceCharge",
+    "type": ["ServiceCharge"],
     "chargeCode": "basicFreight",
     "paymentTerm": "collect",
     "chargeText": "Negotiated ocean freight",

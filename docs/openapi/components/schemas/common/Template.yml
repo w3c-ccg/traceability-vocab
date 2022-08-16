@@ -6,15 +6,11 @@ description: A template for rendering schemas for example with JSON Schema Forms
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Template
-      - type: string
-        const:
-          - Template 
+    type: array
+    items:
+      type: string
+      enum:
+        - Template
   id:
     type: string
   industryTags:
@@ -77,6 +73,7 @@ required:
 additionalProperties: false
 example: |-
   {
+    "type": ["Template"],
     "id": "d35f9540-7390-4130-904d-3dfb560cf1d9",
     "industryTags": [
         "E-Commerce",

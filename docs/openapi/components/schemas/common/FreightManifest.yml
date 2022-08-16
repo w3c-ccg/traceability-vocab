@@ -6,15 +6,11 @@ description: Manifest documenting the cargo and freight of a vessel at time of a
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FreightManifest
-      - type: string
-        const:
-          - FreightManifest 
+    type: array
+    items:
+      type: string
+      enum:
+        - FreightManifest
   carrier:
     title: Carrier
     description: >-
@@ -68,7 +64,7 @@ properties:
 additionalProperties: true
 example: |-
   {
-    "type": "FreightManifest",
+    "type": ["FreightManifest"],
     "carrier": {
       "type": "Entity",
       "name": "MULTI CONTAINER LINE",

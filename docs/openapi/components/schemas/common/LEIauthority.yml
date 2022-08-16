@@ -10,15 +10,11 @@ required:
   - validationAuthorityEntityID
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - LEIauthority
-      - type: string
-        const:
-          - LEIauthority 
+    type: array
+    items:
+      type: string
+      enum:
+        - LEIauthority
   validationAuthorityID:
     title: validationAuthorityID
     type: string
@@ -40,7 +36,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "LEIauthority",
+    "type": ["LEIauthority"],
     "validationAuthorityID": "RA000004",
     "otherValidationAuthorityID": "I9LWK4HR",
     "validationAuthorityEntityID": "IR6TTVJ948RGX9YQDM4V"

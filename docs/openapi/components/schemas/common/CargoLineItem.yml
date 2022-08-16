@@ -6,15 +6,11 @@ description: Identifies the specific details of packages within a cargo item.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - CargoLineItem
-      - type: string
-        const:
-          - CargoLineItem 
+    type: array
+    items:
+      type: string
+      enum:
+        - CargoLineItem
   cargoLineItemID:
     title: cargoLineItemID
     description: >-
@@ -59,7 +55,7 @@ required:
   - shippingMarks
 example: |-
   {
-    "type": "CargoLineItem",
+    "type": ["CargoLineItem"],
     "cargoLineItemID": "3312591",
     "shippingMarks": "Premium break pads"
   }
