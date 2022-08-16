@@ -6,15 +6,11 @@ description: A separately identifiable collection of goods items to be transport
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - HouseBillOfLading
-      - type: string
-        const:
-          - HouseBillOfLading 
+    type: array
+    items:
+      type: string
+      enum:
+        - HouseBillOfLading
   billOfLadingNumber:
     title: Bill Of Lading Number
     description: >-
@@ -200,7 +196,7 @@ required:
 additionalProperties: false
 example: |-
   {
-    "type": "HouseBillOfLading",
+    "type": ["HouseBillOfLading"],
     "billOfLadingNumber": "FF873363210A",
     "bookingNumber": [
       "FF873363210"

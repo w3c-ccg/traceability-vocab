@@ -6,15 +6,11 @@ description: The geographic coordinates of a place or event.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - GeoCoordinates
-      - type: string
-        const:
-          - GeoCoordinates 
+    type: array
+    items:
+      type: string
+      enum:
+        - GeoCoordinates
   latitude:
     title: Latitude
     description: >-
@@ -39,7 +35,7 @@ required:
 additionalProperties: false
 example: |-
   {
-    "type": "GeoCoordinates",
+    "type": ["GeoCoordinates"],
     "latitude": "-80.5898",
     "longitude": "-13.4603"
   }

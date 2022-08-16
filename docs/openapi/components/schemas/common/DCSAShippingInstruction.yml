@@ -12,15 +12,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - DCSAShippingInstruction
-      - type: string
-        const:
-          - DCSAShippingInstruction 
+    type: array
+    items:
+      type: string
+      enum:
+        - DCSAShippingInstruction
   shippingInstructionID:
     title: Shipping Instruction ID
     description: >-
@@ -182,7 +178,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "DCSAShippingInstruction",
+    "type": ["DCSAShippingInstruction"],
     "carrierBookingReference": "XMANHR2102045",
     "transportDocumentType": "MBL",
     "shipper": {

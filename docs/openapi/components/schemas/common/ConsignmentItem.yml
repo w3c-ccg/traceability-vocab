@@ -6,15 +6,11 @@ description: A separately identifiable collection of goods items to be transport
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ConsignmentItem
-      - type: string
-        const:
-          - ConsignmentItem 
+    type: array
+    items:
+      type: string
+      enum:
+        - ConsignmentItem
   marksAndNumbers: 
     title: Marks and Numbers
     description: Physical markings or labels on individual packages or transport units for shipping purposes.
@@ -80,7 +76,7 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty
 example: |-
   {
-    "type": "ConsignmentItem",
+    "type": ["ConsignmentItem"],
     "marksAndNumbers": "Espresso Italiano",
     "commodity": {
       "type": "Commodity",

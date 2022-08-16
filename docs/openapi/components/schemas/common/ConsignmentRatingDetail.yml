@@ -6,15 +6,11 @@ description: Consignment Rating Details, itemized consignment items of IATA Air 
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ConsignmentRatingDetail
-      - type: string
-        const:
-          - ConsignmentRatingDetail 
+    type: array
+    items:
+      type: string
+      enum:
+        - ConsignmentRatingDetail
   numberOfPieces:
     title: Number of Pieces and RCP
     description: The number of pieces for the applicable rating entry. Box 22A.
@@ -115,7 +111,7 @@ properties:
   additionalProperties: false
 example: |-
   {
-    "type": "ConsignmentRatingDetail",
+    "type": ["ConsignmentRatingDetail"],
     "numberOfPieces": 13,
     "grossWeight": 971,
     "grossWeightUnit": "Kg",

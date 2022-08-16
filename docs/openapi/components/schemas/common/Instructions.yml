@@ -6,15 +6,11 @@ description: Information of an instructive or teaching nature that tells someone
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Instructions
-      - type: string
-        const:
-          - Instructions 
+    type: array
+    items:
+      type: string
+      enum:
+        - Instructions
   description:
     title: First Name
     description: A textual description.
@@ -25,6 +21,6 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "Instructions",
+    "type": ["Instructions"],
     "description": "Handle with care"
   }

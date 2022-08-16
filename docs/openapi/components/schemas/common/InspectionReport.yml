@@ -6,15 +6,11 @@ description: Series of observations
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - InspectionReport
-      - type: string
-        const:
-          - InspectionReport 
+    type: array
+    items:
+      type: string
+      enum:
+        - InspectionReport
   comment:
     title: Comment
     description: Comments, typically from users.
@@ -51,7 +47,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "InspectionReport",
+    "type": ["InspectionReport"],
     "inspectors": [ 
       {
         "type": "Person",

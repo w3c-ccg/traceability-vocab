@@ -6,14 +6,11 @@ description: A person or organization
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Entity
-      - type: string
-        const: Entity
+    type: array
+    items:
+      type: string
+      enum:
+        - Entity
   entityType:
     description: The type of entity
     type: string
@@ -88,7 +85,7 @@ required:
 additionalProperties: true
 example: |-
   {
-    "type": "Entity",
+    "type": ["Entity"],
     "entityType" : "Person",
     "name" : "Kane Heller",
     "firstName": "Kane",
