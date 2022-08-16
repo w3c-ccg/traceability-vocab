@@ -1,0 +1,101 @@
+$linkedData:
+  term: CTPAT
+  '@id': https://w3id.org/traceability#CTPAT
+title: CTPAT
+description: CTPAT classification based on either WCO HS or USITS HTS codification.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - CTPAT
+  ctpatMember:
+    title: CTPAT Member
+    description: CTPAT member organization.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: ctparMember
+      '@id': https://schema.org/member
+  sviNumber:
+    title: SVI Number
+    description: >-
+      Status Verification Interface number.
+    type: string
+    $linkedData:
+      term: sviNumber
+      '@id': https://w3id.org/traceability#sviNumber
+  ctpatAccountNumber:
+    title: CTPAT Account Number
+    description: >-
+      CTPAT issued account number for certified entity.
+    type: string
+    $linkedData:
+      term: ctpatAccountNumber
+      '@id': https://w3id.org/traceability#ctpatAccountNumber
+  tradeSector:
+    title: CTPAT Trade Sector
+    description: >-
+      Trade sectors elegible for CTPAT certification.
+    enum:
+      - U.S. Importers
+      - Highway Carriers
+      - Foreign Manufacturers
+      - Consolidators
+      - Licensed U.S. Customs Brokers
+      - Mexican Long Haul Highway Carriers
+      - U.S. Exporters
+      - Third Party Logistics Providers
+      - Sea Carrier
+      - Marine Port Authority and Terminal Operators
+      - Foreign Based Marine Port Terminal Operators
+      - Air Carriers
+      - Rail Carriers
+    $linkedData:
+      term: tradeSector
+      '@id': https://schema.org/industry
+  dateOfLastValidation:
+    title: Date of Last Validation
+    description: >-
+      Date of last validation.
+    type: string
+    $linkedData:
+      term: dateOfLastValidation
+      '@id': https://schema.org/Date
+  issuingCountry:
+    title: Issuing Country
+    description: >-
+      Issuing country.
+    type: string
+    $linkedData:
+      term: issuingCountry
+      '@id': https://schema.org/addressCountry
+additionalProperties: false
+example: |-
+  {
+    "type": "CTPAT",
+    "ctpatMember": {
+      "type": [
+        "Organization"
+      ],
+      "id": "did:key:z6MkhfZ7sNYEJ8vFSpwJaeyN7zNUaTxS4TBxW3y6R9ZKRaQ4",
+      "name": "Trans-Atlantic Shipping Co. Ltd.",
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "organizationName": "Trans-Atlantic Shipping Co. Ltd.",
+        "streetAddress": "82 Whitchurch Road",
+        "addressLocality": "Elsworth",
+        "postalCode": "CB3 8NW",
+        "addressCountry": "UK"
+      }
+    },
+    "sviNumber": "57118961",
+    "ctpatAccountNumber": "12008",
+    "tradeSector": "Sea Carrier",
+    "dateOfLastValidation": "2022-01-06T11:50:00Z",
+    "issuingCountry": "US"
+  }
