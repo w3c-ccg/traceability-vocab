@@ -6,14 +6,11 @@ description: USMCA product origin specifier
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - USMCAProductSpecifier
-      - type: string
-        const: USMCAProductSpecifier
+    type: array
+    items:
+      type: string
+      enum:
+        - USMCAProductSpecifier
   product:
     title: Product
     description: >-
@@ -67,7 +64,7 @@ properties:
 additionalProperties: true
 example: |-
   {
-    "type": "USMCAProductSpecifier",
+    "type": ["USMCAProductSpecifier"],
     "product": {
       "type": [
         "Product"

@@ -9,15 +9,11 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Seal
-      - type: string
-        const:
-          - Seal
+    type: array
+    items:
+      type: string
+      enum:
+        - Seal
   sealNumber:
     title: Seal Number
     description: Identifies a seal affixed to the container.
@@ -62,7 +58,7 @@ required:
   - sealNumber
 example: |-
   {
-    "type": "Seal",
+    "type": ["Seal"],
     "sealNumber": "PTW-002290109692",
     "sealSource": "SHI",
     "sealType": "BLT"

@@ -6,15 +6,11 @@ description: The Sea Cargo Manifest is issued by the ocean carrier listing out a
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - SeaCargoManifest
-      - type: string
-        const: 
-          - SeaCargoManifest 
+    type: array
+    items:
+      type: string
+      enum:
+        - SeaCargoManifest
   vesselName: 
     title: Vessel Name
     description: Identifier of the means of transport such as IMO vessel number or truck license place. 
@@ -116,7 +112,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "SeaCargoManifest",
+    "type": ["SeaCargoManifest"],
     "vesselName": "MS Seventh Sea",
     "vesselNumber": "IMO1208812",
     "voyageNumber": "W-0239",
