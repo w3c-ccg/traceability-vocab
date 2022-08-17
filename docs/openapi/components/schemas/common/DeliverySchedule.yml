@@ -6,20 +6,17 @@ description: A set of data used to plan transportation of commodities from recei
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - DeliverySchedule
-      - type: string
-        const: DeliverySchedule
-  pipeline:
-    title: Pipeline
+    type: array
+    items:
+      type: string
+      enum:
+        - DeliverySchedule
+  transporter:
+    title: Transporter
     description: The organization that carries out the transportation event
     $ref: ./Organization.yml
     $linkedData:
-      term: actor
+      term: transporter
       '@id': https://schema.org/Organization
   batchNumber:
     title: Batch Number
@@ -94,8 +91,8 @@ properties:
 additionalProperties: false
 example: |-
   {
-     "type":"DeliverySchedule",
-     "pipeline":{
+     "type": ["DeliverySchedule"],
+     "transporter":{
         "type":[
            "Organization"
         ],
