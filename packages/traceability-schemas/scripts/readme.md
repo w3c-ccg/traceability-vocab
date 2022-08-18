@@ -20,7 +20,9 @@ This is a utility script which is used to re-sign broken proofs when changes to 
 fail. This can be executed by running the following two commands from the root of this repository.
 
 ```
-cd ./packages/traceability-schemas/scripts/
+cd ./packages/traceability-schemas
+npm i
+cd ./scripts
 node regenerate.js
 ```
 
