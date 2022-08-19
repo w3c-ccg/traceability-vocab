@@ -21,9 +21,7 @@ fail. This can be executed by running the following two commands from the root o
 
 ```
 cd ./packages/traceability-schemas
-npm i
-cd ./scripts
-node regenerate.js
+npm run regenerate
 ```
 
 ## schemas-to-openapi.js
