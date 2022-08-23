@@ -59,7 +59,27 @@ const issueCredential = async (candidate, filename) => {
 };
 
 const main = async () => {
-  const path = '../../../docs/openapi/components/schemas/credentials';
+  const currentDirectory = process.cwd().split('/').pop();
+  let path = '';
+  switch (currentDirectory) {
+    case 'scripts':
+      path = '../../../docs/openapi/components/schemas/credentials';
+      break;
+    case 'traceability-schemas':
+      path = '../../docs/openapi/components/schemas/credentials';
+      break;
+    case 'packages':
+      path = '../docs/openapi/components/schemas/credentials';
+      break;
+    default:
+      path = './docs/openapi/components/schemas/credentials';
+      break;
+  }
+
+  if (!fs.existsSync(path)) {
+    throw new Error('Cannot find credentials directory');
+  }
+
   const files = fs.readdirSync(path);
 
   await Promise.all(
