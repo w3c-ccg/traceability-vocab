@@ -11,44 +11,47 @@ const rootTerms = require('./rootTerms.json');
 
 const contextPath = path.resolve(
   __dirname,
-  '../../../docs/contexts/traceability-v2.jsonld'
+  '../../../docs/contexts/traceability-v1.jsonld'
 );
 
+const undefinedTerms = {};
 const schemasToContext = (srcSchemas, srcContext) => {
-  console.log(srcSchemas[0]);
   const context = srcSchemas.reduce((prev, curr) => {
     const { term } = curr.$linkedData;
     const clone = { ...prev };
-    clone[`${term}`] = {
+    const rdfClass = {
       '@id': curr.$linkedData['@id'],
       '@context': {},
     };
 
     if (!curr.properties) {
-      console.log('No properties for current');
-      console.log(curr);
       return prev;
     }
 
     const keys = Object.keys(curr.properties);
-    console.log(`--- ${term} ---`);
     keys.forEach((key) => {
-      console.log(key);
-      if (key === 'type') {
+      if (key === 'id' || key === 'type' || key === '@context') {
         return;
       }
 
-      if (!curr.properties[`${key}`].$linkedData) {
+      if (!curr.properties[key].$linkedData) {
+        if (curr.properties.type.type === 'array') {
+          const array =
+            curr.properties.type.const || curr.properties.type.items.enum;
+          if (array && array.indexOf('VerifiableCredential') === -1) {
+            undefinedTerms[term] = undefinedTerms[term] || [];
+            undefinedTerms[term].push(key);
+          }
+        }
         return;
       }
 
-      clone[`${term}`]['@context'][
-        `${curr.properties[`${key}`].$linkedData.term}`
-      ] = {
-        '@id': curr.properties[`${key}`].$linkedData['@id'],
+      rdfClass['@context'][curr.properties[key].$linkedData.term] = {
+        '@id': curr.properties[key].$linkedData['@id'],
       };
     });
 
+    clone[`${term}`] = rdfClass;
     return clone;
   }, srcContext);
   return {
@@ -66,4 +69,5 @@ const context = schemasToContext(schemas, {
   ...rootTerms,
 });
 
+// console.log(JSON.stringify(undefinedTerms, null, 2));
 fs.writeFileSync(contextPath, stringify(context, { space: '  ' }));
