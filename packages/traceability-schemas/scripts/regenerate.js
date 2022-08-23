@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { resolve } = require('path');
 
 const transmute = require('@transmute/vc.js');
 const {
@@ -59,22 +60,10 @@ const issueCredential = async (candidate, filename) => {
 };
 
 const main = async () => {
-  const currentDirectory = process.cwd().split('/').pop();
-  let path = '';
-  switch (currentDirectory) {
-    case 'scripts':
-      path = '../../../docs/openapi/components/schemas/credentials';
-      break;
-    case 'traceability-schemas':
-      path = '../../docs/openapi/components/schemas/credentials';
-      break;
-    case 'packages':
-      path = '../docs/openapi/components/schemas/credentials';
-      break;
-    default:
-      path = './docs/openapi/components/schemas/credentials';
-      break;
-  }
+  const path = resolve(
+    __dirname,
+    '../../../docs/openapi/components/schemas/credentials'
+  );
 
   if (!fs.existsSync(path)) {
     throw new Error('Cannot find credentials directory');
