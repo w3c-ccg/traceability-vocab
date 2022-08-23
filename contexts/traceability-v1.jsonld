@@ -292,20 +292,20 @@
     "CBP3461ImmediateDeliveryCertificate": {
       "@context": {
       },
-      "@id": "https://w3id.org/traceability#ImmediateDeliveryCertificate"
+      "@id": "https://w3id.org/traceability#CBP3461ImmediateDeliveryCertificate"
     },
     "CBP7501EntrySummaryCertificate": {
       "@context": {
       },
-      "@id": "https://w3id.org/traceability#EntrySummaryCertificate"
+      "@id": "https://w3id.org/traceability#CBP7501EntrySummaryCertificate"
     },
     "CTPAT": {
       "@context": {
-        "ctparMember": {
-          "@id": "https://schema.org/member"
-        },
         "ctpatAccountNumber": {
           "@id": "https://w3id.org/traceability#ctpatAccountNumber"
+        },
+        "ctpatMember": {
+          "@id": "https://schema.org/member"
         },
         "dateOfLastValidation": {
           "@id": "https://schema.org/Date"
@@ -335,38 +335,11 @@
         "carrierBookingReference": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierAssignedId"
         },
-        "commodity": {
-          "@id": "https://w3id.org/traceability#Commodity"
-        },
-        "countryOfOrigin": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
-        },
-        "descriptionOfPackagesAndGoods": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#natureIdentificationCargo"
-        },
-        "grossVolume": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
-        },
-        "grossWeight": {
-          "@id": "https://schema.org/weight"
-        },
-        "manufacturer": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty"
-        },
-        "marksAndNumbers": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ShippingMarks"
-        },
-        "netWeight": {
-          "@id": "https://schema.org/weight"
-        },
         "numberOfPackages": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
         "packageCode": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageTypeCode"
-        },
-        "packageQuantity": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
         },
         "volume": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
@@ -381,7 +354,7 @@
           "@id": "https://schema.org/unitCode"
         }
       },
-      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem"
+      "@id": "https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/cargoItem"
     },
     "CargoLineItem": {
       "@context": {
@@ -402,11 +375,11 @@
     },
     "CertificationOfOrigin": {
       "@context": {
-        "countryOfOrigin": {
-          "@id": "https://w3id.org/traceability#countryOfOrigin"
-        },
         "dateOfExport": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exportExitDateTime"
+        },
+        "manufacturingCountry": {
+          "@id": "https://w3id.org/traceability#manufacturingCountry"
         }
       },
       "@id": "https://w3id.org/traceability#CertificationOfOrigin"
@@ -489,6 +462,38 @@
         }
       },
       "@id": "https://w3id.org/traceability#Commodity"
+    },
+    "ConsignmentItem": {
+      "@context": {
+        "commodity": {
+          "@id": "https://w3id.org/traceability#Commodity"
+        },
+        "countryOfOrigin": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
+        },
+        "descriptionOfPackagesAndGoods": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#natureIdentificationCargo"
+        },
+        "grossVolume": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#grossVolumeMeasure"
+        },
+        "grossWeight": {
+          "@id": "https://schema.org/weight"
+        },
+        "manufacturer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty"
+        },
+        "marksAndNumbers": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ShippingMarks"
+        },
+        "netWeight": {
+          "@id": "https://schema.org/weight"
+        },
+        "packageQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        }
+      },
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ConsignmentItem"
     },
     "ConsignmentRatingDetail": {
       "@context": {
@@ -2238,9 +2243,6 @@
         "totalPaymentDue": {
           "@id": "https://schema.org/totalPaymentDue"
         },
-        "totalWeight": {
-          "@id": "https://schema.org/weight"
-        },
         "weight": {
           "@id": "https://schema.org/weight"
         }
@@ -3081,6 +3083,9 @@
     },
     "PGAShipmentStatusList": {
       "@context": {
+        "pgaShipmentStatusItems": {
+          "@id": "https://schema.org/ItemList"
+        }
       },
       "@id": "https://w3id.org/traceability#PGAShipmentStatusList"
     },
@@ -3629,6 +3634,71 @@
         }
       },
       "@id": "https://w3id.org/traceability#Purchase"
+    },
+    "PurchaseOrder": {
+      "@context": {
+        "buyer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty"
+        },
+        "comments": {
+          "@id": "https://schema.org/Comment"
+        },
+        "destinationCountry": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#destinationCountry"
+        },
+        "discounts": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#deductionAmount"
+        },
+        "exporter": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty"
+        },
+        "importer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty"
+        },
+        "itemsShipped": {
+          "@id": "https://schema.org/itemShipped"
+        },
+        "originCountry": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
+        },
+        "packageQuantity": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity"
+        },
+        "portOfEntry": {
+          "@id": "https://schema.org/Place"
+        },
+        "provider": {
+          "@id": "https://schema.org/provider"
+        },
+        "seller": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty"
+        },
+        "shipFromParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty"
+        },
+        "shipToParty": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty"
+        },
+        "tax": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#taxTotalAmount"
+        },
+        "termsOfDelivery": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedDeliveryTerms"
+        },
+        "termsOfPayment": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPaymentTerms"
+        },
+        "termsOfSettlement": {
+          "@id": "https://schema.org/currency"
+        },
+        "totalPaymentDue": {
+          "@id": "https://schema.org/totalPaymentDue"
+        },
+        "totalWeight": {
+          "@id": "https://schema.org/weight"
+        }
+      },
+      "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncl1001/#Purchase_order"
     },
     "PurchaseOrderCertificate": {
       "@context": {
