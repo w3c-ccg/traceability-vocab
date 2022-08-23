@@ -11,16 +11,16 @@ properties:
       type: string
       enum:
         - PGAShipmentStatusList
-  properties:
-    pgaShipmentStatusItems:
-      title: PGA Shipment Status Items
-      description: List of PGA Status Messages pertaining to per-line items
-      type: array
-      items:
-        $ref: ../common/PGAShipmentStatus.yml
-      $linkedData:
-        term: pgaShipmentStatusItems
-        '@id': https://schema.org/ItemList
+  pgaShipmentStatusItems:
+    title: PGA Shipment Status Items
+    description: List of PGA Status Messages pertaining to per-line items
+    type: array
+    items:
+      $ref: ./PGAShipmentStatus.yml
+    $linkedData:
+      term: pgaShipmentStatusItems
+      '@id': https://schema.org/ItemList
+      '@type': https://schema.org/ItemList
 additionalProperties: true
 example: |-
   {
