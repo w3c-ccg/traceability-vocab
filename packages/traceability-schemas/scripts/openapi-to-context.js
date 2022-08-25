@@ -24,9 +24,10 @@ const schemasToContext = (srcSchemas, srcContext) => {
       '@id': curr.$linkedData['@id'],
       '@context': {},
     };
+    clone[`${term}`] = rdfClass;
 
     if (!curr.properties) {
-      return prev;
+      return clone;
     }
 
     const keys = Object.keys(curr.properties);
@@ -52,7 +53,6 @@ const schemasToContext = (srcSchemas, srcContext) => {
       };
     });
 
-    clone[`${term}`] = rdfClass;
     return clone;
   }, srcContext);
 
