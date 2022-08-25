@@ -83,7 +83,8 @@ const main = async () => {
     if (example.proof) {
       const verified = await checkVerififcation(example, filename);
       if (verified) {
-        return;
+        // eslint-disable-next-line no-continue
+        continue;
       }
     }
 
