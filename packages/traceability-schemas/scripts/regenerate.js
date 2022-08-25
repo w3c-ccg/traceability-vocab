@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { resolve } = require('path');
 
 const transmute = require('@transmute/vc.js');
 const {
@@ -59,7 +60,15 @@ const issueCredential = async (candidate, filename) => {
 };
 
 const main = async () => {
-  const path = '../../../docs/openapi/components/schemas/credentials';
+  const path = resolve(
+    __dirname,
+    '../../../docs/openapi/components/schemas/credentials'
+  );
+
+  if (!fs.existsSync(path)) {
+    throw new Error('Cannot find credentials directory');
+  }
+
   const files = fs.readdirSync(path);
 
   await Promise.all(
