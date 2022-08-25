@@ -6,12 +6,11 @@ description: CTPAT classification based on either WCO HS or USITS HTS codificati
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - CTPAT
+    type: array
+    items:
+      type: string
+      enum:
+        - CTPAT
   ctpatMember:
     title: CTPAT Member
     description: CTPAT member organization.
@@ -75,7 +74,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "CTPAT",
+    "type": ["CTPAT"],
     "ctpatMember": {
       "type": [
         "Organization"
