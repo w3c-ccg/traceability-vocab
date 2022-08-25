@@ -4,7 +4,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const jsonldSchema = require('@transmute/jsonld-schema');
 const stringify = require('json-stringify-deterministic');
 const { schemas } = require('../services/schemas');
 const rootTerms = require('./rootTerms.json');
@@ -15,6 +14,8 @@ const contextPath = path.resolve(
 );
 
 const undefinedTerms = {};
+const showUndefinedTerms = false;
+
 const schemasToContext = (srcSchemas, srcContext) => {
   const context = srcSchemas.reduce((prev, curr) => {
     const { term } = curr.$linkedData;
@@ -54,20 +55,28 @@ const schemasToContext = (srcSchemas, srcContext) => {
     clone[`${term}`] = rdfClass;
     return clone;
   }, srcContext);
-  return {
-    '@context': context,
-  };
+
+  return context;
 };
 
 console.log('🧪 build context from api');
 
-const context = schemasToContext(schemas, {
-  version: 1.1,
-  vocab: 'https://w3id.org/traceability/#undefinedTerm',
-  id: '@id',
-  type: '@type',
-  ...rootTerms,
-});
+(() => {
+  const context = schemasToContext(schemas);
+  const root = {
+    '@context': {
+      '@version': 1.1,
+      '@vocab': 'https://w3id.org/traceability/#undefinedTerm',
+      id: '@id',
+      type: '@type',
+      ...rootTerms,
+      ...context,
+    },
+  };
 
-// console.log(JSON.stringify(undefinedTerms, null, 2));
-fs.writeFileSync(contextPath, stringify(context, { space: '  ' }));
+  if (showUndefinedTerms) {
+    console.log(JSON.stringify(undefinedTerms, null, 2));
+  }
+
+  fs.writeFileSync(contextPath, stringify(root, { space: '  ' }));
+})();

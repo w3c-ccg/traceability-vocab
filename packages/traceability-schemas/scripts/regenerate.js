@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+
 const fs = require('fs');
 const { resolve } = require('path');
 
@@ -31,7 +33,7 @@ const issueCredential = async (candidate, filename) => {
     credential.issuer = keyPair.controller;
   }
 
-  console.log(`--- ${filename} ---`);
+  console.log(`Sign: ${filename}`);
   const {
     items: [verifiableCredential],
   } = await transmute.verifiable.credential.create({
@@ -71,32 +73,30 @@ const main = async () => {
 
   const files = fs.readdirSync(path);
 
-  await Promise.all(
-    files.map(async (filename) => {
-      const file = fs.readFileSync(`${path}/${filename}`, 'utf-8');
-      const start = file.indexOf('  {');
-      const jsonStr = file.substring(start);
-      const example = JSON.parse(jsonStr);
+  for (let i = 0; i < files.length; i += 1) {
+    const filename = files[i];
+    const file = fs.readFileSync(`${path}/${filename}`, 'utf-8');
+    const start = file.indexOf('  {');
+    const jsonStr = file.substring(start);
+    const example = JSON.parse(jsonStr);
 
-      if (example.proof) {
-        const verified = await checkVerififcation(example, filename);
-        if (verified) {
-          return;
-        }
+    if (example.proof) {
+      const verified = await checkVerififcation(example, filename);
+      if (verified) {
+        return;
       }
+    }
 
-      const vc = await issueCredential(jsonStr, filename);
-      const yml = file.substring(0, start);
-      console.log(vc);
-      const lines = JSON.stringify(vc, null, 2)
-        .split('\n')
-        .map((line) => `  ${line}`)
-        .join('\n');
-      const updatedFile = `${yml}${lines}`;
-      console.log(updatedFile);
-      fs.writeFileSync(`${path}/${filename}`, updatedFile);
-    })
-  );
+    const vc = await issueCredential(jsonStr, filename);
+    const yml = file.substring(0, start);
+    const lines = JSON.stringify(vc, null, 2)
+      .split('\n')
+      .map((line) => `  ${line}`)
+      .join('\n');
+    const updatedFile = `${yml}${lines}`;
+    fs.writeFileSync(`${path}/${filename}`, updatedFile);
+  }
 };
 
+console.log('🧪 resign credentials as needed');
 main();
