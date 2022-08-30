@@ -1,0 +1,33 @@
+$linkedData:
+  term: EPCISAggregationEvent
+  '@id': https://ref.gs1.org/epcis/AggregationEvent
+title: EPCIS Aggregation Event
+description: The event type AggregationEvent describes events that apply to objects that have been aggregated to one another. In such an event, there is a set of 'contained' objects that have been aggregated within a 'containing' entity that's meant to identify the aggregation itself. This event type is intended to be used for 'aggregations', meaning an association where there is a strong physical relationship between the containing and the contained objects such that they will all occupy the same location at the same time, until such time as they are disaggregated.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EPCISAggregationEvent
+  bizLocation:
+    title: Business Location
+    description: The business location where the objects associated with the EPCs may be found, until contradicted by a subsequent event.
+    $ref: ./Place.yml
+    $linkedData:
+      term: bizLocation
+      '@id': https://ref.gs1.org/epcis/bizLocation
+  bizStep:
+    title: Business Step
+    description: The business step of which this event was a part.
+    type: string
+    $linkedData:
+      term: bizStep
+      '@id': https://ref.gs1.org/epcis/bizStep
+additionalProperties: false
+example: |-
+  {
+    "type": ["EPCISAggregationEvent"]
+  }

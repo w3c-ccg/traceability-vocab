@@ -1,0 +1,33 @@
+$linkedData:
+  term: EPCISTransformationEvent
+  '@id': https://ref.gs1.org/epcis/TransformationEvent
+title: EPCIS Transformation Event
+description: A TransformationEvent captures information about an event in which one or more physical or digital objects identified by instance-level (EPC) or class-level (EPC Class) identifiers are fully or partially consumed as inputs and one or more objects identified by instance-level (EPC) or class-level (EPC Class) identifiers are produced as outputs. The TransformationEvent captures the relationship between the inputs and the outputs, such that any of the inputs may have contributed in some way to each of the outputs.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EPCISTransformationEvent
+  bizLocation:
+    title: Business Location
+    description: The business location where the objects associated with the EPCs may be found, until contradicted by a subsequent event.
+    $ref: ./Place.yml
+    $linkedData:
+      term: bizLocation
+      '@id': https://ref.gs1.org/epcis/bizLocation
+  bizStep:
+    title: Business Step
+    description: The business step of which this event was a part.
+    type: string
+    $linkedData:
+      term: bizStep
+      '@id': https://ref.gs1.org/epcis/bizStep
+additionalProperties: false
+example: |-
+  {
+    "type": ["EPCISTransformationEvent"]
+  }

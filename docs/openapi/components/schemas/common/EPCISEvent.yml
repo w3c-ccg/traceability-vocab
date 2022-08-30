@@ -1,0 +1,23 @@
+$linkedData:
+  term: EPCISEvent
+  '@id': https://w3id.org/traceability#EPCISEvent
+title: EPCIS Event
+description: A logistics event. This is a common superclass (base type) for all EPCIS events. All of the more specific event types are subclasses of EPCISEvent.
+anyOf:
+  - $ref: ./EPCISObjectEvent.yml
+  - $ref: ./EPCISAggregationEvent.yml
+  - $ref: ./EPCISAssociationEvent.yml
+  - $ref: ./EPCISTransactionEvent.yml
+  - $ref: ./EPCISTransformationEvent.yml
+
+additionalProperties: false
+example: |-
+  {
+    "type": ["EPCISAssociationEvent"],
+    "bizLocation": {
+      "type": ["Place"],
+      "id": "urn:epc:id:sgln:4012345.00002.0",
+      "globalLocationNumber": "4012345.00002.0"
+    },
+    "bizStep": "assembling"
+  }

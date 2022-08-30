@@ -1,0 +1,33 @@
+$linkedData:
+  term: EPCISTransactionEvent
+  '@id': https://ref.gs1.org/epcis/TransactionEvent
+title: EPCIS Transaction Event
+description: The event type TransactionEvent describes the association or disassociation of physical or digital objects to one or more business transactions. While other event types have an optional bizTransactionList field that may be used to provide context for an event, the TransactionEvent is used to declare in an unequivocal way that certain objects have been associated or disassociated with one or more business transactions as part of the event.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EPCISTransactionEvent
+  bizLocation:
+    title: Business Location
+    description: The business location where the objects associated with the EPCs may be found, until contradicted by a subsequent event.
+    $ref: ./Place.yml
+    $linkedData:
+      term: bizLocation
+      '@id': https://ref.gs1.org/epcis/bizLocation
+  bizStep:
+    title: Business Step
+    description: The business step of which this event was a part.
+    type: string
+    $linkedData:
+      term: bizStep
+      '@id': https://ref.gs1.org/epcis/bizStep
+additionalProperties: false
+example: |-
+  {
+    "type": ["EPCISAssociationEvent"]
+  }

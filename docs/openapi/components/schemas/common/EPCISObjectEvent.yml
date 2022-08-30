@@ -1,0 +1,33 @@
+$linkedData:
+  term: EPCISObjectEvent
+  '@id': https://ref.gs1.org/epcis/ObjectEvent
+title: EPCIS Object Event
+description: An ObjectEvent captures information about an event pertaining to one or more physical or digital objects identified by instance-level (EPC) or class-level (EPC Class) identifiers. In most situations, an ObjectEvent is envisioned to represent an actual observations of objects, but strictly speaking it can be used for any event a Capturing Application wants to assert about objects, including for example capturing the fact that an expected observation failed to occur.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EPCISObjectEvent
+  bizLocation:
+    title: Business Location
+    description: The business location where the objects associated with the EPCs may be found, until contradicted by a subsequent event.
+    $ref: ./Place.yml
+    $linkedData:
+      term: bizLocation
+      '@id': https://ref.gs1.org/epcis/bizLocation
+  bizStep:
+    title: Business Step
+    description: The business step of which this event was a part.
+    type: string
+    $linkedData:
+      term: bizStep
+      '@id': https://ref.gs1.org/epcis/bizStep
+additionalProperties: false
+example: |-
+  {
+    "type": ["EPCISObjectEvent"]
+  }

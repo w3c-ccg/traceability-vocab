@@ -1,0 +1,39 @@
+$linkedData:
+  term: EPCISDocument
+  '@id': https://ref.gs1.org/epcis/EPCISDocument
+title: EPCIS Document
+description: An EPCISDocument is a means to transport a collection of EPCIS events, optionally accompanied by relevant master data, as a single electronic document. It is used by the concrete bindings of the EPCIS Capture Interface. In addition, trading partners may by mutual agreement use it as a single electronic document.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EPCISDocument
+  eventList:
+    title: Event List
+    description: List of EPCIS events included in a document, connects EPCISDocumentBody to EPCISEvent
+    type: array
+    items: 
+      - $ref: ./EPCISEvent.yml
+    $linkedData:
+      term: eventList
+      '@id': https://ref.gs1.org/epcis/eventList
+additionalProperties: false
+example: |-
+  {
+    "type": ["EPCISDocument"],
+    "eventList": [
+      {
+        "type": ["EPCISAssociationEvent"],
+        "bizLocation": {
+          "type": ["Place"],
+          "id": "urn:epc:id:sgln:4012345.00002.0",
+          "globalLocationNumber": "4012345.00002.0"
+        },
+        "bizStep": "assembling"
+      }
+    ]
+  }

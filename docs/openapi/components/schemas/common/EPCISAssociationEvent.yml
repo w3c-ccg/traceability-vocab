@@ -1,0 +1,39 @@
+$linkedData:
+  term: EPCISAssociationEvent
+  '@id': https://ref.gs1.org/epcis/AssociationEvent
+title: EPCIS Association Event
+description: The event type AssociationEvent describes the association or disassociation of one or several physical objects with a parent object or a specific physical location. Like the AggregationEvent, the AssociationEvent is also used to capture associations where there is a strong physical relationship between the containing and the contained objects such that they will all occupy the same location at the same time, until such time as they are disaggregated. However, the AggregationEvent does not allow for associations of objects with physical locations; if action is DELETE while omitting the childEPC and childQuantityList field, all contained children are disaggregated from the containing parent. Because there are situations in which associations are more permanent, i.e. beyond the physical flow of goods (e.g. packing/unpacking and loading/unloading), an AssociationEvent SHOULD be used (a) when objects need to be associated with a physical location or (b) when the parent object could also be subject to other, more temporary associations (i.e. captured using AggregationEvent).
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - EPCISAssociationEvent
+  bizLocation:
+    title: Business Location
+    description: The business location where the objects associated with the EPCs may be found, until contradicted by a subsequent event.
+    $ref: ./Place.yml
+    $linkedData:
+      term: bizLocation
+      '@id': https://ref.gs1.org/epcis/bizLocation
+  bizStep:
+    title: Business Step
+    description: The business step of which this event was a part.
+    type: string
+    $linkedData:
+      term: bizStep
+      '@id': https://ref.gs1.org/epcis/bizStep
+additionalProperties: false
+example: |-
+  {
+    "type": ["EPCISAssociationEvent"],
+    "bizLocation": {
+      "type": ["Place"],
+      "id": "urn:epc:id:sgln:4012345.00002.0",
+      "globalLocationNumber": "4012345.00002.0"
+    },
+    "bizStep": "assembling"
+  }
