@@ -164,7 +164,7 @@ properties:
     description: Total weight of the products.
     $ref: ./QuantitativeValue.yml
     $linkedData:
-      term: weight
+      term: totalWeight
       '@id': https://schema.org/weight
   termsOfDelivery: 
     title: Terms of Delivery
@@ -203,10 +203,6 @@ properties:
     $linkedData:
       term: discounts
       '@id': https://schema.org/discount
-  additions: 
-    title: Additions
-    description: Applicable additions.
-    $ref: ./PriceSpecification.yml
   deductions: 
     title: Additions
     description: Applicable additions.
@@ -214,12 +210,8 @@ properties:
     items: 
       $ref: ./PriceSpecification.yml
     $linkedData:
-      term: discounts
+      term: deductions
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#deductionAmount
-  assist: 
-    title: Assist
-    description: Applicable assist.
-    $ref: ./PriceSpecification.yml
   tax: 
     title: Tax
     description: Applicable tax.
@@ -231,10 +223,16 @@ properties:
     title: Freight Cost
     description: Included cost of freight.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: freightCost
+      '@id': https://schema.org/DeliveryChargeSpecification
   insuranceCost: 
     title: Freight Cost
     description: Included cost of insurance.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: insuranceCost
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#insuranceChargeTotalAmount
   totalPaymentDue:
     title: Total Payment Due
     description: The total amount due.
