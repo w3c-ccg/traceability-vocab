@@ -14,6 +14,13 @@ properties:
       type: string
       enum:
         - TransportEquipment
+  id:
+    title: Identifier
+    description: Transport equipment identifier.
+    type: string
+    $linkedData:
+      term: equipmentReference
+      '@id': https://schema.org/identifier
   equipmentReference:
     title: Equipment Reference
     description: >-
@@ -96,11 +103,12 @@ additionalProperties: false
 example: |-
   {
     "type": ["TransportEquipment"],
+    "id": "urn:epc:id:bic:APZU4812090",
     "equipmentReference": "APZU4812090",
     "ISOEquipmentCode": "40GP",
     "seals": [
       {
-        "type": "Seal",
+        "type": ["Seal"],
         "sealNumber": "PTW-002290109692",
         "sealSource": "SHI",
         "sealType": "BLT"
