@@ -15,10 +15,16 @@ properties:
     title: Purchase Order Number
     description: Number for Purchase order
     type: string
+    $linkedData:
+      term: purchaseOrderNo
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Proposed_purchase_order_reference_number    
   orderDate:
     title: Order Date
     description: The date that payment is made.
     type: string
+    $linkedData:
+      term: orderDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerOrderDateTime
   portOfEntry:
     title: Port Of Entry
     description: Port where the purchased goods will enter first.
@@ -139,11 +145,11 @@ properties:
       term: termsOfPayment
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPaymentTerms
   currencyOfSettlement:
-    title: Terms of Settlement
+    title: Currency of Settlement
     description: Currency agreed upon between seller and buyer as payment.
     type: string
     $linkedData:
-      term: termsOfSettlement
+      term: currencyOfSettlement
       '@id': https://schema.org/currency
   purchaseOrderSubtotal:
     title: Pucharse Order Subtotal
@@ -161,10 +167,6 @@ properties:
     $linkedData:
       term: discounts
       '@id': https://schema.org/discount
-  additions:
-    title: Additions
-    description: Applicable additions.
-    $ref: ./PriceSpecification.yml
   deductions:
     title: Additions
     description: Applicable additions.
@@ -174,10 +176,6 @@ properties:
     $linkedData:
       term: discounts
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#deductionAmount
-  assist:
-    title: Assist
-    description: Applicable assist.
-    $ref: ./PriceSpecification.yml
   tax:
     title: Tax
     description: Applicable tax.
@@ -189,14 +187,23 @@ properties:
     title: Freight Cost
     description: Included cost of freight.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: freightCost
+      '@id': https://schema.org/DeliveryChargeSpecification
   insuranceCost:
     title: Freight Cost
     description: Included cost of insurance.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: insuranceCost
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#insuranceChargeTotalAmount
   totalOrderAmount:
     title: Total Order Amount
     description: The total amount due.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: totalOrderAmount
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#MonetarySummation
 required:
   - seller
   - buyer

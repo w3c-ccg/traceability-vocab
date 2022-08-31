@@ -52,14 +52,14 @@ properties:
   shipper: 
     title: Shipper
     description: A consignor party for the consignment.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipper
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
   consignee:
     title: Consignee
     description: A consignee party for the consignment.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -67,7 +67,7 @@ properties:
   forwardingAgent: 
     title: Forwarding Agent
     description: The freight forwarder party for this supply chain consignment.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: notifyParty
       '@id': >-
@@ -77,7 +77,7 @@ properties:
     description: The freight forwarder party for this supply chain consignment.
     type: array 
     items: 
-      $ref: ./Entity.yml
+      $ref: ./Organization.yml
     $linkedData:
       term: notifyParty
       '@id': >-
@@ -85,7 +85,7 @@ properties:
   carrier:
     title: Carrier
     description: A carrier party.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: carrier
       '@id': >-
@@ -219,10 +219,10 @@ example: |-
       "EX600822199"
     ],
     "shipper": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Espresso Italiano Co.",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "Via Vico Ferrovia 5",
         "addressLocality": "Goro",
         "addressRegion": "Ferrara",
@@ -230,52 +230,48 @@ example: |-
         "addressCountry": "IT"
       },
       "email": "sales@espresso-italiano.example.com",
-      "phoneNumber": "+39 0351 9067195",
-      "entityType": "Organization"
+      "phoneNumber": "+39 0351 9067195"
     },
     "consignee": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Prosumer Coffee Supplies, Ltd.",
       "description": "Coffee Machine Imports",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "3934 Spinnaker Lane",
         "addressLocality": "Joliet",
         "addressRegion": "Illinois",
         "postalCode": "60432",
         "addressCountry": "US"
-      },
-      "entityType": "Organization"
+      }
     },
     "notifyParty": [
       {
-        "type": "Entity",
+        "type": ["Organization"],
         "name": "Prosumer Coffee Supplies, Ltd.",
         "description": "Coffee Machine Imports",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "3934 Spinnaker Lane",
           "addressLocality": "Joliet",
           "addressRegion": "Illinois",
           "postalCode": "60432",
           "addressCountry": "US"
-        },
-        "entityType": "Organization"
+        }
       }
     ],
     "carrier": {
-      "type": "Entity",
+      "type": ["Organization"],
       "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
       "name": "MULTI CONTAINER LINE",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "name": "MCL Multi Container Line LTD.",
         "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
         "addressLocality": "Kowloon Bay",
         "addressRegion": "Hong Kong",
         "addressCountry": "Hong Kong SAR"
-      },
-      "entityType": "Organization"
+      }
     },
     "mainCarriageTransportMovement": {
       "type": "Transport",
@@ -283,34 +279,34 @@ example: |-
       "voyageNumber": "Atl-W0425"
     },
     "portOfLoading": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "ITMIL"
     },
     "portOfDischarge": {
-      "type": "Place",
+      "type": ["Place"],
       "unLocode": "USLGB"
     },
     "totalNumberOfPackages": 2200,
     "transportEquipmentQuantity": 2,
     "utilizedTransportEquipment": [
       {
-        "type": "TransportEquipment",
+        "type": ["TransportEquipment"],
         "equipmentReference": "APZU4812090",
         "ISOEquipmentCode": "40GP",
         "seals": [
           {
-            "type": "Seal",
+            "type": ["Seal"],
             "sealNumber": "PTW-002290109692"
           }
         ]
       },
       {
-        "type": "TransportEquipment",
+        "type": ["TransportEquipment"],
         "equipmentReference": "APZU5985096",
         "ISOEquipmentCode": "40GP",
         "seals": [
           {
-            "type": "Seal",
+            "type": ["Seal"],
             "sealNumber": "PTW-002255398220"
           }
         ]
@@ -321,47 +317,47 @@ example: |-
         "type": "ConsignmentItem",
         "marksAndNumbers": "Espresso Italiano",
         "commodity": {
-          "type": "Commodity",
+          "type": ["Commodity"],
           "commodityCode": "851671",
           "commodityCodeType": "HS"
         },
         "packageQuantity": 2200,
         "netWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "unitCode": "kg",
           "value": "14600"
         },
         "grossWeight": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "unitCode": "kg",
           "value": "15960"
         },
         "grossVolume": {
-          "type": "QuantitativeValue",
+          "type": ["QuantitativeValue"],
           "value": "856",
           "unitCode": "cmb"
         }
       }
     ],
     "freightAndCharges": {
-      "type": "ServiceCharge",
+      "type": ["ServiceCharge"],
       "chargeCode": "basicFreight",
       "paymentTerm": "collect",
       "chargeText": "Negotiated ocean freight",
       "rate": {
-        "type": "PriceSpecification",
+        "type": ["PriceSpecification"],
         "price": 2250,
         "priceCurrency": "USD"
       },
       "calculationBasis": "Per container",
       "appliedAmount": {
-        "type": "PriceSpecification",
+        "type": ["PriceSpecification"],
         "price": 4500,
         "priceCurrency": "USD"
       }
     },
     "declaredValue": {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 240000,
       "priceCurrency": "USD"
     },
