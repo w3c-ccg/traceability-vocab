@@ -2086,6 +2086,110 @@
     </section>
   
 
+    <section id="DeMinimisShipment">
+      <h2>De Minimis Shipment</h2>
+      <p>Ecommerce import declaration under Tarif Act Section 321 amendment, providing for an administrative de minimis exemption from duty and taxes for shipments of merchandise (https://www.govinfo.gov/content/pkg/FR-2019-07-23/pdf/2019-15625.pdf).</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#DeMinimisShipment">https://w3id.org/traceability#DeMinimisShipment</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/DeMinimisShipment.yml">https://w3id.org/traceability/openapi/components/schemas/common/DeMinimisShipment.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["DeMinimisShipment"],
+  "originatorCode": "CBP0000288215",
+  "participantFilerType": "Online Marketplace",
+  "shipmentTrackingNumber": "SN1000228491",
+  "modeOfTransportation": "Air",
+  "shipmentInitiator": {
+    "type": ["Organization"],
+    "id": "did:web:everything-ecom.example.vn",
+    "name": "Everything Ecom",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "175 Khanh Hoi, Ward 3",
+        "addressLocality": "Tan Phu Dist.",
+        "addressCountry": "VN"
+      }
+    }
+  },
+  "seller": {
+    "type": ["Organization"],
+    "name": "Phongh Bicycles",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "19 Giai Phong St., 395 Lane, Phuong Liet Ward",
+        "addressLocality": "Thanh Xuan Dist.",
+        "addressCountry": "VN"
+      }
+    }
+  },
+  "buyer": {
+    "type": "Entity",
+    "name": "James Smith",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "720 N Clinton St",
+        "addressLocality": "Defiance",
+        "addressRegion": "Ohio",
+        "postalCode": "43512",
+        "addressCountry": "US"
+      }
+    },
+    "entityType": "Person"
+  },
+  "finalDeliverTo": {
+    "type": "Entity",
+    "name": "James Smith",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "720 N Clinton St",
+        "addressLocality": "Defiance",
+        "addressRegion": "Ohio",
+        "postalCode": "43512",
+        "addressCountry": "US"
+      }
+    },
+    "entityType": "Person"
+  },
+  "enhancedProductDescription": "Electrical powered mountain bike, red and black, 400W motor, 1000mA battery, size 20.",
+  "shipmentSecurityScan": true,
+  "knownCarrierCustomerFlag": true,
+  "knownMarketplaceSellerFlag": true,
+  "marketplaceSellerAccountNumber": "V92881",
+  "productPicture": "https://phong.example.vn/items/1888199466",
+  "listedPriceOnMarketplace": {
+    "type": ["PriceSpecification"],
+    "price": 520,
+    "priceCurrency": "USD"
+  }
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+<li><a href='#Organization'>Organization</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
+    </section>
+  
+
     <section id="DeliverySchedule">
       <h2>Delivery Schedule</h2>
       <p>A set of data used to plan transportation of commodities from receipt facilities to delivery facilities</p>
