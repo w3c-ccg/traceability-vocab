@@ -106,7 +106,7 @@ properties:
   shipper:
     title: Shipper
     description: Original shipper
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shipper
       '@id': >-
@@ -114,7 +114,7 @@ properties:
   consignee:
     title: Consignee
     description: Consignee
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -122,7 +122,7 @@ properties:
   invoicePayerShipper:
     title: Shippers's Invoice Payer
     description: Invoice payer on behalf of the shipper
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: invoicePayerShipper
       '@id': >-
@@ -130,7 +130,7 @@ properties:
   invoicePayerConsignee:
     title: Consignee's Invoice Payer
     description: Invoice payer on behalf of the consignee
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: invoicePayerConsignee
       '@id': >-
@@ -138,7 +138,7 @@ properties:
   firstNotify:
     title: First Notify
     description: First notify party.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: firstNotify
       '@id': >-
@@ -146,7 +146,7 @@ properties:
   secondNotify:
     title: Second Notify
     description: Second notify party.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: secondNotify
       '@id': >-
@@ -154,7 +154,7 @@ properties:
   otherNotify:
     title: Other Notify
     description: Other notify party.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: otherNotify
       '@id': >-
@@ -162,7 +162,7 @@ properties:
   shippersFreightForwarder:
     title: Consignor's freight forwarder
     description: Consignor's freight forwarder
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: shippersFreightForwarder
       '@id': >-
@@ -170,7 +170,7 @@ properties:
   consigneesFreightForwarder:
     title: Consignee's freight forwarder
     description: Consignee's freight forwarder
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: consigneesFreightForwarder
       '@id': >-
@@ -182,65 +182,73 @@ example: |-
     "carrierBookingReference": "XMANHR2102045",
     "transportDocumentType": "MBL",
     "shipper": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Xxinau Manufacturing Co. Ltd.",
       "description": "Advanced Production - Delivered",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "Xin Fei Da Dao 139",
-        "addressLocality": "Xindao",
-        "addressRegion": "Fujian Province",
-        "postalCode": "361100",
-        "addressCountry": "CN"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Xin Fei Da Dao 139",
+          "addressLocality": "Xindao",
+          "addressRegion": "Fujian Province",
+          "postalCode": "361100",
+          "addressCountry": "CN"
+        }
       },
       "email": "xxinau-sales@example.org",
-      "phoneNumber": "+86-555-865-8495",
-      "entityType": "Organization"
+      "phoneNumber": "+86-555-865-8495"
     },
     "consignee": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Better Life Tech",
       "description": "Better Lives Products",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "Rue de la Poste 272",
-        "addressLocality": "Ramegnies-Chin",
-        "addressRegion": "Hainaut",
-        "postalCode": "7520",
-        "addressCountry": "BE"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Rue de la Poste 272",
+          "addressLocality": "Ramegnies-Chin",
+          "addressRegion": "Hainaut",
+          "postalCode": "7520",
+          "addressCountry": "BE"
+        }
       },
       "email": "procurement@lifetech-example.org",
-      "phoneNumber": "+32-5555-8495",
-      "entityType": "Organization"
+      "phoneNumber": "+32-5555-8495"
     },
     "firstNotify": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Better Life Tech",
       "description": "Better Lives Products",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "Rue de la Poste 272",
-        "addressLocality": "Ramegnies-Chin",
-        "addressRegion": "Hainaut",
-        "postalCode": "7520",
-        "addressCountry": "BE"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Rue de la Poste 272",
+          "addressLocality": "Ramegnies-Chin",
+          "addressRegion": "Hainaut",
+          "postalCode": "7520",
+          "addressCountry": "BE"
+        }
       },
       "email": "procurement@lifetech-example.org",
-      "phoneNumber": "+32-5555-8495",
-      "entityType": "Organization"
+      "phoneNumber": "+32-5555-8495"
     },
     "consigneesFreightForwarder": {
-      "type": "Entity",
+      "type": ["Organization"],
       "name": "Intertrans NV [378]",
-      "address": {
-        "type": "PostalAddress",
-        "streetAddress": "Belcrownlaan 25 - 3rd floor",
-        "addressLocality": "Antwerpen",
-        "postalCode": "BE-2100AN",
-        "addressCountry": "BE"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Belcrownlaan 25 - 3rd floor",
+          "addressLocality": "Antwerpen",
+          "postalCode": "BE-2100AN",
+          "addressCountry": "BE"
+        }
       },
-      "phoneNumber": "+32-3-201.98.10",
-      "entityType": "Organization"
+      "phoneNumber": "+32-3-201.98.10"
     },
     "cargoItems": [
       {
