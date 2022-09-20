@@ -52,10 +52,10 @@ properties:
     description: Record the month, day, and year on which the entry summary is filed with CBP. The record copy of the entry summary will be time stamped by the filer at the time of presentation of the entry summary. In the case of entry summaries submitted on an ABI statement, only the statement is required to be time stamped.
     type: string
     $linkedData:
-      term: entryDate
+      term: summaryDate
       '@id': https://schema.org/Date
-  suretyNumber:
-    title: Surety Number
+  suretyCode:
+    title: Surety Code
     description: Provide the surety code. The surety code identifies the surety company, authorized by the Department of the Treasury. 
     type: string
     $linkedData:
@@ -66,7 +66,7 @@ properties:
     description: Select the Bond Type from the available options (Single Transaction Bond, Continuous Bond, or No Bond Required).
     type: string
     $linkedData:
-      term: 
+      term: bondType
       '@id': https://w3id.org/traceability#bondType
   portCode:
     title: Port Code
@@ -246,6 +246,9 @@ properties:
     title: Declaration Of Importer
     description: Your circumstances as an importer or agent. 
     type: string
+    $linkedData:
+      term: declarationOfImporter
+      '@id': https://w3id.org/traceability#declarationOfImporter
   duty:
     title: Duty
     description: Record the total estimated duty paid (excluding AD/CVD). 
@@ -285,7 +288,7 @@ example: |-
     "entryNumber": "73461882610",
     "entryType": "01",
     "summaryDate": "2022-03-01T12:54Z",
-    "suretyNumber": "228",
+    "suretyCode": "228",
     "bondType": "Single Transaction Bond",
     "portCode": {
       "type": ["Place"], 
