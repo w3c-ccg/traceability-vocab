@@ -34,8 +34,8 @@ properties:
     description: An identifier for the shipment which is the subject of this ecommerce transaction.
     type: string
     $linkedData:
-    term: shipmentTrackingNumber
-    '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipmentIdentificationId
+      term: shipmentTrackingNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipmentIdentificationId
   houseBillOfLadingNumber: 
     title: House Bill of Lading Number
     description: Reference number assigned to a house bill of lading.
@@ -87,7 +87,7 @@ properties:
     description: Final Deliver to Party Name and Address (e.g., the final entity to receive the shipment once it arrives in the United States, which may be a final purchaser or a warehouse, but not a domestic deconsolidator).
     $ref: ../common/Entity.yml
     $linkedData:
-      term: shipToParty
+      term: finalDeliverTo
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
   enhancedProductDescription: 
     title: Enhanced Product Description
@@ -180,32 +180,26 @@ example: |-
     "buyer": {
       "type": "Entity",
       "name": "James Smith",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "720 N Clinton St",
-          "addressLocality": "Defiance",
-          "addressRegion": "Ohio",
-          "postalCode": "43512",
-          "addressCountry": "US"
-        }
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "720 N Clinton St",
+        "addressLocality": "Defiance",
+        "addressRegion": "Ohio",
+        "postalCode": "43512",
+        "addressCountry": "US"
       },
       "entityType": "Person"
     },
     "finalDeliverTo": {
       "type": "Entity",
       "name": "James Smith",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "720 N Clinton St",
-          "addressLocality": "Defiance",
-          "addressRegion": "Ohio",
-          "postalCode": "43512",
-          "addressCountry": "US"
-        }
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "720 N Clinton St",
+        "addressLocality": "Defiance",
+        "addressRegion": "Ohio",
+        "postalCode": "43512",
+        "addressCountry": "US"
       },
       "entityType": "Person"
     },
