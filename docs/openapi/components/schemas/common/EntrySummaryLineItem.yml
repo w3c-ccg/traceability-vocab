@@ -116,24 +116,39 @@ properties:
       - ad valorem
       - specific
       - compound
+    $linkedData:
+      term: htsRate
+      '@id': https://w3id.org/traceability#htsRate
   adCvdRate:
     title: AD/CVD Rate
     description: Record the AD/CVD rate(s) as designated by the Department of Commerce, International Trade Administration, directly opposite the respective AD/CVD case number(s) shown in column 29. 
     type: string
+    $linkedData:
+      term: adCvdRate
+      '@id': https://w3id.org/traceability#adCvdRate
   ircRate:
     title: I.R.C. Rate
     description: Record the tax rate(s) for the classified item as designated in the HTS, or record the CBP approved metric conversion tax rate.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: ircRate
+      '@id': https://w3id.org/traceability#ircRate
   visaNumber:
     title: Visa Number
     description: >-
       Record the letter “V” or “C” followed by the visa/certificate number associated with each line. Visa/certificate numbers are generally nine alphanumeric characters in length. The first character is numeric, the second and third character is alphabetic, and the fourth through the ninth character varies, depending on the trade agreement. 
     type: string
+    $linkedData:
+      term: visaNumber
+      '@id': https://w3id.org/traceability#visaNumber
   agriculturalLicenseNumber: 
     title: Visa Number
     description: >-
       For merchandise subject to agriculture licensing, report the license number in column 33 directly below the tariff rate for that line item. 
     type: string
+    $linkedData:
+      term: agriculturalLicenseNumber
+      '@id': https://w3id.org/traceability#agriculturalLicenseNumber
   dutyAndIRTax:
     title: Entered Value
     description: >-
@@ -143,6 +158,9 @@ properties:
       accomplished, enclose the AD/CVD amounts in parentheses. Where I.R. tax is deferred under 26 U.S.C. § 5232(a), leave
       blank (See instructions for column 33). Dollar signs are omitted.
     $ref: ./PriceSpecification.yml
+    $linkedData:
+      term: dutyAndIRTax
+      '@id': https://w3id.org/traceability#dutyAndIRTax
 additionalProperties: false
 example: |-
   {
