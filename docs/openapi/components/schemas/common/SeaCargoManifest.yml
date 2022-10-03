@@ -203,7 +203,7 @@ example: |-
           }
         },
         "mainCarriageTransportMovement": {
-          "type": "Transport",
+          "type": ["Transport"],
           "vesselNumber": "MS Seven Seas",
           "voyageNumber": "Atl-W0425"
         },
@@ -246,7 +246,7 @@ example: |-
             "type": ["ConsignmentItem"],
             "marksAndNumbers": "Espresso Italiano",
             "commodity": {
-              "type": "Commodity",
+              "type": ["Commodity"],
               "commodityCode": "851671",
               "commodityCodeType": "HS"
             },
@@ -268,8 +268,8 @@ example: |-
             }
           }
         ],
-        "freightAndCharges": {
-          "type": "ServiceCharge",
+        "freightAndCharges": [{
+          "type": ["ServiceCharge"],
           "chargeCode": "basicFreight",
           "paymentTerm": "collect",
           "chargeText": "Negotiated ocean freight",
@@ -284,7 +284,7 @@ example: |-
             "price": 4500,
             "priceCurrency": "USD"
           }
-        },
+        }],
         "declaredValue": {
           "type": ["PriceSpecification"],
           "price": 240000,
@@ -292,155 +292,6 @@ example: |-
         },
         "shippedOnBoardDate": "2022-02-02T09:30:00Z",
         "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
-      },
-      {
-        "type": ["DCSATransportDocument"],
-        "transportDocumentReference": "XMANHR2102045",
-        "shippingInstruction": {
-          "type": ["DCSAShippingInstruction"],
-          "carrierBookingReference": "XMANHR2102045",
-          "transportDocumentType": "MBL",
-          "shipper": {
-            "type": ["Organization"],
-            "name": "Xxinau Manufacturing Co. Ltd.",
-            "description": "Advanced Production - Delivered",
-            "address": {
-              "type": ["PostalAddress"],
-              "streetAddress": "Xin Fei Da Dao 139",
-              "addressLocality": "Xindao",
-              "addressRegion": "Fujian Province",
-              "postalCode": "361100",
-              "addressCountry": "CN"
-            },
-            "email": "xxinau-sales@example.org",
-            "phoneNumber": "+86-555-865-8495"
-          },
-          "consignee": {
-            "type": ["Organization"],
-            "name": "Better Life Tech",
-            "description": "Better Lives Products",
-            "address": {
-              "type": ["PostalAddress"],
-              "streetAddress": "Rue de la Poste 272",
-              "addressLocality": "Ramegnies-Chin",
-              "addressRegion": "Hainaut",
-              "postalCode": "7520",
-              "addressCountry": "BE"
-            },
-            "email": "procurement@lifetech-example.org",
-            "phoneNumber": "+32-5555-8495"
-          },
-          "firstNotify": {
-            "type": ["Organization"],
-            "name": "Better Life Tech",
-            "description": "Better Lives Products",
-            "address": {
-              "type": ["PostalAddress"],
-              "streetAddress": "Rue de la Poste 272",
-              "addressLocality": "Ramegnies-Chin",
-              "addressRegion": "Hainaut",
-              "postalCode": "7520",
-              "addressCountry": "BE"
-            },
-            "email": "procurement@lifetech-example.org",
-            "phoneNumber": "+32-5555-8495"
-          },
-          "consigneesFreightForwarder": {
-            "type": ["Organization"],
-            "name": "Intertrans NV [378]",
-            "address": {
-              "type": ["PostalAddress"],
-              "streetAddress": "Belcrownlaan 25 - 3rd floor",
-              "addressLocality": "Antwerpen",
-              "postalCode": "BE-2100AN",
-              "addressCountry": "BE"
-            },
-            "phoneNumber": "+32-3-201.98.10"
-          },
-          "cargoItems": [
-            {
-              "type": ["CargoItem"],
-              "cargoLineItems": [
-                {
-                  "type": ["CargoLineItem"],
-                  "descriptionOfGoods": "Rollators",
-                  "shippingMarks": "ByAcre Age is the new Black"
-                },
-                {
-                  "type": ["CargoLineItem"],
-                  "descriptionOfGoods": "Rollators Organizer Bags",
-                  "shippingMarks": "ByAcre Age is the new Black"
-                },
-                {
-                  "type": ["CargoLineItem"],
-                  "descriptionOfGoods": "Rollators Backrest",
-                  "shippingMarks": "ByAcre Age is the new Black"
-                },
-                {
-                  "type": ["CargoLineItem"],
-                  "descriptionOfGoods": "Rollators Cane Holder Bracket",
-                  "shippingMarks": "ByAcre Age is the new Black"
-                },
-                {
-                  "type": ["CargoLineItem"],
-                  "descriptionOfGoods": "Rollators Cardboard Box",
-                  "shippingMarks": "ByAcre Age is the new Black"
-                }
-              ],
-              "weight": 1671.9,
-              "weightUnit": "KGM",
-              "volume": 27.23,
-              "volumeUnit": "CBM",
-              "numberOfPackages": 245
-            }
-          ],
-          "utilizedTransportEquipments": {
-            "type": ["TransportEquipment"],
-            "id": "urn:epc:id:bic:YMLU3380910",
-            "equipmentReference": "YMLU3380910",
-            "ISOEquipmentCode": "20G1",
-            "seals": [
-              {
-                "type": ["Seal"],
-                "sealNumber": "YMAI715692"
-              }
-            ]
-          }
-        },
-        "transports": {
-          "type": "Transport",
-          "loadLocation": {
-            "type": ["Place"],
-            "address": {
-              "type": ["PostalAddress"],
-              "addressRegion": "Xiamen",
-              "addressCountry": "CN"
-            }
-          },
-          "dischargeLocation": {
-            "type": ["Place"],
-            "address": {
-              "type": ["PostalAddress"],
-              "addressRegion": "Antwerp",
-              "addressCountry": "BE"
-            }
-          },
-          "modeOfTransport": "Vessel",
-          "carrier": {
-            "type": ["Organization"],
-            "name": "MULTI CONTAINER LINE",
-            "address": {
-              "type": ["PostalAddress"],
-              "name": "MCL Multi Container Line LTD.",
-              "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
-              "addressLocality": "Kowloon Bay",
-              "addressRegion": "Hong Kong",
-              "addressCountry": "Hong Kong SAR"
-            }
-          },
-          "vesselNumber": "HMM Algeciras",
-          "voyageNumber": "V.0004W"
-        }
       }
     ]
   }
