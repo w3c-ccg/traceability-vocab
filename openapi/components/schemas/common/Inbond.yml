@@ -5,26 +5,17 @@ title: Inbond
 description: ''
 type: object
 properties:
-  id:
-    type: string
-  issuanceDate:
-    type: string
-  credentialSubject:
-    type: object
-  issuer:
-    oneOf:
-      - type: string
-      - type: object
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Inbond
-      - type: string
-        const:
-          - Inbond 
+    type: array
+    readOnly: true
+    const:
+      - Inbond
+    default:
+      - Inbond
+    items:
+      type: string
+      enum:
+        - Inbond
   product:
     title: Product
     description: Product details as outlined in the Product schema
@@ -172,14 +163,14 @@ example: |-
       "unLocode": "DKCPH"
     },
     "carrier": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Example Carrier Organization",
       "email": "Griffin_Trantow65@example.org",
       "phoneNumber": "+1-555-227-3190",
       "entityType": "Organization"
     },
     "recipient": {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Example Recipient Organization",
       "email": "Gustave.Dicki37@example.net",
       "phoneNumber": "+1-555-238-5681",
@@ -238,9 +229,9 @@ example: |-
     "shipment": {
       "type": ["ParcelDelivery"],
       "originAddress": {
-        "type": "Place",
+        "type": ["Place"],
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "name": "Walker and Sons",
           "streetAddress": "27382 Kirlin Center",
           "addressLocality": "East Wyatt",
@@ -250,9 +241,9 @@ example: |-
         }
       },
       "deliveryAddress": {
-        "type": "Place",
+        "type": ["Place"],
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "name": "Becker and Sons",
           "streetAddress": "158 MacGyver Mountain",
           "addressLocality": "Dachmouth",
@@ -273,7 +264,7 @@ example: |-
       ],
       "manufacturer": {
         "type": [
-          "Person"
+          "Organization"
         ],
         "email": "Chadd.Beatty50@example.com",
         "phoneNumber": "555-951-2573"

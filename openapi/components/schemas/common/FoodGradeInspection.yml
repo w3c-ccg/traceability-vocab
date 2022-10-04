@@ -120,14 +120,14 @@ properties:
   estimatedCharges:
     title: Estimated Charges
     description: Estimated charges for inspection including fees, travel time, overtime, mileage, tolls, any other appropriate expenses.
-    $ref: ./PriceSpecification.yml
+    type: string
     $linkedData:
       term: estimatedCharges
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge
 additionalProperties: false
 example: |-
   {
-    "type": "FoodGradeInspection",
+    "type": ["FoodGradeInspection"],
     "facility": {
       "type": [
         "Place"
@@ -179,24 +179,24 @@ example: |-
       },
       "qualification": [
         {
-          "type": "Qualification",
+          "type": ["Qualification"],
           "qualificationCategory": "Agricultural Security Analyst",
           "qualificationValue": "Executive"
         },
         {
-          "type": "Qualification",
+          "type": ["Qualification"],
           "qualificationCategory": "Future Metrics Planner",
           "qualificationValue": "Coordinator"
         },
         {
-          "type": "Qualification",
+          "type": ["Qualification"],
           "qualificationCategory": "Internal Identity Agent",
           "qualificationValue": "Assistant"
         }
       ]
     },
     "regulatoryAgency": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "CDFA",
       "description": "California Department of Food and Agriculture",
       "email": "Briana55@cdfa.ca.gov.org",
@@ -204,7 +204,7 @@ example: |-
       "faxNumber": "+1-555-486-3154"
     },
     "delegateOf": {
-      "type": "Entity",
+      "type": ["Entity"],
       "entityType" : "Organization",
       "name": "Glayson & Co. Inspections",
       "description": "Agricultural cleanliness & grade assurance",
@@ -260,7 +260,7 @@ example: |-
           "packageName": "Avocados, Bulk",
           "grade": "AA",
           "responsibleParty": {
-            "type": "Entity",
+            "type": ["Entity"],
             "name": "Example Responsible Party Organization",
             "email": "Chadrick_Gibson@example.com",
             "phoneNumber": "+1-555-820-1520",
@@ -318,14 +318,14 @@ example: |-
         }
       ],
       "shipper": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Green Fields",
         "description": "Growing & packaging for high quality produce",
         "email": "sales@greenfields.org",
         "phoneNumber": "+1-555-865-8495"
       },
       "purchaser": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Ace Foodstuffs",
         "description": "Ag goods shipping & distribution",
         "email": "Hipolito58@acefoodstuffs.org",
@@ -340,13 +340,13 @@ example: |-
         "phoneNumber": "+1 555-234-9983"
       },
       "broker": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Cole United",
         "leiCode": "54321351219389121979"
       }
     },
     "applicant": {
-      "type" : "Entity",
+      "type" : ["Entity"],
       "entityType": "Organization",
       "name" : "Jessica Sherawat",
       "email": "Jessica58@example.com",
@@ -360,7 +360,7 @@ example: |-
     "doorsOpen": true,
     "lots": [
       {
-        "type": "FoodGradeInspectionLot",
+        "type": ["FoodGradeInspectionLot"],
         "agricultureProduct": {
           "type": [
             "AgricultureProduct"
@@ -410,52 +410,52 @@ example: |-
         "brandMarkings": "\"Green Fields\"; Packed by Ace Foodstuffs; Produce of U.S.A.",
         "samples": [
           {
-            "type": "FoodGradeInspectionSample",
+            "type": ["FoodGradeInspectionSample"],
             "sampleSizeValue": 10,
-            "sampleSizeUnit": "items",
+            "sampleSizeUnits": "items",
             "sampleProperties": [
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "Temp °F",
                 "propertyValue": "53"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "BMR Quality D",
                 "propertyValue": "2"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "BMR Quality SD",
                 "propertyValue": "0"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "BMR Quality DK",
                 "propertyValue": "0"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "Caked Dirt Quality D",
                 "propertyValue": "0"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "Caked Dirt Quality SD",
                 "propertyValue": "0"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "Caked Dirt Quality DK",
                 "propertyValue": "0"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "< 1-3/4 In. Dia.",
                 "propertyValue": "1"
               },
               {
-                "type": "FoodGradeInspectionSampleProperty",
+                "type": ["FoodGradeInspectionSampleProperty"],
                 "propertyName": "> 3 In. Dia.",
                 "propertyValue": "2"
               }
@@ -464,21 +464,21 @@ example: |-
         ],
         "defects": [
           {
-            "type": "FoodGradeInspectionDefect",
+            "type": ["FoodGradeInspectionDefect"],
             "offsizeDefect": "Quality - Staining",
             "averageDefects": 6,
             "seriousDamage": 2,
             "verySeriousDamage": 0
           },
           {
-            "type": "FoodGradeInspectionDefect",
+            "type": ["FoodGradeInspectionDefect"],
             "offsizeDefect": "Quality - Dry Sunken Areas",
             "averageDefects": 2,
             "seriousDamage": 0,
             "verySeriousDamage": 0
           },
           {
-            "type": "FoodGradeInspectionDefect",
+            "type": ["FoodGradeInspectionDefect"],
             "offsizeDefect": "Quality - Surface Mold",
             "averageDefects": 1,
             "seriousDamage": 0,
@@ -486,7 +486,7 @@ example: |-
           }
         ],
         "grade": {
-          "type": "FoodGradeInspectionResult",
+          "type": ["FoodGradeInspectionResult"],
           "gradeInspected": "U.S. No. 1",
           "requirementsMet": true
         },
@@ -495,14 +495,14 @@ example: |-
           "type": [
             "MeasuredValue"
           ],
-          "value": 51,
+          "value": "51",
           "unitCode": "FAH"
         },
         "maxTemperature": {
           "type": [
             "MeasuredValue"
           ],
-          "value": 55,
+          "value": "55",
           "unitCode": "FAH"
         }
       }

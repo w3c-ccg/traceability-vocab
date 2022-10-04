@@ -56,7 +56,7 @@
   </table>
   
       <pre class="example">{
-  "type": "AgricultureActivity",
+  "type": ["AgricultureActivity"],
   "farm": {
     "type": [
       "Person"
@@ -79,7 +79,7 @@
         ],
         "name": "Jimbo's Awesome Farm",
         "description": "Organic fruits & vegetables",
-        "email": "Chloe.Ondricka42@jimbofarm.org",
+        "email": "Chloe.Ondricka42@jimbofarm.example.org",
         "phoneNumber": "555-496-7149",
         "faxNumber": "555-209-6489"
       },
@@ -116,7 +116,7 @@
         ],
         "manufacturer": {
           "type": [
-            "Person"
+            "Organization"
           ],
           "email": "Jeremie_Bauch@example.org",
           "phoneNumber": "555-749-6051"
@@ -260,7 +260,7 @@
   </table>
   
       <pre class="example">{
-  "type": "AgricultureInspectionReport",
+  "type": ["AgricultureInspectionReport"],
   "facility": {
     "type": [
       "Place"
@@ -312,17 +312,17 @@
     },
     "qualification": [
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Corporate Security Analyst",
         "qualificationValue": "Executive"
       },
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Future Metrics Planner",
         "qualificationValue": "Coordinator"
       },
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Internal Identity Agent",
         "qualificationValue": "Assistant"
       }
@@ -426,14 +426,14 @@
       }
     ],
     "shipper": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Green Fields",
       "description": "Growing & packaging for high quality produce",
       "email": "sales@greenfields.org",
       "phoneNumber": "+1-555-865-8495"
     },
     "purchaser": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Ace Foodstuffs",
       "description": "Ag goods shipping & distribution",
       "email": "Hipolito58@acefoodstuffs.org",
@@ -448,13 +448,13 @@
       "phoneNumber": "+1 555-234-9983"
     },
     "broker": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Cole United",
       "leiCode": "54321351219389121979"
     }
   },
   "applicant": {
-    "type" : "Entity",
+    "type" : ["Entity"],
     "entityType": "Organization",
     "name" : "Jessica Sherawat",
     "email": "Jessica58@example.com",
@@ -507,7 +507,7 @@
   "name": "Ag Inspection",
   "status": "pass",
   "regulatoryAgency": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "CDFA",
     "description": "California Department of Food and Agriculture",
     "email": "Briana55@cdfa.ca.gov.org",
@@ -515,7 +515,7 @@
     "faxNumber": "+1-555-486-3154"
   },
   "delegateOf": {
-    "type": "Entity",
+    "type": ["Entity"],
     "entityType" : "Organization",
     "name": "Glayson & Co. Inspections",
     "description": "Agricultural cleanliness & grade assurance",
@@ -527,6 +527,7 @@
       <b>Dependencies</b><ul><li><a href='#AgricultureParcelDelivery'>AgricultureParcelDelivery</a></li>
 <li><a href='#Entity'>Entity</a></li>
 <li><a href='#Inspector'>Inspector</a></li>
+<li><a href='#Organization'>Organization</a></li>
 <li><a href='#Place'>Place</a></li></ul>
     </section>
   
@@ -553,11 +554,11 @@
   </table>
   
       <pre class="example">{
-  "type": "AgriculturePackage",
+  "type": ["AgriculturePackage"],
   "packageName": "Avocados, Bulk",
   "grade": "AA",
   "responsibleParty": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Example Responsible Party Organization",
     "email": "Chadrick_Gibson@example.com",
     "phoneNumber": "+1-555-820-1520",
@@ -624,7 +625,7 @@
         ],
         "manufacturer": {
           "type": [
-            "Person"
+            "Organization"
           ],
           "email": "Jeremie_Bauch@example.org",
           "phoneNumber": "555-749-6051"
@@ -683,7 +684,7 @@
   </table>
   
       <pre class="example">{
-  "type": "AgricultureParcelDelivery",
+  "type": ["AgricultureParcelDelivery"],
   "deliveryAddress": {
     "type": [
       "PostalAddress"
@@ -778,7 +779,7 @@
       "packageName": "Avocados, Bulk",
       "grade": "AA",
       "responsibleParty": {
-        "type": "Entity",
+        "type": ["Entity"],
         "name": "Example Responsible Party Organization",
         "email": "Chadrick_Gibson@example.com",
         "phoneNumber": "+1-555-820-1520",
@@ -836,14 +837,14 @@
     }
   ],
   "shipper": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Green Fields",
     "description": "Growing & packaging for high quality produce",
     "email": "sales@greenfields.org",
     "phoneNumber": "+1-555-865-8495"
   },
   "purchaser": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Ace Foodstuffs",
     "description": "Ag goods shipping & distribution",
     "email": "Hipolito58@acefoodstuffs.org",
@@ -858,7 +859,7 @@
     "phoneNumber": "+1 555-234-9983"
   },
   "broker": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Koch LLC",
     "leiCode": "54321351219389121979"
   }
@@ -891,27 +892,19 @@
   </table>
   
       <pre class="example">{
-  "type": "AgricultureProduct",
+  "type": ["AgricultureProduct"],
   "upc": "033383401508",
   "plu": "94225",
   "gtin": "033383401508",
   "product": {
-    "type": "Product",
+    "type": ["Product"],
     "manufacturer": {
-      "type": "Person",
-      "firstName": "Itzel",
-      "lastName": "Leannon",
-      "email": "Camila_Braun51@jimbofarm.org",
-      "phoneNumber": "555-900-1599",
-      "worksFor": {
-        "type": "Organization",
-        "name": "Jimbo's Awesome Farm",
-        "description": "Organic fruits & vegetables",
-        "email": "Chloe.Ondricka42@jimbofarm.org",
-        "phoneNumber": "555-496-7149",
-        "faxNumber": "555-209-6489"
-      },
-      "jobTitle": "District Quality Associate"
+      "type": ["Organization"],
+      "name": "Jimbo's Awesome Farm",
+      "description": "Organic fruits & vegetables",
+      "email": "Chloe.Ondricka42@jimbofarm.example.org",
+      "phoneNumber": "555-496-7149",
+      "faxNumber": "555-209-6489"
     },
     "name": "Avocados",
     "description": "Avocados, 4 pack boxes",
@@ -1068,15 +1061,15 @@
   </table>
   
       <pre class="example">{
-  "type": "BindingDataRegistrationCredential",
+  "type": ["BindingDataRegistrationCredential"],
   "finalCarrierName": "Howe, Dach and Ondricka",
   "finalVesselID": "ACMEVessel#842",
   "finalDateOfArrival": "2022-05-11",
   "finalModeOfTransport": "Sea",
   "finalPortOfEntry": {
-    "type": "ShippingStop",
+    "type": ["ShippingStop"],
     "shippingStopAddress": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "name": "Metz - Kemmer",
       "streetAddress": "7885 Nils Mountains",
       "addressLocality": "West Jarenbury",
@@ -1085,11 +1078,11 @@
       "addressCountry": "Switzerland"
     },
     "carrier": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Hane LLC",
       "description": "Expanded solution-oriented collaboration",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "571 McDermott Overpass",
         "addressLocality": "Bretbury",
         "addressRegion": "Minnesota",
@@ -1173,7 +1166,7 @@
       "type": [
         "PostalAddress"
       ],
-      "organizationName": "Trans-Atlantic Shipping Co. Ltd.",
+      "name": "Trans-Atlantic Shipping Co. Ltd.",
       "streetAddress": "82 Whitchurch Road",
       "addressLocality": "Elsworth",
       "postalCode": "CB3 8NW",
@@ -1286,27 +1279,27 @@
       <pre class="example">{
   "type": ["ChargeDeclaration"],
   "weightCharge": {
-    "type": "chargeAndPaymentType",
+    "type": ["chargeAndPaymentType"],
     "chargeCollect": 822,
     "chargePrepaid": 807
   },
   "taxCharge": {
-    "type": "chargeAndPaymentType",
+    "type": ["chargeAndPaymentType"],
     "chargeCollect": 340,
     "chargePrepaid": 286
   },
   "otherChargesAgent": {
-    "type": "chargeAndPaymentType",
+    "type": ["chargeAndPaymentType"],
     "chargeCollect": 736,
     "chargePrepaid": 218
   },
   "otherChargesCarrier": {
-    "type": "chargeAndPaymentType",
+    "type": ["chargeAndPaymentType"],
     "chargeCollect": 533,
     "chargePrepaid": 958
   },
   "totalCharge": {
-    "type": "TotalCharge",
+    "type": ["TotalCharge"],
     "totalPrepaid": 7429.5,
     "totalCollect": 2476.5,
     "sourceCurrency": "SAR",
@@ -1403,7 +1396,7 @@
       "addressCountry":"CANADA",
       "addressLocality":"Hamilton"
     },
-    "globalLocationNumber":"SC720"
+    "globalLocationNumber":"SC720-0000001"
   },
   "actor":[
     {
@@ -1702,7 +1695,7 @@
     ],
     "manufacturer":{
        "type":[
-          "Person"
+          "Organization"
        ],
        "email":"Kellen.Cummerata48@example.org",
        "phoneNumber":"555-591-2622"
@@ -1866,30 +1859,30 @@
   },
   "cargoItems": [
     {
-      "type": "CargoItem",
+      "type": ["CargoItem"],
       "cargoLineItems": [
         {
-          "type": "CargoLineItem",
+          "type": ["CargoLineItem"],
           "descriptionOfGoods": "Rollators",
           "shippingMarks": "ByAcre Age is the new Black"
         },
         {
-          "type": "CargoLineItem",
+          "type": ["CargoLineItem"],
           "descriptionOfGoods": "Rollators Organizer Bags",
           "shippingMarks": "ByAcre Age is the new Black"
         },
         {
-          "type": "CargoLineItem",
+          "type": ["CargoLineItem"],
           "descriptionOfGoods": "Rollators Backrest",
           "shippingMarks": "ByAcre Age is the new Black"
         },
         {
-          "type": "CargoLineItem",
+          "type": ["CargoLineItem"],
           "descriptionOfGoods": "Rollators Cane Holder Bracket",
           "shippingMarks": "ByAcre Age is the new Black"
         },
         {
-          "type": "CargoLineItem",
+          "type": ["CargoLineItem"],
           "descriptionOfGoods": "Rollators Cardboard Box",
           "shippingMarks": "ByAcre Age is the new Black"
         }
@@ -1901,18 +1894,20 @@
       "numberOfPackages": 245
     }
   ],
-  "utilizedTransportEquipments": {
-    "type": "TransportEquipment",
-    "id": "urn:epc:id:bic:YMLU3380910",
-    "equipmentReference": "YMLU3380910",
-    "ISOEquipmentCode": "20G1",
-    "seals": [
-      {
-        "type": "Seal",
-        "sealNumber": "YMAI715692"
-      }
-    ]
-  }
+  "utilizedTransportEquipments": [
+    {
+      "type": ["TransportEquipment"],
+      "id": "urn:epc:id:bic:YMLU3380910",
+      "equipmentReference": "YMLU3380910",
+      "ISOEquipmentCode": "20G1",
+      "seals": [
+        {
+          "type": ["Seal"],
+          "sealNumber": "YMAI715692"
+        }
+      ]
+    }
+  ]
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
 <li><a href='#Place'>Place</a></li></ul>
@@ -2053,7 +2048,7 @@
         "numberOfPackages": 245
       }
     ],
-    "utilizedTransportEquipments": {
+    "utilizedTransportEquipments": [{
       "type": ["TransportEquipment"],
       "id": "urn:epc:id:bic:YMLU3380910",
       "equipmentReference": "YMLU3380910",
@@ -2064,10 +2059,10 @@
           "sealNumber": "YMAI715692"
         }
       ]
-    }
+    }]
   },
-  "transports": {
-    "type": "Transport",
+  "transports": [{
+    "type": ["Transport"],
     "loadLocation": {
       "type": ["Place"],
       "address": {
@@ -2099,7 +2094,7 @@
     },
     "vesselNumber": "HMM Algeciras",
     "voyageNumber": "V.0004W"
-  }
+  }]
 }</pre>
       <b>Dependencies</b><ul><li><a href='#DCSAShippingInstruction'>DCSAShippingInstruction</a></li>
 <li><a href='#Place'>Place</a></li></ul>
@@ -2161,7 +2156,7 @@
     }
   },
   "buyer": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "James Smith",
     "address": {
       "type": ["PostalAddress"],
@@ -2174,7 +2169,7 @@
     "entityType": "Person"
   },
   "finalDeliverTo": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "James Smith",
     "address": {
       "type": ["PostalAddress"],
@@ -2395,21 +2390,21 @@
   </table>
   
       <pre class="example">{
-  "type": "EDDShape",
+  "type": ["EDDShape"],
   "meta": {
-    "type": "EDDShape",
+    "type": ["EDDShapeMeta"],
     "recordOwner": "Federal Agency",
     "shapeType": "Point",
     "method": "Google Earth",
     "numberCollected": "4 Beetles",
     "populationStatus": "Established",
     "smallestOrganismSampled": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "cm",
       "value": "1"
     },
     "largestOrganismSampled": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "cm",
       "value": "3"
     },
@@ -2422,7 +2417,7 @@
     "museumRecord": "1354832",
     "voucher": "TRUE",
     "observationId": "Florida Fish and Wildlife Conservation Commission",
-    "collectionTimeMinutes": 30,
+    "collectionTimeMinutes": "30",
     "originalRecordId": "fp-391d988",
     "originalReportedName": "leafy spurge",
     "recordSourceType": "USB",
@@ -2439,11 +2434,11 @@
     "waterBodyType": "river",
     "substrate": "sand",
     "treatmentArea": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "ac",
       "value": "2"
     },
-    "plantsTreated": 14,
+    "plantsTreated": "14",
     "treatmentComments": "Very windy on day of treatment",
     "reference": "Wunderlin, R.P., and B.F. Hansen. 2002. Atlas of Florida vascular plants (http://www.plantatlas.usf.edu/). University of South Florida, Tampa",
     "locality": "Located at the East edge of forest near pond",
@@ -2460,7 +2455,7 @@
   "dateEntered": "10/17/2009",
   "dateUpdated": "11/27/2009",
   "location": {
-    "type": "PostalAddress",
+    "type": ["PostalAddress"],
     "streetAddress": "267 Keira Crescent",
     "addressLocality": "Lake Jonathonchester",
     "addressRegion": "Montana",
@@ -2469,7 +2464,7 @@
   },
   "mapResources": [
     {
-      "type": "MapResource",
+      "type": ["MapResource"],
       "resourceType": "External",
       "external": {
         "type": "ExternalResource",
@@ -2532,19 +2527,19 @@
   </table>
   
       <pre class="example">{
-  "type": "EDDShape",
+  "type": ["EDDShapeMeta"],
   "recordOwner": "Federal Agency",
   "shapeType": "Point",
   "method": "Google Earth",
   "numberCollected": "4 Beetles",
   "populationStatus": "Established",
   "smallestOrganismSampled": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "unitCode": "cm",
     "value": "1"
   },
   "largestOrganismSampled": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "unitCode": "cm",
     "value": "3"
   },
@@ -2557,7 +2552,7 @@
   "museumRecord": "1354832",
   "voucher": "TRUE",
   "observationId": "Florida Fish and Wildlife Conservation Commission",
-  "collectionTimeMinutes": 30,
+  "collectionTimeMinutes": "30",
   "originalRecordId": "fp-391d988",
   "originalReportedName": "leafy spurge",
   "recordSourceType": "USB",
@@ -2574,11 +2569,11 @@
   "waterBodyType": "river",
   "substrate": "sand",
   "treatmentArea": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "unitCode": "ac",
     "value": "2"
   },
-  "plantsTreated": 14,
+  "plantsTreated": "14",
   "treatmentComments": "Very windy on day of treatment",
   "reference": "Wunderlin, R.P., and B.F. Hansen. 2002. Atlas of Florida vascular plants ( http://www.plantatlas.usf.edu/). University of South Florida, Tampa",
   "locality": "Located at the East edge of forest near pond",
@@ -2888,11 +2883,11 @@
   "eventId": "12345",
   "actor": [
     {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Gleason Inc",
       "description": "Assimilated client-driven hub",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "46718 Catalina Corner",
         "addressLocality": "Port Dasiafort",
         "addressRegion": "Florida",
@@ -2905,11 +2900,11 @@
       "entityType": "Organization"
     },
     {
-      "type": "Entity",
+      "type": ["Entity"],
       "name": "Hagenes LLC",
       "description": "Right-sized asynchronous task-force",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "16064 Winona Wall",
         "addressLocality": "New Brendonberg",
         "addressRegion": "Vermont",
@@ -2923,15 +2918,15 @@
     }
   ],
   "place": {
-    "type": "Place",
+    "type": ["Place"],
     "globalLocationNumber": "8872692315395",
     "geo": {
-      "type": "GeoCoordinates",
+      "type": ["GeoCoordinates"],
       "latitude": "42.7377",
       "longitude": "44.6808"
     },
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "name": "Krajcik Inc",
       "streetAddress": "229 Carroll Alley",
       "addressLocality": "Fayeberg",
@@ -3127,9 +3122,9 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMAFirstReceiverData",
+  "type": ["FSMAFirstReceiverData"],
   "traceabilityLot": {
-    "type": "FSMATraceabilityLot",
+    "type": ["FSMATraceabilityLot"],
     "lotCode": "CHE-MIG-TTF1-061321-H37J",
     "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
     "lotCodeGeneratorLocation": {
@@ -3150,7 +3145,7 @@
       "locationName": "John's Tomato Farm #1"
     },
     "lotCodeGeneratorPOC": {
-      "type": "Entity",
+      "type": ["Entity"],
       "entityType" : "Person",
       "name" : "John Davis",
       "email": "produce@example.com",
@@ -3206,9 +3201,9 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMAGrowingCTE",
+  "type": ["FSMAGrowingCTE"],
   "traceabilityLot": {
-    "type": "FSMATraceabilityLot",
+    "type": ["FSMATraceabilityLot"],
     "lotCode": "CHE-MIG-TTF1-061321-H37J",
     "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
     "lotCodeGeneratorLocation": {
@@ -3229,7 +3224,7 @@
       "locationName": "John's Tomato Farm #1"
     },
     "lotCodeGeneratorPOC": {
-      "type": "Entity",
+      "type": ["Entity"],
       "entityType" : "Person",
       "name" : "John Davis",
       "email": "produce@example.com",
@@ -3272,9 +3267,9 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMAProduct",
+  "type": ["FSMAProduct"],
   "traceabilityLot": {
-    "type": "FSMATraceabilityLot",
+    "type": ["FSMATraceabilityLot"],
     "lotCode": "CHE-MIG-TTF1-061321-H37J",
     "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
     "lotCodeGeneratorLocation": {
@@ -3295,7 +3290,7 @@
       "locationName": "John's Tomato Farm #1"
     },
     "lotCodeGeneratorPOC": {
-      "type": "Entity",
+      "type": ["Entity"],
       "entityType" : "Person",
       "name" : "John Davis",
       "email": "produce@example.com",
@@ -3307,42 +3302,42 @@
   "unit": "Boxes",
   "additionalData": [
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Category code",
       "value": "659351253"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Category name",
       "value": "Tomatoes"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Brand name",
       "value": "John's Produce"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Commodity",
       "value": "Cherry Tomatoes"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Variety",
       "value": "Mighty Sweet Hybrid"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Product name",
       "value": "N/A"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Packaging size",
       "value": "Bulk"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Packaging style",
       "value": "Field Bins"
     }
@@ -3374,13 +3369,13 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMAReceivingCTE",
+  "type": ["FSMAReceivingCTE"],
   "shipment": {
-    "type": "FSMAShipment",
+    "type": ["FSMAShipment"],
     "product": {
-      "type": "FSMAProduct",
+      "type": ["FSMAProduct"],
       "traceabilityLot": {
-        "type": "FSMATraceabilityLot",
+        "type": ["FSMATraceabilityLot"],
         "lotCode": "CHE-MIG-TTF1-061321-H37J",
         "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
         "lotCodeGeneratorLocation": {
@@ -3401,7 +3396,7 @@
           "locationName": "John's Tomato Farm #1"
         },
         "lotCodeGeneratorPOC": {
-          "type": "Entity",
+          "type": ["Entity"],
           "entityType" : "Person",
           "name" : "John Davis",
           "email": "produce@example.com",
@@ -3413,42 +3408,42 @@
       "unit": "Field Bins",
       "additionalData": [
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Category code",
           "value": "659351253"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Category name",
           "value": "Tomatoes"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Brand name",
           "value": "John's Produce"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Commodity",
           "value": "Cherry Tomatoes"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Variety",
           "value": "Mighty Sweet Hybrid"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Product name",
           "value": "N/A"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Packaging size",
           "value": "Bulk"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Packaging style",
           "value": "Field Bins"
         }
@@ -3459,7 +3454,7 @@
         "Place"
       ],
       "geo": {
-        "type": "GeoCoordinates",
+        "type": ["GeoCoordinates"],
         "latitude": "44.859038",
         "longitude": "70.916213"
       },
@@ -3481,7 +3476,7 @@
         "Place"
       ],
       "geo": {
-        "type": "GeoCoordinates",
+        "type": ["GeoCoordinates"],
         "latitude": "31.319706",
         "longitude": "-92.117524"
       },
@@ -3500,17 +3495,17 @@
     },
     "additionalData": [
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Reference record type and number",
         "value": "BOL 24884"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Import entry number",
         "value": "N/A"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Transporter name",
         "value": "Local Trucking Co."
       }
@@ -3544,12 +3539,12 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMAShipment",
+  "type": ["FSMAShipment"],
   "product": {
-    "type": "FSMAProduct",
+    "type": ["FSMAProduct"],
     "traceabilityLot": {
-      "type": "FSMATraceabilityLot",
-      "lotCode": "CHE-MIG-TTF1-061321-H37J",
+      "type": ["FSMATraceabilityLot"],
+      "lotCode": "CHE-MIG-TTF1-061321`-H37J",
       "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
       "lotCodeGeneratorLocation": {
         "type": [
@@ -3569,7 +3564,7 @@
         "locationName": "John's Tomato Farm #1"
       },
       "lotCodeGeneratorPOC": {
-        "type": "Entity",
+        "type": ["Entity"],
         "entityType" : "Person",
         "name" : "John Davis",
         "email": "produce@example.com",
@@ -3581,42 +3576,42 @@
     "unit": "Field Bins",
     "additionalData": [
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category code",
         "value": "659351253"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category name",
         "value": "Tomatoes"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Brand name",
         "value": "John's Produce"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Commodity",
         "value": "Cherry Tomatoes"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Variety",
         "value": "Mighty Sweet Hybrid"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Product name",
         "value": "N/A"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging size",
         "value": "Bulk"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging style",
         "value": "Field Bins"
       }
@@ -3627,7 +3622,7 @@
       "Place"
     ],
     "geo": {
-      "type": "GeoCoordinates",
+      "type": ["GeoCoordinates"],
       "latitude": "44.859038",
       "longitude": "70.916213"
     },
@@ -3649,7 +3644,7 @@
       "Place"
     ],
     "geo": {
-      "type": "GeoCoordinates",
+      "type": ["GeoCoordinates"],
       "latitude": "31.319706",
       "longitude": "-92.117524"
     },
@@ -3668,17 +3663,17 @@
   },
   "additionalData": [
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Reference record type and number",
       "value": "BOL 24884"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Import entry number",
       "value": "N/A"
     },
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Transporter name",
       "value": "Local Trucking Co."
     }
@@ -3711,13 +3706,13 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMAShippingCTE",
+  "type": ["FSMAShippingCTE"],
   "shipment": {
-    "type": "FSMAShipment",
+    "type": ["FSMAShipment"],
     "product": {
-      "type": "FSMAProduct",
+      "type": ["FSMAProduct"],
       "traceabilityLot": {
-        "type": "FSMATraceabilityLot",
+        "type": ["FSMATraceabilityLot"],
         "lotCode": "CHE-MIG-TTF1-061321-H37J",
         "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
         "lotCodeGeneratorLocation": {
@@ -3738,7 +3733,7 @@
           "locationName": "John's Tomato Farm #1"
         },
         "lotCodeGeneratorPOC": {
-          "type": "Entity",
+          "type": ["Entity"],
           "entityType" : "Person",
           "name" : "John Davis",
           "email": "produce@example.com",
@@ -3750,42 +3745,42 @@
       "unit": "Field Bins",
       "additionalData": [
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Category code",
           "value": "659351253"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Category name",
           "value": "Tomatoes"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Brand name",
           "value": "John's Produce"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Commodity",
           "value": "Cherry Tomatoes"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Variety",
           "value": "Mighty Sweet Hybrid"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Product name",
           "value": "N/A"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Packaging size",
           "value": "Bulk"
         },
         {
-          "type": "FSMAAbstractKDE",
+          "type": ["FSMAAbstractKDE"],
           "name": "Packaging style",
           "value": "Field Bins"
         }
@@ -3796,7 +3791,7 @@
         "Place"
       ],
       "geo": {
-        "type": "GeoCoordinates",
+        "type": ["GeoCoordinates"],
         "latitude": "44.859038",
         "longitude": "70.916213"
       },
@@ -3818,7 +3813,7 @@
         "Place"
       ],
       "geo": {
-        "type": "GeoCoordinates",
+        "type": ["GeoCoordinates"],
         "latitude": "31.319706",
         "longitude": "-92.117524"
       },
@@ -3837,17 +3832,17 @@
     },
     "additionalData": [
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Reference record type and number",
         "value": "BOL 24884"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Import entry number",
         "value": "N/A"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Transporter name",
         "value": "Local Trucking Co."
       }
@@ -3856,7 +3851,7 @@
   "dateShipped": "2022-01-01T00:00Z",
   "additionalData": [
     {
-      "type": "FSMAAbstractKDE",
+      "type": ["FSMAAbstractKDE"],
       "name": "Statement if the shipper is a farm",
       "value": "TRUE"
     }
@@ -3888,7 +3883,7 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMATraceabilityLot",
+  "type": ["FSMATraceabilityLot"],
   "lotCode": "CHE-MIG-TTF1-061321-H37J",
   "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
   "lotCodeGeneratorLocation": {
@@ -3909,7 +3904,7 @@
     "locationName": "John's Tomato Farm #1"
   },
   "lotCodeGeneratorPOC": {
-    "type": "Entity",
+    "type": ["Entity"],
     "entityType" : "Person",
     "name" : "John Davis",
     "email": "produce@example.com",
@@ -3944,11 +3939,11 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMATransformingCTE",
+  "type": ["FSMATransformingCTE"],
   "foodUsed": {
-    "type": "FSMAProduct",
+    "type": ["FSMAProduct"],
     "traceabilityLot": {
-      "type": "FSMATraceabilityLot",
+      "type": ["FSMATraceabilityLot"],
       "lotCode": "CHE-MIG-TTF1-061321-H37J",
       "lotCodeAssignmentMethod": "Lot codes are assigned based on the commodity, variety, location, harvest date and a random 4 digit string.",
       "lotCodeGeneratorLocation": {
@@ -3969,7 +3964,7 @@
         "locationName": "John's Tomato Farm #1"
       },
       "lotCodeGeneratorPOC": {
-        "type": "Entity",
+        "type": ["Entity"],
         "entityType" : "Person",
         "name" : "John Davis",
         "email": "produce@example.com",
@@ -3981,42 +3976,42 @@
     "unit": "Field Bins",
     "additionalData": [
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category code",
         "value": "659351253"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category name",
         "value": "Tomatoes"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Brand name",
         "value": "John's Produce"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Commodity",
         "value": "Cherry Tomatoes"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Variety",
         "value": "Mighty Sweet Hybrid"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Product name",
         "value": "N/A"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging size",
         "value": "Bulk"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging style",
         "value": "Field Bins"
       }
@@ -4025,7 +4020,7 @@
   "foodProduced": {
     "type": "FSMAProduct",
     "traceabilityLot": {
-      "type": "FSMATraceabilityLot",
+      "type": ["FSMATraceabilityLot"],
       "lotCode": "638854954425-FP-PP16-061221-6H08",
       "lotCodeAssignmentMethod": "Lot codes are assigned based on the product ID, location, process date and a randomly generated string.",
       "lotType": "transformed"
@@ -4034,42 +4029,42 @@
     "unit": "Cartons",
     "additionalData": [
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category code",
         "value": "212271504"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category name",
         "value": "Fruits and Vegetables (Fresh-Cut)"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Brand name",
         "value": "Fresh Promise"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Commodity",
         "value": "N/A"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Variety",
         "value": "N/A"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Product name",
         "value": "Garden Salad Kit 10 X 12 OZ"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging size",
         "value": "8 LB"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging style",
         "value": "Cartons"
       }
@@ -4104,7 +4099,7 @@
   </table>
   
       <pre class="example">{
-  "type": "FoodGradeInspection",
+  "type": ["FoodGradeInspection"],
   "facility": {
     "type": [
       "Place"
@@ -4156,24 +4151,24 @@
     },
     "qualification": [
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Agricultural Security Analyst",
         "qualificationValue": "Executive"
       },
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Future Metrics Planner",
         "qualificationValue": "Coordinator"
       },
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Internal Identity Agent",
         "qualificationValue": "Assistant"
       }
     ]
   },
   "regulatoryAgency": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "CDFA",
     "description": "California Department of Food and Agriculture",
     "email": "Briana55@cdfa.ca.gov.org",
@@ -4181,7 +4176,7 @@
     "faxNumber": "+1-555-486-3154"
   },
   "delegateOf": {
-    "type": "Entity",
+    "type": ["Entity"],
     "entityType" : "Organization",
     "name": "Glayson & Co. Inspections",
     "description": "Agricultural cleanliness & grade assurance",
@@ -4237,7 +4232,7 @@
         "packageName": "Avocados, Bulk",
         "grade": "AA",
         "responsibleParty": {
-          "type": "Entity",
+          "type": ["Entity"],
           "name": "Example Responsible Party Organization",
           "email": "Chadrick_Gibson@example.com",
           "phoneNumber": "+1-555-820-1520",
@@ -4295,14 +4290,14 @@
       }
     ],
     "shipper": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Green Fields",
       "description": "Growing & packaging for high quality produce",
       "email": "sales@greenfields.org",
       "phoneNumber": "+1-555-865-8495"
     },
     "purchaser": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Ace Foodstuffs",
       "description": "Ag goods shipping & distribution",
       "email": "Hipolito58@acefoodstuffs.org",
@@ -4317,13 +4312,13 @@
       "phoneNumber": "+1 555-234-9983"
     },
     "broker": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Cole United",
       "leiCode": "54321351219389121979"
     }
   },
   "applicant": {
-    "type" : "Entity",
+    "type" : ["Entity"],
     "entityType": "Organization",
     "name" : "Jessica Sherawat",
     "email": "Jessica58@example.com",
@@ -4337,7 +4332,7 @@
   "doorsOpen": true,
   "lots": [
     {
-      "type": "FoodGradeInspectionLot",
+      "type": ["FoodGradeInspectionLot"],
       "agricultureProduct": {
         "type": [
           "AgricultureProduct"
@@ -4387,52 +4382,52 @@
       "brandMarkings": "\"Green Fields\"; Packed by Ace Foodstuffs; Produce of U.S.A.",
       "samples": [
         {
-          "type": "FoodGradeInspectionSample",
+          "type": ["FoodGradeInspectionSample"],
           "sampleSizeValue": 10,
-          "sampleSizeUnit": "items",
+          "sampleSizeUnits": "items",
           "sampleProperties": [
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "Temp °F",
               "propertyValue": "53"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "BMR Quality D",
               "propertyValue": "2"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "BMR Quality SD",
               "propertyValue": "0"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "BMR Quality DK",
               "propertyValue": "0"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "Caked Dirt Quality D",
               "propertyValue": "0"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "Caked Dirt Quality SD",
               "propertyValue": "0"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "Caked Dirt Quality DK",
               "propertyValue": "0"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "< 1-3/4 In. Dia.",
               "propertyValue": "1"
             },
             {
-              "type": "FoodGradeInspectionSampleProperty",
+              "type": ["FoodGradeInspectionSampleProperty"],
               "propertyName": "> 3 In. Dia.",
               "propertyValue": "2"
             }
@@ -4441,21 +4436,21 @@
       ],
       "defects": [
         {
-          "type": "FoodGradeInspectionDefect",
+          "type": ["FoodGradeInspectionDefect"],
           "offsizeDefect": "Quality - Staining",
           "averageDefects": 6,
           "seriousDamage": 2,
           "verySeriousDamage": 0
         },
         {
-          "type": "FoodGradeInspectionDefect",
+          "type": ["FoodGradeInspectionDefect"],
           "offsizeDefect": "Quality - Dry Sunken Areas",
           "averageDefects": 2,
           "seriousDamage": 0,
           "verySeriousDamage": 0
         },
         {
-          "type": "FoodGradeInspectionDefect",
+          "type": ["FoodGradeInspectionDefect"],
           "offsizeDefect": "Quality - Surface Mold",
           "averageDefects": 1,
           "seriousDamage": 0,
@@ -4463,7 +4458,7 @@
         }
       ],
       "grade": {
-        "type": "FoodGradeInspectionResult",
+        "type": ["FoodGradeInspectionResult"],
         "gradeInspected": "U.S. No. 1",
         "requirementsMet": true
       },
@@ -4472,14 +4467,14 @@
         "type": [
           "MeasuredValue"
         ],
-        "value": 51,
+        "value": "51",
         "unitCode": "FAH"
       },
       "maxTemperature": {
         "type": [
           "MeasuredValue"
         ],
-        "value": 55,
+        "value": "55",
         "unitCode": "FAH"
       }
     }
@@ -4490,8 +4485,7 @@
 <li><a href='#Entity'>Entity</a></li>
 <li><a href='#Inspector'>Inspector</a></li>
 <li><a href='#Organization'>Organization</a></li>
-<li><a href='#Place'>Place</a></li>
-<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
+<li><a href='#Place'>Place</a></li></ul>
     </section>
   
 
@@ -4549,10 +4543,10 @@
   </table>
   
       <pre class="example">{
-  "type": "FoodGradeInspectionLot",
+  "type": ["FoodGradeInspectionLot"],
   "agricultureProduct": {
     "type": [
-      "agricultureProduct"
+      "AgricultureProduct"
     ],
     "upc": "033383401508",
     "plu": "94225",
@@ -4599,52 +4593,52 @@
   "brandMarkings": "\"Green Fields\"; Packed by Ace Foodstuffs; Produce of U.S.A.",
   "samples": [
     {
-      "type": "FoodGradeInspectionSample",
+      "type": ["FoodGradeInspectionSample"],
       "sampleSizeValue": 10,
       "sampleSizeUnits": "items",
       "sampleProperties": [
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "Temp °F",
           "propertyValue": "53"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "BMR Quality D",
           "propertyValue": "2"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "BMR Quality SD",
           "propertyValue": "0"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "BMR Quality DK",
           "propertyValue": "0"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "Caked Dirt Quality D",
           "propertyValue": "0"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "Caked Dirt Quality SD",
           "propertyValue": "0"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "Caked Dirt Quality DK",
           "propertyValue": "0"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "< 1-3/4 In. Dia.",
           "propertyValue": "1"
         },
         {
-          "type": "FoodGradeInspectionSampleProperty",
+          "type": ["FoodGradeInspectionSampleProperty"],
           "propertyName": "> 3 In. Dia.",
           "propertyValue": "2"
         }
@@ -4653,21 +4647,21 @@
   ],
   "defects": [
     {
-      "type": "FoodGradeInspectionDefect",
+      "type": ["FoodGradeInspectionDefect"],
       "offsizeDefect": "Quality - Staining",
       "averageDefects": 6,
       "seriousDamage": 2,
       "verySeriousDamage": 0
     },
     {
-      "type": "FoodGradeInspectionDefect",
+      "type": ["FoodGradeInspectionDefect"],
       "offsizeDefect": "Quality - Dry Sunken Areas",
       "averageDefects": 2,
       "seriousDamage": 0,
       "verySeriousDamage": 0
     },
     {
-      "type": "FoodGradeInspectionDefect",
+      "type": ["FoodGradeInspectionDefect"],
       "offsizeDefect": "Quality - Surface Mold",
       "averageDefects": 1,
       "seriousDamage": 0,
@@ -4675,7 +4669,7 @@
     }
   ],
   "grade": {
-    "type": "FoodGradeInspectionResult",
+    "type": ["FoodGradeInspectionResult"],
     "gradeInspected": "U.S. No. 1",
     "requirementsMet": true
   },
@@ -4684,14 +4678,14 @@
     "type": [
       "MeasuredValue"
     ],
-    "value": 51,
+    "value": "51",
     "unitCode": "FAH"
   },
   "maxTemperature": {
     "type": [
       "MeasuredValue"
     ],
-    "value": 55,
+    "value": "55",
     "unitCode": "FAH"
   }
 }</pre>
@@ -4890,10 +4884,10 @@
       <pre class="example">{
   "type": ["FreightManifest"],
   "carrier": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "MULTI CONTAINER LINE",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "name": "MCL Multi Container Line LTD.",
       "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
       "addressLocality": "Kowloon Bay",
@@ -4908,15 +4902,15 @@
   "voyage": "V.0004W",
   "billsOfLading": [
     {
-      "type": "BillOfLading",
+      "type": ["BillOfLading"],
       "billOfLadingNumber": "XMANHR2102045",
       "bookingNumber": "XMANHR2102045",
       "consignor": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Xxinau Manufacturing Co. Ltd.",
         "description": "Advanced Production - Delivered",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Xin Fei Da Dao 139",
           "addressLocality": "Xindao",
           "addressRegion": "Fujian Province",
@@ -4927,11 +4921,11 @@
         "phoneNumber": "+86-555-865-8495"
       },
       "consignee": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Better Life Tech",
         "description": "Better Lives Products",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Rue de la Poste 272",
           "addressLocality": "Ramegnies-Chin",
           "addressRegion": "Hainaut",
@@ -4942,11 +4936,11 @@
         "phoneNumber": "+32-5555-8495"
       },
       "notify": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Better Life Tech",
         "description": "Better Lives Products",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Rue de la Poste 272",
           "addressLocality": "Ramegnies-Chin",
           "addressRegion": "Hainaut",
@@ -4959,17 +4953,17 @@
       "freight": {
         "type": ["ParcelDelivery"],
         "deliveryAddress": {
-          "type": "Place",
+          "type": ["Place"],
           "address": {
-            "type": "PostalAddress",
+            "type": ["PostalAddress"],
             "addressRegion": "Antwerp",
             "addressCountry": "BE"
           }
         },
         "originAddress": {
-          "type":"Place",
+          "type":["Place"],
           "address":{ 
-            "type": "PostalAddress",
+            "type": ["PostalAddress"],
             "addressRegion": "Xiamen",
             "addressCountry": "CN"
           }
@@ -4978,23 +4972,23 @@
         "trackingNumber": "178380801954"
       },
       "portOfLoading": {
-        "type": "Place",
+        "type": ["Place"],
         "unLocode": "CNXMG"
       },
       "portOfDischarge": {
-        "type": "Place",
+        "type": ["Place"],
         "unLocode": "BEANR"
       }
     },
     {
-      "type": "BillOfLading",
+      "type": ["BillOfLading"],
       "billOfLadingNumber": "XMANHR6182210B",
       "bookingNumber": "XMANHR6182210",
       "consignor": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Chuang's Enterprises",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Lido Gdns Sham Tseng",
           "addressLocality": "Tsuen Wan District",
           "addressRegion": "Hong Kong",
@@ -5002,10 +4996,10 @@
         }
       },
       "consignee": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Intl. Construction Materials GMBH.",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "Alsembergsesteenweg 326",
           "addressLocality": "Nieuwmunster",
           "addressRegion": "West Flanders",
@@ -5016,17 +5010,17 @@
       "freight": {
         "type": ["ParcelDelivery"],
         "deliveryAddress": {
-          "type": "Place",
+          "type": ["Place"],
           "address":{ 
-            "type": "PostalAddress",
+            "type": ["PostalAddress"],
             "addressRegion": "Nieuwmunster",
             "addressCountry": "BE"
           }
         },
         "originAddress": {
-          "type": "Place",
+          "type": ["Place"],
           "address":{ 
-            "type": "PostalAddress",
+            "type": ["PostalAddress"],
             "addressRegion": "Tsuen Wan District",
             "addressCountry": "CN"
           }
@@ -5035,11 +5029,11 @@
         "trackingNumber": "178380801954"
       },
       "portOfLoading": {
-        "type": "Place",
+        "type": ["Place"],
         "unLocode": "HKHKG"
       },
       "portOfDischarge": {
-        "type": "Place",
+        "type": ["Place"],
         "unLocode": "BEANR"
       }
     }
@@ -5162,7 +5156,7 @@
     }
   },
   "mainCarriageTransportMovement": {
-    "type": "Transport",
+    "type": ["Transport"],
     "vesselNumber": "MS Seven Seas",
     "voyageNumber": "Atl-W0425"
   },
@@ -5178,7 +5172,7 @@
   "transportEquipmentQuantity": 2,
   "includedConsignmentItems": [
     {
-      "type": "ConsignmentItem",
+      "type": ["ConsignmentItem"],
       "marksAndNumbers": "Espresso Italiano",
       "commodity": {
         "type": ["Commodity"],
@@ -5203,7 +5197,7 @@
       }
     }
   ],
-  "freightAndCharges": {
+  "freightAndCharges": [{
     "type": ["ServiceCharge"],
     "chargeCode": "basicFreight",
     "paymentTerm": "collect",
@@ -5219,7 +5213,7 @@
       "price": 450,
       "priceCurrency": "USD"
     }
-  },
+  }],
   "declaredValue": {
     "type": ["PriceSpecification"],
     "price": 24000,
@@ -5795,14 +5789,14 @@
     "unLocode": "DKCPH"
   },
   "carrier": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Example Carrier Organization",
     "email": "Griffin_Trantow65@example.org",
     "phoneNumber": "+1-555-227-3190",
     "entityType": "Organization"
   },
   "recipient": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Example Recipient Organization",
     "email": "Gustave.Dicki37@example.net",
     "phoneNumber": "+1-555-238-5681",
@@ -5861,9 +5855,9 @@
   "shipment": {
     "type": ["ParcelDelivery"],
     "originAddress": {
-      "type": "Place",
+      "type": ["Place"],
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "name": "Walker and Sons",
         "streetAddress": "27382 Kirlin Center",
         "addressLocality": "East Wyatt",
@@ -5873,9 +5867,9 @@
       }
     },
     "deliveryAddress": {
-      "type": "Place",
+      "type": ["Place"],
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "name": "Becker and Sons",
         "streetAddress": "158 MacGyver Mountain",
         "addressLocality": "Dachmouth",
@@ -5896,7 +5890,7 @@
     ],
     "manufacturer": {
       "type": [
-        "Person"
+        "Organization"
       ],
       "email": "Chadd.Beatty50@example.com",
       "phoneNumber": "555-951-2573"
@@ -6072,7 +6066,7 @@
     }
   ]
 }</pre>
-      
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
     </section>
   
 
@@ -6507,16 +6501,16 @@
   "description": "Invoice For Eva Oberbrunner for Order#112",
   "url": "http://maureen.info?queryid=Invoice#922",
   "broker": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Koch LLC",
     "leiCode": "54321351219389121979"
   },
   "accountId": "xxxx-xxxx-xxxx-6496",
   "customer": {
-    "type": "Customer",
+    "type": ["Customer"],
     "name": "Eva Oberbrunner",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "25849 Carolina Street",
       "addressLocality": "Baileymouth",
       "addressRegion": "Minnesota",
@@ -6531,33 +6525,33 @@
   "totalPaymentDueCurrency": "LBP",
   "paymentStatus": "PaymentComplete",
   "provider": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Rohan - Feeney",
     "leiCode": "23451152048570336774"
   },
   "referencesOrder": [
     {
-      "type": "OrderRegistrationEvidenceDocument",
+      "type": ["OrderRegistrationEvidenceDocument"],
       "description": "New Order For Eva Oberbrunner",
       "url": "https://claire.biz?queryid=Order#112",
       "orderNumber": "Order#112",
       "orderDate": "2020-01-07",
       "orderStatus": "OrderReturned",
       "seller": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Rohan - Feeney",
         "leiCode": "23451152048570336774"
       },
       "broker": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Koch LLC",
         "leiCode": "54321351219389121979"
       },
       "customer": {
-        "type": "Customer",
+        "type": ["Customer"],
         "name": "Eva Oberbrunner",
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "streetAddress": "25849 Carolina Street",
           "addressLocality": "Baileymouth",
           "addressRegion": "Minnesota",
@@ -6571,7 +6565,7 @@
       "paymentDueDate": "2020-01-07",
       "orderedItem": [
         {
-          "type": "OrderedItem",
+          "type": ["OrderedItem"],
           "name": "ACME Bluetooth Computer Mouse 3000-1",
           "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
           "unitPrice": 6,
@@ -6579,7 +6573,7 @@
           "price": 18
         },
         {
-          "type": "OrderedItem",
+          "type": ["OrderedItem"],
           "name": "ACME Laptop 3000",
           "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
           "unitPrice": 0,
@@ -6587,7 +6581,7 @@
           "price": 0
         },
         {
-          "type": "OrderedItem",
+          "type": ["OrderedItem"],
           "name": "ACME Bluetooth Computer Mouse 3000-1",
           "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
           "unitPrice": 6,
@@ -6595,7 +6589,7 @@
           "price": 54
         },
         {
-          "type": "OrderedItem",
+          "type": ["OrderedItem"],
           "name": "ACME Bluetooth Computer Keyboard 3801-1",
           "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
           "unitPrice": 6,
@@ -6635,11 +6629,11 @@
       <pre class="example">{
   "type": ["IssuerAgent"],
   "issuerAgentOrg": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Lesch - Smith",
     "description": "Adaptive attitude-oriented customer loyalty",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "98546 Megane Locks",
       "addressLocality": "Lake Lilliana",
       "addressRegion": "Idaho",
@@ -6654,24 +6648,24 @@
   "accountNumber": "",
   "accountingInformation": "Please charge to Account 123 and not Account 321",
   "charge": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 1923,
     "priceCurrency": "MUR"
   },
   "declaredValueCarriage": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 5048,
     "priceCurrency": "PEN"
   },
   "declaredValueCarriagePaymentStatus": "PaymentPastDue",
   "declaredValueCustoms": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 8658,
     "priceCurrency": "EUR"
   },
   "declaredValueCustomsPaymentStatus": "PaymentPastDue",
   "amountInsurance": {
-    "type": "PriceSpecification",
+    "type": ["PriceSpecification"],
     "price": 2421,
     "priceCurrency": "AFN"
   }
@@ -7128,7 +7122,7 @@
     "type": ["Organization"],
     "name": "Espresso Italiano Co.",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "Via Vico Ferrovia 5",
       "addressLocality": "Goro",
       "addressRegion": "Ferrara",
@@ -7143,7 +7137,7 @@
     "name": "Prosumer Coffee Supplies, Ltd.",
     "description": "Coffee Machine Imports",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "3934 Spinnaker Lane",
       "addressLocality": "Joliet",
       "addressRegion": "Illinois",
@@ -7157,7 +7151,7 @@
       "name": "Prosumer Coffee Supplies, Ltd.",
       "description": "Coffee Machine Imports",
       "address": {
-        "type": "PostalAddress",
+        "type": ["PostalAddress"],
         "streetAddress": "3934 Spinnaker Lane",
         "addressLocality": "Joliet",
         "addressRegion": "Illinois",
@@ -7171,7 +7165,7 @@
     "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
     "name": "MULTI CONTAINER LINE",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "name": "MCL Multi Container Line LTD.",
       "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
       "addressLocality": "Kowloon Bay",
@@ -7245,7 +7239,7 @@
       }
     }
   ],
-  "freightAndCharges": {
+  "freightAndCharges": [{
     "type": ["ServiceCharge"],
     "chargeCode": "basicFreight",
     "paymentTerm": "collect",
@@ -7261,7 +7255,7 @@
       "price": 4500,
       "priceCurrency": "USD"
     }
-  },
+  }],
   "declaredValue": {
     "type": ["PriceSpecification"],
     "price": 240000,
@@ -7449,7 +7443,7 @@
     }
   },
   "mainCarriageTransportMovement": {
-    "type": "Transport",
+    "type": ["Transport"],
     "vesselNumber": "MS Seven Seas",
     "voyageNumber": "Atl-W0425"
   },
@@ -7489,7 +7483,7 @@
   ],
   "includedConsignmentItems": [
     {
-      "type": "ConsignmentItem",
+      "type": ["ConsignmentItem"],
       "marksAndNumbers": "Espresso Italiano",
       "commodity": {
         "type": ["Commodity"],
@@ -7514,7 +7508,7 @@
       }
     }
   ],
-  "freightAndCharges": {
+  "freightAndCharges": [{
     "type": ["ServiceCharge"],
     "chargeCode": "basicFreight",
     "paymentTerm": "collect",
@@ -7530,7 +7524,7 @@
       "price": 4500,
       "priceCurrency": "USD"
     }
-  },
+  }],
   "declaredValue": {
     "type": ["PriceSpecification"],
     "price": 240000,
@@ -7645,11 +7639,11 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMAInformationSource",
+  "type": ["NAISMAInformationSource"],
   "reference": "Booth, W.E., and J.C. Wright. 1966. Flora of Montana. Montana State University, Bozeman",
   "examiner": "Ronald J. Weed",
   "dataSource": {
-    "type": "Entity",
+    "type": ["Entity"],
     "entityType" : "Organization",
     "name": "Parks Canada, Banff National Park",
     "description": "Canada's first national park and the flagship of the nation's park system.",
@@ -7683,11 +7677,11 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMALocation",
+  "type": ["NAISMALocation"],
   "location": {
-    "type": "Place",
+    "type": ["Place"],
     "geo": {
-      "type": "GeoCoordinates",
+      "type": ["GeoCoordinates"],
       "latitude": "-23.25979250428427",
       "longitude": "-58.36431415044023"
     },
@@ -7703,7 +7697,7 @@
   "wellKnownText": "POINT (-84.306466 32.565250)",
   "centroidType": "HUC12",
   "dataType": "Polyline",
-  "coordinateUncertainty": 10,
+  "coordinateUncertainty": "10",
   "sourceOfLocation": "Ground Survey, Smartphone GPS",
   "ecosystem": "Conifer Forest"
 }</pre>
@@ -7799,11 +7793,11 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMASubject",
-  "lifestage": "Adult",
+  "type": ["NAISMASubject"],
+  "lifeStage": "Adult",
   "sex": "Male",
   "hostSpecies": {
-    "type": "Taxonomy",
+    "type": ["Taxonomy"],
     "genus": "Linaria",
     "species": "dalmatica",
     "subspecies": "dalmatica"
@@ -7873,20 +7867,20 @@
   </table>
   
       <pre class="example">{
-  "type": "NaturalGasProduct",
+  "type": ["NaturalGasProduct"],
   "HSCode": "270900",
   "UWI": "100.12-04-091-05-W5.00",
   "productionDate": "2020-03-30",
   "facility": {
-    "type": "Place",
+    "type": ["Place"],
     "globalLocationNumber": "3278867908778",
     "geo": {
-      "type": "GeoCoordinates",
+      "type": ["GeoCoordinates"],
       "latitude": "-45.1928",
       "longitude": "-120.8187"
     },
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "name": "Schneider - Bernier",
       "streetAddress": "012 Cecil Keys",
       "addressLocality": "Gaylordhaven",
@@ -7898,55 +7892,47 @@
   },
   "observation": [
     {
-      "type": "Observation",
+      "type": ["Observation"],
       "date": "2019-12-11T03:50:55Z",
       "property": {
-        "type": "ChemicalProperty",
+        "type": ["ChemicalProperty"],
         "name": "Moscovium",
         "formula": "Mc"
       },
       "measurement": {
-        "type": "MeasuredValue",
+        "type": ["MeasuredValue"],
         "value": "00.00",
         "unitCode": "UNKNOWN"
       }
     }
   ],
   "product": {
-    "type": "Product",
+    "type": ["Product"],
     "manufacturer": {
-      "type": "Person",
-      "firstName": "Chadd",
-      "lastName": "Sipes",
-      "email": "Frances23@example.net",
-      "phoneNumber": "555-326-7995",
-      "worksFor": {
-        "type": "Organization",
-        "name": "Rowe Inc",
-        "description": "Multi-tiered bandwidth-monitored system engine",
-        "address": {
-          "type": "PostalAddress",
-          "streetAddress": "2943 Cartwright Lock",
-          "addressLocality": "West Lanceburgh",
-          "addressRegion": "New Jersey",
-          "postalCode": "42420",
-          "addressCountry": "Russian Federation"
-        },
-        "email": "Melisa.Monahan19@example.org",
-        "phoneNumber": "555-564-1276",
-        "faxNumber": "555-554-6557"
+      "type": ["Organization"],
+      "name": "Rowe Inc",
+      "description": "Multi-tiered bandwidth-monitored system engine",
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2943 Cartwright Lock",
+        "addressLocality": "West Lanceburgh",
+        "addressRegion": "New Jersey",
+        "postalCode": "42420",
+        "addressCountry": "Russian Federation"
       },
-      "jobTitle": "Regional Tactics Producer"
+      "email": "Melisa.Monahan19@example.org",
+      "phoneNumber": "555-564-1276",
+      "faxNumber": "555-554-6557"
     },
     "name": "Natural Gas",
     "description": "Natural Gas Stream",
     "sizeOrAmount": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "hg/ha",
       "value": "4182"
     },
     "weight": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "hg/ha",
       "value": "7369"
     },
@@ -7996,8 +7982,10 @@
         ],
         "customer": {
           "type": [
-            "Person"
+            "Entity"
           ],
+          "entityType": "Person",
+          "name": "Pattie Wolff",
           "email": "Pattie.Wolff@example.org",
           "phoneNumber": "555-366-1869"
         }
@@ -8035,14 +8023,14 @@
     "freight": {
       "type": ["ParcelDelivery"],
       "deliveryAddress": {
-        "type": "Place",
+        "type": ["Place"],
         "geo": {
-          "type": "GeoCoordinates",
+          "type": ["GeoCoordinates"],
           "latitude": "23.57357726017443",
           "longitude": "45.153872378211"
         },
         "address": {
-          "type": "PostalAddress",  
+          "type": ["PostalAddress"],  
           "name": "Waters, Yost and Franecki",
           "streetAddress": "5223 Abshire Stream",
           "addressLocality": "Mannmouth",
@@ -8052,14 +8040,14 @@
         }
       },
       "originAddress": {
-        "type": "Place",
+        "type": ["Place"],
         "geo": {
-          "type": "GeoCoordinates",
+          "type": ["GeoCoordinates"],
           "latitude": "53.18558869546463",
           "longitude": "28.032109059681684"
         },
         "address": {
-          "type": "PostalAddress",
+          "type": ["PostalAddress"],
           "name": "Leannon LLC",
           "streetAddress": "6095 Queen Springs",
           "addressLocality": "Justuschester",
@@ -8288,20 +8276,20 @@
   "description": "New Order For Stefan Gaylord",
   "url": "https://dudley.com?queryid=Order#538",
   "seller": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Watsica, Blick and Paucek",
     "leiCode": "23451420761202927678"
   },
   "broker": {
-    "type": "Organization",
+    "type": ["Organization"],
     "name": "Mills - Bartoletti",
     "leiCode": "54321937108944635838"
   },
   "customer": {
-    "type": "Customer",
+    "type": ["Customer"],
     "name": "Oscar Keebler",
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "streetAddress": "41379 Kerluke Mill",
       "addressLocality": "Fritschport",
       "addressRegion": "Nevada",
@@ -8315,7 +8303,7 @@
   "paymentMethod": "http://purl.org/goodrelations/v1#ByInvoice",
   "orderedItem": [
     {
-      "type": "OrderedItem",
+      "type": ["OrderedItem"],
       "name": "ACME Bluetooth Computer Mouse 3000-1",
       "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
       "unitPrice": 8,
@@ -8323,7 +8311,7 @@
       "price": 72
     },
     {
-      "type": "OrderedItem",
+      "type": ["OrderedItem"],
       "name": "ACME Bluetooth Computer Mouse 3000-1",
       "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
       "unitPrice": 6,
@@ -8331,7 +8319,7 @@
       "price": 48
     },
     {
-      "type": "OrderedItem",
+      "type": ["OrderedItem"],
       "name": "ACME Laptop 3000",
       "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
       "unitPrice": 2,
@@ -8339,7 +8327,7 @@
       "price": 8
     },
     {
-      "type": "OrderedItem",
+      "type": ["OrderedItem"],
       "name": "ACME Bluetooth Computer Keyboard 3801-1",
       "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
       "unitPrice": 2,
@@ -8563,23 +8551,23 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "perPackageUnitQuantity": 1,
   "includedTradeLineItems": [
     {
-      "type": "TradeLineItem",
+      "type": ["TradeLineItem"],
       "description": "Rollators",
       "itemCount": 540
     }
   ],
   "netWeight": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "value": "3834",
     "unitCode": "kg"
   },
   "grossWeight": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "value": "4302",
     "unitCode": "kg"
   },
   "grossVolume": {
-    "type": "QuantitativeValue",
+    "type": ["QuantitativeValue"],
     "value": "66.96",
     "unitCode": "cbm"
   }
@@ -9129,7 +9117,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   </table>
   
       <pre class="example">{
-  "type": "Phytosanitary",
+  "type": ["Phytosanitary"],
   "facility": {
     "type": [
       "Place"
@@ -9181,12 +9169,12 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     },
     "qualification": [
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "International Markets Consultant",
         "qualificationValue": "Planner"
       },
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Central Operations Developer",
         "qualificationValue": "Developer"
       }
@@ -9290,14 +9278,14 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
       }
     ],
     "shipper": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Green Fields",
       "description": "Growing & packaging for high quality produce",
       "email": "sales@greenfields.org",
       "phoneNumber": "+1-555-865-8495"
     },
     "purchaser": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Ace Foodstuffs",
       "description": "Ag goods shipping & distribution",
       "email": "Hipolito58@acefoodstuffs.org",
@@ -9312,13 +9300,13 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
       "phoneNumber": "+1 555-234-9983"
     },
     "broker": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Koch LLC",
       "leiCode": "54321351219389121979"
     }
   },
   "applicant": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Example Application Organization",
     "email": "Talia.Abbott@example.net",
     "phoneNumber": "555-435-5262",
@@ -9370,7 +9358,7 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   ],
   "certificateNumber": "330893782475",
   "plantOrg": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "APHIS",
     "description": "Animal and Plant Health Inspection Service",
     "email": "Irwin_OConnell83@aphis.usda.gov",
@@ -9380,9 +9368,9 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   },
   "distinguishingMarks": "Enim repudiandae excepturi rem.",
   "portOfEntry": {
-    "type": "Place",
+    "type": ["Place"],
     "address": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "addressLocality": "Mariannaton",
       "addressRegion": "Utah"
     }
@@ -9393,12 +9381,12 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "disinfectionChemical": "Methyl Bromide",
   "disinfectionDuration": "79 minutes",
   "disinfectionTemperature": {
-    "type": "MeasuredValue",
+    "type": ["MeasuredValue"],
     "value": "2",
     "unitCode": "Celsius"
   },
   "disinfectionConcentration": {
-    "type": "MeasuredValue",
+    "type": ["MeasuredValue"],
     "value": "21",
     "unitCode": "Percent"
   },
@@ -9677,28 +9665,19 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   "type": ["Product"],
   "manufacturer": {
     "type": ["Organization"],
-    "name": "Lawson Weber",
-    "firstName": "Lawson",
-    "lastName": "Weber",
-    "email": "Hollie.Lindgren@example.org",
-    "phoneNumber": "555-547-4441",
-    "worksFor": {
-      "type": ["Organization"],
-      "name": "Zemlak - Wyman",
-      "description": "Progressive fault-tolerant task-force",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "964 Mikayla Viaduct",
-        "addressLocality": "Runolfsdottirburgh",
-        "addressRegion": "Florida",
-        "postalCode": "48442-9522",
-        "addressCountry": "Barbados"
-      },
-      "email": "Reyna_Hamill56@example.com",
-      "phoneNumber": "555-718-9023",
-      "faxNumber": "555-523-8629"
+    "name": "Zemlak - Wyman",
+    "description": "Progressive fault-tolerant task-force",
+    "address": {
+      "type": ["PostalAddress"],
+      "streetAddress": "964 Mikayla Viaduct",
+      "addressLocality": "Runolfsdottirburgh",
+      "addressRegion": "Florida",
+      "postalCode": "48442-9522",
+      "addressCountry": "Barbados"
     },
-    "jobTitle": "District Mobility Planner"
+    "email": "Reyna_Hamill56@example.com",
+    "phoneNumber": "555-718-9023",
+    "faxNumber": "555-523-8629"
   },
   "name": "Handmade Fresh Hat",
   "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
@@ -10327,7 +10306,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
     "type": ["SteelProduct"],
     "heatNumber": "841",
     "specification": "ASTM-66272",
-    "grade": "95913",
+    "grade": ["95913"],
     "originalCountryOfMeltAndPour": "MX",
     "weight": 3200,
     "weightUnit": "https://service.unece.org/trade/uncefact/vocabulary/rec20/#kilogram",
@@ -10483,7 +10462,7 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
         }
       },
       "mainCarriageTransportMovement": {
-        "type": "Transport",
+        "type": ["Transport"],
         "vesselNumber": "MS Seven Seas",
         "voyageNumber": "Atl-W0425"
       },
@@ -10526,7 +10505,7 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
           "type": ["ConsignmentItem"],
           "marksAndNumbers": "Espresso Italiano",
           "commodity": {
-            "type": "Commodity",
+            "type": ["Commodity"],
             "commodityCode": "851671",
             "commodityCodeType": "HS"
           },
@@ -10548,8 +10527,8 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
           }
         }
       ],
-      "freightAndCharges": {
-        "type": "ServiceCharge",
+      "freightAndCharges": [{
+        "type": ["ServiceCharge"],
         "chargeCode": "basicFreight",
         "paymentTerm": "collect",
         "chargeText": "Negotiated ocean freight",
@@ -10564,7 +10543,7 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
           "price": 4500,
           "priceCurrency": "USD"
         }
-      },
+      }],
       "declaredValue": {
         "type": ["PriceSpecification"],
         "price": 240000,
@@ -10572,155 +10551,6 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
       },
       "shippedOnBoardDate": "2022-02-02T09:30:00Z",
       "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
-    },
-    {
-      "type": ["DCSATransportDocument"],
-      "transportDocumentReference": "XMANHR2102045",
-      "shippingInstruction": {
-        "type": ["DCSAShippingInstruction"],
-        "carrierBookingReference": "XMANHR2102045",
-        "transportDocumentType": "MBL",
-        "shipper": {
-          "type": ["Organization"],
-          "name": "Xxinau Manufacturing Co. Ltd.",
-          "description": "Advanced Production - Delivered",
-          "address": {
-            "type": ["PostalAddress"],
-            "streetAddress": "Xin Fei Da Dao 139",
-            "addressLocality": "Xindao",
-            "addressRegion": "Fujian Province",
-            "postalCode": "361100",
-            "addressCountry": "CN"
-          },
-          "email": "xxinau-sales@example.org",
-          "phoneNumber": "+86-555-865-8495"
-        },
-        "consignee": {
-          "type": ["Organization"],
-          "name": "Better Life Tech",
-          "description": "Better Lives Products",
-          "address": {
-            "type": ["PostalAddress"],
-            "streetAddress": "Rue de la Poste 272",
-            "addressLocality": "Ramegnies-Chin",
-            "addressRegion": "Hainaut",
-            "postalCode": "7520",
-            "addressCountry": "BE"
-          },
-          "email": "procurement@lifetech-example.org",
-          "phoneNumber": "+32-5555-8495"
-        },
-        "firstNotify": {
-          "type": ["Organization"],
-          "name": "Better Life Tech",
-          "description": "Better Lives Products",
-          "address": {
-            "type": ["PostalAddress"],
-            "streetAddress": "Rue de la Poste 272",
-            "addressLocality": "Ramegnies-Chin",
-            "addressRegion": "Hainaut",
-            "postalCode": "7520",
-            "addressCountry": "BE"
-          },
-          "email": "procurement@lifetech-example.org",
-          "phoneNumber": "+32-5555-8495"
-        },
-        "consigneesFreightForwarder": {
-          "type": ["Organization"],
-          "name": "Intertrans NV [378]",
-          "address": {
-            "type": ["PostalAddress"],
-            "streetAddress": "Belcrownlaan 25 - 3rd floor",
-            "addressLocality": "Antwerpen",
-            "postalCode": "BE-2100AN",
-            "addressCountry": "BE"
-          },
-          "phoneNumber": "+32-3-201.98.10"
-        },
-        "cargoItems": [
-          {
-            "type": ["CargoItem"],
-            "cargoLineItems": [
-              {
-                "type": ["CargoLineItem"],
-                "descriptionOfGoods": "Rollators",
-                "shippingMarks": "ByAcre Age is the new Black"
-              },
-              {
-                "type": ["CargoLineItem"],
-                "descriptionOfGoods": "Rollators Organizer Bags",
-                "shippingMarks": "ByAcre Age is the new Black"
-              },
-              {
-                "type": ["CargoLineItem"],
-                "descriptionOfGoods": "Rollators Backrest",
-                "shippingMarks": "ByAcre Age is the new Black"
-              },
-              {
-                "type": ["CargoLineItem"],
-                "descriptionOfGoods": "Rollators Cane Holder Bracket",
-                "shippingMarks": "ByAcre Age is the new Black"
-              },
-              {
-                "type": ["CargoLineItem"],
-                "descriptionOfGoods": "Rollators Cardboard Box",
-                "shippingMarks": "ByAcre Age is the new Black"
-              }
-            ],
-            "weight": 1671.9,
-            "weightUnit": "KGM",
-            "volume": 27.23,
-            "volumeUnit": "CBM",
-            "numberOfPackages": 245
-          }
-        ],
-        "utilizedTransportEquipments": {
-          "type": ["TransportEquipment"],
-          "id": "urn:epc:id:bic:YMLU3380910",
-          "equipmentReference": "YMLU3380910",
-          "ISOEquipmentCode": "20G1",
-          "seals": [
-            {
-              "type": ["Seal"],
-              "sealNumber": "YMAI715692"
-            }
-          ]
-        }
-      },
-      "transports": {
-        "type": "Transport",
-        "loadLocation": {
-          "type": ["Place"],
-          "address": {
-            "type": ["PostalAddress"],
-            "addressRegion": "Xiamen",
-            "addressCountry": "CN"
-          }
-        },
-        "dischargeLocation": {
-          "type": ["Place"],
-          "address": {
-            "type": ["PostalAddress"],
-            "addressRegion": "Antwerp",
-            "addressCountry": "BE"
-          }
-        },
-        "modeOfTransport": "Vessel",
-        "carrier": {
-          "type": ["Organization"],
-          "name": "MULTI CONTAINER LINE",
-          "address": {
-            "type": ["PostalAddress"],
-            "name": "MCL Multi Container Line LTD.",
-            "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
-            "addressLocality": "Kowloon Bay",
-            "addressRegion": "Hong Kong",
-            "addressCountry": "Hong Kong SAR"
-          }
-        },
-        "vesselNumber": "HMM Algeciras",
-        "voyageNumber": "V.0004W"
-      }
     }
   ]
 }</pre>
@@ -11528,7 +11358,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   },
   "organization": {
       "id": "https://w3c-ccg.github.io/traceability-vocab/",
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Traceability Vocab"
   },
   "image": "bill-of-lading-icon.png",
@@ -11597,24 +11427,19 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "description": "Parts and accessories for photographic cameras.",
   "packageQuantity": 3,
   "product": {
-    "type": "Product",
+    "type": ["Product"],
     "description": "Lens flare filter",
     "manufacturer": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Premium Camera Goods, Inc." 
     },
-    "grossWeight": {
-      "type": ["QuantitativeValue"],
-      "unitCode": "lbs",
-      "value": "2.5"
-    },
     "productPrice":   {
-      "type": "PriceSpecification",
+      "type": ["PriceSpecification"],
       "price": 400,
       "priceCurrency": "USD"
     },
     "commodity": {
-      "type": "Commodity",
+      "type": ["Commodity"],
       "commodityCode": "9006.9",
       "commodityCodeType": "HS"
     }
@@ -12197,17 +12022,17 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     },
     "qualification": [
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Internal Factors Supervisor",
         "qualificationValue": "Engineer"
       },
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Dynamic Division Coordinator",
         "qualificationValue": "Consultant"
       },
       {
-        "type": "Qualification",
+        "type": ["Qualification"],
         "qualificationCategory": "Product Communications Technician",
         "qualificationValue": "Executive"
       }
@@ -12306,19 +12131,19 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     "agriculturePackage": [
       {
         "type": [
-          "agriculturePackage"
+          "AgriculturePackage"
         ]
       }
     ],
     "shipper": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Green Fields",
       "description": "Growing & packaging for high quality produce",
       "email": "sales@greenfields.org",
       "phoneNumber": "+1-555-865-8495"
     },
     "purchaser": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Ace Foodstuffs",
       "description": "Ag goods shipping & distribution",
       "email": "Hipolito58@acefoodstuffs.org",
@@ -12333,13 +12158,13 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "phoneNumber": "+1 555-234-9983"
     },
     "broker": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Cole United",
       "leiCode": "54321351219389121979"
     }
   },
   "applicant": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Example Application Organization",
     "email": "Marjorie68@example.org",
     "phoneNumber": "555-313-6010",
@@ -12571,7 +12396,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
-  "type": "ppq587",
+  "type": ["ppq587"],
   "facility": {
     "type": [
       "Place"
@@ -12695,14 +12520,14 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       }
     ],
     "shipper": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Green Fields",
       "description": "Growing & packaging for high quality produce",
       "email": "sales@greenfields.org",
       "phoneNumber": "+1-555-865-8495"
     },
     "purchaser": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Ace Foodstuffs",
       "description": "Ag goods shipping & distribution",
       "email": "Hipolito58@acefoodstuffs.org",
@@ -12717,13 +12542,13 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "phoneNumber": "+1 555-234-9983"
     },
     "broker": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "Koch LLC",
       "leiCode": "54321351219389121979"
     }
   },
   "applicant": {
-    "type": "Entity",
+    "type": ["Entity"],
     "name": "Example Applicant Organization",
     "email": "Jensen85@example.com",
     "phoneNumber": "555-941-9125",

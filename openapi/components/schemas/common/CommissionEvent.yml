@@ -7,9 +7,16 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Event
+      - CommissionEvent
+    default:
+      - Event
+      - CommissionEvent
     items:
       type: string
-      const:
+      enum:
         - Event
         - CommissionEvent
   eventType:
@@ -78,7 +85,7 @@ example: |-
         "addressCountry":"CANADA",
         "addressLocality":"Hamilton"
       },
-      "globalLocationNumber":"SC720"
+      "globalLocationNumber":"SC720-0000001"
     },
     "actor":[
       {
