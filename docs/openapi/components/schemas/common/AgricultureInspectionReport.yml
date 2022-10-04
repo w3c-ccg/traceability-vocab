@@ -88,7 +88,7 @@ properties:
   regulatoryAgency:
     title: Regulatory Agency
     description: The regulatory agency responsible for the regulation (public or private) that mandates or implies the inspection.
-    type: string
+    $ref: ./Organization.yml
     $linkedData:
       term: regulatoryAgency
       '@id': https://schema.org/Organization
@@ -102,7 +102,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "AgricultureInspectionReport",
+    "type": ["AgricultureInspectionReport"],
     "facility": {
       "type": [
         "Place"
@@ -154,17 +154,17 @@ example: |-
       },
       "qualification": [
         {
-          "type": "Qualification",
+          "type": ["Qualification"],
           "qualificationCategory": "Corporate Security Analyst",
           "qualificationValue": "Executive"
         },
         {
-          "type": "Qualification",
+          "type": ["Qualification"],
           "qualificationCategory": "Future Metrics Planner",
           "qualificationValue": "Coordinator"
         },
         {
-          "type": "Qualification",
+          "type": ["Qualification"],
           "qualificationCategory": "Internal Identity Agent",
           "qualificationValue": "Assistant"
         }
@@ -268,14 +268,14 @@ example: |-
         }
       ],
       "shipper": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Green Fields",
         "description": "Growing & packaging for high quality produce",
         "email": "sales@greenfields.org",
         "phoneNumber": "+1-555-865-8495"
       },
       "purchaser": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Ace Foodstuffs",
         "description": "Ag goods shipping & distribution",
         "email": "Hipolito58@acefoodstuffs.org",
@@ -290,13 +290,13 @@ example: |-
         "phoneNumber": "+1 555-234-9983"
       },
       "broker": {
-        "type": "Organization",
+        "type": ["Organization"],
         "name": "Cole United",
         "leiCode": "54321351219389121979"
       }
     },
     "applicant": {
-      "type" : "Entity",
+      "type" : ["Entity"],
       "entityType": "Organization",
       "name" : "Jessica Sherawat",
       "email": "Jessica58@example.com",
@@ -349,7 +349,7 @@ example: |-
     "name": "Ag Inspection",
     "status": "pass",
     "regulatoryAgency": {
-      "type": "Organization",
+      "type": ["Organization"],
       "name": "CDFA",
       "description": "California Department of Food and Agriculture",
       "email": "Briana55@cdfa.ca.gov.org",
@@ -357,7 +357,7 @@ example: |-
       "faxNumber": "+1-555-486-3154"
     },
     "delegateOf": {
-      "type": "Entity",
+      "type": ["Entity"],
       "entityType" : "Organization",
       "name": "Glayson & Co. Inspections",
       "description": "Agricultural cleanliness & grade assurance",

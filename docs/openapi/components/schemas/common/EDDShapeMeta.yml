@@ -241,7 +241,6 @@ properties:
   treatmentArea:
     title: Treatment Area
     description: Area of site treated for invasive population control.
-    type: string
     $ref: ./QuantitativeValue.yml
     $linkedData:
       term: treatmentArea
@@ -291,19 +290,19 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "EDDShape",
+    "type": ["EDDShapeMeta"],
     "recordOwner": "Federal Agency",
     "shapeType": "Point",
     "method": "Google Earth",
     "numberCollected": "4 Beetles",
     "populationStatus": "Established",
     "smallestOrganismSampled": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "cm",
       "value": "1"
     },
     "largestOrganismSampled": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "cm",
       "value": "3"
     },
@@ -316,7 +315,7 @@ example: |-
     "museumRecord": "1354832",
     "voucher": "TRUE",
     "observationId": "Florida Fish and Wildlife Conservation Commission",
-    "collectionTimeMinutes": 30,
+    "collectionTimeMinutes": "30",
     "originalRecordId": "fp-391d988",
     "originalReportedName": "leafy spurge",
     "recordSourceType": "USB",
@@ -333,11 +332,11 @@ example: |-
     "waterBodyType": "river",
     "substrate": "sand",
     "treatmentArea": {
-      "type": "QuantitativeValue",
+      "type": ["QuantitativeValue"],
       "unitCode": "ac",
       "value": "2"
     },
-    "plantsTreated": 14,
+    "plantsTreated": "14",
     "treatmentComments": "Very windy on day of treatment",
     "reference": "Wunderlin, R.P., and B.F. Hansen. 2002. Atlas of Florida vascular plants ( http://www.plantatlas.usf.edu/). University of South Florida, Tampa",
     "locality": "Located at the East edge of forest near pond",
