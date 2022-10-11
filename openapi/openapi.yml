@@ -32,7 +32,7 @@ paths:
                 $ref: './components/schemas/common/AgricultureActivity.yml'
     
 
-  /schemas/common/AgricultureInspectionReport.yml:
+  /schemas/common/AgricultureInspectionCommonInfo.yml:
     get:
       tags:
       - common
@@ -41,7 +41,19 @@ paths:
           content:
             application/yml:
               schema:
-                $ref: './components/schemas/common/AgricultureInspectionReport.yml'
+                $ref: './components/schemas/common/AgricultureInspectionCommonInfo.yml'
+    
+
+  /schemas/common/AgricultureInspectionGeneric.yml:
+    get:
+      tags:
+      - common
+      responses:
+        '200':
+          content:
+            application/yml:
+              schema:
+                $ref: './components/schemas/common/AgricultureInspectionGeneric.yml'
     
 
   /schemas/common/AgriculturePackage.yml:

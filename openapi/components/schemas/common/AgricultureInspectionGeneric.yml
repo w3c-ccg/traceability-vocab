@@ -1,8 +1,8 @@
 $linkedData:
-  term: FoodGradeInspection
-  '@id': https://w3id.org/traceability#FoodGradeInspection
-title: Food Grade Inspection
-description: Information regarding the grade inspection and results
+  term: AgricultureInspectionGeneric
+  '@id': https://w3id.org/traceability#AgricultureInspectionGeneric
+title: Agriculture Inspection Generic
+description: Information on the inspection and the observations made.
 type: object
 properties:
   type:
@@ -11,9 +11,10 @@ properties:
         items:
           type: string
           enum:
-            - FoodGradeInspection
+            - AgricultureInspectionGeneric
       - type: string
-        const: FoodGradeInspection
+        const:
+          - AgricultureInspectionGeneric
   commonInfo:
     title: Common Info
     description:  Information common to agriculture inspection credentials.
@@ -27,62 +28,43 @@ properties:
     $ref: ./AgricultureParcelDelivery.yml
     $linkedData:
       term: shipment
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportPackage
-  loadingStatus:
-    title: Loading Status Code
-    description: '"LO" for Loaded; "PU" for Partly Unloaded; "UL" for Unloaded; "LI" for Lot Inspection'
+      '@id': https://schema.org/ParcelDelivery
+  inspectionType:
+    title: Inspection Type
+    description: Type of Inspection.
     type: string
     $linkedData:
-      term: loadingStatus
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
-  carrierTypeName:
-    title: Carrier Type / Name
-    description: Type or name of carrier e.g. "Mechanical refrigerated", "open top trailer", "insulated box car".
-    type: string
-    $linkedData:
-      term: carrierTypeName
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment
-  refrigerationUnitOn:
-    title: Refrigeration Unit On
-    description: Whether the carrier refrigeration unit was on.
-    type: boolean
-    $linkedData:
-      term: refrigerationUnitOn
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
-  doorsOpen:
-    title: Doors Open
-    description: Whether the carrier doors were open.
-    type: boolean
-    $linkedData:
-      term: doorsOpen
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
-  lots:
-    title: Lots
-    description: Information for each lot including samples, defects and grades.
+      term: inspectionType
+      '@id': https://www.schema.org/value
+  observation:
+    title: Observation List
+    description: >-
+      List of observations as seen and specified in the Inspection Report
+      schema, https://w3id.org/traceability#InspectionReport
     type: array
     items:
-      $ref: ./FoodGradeInspectionLot.yml
+      $ref: ./Observation.yml
     $linkedData:
-      term: lots
-      '@id': https://w3id.org/traceability#FoodGradeInspectionLot
-  generalRemarks:
-    title: General Remarks
-    description: Any general remarks containing information about the inspection. Note that remarks regarding specific lots should be in that lot entry's remarks section.
+      term: observation
+      '@id': https://w3id.org/traceability#observation
+  name:
+    title: Inspection Name
+    description: The Data Field Name, or Grouping or data that is closely related.
     type: string
     $linkedData:
-      term: generalRemarks
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks
-  estimatedCharges:
-    title: Estimated Charges
-    description: Estimated charges for inspection including fees, travel time, overtime, mileage, tolls, any other appropriate expenses.
+      term: name
+      '@id': https://www.schema.org/name
+  status:
+    title: Status
+    description: Status of inspection (e.g. pending, NA, pass, fail).
     type: string
     $linkedData:
-      term: estimatedCharges
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge
+      term: status
+      '@id': https://www.schema.org/status
 additionalProperties: false
 example: |-
   {
-    "type": ["FoodGradeInspection"],
+    "type": ["AgricultureInspectionGeneric"],
     "commonInfo": {
       "type": ["AgricultureInspectionCommonInfo"],
       "applicant": {
@@ -113,7 +95,7 @@ example: |-
           "addressLocality": "New Noemyfort",
           "addressRegion": "New Mexico",
           "postalCode": "18047-2038",
-          "addressCountry": "USA"
+          "addressCountry": "Togo"
         },
         "unLocode": "DKCPH"
       },
@@ -312,158 +294,49 @@ example: |-
         "leiCode": "54321351219389121979"
       }
     },
-    "loadingStatus": "UL",
-    "carrierTypeName": "Mechanical refrigerated",
-    "refrigerationUnitOn": true,
-    "doorsOpen": true,
-    "lots": [
+    "inspectionType": "Contamination",
+    "observation": [
       {
-        "type": ["FoodGradeInspectionLot"],
-        "agricultureProduct": {
+        "type": [
+          "Observation"
+        ],
+        "date": "2019-12-11T03:50:55Z",
+        "property": {
           "type": [
-            "AgricultureProduct"
+            "MechanicalProperty"
           ],
-          "upc": "033383401508",
-          "plu": "94225",
-          "gtin": "033383401508",
-          "product": {
-            "type": [
-              "Product"
-            ],
-            "manufacturer": {
-              "type": [
-                "Organization"
-              ],
-              "email": "Ashlee.Grady@example.net",
-              "phoneNumber": "555-899-1399"
-            },
-            "name": "Avocados",
-            "description": "Avocados, 4 pack boxes",
-            "sizeOrAmount": {
-              "type": [
-                "QuantitativeValue"
-              ],
-              "unitCode": "hg/ha",
-              "value": "60"
-            },
-            "weight": {
-              "type": [
-                "QuantitativeValue"
-              ],
-              "unitCode": "hg/ha",
-              "value": "6960"
-            },
-            "sku": "81055399441"
-          },
-          "scientificName": "Persea americana",
-          "labelImageUrl": "https://img.example.org/033383401508/640/480/",
-          "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "name": "Avocados",
-          "productImageUrl": "https://img.example.org/102934920857/937/903/",
-          "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+          "identifier": "ISO 148",
+          "name": "Charpy Impact Strength Test",
+          "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
         },
-        "lotIdentifier": "Main Lot",
-        "numberContainers": 320,
-        "countInspected": true,
-        "brandMarkings": "\"Green Fields\"; Packed by Ace Foodstuffs; Produce of U.S.A.",
-        "samples": [
-          {
-            "type": ["FoodGradeInspectionSample"],
-            "sampleSizeValue": 10,
-            "sampleSizeUnits": "items",
-            "sampleProperties": [
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "Temp °F",
-                "propertyValue": "53"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "BMR Quality D",
-                "propertyValue": "2"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "BMR Quality SD",
-                "propertyValue": "0"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "BMR Quality DK",
-                "propertyValue": "0"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "Caked Dirt Quality D",
-                "propertyValue": "0"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "Caked Dirt Quality SD",
-                "propertyValue": "0"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "Caked Dirt Quality DK",
-                "propertyValue": "0"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "< 1-3/4 In. Dia.",
-                "propertyValue": "1"
-              },
-              {
-                "type": ["FoodGradeInspectionSampleProperty"],
-                "propertyName": "> 3 In. Dia.",
-                "propertyValue": "2"
-              }
-            ]
-          }
-        ],
-        "defects": [
-          {
-            "type": ["FoodGradeInspectionDefect"],
-            "offsizeDefect": "Quality - Staining",
-            "averageDefects": 6,
-            "seriousDamage": 2,
-            "verySeriousDamage": 0
-          },
-          {
-            "type": ["FoodGradeInspectionDefect"],
-            "offsizeDefect": "Quality - Dry Sunken Areas",
-            "averageDefects": 2,
-            "seriousDamage": 0,
-            "verySeriousDamage": 0
-          },
-          {
-            "type": ["FoodGradeInspectionDefect"],
-            "offsizeDefect": "Quality - Surface Mold",
-            "averageDefects": 1,
-            "seriousDamage": 0,
-            "verySeriousDamage": 0
-          }
-        ],
-        "grade": {
-          "type": ["FoodGradeInspectionResult"],
-          "gradeInspected": "U.S. No. 1",
-          "requirementsMet": true
-        },
-        "remarks": "Size: Mostly large, many medium, few small",
-        "minTemperature": {
+        "measurement": {
           "type": [
             "MeasuredValue"
           ],
-          "value": "51",
-          "unitCode": "FAH"
+          "value": "75.947",
+          "unitCode": "B13"
+        }
+      },
+      {
+        "type": [
+          "Observation"
+        ],
+        "date": "2019-12-11T03:50:55Z",
+        "property": {
+          "type": [
+            "ChemicalProperty"
+          ],
+          "name": "Radon"
         },
-        "maxTemperature": {
+        "measurement": {
           "type": [
             "MeasuredValue"
           ],
-          "value": "55",
-          "unitCode": "FAH"
+          "value": "58.340",
+          "unitCode": "P1"
         }
       }
     ],
-    "estimatedCharges": "$135.00"
+    "name": "Agricultural Inspection",
+    "status": "pass"
   }

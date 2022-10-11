@@ -45,34 +45,45 @@
       },
       "@id": "https://w3id.org/traceability#AgricultureActivity"
     },
-    "AgricultureInspectionReport": {
+    "AgricultureInspectionCommonInfo": {
       "@context": {
         "applicant": {
-          "@id": "https://w3id.org/traceability#dfn-entities"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty"
         },
         "delegateOf": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization"
         },
         "facility": {
-          "@id": "https://www.gs1.org/voc/Place"
+          "@id": "https://www.gs1.org/voc/location"
         },
-        "inspectionDate": {
-          "@id": "https://schema.org/DateTime"
+        "inspectionEnded": {
+          "@id": "https://schema.org/endDate"
         },
-        "inspectionType": {
-          "@id": "https://www.schema.org/value"
+        "inspectionStarted": {
+          "@id": "https://schema.org/startDate"
         },
         "inspector": {
           "@id": "https://w3id.org/traceability#Inspector"
+        },
+        "regulatoryAgency": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization"
+        }
+      },
+      "@id": "https://w3id.org/traceability#AgricultureInspectionCommonInfo"
+    },
+    "AgricultureInspectionGeneric": {
+      "@context": {
+        "commonInfo": {
+          "@id": "https://w3id.org/traceability#AgricultureInspectionCommonInfo"
+        },
+        "inspectionType": {
+          "@id": "https://www.schema.org/value"
         },
         "name": {
           "@id": "https://www.schema.org/name"
         },
         "observation": {
           "@id": "https://w3id.org/traceability#observation"
-        },
-        "regulatoryAgency": {
-          "@id": "https://schema.org/Organization"
         },
         "shipment": {
           "@id": "https://schema.org/ParcelDelivery"
@@ -81,7 +92,7 @@
           "@id": "https://www.schema.org/status"
         }
       },
-      "@id": "https://w3id.org/traceability#AgricultureInspectionReport"
+      "@id": "https://w3id.org/traceability#AgricultureInspectionGeneric"
     },
     "AgriculturePackage": {
       "@context": {
@@ -1496,14 +1507,11 @@
     },
     "FoodGradeInspection": {
       "@context": {
-        "applicant": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty"
-        },
         "carrierTypeName": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#utilizedTransportEquipment"
         },
-        "delegateOf": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization"
+        "commonInfo": {
+          "@id": "https://w3id.org/traceability#AgricultureInspectionCommonInfo"
         },
         "doorsOpen": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus"
@@ -1511,20 +1519,8 @@
         "estimatedCharges": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableServiceCharge"
         },
-        "facility": {
-          "@id": "https://www.gs1.org/voc/location"
-        },
         "generalRemarks": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks"
-        },
-        "inspectionEnded": {
-          "@id": "https://schema.org/endDate"
-        },
-        "inspectionStarted": {
-          "@id": "https://schema.org/startDate"
-        },
-        "inspector": {
-          "@id": "https://w3id.org/traceability#Inspector"
         },
         "loadingStatus": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus"
@@ -1534,9 +1530,6 @@
         },
         "refrigerationUnitOn": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus"
-        },
-        "regulatoryAgency": {
-          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization"
         },
         "shipment": {
           "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportPackage"
