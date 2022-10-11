@@ -186,13 +186,16 @@ example: |-
     "shipper": {
       "type": ["Organization"],
       "name": "Espresso Italiano Co.",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "Via Vico Ferrovia 5",
-        "addressLocality": "Goro",
-        "addressRegion": "Ferrara",
-        "postalCode": "44020",
-        "addressCountry": "IT"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Via Vico Ferrovia 5",
+          "addressLocality": "Goro",
+          "addressRegion": "Ferrara",
+          "postalCode": "44020",
+          "addressCountry": "IT"
+        }
       },
       "email": "sales@espresso-italiano.example.com",
       "phoneNumber": "+39 0351 9067195"
@@ -201,20 +204,8 @@ example: |-
       "type": ["Organization"],
       "name": "Prosumer Coffee Supplies, Ltd.",
       "description": "Coffee Machine Imports",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "3934 Spinnaker Lane",
-        "addressLocality": "Joliet",
-        "addressRegion": "Illinois",
-        "postalCode": "60432",
-        "addressCountry": "US"
-      }
-    },
-    "notifyParty": [
-      {
-        "type": ["Organization"],
-        "name": "Prosumer Coffee Supplies, Ltd.",
-        "description": "Coffee Machine Imports",
+      "location": {
+        "type": ["Place"],
         "address": {
           "type": ["PostalAddress"],
           "streetAddress": "3934 Spinnaker Lane",
@@ -222,6 +213,24 @@ example: |-
           "addressRegion": "Illinois",
           "postalCode": "60432",
           "addressCountry": "US"
+        }
+      }
+    },
+    "notifyParty": [
+      {
+        "type": ["Organization"],
+        "name": "Prosumer Coffee Supplies, Ltd.",
+        "description": "Coffee Machine Imports",
+        "location": {
+          "type": ["Place"],
+          "address": {
+            "type": ["PostalAddress"],
+            "streetAddress": "3934 Spinnaker Lane",
+            "addressLocality": "Joliet",
+            "addressRegion": "Illinois",
+            "postalCode": "60432",
+            "addressCountry": "US"
+          }
         }
       }
     ],
