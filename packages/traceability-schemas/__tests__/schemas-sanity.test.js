@@ -51,6 +51,7 @@ it('all schemas examples are valid', async () => {
         const isValid = ajv.validate(s.$id, input);
         if (!isValid) {
           console.error(s.$linkedData.term, '\n', s.example, '\n', ajv.errors);
+          return false;
         }
 
         return true;
