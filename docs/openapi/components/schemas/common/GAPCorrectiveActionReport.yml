@@ -1,0 +1,50 @@
+$linkedData:
+  term: GAPCorrectiveActionReport
+  '@id': https://w3id.org/traceability#GAPCorrectiveActionReport
+title: GAP Corrective Action Report
+description: Information regarding corrective action for a requirement result that was answered with CAN (Corrective Action Needed) or IAR (Immediate Action Required).
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - GAPCorrectiveActionReport
+      - type: string
+        const:
+          - GAPCorrectiveActionReport
+  noncomformityDescription:
+    title: Non-Conformity Description
+    description: A description of the requirement non-conformity and rationale for the result.
+    type: string
+    $linkedData:
+      term: noncomformityDescription
+      '@id': https://schema.org/description
+  notifiedCompanyStaff:
+    title: Notified Company Staff
+    description: Notified company staff at time of finding non-conformity.
+    type: boolean
+    $linkedData:
+      term: notifiedCompanyStaff
+      '@id': https://schema.org/actionStatus
+  correctiveAction:
+    title: Corrective Action
+    description: Corrective action proposed and time frame for implementation.
+    type: string
+    $linkedData:
+      term: correctiveAction
+      '@id': https://schema.org/potentialAction
+  affirmingRepresentative:
+    title: Affirming Representitive
+    description: Company representative affirming that statements concerning non-conformity, corrective action, and implementation are correct.
+    $ref: ./Person.yml
+    $linkedData:
+      term: affirmingRepresentative
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+additionalProperties: false
+example: |-
+  {
+    "type": ["GAPCorrectiveActionReport"]
+  }

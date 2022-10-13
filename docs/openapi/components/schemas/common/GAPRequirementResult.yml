@@ -1,0 +1,50 @@
+$linkedData:
+  term: GAPRequirementResult
+  '@id': https://w3id.org/traceability#GAPRequirementResult
+title: GAP Requirement Result
+description: Information regarding the audit results for a GAP requirement.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - GAPRequirementResult
+      - type: string
+        const:
+          - GAPRequirementResult
+  requirementNumber:
+    title: Requirement Number
+    description: A code corresponding to the relevant requirement.
+    type: string
+    $linkedData:
+      term: requirementNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#standard
+  resultCode:
+    title: Result Code
+    description: Must be one of "C" (Complient), "CAN" (Corrective Action Needed), "IAR" (Immediate Action Required), or "N/A" (Not Applicable).
+    type: string
+    $linkedData:
+      term: resultCode
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#assertionCode
+  auditorComments:
+    title: Auditor Comments
+    description: Documentation of all findings related to any question answered CAN or IAR, the rationale for any N/A, or any other observations associated with the requirement result.
+    type: string
+    $linkedData:
+      term: auditorComments
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks
+  correctiveActionReport:
+    title: Corrective Action Report
+    description: Report regarding corrective action for requirements with a CAN or IAR result.
+    $ref: ./GAPCorrectiveActionReport.yml
+    $linkedData:
+      term: correctiveActionReport
+      '@id': https://w3id.org/traceability#GAPCorrectiveActionReport
+additionalProperties: false
+example: |-
+  {
+    "type": ["GAPRequirementResult"]
+  }
