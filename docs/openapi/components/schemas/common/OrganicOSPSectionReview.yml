@@ -1,0 +1,59 @@
+$linkedData:
+  term: OrganicOSPSectionReview
+  '@id': https://w3id.org/traceability#OrganicOSPSectionReview
+title: Organic OSP Section Review
+description: Information regarding the inspection results for an OSP (Organic System Plan) section.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - OrganicOSPSectionReview
+      - type: string
+        const:
+          - OrganicOSPSectionReview
+  OSPSectionCode:
+    title: OSP Section Code
+    description: A code corresponding to the relevant OSP section.
+    type: string
+    $linkedData:
+      term: OSPSectionCode
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#standard
+  resultCode:
+    title: Result Code
+    description: Must be one of "C" (Compliant), "NC" (Not Compliant), "MIN" (More Information Needed), or "R (Reminder), or "NA" (Not Applicable).
+    type: string
+    $linkedData:
+      term: resultCode
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#assertionCode
+  verificationExplanations:
+    title: Verification and Explanations
+    description: Inspector observation on site; records or documents reviewed; issues of concern.
+    type: string
+    $linkedData:
+      term: verificationExplanations
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks
+  attachments:
+    title: Attachments
+    description: OSP updates, sample records, labels, etc. - provided and attached, or needed and requested for submission.
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: attachments
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#additionalDocument
+additionalProperties: false
+example: |-
+  {
+    "type": ["OrganicOSPSectionReview"],
+    "OSPSectionCode": "LR 4a, b, and c",
+    "resultCode": "C",
+    "verificationExplanations": "Each parcel has distinct, defined boundaries and buffer zones, as detailed in provided fields map.",
+    "attachments": [
+      "Field Map \"A\""
+    ]
+  }
+  
