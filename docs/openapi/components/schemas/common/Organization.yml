@@ -57,13 +57,6 @@ properties:
     $linkedData:
       term: globalLocationNumber
       '@id': https://schema.org/globalLocationNumber
-  address:
-    title: Postal Address
-    description: The postal address for an organization or place.
-    $ref: ./PostalAddress.yml
-    $linkedData:
-      term: address
-      '@id': https://schema.org/PostalAddress
   location:
     title: Location
     description: The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
@@ -135,15 +128,15 @@ example: |-
         "type": ["GeoCoordinates"],
         "latitude": "68.7083",
         "longitude": "4.6377"
+      },
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "210 Jermey Fort",
+        "addressLocality": "Lake Evalyn",
+        "addressRegion": "Montana",
+        "postalCode": "71172",
+        "addressCountry": "US"
       }
-    },
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "210 Jermey Fort",
-      "addressLocality": "Lake Evalyn",
-      "addressRegion": "Montana",
-      "postalCode": "71172",
-      "addressCountry": "US"
     },
     "email": "contact@glover-gleason.example.net",
     "phoneNumber": "555-758-8926",
