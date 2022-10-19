@@ -61,7 +61,66 @@ properties:
     $linkedData:
       term: countryOfOrigin
       '@id': https://w3id.org/traceability#countryOfOrigin
-additionalProperties: true
+  producerDetails:
+    title: Producer's Details
+    description: >-
+      Producer’s name, address (including country), email address, and telephone
+      number, if different than the certifier or exporter, or, if there are
+      multiple producers, state 'Various' or provide a list of producers. A
+      person that wants this information to remain confidential may state
+      'Available upon request by the importing authorities.' The address of a
+      producer shall be the place of production of the good in a Party's
+      territory.
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: producerDetails
+      '@id': https://schema.org/manufacturer
+  producerConfidential:
+    title: Producer Confidential
+    description: >-
+      A person that wants the producer information to remain confidential may
+      state 'Available upon request by the importing authorities.'
+    type: boolean
+    $linkedData:
+      term: producerConfidential
+      '@id': https://w3id.org/traceability#producerConfidential
+  importerDetails:
+    title: Importer's Details
+    description: >-
+      Importer’s name, address, email address, and telephone number (if known).
+      The address of the importer shall be in a Party's territory. If the
+      identity of the importer is unknown, or there are various importers,
+      please check the appropriate box.
+    type: array
+    items:
+      $ref: ./Organization.yml
+    $linkedData:
+      term: importerDetails
+      '@id': https://w3id.org/traceability#importerDetails
+  importerUnknown:
+    title: Importer Unknown
+    description: >-
+      If the identity of the importer is unknown, or there are various
+      importers, please check the appropriate box.
+    type: boolean
+    $linkedData:
+      term: importerUnknown
+      '@id': https://w3id.org/traceability#importerUnknown
+  exporterDetails:
+    title: Exporter's Details
+    description: >-
+      Exporter’s name, address (including country), email address, and telephone
+      number, if different than the certifier. This information is not required
+      if the producer is completing the Certification of Origin and does not
+      know the identity of the exporter. The address of the exporter shall be
+      the place of export of the good in a Party’s territory.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: exporterDetails
+      '@id': https://w3id.org/traceability#exporterDetails
+additionalProperties: false
 example: |-
   {
     "type": ["USMCAProductSpecifier"],
@@ -81,5 +140,97 @@ example: |-
       }
     },
     "originCriterion": "A",
-    "countryOfOrigin": "MX"
+    "countryOfOrigin": "MX",
+    "importerDetails": [{
+      "type": [
+        "Organization"
+      ],
+      "name": "Maxi Acero Mexicano",
+      "description": "Fusión y fabricación de acero sólido",
+      "location": {
+        "type": [
+          "Place"
+        ],
+        "geo": {
+          "type": [
+            "GeoCoordinates"
+          ],
+          "latitude": "25.682338876065607",
+          "longitude": "-100.31373788104028"
+        },
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "streetAddress": "Avenida Carlos 100",
+          "addressLocality": "Hernádez de Mara",
+          "addressRegion": "Nuevo Leon",
+          "postalCode": "32200",
+          "addressCountry": "Mexico"
+        }
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
+    }],
+    "exporterDetails": {
+      "type": [
+        "Organization"
+      ],
+      "name": "American Prime Steel Inc.",
+      "description": "Quality Steel since 1952",
+      "location": {
+        "type": [
+          "Place"
+        ],
+        "geo": {
+          "type": [
+            "GeoCoordinates"
+          ],
+          "latitude": "43.655585429184434",
+          "longitude": "-120.33634354756568"
+        },
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "streetAddress": "1551 Keebler Knoll",
+          "addressLocality": "Vivianeburgh",
+          "addressRegion": "Oregon",
+          "postalCode": "47090",
+          "addressCountry": "US"
+        }
+      },
+      "email": "contact@example.net",
+      "phoneNumber": "555-716-2400"
+    },
+    "producerDetails": [
+      {
+        "type": [
+          "Organization"
+        ],
+        "name": "Melt Global, Inc.",
+        "phoneNumber": "+1 555-323-9000",
+        "location": {
+          "type": [
+            "Place"
+          ],
+          "geo": {
+            "type": [
+              "GeoCoordinates"
+            ],
+            "latitude": "30.893066748785927",
+            "longitude": "-93.80232474809726"
+          },
+          "address": {
+            "type": [
+              "PostalAddress"
+            ],
+            "addressLocality": "Hunter Valley",
+            "addressRegion": "Texas",
+            "postalCode": "78599",
+            "addressCountry": "United States"
+          }
+        }
+      }
+    ]
   }
