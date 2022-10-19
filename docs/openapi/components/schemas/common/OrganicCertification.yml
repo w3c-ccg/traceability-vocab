@@ -1,0 +1,112 @@
+$linkedData:
+  term: OrganicCertification
+  '@id': https://w3id.org/traceability#OrganicCertification
+title: Organic Certification
+description: Information regarding the organic certification.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - OrganicCertification
+      - type: string
+        const: OrganicCertification
+  certifiedOperation:
+    title: Certified Operation
+    description: The operation certified as organic, including name (all legal names) and address(es).
+    $ref: ./Organization.yml
+    $linkedData:
+      term: certifiedOperation
+      '@id': https://www.gs1.org/voc/certificationSubject
+  certifyingAgent:
+    title: Certifying Agent
+    description: The accredited agent certifying the operations status as organic.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: certifyingAgent
+      '@id': https://www.gs1.org/voc/certificationAgency
+  effectiveDate:
+    title: Applicant Certification Number
+    description: When the current or initial certifying agent first certified the operation to the USDA organic regulations.
+    type: string
+    $linkedData:
+      term: effectiveDate
+      '@id': https://www.gs1.org/voc/certificationStartDate
+  issueDate:
+    title: Applicant Certification Number
+    description: When the certifying agent issued the organic certificate.
+    type: string
+    $linkedData:
+      term: issueDate
+      '@id': https://www.gs1.org/voc/initialCertificationDate
+  anniversaryDate:
+    title: Applicant Certification Number
+    description: When the certified operation must submit its annual update.
+    type: string
+    $linkedData:
+      term: anniversaryDate
+      '@id': https://www.gs1.org/voc/certificationEndDate
+  operationCategory:
+    title: Operation Category
+    description: Options are "crops", "wild crops", "livestock", and "handling/processing".
+    type: string
+    $linkedData:
+      term: operationCategory
+      '@id': https://www.gs1.org/voc/certificationStatement
+  organicProducts:
+    title: Organic Products
+    description: Specific certified organic products covered by the organic certificate, allowing auditors and buyers to verify whether the operation is certified to produce or handle the product for sale.
+    type: array
+    items:
+      $ref: ./AgricultureProduct.yml
+    $linkedData:
+      term: organicProducts
+      '@id': https://www.gs1.org/voc/certificationStatement
+additionalProperties: false
+example: |-
+  {
+    "type": ["OrganicCertification"],
+    "certifiedOperation": {
+      "type": ["Organization"],
+      "name": "John's Produce",
+      "description": "#1 tomatoes in the United States",
+      "email": "hellojohn@example.org",
+      "phoneNumber": "129-697-067",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "571 McDermott Overpass",
+          "addressLocality": "Bretbury",
+          "addressRegion": "Minnesota",
+          "postalCode": "46974-2565",
+          "addressCountry": "United States"
+        }
+      }
+    },
+    "certifyingAgent": {
+      "type": ["Organization"],
+      "name": "Glayson & Co. Inspections",
+      "description": "Agricultural cleanliness & organic assurance",
+      "email": "contact@example.org",
+      "phoneNumber": "555-895-1661",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "3934 Spinnaker Lane",
+          "addressLocality": "Joliet",
+          "addressRegion": "Minnesota",
+          "postalCode": "46974-2565",
+          "addressCountry": "United States"
+        }
+      },
+      "url": "https://example.org"
+    },
+    "effectiveDate": "2020-03-10",
+    "issueDate": "2020-03-14",
+    "anniversaryDate": "2021-03-10"
+  }
