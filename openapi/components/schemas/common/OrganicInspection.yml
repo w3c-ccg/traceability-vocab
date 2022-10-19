@@ -1,0 +1,279 @@
+$linkedData:
+  term: OrganicInspection
+  '@id': https://w3id.org/traceability#OrganicInspection
+title: Organic Inspection
+description: Information regarding the organic inspection and results.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - OrganicInspection
+      - type: string
+        const: OrganicInspection
+  commonInfo:
+    title: Common Info
+    description:  Information common to agriculture inspection credentials.
+    $ref: ./AgricultureInspectionCommonInfo.yml
+    $linkedData:
+      term: commonInfo
+      '@id': https://w3id.org/traceability#AgricultureInspectionCommonInfo
+  applicantCertificationNumber:
+    title: Applicant Certification Number
+    description: The organic certification number of the applicant, if applicable.
+    type: string
+    $linkedData:
+      term: applicantCertificationNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId
+  authorizedOperationContacts:
+    title: Authorized Operation Contacts
+    description: Operation contact(s) including names and titles.
+    type: array
+    items:
+      $ref: ./Person.yml
+    $linkedData:
+      term: authorizedOperationContacts
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPerson
+  peoplePresent:
+    title: People Present
+    description: Other people present at inspection, including names and titles.
+    type: array
+    items:
+      $ref: ./Person.yml
+    $linkedData:
+      term: peoplePresent
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  newApplicant:
+    title: New Applicant
+    description: The applicant has yet to be organic certified.
+    type: boolean
+    $linkedData:
+      term: newApplicant
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#information
+  continuingCertification:
+    title: Continuing Certification
+    description: The applicant was previously organic certified.
+    type: boolean
+    $linkedData:
+      term: continuingCertification
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#information
+  newLocationActivity:
+    title: New Production Location or Activity
+    description: (If continuing certification) the applicant was previously organic certified and has since added a new production location or activity.
+    type: boolean
+    $linkedData:
+      term: newLocationActivity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#information
+  reinstatement:
+    title: Reinstatement
+    description: The applicant was, but is no longer, organic certified.
+    type: boolean
+    $linkedData:
+      term: reinstatement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#information
+  announcedInspection:
+    title: Announced Inspection
+    description: The inspection was announced, as opposed to an unnanounced inspection.
+    type: boolean
+    $linkedData:
+      term: announcedInspection
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#information
+  estimatedHarvestDate:
+    title: Estimated Harvest Date
+    description: The estimated harvest date for the applicant's operation.
+    type: string
+    $linkedData:
+      term: estimatedHarvestDate
+      '@id': https://www.gs1.org/voc/harvestDate
+  pesticideResidueSampling:
+    title: Pesticide Residue Sampling
+    description: Pesticide residue sampling was conducted.
+    type: boolean
+    $linkedData:
+      term: pesticideResidueSampling
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#information
+  samplingDetails:
+    title: Sampling Details
+    description: If pesticide residue sampling was conducted, please provide details.
+    type: string
+    $linkedData:
+      term: samplingDetails
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#content
+  introductionOperationDescription:
+    title: Introduction / Operation Description
+    description: Describe conditions at the time of inspection, and any general summary comments about the operation needed to complement the description in the client's OSP. Note to which standards (NOP) compliance is verified, including any additional certifications (international standards, GAPs, etc.).
+    type: string
+    $linkedData:
+      term: introductionOperationDescription
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  resolutionIssuesActionItems:
+    title: Resolution of Issues and Action Items
+    description: List any previously identified issue, non-compliance, corrective action required, or request for further information provided by the Certifier; a description of how each has been addressed; and whether each has been resolved or is pending further action.
+    type: string
+    $linkedData:
+      term: resolutionIssuesActionItems
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  issuesRequests:
+    title: Issues of Concern and Requests for Information
+    description: Current issues of concern and requests for information (RFI) from the operator at this inspection.
+    type: string
+    $linkedData:
+      term: issuesRequests
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#additionalDescription
+  attachments:
+    title: Attachments
+    description: List attachments here or refer to section numbers of the OSP and IRF where documents are described, as appropriate.
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: attachments
+      '@id':  https://service.unece.org/trade/uncefact/vocabulary/uncefact/#additionalDocument
+  OSPSectionReviews:
+    title: OSP Section Reviews
+    description: OSP (Organic System Plan) reviews by section.
+    type: array
+    items:
+      $ref: ./OrganicOSPSectionReview.yml
+    $linkedData:
+      term: OSPSectionReviews
+      '@id': https://w3id.org/traceability#OrganicOSPSectionReview
+additionalProperties: false
+example: |-
+  {
+    "type": ["OrganicInspection"],
+    "commonInfo": {
+      "type": ["AgricultureInspectionCommonInfo"],
+      "applicant": {
+        "type" : ["Entity"],
+        "entityType": "Organization",
+        "name" : "Jessica Sherawat",
+        "email": "Jessica58@example.com",
+        "phoneNumber": "+1-555-581-2077"
+      },
+      "facility": {
+        "type": [
+          "Place"
+        ],
+        "globalLocationNumber": "5449782976823",
+        "geo": {
+          "type": [
+            "GeoCoordinates"
+          ],
+          "latitude": "-79.6395",
+          "longitude": "178.5353"
+        },
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "name": "Ace Foodstuffs",
+          "streetAddress": "853 Wisozk River",
+          "addressLocality": "New Noemyfort",
+          "addressRegion": "New Mexico",
+          "postalCode": "18047-2038",
+          "addressCountry": "USA"
+        },
+        "unLocode": "DKCPH"
+      },
+      "inspector": {
+        "type": [
+          "Inspector"
+        ],
+        "person": {
+          "type": [
+            "Person"
+          ],
+          "firstName": "Jason",
+          "lastName": "Grant",
+          "email": "Santa43@example.org",
+          "phoneNumber": "555-460-4373",
+          "worksFor": {
+            "type": [
+              "Organization"
+            ],
+            "name": "Glayson & Co. Inspections",
+            "description": "Agricultural cleanliness & grade assurance",
+            "email": "Marina96@glaysonco.net",
+            "phoneNumber": "555-521-6143",
+            "faxNumber": "555-150-7668"
+          },
+          "jobTitle": "Principal Data Supervisor"
+        },
+        "qualification": [
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Agricultural Security Analyst",
+            "qualificationValue": "Executive"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Future Metrics Planner",
+            "qualificationValue": "Coordinator"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Internal Identity Agent",
+            "qualificationValue": "Assistant"
+          }
+        ]
+      },
+      "delegateOf": {
+        "type": ["Entity"],
+        "entityType" : "Organization",
+        "name": "Glayson & Co. Inspections",
+        "description": "Agricultural cleanliness & grade assurance",
+        "email": "Marina96@glaysonco.net",
+        "phoneNumber": "555-521-6143",
+        "faxNumber": "555-150-7668"
+      },
+      "regulatoryAgency": {
+        "type": ["Organization"],
+        "name": "CDFA",
+        "description": "California Department of Food and Agriculture",
+        "email": "Briana55@cdfa.ca.gov.org",
+        "phoneNumber": "555-467-2604",
+        "faxNumber": "+1-555-486-3154"
+      },
+      "inspectionStarted": "2020-03-15T14:30-08:00",
+      "inspectionEnded": "2020-03-15T17:30-08:00"
+    },
+    "applicantCertificationNumber": "133892",
+    "newApplicant": false,
+    "continuingCertification": true,
+    "newLocationActivity": true,
+    "reinstatement": false,
+    "announcedInspection": true,
+    "estimatedHarvestDate": "2020-05-10",
+    "pesticideResidueSampling": true,
+    "samplingDetails": "no pesticide residues found",
+    "introductionOperationDescription": "Conditions generally appear to reflect the information stated in client's OSP. All relevant NOP standards are met. Client has additionally performed a GAP Plus+ inspection earlier in the year.",
+    "resolutionIssuesActionItems": "A previous inspection found there to be trace amounts of pesticide in field #208. However, the most recent analysis has found no remaining pesticide residues.",
+    "issuesRequests": "No issues or requests for information at this time",
+    "attachments": ["No attachments relevant to this report"],
+    "OSPSectionReviews": [
+      {
+        "type": ["OrganicOSPSectionReview"],
+        "OSPSectionCode": "DO 3",
+        "resultCode": "C",
+        "verificationExplanations": "The OSP accurately describes soil improvement & relative practices."
+      },
+      {
+        "type": ["OrganicOSPSectionReview"],
+        "OSPSectionCode": "Compost and Manure (CM) 1",
+        "resultCode": "C"
+      },
+      {
+        "type": ["OrganicOSPSectionReview"],
+        "OSPSectionCode": "LR 4a, b, and c",
+        "resultCode": "C",
+        "verificationExplanations": "Each parcel has distinct, defined boundaries and buffer zones, as detailed in provided fields map.",
+        "attachments": [
+          "Field Map \"A\""
+        ]
+      }
+    ]
+  }
