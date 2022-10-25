@@ -8918,6 +8918,74 @@
     </section>
   
 
+    <section id="OrganicCertification">
+      <h2>Organic Certification</h2>
+      <p>Information regarding the organic certification.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#OrganicCertification">https://w3id.org/traceability#OrganicCertification</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/OrganicCertification.yml">https://w3id.org/traceability/openapi/components/schemas/common/OrganicCertification.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["OrganicCertification"],
+  "certifiedOperation": {
+    "type": ["Organization"],
+    "name": "John's Produce",
+    "description": "#1 tomatoes in the United States",
+    "email": "hellojohn@example.org",
+    "phoneNumber": "129-697-067",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "571 McDermott Overpass",
+        "addressLocality": "Bretbury",
+        "addressRegion": "Minnesota",
+        "postalCode": "46974-2565",
+        "addressCountry": "United States"
+      }
+    }
+  },
+  "certifyingAgent": {
+    "type": ["Organization"],
+    "name": "Glayson & Co. Inspections",
+    "description": "Agricultural cleanliness & organic assurance",
+    "email": "contact@example.org",
+    "phoneNumber": "555-895-1661",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "3934 Spinnaker Lane",
+        "addressLocality": "Joliet",
+        "addressRegion": "Minnesota",
+        "postalCode": "46974-2565",
+        "addressCountry": "United States"
+      }
+    },
+    "url": "https://example.org"
+  },
+  "effectiveDate": "2020-03-10",
+  "issueDate": "2020-03-14",
+  "anniversaryDate": "2021-03-10"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
+  
+
     <section id="OrganicInspection">
       <h2>Organic Inspection</h2>
       <p>Information regarding the organic inspection and results.</p>
@@ -9108,6 +9176,207 @@
   ]
 }</pre>
       
+    </section>
+  
+
+    <section id="OrganicReview">
+      <h2>Organic Review</h2>
+      <p>Information regarding the review of an organic inspection report & related materials as well as the subsequent certification decision.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#OrganicReview">https://w3id.org/traceability#OrganicReview</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/OrganicReview.yml">https://w3id.org/traceability/openapi/components/schemas/common/OrganicReview.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["OrganicReview"],
+  "organicInspection": {
+    "type": ["OrganicInspection"],
+    "commonInfo": {
+      "type": ["AgricultureInspectionCommonInfo"],
+      "applicant": {
+        "type" : ["Entity"],
+        "entityType": "Organization",
+        "name" : "Jessica Sherawat",
+        "email": "Jessica58@example.com",
+        "phoneNumber": "+1-555-581-2077"
+      },
+      "facility": {
+        "type": [
+          "Place"
+        ],
+        "globalLocationNumber": "5449782976823",
+        "geo": {
+          "type": [
+            "GeoCoordinates"
+          ],
+          "latitude": "-79.6395",
+          "longitude": "178.5353"
+        },
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "name": "Ace Foodstuffs",
+          "streetAddress": "853 Wisozk River",
+          "addressLocality": "New Noemyfort",
+          "addressRegion": "New Mexico",
+          "postalCode": "18047-2038",
+          "addressCountry": "USA"
+        },
+        "unLocode": "DKCPH"
+      },
+      "inspector": {
+        "type": [
+          "Inspector"
+        ],
+        "person": {
+          "type": [
+            "Person"
+          ],
+          "firstName": "Jason",
+          "lastName": "Grant",
+          "email": "Santa43@example.org",
+          "phoneNumber": "555-460-4373",
+          "worksFor": {
+            "type": [
+              "Organization"
+            ],
+            "name": "Glayson & Co. Inspections",
+            "description": "Agricultural cleanliness & grade assurance",
+            "email": "Marina96@glaysonco.net",
+            "phoneNumber": "555-521-6143",
+            "faxNumber": "555-150-7668"
+          },
+          "jobTitle": "Principal Data Supervisor"
+        },
+        "qualification": [
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Agricultural Security Analyst",
+            "qualificationValue": "Executive"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Future Metrics Planner",
+            "qualificationValue": "Coordinator"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Internal Identity Agent",
+            "qualificationValue": "Assistant"
+          }
+        ]
+      },
+      "delegateOf": {
+        "type": ["Entity"],
+        "entityType" : "Organization",
+        "name": "Glayson & Co. Inspections",
+        "description": "Agricultural cleanliness & grade assurance",
+        "email": "Marina96@glaysonco.net",
+        "phoneNumber": "555-521-6143",
+        "faxNumber": "555-150-7668"
+      },
+      "regulatoryAgency": {
+        "type": ["Organization"],
+        "name": "CDFA",
+        "description": "California Department of Food and Agriculture",
+        "email": "Briana55@cdfa.ca.gov.org",
+        "phoneNumber": "555-467-2604",
+        "faxNumber": "+1-555-486-3154"
+      },
+      "inspectionStarted": "2020-03-15T14:30-08:00",
+      "inspectionEnded": "2020-03-15T17:30-08:00"
+    },
+    "applicantCertificationNumber": "133892",
+    "newApplicant": false,
+    "continuingCertification": true,
+    "newLocationActivity": true,
+    "reinstatement": false,
+    "announcedInspection": true,
+    "estimatedHarvestDate": "2020-05-10",
+    "pesticideResidueSampling": true,
+    "samplingDetails": "no pesticide residues found",
+    "introductionOperationDescription": "Conditions generally appear to reflect the information stated in client's OSP. All relevant NOP standards are met. Client has additionally performed a GAP Plus+ inspection earlier in the year.",
+    "resolutionIssuesActionItems": "A previous inspection found there to be trace amounts of pesticide in field #208. However, the most recent analysis has found no remaining pesticide residues.",
+    "issuesRequests": "No issues or requests for information at this time",
+    "attachments": ["No attachments relevant to this report"],
+    "OSPSectionReviews": [
+      {
+        "type": ["OrganicOSPSectionReview"],
+        "OSPSectionCode": "DO 3",
+        "resultCode": "C",
+        "verificationExplanations": "The OSP accurately describes soil improvement & relative practices."
+      },
+      {
+        "type": ["OrganicOSPSectionReview"],
+        "OSPSectionCode": "Compost and Manure (CM) 1",
+        "resultCode": "C"
+      },
+      {
+        "type": ["OrganicOSPSectionReview"],
+        "OSPSectionCode": "LR 4a, b, and c",
+        "resultCode": "C",
+        "verificationExplanations": "Each parcel has distinct, defined boundaries and buffer zones, as detailed in provided fields map.",
+        "attachments": [
+          "Field Map \"A\""
+        ]
+      }
+    ]
+  },
+  "reviewer": {
+    "type": ["Person"],
+    "firstName": "Mary",
+    "lastName": "Smith",
+    "email": "msmith@example.org",
+    "phoneNumber": "555-018-2076",
+    "worksFor": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Glayson & Co. Inspections",
+      "description": "Agricultural cleanliness & organic assurance",
+      "email": "Marina96@glaysonco.net",
+      "phoneNumber": "555-521-6143",
+      "faxNumber": "555-150-7668"
+    },
+    "jobTitle": "Certification Specialist"
+  },
+  "decisionMaker": {
+    "type": ["Person"],
+    "firstName": "Mary",
+    "lastName": "Smith",
+    "email": "msmith@example.org",
+    "phoneNumber": "555-018-2076",
+    "worksFor": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Glayson & Co. Inspections",
+      "description": "Agricultural cleanliness & organic assurance",
+      "email": "Marina96@glaysonco.net",
+      "phoneNumber": "555-521-6143",
+      "faxNumber": "555-150-7668"
+    },
+    "jobTitle": "Certification Specialist"
+  },
+  "certificationDecision": "CC",
+  "additionalInformation": "Please see accompanying document, \"Conditions for Certification\"."
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#OrganicInspection'>OrganicInspection</a></li>
+<li><a href='#Person'>Person</a></li></ul>
     </section>
   
 
@@ -12747,9 +13016,102 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     }
   },
   "originCriterion": "A",
-  "countryOfOrigin": "MX"
+  "countryOfOrigin": "MX",
+  "importerDetails": [{
+    "type": [
+      "Organization"
+    ],
+    "name": "Maxi Acero Mexicano",
+    "description": "Fusión y fabricación de acero sólido",
+    "location": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "25.682338876065607",
+        "longitude": "-100.31373788104028"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      }
+    },
+    "email": "info@example.net",
+    "phoneNumber": "555-127-7813"
+  }],
+  "exporterDetails": {
+    "type": [
+      "Organization"
+    ],
+    "name": "American Prime Steel Inc.",
+    "description": "Quality Steel since 1952",
+    "location": {
+      "type": [
+        "Place"
+      ],
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "43.655585429184434",
+        "longitude": "-120.33634354756568"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "streetAddress": "1551 Keebler Knoll",
+        "addressLocality": "Vivianeburgh",
+        "addressRegion": "Oregon",
+        "postalCode": "47090",
+        "addressCountry": "US"
+      }
+    },
+    "email": "contact@example.net",
+    "phoneNumber": "555-716-2400"
+  },
+  "producerDetails": [
+    {
+      "type": [
+        "Organization"
+      ],
+      "name": "Melt Global, Inc.",
+      "phoneNumber": "+1 555-323-9000",
+      "location": {
+        "type": [
+          "Place"
+        ],
+        "geo": {
+          "type": [
+            "GeoCoordinates"
+          ],
+          "latitude": "30.893066748785927",
+          "longitude": "-93.80232474809726"
+        },
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "addressLocality": "Hunter Valley",
+          "addressRegion": "Texas",
+          "postalCode": "78599",
+          "addressCountry": "United States"
+        }
+      }
+    }
+  ]
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Product'>Product</a></li></ul>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Product'>Product</a></li></ul>
     </section>
   
 
