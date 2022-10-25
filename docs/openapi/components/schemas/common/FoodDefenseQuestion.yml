@@ -1,0 +1,53 @@
+$linkedData:
+  term: FoodDefenseQuestion
+  '@id': https://w3id.org/traceability#FoodDefenseQuestion
+title: Food Defense Question
+description: Information on a food defense inspection question and its response.
+type: object
+properties:
+  type:
+    oneOf:
+      - type: array
+        items:
+          type: string
+          enum:
+            - FoodDefenseQuestion
+      - type: string
+        const: FoodDefenseQuestion
+  number:
+    title: Number
+    description: An identifier for the question.
+    type: string
+    $linkedData:
+      term: number
+      '@id': https://schema.org/identifier
+  facility:
+    title: Facility
+    description: Must be one of (P) Processing Facility, or (B) Both Processing and Warehousing Facility.
+    type: string
+    $linkedData:
+      term: facility
+      '@id': https://schema.org/location
+  response:
+    title: Response
+    description: True if response is "yes", otherwise false.
+    type: boolean
+    $linkedData:
+      term: response
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#assertion
+  rating:
+    title: Rating
+    description: A rating to accompany the question response.
+    type: number
+    $linkedData:
+      term: rating
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#assertion
+additionalProperties: false
+example: |-
+  {
+    "type": "FoodDefenseQuestion",
+    "number": "12",
+    "facility": "P",
+    "response": true,
+    "rating": 4
+  }
