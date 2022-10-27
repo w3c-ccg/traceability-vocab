@@ -18,6 +18,12 @@ properties:
       type: string
       enum:
         - ShippingStop
+  shippingStopAddress:
+    title: Shipping Stop Address
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: to
+      '@id': https://schema.org/PostalAddress
   from:
     title: From
     $ref: ./Place.yml
