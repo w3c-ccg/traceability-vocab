@@ -6,14 +6,16 @@ description: Information on the grade assigned to an inspected lot.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodGradeInspectionResult
-      - type: string
-        const: FoodGradeInspectionResult
+    type: array
+    readOnly: true
+    const:
+      - FoodGradeInspectionResult
+    default:
+      - FoodGradeInspectionResult
+    items:
+      type: string
+      enum:
+        - FoodGradeInspectionResult
   gradeInspected:
     title: Grade Inspected
     description: Grade the lot was inspected for, even if the requirements were not met. When there is no U.S. grade standard for a product, and a quality and condition inspection is performed, enter "No established U.S. Grade".

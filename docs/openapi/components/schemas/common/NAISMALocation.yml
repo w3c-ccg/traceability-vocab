@@ -6,14 +6,16 @@ description: Details regarding the location of an occurrence.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - NAISMALocation
-      - type: string
-        const: NAISMALocation
+    type: array
+    readOnly: true
+    const:
+      - NAISMALocation
+    default:
+      - NAISMALocation
+    items:
+      type: string
+      enum:
+        - NAISMALocation
   location:
     title: Location
     description: The core location information for the occurrence.

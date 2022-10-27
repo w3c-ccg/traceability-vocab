@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - QuantitativeValue
+    default:
+      - QuantitativeValue
     items:
       type: string
       enum:
@@ -26,6 +31,8 @@ properties:
       term: value
       '@id': https://schema.org/value
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["QuantitativeValue"],

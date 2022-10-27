@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - ShippingInstructions
+    default:
+      - ShippingInstructions
     items:
       type: string
       enum:
@@ -175,7 +180,9 @@ properties:
     $linkedData:
       term: declaredValue
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declaredValueForCarriageAmount
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type": ["ShippingInstructions"],

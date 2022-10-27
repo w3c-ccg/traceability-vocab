@@ -6,15 +6,16 @@ description: Details on a shipment or delivery.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - AgricultureParcelDelivery
-      - type: string
-        const:
-          - AgricultureParcelDelivery 
+    type: array
+    readOnly: true
+    const:
+      - AgricultureParcelDelivery
+    default:
+      - AgricultureParcelDelivery
+    items:
+      type: string
+      enum:
+        - AgricultureParcelDelivery
   deliveryAddress:
     title: Delivery Address
     description: Final destination address to which the shipment is being sent.

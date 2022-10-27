@@ -6,14 +6,16 @@ description: A property of some agriculture grade inspection sample.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodGradeInspectionSampleProperty
-      - type: string
-        const: FoodGradeInspectionSampleProperty
+    type: array
+    readOnly: true
+    const:
+      - FoodGradeInspectionSampleProperty
+    default:
+      - FoodGradeInspectionSampleProperty
+    items:
+      type: string
+      enum:
+        - FoodGradeInspectionSampleProperty
   propertyName:
     title: Property Name
     description: Name of the sample property observed (e.g. "Percent off-size", "Type of Defects", "Net Wt. Within 2 lb. Range").
@@ -31,7 +33,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "FoodGradeInspectionSampleProperty",
+    "type": ["FoodGradeInspectionSampleProperty"],
     "propertyName": "Temp °F",
     "propertyValue": "53"
   }

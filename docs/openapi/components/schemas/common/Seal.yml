@@ -10,6 +10,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Seal
+    default:
+      - Seal
     items:
       type: string
       enum:
@@ -55,6 +60,7 @@ properties:
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sealTypeCode
 additionalProperties: false
 required:
+  - type
   - sealNumber
 example: |-
   {

@@ -10,6 +10,17 @@ description: >-
   (https://dcsa.org/standards/ebill-of-lading)
 type: object
 properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - DCSATransportDocument
+    default:
+      - DCSATransportDocument
+    items:
+      type: string
+      enum:
+        - DCSATransportDocument
   transportDocumentReference:
     title: Transport Document Reference
     description: >-

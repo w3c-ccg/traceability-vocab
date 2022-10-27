@@ -6,15 +6,16 @@ description: Information regarding the inspection results for an OSP (Organic Sy
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - OrganicOSPSectionReview
-      - type: string
-        const:
-          - OrganicOSPSectionReview
+    type: array
+    readOnly: true
+    const:
+      - OrganicOSPSectionReview
+    default:
+      - OrganicOSPSectionReview
+    items:
+      type: string
+      enum:
+        - OrganicOSPSectionReview
   OSPSectionCode:
     title: OSP Section Code
     description: A code corresponding to the relevant OSP section.

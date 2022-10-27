@@ -6,14 +6,16 @@ description: EDD (Early Detection and Distribution) mapping system shapefile met
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - EDDShapeMeta
-      - type: string
-        const: EDDShapeMeta
+    type: array
+    readOnly: true
+    const:
+      - EDDShapeMeta
+    default:
+      - EDDShapeMeta
+    items:
+      type: string
+      enum:
+        - EDDShapeMeta
   recordOwner:
     title: Record Owner
     description: If known, the owner of the data.

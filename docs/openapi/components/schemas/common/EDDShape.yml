@@ -6,14 +6,16 @@ description: EDD (Early Detection and Distribution) mapping system shapefile.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - EDDShape
-      - type: string
-        const: EDDShape
+    type: array
+    readOnly: true
+    const:
+      - EDDShape
+    default:
+      - EDDShape
+    items:
+      type: string
+      enum:
+        - EDDShape
   meta:
     title: Metainformation
     description: The corresponding EDD Shapefile Metainformation.

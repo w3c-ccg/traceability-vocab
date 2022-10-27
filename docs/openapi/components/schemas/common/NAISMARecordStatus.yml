@@ -6,14 +6,16 @@ description: Status information for a NAISMA record.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - NAISMARecordStatus
-      - type: string
-        const: NAISMARecordStatus
+    type: array
+    readOnly: true
+    const:
+      - NAISMARecordStatus
+    default:
+      - NAISMARecordStatus
+    items:
+      type: string
+      enum:
+        - NAISMARecordStatus
   occurrenceStatus:
     title: Occurrence Status
     description: Whether or not a species is found at a location during a survey.
@@ -66,7 +68,7 @@ properties:
 additionalProperties: false
 example: |-
   {
-    "type": "NAISMARecordStatus",
+    "type": ["NAISMARecordStatus"],
     "occurrenceStatus": "Undetected",
     "populationStatus": "Established",
     "managementStatus": "Treated",

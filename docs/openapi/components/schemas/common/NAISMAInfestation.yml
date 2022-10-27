@@ -6,14 +6,16 @@ description: Details regarding an observed infestation.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - NAISMAInfestation
-      - type: string
-        const: NAISMAInfestation
+    type: array
+    readOnly: true
+    const:
+      - NAISMAInfestation
+    default:
+      - NAISMAInfestation
+    items:
+      type: string
+      enum:
+        - NAISMAInfestation
   infestedArea:
     title: Infested Area
     description: The calculated area containing one invasive species type.

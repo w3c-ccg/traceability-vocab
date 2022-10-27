@@ -4,21 +4,14 @@ $linkedData:
 title: Order Registration Evidence Document
 description: Evidence data for a registered eCommerce Order
 type: object
-required:
-  - orderNumber
-  - orderDate
-  - orderStatus
-  - description
-  - url
-  - seller
-  - broker
-  - customer
-  - paymentDueDate
-  - paymentMethod
-  - orderedItem
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - OrderRegistrationEvidenceDocument
+    default:
+      - OrderRegistrationEvidenceDocument
     items:
       type: string
       enum:
@@ -99,6 +92,18 @@ properties:
       term: orderedItem
       '@id': https://schema.org/orderedItem
 additionalProperties: false
+required:
+  - orderNumber
+  - orderDate
+  - orderStatus
+  - description
+  - url
+  - seller
+  - broker
+  - customer
+  - paymentDueDate
+  - paymentMethod
+  - orderedItem
 example: |-
   {
     "type": ["OrderRegistrationEvidenceDocument"],

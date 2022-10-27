@@ -9,14 +9,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FSMAGrowingCTE
-      - type: string
-        const: FSMAGrowingCTE
+    type: array
+    readOnly: true
+    const:
+      - FSMAGrowingCTE
+    default:
+      - FSMAGrowingCTE
+    items:
+      type: string
+      enum:
+        - FSMAGrowingCTE
   traceabilityLot:
     title: Traceability Lot
     description: The lot of food being tracked.

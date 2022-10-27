@@ -4,19 +4,18 @@ $linkedData:
 title: Customer
 description: Customer record based on Customer from schema.org
 type: object
-required:
-  - type
-  - name
-  - address
-  - telephone
-  - email
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - string
+    default:
+      - string
     items:
       type: string
       enum:
-        - Customer
+        - string
   name:
     title: Name of the Customer
     type: string
@@ -45,6 +44,12 @@ properties:
       term: email
       '@id': https://schema.org/email
 additionalProperties: false
+required:
+  - type
+  - name
+  - address
+  - telephone
+  - email
 example: |-
   {
     "type": ["Customer"],

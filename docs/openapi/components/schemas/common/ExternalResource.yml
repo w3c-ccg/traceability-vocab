@@ -6,14 +6,16 @@ description: Information to access & verify an external resource.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ExternalResource
-      - type: string
-        const: ExternalResource
+    type: array
+    readOnly: true
+    const:
+      - ExternalResource
+    default:
+      - ExternalResource
+    items:
+      type: string
+      enum:
+        - ExternalResource
   uri:
     title: URI
     description: URI (Universal Resource Identifier) for resource.

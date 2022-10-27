@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - RawMaterial
+    default:
+      - RawMaterial
     items:
       type: string
       enum:
@@ -26,11 +31,13 @@ properties:
       term: inchiKey
       '@id': https://w3id.org/traceability#inchiKey
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": [
       "RawMaterial"
     ],
-      "name": "Scrap Metal (Iron)",
-      "inchiKey": "AEIXRCIKZIZYPM-UHFFFAOYSA-M"  
+    "name": "Scrap Metal (Iron)",
+    "inchiKey": "AEIXRCIKZIZYPM-UHFFFAOYSA-M"  
   }

@@ -6,14 +6,16 @@ description: Tombstone information regarding a crude oil product
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - CrudeOilProduct
-      - type: string
-        const: CrudeOilProduct 
+    type: array
+    readOnly: true
+    const:
+      - CrudeOilProduct
+    default:
+      - CrudeOilProduct
+    items:
+      type: string
+      enum:
+        - CrudeOilProduct
   product:
     title: Product
     description: Product details as outlined in the Product schema

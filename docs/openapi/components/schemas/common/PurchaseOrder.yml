@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PurchaseOrder
+    default:
+      - PurchaseOrder
     items:
       type: string
       enum:
@@ -204,10 +209,11 @@ properties:
     $linkedData:
       term: totalOrderAmount
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#MonetarySummation
+additionalProperties: false
 required:
+  - type
   - seller
   - buyer
-additionalProperties: false
 example: |-
   {
     "type": [
