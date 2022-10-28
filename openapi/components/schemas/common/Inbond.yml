@@ -82,10 +82,10 @@ properties:
   carrier:
     title: Carrier
     description: Entity responsible for transporting product
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: carrier
-      '@id': https://w3id.org/traceability#Entity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
   irsNumber:
     title: IRS Number
     description: Number for identification with IRS
@@ -96,10 +96,10 @@ properties:
   recipient:
     title: Recipient
     description: Entity that will recieve product
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: recipient
-      '@id': https://w3id.org/traceability#Entity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
   billOfLadingNumber:
     title: BOL
     description: Identifier for the individual BOL
@@ -163,18 +163,16 @@ example: |-
       "unLocode": "DKCPH"
     },
     "carrier": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Example Carrier Organization",
       "email": "Griffin_Trantow65@example.org",
-      "phoneNumber": "+1-555-227-3190",
-      "entityType": "Organization"
+      "phoneNumber": "+1-555-227-3190"
     },
     "recipient": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Example Recipient Organization",
       "email": "Gustave.Dicki37@example.net",
-      "phoneNumber": "+1-555-238-5681",
-      "entityType": "Organization"
+      "phoneNumber": "+1-555-238-5681"
     },
     "portOfArrival": {
       "type": [
