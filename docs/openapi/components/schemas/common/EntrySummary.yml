@@ -208,14 +208,14 @@ properties:
   ultimateConsignee:
     title: Ultimate Consignee
     description: At the time of Entry Summary, record the name and address of the individual or firm purchasing the merchandise or, if a consigned shipment, to whom the merchandise is consigned. If those parties are not known, indicate to whose premises the merchandise is being shipped. If this information is the same as the importer of record, leave blank.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: ultimateConsignee
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
   importerOfRecord:
     title: Importer
     description: Record the name and address, including the standard postal two-letter state or territory abbreviation, of the importer of record. The importer of record is defined as the owner or purchaser of the goods, or when designated by the owner, purchaser, or consignee, a licensed customs broker. The importer of record is the individual or firm liable for payment of all duties and meeting all statutory and regulatory requirements incurred as a result of importation, as described in 19 C.F.R. § 141.1(b). The importer of record shown on the invoice should be the same party on the CBP Form 7501, unless the CBP form reflects a licensed customs broker.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: importerOfRecord
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
@@ -322,28 +322,32 @@ example: |-
     "importerNumber": "9900127",
     "referenceNumber": "ref199812841",
     "ultimateConsignee": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Future Mobility, Inc.",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "2016 W Farmington Rd",
-        "addressLocality": "West Peoria",
-        "postalCode": "61604",
-        "addressCountry": "US"
-      },
-      "entityType": "Organization"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      }
     },
     "importerOfRecord": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Future Mobility, Inc.",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "2016 W Farmington Rd",
-        "addressLocality": "West Peoria",
-        "postalCode": "61604",
-        "addressCountry": "US"
-      },
-      "entityType": "Organization"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      }
     },
     "descriptionOfMerchandise": [
       {
