@@ -176,6 +176,11 @@ properties:
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty
 additionalProperties: false
+required:
+  - shipper
+  - consignee
+  - cargoItems
+  - shipmentLocations
 example: |-
   {
     "type": ["DCSAShippingInstruction"],
@@ -299,6 +304,16 @@ example: |-
             "sealNumber": "YMAI715692"
           }
         ]
+      }
+    ],
+    "shipmentLocations": [
+      {
+        "type": ["Place"],
+        "unLocode": "CNXMG"
+      },
+      {
+        "type": ["Place"],
+        "unLocode": "BEGNE"
       }
     ]
   }

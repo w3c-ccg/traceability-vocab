@@ -74,9 +74,32 @@ properties:
       term: consolidator
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consolidatorParty
 additionalProperties: true
+required:
+  - seller
+  - buyer
+  - importer
+  - consignee
+  - shipToParty
+  - consolidator
+  - containerStuffingLocation
+  - filingItems
 example: |-
   {
     "type": ["ImporterSecurityFiling"],
+    "manufacturer": {
+      "type": ["Organization"],
+      "name": "Onwards A/S",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Sludevej 63",
+          "addressLocality": "Kgs. Lyngby",
+          "postalCode": "2800",
+          "addressCountry": "DK"
+        }
+      }
+    },
     "seller": {
       "type": ["Organization"],
       "name": "Onwards A/S",
