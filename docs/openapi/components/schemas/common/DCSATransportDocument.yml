@@ -195,10 +195,12 @@ properties:
         https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/transports
 required:
   - shippingInstruction
+  - issuerCode
 example: |-
   {
     "type": ["DCSATransportDocument"],
     "transportDocumentReference": "XMANHR2102045",
+    "issuerCode": "MCLC",
     "shippingInstruction": {
       "type": ["DCSAShippingInstruction"],
       "carrierBookingReference": "XMANHR2102045",
@@ -320,7 +322,17 @@ example: |-
             "sealNumber": "YMAI715692"
           }
         ]
-      }]
+      }],
+      "shipmentLocations": [
+        {
+          "type": ["Place"],
+          "unLocode": "CNXMG"
+        },
+        {
+          "type": ["Place"],
+          "unLocode": "BEGNE"
+        }
+      ]
     },
     "transports": [{
       "type": ["Transport"],
