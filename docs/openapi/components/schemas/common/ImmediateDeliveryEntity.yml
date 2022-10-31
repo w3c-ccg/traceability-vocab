@@ -14,28 +14,28 @@ properties:
   manufacturer:
     title: Manufacturer
     description: A manufacturer party.
-    $ref: ./Organization.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty
   consignee:
     title: Consignee
     description: Consignee
-    $ref: ./Organization.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: consignee
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
   seller: 
     title: Seller
     description: An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
-    $ref: ./Organization.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: seller
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./Organization.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
@@ -61,18 +61,16 @@ example: |-
   {
     "type": ["ImmediateDeliveryEntity"],
     "consignee": {
-      "type": ["Organization"],
+      "type": ["Entity"],
       "name": "Future Mobility, Inc.",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "2016 W Farmington Rd",
-          "addressLocality": "West Peoria",
-          "postalCode": "61604",
-          "addressCountry": "US"
-        }
-      }
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      },
+      "entityType": "Organization"
     },
     "assignedIdentifier": "12345678",
     "assignedIdentifierType": "CBP"
