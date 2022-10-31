@@ -6,14 +6,16 @@ description: Information regarding the plant systems inspection and results.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - PlantSystemsInspection
-      - type: string
-        const: PlantSystemsInspection
+    type: array
+    readOnly: true
+    const:
+      - PlantSystemsInspection
+    default:
+      - PlantSystemsInspection
+    items:
+      type: string
+      enum:
+        - PlantSystemsInspection
   commonInfo:
     title: Common Info
     description:  Information common to agriculture inspection credentials.
@@ -63,6 +65,8 @@ properties:
       term: additionalViolations
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["PlantSystemsInspection"],

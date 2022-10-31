@@ -6,14 +6,16 @@ description: Information on a plant systems inspection question and its point sc
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - PlantSystemsQuestion
-      - type: string
-        const: PlantSystemsQuestion
+    type: array
+    readOnly: true
+    const:
+      - PlantSystemsQuestion
+    default:
+      - PlantSystemsQuestion
+    items:
+      type: string
+      enum:
+        - PlantSystemsQuestion
   code:
     title: Code
     description: A code (generally a number) identifying the question. Leave blank for write-ins.
@@ -36,6 +38,8 @@ properties:
       term: pointsDeducted
       '@id': https://schema.org/ratingValue
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["PlantSystemsQuestion"],
