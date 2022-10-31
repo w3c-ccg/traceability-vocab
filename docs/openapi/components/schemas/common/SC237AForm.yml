@@ -6,14 +6,16 @@ description: Information regarding an application for audit services.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - SC237AForm
-      - type: string
-        const: SC237AForm
+    type: array
+    readOnly: true
+    const:
+      - SC237AForm
+    default:
+      - SC237AForm
+    items:
+      type: string
+      enum:
+        - SC237AForm
   requestDate:
     title: Request Date
     description: Date the audit was requested.
@@ -91,6 +93,8 @@ properties:
       term: additionalRemarks
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["SC237AForm"],
