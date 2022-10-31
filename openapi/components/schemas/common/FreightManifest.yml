@@ -16,7 +16,7 @@ properties:
     description: >-
       The party providing the transport of goods in this consignment between
       named points.
-    $ref: ./Organization.yml
+    $ref: ./Entity.yml
     $linkedData:
       term: carrier
       '@id': >-
@@ -66,19 +66,17 @@ example: |-
   {
     "type": ["FreightManifest"],
     "carrier": {
-      "type": ["Organization"],
+      "type": ["Entity"],
       "name": "MULTI CONTAINER LINE",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": ["PostalAddress"],
-          "name": "MCL Multi Container Line LTD.",
-          "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
-          "addressLocality": "Kowloon Bay",
-          "addressRegion": "Hong Kong",
-          "addressCountry": "Hong Kong SAR"
-        }
-      }
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "MCL Multi Container Line LTD.",
+        "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+        "addressLocality": "Kowloon Bay",
+        "addressRegion": "Hong Kong",
+        "addressCountry": "Hong Kong SAR"
+      },
+      "entityType": "Organization"
     },
     "carrierCode": "MCML",
     "transportMeans": "HMM Algeciras",
