@@ -6,14 +6,16 @@ description: Information on a food defense inspection deficiency.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodDefenseDeficiency
-      - type: string
-        const: FoodDefenseDeficiency
+    type: array
+    readOnly: true
+    const:
+      - FoodDefenseDeficiency
+    default:
+      - FoodDefenseDeficiency
+    items:
+      type: string
+      enum:
+        - FoodDefenseDeficiency
   number:
     title: Number
     description: An identifier for the question.
@@ -43,9 +45,11 @@ properties:
       term: dateCorrected
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#occurrenceDateTime
 additionalProperties: false
+required:
+  - type
 example: |-
   {
-    "type": "FoodDefenseDeficiency",
+    "type": ["FoodDefenseDeficiency"],
     "number": "10",
     "description": "\"No Trespassing\" signs not visible along perimeter and no other measures",
     "proposedCorrectionDate": "2020-03-20",

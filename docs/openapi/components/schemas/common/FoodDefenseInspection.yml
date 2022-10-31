@@ -6,14 +6,16 @@ description: Information regarding the food defense inspection and results.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodDefenseInspection
-      - type: string
-        const: FoodDefenseInspection
+    type: array
+    readOnly: true
+    const:
+      - FoodDefenseInspection
+    default:
+      - FoodDefenseInspection
+    items:
+      type: string
+      enum:
+        - FoodDefenseInspection
   commonInfo:
     title: Common Info
     description:  Information common to agriculture inspection credentials.
@@ -40,6 +42,8 @@ properties:
       term: deficiencies
       '@id': https://w3id.org/traceability#FoodDefenseDeficiency
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["FoodDefenseInspection"],
@@ -141,14 +145,14 @@ example: |-
     },
     "questions": [
       {
-        "type": "FoodDefenseQuestion",
+        "type": ["FoodDefenseQuestion"],
         "number": "10",
         "facility": "P",
         "response": false,
         "rating": 1
       },
       {
-        "type": "FoodDefenseQuestion",
+        "type": ["FoodDefenseQuestion"],
         "number": "12",
         "facility": "P",
         "response": true,
@@ -157,7 +161,7 @@ example: |-
     ],
     "deficiencies": [
       {
-        "type": "FoodDefenseDeficiency",
+        "type": ["FoodDefenseDeficiency"],
         "number": "10",
         "description": "\"No Trespassing\" signs not visible along perimeter and no other measures",
         "proposedCorrectionDate": "2020-03-20",

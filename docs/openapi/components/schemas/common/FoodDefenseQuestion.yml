@@ -6,14 +6,16 @@ description: Information on a food defense inspection question and its response.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodDefenseQuestion
-      - type: string
-        const: FoodDefenseQuestion
+    type: array
+    readOnly: true
+    const:
+      - FoodDefenseQuestion
+    default:
+      - FoodDefenseQuestion
+    items:
+      type: string
+      enum:
+        - FoodDefenseQuestion
   number:
     title: Number
     description: An identifier for the question.
@@ -43,9 +45,11 @@ properties:
       term: rating
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#assertion
 additionalProperties: false
+required:
+  - type
 example: |-
   {
-    "type": "FoodDefenseQuestion",
+    "type": ["FoodDefenseQuestion"],
     "number": "12",
     "facility": "P",
     "response": true,
