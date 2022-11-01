@@ -35,7 +35,7 @@ properties:
     description: The organization performing the activity.
     type: array
     items:
-      $ref: ./Entity.yml
+      $ref: ./Organization.yml
     $linkedData:
       term: actor
       '@id': https://w3id.org/traceability#Organization
@@ -71,38 +71,42 @@ example: |-
     "eventId": "12345",
     "actor": [
       {
-        "type": ["Entity"],
+        "type": ["Organization"],
         "name": "Gleason Inc",
         "description": "Assimilated client-driven hub",
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "46718 Catalina Corner",
-          "addressLocality": "Port Dasiafort",
-          "addressRegion": "Florida",
-          "postalCode": "16352",
-          "addressCountry": "Palau"
+        "location": {
+          "type": ["Place"],
+          "address": {
+            "type": ["PostalAddress"],
+            "streetAddress": "46718 Catalina Corner",
+            "addressLocality": "Port Dasiafort",
+            "addressRegion": "Florida",
+            "postalCode": "16352",
+            "addressCountry": "Palau"
+          }
         },
         "email": "Sigurd.Langosh@example.com",
         "phoneNumber": "+1-555-296-7144",
-        "faxNumber": "+1-555-149-6658",
-        "entityType": "Organization"
+        "faxNumber": "+1-555-149-6658"
       },
       {
-        "type": ["Entity"],
+        "type": ["Organization"],
         "name": "Hagenes LLC",
         "description": "Right-sized asynchronous task-force",
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "16064 Winona Wall",
-          "addressLocality": "New Brendonberg",
-          "addressRegion": "Vermont",
-          "postalCode": "21278-9834",
-          "addressCountry": "Netherlands"
+        "location": {
+          "type": ["Place"],
+          "address": {
+            "type": ["PostalAddress"],
+            "streetAddress": "16064 Winona Wall",
+            "addressLocality": "New Brendonberg",
+            "addressRegion": "Vermont",
+            "postalCode": "21278-9834",
+            "addressCountry": "Netherlands"
+          }
         },
         "email": "Tristin95@example.com",
         "phoneNumber": "+1-555-540-4871",
-        "faxNumber": "+1-555-295-4939",
-        "entityType": "Organization"
+        "faxNumber": "+1-555-295-4939"
       }
     ],
     "place": {
