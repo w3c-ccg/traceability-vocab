@@ -1,0 +1,57 @@
+$linkedData:
+  term: FoodDefenseDeficiency
+  '@id': https://w3id.org/traceability#FoodDefenseDeficiency
+title: Food Defense Deficiency
+description: Information on a food defense inspection deficiency.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - FoodDefenseDeficiency
+    default:
+      - FoodDefenseDeficiency
+    items:
+      type: string
+      enum:
+        - FoodDefenseDeficiency
+  number:
+    title: Number
+    description: An identifier for the question.
+    type: string
+    $linkedData:
+      term: number
+      '@id': https://schema.org/identifier
+  description:
+    title: Description
+    description: A brief description of this deficiency.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
+  proposedCorrectionDate:
+    title: Proposed Correction Date
+    description: The proposed date for the corrective action.
+    type: string
+    $linkedData:
+      term: proposedCorrectionDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#occurrenceDateTime
+  dateCorrected:
+    title: Date Corrected
+    description: The actual date corrected.
+    type: string
+    $linkedData:
+      term: dateCorrected
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#occurrenceDateTime
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["FoodDefenseDeficiency"],
+    "number": "10",
+    "description": "\"No Trespassing\" signs not visible along perimeter and no other measures",
+    "proposedCorrectionDate": "2020-03-20",
+    "dateCorrected": "2020-03-21"
+  }
