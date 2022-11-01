@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Place
+    default:
+      - Place
     items:
       type: string
       enum:
@@ -61,6 +66,8 @@ properties:
       term: locationName
       '@id': https://schema.org/name
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["Place"],

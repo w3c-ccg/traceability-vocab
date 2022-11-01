@@ -8,11 +8,14 @@ description: >-
   and
   https://www.iata.org/contentassets/b559d10aeb734d5196332b4953dcf312/e-awb-sop-hyd.pdf
 type: object
-required:
-  - type
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - IATAAirWaybill
+    default:
+      - IATAAirWaybill
     items:
       type: string
       enum:
@@ -465,6 +468,14 @@ properties:
       term: executedAt
       '@id': https://schema.org/Place
 additionalProperties: false
+required:
+  - airWaybillNumber
+  - airlineCodeNumber
+  - carrier
+  - shipper
+  - consignee
+  - airportOfDeparture
+  - destinationAirport
 example: |-
   {
     "type": ["IATAAirWaybill"],

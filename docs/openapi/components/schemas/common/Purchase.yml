@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Purchase
+    default:
+      - Purchase
     items:
       type: string
       enum:
@@ -33,6 +38,8 @@ properties:
       term: purchaseOrderNo
       '@id': https://schema.org/identifier
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": [

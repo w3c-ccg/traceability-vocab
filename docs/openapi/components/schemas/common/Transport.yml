@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Transport
+    default:
+      - Transport
     items:
       type: string
       enum:
@@ -71,6 +76,9 @@ properties:
       term: voyageNumber
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TransportMovement
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type": ["Transport"],

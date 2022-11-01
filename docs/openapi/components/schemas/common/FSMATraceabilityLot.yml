@@ -10,14 +10,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FSMATraceabilityLot
-      - type: string
-        const: FSMATraceabilityLot
+    type: array
+    readOnly: true
+    const:
+      - FSMATraceabilityLot
+    default:
+      - FSMATraceabilityLot
+    items:
+      type: string
+      enum:
+        - FSMATraceabilityLot
   lotCode:
     title: Lot Code
     description: The code used to track this traceability lot along the supply chain.

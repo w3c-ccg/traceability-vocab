@@ -4,17 +4,14 @@ $linkedData:
 title: LEIregistration
 description: GLEIF LEI Redord Level 1 Schema for LEI Registration
 type: object
-required:
-  - initialRegistrationDate
-  - lastUpdateDate
-  - status
-  - nextRenewalDate
-  - managingLou
-  - validationSources
-  - validationAuthority
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - LEIregistration
+    default:
+      - LEIregistration
     items:
       type: string
       enum:
@@ -64,6 +61,14 @@ properties:
       term: validationAuthority
       '@id': https://w3id.org/traceability#LEIauthority
 additionalProperties: false
+required:
+  - initialRegistrationDate
+  - lastUpdateDate
+  - status
+  - nextRenewalDate
+  - managingLou
+  - validationSources
+  - validationAuthority
 example: |-
   {
     "type": ["LEIregistration"],

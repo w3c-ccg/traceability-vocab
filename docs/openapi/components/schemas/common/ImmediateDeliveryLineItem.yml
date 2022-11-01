@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - ImmediateDeliveryLineItem
+    default:
+      - ImmediateDeliveryLineItem
     items:
       type: string
       enum:
@@ -65,6 +70,11 @@ properties:
       term: value
       '@id': https://schema.org/MonetaryAmount
 additionalProperties: false
+required:
+  - commodity
+  - productDescription
+  - itemCount
+  - countryOfOrigin
 example: |-
   {
     "type": ["ImmediateDeliveryLineItem"],

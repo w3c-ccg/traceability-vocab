@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - USMCAProductSpecifier
+    default:
+      - USMCAProductSpecifier
     items:
       type: string
       enum:
@@ -120,7 +125,13 @@ properties:
     $linkedData:
       term: exporterDetails
       '@id': https://w3id.org/traceability#exporterDetails
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
+  - product
+  - originCriterion
+  - countryOfOrigin
+  - exporterDetails
 example: |-
   {
     "type": ["USMCAProductSpecifier"],

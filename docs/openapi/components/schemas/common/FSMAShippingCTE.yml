@@ -9,14 +9,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FSMAShippingCTE
-      - type: string
-        const: FSMAShippingCTE
+    type: array
+    readOnly: true
+    const:
+      - FSMAShippingCTE
+    default:
+      - FSMAShippingCTE
+    items:
+      type: string
+      enum:
+        - FSMAShippingCTE
   shipment:
     title: Shipment
     description: The shipment being tracked.

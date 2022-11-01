@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - SIMASteelImportLicense
+    default:
+      - SIMASteelImportLicense
     items:
       type: string
       enum:
@@ -97,8 +102,17 @@ properties:
     $linkedData:
       term: productInformation
       '@id': https://w3id.org/traceability#productInformation
-additionalProperties: true
-required: []
+additionalProperties: false  
+required:
+  - type
+  - applicantCompany
+  - importer
+  - exporter
+  - manufacturer
+  - countryOfOrigin
+  - countryOfExportation
+  - countryOfMeltAndPour
+  - productInformation
 example: |-
   {
     "type": ["SIMASteelImportLicense"], 

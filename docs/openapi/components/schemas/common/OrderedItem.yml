@@ -4,14 +4,14 @@ $linkedData:
 title: Order Item Record
 description: Order Item Record based on orderedItem from schema.org
 type: object
-required:
-  - type
-  - name
-  - productID
-  - orderQuantity
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - OrderedItem
+    default:
+      - OrderedItem
     items:
       type: string
       enum:
@@ -52,6 +52,11 @@ properties:
       term: price
       '@id': https://schema.org/Price
 additionalProperties: false
+required:
+  - type
+  - name
+  - productID
+  - orderQuantity
 example: |-
   {
     "type": ["OrderedItem"],

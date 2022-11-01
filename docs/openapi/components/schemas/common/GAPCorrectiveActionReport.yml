@@ -6,15 +6,16 @@ description: Information regarding corrective action for a requirement result th
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - GAPCorrectiveActionReport
-      - type: string
-        const:
-          - GAPCorrectiveActionReport
+    type: array
+    readOnly: true
+    const:
+      - GAPCorrectiveActionReport
+    default:
+      - GAPCorrectiveActionReport
+    items:
+      type: string
+      enum:
+        - GAPCorrectiveActionReport
   nonconformityDescription:
     title: Non-Conformity Description
     description: A description of the requirement non-conformity and rationale for the result.

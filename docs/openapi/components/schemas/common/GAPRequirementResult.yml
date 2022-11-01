@@ -6,15 +6,16 @@ description: Information regarding the audit results for a GAP requirement.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - GAPRequirementResult
-      - type: string
-        const:
-          - GAPRequirementResult
+    type: array
+    readOnly: true
+    const:
+      - GAPRequirementResult
+    default:
+      - GAPRequirementResult
+    items:
+      type: string
+      enum:
+        - GAPRequirementResult
   requirementNumber:
     title: Requirement Number
     description: A code corresponding to the relevant requirement.

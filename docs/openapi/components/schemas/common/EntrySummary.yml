@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - EntrySummary
+    default:
+      - EntrySummary
     items:
       type: string
       enum:
@@ -282,6 +287,12 @@ properties:
       term: total
       '@id': https://schema.org/MonetaryAmount
 additionalProperties: false
+required: 
+  - entryNumber
+  - portCode
+  - entryDate
+  - countryOfOrigin
+  - descriptionOfMerchandise
 example: |-
   {
     "type": ["EntrySummary"],

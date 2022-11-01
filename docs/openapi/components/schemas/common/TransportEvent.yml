@@ -7,6 +7,13 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Event
+      - TransportEvent
+    default:
+      - Event
+      - TransportEvent
     items:
       type: string
       enum:
@@ -61,7 +68,9 @@ properties:
     $linkedData:
       term: trackingNumber
       '@id': https://schema.org/trackingNumber
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type":[
@@ -103,7 +112,6 @@ example: |-
     ],
     "products":[
       "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
-
     ],
     "deliveryMethod":"Truck",
     "trackingNumber":"1258"

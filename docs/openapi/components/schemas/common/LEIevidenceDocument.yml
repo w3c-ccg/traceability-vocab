@@ -4,14 +4,14 @@ $linkedData:
 title: LEIevidenceDocument
 description: GLEIF LEI Redord Level 1 Schema
 type: object
-required:
-  - lei
-  - entity
-  - registration
-  - bic
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - LEIevidenceDocument
+    default:
+      - LEIevidenceDocument
     items:
       type: string
       enum:
@@ -43,6 +43,11 @@ properties:
         term: bic
         '@id': https://www.iso.org/obp/ui/#iso:std:60390:en
 additionalProperties: false
+required:
+  - lei
+  - entity
+  - registration
+  - bic
 example: |-
   {
     "type": ["LEIevidenceDocument"],

@@ -4,12 +4,14 @@ $linkedData:
 title: Packing List Item
 description: Ecommerce Packing List Item
 type: object
-required:
-  - orderID
-  - productInOrder
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PackingListItem
+    default:
+      - PackingListItem
     items:
       type: string
       enum:
@@ -31,6 +33,9 @@ properties:
       term: productInOrder
       '@id': https://schema.org/productID
 additionalProperties: false
+required:
+  - orderID
+  - productInOrder
 example: |-
   {
     "type": ["PackingListItem"],

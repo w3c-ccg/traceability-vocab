@@ -9,14 +9,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FSMATransformingCTE
-      - type: string
-        const: FSMATransformingCTE
+    type: array
+    readOnly: true
+    const:
+      - FSMATransformingCTE
+    default:
+      - FSMATransformingCTE
+    items:
+      type: string
+      enum:
+        - FSMATransformingCTE
   foodUsed:
     title: Food Used
     description: The food used in transformation.
@@ -136,7 +138,7 @@ example: |-
       ]
     },
     "foodProduced": {
-      "type": "FSMAProduct",
+      "type": ["FSMAProduct"],
       "traceabilityLot": {
         "type": ["FSMATraceabilityLot"],
         "lotCode": "638854954425-FP-PP16-061221-6H08",

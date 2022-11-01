@@ -4,18 +4,6 @@ $linkedData:
 title: Invoice Registration Evidence Document
 description: Evidence data for a registered eCommerce Invoice
 type: object
-required:
-  - identifier
-  - description
-  - url
-  - broker
-  - accountId
-  - customer
-  - paymentDueDate
-  - totalPaymentDue
-  - paymentStatus
-  - provider
-  - referencesOrder
 properties:
   type:
     type: array
@@ -103,6 +91,19 @@ properties:
     $linkedData:
       term: referencesOrder
       '@id': https://schema.org/referencesOrder
+additionalProperties: false
+required:
+  - identifier
+  - description
+  - url
+  - broker
+  - accountId
+  - customer
+  - paymentDueDate
+  - totalPaymentDue
+  - paymentStatus
+  - provider
+  - referencesOrder
 example: |-
   {
     "type": ["InvoiceRegistrationEvidenceDocument"],
