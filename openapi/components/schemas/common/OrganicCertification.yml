@@ -6,14 +6,16 @@ description: Information regarding the organic certification.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - OrganicCertification
-      - type: string
-        const: OrganicCertification
+    type: array
+    readOnly: true
+    const:
+      - OrganicCertification
+    default:
+      - OrganicCertification
+    items:
+      type: string
+      enum:
+        - OrganicCertification
   certifiedOperation:
     title: Certified Operation
     description: The operation certified as organic, including name (all legal names) and address(es).

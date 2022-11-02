@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - SteelProduct
+    default:
+      - SteelProduct
     items:
       type: string
       enum:
@@ -91,8 +96,9 @@ properties:
     $linkedData:
       term: commodity
       '@id': https://w3id.org/traceability#Commodity
-  
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type": ["SteelProduct"],

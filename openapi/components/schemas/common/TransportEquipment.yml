@@ -10,6 +10,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - TransportEquipment
+    default:
+      - TransportEquipment
     items:
       type: string
       enum:
@@ -99,7 +104,9 @@ properties:
       term: seals
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#affixedSeal
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type": ["TransportEquipment"],

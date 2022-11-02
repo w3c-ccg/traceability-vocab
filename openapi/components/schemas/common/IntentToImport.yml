@@ -13,6 +13,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - IntentToImport
+    default:
+      - IntentToImport
     items:
       type: string
       enum:
@@ -49,6 +54,9 @@ properties:
       term: declarationDate
       '@id': https://schema.org/startDate
 additionalProperties: false
+required: 
+  - importer
+  - product
 example: |-
   {
     "type": ["IntentToImport"],

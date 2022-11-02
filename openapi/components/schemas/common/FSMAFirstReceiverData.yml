@@ -10,14 +10,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FSMAFirstReceiverData
-      - type: string
-        const: FSMAFirstReceiverData
+    type: array
+    readOnly: true
+    const:
+      - FSMAFirstReceiverData
+    default:
+      - FSMAFirstReceiverData
+    items:
+      type: string
+      enum:
+        - FSMAFirstReceiverData
   traceabilityLot:
     title: Traceability Lot
     description: The lot of food being tracked.

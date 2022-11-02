@@ -1628,7 +1628,7 @@
   }
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
-<li><a href='#Entity'>Entity</a></li>
+<li><a href='#Organization'>Organization</a></li>
 <li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
     </section>
   
@@ -2046,6 +2046,16 @@
         }
       ]
     }
+  ],
+  "shipmentLocations": [
+    {
+      "type": ["Place"],
+      "unLocode": "CNXMG"
+    },
+    {
+      "type": ["Place"],
+      "unLocode": "BEGNE"
+    }
   ]
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
@@ -2077,6 +2087,7 @@
       <pre class="example">{
   "type": ["DCSATransportDocument"],
   "transportDocumentReference": "XMANHR2102045",
+  "issuerCode": "MCLC",
   "shippingInstruction": {
     "type": ["DCSAShippingInstruction"],
     "carrierBookingReference": "XMANHR2102045",
@@ -2198,7 +2209,17 @@
           "sealNumber": "YMAI715692"
         }
       ]
-    }]
+    }],
+    "shipmentLocations": [
+      {
+        "type": ["Place"],
+        "unLocode": "CNXMG"
+      },
+      {
+        "type": ["Place"],
+        "unLocode": "BEGNE"
+      }
+    ]
   },
   "transports": [{
     "type": ["Transport"],
@@ -2609,7 +2630,7 @@
       "type": ["MapResource"],
       "resourceType": "External",
       "external": {
-        "type": "ExternalResource",
+        "type": ["ExternalResource"],
         "uri": "https://img.example.org/102934920857/937/903/",
         "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
       }
@@ -2837,28 +2858,32 @@
   "importerNumber": "9900127",
   "referenceNumber": "ref199812841",
   "ultimateConsignee": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Future Mobility, Inc.",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "2016 W Farmington Rd",
-      "addressLocality": "West Peoria",
-      "postalCode": "61604",
-      "addressCountry": "US"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
   },
   "importerOfRecord": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Future Mobility, Inc.",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "2016 W Farmington Rd",
-      "addressLocality": "West Peoria",
-      "postalCode": "61604",
-      "addressCountry": "US"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
   },
   "descriptionOfMerchandise": [
     {
@@ -2925,7 +2950,7 @@
     "priceCurrency": "USD"
   }
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
 <li><a href='#Place'>Place</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
     </section>
@@ -3025,38 +3050,42 @@
   "eventId": "12345",
   "actor": [
     {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Gleason Inc",
       "description": "Assimilated client-driven hub",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "46718 Catalina Corner",
-        "addressLocality": "Port Dasiafort",
-        "addressRegion": "Florida",
-        "postalCode": "16352",
-        "addressCountry": "Palau"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "46718 Catalina Corner",
+          "addressLocality": "Port Dasiafort",
+          "addressRegion": "Florida",
+          "postalCode": "16352",
+          "addressCountry": "Palau"
+        }
       },
       "email": "Sigurd.Langosh@example.com",
       "phoneNumber": "+1-555-296-7144",
-      "faxNumber": "+1-555-149-6658",
-      "entityType": "Organization"
+      "faxNumber": "+1-555-149-6658"
     },
     {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Hagenes LLC",
       "description": "Right-sized asynchronous task-force",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "16064 Winona Wall",
-        "addressLocality": "New Brendonberg",
-        "addressRegion": "Vermont",
-        "postalCode": "21278-9834",
-        "addressCountry": "Netherlands"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "16064 Winona Wall",
+          "addressLocality": "New Brendonberg",
+          "addressRegion": "Vermont",
+          "postalCode": "21278-9834",
+          "addressCountry": "Netherlands"
+        }
       },
       "email": "Tristin95@example.com",
       "phoneNumber": "+1-555-540-4871",
-      "faxNumber": "+1-555-295-4939",
-      "entityType": "Organization"
+      "faxNumber": "+1-555-295-4939"
     }
   ],
   "place": {
@@ -3109,7 +3138,7 @@
   </table>
   
       <pre class="example">{
-  "type": "ExternalResource",
+  "type": ["ExternalResource"],
   "uri": "https://img.example.org/102934920857/937/903/",
   "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
 }</pre>
@@ -3139,7 +3168,7 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMAAbstractKDE",
+  "type": ["FSMAAbstractKDE"],
   "name": "Reference record type and number",
   "value": "BOL 1324"
 }</pre>
@@ -3169,11 +3198,11 @@
   </table>
   
       <pre class="example">{
-  "type": "FSMACreatingCTE",
+  "type": ["FSMACreatingCTE"],
   "food": {
-    "type": "FSMAProduct",
+    "type": ["FSMAProduct"],
     "traceabilityLot": {
-      "type": "FSMATraceabilityLot",
+      "type": ["FSMATraceabilityLot"],
       "lotCode": "2b1ed51f-f1da-49f6-8130-ac81d1e5e61d",
       "lotCodeAssignmentMethod": "Lot codes are generated as a random UUID.",
       "lotType": "created"
@@ -3182,37 +3211,37 @@
     "unit": "Crates",
     "additionalData": [
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category code",
         "value": "659351253"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Category name",
         "value": "Nut butter"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Brand name",
         "value": "Delicious Dips"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Commodity",
         "value": "Peanut Butter"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Product name",
         "value": "DD PB"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging size",
         "value": "24 LB"
       },
       {
-        "type": "FSMAAbstractKDE",
+        "type": ["FSMAAbstractKDE"],
         "name": "Packaging style",
         "value": "Crates"
       }
@@ -4160,7 +4189,7 @@
     ]
   },
   "foodProduced": {
-    "type": "FSMAProduct",
+    "type": ["FSMAProduct"],
     "traceabilityLot": {
       "type": ["FSMATraceabilityLot"],
       "lotCode": "638854954425-FP-PP16-061221-6H08",
@@ -4216,6 +4245,219 @@
 }</pre>
       <b>Dependencies</b><ul><li><a href='#FSMAProduct'>FSMAProduct</a></li>
 <li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="FoodDefenseDeficiency">
+      <h2>Food Defense Deficiency</h2>
+      <p>Information on a food defense inspection deficiency.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FoodDefenseDeficiency">https://w3id.org/traceability#FoodDefenseDeficiency</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FoodDefenseDeficiency.yml">https://w3id.org/traceability/openapi/components/schemas/common/FoodDefenseDeficiency.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["FoodDefenseDeficiency"],
+  "number": "10",
+  "description": "\"No Trespassing\" signs not visible along perimeter and no other measures",
+  "proposedCorrectionDate": "2020-03-20",
+  "dateCorrected": "2020-03-21"
+}</pre>
+      
+    </section>
+  
+
+    <section id="FoodDefenseInspection">
+      <h2>Food Defense Inspection</h2>
+      <p>Information regarding the food defense inspection and results.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FoodDefenseInspection">https://w3id.org/traceability#FoodDefenseInspection</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FoodDefenseInspection.yml">https://w3id.org/traceability/openapi/components/schemas/common/FoodDefenseInspection.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["FoodDefenseInspection"],
+  "commonInfo": {
+    "type": ["AgricultureInspectionCommonInfo"],
+    "applicant": {
+      "type" : ["Entity"],
+      "entityType": "Organization",
+      "name" : "Jessica Sherawat",
+      "email": "Jessica58@example.com",
+      "phoneNumber": "+1-555-581-2077"
+    },
+    "facility": {
+      "type": [
+        "Place"
+      ],
+      "globalLocationNumber": "5449782976823",
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "-79.6395",
+        "longitude": "178.5353"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "name": "Ace Foodstuffs",
+        "streetAddress": "853 Wisozk River",
+        "addressLocality": "New Noemyfort",
+        "addressRegion": "New Mexico",
+        "postalCode": "18047-2038",
+        "addressCountry": "USA"
+      },
+      "unLocode": "DKCPH"
+    },
+    "inspector": {
+      "type": [
+        "Inspector"
+      ],
+      "person": {
+        "type": [
+          "Person"
+        ],
+        "firstName": "Jason",
+        "lastName": "Grant",
+        "email": "Santa43@example.org",
+        "phoneNumber": "555-460-4373",
+        "worksFor": {
+          "type": [
+            "Organization"
+          ],
+          "name": "Glayson & Co. Inspections",
+          "description": "Agricultural cleanliness & food defense assurance",
+          "email": "Marina96@glaysonco.net",
+          "phoneNumber": "555-521-6143",
+          "faxNumber": "555-150-7668"
+        },
+        "jobTitle": "Principal Data Supervisor"
+      },
+      "qualification": [
+        {
+          "type": ["Qualification"],
+          "qualificationCategory": "Agricultural Security Analyst",
+          "qualificationValue": "Executive"
+        },
+        {
+          "type": ["Qualification"],
+          "qualificationCategory": "Future Metrics Planner",
+          "qualificationValue": "Coordinator"
+        },
+        {
+          "type": ["Qualification"],
+          "qualificationCategory": "Internal Identity Agent",
+          "qualificationValue": "Assistant"
+        }
+      ]
+    },
+    "delegateOf": {
+      "type": ["Entity"],
+      "entityType" : "Organization",
+      "name": "Glayson & Co. Inspections",
+      "description": "Agricultural cleanliness & food defense assurance",
+      "email": "Marina96@glaysonco.net",
+      "phoneNumber": "555-521-6143",
+      "faxNumber": "555-150-7668"
+    },
+    "regulatoryAgency": {
+      "type": ["Organization"],
+      "name": "CDFA",
+      "description": "California Department of Food and Agriculture",
+      "email": "Briana55@cdfa.ca.gov.org",
+      "phoneNumber": "555-467-2604",
+      "faxNumber": "+1-555-486-3154"
+    },
+    "inspectionStarted": "2020-03-15T14:30-08:00",
+    "inspectionEnded": "2020-03-15T17:30-08:00"
+  },
+  "questions": [
+    {
+      "type": ["FoodDefenseQuestion"],
+      "number": "10",
+      "facility": "P",
+      "response": false,
+      "rating": 1
+    },
+    {
+      "type": ["FoodDefenseQuestion"],
+      "number": "12",
+      "facility": "P",
+      "response": true,
+      "rating": 4
+    }
+  ],
+  "deficiencies": [
+    {
+      "type": ["FoodDefenseDeficiency"],
+      "number": "10",
+      "description": "\"No Trespassing\" signs not visible along perimeter and no other measures",
+      "proposedCorrectionDate": "2020-03-20",
+      "dateCorrected": "2020-03-21"
+    }
+  ]
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgricultureInspectionCommonInfo'>AgricultureInspectionCommonInfo</a></li></ul>
+    </section>
+  
+
+    <section id="FoodDefenseQuestion">
+      <h2>Food Defense Question</h2>
+      <p>Information on a food defense inspection question and its response.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#FoodDefenseQuestion">https://w3id.org/traceability#FoodDefenseQuestion</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/FoodDefenseQuestion.yml">https://w3id.org/traceability/openapi/components/schemas/common/FoodDefenseQuestion.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["FoodDefenseQuestion"],
+  "number": "12",
+  "facility": "P",
+  "response": true,
+  "rating": 4
+}</pre>
+      
     </section>
   
 
@@ -4653,7 +4895,7 @@
   </table>
   
       <pre class="example">{
-  "type": "FoodGradeInspectionDefect",
+  "type": ["FoodGradeInspectionDefect"],
   "offsizeDefect": "Quality - Dry Sunken Areas",
   "averageDefects": 2,
   "seriousDamage": 0,
@@ -4859,7 +5101,7 @@
   </table>
   
       <pre class="example">{
-  "type": "FoodGradeInspectionResult",
+  "type": ["FoodGradeInspectionResult"],
   "gradeInspected": "U.S. No. 1",
   "requirementsMet": true
 }</pre>
@@ -4889,52 +5131,52 @@
   </table>
   
       <pre class="example">{
-  "type": "FoodGradeInspectionSample",
+  "type": ["FoodGradeInspectionSample"],
   "sampleSizeValue": 10,
   "sampleSizeUnits": "items",
   "sampleProperties": [
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "Temp °F",
       "propertyValue": "53"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "BMR Quality D",
       "propertyValue": "2"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "BMR Quality SD",
       "propertyValue": "0"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "BMR Quality DK",
       "propertyValue": "0"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "Caked Dirt Quality D",
       "propertyValue": "0"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "Caked Dirt Quality SD",
       "propertyValue": "0"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "Caked Dirt Quality DK",
       "propertyValue": "0"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "< 1-3/4 In. Dia.",
       "propertyValue": "1"
     },
     {
-      "type": "FoodGradeInspectionSampleProperty",
+      "type": ["FoodGradeInspectionSampleProperty"],
       "propertyName": "> 3 In. Dia.",
       "propertyValue": "2"
     }
@@ -4966,7 +5208,7 @@
   </table>
   
       <pre class="example">{
-  "type": "FoodGradeInspectionSampleProperty",
+  "type": ["FoodGradeInspectionSampleProperty"],
   "propertyName": "Temp °F",
   "propertyValue": "53"
 }</pre>
@@ -5029,17 +5271,19 @@
       <pre class="example">{
   "type": ["FreightManifest"],
   "carrier": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "MULTI CONTAINER LINE",
-    "address": {
-      "type": ["PostalAddress"],
-      "name": "MCL Multi Container Line LTD.",
-      "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
-      "addressLocality": "Kowloon Bay",
-      "addressRegion": "Hong Kong",
-      "addressCountry": "Hong Kong SAR"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "MCL Multi Container Line LTD.",
+        "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+        "addressLocality": "Kowloon Bay",
+        "addressRegion": "Hong Kong",
+        "addressCountry": "Hong Kong SAR"
+      }
+    }
   },
   "carrierCode": "MCML",
   "transportMeans": "HMM Algeciras",
@@ -5199,7 +5443,7 @@
     }
   ]
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li></ul>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
     </section>
   
 
@@ -5915,20 +6159,22 @@
   },
   "bondType": "Single Transaction Bond",
   "importer": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Onwards A/S",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "Sludevej 63",
-      "addressLocality": "Kgs. Lyngby",
-      "postalCode": "2800",
-      "addressCountry": "DK"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    }
   },
   "assignedIdentifier": "12345678",
   "assignedIdentifierType": "CBP",
-  "entryNumber": "A123456",
+  "entryNumber": "12345123456",
   "bondValue": 12000,
   "entryValue": 12000,
   "centralizedExaminationSite": "K682",
@@ -5961,16 +6207,18 @@
       "itemParty": {
         "type": ["ImmediateDeliveryEntity"],
         "consignee": {
-          "type": ["Entity"],
+          "type": ["Organization"],
           "name": "Future Mobility, Inc.",
-          "address": {
-            "type": ["PostalAddress"],
-            "streetAddress": "2016 W Farmington Rd",
-            "addressLocality": "West Peoria",
-            "postalCode": "61604",
-            "addressCountry": "US"
-          },
-          "entityType": "Organization"
+          "location": {
+            "type": ["Place"],
+            "address": {
+              "type": ["PostalAddress"],
+              "streetAddress": "2016 W Farmington Rd",
+              "addressLocality": "West Peoria",
+              "postalCode": "61604",
+              "addressCountry": "US"
+            }
+          }
         },
         "assignedIdentifier": "12345678",
         "assignedIdentifierType": "CBP"
@@ -5997,8 +6245,8 @@
   "conveyanceName": "Gizera",
   "arrivalDate": "2022-02-25"
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
-<li><a href='#MeasuredValue'>MeasuredValue</a></li>
+      <b>Dependencies</b><ul><li><a href='#MeasuredValue'>MeasuredValue</a></li>
+<li><a href='#Organization'>Organization</a></li>
 <li><a href='#Place'>Place</a></li></ul>
     </section>
   
@@ -6027,21 +6275,23 @@
       <pre class="example">{
   "type": ["ImmediateDeliveryEntity"],
   "consignee": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Future Mobility, Inc.",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "2016 W Farmington Rd",
-      "addressLocality": "West Peoria",
-      "postalCode": "61604",
-      "addressCountry": "US"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
   },
   "assignedIdentifier": "12345678",
   "assignedIdentifierType": "CBP"
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li></ul>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
     </section>
   
 
@@ -6078,16 +6328,18 @@
   "itemParty": {
     "type": ["ImmediateDeliveryEntity"],
     "consignee": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Future Mobility, Inc.",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "2016 W Farmington Rd",
-        "addressLocality": "West Peoria",
-        "postalCode": "61604",
-        "addressCountry": "US"
-      },
-      "entityType": "Organization"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      }
     },
     "assignedIdentifier": "12345678",
     "assignedIdentifierType": "CBP"
@@ -6125,66 +6377,90 @@
   
       <pre class="example">{
   "type": ["ImporterSecurityFiling"],
-  "seller": {
-    "type": ["Entity"],
+  "manufacturer": {
+    "type": ["Organization"],
     "name": "Onwards A/S",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "Sludevej 63",
-      "addressLocality": "Kgs. Lyngby",
-      "postalCode": "2800",
-      "addressCountry": "DK"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    }
+  },
+  "seller": {
+    "type": ["Organization"],
+    "name": "Onwards A/S",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    }
   },
   "buyer": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Future Mobility, Inc.",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "2016 W Farmington Rd",
-      "addressLocality": "West Peoria",
-      "postalCode": "61604",
-      "addressCountry": "US"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
   },
   "importer": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Onwards A/S",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "Sludevej 63",
-      "addressLocality": "Kgs. Lyngby",
-      "postalCode": "2800",
-      "addressCountry": "DK"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    }
   },
   "consignee": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Future Mobility, Inc.",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "2016 W Farmington Rd",
-      "addressLocality": "West Peoria",
-      "postalCode": "61604",
-      "addressCountry": "US"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
   },
   "shipToParty": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Future Mobility - Georgia",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "3837 Martinez Blvd",
-      "addressLocality": "Augusta",
-      "addressRegion": "Georgia",
-      "postalCode": "30907",
-      "addressCountry": "US"
-    },
-    "entityType": "Organization"
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "3837 Martinez Blvd",
+        "addressLocality": "Augusta",
+        "addressRegion": "Georgia",
+        "postalCode": "30907",
+        "addressCountry": "US"
+      }
+    }
   },
   "filingItems": [
     {
@@ -6196,17 +6472,19 @@
       },
       "countryOfOrigin": "CN",
       "manufacturer": {
-        "type": ["Entity"],
+        "type": ["Organization"],
         "name": "Xxinau Manufacturing Co. Ltd.",
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "Xin Fei Da Dao 139",
-          "addressLocality": "Xindao",
-          "addressRegion": "Fujian Province",
-          "postalCode": "361100",
-          "addressCountry": "CN"
-        },
-        "entityType": "Organization"
+        "location": {
+          "type": ["Place"],
+          "address": {
+            "type": ["PostalAddress"],
+            "streetAddress": "Xin Fei Da Dao 139",
+            "addressLocality": "Xindao",
+            "addressRegion": "Fujian Province",
+            "postalCode": "361100",
+            "addressCountry": "CN"
+          }
+        }
       }
     }
   ],
@@ -6225,21 +6503,23 @@
   ],
   "consolidator": [
     {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Xxinau Manufacturing Co. Ltd.",
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "Xin Fei Da Dao 139",
-        "addressLocality": "Xindao",
-        "addressRegion": "Fujian Province",
-        "postalCode": "361100",
-        "addressCountry": "CN"
-      },
-      "entityType": "Organization"
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Xin Fei Da Dao 139",
+          "addressLocality": "Xindao",
+          "addressRegion": "Fujian Province",
+          "postalCode": "361100",
+          "addressCountry": "CN"
+        }
+      }
     }
   ]
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li></ul>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
     </section>
   
 
@@ -6297,18 +6577,16 @@
     "unLocode": "DKCPH"
   },
   "carrier": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Example Carrier Organization",
     "email": "Griffin_Trantow65@example.org",
-    "phoneNumber": "+1-555-227-3190",
-    "entityType": "Organization"
+    "phoneNumber": "+1-555-227-3190"
   },
   "recipient": {
-    "type": ["Entity"],
+    "type": ["Organization"],
     "name": "Example Recipient Organization",
     "email": "Gustave.Dicki37@example.net",
-    "phoneNumber": "+1-555-238-5681",
-    "entityType": "Organization"
+    "phoneNumber": "+1-555-238-5681"
   },
   "portOfArrival": {
     "type": [
@@ -6422,7 +6700,7 @@
     "sku": "493485066776"
   }
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Entity'>Entity</a></li>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
 <li><a href='#ParcelDelivery'>ParcelDelivery</a></li>
 <li><a href='#Place'>Place</a></li>
 <li><a href='#Product'>Product</a></li></ul>
@@ -6881,7 +7159,7 @@
         "value": "82500",
         "unitCode": "lbs"
       },
-      "priceSpecification": {
+      "lineItemTotalPrice": {
         "type": ["PriceSpecification"],
         "price": 5200,
         "priceCurrency": "USD"
@@ -6927,8 +7205,8 @@
         "value": "253600",
         "unitCode": "lbs"
       },
-      "priceSpecification": {
-        "type": "PriceSpecification",
+      "lineItemTotalPrice": {
+        "type": ["PriceSpecification"],
         "price": 4400,
         "priceCurrency": "USD"
       }
@@ -7599,7 +7877,7 @@
   "type": ["MapResource"],
   "resourceType": "External",
   "external": {
-    "type": "ExternalResource",
+    "type": ["ExternalResource"],
     "uri": "https://img.example.org/102934920857/937/903/",
     "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
   }
@@ -8103,7 +8381,7 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMADateTime",
+  "type": ["NAISMADateTime"],
   "collectionDate": "2002-10-03",
   "dateAccuracyDays": 15
 }</pre>
@@ -8133,7 +8411,7 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMAInfestation",
+  "type": ["NAISMAInfestation"],
   "infestedArea": {
     "type": [
       "QuantitativeValue"
@@ -8268,7 +8546,7 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMARecordLevelIdentifiers",
+  "type": ["NAISMARecordLevelIdentifiers"],
   "uuid": "defeaa69-703d-403a-a3cd-69eee650fd8c",
   "pid": "https://doi.org/10.1109/5.771073",
   "catalogNumber": "HVD-154356"
@@ -8299,7 +8577,7 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMARecordStatus",
+  "type": ["NAISMARecordStatus"],
   "occurrenceStatus": "Undetected",
   "populationStatus": "Established",
   "managementStatus": "Treated",
@@ -8371,9 +8649,9 @@
   </table>
   
       <pre class="example">{
-  "type": "NAISMATaxonomy",
+  "type": ["NAISMATaxonomy"],
   "speciesName": {
-    "type": "Taxonomy",
+    "type": ["Taxonomy"],
     "kingdom": "Plantae",
     "family": "Asteraceae",
     "genus": "Centaurea",
@@ -8604,9 +8882,11 @@
       "trackingNumber": "265320457183"
     },
     "portOfLoading": {
+      "type": ["Place"],
       "unLocode": "USMOB"
     },
     "portOfDischarge": {
+      "type": ["Place"],
       "unLocode": "MXATM"
     }
   },
@@ -8780,7 +9060,7 @@
   </table>
   
       <pre class="example">{
-  "type": "OrderRegistrationCredential",
+  "type": ["OrderRegistrationCredential"],
   "orderID": "Order#51",
   "productInOrder": [
     "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
@@ -10745,7 +11025,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   </table>
   
       <pre class="example">{
-  "type": "ProductReceiptRegistrationCredential",
+  "type": ["ProductReceiptRegistrationCredential"],
   "receiptID": "Receipt#663",
   "packingListID": [
     "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
@@ -10787,7 +11067,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   </table>
   
       <pre class="example">{
-  "type": "ProductRegistrationCredential",
+  "type": ["ProductRegistrationCredential"],
   "productCode": 10,
   "productCodeType": "UPC",
   "certificateName": "ACME Product Registration Certificate"
@@ -10974,7 +11254,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
       }
     }
   },
-  "itemsShipped": [
+  "itemsOrdered": [
     {
       "type": ["TradeLineItem"],
       "product": {
@@ -11008,7 +11288,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
         "value": "82500",
         "unitCode": "lbs"
       },
-      "priceSpecification": {
+      "lineItemTotalPrice": {
         "type": ["PriceSpecification"],
         "price": 5200,
         "priceCurrency": "USD"
@@ -11047,7 +11327,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
         "value": "253600",
         "unitCode": "lbs"
       },
-      "priceSpecification": {
+      "lineItemTotalPrice": {
         "type": ["PriceSpecification"],
         "price": 4400,
         "priceCurrency": "USD"
@@ -11157,8 +11437,8 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   "type": [
     "RawMaterial"
   ],
-    "name": "Scrap Metal (Iron)",
-    "inchiKey": "AEIXRCIKZIZYPM-UHFFFAOYSA-M"  
+  "name": "Scrap Metal (Iron)",
+  "inchiKey": "AEIXRCIKZIZYPM-UHFFFAOYSA-M"  
 }</pre>
       
     </section>
@@ -11904,7 +12184,8 @@ Learn more at [github.com/ossf/scorecard](https://github.com/ossf/scorecard#what
   "stopType": "Departure"
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
-<li><a href='#Place'>Place</a></li></ul>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PostalAddress'>PostalAddress</a></li></ul>
     </section>
   
 
@@ -12248,7 +12529,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   </table>
   
       <pre class="example">{
-  "type": "Taxonomy",
+  "type": ["Taxonomy"],
   "kingdom": "Plantae",
   "family": "Asteraceae",
   "genus": "Centaurea",
@@ -12521,7 +12802,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     "value": "75",
     "unitCode": "lbs"
   },
-  "priceSpecification": {
+  "lineItemTotalPrice": {
     "type": [
       "PriceSpecification"
     ],
@@ -12814,7 +13095,167 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   
       <pre class="example">{
   "type": ["MasterBillOfLading"],
-  "billOfLadingNumber": "NISC98212802"
+  "billOfLadingNumber": "EX600822199A",
+  "bookingNumber": [
+    "EX600822199"
+  ],
+  "shipper": {
+    "type": ["Organization"],
+    "name": "Espresso Italiano Co.",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Via Vico Ferrovia 5",
+        "addressLocality": "Goro",
+        "addressRegion": "Ferrara",
+        "postalCode": "44020",
+        "addressCountry": "IT"
+      }
+    },
+    "email": "sales@espresso-italiano.example.com",
+    "phoneNumber": "+39 0351 9067195"
+  },
+  "consignee": {
+    "type": ["Organization"],
+    "name": "Prosumer Coffee Supplies, Ltd.",
+    "description": "Coffee Machine Imports",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "3934 Spinnaker Lane",
+        "addressLocality": "Joliet",
+        "addressRegion": "Illinois",
+        "postalCode": "60432",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "notifyParty": [
+    {
+      "type": ["Organization"],
+      "name": "Prosumer Coffee Supplies, Ltd.",
+      "description": "Coffee Machine Imports",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "3934 Spinnaker Lane",
+          "addressLocality": "Joliet",
+          "addressRegion": "Illinois",
+          "postalCode": "60432",
+          "addressCountry": "US"
+        }
+      }
+    }
+  ],
+  "carrier": {
+    "type": ["Organization"],
+    "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
+    "name": "MULTI CONTAINER LINE",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "MCL Multi Container Line LTD.",
+        "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+        "addressLocality": "Kowloon Bay",
+        "addressRegion": "Hong Kong",
+        "addressCountry": "Hong Kong SAR"
+      }
+    }
+  },
+  "mainCarriageTransportMovement": {
+    "type": ["Transport"],
+    "vesselNumber": "MS Seven Seas",
+    "voyageNumber": "Atl-W0425"
+  },
+  "portOfLoading": {
+    "type": ["Place"],
+    "unLocode": "ITMIL"
+  },
+  "portOfDischarge": {
+    "type": ["Place"],
+    "unLocode": "USLGB"
+  },
+  "totalNumberOfPackages": 2200,
+  "transportEquipmentQuantity": 2,
+  "utilizedTransportEquipment": [
+    {
+      "type": ["TransportEquipment"],
+      "equipmentReference": "APZU4812090",
+      "ISOEquipmentCode": "40GP",
+      "seals": [
+        {
+          "type": ["Seal"],
+          "sealNumber": "PTW-002290109692"
+        }
+      ]
+    },
+    {
+      "type": ["TransportEquipment"],
+      "equipmentReference": "APZU5985096",
+      "ISOEquipmentCode": "40GP",
+      "seals": [
+        {
+          "type": ["Seal"],
+          "sealNumber": "PTW-002255398220"
+        }
+      ]
+    }
+  ],
+  "includedConsignmentItems": [
+    {
+      "type": ["ConsignmentItem"],
+      "marksAndNumbers": "Espresso Italiano",
+      "commodity": {
+        "type": ["Commodity"],
+        "commodityCode": "851671",
+        "commodityCodeType": "HS"
+      },
+      "packageQuantity": 2200,
+      "netWeight": {
+        "type": ["QuantitativeValue"],
+        "unitCode": "kg",
+        "value": "14600"
+      },
+      "grossWeight": {
+        "type": ["QuantitativeValue"],
+        "unitCode": "kg",
+        "value": "15960"
+      },
+      "grossVolume": {
+        "type": ["QuantitativeValue"],
+        "value": "856",
+        "unitCode": "cmb"
+      }
+    }
+  ],
+  "freightAndCharges": [{
+    "type": ["ServiceCharge"],
+    "chargeCode": "basicFreight",
+    "paymentTerm": "collect",
+    "chargeText": "Negotiated ocean freight",
+    "rate": {
+      "type": ["PriceSpecification"],
+      "price": 2250,
+      "priceCurrency": "USD"
+    },
+    "calculationBasis": "Per container",
+    "appliedAmount": {
+      "type": ["PriceSpecification"],
+      "price": 4500,
+      "priceCurrency": "USD"
+    }
+  }],
+  "declaredValue": {
+    "type": ["PriceSpecification"],
+    "price": 240000,
+    "priceCurrency": "USD"
+  },
+  "shippedOnBoardDate": "2022-02-02T09:30:00Z",
+  "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
 }</pre>
       
     </section>
@@ -12920,7 +13361,6 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   ],
   "products":[
     "http://example.org/products/05b6867b-2211-4c8f-ae7a-2a770b9510af?hl=ZfqLwiBj3yidP7p344d71z8ybyjb2+YVfhckGGHHEzk="
-
   ],
   "deliveryMethod":"Truck",
   "trackingNumber":"1258"
@@ -13385,7 +13825,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "portOfEntry": {
     "type": ["ShippingStop"],
     "shippingStopAddress": {
-      "type": "PostalAddress",
+      "type": ["PostalAddress"],
       "name": "Oberbrunner, Feeney and Langosh",
       "streetAddress": "13308 Abigayle Drives",
       "addressLocality": "South Vanessaton",

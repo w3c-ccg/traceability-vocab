@@ -6,14 +6,16 @@ description: Information regarding the organic inspection and results.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - OrganicInspection
-      - type: string
-        const: OrganicInspection
+    type: array
+    readOnly: true
+    const:
+      - OrganicInspection
+    default:
+      - OrganicInspection
+    items:
+      type: string
+      enum:
+        - OrganicInspection
   commonInfo:
     title: Common Info
     description:  Information common to agriculture inspection credentials.

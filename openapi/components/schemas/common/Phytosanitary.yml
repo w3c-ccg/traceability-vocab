@@ -10,15 +10,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Phytosanitary
-      - type: string
-        const:
-          - Phytosanitary
+    type: array
+    readOnly: true
+    const:
+      - Phytosanitary
+    default:
+      - Phytosanitary
+    items:
+      type: string
+      enum:
+        - Phytosanitary
   certificateNumber:
     title: Certificate Number
     description: ID number of the certificate
@@ -188,6 +189,8 @@ properties:
       '@id': https://schema.org/ItemList
       '@type': https://schema.org/ItemList
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["Phytosanitary"],

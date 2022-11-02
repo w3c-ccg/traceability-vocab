@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - MapResource
+    default:
+      - MapResource
     items:
       type: string
       enum:
@@ -34,13 +39,15 @@ properties:
     $linkedData:
       term: geoJson
       '@id': https://schema.org/geo
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type": ["MapResource"],
     "resourceType": "External",
     "external": {
-      "type": "ExternalResource",
+      "type": ["ExternalResource"],
       "uri": "https://img.example.org/102934920857/937/903/",
       "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
     }

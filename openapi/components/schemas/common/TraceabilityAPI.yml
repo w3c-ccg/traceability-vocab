@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - TraceabilityAPI
+    default:
+      - TraceabilityAPI
     items:
       type: string
       enum:
@@ -22,6 +27,7 @@ properties:
       - https://platform.example/organization/123/presentations/submissions
     type: string
 required: 
+  - type
   - serviceEndpoint
 example: |-
   {

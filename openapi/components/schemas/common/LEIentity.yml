@@ -4,25 +4,14 @@ $linkedData:
 title: LEIentity
 description: GLEIF LEI Redord Level 1 Schema for LEI Entity
 type: object
-required:
-  - legalName
-  - otherNames
-  - transliteratedOtherNames
-  - legalAddress
-  - headquartersAddress
-  - registrationAuthority
-  - legalJurisdiction
-  - entityCategory
-  - legalForm
-  - associatedEntity
-  - status
-  - expirationDate
-  - expirationReason
-  - successorEntity
-  - otherAddresses
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - LEIentity
+    default:
+      - LEIentity
     items:
       type: string
       enum:
@@ -130,6 +119,22 @@ properties:
       term: otherAddresses
       '@id': https://schema.org/Place
 additionalProperties: false
+required:
+  - legalName
+  - otherNames
+  - transliteratedOtherNames
+  - legalAddress
+  - headquartersAddress
+  - registrationAuthority
+  - legalJurisdiction
+  - entityCategory
+  - legalForm
+  - associatedEntity
+  - status
+  - expirationDate
+  - expirationReason
+  - successorEntity
+  - otherAddresses
 example: |-
   {
     "type": ["LEIentity"],

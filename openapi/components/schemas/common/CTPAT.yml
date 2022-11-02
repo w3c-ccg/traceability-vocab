@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - CTPAT
+    default:
+      - CTPAT
     items:
       type: string
       enum:
@@ -72,6 +77,10 @@ properties:
       term: issuingCountry
       '@id': https://schema.org/addressCountry
 additionalProperties: false
+required:
+  - ctpatMember
+  - tradeSector
+  - issuingCountry
 example: |-
   {
     "type": ["CTPAT"],

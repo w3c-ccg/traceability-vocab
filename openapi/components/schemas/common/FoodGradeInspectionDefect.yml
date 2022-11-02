@@ -6,14 +6,16 @@ description: Information on a type of offsize / defect observed.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodGradeInspectionDefect
-      - type: string
-        const: FoodGradeInspectionDefect
+    type: array
+    readOnly: true
+    const:
+      - FoodGradeInspectionDefect
+    default:
+      - FoodGradeInspectionDefect
+    items:
+      type: string
+      enum:
+        - FoodGradeInspectionDefect
   offsizeDefect:
     title: Offsize / Defect
     description: Brief description of this offsize / defect.
@@ -49,10 +51,12 @@ properties:
     $linkedData:
       term: verySeriousDamage
       '@id': https://qudt.org/vocab/unit/PERCENT
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
-    "type": "FoodGradeInspectionDefect",
+    "type": ["FoodGradeInspectionDefect"],
     "offsizeDefect": "Quality - Dry Sunken Areas",
     "averageDefects": 2,
     "seriousDamage": 0,

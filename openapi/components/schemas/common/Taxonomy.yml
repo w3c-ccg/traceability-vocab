@@ -6,14 +6,16 @@ description: A taxonomic description for some type of organism.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - Taxonomy
-      - type: string
-        const: Taxonomy
+    type: array
+    readOnly: true
+    const:
+      - Taxonomy
+    default:
+      - Taxonomy
+    items:
+      type: string
+      enum:
+        - Taxonomy
   kingdom:
     title: Kingdom
     description: The full scientific name of the kingdom in which the taxon is classified.
@@ -77,10 +79,12 @@ properties:
     $linkedData:
       term: variety
       '@id': http://rs.tdwg.org/dwc/terms/cultivarEpithet
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
-    "type": "Taxonomy",
+    "type": ["Taxonomy"],
     "kingdom": "Plantae",
     "family": "Asteraceae",
     "genus": "Centaurea",

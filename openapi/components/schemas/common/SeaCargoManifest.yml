@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - SeaCargoManifest
+    default:
+      - SeaCargoManifest
     items:
       type: string
       enum:
@@ -110,6 +115,8 @@ properties:
       term: transportDocumentInformation
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportContractDocument
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["SeaCargoManifest"],

@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Person
+    default:
+      - Person
     items:
       type: string
       enum:
@@ -63,6 +68,8 @@ properties:
       term: taxId
       '@id': https://schema.org/taxID
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["Person"],

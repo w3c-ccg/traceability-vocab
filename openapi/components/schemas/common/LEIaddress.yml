@@ -4,15 +4,14 @@ $linkedData:
 title: LEIaddress
 description: GLEIF LEI Redord Level 1 Schema for LEI Address
 type: object
-required:
-  - addressLines
-  - city
-  - region
-  - country
-  - postalCode
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - LEIaddress
+    default:
+      - LEIaddress
     items:
       type: string
       enum:
@@ -78,6 +77,12 @@ properties:
       term: postalCode
       '@id': https://schema.org/postalCode
 additionalProperties: false
+required:
+  - addressLines
+  - city
+  - region
+  - country
+  - postalCode
 example: |-
   {
     "type": ["LEIaddress"],

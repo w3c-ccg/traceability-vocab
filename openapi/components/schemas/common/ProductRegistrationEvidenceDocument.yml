@@ -4,40 +4,18 @@ $linkedData:
 title: Product Registration Evidence Document
 description: Evidence data for a registered eCommerce Product
 type: object
-required:
-  - category
-  - inProductGroupWithID
-  - productID
-  - mpn
-  - gtin
-  - isAccessoryOrSparePartFor
-  - releaseDate
-  - manufacturer
-  - globalLocationNumber
-  - leiCode
-  - name
-  - description
-  - model
-  - color
-  - material
-  - weight
-  - height
-  - width
-  - depth
-  - url
-  - isBasedOn
-  - image
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ProductRegistrationEvidenceDocument
-      - type: string
-        const:
-          - ProductRegistrationEvidenceDocument
+    type: array
+    readOnly: true
+    const:
+      - ProductRegistrationEvidenceDocument
+    default:
+      - ProductRegistrationEvidenceDocument
+    items:
+      type: string
+      enum:
+        - ProductRegistrationEvidenceDocument
   category:
     title: A category for the product item.
     type: string
@@ -199,6 +177,29 @@ properties:
       term: image
       '@id': https://schema.org/image
 additionalProperties: false
+required:
+  - category
+  - inProductGroupWithID
+  - productID
+  - mpn
+  - gtin
+  - isAccessoryOrSparePartFor
+  - releaseDate
+  - manufacturer
+  - globalLocationNumber
+  - leiCode
+  - name
+  - description
+  - model
+  - color
+  - material
+  - weight
+  - height
+  - width
+  - depth
+  - url
+  - isBasedOn
+  - image
 example: |-
   {
     "type": ["ProductRegistrationEvidenceDocument"],

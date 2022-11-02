@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PurchaseOrder
+    default:
+      - PurchaseOrder
     items:
       type: string
       enum:
@@ -98,15 +103,15 @@ properties:
     $linkedData:
       term: provider
       '@id': https://schema.org/provider
-  itemsShipped:
-    title: Items Shipped
-    description: Itemized list of shipped goods.
+  itemsOrdered:
+    title: Items Ordered
+    description: Itemized list of ordered goods.
     type: array
     items:
       $ref: ./TradeLineItem.yml
     $linkedData:
-      term: itemsShipped
-      '@id': https://schema.org/itemShipped
+      term: itemsOrdered
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem
   comments:
     title: Comments
     description: Free text comments.
@@ -204,10 +209,12 @@ properties:
     $linkedData:
       term: totalOrderAmount
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#MonetarySummation
+additionalProperties: false
 required:
+  - type
   - seller
   - buyer
-additionalProperties: false
+  - itemsOrdered
 example: |-
   {
     "type": [
@@ -258,7 +265,7 @@ example: |-
         }
       }
     },
-    "itemsShipped": [
+    "itemsOrdered": [
       {
         "type": ["TradeLineItem"],
         "product": {
@@ -292,7 +299,7 @@ example: |-
           "value": "82500",
           "unitCode": "lbs"
         },
-        "priceSpecification": {
+        "lineItemTotalPrice": {
           "type": ["PriceSpecification"],
           "price": 5200,
           "priceCurrency": "USD"
@@ -331,7 +338,7 @@ example: |-
           "value": "253600",
           "unitCode": "lbs"
         },
-        "priceSpecification": {
+        "lineItemTotalPrice": {
           "type": ["PriceSpecification"],
           "price": 4400,
           "priceCurrency": "USD"
