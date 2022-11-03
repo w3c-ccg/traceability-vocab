@@ -6,14 +6,16 @@ description: Information regarding the review of an organic inspection report & 
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - OrganicReview
-      - type: string
-        const: OrganicReview
+    type: array
+    readOnly: true
+    const:
+      - OrganicReview
+    default:
+      - OrganicReview
+    items:
+      type: string
+      enum:
+        - OrganicReview
   organicInspection:
     title: Organic Inspection
     description:  The organic inspection report under review.

@@ -11,18 +11,14 @@ description: |-
   CATAIR document with all approved codes: 
   https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%20PGA%20Status%20Notification%20Codes_13Dec2021_508c.pdf
 type: object
-required:
-  - type
-  - recordNo
-  - entryNo
-  - entryLineSequence
-  - statusCode
-  - statusCodeDescription
-  - validCodeReason
-  - validCodeReasonDescription
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PGAShipmentStatus
+    default:
+      - PGAShipmentStatus
     items:
       type: string
       enum:
@@ -82,6 +78,15 @@ properties:
       term: subReasonCodeDescription
       '@id': https://w3id.org/traceability#subReasonCodeDescription
 additionalProperties: true
+required:
+  - type
+  - recordNo
+  - entryNo
+  - entryLineSequence
+  - statusCode
+  - statusCodeDescription
+  - validCodeReason
+  - validCodeReasonDescription
 example: |-
   {
     "type": ["PGAShipmentStatus"],

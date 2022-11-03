@@ -9,6 +9,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PostalAddress
+    default:
+      - PostalAddress
     items:
       type: string
       enum:
@@ -91,6 +96,8 @@ properties:
       term: postOfficeBoxNumber
       '@id': https://schema.org/postOfficeBoxNumber
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["PostalAddress"],

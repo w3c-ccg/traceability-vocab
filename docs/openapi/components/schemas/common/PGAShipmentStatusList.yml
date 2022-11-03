@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PGAShipmentStatusList
+    default:
+      - PGAShipmentStatusList
     items:
       type: string
       enum:
@@ -22,6 +27,9 @@ properties:
       '@id': https://schema.org/ItemList
       '@type': https://schema.org/ItemList
 additionalProperties: true
+required:
+  - type
+  - pgaShipmentStatusItems
 example: |-
   {
     "type": ["PGAShipmentStatusList"],

@@ -6,14 +6,16 @@ description: Characteristics of an observed subject.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - NAISMASubject
-      - type: string
-        const: NAISMASubject
+    type: array
+    readOnly: true
+    const:
+      - NAISMASubject
+    default:
+      - NAISMASubject
+    items:
+      type: string
+      enum:
+        - NAISMASubject
   lifeStage:
     title: Life Stage
     description: A brief description of the phenological or life stage of development of the plants, animals, insects, biocontrol agents, or pathogens observed.

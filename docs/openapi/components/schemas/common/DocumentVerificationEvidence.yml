@@ -4,24 +4,20 @@ $linkedData:
 title: DocumentVerificationEvidence
 description: Verifiable Credential Evidence Document Schema
 type: object
-required:
-  - type
-  - verifier
-  - evidenceDocument
-  - subjectPresence
-  - documentPresence
 properties:
   id:
     type: string
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - DocumentVerificationEvidence
-      - type: string
-        const: DocumentVerificationEvidence
+    type: array
+    readOnly: true
+    const:
+      - DocumentVerificationEvidence
+    default:
+      - DocumentVerificationEvidence
+    items:
+      type: string
+      enum:
+        - DocumentVerificationEvidence
   verifier:
     title: verifier
     type: array
@@ -48,6 +44,12 @@ properties:
       term: documentPresence
       '@id': https://schema.org/PresentationDigitalDocument
 additionalProperties: true
+required:
+  - type
+  - verifier
+  - evidenceDocument
+  - subjectPresence
+  - documentPresence
 example: |-
   {
     "type": [

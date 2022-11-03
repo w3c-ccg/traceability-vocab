@@ -6,14 +6,16 @@ description: The date and time for an observation.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - NAISMADateTime
-      - type: string
-        const: NAISMADateTime
+    type: array
+    readOnly: true
+    const:
+      - NAISMADateTime
+    default:
+      - NAISMADateTime
+    items:
+      type: string
+      enum:
+        - NAISMADateTime
   collectionDate:
     title: Collection Date
     description: The date the observation was made in the field.
@@ -28,10 +30,12 @@ properties:
     $linkedData:
       term: dateAccuracyDays
       '@id': https://schema.org/value
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
-    "type": "NAISMADateTime",
+    "type": ["NAISMADateTime"],
     "collectionDate": "2002-10-03",
     "dateAccuracyDays": 15
   }

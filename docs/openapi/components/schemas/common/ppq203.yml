@@ -8,15 +8,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ppq203
-      - type: string
-        const:
-          - ppq203
+    type: array
+    readOnly: true
+    const:
+      - ppq203
+    default:
+      - ppq203
+    items:
+      type: string
+      enum:
+        - ppq203
   certificateNumber:
     title: Certificate Number
     description: ID number of the certificate
@@ -99,6 +100,8 @@ properties:
       '@id': https://schema.org/ItemList
       '@type': https://schema.org/ItemList
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": [

@@ -5,14 +5,25 @@ title: Trade Line Item
 description: >-
   Line items on trade documents such as Commercial Invoices. A trade line item describes separately identifiable product and packaging characteristics.
 type: object
-required: []
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - TradeLineItem
+    default:
+      - TradeLineItem
     items:
       type: string
       enum:
         - TradeLineItem
+  name:
+    title: Name
+    description: Name of the Tradeline item.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
   purchaseOrderNumber: 
     title: Purchase Order Number
     type: string
@@ -86,6 +97,9 @@ properties:
     $linkedData:
       term: priceSpecification
       '@id': https://schema.org/priceSpecification
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type": [
@@ -117,7 +131,7 @@ example: |-
       "value": "75",
       "unitCode": "lbs"
     },
-    "priceSpecification": {
+    "lineItemTotalPrice": {
       "type": [
         "PriceSpecification"
       ],

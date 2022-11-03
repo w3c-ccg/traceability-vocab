@@ -10,14 +10,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FSMAShipment
-      - type: string
-        const: FSMAShipment
+    type: array
+    readOnly: true
+    const:
+      - FSMAShipment
+    default:
+      - FSMAShipment
+    items:
+      type: string
+      enum:
+        - FSMAShipment
   product:
     title: Product
     description: The product being tracked.

@@ -4,13 +4,14 @@ $linkedData:
 title: LEIauthority
 description: GLEIF LEI Redord Level 1 Schema for LEI Authority
 type: object
-required:
-  - validationAuthorityID
-  - otherValidationAuthorityID
-  - validationAuthorityEntityID
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - LEIauthority
+    default:
+      - LEIauthority
     items:
       type: string
       enum:
@@ -34,6 +35,10 @@ properties:
       term: validationAuthorityEntityID
       '@id': https://schema.org/leiCode
 additionalProperties: false
+required:
+  - validationAuthorityID
+  - otherValidationAuthorityID
+  - validationAuthorityEntityID
 example: |-
   {
     "type": ["LEIauthority"],

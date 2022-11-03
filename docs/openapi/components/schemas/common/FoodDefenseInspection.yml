@@ -1,0 +1,171 @@
+$linkedData:
+  term: FoodDefenseInspection
+  '@id': https://w3id.org/traceability#FoodDefenseInspection
+title: Food Defense Inspection
+description: Information regarding the food defense inspection and results.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - FoodDefenseInspection
+    default:
+      - FoodDefenseInspection
+    items:
+      type: string
+      enum:
+        - FoodDefenseInspection
+  commonInfo:
+    title: Common Info
+    description:  Information common to agriculture inspection credentials.
+    $ref: ./AgricultureInspectionCommonInfo.yml
+    $linkedData:
+      term: commonInfo
+      '@id': https://w3id.org/traceability#AgricultureInspectionCommonInfo
+  questions:
+    title: Questions
+    description: Questions involved & their results.
+    type: array
+    items:
+      $ref: ./FoodDefenseQuestion.yml
+    $linkedData:
+      term: questions
+      '@id': https://w3id.org/traceability#FoodDefenseQuestion
+  deficiencies:
+    title: Deficiencies
+    description: Deficiencies noted over the course of this inspection.
+    type: array
+    items:
+      $ref: ./FoodDefenseDeficiency.yml
+    $linkedData:
+      term: deficiencies
+      '@id': https://w3id.org/traceability#FoodDefenseDeficiency
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["FoodDefenseInspection"],
+    "commonInfo": {
+      "type": ["AgricultureInspectionCommonInfo"],
+      "applicant": {
+        "type" : ["Entity"],
+        "entityType": "Organization",
+        "name" : "Jessica Sherawat",
+        "email": "Jessica58@example.com",
+        "phoneNumber": "+1-555-581-2077"
+      },
+      "facility": {
+        "type": [
+          "Place"
+        ],
+        "globalLocationNumber": "5449782976823",
+        "geo": {
+          "type": [
+            "GeoCoordinates"
+          ],
+          "latitude": "-79.6395",
+          "longitude": "178.5353"
+        },
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "name": "Ace Foodstuffs",
+          "streetAddress": "853 Wisozk River",
+          "addressLocality": "New Noemyfort",
+          "addressRegion": "New Mexico",
+          "postalCode": "18047-2038",
+          "addressCountry": "USA"
+        },
+        "unLocode": "DKCPH"
+      },
+      "inspector": {
+        "type": [
+          "Inspector"
+        ],
+        "person": {
+          "type": [
+            "Person"
+          ],
+          "firstName": "Jason",
+          "lastName": "Grant",
+          "email": "Santa43@example.org",
+          "phoneNumber": "555-460-4373",
+          "worksFor": {
+            "type": [
+              "Organization"
+            ],
+            "name": "Glayson & Co. Inspections",
+            "description": "Agricultural cleanliness & food defense assurance",
+            "email": "Marina96@glaysonco.net",
+            "phoneNumber": "555-521-6143",
+            "faxNumber": "555-150-7668"
+          },
+          "jobTitle": "Principal Data Supervisor"
+        },
+        "qualification": [
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Agricultural Security Analyst",
+            "qualificationValue": "Executive"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Future Metrics Planner",
+            "qualificationValue": "Coordinator"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Internal Identity Agent",
+            "qualificationValue": "Assistant"
+          }
+        ]
+      },
+      "delegateOf": {
+        "type": ["Entity"],
+        "entityType" : "Organization",
+        "name": "Glayson & Co. Inspections",
+        "description": "Agricultural cleanliness & food defense assurance",
+        "email": "Marina96@glaysonco.net",
+        "phoneNumber": "555-521-6143",
+        "faxNumber": "555-150-7668"
+      },
+      "regulatoryAgency": {
+        "type": ["Organization"],
+        "name": "CDFA",
+        "description": "California Department of Food and Agriculture",
+        "email": "Briana55@cdfa.ca.gov.org",
+        "phoneNumber": "555-467-2604",
+        "faxNumber": "+1-555-486-3154"
+      },
+      "inspectionStarted": "2020-03-15T14:30-08:00",
+      "inspectionEnded": "2020-03-15T17:30-08:00"
+    },
+    "questions": [
+      {
+        "type": ["FoodDefenseQuestion"],
+        "number": "10",
+        "facility": "P",
+        "response": false,
+        "rating": 1
+      },
+      {
+        "type": ["FoodDefenseQuestion"],
+        "number": "12",
+        "facility": "P",
+        "response": true,
+        "rating": 4
+      }
+    ],
+    "deficiencies": [
+      {
+        "type": ["FoodDefenseDeficiency"],
+        "number": "10",
+        "description": "\"No Trespassing\" signs not visible along perimeter and no other measures",
+        "proposedCorrectionDate": "2020-03-20",
+        "dateCorrected": "2020-03-21"
+      }
+    ]
+  }

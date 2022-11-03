@@ -10,14 +10,14 @@ description: >-
   In certain cases it is advisable elaborate the packing list considering the information requested by the importer, especially for customs purposes, as may be the case that the Customs request a "detailed document", for example, in the case of a machine, the identification of each of the parts and components.
   (source: Olegario Llamazares: Dictionary of International Trade, Key definitions of 2000 trade terms and acronyms).
 type: object
-required:
-  - seller
-  - buyer
-  - shipFromParty
-  - shipToParty
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PackingList
+    default:
+      - PackingList
     items:
       type: string
       enum:
@@ -150,6 +150,12 @@ properties:
     $linkedData:
       term: totalItemQuantity
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity
+additionalProperties: false
+required:
+  - seller
+  - buyer
+  - shipFromParty
+  - shipToParty
 example: |-
   {
     "type": ["PackingList"],
