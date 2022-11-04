@@ -1,0 +1,133 @@
+$linkedData:
+  term: OrganicProductCertification
+  '@id': https://w3id.org/traceability#OrganicProductCertification
+title: Organic Product Certification
+description: Information regarding an agriculture product's organic certification status.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - OrganicProductCertification
+    default:
+      - OrganicProductCertification
+    items:
+      type: string
+      enum:
+        - OrganicProductCertification
+  agricultureProduct:
+    title: Agriculture Product
+    description: The product certified as organic.
+    $ref: ./AgricultureProduct.yml
+    $linkedData:
+      term: agricultureProduct
+      '@id': https://www.gs1.org/voc/certificationSubject
+  organicCertificate:
+    title: Organic Certificate
+    description: The product's organic certificate.
+    $ref: ./OrganicCertificate.yml
+    $linkedData:
+      term: organicCertificate
+      '@id': https://www.gs1.org/voc/certification
+  isCertified:
+    title: Is Certified
+    description: This product is organic certified (i.e., its organic certificate has not been revoked).
+    type: boolean
+    $linkedData:
+      term: isCertified
+      '@id': https://www.gs1.org/voc/certificationStatus
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["OrganicProductCertification"],
+    "agricultureProduct": {
+      "type": [
+        "AgricultureProduct"
+      ],
+      "upc": "033383401508",
+      "plu": "94225",
+      "gtin": "033383401508",
+      "product": {
+        "type": [
+          "Product"
+        ],
+        "manufacturer": {
+          "type": [
+            "Organization"
+          ],
+          "email": "Sven22@example.org",
+          "phoneNumber": "555-267-4748"
+        },
+        "name": "Tomatoes",
+        "description": "Tomatoes, Cartons",
+        "sizeOrAmount": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "cartons",
+          "value": "348"
+        },
+        "weight": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "lbs",
+          "value": "640"
+        },
+        "sku": "164664203943"
+      },
+      "scientificName": "Solanum lycopersicum",
+      "labelImageUrl": "https://img.example.org/033383401508/640/480/",
+      "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "Tomatoes",
+      "productImageUrl": "https://img.example.org/102934920857/937/903/",
+      "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+    },
+    "organicCertificate": {
+      "type": ["OrganicCertificate"],
+      "certifiedOperation": {
+        "type": ["Organization"],
+        "name": "John's Produce",
+        "description": "#1 tomatoes in the United States",
+        "email": "hellojohn@example.org",
+        "phoneNumber": "129-697-067",
+        "location": {
+          "type": ["Place"],
+          "address": {
+            "type": ["PostalAddress"],
+            "streetAddress": "571 McDermott Overpass",
+            "addressLocality": "Bretbury",
+            "addressRegion": "Minnesota",
+            "postalCode": "46974-2565",
+            "addressCountry": "United States"
+          }
+        }
+      },
+      "certifyingAgent": {
+        "type": ["Organization"],
+        "name": "Glayson & Co. Inspections",
+        "description": "Agricultural cleanliness & organic assurance",
+        "email": "contact@example.org",
+        "phoneNumber": "555-895-1661",
+        "location": {
+          "type": ["Place"],
+          "address": {
+            "type": ["PostalAddress"],
+            "streetAddress": "3934 Spinnaker Lane",
+            "addressLocality": "Joliet",
+            "addressRegion": "Minnesota",
+            "postalCode": "46974-2565",
+            "addressCountry": "United States"
+          }
+        },
+        "url": "https://example.org"
+      },
+      "effectiveDate": "2020-03-10",
+      "issueDate": "2020-03-14",
+      "anniversaryDate": "2021-03-10"
+    },
+    "isCertified": true
+  }
