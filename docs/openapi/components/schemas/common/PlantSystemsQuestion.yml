@@ -1,0 +1,49 @@
+$linkedData:
+  term: PlantSystemsQuestion
+  '@id': https://w3id.org/traceability#PlantSystemsQuestion
+title: Plant Systems Question
+description: Information on a plant systems inspection question and its point score.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - PlantSystemsQuestion
+    default:
+      - PlantSystemsQuestion
+    items:
+      type: string
+      enum:
+        - PlantSystemsQuestion
+  code:
+    title: Code
+    description: A code (generally a number) identifying the question. Leave blank for write-ins.
+    type: string
+    $linkedData:
+      term: code
+      '@id': https://schema.org/identifier
+  pointsWorth:
+    title: Points Worth
+    description: The number of points a question is worth; generally 10 for more critical questions, 5 for others. In the case of questions with multiple parts, each part will be worth 5 points (so a question with 4 parts will be worth 20 points).
+    type: number
+    $linkedData:
+      term: pointsWorth
+      '@id': https://schema.org/ratingValue
+  pointsDeducted:
+    title: Points Deducted
+    description: The number of points deducted from the points a question is worth, to yield the total score. No points deducted if satisfactory; partial points deducted if needs improvement (3 deducted for 5 point questions / 5 deducted for 10 point questions); all points (i.e., 5 or 10) deducted if unsatisfactory. Each part of a multi-part question should be scored like a 5 point question.
+    type: number
+    $linkedData:
+      term: pointsDeducted
+      '@id': https://schema.org/ratingValue
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["PlantSystemsQuestion"],
+    "code": "34",
+    "pointsWorth": 5,
+    "pointsDeducted": 3
+  }
