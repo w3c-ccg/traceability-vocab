@@ -6,21 +6,14 @@ description: >-
   IssuerAgent definition based on IATA electronic Air Way Bill
   https://blanker.org/files/air-waybill-2.xls
 type: object
-required:
-  - type
-  - issuerAgentOrg
-  - iataCode
-  - accountNumber
-  - accountingInformation
-  - charge
-  - declaredValueCarriage
-  - declaredValueCarriagePaymentStatus
-  - declaredValueCustoms
-  - declaredValueCustomsPaymentStatus
-  - amountInsurance
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - IssuerAgent
+    default:
+      - IssuerAgent
     items:
       type: string
       enum:
@@ -89,6 +82,18 @@ properties:
       term: amountInsurance
       '@id': https://schema.org/PaymentChargeSpecification
 additionalProperties: false
+required:
+  - type
+  - issuerAgentOrg
+  - iataCode
+  - accountNumber
+  - accountingInformation
+  - charge
+  - declaredValueCarriage
+  - declaredValueCarriagePaymentStatus
+  - declaredValueCustoms
+  - declaredValueCustomsPaymentStatus
+  - amountInsurance
 example: |-
   {
     "type": ["IssuerAgent"],

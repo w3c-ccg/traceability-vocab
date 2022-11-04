@@ -6,14 +6,16 @@ description: Tombstone information regarding a natural gas product
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - NaturalGasProduct
-      - type: string
-        const: NaturalGasProduct 
+    type: array
+    readOnly: true
+    const:
+      - NaturalGasProduct
+    default:
+      - NaturalGasProduct
+    items:
+      type: string
+      enum:
+        - NaturalGasProduct
   product:
     title: Product
     description: Product details as outlined in the Product schema

@@ -6,14 +6,16 @@ description: Information regarding the inspected lot including samples, defects 
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodGradeInspectionLot
-      - type: string
-        const: FoodGradeInspectionLot
+    type: array
+    readOnly: true
+    const:
+      - FoodGradeInspectionLot
+    default:
+      - FoodGradeInspectionLot
+    items:
+      type: string
+      enum:
+        - FoodGradeInspectionLot
   agricultureProduct:
     title: Product
     description: The product inspected.

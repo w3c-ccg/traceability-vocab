@@ -4,13 +4,14 @@ $linkedData:
 title: RevocationList2020Status
 description: Verifiable Credential credentialStatus Schema for RevocationList2020Status
 type: object
-required:
-  - type
-  - revocationListIndex
-  - revocationListCredential
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - RevocationList2020Status
+    default:
+      - RevocationList2020Status
     items:
       type: string
       enum:
@@ -28,6 +29,10 @@ properties:
       term: revocationListCredential
       '@id': https://schema.org/LinkRole
 additionalProperties: false
+required:
+  - type
+  - revocationListIndex
+  - revocationListCredential
 example: |-
   {
     "type" : ["RevocationList2020Status"],

@@ -6,10 +6,14 @@ description: >-
   Part of an Order listed in the Evidence data for a registered eCommerce
   Packing List based on schema.org
 type: object
-required: []
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - PartOfOrder
+    default:
+      - PartOfOrder
     items:
       type: string
       enum:
@@ -75,6 +79,8 @@ properties:
       term: itemQuantity
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#tradeLineItemQuantity
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["PartOfOrder"],

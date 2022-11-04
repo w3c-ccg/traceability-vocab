@@ -6,14 +6,16 @@ description: Information regarding the grade inspection and results
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - FoodGradeInspection
-      - type: string
-        const: FoodGradeInspection
+    type: array
+    readOnly: true
+    const:
+      - FoodGradeInspection
+    default:
+      - FoodGradeInspection
+    items:
+      type: string
+      enum:
+        - FoodGradeInspection
   commonInfo:
     title: Common Info
     description:  Information common to agriculture inspection credentials.

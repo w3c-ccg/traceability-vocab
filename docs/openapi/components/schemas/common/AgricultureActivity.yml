@@ -8,14 +8,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - AgricultureActivity
-      - type: string
-        const: AgricultureActivity
+    type: array
+    readOnly: true
+    const:
+      - AgricultureActivity
+    default:
+      - AgricultureActivity
+    items:
+      type: string
+      enum:
+        - AgricultureActivity
   business:
     title: Business
     description: The business entity performing the activity.

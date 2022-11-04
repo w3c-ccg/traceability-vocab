@@ -6,14 +6,16 @@ description: Details regarding the information source for an observation.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - NAISMAInformationSource
-      - type: string
-        const: NAISMAInformationSource
+    type: array
+    readOnly: true
+    const:
+      - NAISMAInformationSource
+    default:
+      - NAISMAInformationSource
+    items:
+      type: string
+      enum:
+        - NAISMAInformationSource
   reference:
     title: Reference
     description: A citation or descriptive method of finding the source of literature that data comes from.

@@ -6,14 +6,16 @@ description: Information to access & verify an external resource.
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ExternalResource
-      - type: string
-        const: ExternalResource
+    type: array
+    readOnly: true
+    const:
+      - ExternalResource
+    default:
+      - ExternalResource
+    items:
+      type: string
+      enum:
+        - ExternalResource
   uri:
     title: URI
     description: URI (Universal Resource Identifier) for resource.
@@ -28,10 +30,12 @@ properties:
     $linkedData:
       term: hash
       '@id': https://schema.org/sha256
-additionalProperties: false
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
-    "type": "ExternalResource",
+    "type": ["ExternalResource"],
     "uri": "https://img.example.org/102934920857/937/903/",
     "hash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
   }

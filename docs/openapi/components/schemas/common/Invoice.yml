@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Invoice
+    default:
+      - Invoice
     items:
       type: string
       enum:
@@ -243,6 +248,8 @@ properties:
 required:
   - seller
   - buyer
+  - itemsShipped
+  - totalPaymentDue
 additionalProperties: false
 example: |-
   {
@@ -336,7 +343,7 @@ example: |-
           "value": "82500",
           "unitCode": "lbs"
         },
-        "priceSpecification": {
+        "lineItemTotalPrice": {
           "type": ["PriceSpecification"],
           "price": 5200,
           "priceCurrency": "USD"
@@ -382,8 +389,8 @@ example: |-
           "value": "253600",
           "unitCode": "lbs"
         },
-        "priceSpecification": {
-          "type": "PriceSpecification",
+        "lineItemTotalPrice": {
+          "type": ["PriceSpecification"],
           "price": 4400,
           "priceCurrency": "USD"
         }

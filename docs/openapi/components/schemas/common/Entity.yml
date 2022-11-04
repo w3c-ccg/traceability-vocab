@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Entity
+    default:
+      - Entity
     items:
       type: string
       enum:
@@ -78,11 +83,11 @@ properties:
     $linkedData:
       term: faxNumber
       '@id': https://schema.org/faxNumber
+additionalProperties: true
 required:
   - type
   - entityType
   - name
-additionalProperties: true
 example: |-
   {
     "type": ["Entity"],

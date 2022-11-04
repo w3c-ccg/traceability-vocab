@@ -9,10 +9,21 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - ShippingStop
+    default:
+      - ShippingStop
     items:
       type: string
       enum:
         - ShippingStop
+  shippingStopAddress:
+    title: Shipping Stop Address
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: to
+      '@id': https://schema.org/PostalAddress
   from:
     title: From
     $ref: ./Place.yml
@@ -49,6 +60,9 @@ properties:
     $linkedData:
       term: stopType
       '@id': https://schema.org/description
+additionalProperties: false  
+required:
+  - type
 example: |-
   {
     "type": ["ShippingStop"],

@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Product
+    default:
+      - Product
     items:
       type: string
       enum:
@@ -114,6 +119,8 @@ properties:
       term: commodity
       '@id': https://w3id.org/traceability#Commodity
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["Product"],

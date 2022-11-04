@@ -8,15 +8,16 @@ description: >-
 type: object
 properties:
   type:
-    oneOf:
-      - type: array
-        items:
-          type: string
-          enum:
-            - ppq587
-      - type: string
-        const:
-          - ppq587
+    type: array
+    readOnly: true
+    const:
+      - ppq587
+    default:
+      - ppq587
+    items:
+      type: string
+      enum:
+        - ppq587
   signatureDate:
     title: signatureDate
     description: Date when the inspection was signed by the inspection officer.
@@ -57,6 +58,8 @@ properties:
       term: intendedUse
       '@id': https://w3id.org/traceability#intendedUse
 additionalProperties: false
+required:
+  - type
 example: |-
   {
     "type": ["ppq587"],

@@ -7,6 +7,11 @@ type: object
 properties:
   type:
     type: array
+    readOnly: true
+    const:
+      - Workflow
+    default:
+      - Workflow
     items:
       type: string
       enum:
@@ -27,6 +32,9 @@ properties:
     $linkedData:
       term: instance
       '@id': https://w3id.org/traceability/#workflow-instance
+additionalProperties: false  
+required:
+  - instance
 example: |-
   {
     "type": [
