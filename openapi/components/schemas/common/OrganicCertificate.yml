@@ -1,21 +1,28 @@
 $linkedData:
-  term: OrganicCertification
-  '@id': https://w3id.org/traceability#OrganicCertification
-title: Organic Certification
-description: Information regarding the organic certification.
+  term: OrganicCertificate
+  '@id': https://w3id.org/traceability#OrganicCertificate
+title: Organic Certificate
+description: Information regarding the organic certificate.
 type: object
 properties:
   type:
     type: array
     readOnly: true
     const:
-      - OrganicCertification
+      - OrganicCertificate
     default:
-      - OrganicCertification
+      - OrganicCertificate
     items:
       type: string
       enum:
-        - OrganicCertification
+        - OrganicCertificate
+  countryOfIssuance:
+    title: Country of Issuance
+    description: The country issuing the organic certificate. This value should be a two letter country code as defined in ISO 3166 (e.g., "US" for United States, "CA" for Canada).
+    type: string
+    $linkedData:
+      term: countryOfIssuance
+      '@id': https://www.gs1.org/voc/countryCode
   certifiedOperation:
     title: Certified Operation
     description: The operation certified as organic, including name (all legal names) and address(es).
@@ -68,9 +75,12 @@ properties:
       term: organicProducts
       '@id': https://www.gs1.org/voc/certificationStatement
 additionalProperties: false
+required:
+  - type
 example: |-
   {
-    "type": ["OrganicCertification"],
+    "type": ["OrganicCertificate"],
+    "countryOfIssuance": "US",
     "certifiedOperation": {
       "type": ["Organization"],
       "name": "John's Produce",

@@ -1261,26 +1261,8 @@
     },
     "Event": {
       "@context": {
-        "actor": {
-          "@id": "https://w3id.org/traceability#Organization"
-        },
-        "eventId": {
-          "@id": "https://schema.org/identifier"
-        },
-        "eventTime": {
-          "@id": "https://schema.org/DateTime"
-        },
-        "eventType": {
-          "@id": "https://schema.org/value"
-        },
-        "place": {
-          "@id": "https://w3id.org/traceability#place"
-        },
-        "products": {
-          "@id": "https://w3c-ccg.github.io/hashlink/#hl-url-params"
-        }
       },
-      "@id": "https://schema.org/Event"
+      "@id": "https://w3id.org/traceability#EventCredential"
     },
     "ExternalResource": {
       "@context": {
@@ -3194,7 +3176,7 @@
       },
       "@id": "https://w3id.org/traceability#OrderedItem"
     },
-    "OrganicCertification": {
+    "OrganicCertificate": {
       "@context": {
         "anniversaryDate": {
           "@id": "https://www.gs1.org/voc/certificationEndDate"
@@ -3204,6 +3186,9 @@
         },
         "certifyingAgent": {
           "@id": "https://www.gs1.org/voc/certificationAgency"
+        },
+        "countryOfIssuance": {
+          "@id": "https://www.gs1.org/voc/countryCode"
         },
         "effectiveDate": {
           "@id": "https://www.gs1.org/voc/certificationStartDate"
@@ -3218,12 +3203,12 @@
           "@id": "https://www.gs1.org/voc/certificationStatement"
         }
       },
-      "@id": "https://w3id.org/traceability#OrganicCertification"
+      "@id": "https://w3id.org/traceability#OrganicCertificate"
     },
-    "OrganicCertificationCertificate": {
+    "OrganicCertificateCredential": {
       "@context": {
       },
-      "@id": "https://w3id.org/traceability#OrganicCertificationCertificate"
+      "@id": "https://w3id.org/traceability#OrganicCertificateCredential"
     },
     "OrganicInspection": {
       "@context": {
@@ -3741,6 +3726,48 @@
         }
       },
       "@id": "https://schema.org/Place"
+    },
+    "PlantSystemsInspection": {
+      "@context": {
+        "additionalViolations": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description"
+        },
+        "commonInfo": {
+          "@id": "https://w3id.org/traceability#AgricultureInspectionCommonInfo"
+        },
+        "observationsImprovements": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description"
+        },
+        "productsPacked": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedProduct"
+        },
+        "questions": {
+          "@id": "https://w3id.org/traceability#PlantSystemsQuestion"
+        },
+        "summaryOfDeficiencies": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description"
+        }
+      },
+      "@id": "https://w3id.org/traceability#PlantSystemsInspection"
+    },
+    "PlantSystemsInspectionCredential": {
+      "@context": {
+      },
+      "@id": "https://w3id.org/traceability#PlantSystemsInspectionCredential"
+    },
+    "PlantSystemsQuestion": {
+      "@context": {
+        "code": {
+          "@id": "https://schema.org/identifier"
+        },
+        "pointsDeducted": {
+          "@id": "https://schema.org/ratingValue"
+        },
+        "pointsWorth": {
+          "@id": "https://schema.org/ratingValue"
+        }
+      },
+      "@id": "https://w3id.org/traceability#PlantSystemsQuestion"
     },
     "PostalAddress": {
       "@context": {
