@@ -1,0 +1,101 @@
+$linkedData:
+  term: PestDetermination
+  '@id': https://w3id.org/traceability#PestDetermination
+title: Pest Determination
+description: Information regarding the identification of a pest from a sample.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - PestDetermination
+    default:
+      - PestDetermination
+    items:
+      type: string
+      enum:
+        - PestDetermination
+  final:
+    title: Final
+    description: The associated pest determination represents a final identification.
+    type: boolean
+    $linkedData:
+      term: final
+      '@id': https://dwc.tdwg.org/list/#dwc_identificationVerificationStatus
+  determination:
+    title: Determination
+    description: The scientific name of the identified pest. Should contain at minimum genus and species.
+    $ref: ./Taxonomy.yml
+    $linkedData:
+      term: determination
+      '@id': https://w3id.org/traceability#Taxonomy
+  notes:
+    title: Notes
+    description: Any notes to do with this pest determination.
+    type: string
+    $linkedData:
+      term: notes
+      '@id': https://dwc.tdwg.org/list/#dwc_identificationRemarks
+  method:
+    title: Method
+    description: "How the pest was identified. Must be one of: Morphology, Symptom, Culture, Serological, PCR, Sequencing."
+    type: string
+    $linkedData:
+      term: method
+      '@id': https://dwc.tdwg.org/list/#dwc_measurementMethod
+  reportable:
+    title: Reportable
+    description: For cargo interceptions, whether the identified pest is reportable (Quarantine Significant); otherwise leave blank.
+    type: boolean
+    $linkedData:
+      term: reportable
+      '@id': https://dwc.tdwg.org/list/#dwc_occurrenceStatus
+  determinedBy:
+    title: Determined By
+    description: The person who performed the determination.
+    $ref: ./Person.yml
+    $linkedData:
+      term: determinedBy
+      '@id': https://dwc.tdwg.org/list/#dwc_identifiedBy
+  date:
+    title: Date
+    description: The date on which the identification was made.
+    type: string
+    $linkedData:
+      term: date
+      '@id': https://dwc.tdwg.org/list/#dwc_dateIdentified
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["PestDetermination"],
+    "final": true,
+    "determination": {
+      "type": ["Taxonomy"],
+      "family": "Aphididae",
+      "genus": "Acyrthosiphon",
+      "species": "argus"
+    },
+    "method": "Morphology",
+    "determinedBy": {
+      "type": ["Person"],
+      "firstName": "Mary",
+      "lastName": "Smith",
+      "email": "msmith@example.org",
+      "phoneNumber": "555-018-2076",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Glayson & Co. Inspections",
+        "description": "Agricultural cleanliness & organic assurance",
+        "email": "Marina96@glaysonco.net",
+        "phoneNumber": "555-521-6143",
+        "faxNumber": "555-150-7668"
+      },
+      "jobTitle": "Certification Specialist"
+    },
+    "date": "2021-10-11"
+  }
