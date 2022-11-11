@@ -16,6 +16,17 @@ properties:
       type: string
       enum:
         - Person
+  id:
+    title: Identifier
+    description: Person identifier.
+    type: string
+  name:
+    title: Name
+    description: Person's name.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
   firstName:
     title: First Name
     description: Person's first name.
@@ -67,6 +78,20 @@ properties:
     $linkedData:
       term: taxId
       '@id': https://schema.org/taxID
+  url:
+    title: URL
+    description: URL of the organization.
+    type: string
+    $linkedData:
+      term: url
+      '@id': https://schema.org/url
+  description:
+    title: Description
+    description: Description of the company.
+    type: string
+    $linkedData:
+      term: description
+      '@id': https://schema.org/description
 additionalProperties: false
 required:
   - type

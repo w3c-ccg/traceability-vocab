@@ -15,6 +15,10 @@ const getTagsFromDirectory = () => {
   const dirs = fs.readdirSync(
     path.resolve(__dirname, '../../../docs/openapi/components/schemas/')
   );
+  const index = dirs.indexOf('snippets');
+  if (index !== -1) {
+    dirs.splice(index, 1);
+  }
   return dirs;
 };
 
