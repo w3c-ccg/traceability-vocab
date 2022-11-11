@@ -1,21 +1,21 @@
 $linkedData:
-  term: PPQ309APestInterceptionRecord
-  '@id': https://w3id.org/traceability#PPQ309APestInterceptionRecord
-title: PPQ 309A Pest Interception Record
-description: A record describing a pest sample submitted to USDA APHIS as well as the subsequent findings of the recipient lab.
+  term: USDAPPQ309APestInterceptionRecord
+  '@id': https://w3id.org/traceability#USDAPPQ309APestInterceptionRecord
+title: USDA PPQ 309A Pest Interception Record
+description: A record describing a pest sample submitted to a USDA APHIS (Animal and Plant Health Inspection Service) PPQ (Plant Protection and Quarantine) office as well as the findings of the recipient lab.
 type: object
 properties:
   type:
     type: array
     readOnly: true
     const:
-      - PPQ309APestInterceptionRecord
+      - USDAPPQ309APestInterceptionRecord
     default:
-      - PPQ309APestInterceptionRecord
+      - USDAPPQ309APestInterceptionRecord
     items:
       type: string
       enum:
-        - PPQ309APestInterceptionRecord
+        - USDAPPQ309APestInterceptionRecord
   priority:
     title: Priority
     description: "The priority of the determination. Must be one of: Urgent, Prompt, Routine."
@@ -148,7 +148,7 @@ required:
   - type
 example: |-
   {
-    "type": ["PPQ309APestInterceptionRecord"],
+    "type": ["USDAPPQ309APestInterceptionRecord"],
     "priority": "Prompt",
     "priorityExplanation": "Samples exected to decay within a week",
     "collectionNumber": "21-RTH-80",
