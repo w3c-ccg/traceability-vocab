@@ -59,7 +59,71 @@ properties:
     description: >-
       The party providing the transport of goods in this consignment between
       named points.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the carrier
+        type: string
+      name:
+        title: Name
+        description: Name of the carrier.
+        type: string
+      url:
+        title: URL
+        description: URL of the carrier.
+        type: string
+      description:
+        title: Description
+        description: Description of the carrier.
+        type: string
+      email:
+        title: Email Address
+        description: carrier's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: carrier's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: freight forwarder's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
     $linkedData:
       term: carrier
       '@id': >-
@@ -69,7 +133,71 @@ properties:
     description: >-
       The party consigning goods, as stipulated in the transport contract by the
       party ordering transport.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the consignor
+        type: string
+      name:
+        title: Name
+        description: Name of the consignor.
+        type: string
+      url:
+        title: URL
+        description: URL of the consignor.
+        type: string
+      description:
+        title: Description
+        description: Description of the consignor.
+        type: string
+      email:
+        title: Email Address
+        description: consignor's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: consignor's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: consignor's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
     $linkedData:
       term: consignor
       '@id': >-
@@ -77,7 +205,71 @@ properties:
   consignee:
     title: Consignee
     description: A party to which goods are consigned.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the consignee
+        type: string
+      name:
+        title: Name
+        description: Name of the consignee.
+        type: string
+      url:
+        title: URL
+        description: URL of the consignee.
+        type: string
+      description:
+        title: Description
+        description: Description of the consignee.
+        type: string
+      email:
+        title: Email Address
+        description: consignee's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: consignee's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Consignee's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
     $linkedData:
       term: consignee
       '@id': >-
@@ -88,7 +280,71 @@ properties:
       The party to be notified upon arrival of goods and when special
       occurrences (usually pre-defined) take place during a transportation
       service.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the notify party
+        type: string
+      name:
+        title: Name
+        description: Name of the notify party.
+        type: string
+      url:
+        title: URL
+        description: URL of the notify party.
+        type: string
+      description:
+        title: Description
+        description: Description of the notify party.
+        type: string
+      email:
+        title: Email Address
+        description: notify party's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: notify party's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Notify party's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
     $linkedData:
       term: notify
       '@id': >-
@@ -100,7 +356,71 @@ properties:
       shipment (the consolidated shipment), which is sent to a counterpart that
       mirrors the consolidator's activity by dividing the consolidated
       consignment into its original components.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the freight forwarder
+        type: string
+      name:
+        title: Name
+        description: Name of the freight forwarder.
+        type: string
+      url:
+        title: URL
+        description: URL of the freight forwarder.
+        type: string
+      description:
+        title: Description
+        description: Description of the freight forwarder.
+        type: string
+      email:
+        title: Email Address
+        description: nfreight forwarder's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: freight forwarder's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: freight forwarder's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
     $linkedData:
       term: freightForwarder
       '@id': >-
