@@ -10396,6 +10396,113 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     </section>
   
 
+    <section id="PestDetermination">
+      <h2>Pest Determination</h2>
+      <p>Information regarding the identification of a pest from a sample.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#PestDetermination">https://w3id.org/traceability#PestDetermination</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/PestDetermination.yml">https://w3id.org/traceability/openapi/components/schemas/common/PestDetermination.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["PestDetermination"],
+  "final": true,
+  "determination": {
+    "type": ["Taxonomy"],
+    "family": "Aphididae",
+    "genus": "Acyrthosiphon",
+    "species": "argus"
+  },
+  "method": "Morphology",
+  "determinedBy": {
+    "type": ["Person"],
+    "firstName": "Mary",
+    "lastName": "Smith",
+    "email": "msmith@example.org",
+    "phoneNumber": "555-018-2076",
+    "worksFor": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Glayson & Co. Inspections",
+      "description": "Agricultural cleanliness & organic assurance",
+      "email": "Marina96@glaysonco.net",
+      "phoneNumber": "555-521-6143",
+      "faxNumber": "555-150-7668"
+    },
+    "jobTitle": "Certification Specialist"
+  },
+  "date": "2021-10-11"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Person'>Person</a></li>
+<li><a href='#Taxonomy'>Taxonomy</a></li></ul>
+    </section>
+  
+
+    <section id="PestSample">
+      <h2>Pest Sample</h2>
+      <p>Information regarding a sample of some indeterminate pest.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#PestSample">https://w3id.org/traceability#PestSample</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/PestSample.yml">https://w3id.org/traceability/openapi/components/schemas/common/PestSample.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["PestSample"],
+  "hostName": {
+    "type": ["Taxonomy"],
+    "family": "Solanaceae",
+    "genus": "Solanum",
+    "species": "S. lycopersicum"
+  },
+  "hostQuantity": {
+    "type": ["QuantitativeValue"],
+    "unitCode": "crates",
+    "value": "33"
+  },
+  "affected": 12,
+  "plantPartsAffected": [
+    "Stem"
+  ],
+  "pestDistribution": "Common",
+  "pestProximity": "On",
+  "pestType": "Insect",
+  "aliveAdults": 23,
+  "aliveEggs": 13,
+  "deadAdults": 77,
+  "samplingMethod": "Randomized inspection of product"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#QuantitativeValue'>QuantitativeValue</a></li>
+<li><a href='#Taxonomy'>Taxonomy</a></li></ul>
+    </section>
+  
+
     <section id="Phytosanitary">
       <h2>Phytosanitary</h2>
       <p>Generalized schema capture of most common phytosanitary inspection data and properties.  Any phyto forms that deviate greatly from this will need their own schemas, unless it seems like the properties are more universal and should be added to this schema.</p>
@@ -13592,6 +13699,367 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "trackingNumber":"1258"
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="USDAPPQ309APestInterceptionRecord">
+      <h2>USDA PPQ 309A Pest Interception Record</h2>
+      <p>A record describing the results of a USDA APHIS (Animal and Plant Health Inspection Service) PPQ (Plant Protection and Quarantine) pest inspection performed on a plant-based product intercepted in transit.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#USDAPPQ309APestInterceptionRecord">https://w3id.org/traceability#USDAPPQ309APestInterceptionRecord</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/USDAPPQ309APestInterceptionRecord.yml">https://w3id.org/traceability/openapi/components/schemas/common/USDAPPQ309APestInterceptionRecord.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["USDAPPQ309APestInterceptionRecord"],
+  "interceptionNumber": "143l5khj1234l134",
+  "shippingStop": {
+    "type": ["ShippingStop"],
+    "shippingStopAddress": {
+      "type": ["PostalAddress"],
+      "name": "Tremblay, Prosacco and Beatty",
+      "streetAddress": "69047 Mann Lodge",
+      "addressLocality": "Cormierview",
+      "addressRegion": "Mississippi",
+      "postalCode": "87042",
+      "addressCountry": "Colombia"
+    },
+    "carrier": {
+      "type": ["Organization"],
+      "name": "Koepp - Ratke",
+      "description": "Fully-configurable 5th generation infrastructure",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "7070 Mohr Village",
+          "addressLocality": "Dereckmouth",
+          "addressRegion": "Washington",
+          "postalCode": "79586",
+          "addressCountry": "Equatorial Guinea"
+        }
+      },
+      "email": "Oliver16@example.com",
+      "phoneNumber": "555-931-2101",
+      "faxNumber": "555-741-9481"
+    },
+    "vesselNumber": "ACMECarrierVessel#770",
+    "arrivalDate": "2021-03-09",
+    "stopType": "Departure"
+  },
+  "forwardTo": "PPQ",
+  "priority": "Prompt",
+  "interceptionDate": "2021-10-07",
+  "inspector": {
+    "type": [
+      "Inspector"
+    ],
+    "person": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Jason",
+      "lastName": "Grant",
+      "email": "Santa43@example.org",
+      "phoneNumber": "555-460-4373",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Glayson & Co. Inspections",
+        "description": "Agricultural cleanliness & grade assurance",
+        "email": "Marina96@glaysonco.net",
+        "phoneNumber": "555-521-6143",
+        "faxNumber": "555-150-7668"
+      },
+      "jobTitle": "Principal Data Supervisor"
+    },
+    "qualification": [
+      {
+        "type": ["Qualification"],
+        "qualificationCategory": "Agricultural Security Analyst",
+        "qualificationValue": "Executive"
+      },
+      {
+        "type": ["Qualification"],
+        "qualificationCategory": "Future Metrics Planner",
+        "qualificationValue": "Coordinator"
+      },
+      {
+        "type": ["Qualification"],
+        "qualificationCategory": "Internal Identity Agent",
+        "qualificationValue": "Assistant"
+      }
+    ]
+  },
+  "overtime": false,
+  "pathway": "Maritime",
+  "modeOfTransportation": "Vessel",
+  "materialFor": "Consumption",
+  "narp": false,
+  "importedAs": "Fruit",
+  "shipment": {
+    "type": [
+      "AgriculturePackage"
+    ],
+    "packageName": "Tomatoes, Bulk",
+    "grade": "AA",
+    "responsibleParty": {
+      "type": ["Entity"],
+      "name": "Example Responsible Party Organization",
+      "email": "Chadrick_Gibson@example.com",
+      "phoneNumber": "+1-555-820-1520",
+      "entityType": "Organization"
+    },
+    "voicePickCode": "4642",
+    "date": "2021-03-14",
+    "labelImageUrl": "https://img.example.org/640/480/",
+    "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "agricultureProduct": [
+      {
+        "type": [
+          "AgricultureProduct"
+        ],
+        "upc": "033383401508",
+        "plu": "94225",
+        "gtin": "033383401508",
+        "product": {
+          "type": [
+            "Product"
+          ],
+          "manufacturer": {
+            "type": [
+              "Organization"
+            ],
+            "email": "Sven22@example.org",
+            "phoneNumber": "555-267-4748"
+          },
+          "name": "Tomatoes",
+          "description": "Tomatoes, Cartons",
+          "sizeOrAmount": {
+            "type": [
+              "QuantitativeValue"
+            ],
+            "unitCode": "cartons",
+            "value": "348"
+          },
+          "weight": {
+            "type": [
+              "QuantitativeValue"
+            ],
+            "unitCode": "lbs",
+            "value": "640"
+          },
+          "sku": "164664203943"
+        },
+        "scientificName": "Solanum lycopersicum",
+        "labelImageUrl": "https://img.example.org/033383401508/640/480/",
+        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "name": "Tomatoes",
+        "productImageUrl": "https://img.example.org/102934920857/937/903/",
+        "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+      }
+    ]
+  },
+  "whereIntercepted": "General Cargo",
+  "pestSample": {
+    "type": ["PestSample"],
+    "hostName": {
+      "type": ["Taxonomy"],
+      "family": "Solanaceae",
+      "genus": "Solanum",
+      "species": "S. lycopersicum"
+    },
+    "hostQuantity": {
+      "type": ["QuantitativeValue"],
+      "unitCode": "crates",
+      "value": "33"
+    },
+    "affected": 12,
+    "plantPartsAffected": [
+      "Stem"
+    ],
+    "pestDistribution": "Common",
+    "pestProximity": "On",
+    "pestType": "Insect",
+    "aliveAdults": 23,
+    "aliveEggs": 13,
+    "deadAdults": 77,
+    "samplingMethod": "Randomized inspection of product"
+  },
+  "pestDeterminations": [
+    {
+      "type": ["PestDetermination"],
+      "final": true,
+      "determination": {
+        "type": ["Taxonomy"],
+        "family": "Aphididae",
+        "genus": "Acyrthosiphon",
+        "species": "argus"
+      },
+      "method": "Morphology",
+      "determinedBy": {
+        "type": ["Person"],
+        "firstName": "Mary",
+        "lastName": "Smith",
+        "email": "msmith@example.org",
+        "phoneNumber": "555-018-2076",
+        "worksFor": {
+          "type": [
+            "Organization"
+          ],
+          "name": "Glayson & Co. Inspections",
+          "description": "Agricultural cleanliness & organic assurance",
+          "email": "Marina96@glaysonco.net",
+          "phoneNumber": "555-521-6143",
+          "faxNumber": "555-150-7668"
+        },
+        "jobTitle": "Certification Specialist"
+      },
+      "date": "2021-10-11"
+    }  
+  ],
+  "quarantineStatus": "Check Regs."
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#AgriculturePackage'>AgriculturePackage</a></li>
+<li><a href='#Inspector'>Inspector</a></li>
+<li><a href='#PestSample'>PestSample</a></li>
+<li><a href='#ShippingStop'>ShippingStop</a></li></ul>
+    </section>
+  
+
+    <section id="USDAPPQ309APestInterceptionRecord">
+      <h2>USDA PPQ 309A Pest Interception Record</h2>
+      <p>A record describing a pest sample submitted to a USDA APHIS (Animal and Plant Health Inspection Service) PPQ (Plant Protection and Quarantine) office as well as the findings of the recipient lab.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#USDAPPQ309APestInterceptionRecord">https://w3id.org/traceability#USDAPPQ309APestInterceptionRecord</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/USDAPPQ391SpecimensForDetermination.yml">https://w3id.org/traceability/openapi/components/schemas/common/USDAPPQ391SpecimensForDetermination.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["USDAPPQ309APestInterceptionRecord"],
+  "priority": "Prompt",
+  "priorityExplanation": "Samples exected to decay within a week",
+  "collectionNumber": "21-RTH-80",
+  "submissionDate": "2021-05-29",
+  "collectionDate": "2021-05-28",
+  "submittingAgency": "State Cooperator",
+  "submitter": {
+    "type": [
+      "Person"
+    ],
+    "firstName": "Karson",
+    "lastName": "Mante",
+    "email": "Alexandrea_Wisozk44@example.org",
+    "phoneNumber": "555-568-2871",
+    "worksFor": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Jimbo's Awesome Farm",
+      "description": "Organic fruits & vegetables",
+      "email": "Chloe.Ondricka42@jimbofarm.example.org",
+      "phoneNumber": "555-496-7149",
+      "faxNumber": "555-209-6489"
+    },
+    "jobTitle": "Chief Markets Agent"
+  },
+  "identificationReason": "Suspected Pest of Regulatory Concern",
+  "remarks": "Aphids initially suspected",
+  "tentativeDetermination": {
+    "type": ["PestDetermination"],
+    "final": false,
+    "determination": {
+      "type": ["Taxonomy"],
+      "family": "Aphididae"
+    },
+    "method": "Morphology",
+    "determinedBy": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Karson",
+      "lastName": "Mante",
+      "email": "Alexandrea_Wisozk44@example.org",
+      "phoneNumber": "555-568-2871",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Jimbo's Awesome Farm",
+        "description": "Organic fruits & vegetables",
+        "email": "Chloe.Ondricka42@jimbofarm.example.org",
+        "phoneNumber": "555-496-7149",
+        "faxNumber": "555-209-6489"
+      },
+      "jobTitle": "Chief Markets Agent"
+    },
+    "date": "2021-05-28"
+  },
+  "finalDetermination": {
+    "type": ["PestDetermination"],
+    "final": true,
+    "determination": {
+      "type": ["Taxonomy"],
+      "family": "Aphididae",
+      "genus": "Acyrthosiphon",
+      "species": "argus"
+    },
+    "method": "Morphology",
+    "determinedBy": {
+      "type": ["Person"],
+      "firstName": "Mary",
+      "lastName": "Smith",
+      "email": "msmith@example.org",
+      "phoneNumber": "555-018-2076",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Glayson & Co. Inspections",
+        "description": "Agricultural cleanliness & organic assurance",
+        "email": "Marina96@glaysonco.net",
+        "phoneNumber": "555-521-6143",
+        "faxNumber": "555-150-7668"
+      },
+      "jobTitle": "Certification Specialist"
+    },
+    "date": "2021-06-02"
+  },
+  "sampleDisposition": "Retained for Collection/Stored",
+  "labConformationNumber": "04332",
+  "dateReceived": "2021-06-01"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Person'>Person</a></li>
+<li><a href='#PestDetermination'>PestDetermination</a></li>
+<li><a href='#Place'>Place</a></li></ul>
     </section>
   
 
