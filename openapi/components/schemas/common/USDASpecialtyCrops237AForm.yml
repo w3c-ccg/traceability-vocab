@@ -1,0 +1,193 @@
+$linkedData:
+  term: USDASpecialtyCrops237AForm
+  '@id': https://w3id.org/traceability#USDASpecialtyCrops237AForm
+title: USDA Specialty Crops 237A Form
+description: Form SC-237A is used by personnel of USDA audit services to record information when applications for services are made.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - USDASpecialtyCrops237AForm
+    default:
+      - USDASpecialtyCrops237AForm
+    items:
+      type: string
+      enum:
+        - USDASpecialtyCrops237AForm
+  requestDate:
+    title: Request Date
+    description: Date the audit was requested.
+    type: string
+    $linkedData:
+      term: requestDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportSubmissionDateTime
+  anticipatedAuditDate:
+    title: Anticipated Audit Date
+    description: Anticipated date of the audit.
+    type: string
+    $linkedData:
+      term: anticipatedAuditDate
+      '@id': https://www.gs1.org/voc/certificationAuditDate
+  auditee:
+    title: Auditee
+    description: The party to be audited.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: auditee
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  applicant:
+    title: Applicant
+    description: The party applying for the audit (may be left blank if same as "Auditee").
+    $ref: ./Organization.yml
+    $linkedData:
+      term: applicant
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  billingAccountNumber:
+    title: Billing Account Number
+    description: The applicant's billing account number.
+    type: string
+    $linkedData:
+      term: billingAccountNumber
+      '@id': https://schema.org/accountId
+  locations:
+    title: Locations
+    description: Location(s), including non-contiguous sites and fields.
+    type: array
+    items:
+      $ref: ./Place.yml
+    $linkedData:
+      term: locations
+      '@id': https://schema.org/location    
+  totalArea:
+    title: Total Area
+    description: Total acres / total sq. feet to be audited.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: totalArea
+      '@id': https://www.gs1.org/voc/grossArea
+  commoditiesCovered:
+    title: Commodities Covered
+    description: Commodities to be covered by the audit.
+    type: array
+    items:
+      $ref: ./AgricultureProduct.yml
+    $linkedData:
+      term: commoditiesCovered
+      '@id': https://www.gs1.org/voc/certificationSubject
+  auditProgramsRequested:
+    title: Audit Programs Requested
+    description: A list of audit program(s) requested.
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: auditProgramsRequested
+      '@id': https://www.gs1.org/voc/certificationType
+  additionalRemarks:
+    title: Additional Remarks
+    description: Any additional remarks regarding the application.
+    type: string
+    $linkedData:
+      term: additionalRemarks
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["USDASpecialtyCrops237AForm"],
+    "requestDate": "2021-03-14",
+    "anticipatedAuditDate": "2021-04-12",
+    "auditee": {
+      "type": ["Organization"],
+      "name": "John's Produce",
+      "description": "Producing top quality agricultural products since 1932",
+      "email": "contact@example.com",
+      "phoneNumber": "555-895-1661",
+      "faxNumber": "555-497-2527",
+      "contactPoint":  {
+        "type": [ "ContactPoint"],
+        "name": "John Davis",
+        "email": "jdavis@example.com",
+        "phoneNumber": "555-218-9784"
+      }
+    },
+    "billingAccountNumber": "103481237",
+    "locations": [
+      {
+        "type": [
+          "Place"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "name": "John's Produce",
+          "streetAddress": "4335 Walsh Underpass",
+          "addressLocality": "Port Mark",
+          "addressRegion": "LA",
+          "postalCode": "67391",
+          "addressCountry": "United States"
+        },
+        "locationName": "John's Tomato Farm #1"
+      }
+    ],
+    "totalArea": {
+      "type": [
+        "QuantitativeValue"
+      ],
+      "unitCode": "ac",
+      "value": "38"
+    },
+    "commoditiesCovered": [
+      {
+        "type": [
+          "AgricultureProduct"
+        ],
+        "upc": "033383401508",
+        "plu": "94225",
+        "gtin": "033383401508",
+        "product": {
+          "type": [
+            "Product"
+          ],
+          "manufacturer": {
+            "type": [
+              "Organization"
+            ],
+            "email": "Sven22@example.org",
+            "phoneNumber": "555-267-4748"
+          },
+          "name": "Tomatoes",
+          "description": "Tomatoes, Cartons",
+          "sizeOrAmount": {
+            "type": [
+              "QuantitativeValue"
+            ],
+            "unitCode": "cartons",
+            "value": "348"
+          },
+          "weight": {
+            "type": [
+              "QuantitativeValue"
+            ],
+            "unitCode": "lbs",
+            "value": "640"
+          },
+          "sku": "164664203943"
+        },
+        "scientificName": "Solanum lycopersicum",
+        "labelImageUrl": "https://img.example.org/033383401508/640/480/",
+        "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "name": "Avocados",
+        "productImageUrl": "https://img.example.org/102934920857/937/903/",
+        "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+      }
+    ],
+    "auditProgramsRequested": [
+      "Produce GAPs Harmonized Audit: Field Operations & Harvesting",
+      "Plant Systems Audit"
+    ]
+  }
