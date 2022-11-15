@@ -1,0 +1,240 @@
+$linkedData:
+  term: PestSample
+  '@id': https://w3id.org/traceability#PestSample
+title: Pest Sample
+description: Information regarding a sample of some indeterminate pest.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - PestSample
+    default:
+      - PestSample
+    items:
+      type: string
+      enum:
+        - PestSample
+  hostName:
+    title: Host Name
+    description: The scientific name for the plant or plant product. Should contain at minimum genus and species.
+    $ref: ./Taxonomy.yml
+    $linkedData:
+      term: hostName
+      '@id': https://w3id.org/traceability#Taxonomy
+  hostQuantity:
+    title: Host Quantity
+    description: The quantity and units of host plants. Shipment size in "Cartons" or "Cubic Meters" for cargo interceptions; acres or individual plants for growing site interceptions.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: hostQuantity
+      '@id': http://rs.tdwg.org/dwc/terms/organismQuantity
+  affected:
+    title: Affected
+    description: The percentage of hosts affected, if available.
+    type: number
+    $linkedData:
+      term: affected
+      '@id': https://dwc.tdwg.org/list/#dwc_measurementValue
+  plantDistribution:
+    title: Plant Distribution
+    description: >-
+      The distribution of host plant (for cargo interceptions leave blank). Must be one of:
+      Limited, Scattered, Widespread.
+    type: string
+    $linkedData:
+      term: plantDistribution
+      '@id': http://rs.tdwg.org/dwc/terms/degreeOfEstablishment
+  plantPartsAffected:
+    title: Plant Parts Affected
+    description: >-
+      A list of plant parts affected (for cargo interceptions this will be limited to harvested
+      parts). Must be one of: Leaves, Upper Surface; Leaves, Lower Surface; Petiole; Stem;
+      Trunk/Bark; Branches; Growing Tips; Roots; Bulbs, Tubers, Corms; Buds; Flowers; Fruits or
+      Nuts; Seeds.
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: plantPartsAffected
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+  pestDistribution:
+    title: Pest Distribution
+    description: "Distribution of pest. Must be one of: Few, Common, Abundant, Extreme."
+    type: string
+    $linkedData:
+      term: pestDistribution
+      '@id': http://rs.tdwg.org/dwc/terms/degreeOfEstablishment
+  pestProximity:
+    title: Pest Proximity
+    description: >-
+      The location of the pest in relation to the host. Must be one of: In (Pest(s) extracted from
+      inside the commodity); On (Pest(s) are attached and feeding on the commodity); With (Pest(s)
+      associated with the host, but not on or in the host).
+    type: string
+    $linkedData:
+      term: pestProximity
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+  pestType:
+    title: Pest Type
+    description: "The type of pest intercepted, for example: Botany, Disease, Insect, Mite, Mollusk, Nematode."
+    type: string
+    $linkedData:
+      term: pestType
+      '@id': http://rs.tdwg.org/dwc/terms/occurrenceRemarks
+  aliveLarvae:
+    title: Alive Larvae
+    description: Number of alive larvae.
+    type: number
+    $linkedData:
+      term: aliveLarvae
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  alivePupae:
+    title: Alive Pupae
+    description: Number of alive pupae.
+    type: number
+    $linkedData:
+      term: alivePupae
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  aliveAdults:
+    title: Alive Adults
+    description: Number of alive adults.
+    type: number
+    $linkedData:
+      term: aliveAdults
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  aliveEggs:
+    title: Alive Eggs
+    description: Number of alive eggs.
+    type: number
+    $linkedData:
+      term: aliveEggs
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  aliveNymphs:
+    title: Alive Nymphs
+    description: Number of alive nymphs.
+    type: number
+    $linkedData:
+      term: aliveNymphs
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  aliveJuveniles:
+    title: Alive Juveniles
+    description: Number of alive juveniles.
+    type: number
+    $linkedData:
+      term: aliveJuveniles
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  aliveCysts:
+    title: Alive Cysts
+    description: Number of alive cysts.
+    type: number
+    $linkedData:
+      term: aliveCysts
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  deadLarvae:
+    title: Dead Larvae
+    description: Number of dead larvae.
+    type: number
+    $linkedData:
+      term: deadLarvae
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  deadPupae:
+    title: Dead Pupae
+    description: Number of dead pupae.
+    type: number
+    $linkedData:
+      term: deadPupae
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  deadAdults:
+    title: Dead Adults
+    description: Number of dead adults.
+    type: number
+    $linkedData:
+      term: deadAdults
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  deadEggs:
+    title: Dead Eggs
+    description: Number of dead eggs.
+    type: number
+    $linkedData:
+      term: deadEggs
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  deadNymphs:
+    title: Dead Nymphs
+    description: Number of dead nymphs.
+    type: number
+    $linkedData:
+      term: deadNymphs
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  deadJuveniles:
+    title: Dead Juveniles
+    description: Number of dead juveniles.
+    type: number
+    $linkedData:
+      term: deadJuveniles
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  deadCysts:
+    title: Dead Cysts
+    description: Number of dead cysts.
+    type: number
+    $linkedData:
+      term: deadCysts
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  castSkins:
+    title: Cast Skins
+    description: Number of cast skins.
+    type: number
+    $linkedData:
+      term: castSkins
+      '@id': http://rs.tdwg.org/dwc/terms/individualCount
+  samplingMethod:
+    title: Sampling Method
+    description: The sampling method for pest collection.
+    type: string
+    $linkedData:
+      term: samplingMethod
+      '@id': http://rs.tdwg.org/dwc/terms/samplingProtocol
+  trapLureType:
+    title: Type of Trap and Lure
+    description: The type of trap and lure used, if applicable.
+    type: string
+    $linkedData:
+      term: trapLureType
+      '@id': http://rs.tdwg.org/dwc/terms/samplingProtocol
+  trapNumber:
+    title: Trap Number
+    description: The trap number, if applicable.
+    type: string
+    $linkedData:
+      term: trapNumber
+      '@id': http://rs.tdwg.org/dwc/terms/samplingProtocol
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["PestSample"],
+    "hostName": {
+      "type": ["Taxonomy"],
+      "family": "Solanaceae",
+      "genus": "Solanum",
+      "species": "S. lycopersicum"
+    },
+    "hostQuantity": {
+      "type": ["QuantitativeValue"],
+      "unitCode": "crates",
+      "value": "33"
+    },
+    "affected": 12,
+    "plantPartsAffected": [
+      "Stem"
+    ],
+    "pestDistribution": "Common",
+    "pestProximity": "On",
+    "pestType": "Insect",
+    "aliveAdults": 23,
+    "aliveEggs": 13,
+    "deadAdults": 77,
+    "samplingMethod": "Randomized inspection of product"
+  }
