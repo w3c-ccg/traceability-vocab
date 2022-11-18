@@ -1,0 +1,310 @@
+$linkedData:
+  term: USDAPPQ449RTemperatureCalibration
+  '@id': https://w3id.org/traceability#USDAPPQ449RTemperatureCalibration
+title: USDA PPQ 449-R Temperature Recording Calibration Report (In-Transit Cold Treatment)
+description: USDA APHIS (Animal and Plant Health Inspection Service) PPQ (Plant Protection and Quarantine) 449-R, Temperature Recording Calibration Report (In-Transit Cold Treatment).
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - USDAPPQ449RTemperatureCalibration
+    default:
+      - USDAPPQ449RTemperatureCalibration
+    items:
+      type: string
+      enum:
+        - USDAPPQ449RTemperatureCalibration
+  vesselName:
+    title: Vessel Name
+    description: The name of the vessel being inspected.
+    type: string
+    $linkedData:
+      term: vesselName
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#name
+  ppqDutyStation:
+    title: PPQ Duty Station
+    description: The PPQ duty station inspecting the vessel.
+    $ref: ./Place.yml
+    $linkedData:
+      term: ppqDutyStation
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transitCustomsOfficeSpecifiedLocation
+  inspectionDate:
+    title: Date of Inspection
+    description: The date of inspection.
+    type: string
+    $linkedData:
+      term: inspectionDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#performanceDateTime
+  inspectionPoint:
+    title: Point of Inspection
+    description: The location at which the inspection occurs.
+    $ref: ./Place.yml
+    $linkedData:
+      term: inspectionPoint
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transitLocation
+  hullNumberDockyard:
+    title: Hull Number and Dockyard
+    description: The hull number and dockyard for the vessel.
+    type: string
+    $linkedData:
+      term: hullNumberDockyard
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId
+  imoNumber:
+    title: IMO Number
+    description: The vessel's IMO (International Maritime Organization) number.
+    type: string
+    $linkedData:
+      term: imoNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#identificationId
+  flagCode:
+    title: Flag Code
+    description: The 3 letter code for the vessel's flag.
+    type: string
+    $linkedData:
+      term: flagCode
+      '@id': https://schema.org/value
+  shipsOfficer:
+    title: Ship's Officer
+    description: The ship's officer.
+    $ref: ./Person.yml
+    $linkedData:
+      term: shipsOfficer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPerson
+  ownerOperator:
+    title: Owner/Operator
+    description: The owner/operator of the vessel.
+    $ref: ./Person.yml
+    $linkedData:
+      term: ownerOperator
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPerson
+  instrument1MakeModel:
+    title: Instrument 1 Make and Model
+    description: The make and model of instrument 1.
+    type: string
+    $linkedData:
+      term: instrument1MakeModel
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#attachedTransportEquipment
+  instrument2MakeModel:
+    title: Instrument 2 Make and Model
+    description: The make and model of instrument 2.
+    type: string
+    $linkedData:
+      term: instrument2MakeModel
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#attachedTransportEquipment
+  locationsDiagramMatchSatisfactory:
+    title: Locations Diagram Match Satisfactory
+    description: The locations match the diagram.
+    type: boolean
+    $linkedData:
+      term: locationsDiagramMatchSatisfactory
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
+  sensorsBoxesLabelingSatisfactory:
+    title: Sensors/Boxers Labeling Satisfactory
+    description: The labeling of sensors/boxes is satisfactory.
+    type: boolean
+    $linkedData:
+      term: sensorsBoxesLabelingSatisfactory
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
+  cableLengthSatisfactory:
+    title: Cable Length Satisfactory
+    description: The cable length is satisfactory.
+    type: boolean
+    $linkedData:
+      term: cableLengthSatisfactory
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
+  reactionTimeSatisfactory:
+    title: Reaction Time Satisfactory
+    description: The reaction time is satisfactory.
+    type: boolean
+    $linkedData:
+      term: reactionTimeSatisfactory
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#reportedStatus
+  temperatureReadings:
+    title: Temperature Readings
+    description: List of readings at 0 C (32 F).
+    type: array
+    items:
+      $ref: ./TemperatureReading.yml
+    $linkedData:
+      term: temperatureReadings
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportTemperature
+  participatingOfficials:
+    title: Participating Officials
+    description: A list of all USDA officials participating in the calibration.
+    type: array
+    items:
+      $ref: ./Person.yml
+    $linkedData:
+      term: participatingOfficials
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPerson
+  remarks:
+    title: Remarks
+    description: Any additional remarks.
+    type: string
+    $linkedData:
+      term: remarks
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remarks
+  company:
+    title: Compay
+    description: The company to send certificate of approval.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: company
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedOrganization
+  signatureDate:
+    title: Signature Date
+    description: The date of signature of the lead inspector.
+    type: string
+    $linkedData:
+      term: signatureDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#performanceDateTime
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["USDAPPQ449RTemperatureCalibration"],
+    "vesselName": "USS Example",
+    "ppqDutyStation": {
+      "type": [
+        "Place"
+      ],
+      "globalLocationNumber": "4947538126450",
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "40.5464",
+        "longitude": "-37.6146"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "name": "Moen - Swift",
+        "streetAddress": "9746 Laron Gardens",
+        "addressLocality": "Port Flossie",
+        "addressRegion": "Hawaii",
+        "postalCode": "64687",
+        "addressCountry": "Djibouti"
+      },
+      "unLocode": "DKCPH"
+    },
+    "inspectionDate": "2021-05-09",
+    "inspectionPoint": {
+      "type": [
+        "Place"
+      ],
+      "globalLocationNumber": "2184109798407",
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "38.8485",
+        "longitude": "-34.0883"
+      },
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "name": "Mills, Daugherty and Nader",
+        "streetAddress": "39514 Kulas Terrace",
+        "addressLocality": "East Avis",
+        "addressRegion": "Utah",
+        "postalCode": "45553",
+        "addressCountry": "Northern Mariana Islands"
+      },
+      "unLocode": "DKCPH"
+    },
+    "hullNumberDockyard": "123, East Dock",
+    "imoNumber": "01823",
+    "flagCode": "KSU",
+    "shipsOfficer": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Jason",
+      "lastName": "Grant",
+      "email": "Santa43@example.org",
+      "phoneNumber": "555-460-4373",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Glayson & Co. Transport",
+        "description": "Rapid & secure maritime transport of agricultural goods",
+        "email": "Marina96@glaysonco.net",
+        "phoneNumber": "555-521-6143",
+        "faxNumber": "555-150-7668"
+      },
+      "jobTitle": "Chief Officer"
+    },
+    "ownerOperator": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Karson",
+      "lastName": "Mante",
+      "email": "Alexandrea_Wisozk44@example.org",
+      "phoneNumber": "555-568-2871",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Jimbo's Awesome Farm",
+        "description": "Organic fruits & vegetables",
+        "email": "Chloe.Ondricka42@jimbofarm.example.org",
+        "phoneNumber": "555-496-7149",
+        "faxNumber": "555-209-6489"
+      },
+      "jobTitle": "Chief Markets Agent"
+    },
+    "instrument1MakeModel": "IRF FreezeFunction",
+    "locationsDiagramMatchSatisfactory": true,
+    "sensorsBoxesLabelingSatisfactory": false,
+    "cableLengthSatisfactory": true,
+    "reactionTimeSatisfactory": true,
+    "temperatureReadings": [
+      {
+        "type": ["TemperatureReading"],
+        "bulbNumber": "3",
+        "tests": [
+          1.25,
+          0.28,
+          2.1
+        ]
+      },
+      {
+        "type": ["TemperatureReading"],
+        "bulbNumber": "4",
+        "tests": [
+          3.09,
+          -1.87,
+          -2.62
+        ]
+      },
+      {
+        "type": ["TemperatureReading"],
+        "bulbNumber": "5",
+        "tests": [
+          3.01,
+          4.12,
+          2.98
+        ]
+      }
+    ],
+    "remarks": "Bulb 3 exhibits moderate corrosion",
+    "company": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Glayson & Co. Transport",
+      "description": "Rapid & secure maritime transport of agricultural goods",
+      "email": "Marina96@glaysonco.net",
+      "phoneNumber": "555-521-6143",
+      "faxNumber": "555-150-7668"
+    },
+    "signatureDate": "2021-05-09"
+  }
