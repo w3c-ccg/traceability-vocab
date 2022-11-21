@@ -13,6 +13,7 @@ in order to make meaningful contributions to this product.
 ## Getting Started
 
 To get started building, testing, or contributing to this repository, you will need [Node.js](https://nodejs.org) and [git](https://git-scm.com/).
+Node is expected to be either version 14 or 16.
 
 ```
 git clone https://github.com/w3c-ccg/traceability-vocab.git
