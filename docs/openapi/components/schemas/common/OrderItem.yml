@@ -1,0 +1,81 @@
+$linkedData:
+  term: OrderItem
+  '@id': https://schema.org/OrderItem
+title: Order Item
+description: An order item is a line of an order. It includes the quantity and shipping details of a bought offer.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - OrderItem
+    default:
+      - OrderItem
+    items:
+      type: string
+      enum:
+        - OrderItem
+  marketplace: 
+    title: Marketplace
+    description: A logistics service provider party, at line level, for this trade delivery.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: marketplace
+      '@id': https://vocabulary.uncefact.org/Marketplace
+  fulfillmentCenter: 
+    title: Fulfillment Center
+    description: A logistics service provider party, at line level, for this trade delivery.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: fulfillmentCenter
+      '@id': https://vocabulary.uncefact.org/logisticsServiceProviderParty
+  orderedItem: 
+    title: Ordered Item
+    description: The item ordered.
+    $ref: ./Product.yml
+    $linkedData:
+      term: orderedItem
+      '@id': https://schema.org/orderedItem
+  orderedQuantity: 
+    title: Ordered Quantity
+    description: The number of the item ordered. If the property is not set, assume the quantity is one.
+    type: number
+    $linkedData:
+      term: orderedQuantity
+      '@id': https://schema.org/orderQuantity
+additionalProperties: false
+required:
+  - type
+  - orderedItem
+  - orderedQuantity
+example: |-
+  {
+    "type": ["OrderItem"],
+    "marketplace": {
+      "type": ["Organization"],
+      "id": "did:web:ecommerce-marketplace.example.com",
+      "name": "Ecommerce Worldwide, Inc."
+    },
+    "fulfillmentCenter": {
+      "type": ["Organization"],
+      "id": "did:web:ecommerce-marketplace.example.com",
+      "name": "Fulfillment Global, Ltd."
+    },
+    "orderedItem": {
+      "type": ["Product"],
+      "id": "ecommerce-marketplace.example.com/catalog/lawn-flamingos-357fc1f4",
+      "gtin": "8948786268509",
+      "name": "Lawn Flamingos",
+      "seller": {
+        "type": ["Organization"],
+        "id": "did:web:garden-stuff.example.com"
+      },
+      "productPrice": {
+        "type": ["PriceSpecification"],
+        "price": 99.50,
+        "priceCurrency": "USD"
+      }
+    },
+    "orderedQuantity": 1
+  }

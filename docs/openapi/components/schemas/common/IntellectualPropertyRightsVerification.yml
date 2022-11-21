@@ -1,0 +1,40 @@
+type: object
+title: Intellectual Property Rights Verification
+description: In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, verification of other types of documentation can be provided as evidence.
+$linkedData:
+  term: IntellectualPropertyRightsVerification
+  '@id': https://w3id.org/traceability#IntellectualPropertyRightsVerification
+properties:
+  evidenceVerifier:
+    title: Evidence Verifier
+    description: Evidence verifier.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: evidenceVerifier
+      '@id': https://w3id.org/traceability#evidenceVerifier
+  intellectualPropertyRightsType:
+    type: string
+    enum:
+      - Trademark
+      - Patent
+      - Copyright
+    description: Type of intellectual property right.
+    $linkedData:
+      term: intellectualPropertyRightsType
+      '@id': https://w3id.org/traceability#intellectualPropertyRightsType
+  evidenceDocumentUrl:
+    type: string
+    description: URL of the evidence document.
+    $linkedData:
+      term: evidenceDocumentUrl
+      '@id': https://schema.org/url
+example: |-
+  {
+    "evidenceVerifier": {
+      "type": ["Organization"], 
+      "id": "https://climing-gear.example.com",
+      "name": "Climing Gear, Inc"
+    },
+    "intellectualPropertyRightsType": "Patent",
+    "evidenceDocumentUrl": "https://patents.google.com/patent/EP1820540B1/"
+  }

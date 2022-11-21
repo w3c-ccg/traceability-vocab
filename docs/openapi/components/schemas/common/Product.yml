@@ -16,13 +16,19 @@ properties:
       type: string
       enum:
         - Product
-  productID:
-    title: Product ID
-    description: Product number of registering Legal Entity such as an ISBN
+  id:
+    title: Product Identifier
+    description: The product identifier, such as ISBN.
     type: string
     $linkedData:
-      term: productID
+      term: id
       '@id': https://schema.org/productID
+  gtin:
+    title: Global Trade Item Number (GTIN)
+    type: string
+    $linkedData:
+      term: gtin
+      '@id': https://schema.org/gtin
   manufacturer:
     title: Manufacturer
     description: The entity manufacturing the product.
@@ -118,6 +124,21 @@ properties:
     $linkedData:
       term: commodity
       '@id': https://w3id.org/traceability#Commodity
+  seller:
+    title: Seller
+    description: The entity manufacturing the product.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: seller
+      '@id': https://vocabulary.uncefact.org/sellerParty
+  images:
+    title: Images of the product
+    type: array
+    items: 
+      type: string
+    $linkedData:
+      term: images
+      '@id': https://schema.org/image
 additionalProperties: false
 required:
   - type
