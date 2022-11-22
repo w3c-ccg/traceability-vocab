@@ -20,18 +20,13 @@ const contexts = {
   'https://w3id.org/security/suites/x25519-2019/v1': sec.contexts.get(
     'https://w3id.org/security/suites/x25519-2019/v1'
   ),
-
+  'https://w3id.org/vc/status-list/2021/v1': sec.contexts.get(
+    'https://w3id.org/vc/status-list/2021/v1'
+  ),
   'https://w3id.org/traceability/v1': JSON.parse(
     fs
       .readFileSync(
         path.resolve(__dirname, '../../../docs/contexts/traceability-v1.jsonld')
-      )
-      .toString()
-  ),
-  'https://w3id.org/vc/status-list/2021/v1': JSON.parse(
-    fs
-      .readFileSync(
-        path.resolve(__dirname, '../../../docs/contexts/statusList2021.jsonld')
       )
       .toString()
   ),
