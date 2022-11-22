@@ -19,9 +19,6 @@ const getTagsFromDirectory = () => {
 };
 
 const getEndpointsFromSchemaNames = (tag) => {
-  if (tag === 'snippets') {
-    return [];
-  }
   const newSchemas = getAllJsonFilesFromDirectory(
     path.resolve(__dirname, `../../../docs/openapi/components/schemas/${tag}`)
   );
