@@ -1,17 +1,17 @@
 type: object
-title: Intellectual Property Rights Verification
-description: In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, verification of other types of documentation can be provided as evidence.
+title: Intellectual Property Rights Affirmation
+description: In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, affirmation of other types of documentation can be provided as evidence.
 $linkedData:
-  term: IntellectualPropertyRightsVerification
-  '@id': https://w3id.org/traceability#IntellectualPropertyRightsVerification
+  term: IntellectualPropertyRightsAffirmation
+  '@id': https://w3id.org/traceability#IntellectualPropertyRightsAffirmation
 properties:
-  evidenceVerifier:
-    title: Evidence Verifier
-    description: Evidence verifier.
+  affirmingParty:
+    title: Affirming Party
+    description: The party which have conducted the affirmation.
     $ref: ./Organization.yml
     $linkedData:
-      term: evidenceVerifier
-      '@id': https://w3id.org/traceability#evidenceVerifier
+      term: affirmingParty
+      '@id': https://w3id.org/traceability#affirmingParty
   intellectualPropertyRightsType:
     type: string
     enum:
@@ -24,13 +24,13 @@ properties:
       '@id': https://w3id.org/traceability#intellectualPropertyRightsType
   evidenceDocumentUrl:
     type: string
-    description: URL of the evidence document.
+    description: URL of the affirmed evidence document.
     $linkedData:
       term: evidenceDocumentUrl
       '@id': https://schema.org/url
 example: |-
   {
-    "evidenceVerifier": {
+    "affirmingParty": {
       "type": ["Organization"], 
       "id": "https://climing-gear.example.com",
       "name": "Climing Gear, Inc"

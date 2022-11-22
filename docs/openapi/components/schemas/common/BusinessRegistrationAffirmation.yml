@@ -1,17 +1,17 @@
 type: object
 title: Business Registration Verification
-description: In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, verification of other types of documentation can be provided as evidence.
+description: In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, affirmation of other types of documentation can be provided as evidence.
 $linkedData:
   term: BusinessRegistrationVerification
   '@id': https://w3id.org/traceability#BusinessRegistrationVerification
 properties:
-  evidenceVerifier:
-    title: Evidence Verifier
-    description: Evidence verifier.
+  affirmingParty:
+    title: Affirming Party
+    description: The party which have conducted the affirmation.
     $ref: ./Organization.yml
     $linkedData:
-      term: evidenceVerifier
-      '@id': https://w3id.org/traceability#evidenceVerifier
+      term: affirmingParty
+      '@id': https://w3id.org/traceability#affirmingParty
   registrationUrl:
     type: string
     description: URL for the state business registration.
@@ -33,7 +33,7 @@ properties:
       '@id': https://schema.org/country
 example: |-
   {
-    "evidenceVerifier": {
+    "affirmingParty": {
       "type": ["Organization"],
       "id": "did:web:ecommerce-marketplace.example.com"
     },
