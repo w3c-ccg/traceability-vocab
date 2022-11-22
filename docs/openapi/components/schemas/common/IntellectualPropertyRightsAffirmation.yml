@@ -1,0 +1,40 @@
+type: object
+title: Intellectual Property Rights Affirmation
+description: In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, affirmation of other types of documentation can be provided as evidence.
+$linkedData:
+  term: IntellectualPropertyRightsAffirmation
+  '@id': https://w3id.org/traceability#IntellectualPropertyRightsAffirmation
+properties:
+  affirmingParty:
+    title: Affirming Party
+    description: The party which have conducted the affirmation.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: affirmingParty
+      '@id': https://w3id.org/traceability#affirmingParty
+  intellectualPropertyRightsType:
+    type: string
+    enum:
+      - Trademark
+      - Patent
+      - Copyright
+    description: Type of intellectual property right.
+    $linkedData:
+      term: intellectualPropertyRightsType
+      '@id': https://w3id.org/traceability#intellectualPropertyRightsType
+  evidenceDocumentUrl:
+    type: string
+    description: URL of the affirmed evidence document.
+    $linkedData:
+      term: evidenceDocumentUrl
+      '@id': https://schema.org/url
+example: |-
+  {
+    "affirmingParty": {
+      "type": ["Organization"], 
+      "id": "https://climing-gear.example.com",
+      "name": "Climing Gear, Inc"
+    },
+    "intellectualPropertyRightsType": "Patent",
+    "evidenceDocumentUrl": "https://patents.google.com/patent/EP1820540B1/"
+  }

@@ -1,0 +1,44 @@
+type: object
+title: Bank Account Holder Affirmation
+description: Affirmation that an entity holds a bank account as supporting evidence in for example KYC processes.
+$linkedData:
+  term: BankAccountHolderAffirmation
+  '@id': https://w3id.org/traceability#BankAccountHolderAffirmation
+properties:
+  affirmingParty:
+    title: Affirming Party
+    description: The party which have conducted the affirmation.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: affirmingParty
+      '@id': https://w3id.org/traceability#evidenceVerifier
+  bankAccountHolderAffirmationApproach:
+    title: Bank Account Holder Affirmation Approach
+    description: The approach which has been taken to affirm the bank account holdership. 
+    type: string
+    enum:
+      - TransactionConfirmation
+      - BankAccountHolderCertificate
+    $linkedData:
+      term: bankAccountHolderAffirmationApproach
+      '@id': https://schema.org/name
+  bank:
+    title: Bank
+    description: The bank holding the affirmed account.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: bank
+      '@id': https://schema.org/Organization
+example: |-
+  {
+    "affirmingParty": {
+      "type": ["Organization"],
+      "id": "did:web:ecommerce-marketplace.example.com"
+    },
+    "bankAccountHolderAffirmationApproach": "TransactionConfirmation",
+    "bank": {
+      "type": ["Organization"],
+      "id": "https://bank.example.com",
+      "name": "Example Bank"
+    }
+  }

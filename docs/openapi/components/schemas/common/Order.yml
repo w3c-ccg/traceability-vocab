@@ -1,0 +1,56 @@
+$linkedData:
+  term: Order
+  '@id': https://schema.org/Order
+title: Order
+description: An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Order
+    default:
+      - Order
+    items:
+      type: string
+      enum:
+        - Order
+  orderNumber: 
+    title: Ordered Items
+    description: The identifier of the transaction.
+    type: string
+    $linkedData:
+      term: orderNumber
+      '@id': https://schema.org/orderNumber
+  orderedItems:  
+    title: Ordered Items
+    description: The item ordered.
+    type: array
+    items:
+      $ref: ./OrderItem.yml
+    $linkedData:
+      term: orderedItems
+      '@id': https://schema.org/orderedItem
+additionalProperties: false
+required:
+  - type
+  - orderNumber
+  - orderedItems
+example: |-
+  {
+    "type": ["Order"],
+    "orderNumber": "https://ecommerce-marketplace.example.com/orders/b88db1f4-dbac-4048-8fb5-fa61e54781fa",
+    "orderedItems": [
+      {
+        "type": ["OrderItem"],
+        "orderedItem": {
+          "type": ["Product"],
+          "id": "ecommerce-marketplace.example.com/catalog/lawn-flamingos-357fc1f4",
+          "gtin": "8948786268509",
+          "name": "Lawn Flamingos"
+        },
+        "orderedQuantity": 1
+      }
+    ]
+  }
