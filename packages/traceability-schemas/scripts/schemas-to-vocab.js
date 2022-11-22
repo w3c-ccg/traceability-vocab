@@ -15,6 +15,9 @@ const baseUrl = 'https://w3id.org/traceability';
 
 const buildLinkedDataTable = (schema) => {
   const { $id, $linkedData } = schema;
+  if (!$linkedData) {
+    return '';
+  }
   const section = `
   <table class="simple">
   <tbody>
@@ -59,6 +62,10 @@ const buildClass = (schema) => {
     console.error('error building table: ', e);
   }
 
+  if (!schema.$linkedData) {
+    return '';
+  }
+
   const props = schema.properties ? Object.keys(schema.properties) : [];
   const dependencies = props
     .filter((key) => schema.properties[key].$ref)
@@ -100,6 +107,10 @@ const separateSchemas = (schemaList) => {
 
   // Separates Schemas into Credentials and Vocabulary
   schemaList.forEach((schema) => {
+    if (!schema.example) {
+      return;
+    }
+
     const { example } = schema;
     const obj = JSON.parse(example);
     const type = Array.isArray(obj.type) ? obj.type : [obj.type];
