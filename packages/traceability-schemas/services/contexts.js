@@ -28,6 +28,13 @@ const contexts = {
       )
       .toString()
   ),
+  'https://w3id.org/vc/status-list/2021/v1': JSON.parse(
+    fs
+      .readFileSync(
+        path.resolve(__dirname, '../../../docs/contexts/statusList2021.jsonld')
+      )
+      .toString()
+  ),
 };
 
 module.exports = { contexts };
