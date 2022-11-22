@@ -90,42 +90,438 @@ properties:
   seller: 
     title: Seller
     description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Identifier for the seller
+        type: string
+      name:
+        title: Name
+        description: Name of the seller
+        type: string
+      url:
+        title: URL
+        description: URL of the seller
+        type: string
+      description:
+        title: Description
+        description: Description of the seller
+        type: string
+      email:
+        title: Email Address
+        description: Seller's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: Seller's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Seller's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: seller
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Identifier for the buyer
+        type: string
+      name:
+        title: Name
+        description: Name of the buyer
+        type: string
+      url:
+        title: URL
+        description: URL of the buyer
+        type: string
+      description:
+        title: Description
+        description: Description of the buyer
+        type: string
+      email:
+        title: Email Address
+        description: Buyer's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: Buyer's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Buyer's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
   exporter:
     title: Exporter
     description:  The party who makes, or on whose behalf the export declaration is made, and who is the owner of the goods or has similar rights of disposal over them at the time when the declaration is accepted.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Identifier for the Exporter
+        type: string
+      name:
+        title: Name
+        description: Name of the Exporter
+        type: string
+      url:
+        title: URL
+        description: URL of the Exporter
+        type: string
+      description:
+        title: Description
+        description: Description of the Exporter
+        type: string
+      email:
+        title: Email Address
+        description: Exporter's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: Exporter's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Exporter's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: exporter
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty
   importer:
     title: Importer
     description: The party who makes, or on whose behalf a customs clearing agent or other authorized person makes, an import declaration. This may include a person who has possession of the goods or to whom the goods are consigned. Also refered to as Importer of Record.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Identifier for the Importer
+        type: string
+      name:
+        title: Name
+        description: Name of the Importer
+        type: string
+      url:
+        title: URL
+        description: URL of the Importer
+        type: string
+      description:
+        title: Description
+        description: Description of the Importer
+        type: string
+      email:
+        title: Email Address
+        description: Importer's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: Importer's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Importer's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
   shipFromParty:
     title: Ship From Party
     description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Identifier for the ship from party
+        type: string
+      name:
+        title: Name
+        description: Name of the ship from party
+        type: string
+      url:
+        title: URL
+        description: URL of the ship from party
+        type: string
+      description:
+        title: Description
+        description: Description of the ship from party
+        type: string
+      email:
+        title: Email Address
+        description: Ship from party's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: Ship from party's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Ship from party's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: shipFromParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Identifier for the ship to party
+        type: string
+      name:
+        title: Name
+        description: Name of the ship to party
+        type: string
+      url:
+        title: URL
+        description: URL of the ship to party
+        type: string
+      description:
+        title: Description
+        description: Description of the ship to party
+        type: string
+      email:
+        title: Email Address
+        description: Ship from party's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: Ship to party's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Ship to party's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: shipToParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
@@ -135,7 +531,73 @@ properties:
       The service provider, service operator, or service performer; the goods
       producer. Another party (a seller) may offer those services or goods on
       behalf of the provider. A provider may also serve as the seller.
-    $ref: ./Organization.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Identifier for the provider
+        type: string
+      name:
+        title: Name
+        description: Name of the provider
+        type: string
+      url:
+        title: URL
+        description: URL of the provider
+        type: string
+      description:
+        title: Description
+        description: Description of the provider
+        type: string
+      email:
+        title: Email Address
+        description: Provider's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: Provider's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Provider's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ./GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ./PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: provider
       '@id': https://schema.org/provider

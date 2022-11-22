@@ -1,92 +1,66 @@
 $linkedData:
-  term: ppq587
-  '@id': https://w3id.org/traceability#ppq587
-title: PPQ 587 Application
-description: >-
-  United States Department of Agriculture Animal and Plant Health Inspection
-  Service.  Application for permit to import plants or plant products.
+  term: USDAPPQ587PlantImportPermit
+  '@id': https://w3id.org/traceability#USDAPPQ587PlantImportPermit
+title: USDA PPQ 587 Application for Permit to Import Plants or Plant Products
+description: USDA APHIS (Animal and Plant Health Inspection Service) PPQ (Plant Protection and Quarantine) 587, Application for Permit to Import Plants or Plant Products
 type: object
 properties:
   type:
     type: array
     readOnly: true
     const:
-      - ppq587
+      - USDAPPQ587PlantImportPermit
     default:
-      - ppq587
+      - USDAPPQ587PlantImportPermit
     items:
       type: string
       enum:
-        - ppq587
-  signatureDate:
-    title: signatureDate
-    description: Date when the inspection was signed by the inspection officer.
-    type: string
+        - USDAPPQ587PlantImportPermit
+  applicant:
+    title: Applicant
+    description: Organization that is applying for import.
+    $ref: ./Organization.yml
     $linkedData:
-      term: signatureDate
-      '@id': https://w3id.org/traceability#signatureDate
-      '@type': http://www.w3.org/2001/XMLSchema#dateTime
-  facility:
-    title: Facility
-    description: Information on the inspection facility.
-    $ref: ./Place.yml
-    $linkedData:
-      term: facility
-      '@id': https://www.gs1.org/voc/Place
+      term: applicant
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
   shipment:
     title: Shipment
-    description: Details for a shipment of agricultural goods.
+    description: Details for the shipment of agricultural goods.
     $ref: ./AgricultureParcelDelivery.yml
     $linkedData:
       term: shipment
-      '@id': https://schema.org/AgricultureParcelDelivery
-  applicant:
-    title: Applicant
-    description: Entity that is applying for the inspection.
-    $ref: ./Entity.yml
-    $linkedData:
-      term: applicant
-      '@id': https://w3id.org/traceability#dfn-entities
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportPackage
   intendedUse:
     title: Intended Use
     description: >-
-      The intended use for the imported products.  Most commonly in ppq587 this
-      would be 'plants for planting,' 'small lots of seed', and 'fruits and
-      vegetables.'
+      The intended use for the imported products.  Most commonly in USDAPPQ587PlantImportPermit
+      this would be "plants for planting", "small lots of seed", or "fruits and vegetables".
     type: string
     $linkedData:
       term: intendedUse
-      '@id': https://w3id.org/traceability#intendedUse
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#intendedUse
+  signatureDate:
+    title: Signature Date
+    description: Date when the application was signed by applicant.
+    type: string
+    $linkedData:
+      term: signatureDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime
 additionalProperties: false
 required:
   - type
 example: |-
   {
-    "type": ["ppq587"],
-    "facility": {
+    "type": ["USDAPPQ587PlantImportPermit"],
+    "applicant": {
       "type": [
-        "Place"
+        "Organization"
       ],
-      "globalLocationNumber": "4274425428831",
-      "geo": {
-        "type": [
-          "GeoCoordinates"
-        ],
-        "latitude": "-76.9169",
-        "longitude": "-37.1065"
-      },
-      "address": {
-        "type": [
-          "PostalAddress"
-        ],
-        "name": "Schuster - Macejkovic",
-        "streetAddress": "83995 Roberts Dale",
-        "addressLocality": "West Abigalestad",
-        "addressRegion": "Montana",
-        "postalCode": "53855",
-        "addressCountry": "Denmark"
-      },
-      "unLocode": "DKCPH"
+      "name": "Ace Foodstuffs",
+      "description": "Agricultural goods shipping & distribution",
+      "email": "Hipolito58@acefoodstuffs.org",
+      "phoneNumber": "555-895-1661",
+      "faxNumber": "555-497-2527"
     },
     "shipment": {
       "type": [
@@ -213,13 +187,6 @@ example: |-
         "leiCode": "54321351219389121979"
       }
     },
-    "applicant": {
-      "type": ["Entity"],
-      "name": "Example Applicant Organization",
-      "email": "Jensen85@example.com",
-      "phoneNumber": "555-941-9125",
-      "entityType": "Organization"
-    },
     "signatureDate": "2021-02-16",
-    "intendedUse": "Fruits and Vegetables"
+    "intendedUse": "fruits and vegetables"
   }

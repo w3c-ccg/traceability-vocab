@@ -1,0 +1,47 @@
+$linkedData:
+  term: TemperatureReading
+  '@id': https://w3id.org/traceability#TemperatureReading
+title: Temperature Reading
+description: Temperature reading at 0 C (32 F).
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - TemperatureReading
+    default:
+      - TemperatureReading
+    items:
+      type: string
+      enum:
+        - TemperatureReading
+  bulbNumber:
+    title: Bulb Number
+    description: The bulb being tested.
+    type: string
+    $linkedData:
+      term: bulbNumber
+      '@id': https://schema.org/identifier
+  tests:
+    title: Tests
+    description: A list of temperature readings at 0 C (32 F).
+    type: array
+    items:
+      type: number
+    $linkedData:
+      term: tests
+      '@id': https://schema.org/value
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["TemperatureReading"],
+    "bulbNumber": "3",
+    "tests": [
+      1.25,
+      0.28,
+      2.1
+    ]
+  }
