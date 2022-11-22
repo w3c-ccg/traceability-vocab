@@ -1,0 +1,30 @@
+title: proof
+description: A JSON Web Signature proof for a credential as defined by the VC data model 
+type: object
+properties:
+  type:
+    type: string
+    description: Signature suite for the proof
+    enum:
+      - Ed25519Signature2018
+  created:
+    description: Creation timestamp for the proof in the form of an XML datestring
+    type: string
+  verificationMethod:
+    description: The fragment from which the public key can be de-referenced, in the form of a URI
+    type: string
+  proofPurpose:
+    description: In the case of credentials, the proof should be the constant, 'assertionMethod'
+    const: assertionMethod
+  jws:
+    description: The JSON Web Signature for the proof
+    type: string
+example: |-
+  {
+    "type": "Ed25519Signature2018",
+    "created": "2022-11-14T13:54:28Z",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "proofPurpose": "assertionMethod",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..AGCDysH5NGBJpBCw3_P5ZAQkv2Sqs_l6Vs45JKtVEVKfNKfQq6xw4eJ6Gsfj8Rq3HxF4nSLEujR9MV7b_J6-DA"
+  }
+  

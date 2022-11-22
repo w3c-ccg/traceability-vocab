@@ -1,0 +1,60 @@
+type: object
+title: Intellectual Property Rights Verification
+description: Verification of Intellectual Property Ownership or Rights
+$linkedData:
+  term: IntellectualPropertyRights
+  '@id': https://w3id.org/traceability#IntellectualPropertyRights
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - IntellectualPropertyRights
+    default:
+      - IntellectualPropertyRights
+    items:
+      type: string
+      enum:
+        - IntellectualPropertyRights
+  intellectualPropertyRightsOwner:
+    title: Intellectual Property Rights Owner
+    description: Owner or rights holder of the intellectual property.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: intellectualPropertyRightsOwner
+      '@id': https://w3id.org/traceability#intellectualPropertyRightsOwner
+  intellectualPropertyRightsType:
+    title: Intellectual Property Rights Type
+    description: Type of intellectual property right.
+    type: string
+    enum:
+      - Trademark
+      - Patent
+      - Copyright
+    $linkedData:
+      term: intellectualPropertyRightsType
+      '@id': https://w3id.org/traceability#intellectualPropertyRightsType
+  intellectualPropertyRightsProduct:
+    title: Intellectual Property Rights Product
+    description: Product of which the intellectual property rights are concerned.
+    $ref: ./Product.yml
+    $linkedData:
+      term: intellectualPropertyRightsProduct
+      '@id': https://w3id.org/traceability#intellectualPropertyRightsProduct
+example: |-
+  {
+    "type": ["IntellectualPropertyRights"],
+    "intellectualPropertyRightsOwner": {
+      "type": ["Organization"], 
+      "id": "did:web:garden-stuff.example.com",
+      "name": "Everything Garden Stuff"
+    },
+    "intellectualPropertyRightsType": "Copyright",
+    "intellectualPropertyRightsProduct": {
+      "type": ["Product"],
+      "id": "ecommerce-marketplace.example.com/catalog/lawn-flamingos-357fc1f4",
+      "gtin": "8948786268509",
+      "name": "Lawn Flamingos",
+      "description": "Classic plastic lawn flamingos, 2pcs"
+    }
+  }

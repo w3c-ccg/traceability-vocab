@@ -2,38 +2,6 @@
     <section>
       <h2>Vocabulary</h2>
       
-    <section id="AdditionalProductCodeRegistrationCredential">
-      <h2>Additional Product Code Registration Credential</h2>
-      <p>Ecommerce Additional Product Code Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#AdditionalProductCodeRegistrationCredential">https://w3id.org/traceability#AdditionalProductCodeRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/AdditionalProductCodeRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/AdditionalProductCodeRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["AdditionalProductCodeRegistrationCredential"],
-  "productVCid": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
-  "addProductCode": 99746411868836,
-  "addProductCodeType": "UPC",
-  "certificateName": "ACME Ecommerce Universal Product Code Product Registration Certificate"
-}</pre>
-      
-    </section>
-  
-
     <section id="AgricultureActivity">
       <h2>Agriculture Activity</h2>
       <p>An activity that takes place on the farm that needs to be recorded, such as planting, harvesting, applying fertilizer, etc.</p>
@@ -1068,6 +1036,43 @@
     </section>
   
 
+    <section id="BankAccountHolderAffirmation">
+      <h2>Bank Account Holder Affirmation</h2>
+      <p>Affirmation that an entity holds a bank account as supporting evidence in for example KYC processes.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#BankAccountHolderAffirmation">https://w3id.org/traceability#BankAccountHolderAffirmation</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/BankAccountHolderAffirmation.yml">https://w3id.org/traceability/openapi/components/schemas/common/BankAccountHolderAffirmation.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "affirmingParty": {
+    "type": ["Organization"],
+    "id": "did:web:ecommerce-marketplace.example.com"
+  },
+  "bankAccountHolderAffirmationApproach": "TransactionConfirmation",
+  "bank": {
+    "type": ["Organization"],
+    "id": "https://bank.example.com",
+    "name": "Example Bank"
+  }
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
+  
+
     <section id="BillOfLading">
       <h2>Bill Of Lading</h2>
       <p>Bill Of Lading</p>
@@ -1171,74 +1176,6 @@
     </section>
   
 
-    <section id="BindingDataRegistrationCredential">
-      <h2>Binding Data Registration Credential</h2>
-      <p>Ecommerce Binding Data Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#BindingDataRegistrationCredential">https://w3id.org/traceability#BindingDataRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/BindingDataRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/BindingDataRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["BindingDataRegistrationCredential"],
-  "finalCarrierName": "Howe, Dach and Ondricka",
-  "finalVesselID": "ACMEVessel#842",
-  "finalDateOfArrival": "2022-05-11",
-  "finalModeOfTransport": "Sea",
-  "finalPortOfEntry": {
-    "type": ["ShippingStop"],
-    "shippingStopAddress": {
-      "type": ["PostalAddress"],
-      "name": "Metz - Kemmer",
-      "streetAddress": "7885 Nils Mountains",
-      "addressLocality": "West Jarenbury",
-      "addressRegion": "Oklahoma",
-      "postalCode": "23253-1252",
-      "addressCountry": "Switzerland"
-    },
-    "carrier": {
-      "type": ["Organization"],
-      "name": "Hane LLC",
-      "description": "Expanded solution-oriented collaboration",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "571 McDermott Overpass",
-          "addressLocality": "Bretbury",
-          "addressRegion": "Minnesota",
-          "postalCode": "46974-2565",
-          "addressCountry": "Eritrea"
-        }
-      },
-      "email": "Maud65@example.com",
-      "phoneNumber": "555-673-9451",
-      "faxNumber": "555-773-6727"
-    },
-    "stopType": "Stopover"
-  },
-  "wayBillVCID": [
-    "https://vc.example.com/?queryID=0x1eBBCBaAF4B1BfA83940a5509DD5Ccd0CeB79D4Db7AD9FeC2CA5Bcf1F2CFD7EA"
-  ],
-  "certificateName": "ACME Carrier Binding Data Registration Certificate"
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#ShippingStop'>ShippingStop</a></li></ul>
-    </section>
-  
-
     <section id="Brand">
       <h2>Brand</h2>
       <p>Brand information for entities.</p>
@@ -1265,6 +1202,40 @@
   "url": "https://cool.example"
 }</pre>
       
+    </section>
+  
+
+    <section id="BusinessRegistrationVerification">
+      <h2>Business Registration Verification</h2>
+      <p>In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, affirmation of other types of documentation can be provided as evidence.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#BusinessRegistrationVerification">https://w3id.org/traceability#BusinessRegistrationVerification</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/BusinessRegistrationAffirmation.yml">https://w3id.org/traceability/openapi/components/schemas/common/BusinessRegistrationAffirmation.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "affirmingParty": {
+    "type": ["Organization"],
+    "id": "did:web:ecommerce-marketplace.example.com"
+  },
+  "registrationUrl": "https://country.gov/corporation-directory/298774108",
+  "taxIdentificationNumber": "298774108",
+  "countryOfRegistration": "MX"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
     </section>
   
 
@@ -2490,43 +2461,6 @@
 <li><a href='#Organization'>Organization</a></li>
 <li><a href='#Place'>Place</a></li>
 <li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
-    </section>
-  
-
-    <section id="DocumentVerificationEvidence">
-      <h2>DocumentVerificationEvidence</h2>
-      <p>Verifiable Credential Evidence Document Schema</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#DocumentVerificationEvidence">https://w3id.org/traceability#DocumentVerificationEvidence</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/DocumentVerificationEvidence.yml">https://w3id.org/traceability/openapi/components/schemas/common/DocumentVerificationEvidence.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": [
-    "DocumentVerificationEvidence"
-  ],
-  "id": "https://example.acme.com/evidence/?queryID=0xFd5FEB812fFa20bEBDcBCD63dC11e96A7A1D59c14fAbEAF9c55D006Ac9DEac3B",
-  "verifier": [
-    "did:web:www.acme.com"
-  ],
-  "evidenceDocument": "ACME-Evidence-Document-0x2b440EbE-2-4-2021",
-  "subjectPresence": "InPerson",
-  "documentPresence": "Digital"
-}</pre>
-      
     </section>
   
 
@@ -6956,6 +6890,82 @@
     </section>
   
 
+    <section id="IntellectualPropertyRights">
+      <h2>Intellectual Property Rights Verification</h2>
+      <p>Verification of Intellectual Property Ownership or Rights</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#IntellectualPropertyRights">https://w3id.org/traceability#IntellectualPropertyRights</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/IntellectualPropertyRights.yml">https://w3id.org/traceability/openapi/components/schemas/common/IntellectualPropertyRights.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["IntellectualPropertyRights"],
+  "intellectualPropertyRightsOwner": {
+    "type": ["Organization"], 
+    "id": "did:web:garden-stuff.example.com",
+    "name": "Everything Garden Stuff"
+  },
+  "intellectualPropertyRightsType": "Copyright",
+  "intellectualPropertyRightsProduct": {
+    "type": ["Product"],
+    "id": "ecommerce-marketplace.example.com/catalog/lawn-flamingos-357fc1f4",
+    "gtin": "8948786268509",
+    "name": "Lawn Flamingos",
+    "description": "Classic plastic lawn flamingos, 2pcs"
+  }
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Product'>Product</a></li></ul>
+    </section>
+  
+
+    <section id="IntellectualPropertyRightsAffirmation">
+      <h2>Intellectual Property Rights Affirmation</h2>
+      <p>In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, affirmation of other types of documentation can be provided as evidence.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#IntellectualPropertyRightsAffirmation">https://w3id.org/traceability#IntellectualPropertyRightsAffirmation</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/IntellectualPropertyRightsAffirmation.yml">https://w3id.org/traceability/openapi/components/schemas/common/IntellectualPropertyRightsAffirmation.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "affirmingParty": {
+    "type": ["Organization"], 
+    "id": "https://climing-gear.example.com",
+    "name": "Climing Gear, Inc"
+  },
+  "intellectualPropertyRightsType": "Patent",
+  "evidenceDocumentUrl": "https://patents.google.com/patent/EP1820540B1/"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
+  
+
     <section id="IntentToImport">
       <h2>Intent To Import</h2>
       <p>A simple case where an entity (person or organization) wishes to notify some third party that they intend to import some product, likely into a different geographic region than that of its origin. This can be used to identify and  declare intent earlier in the process than would be possible otherwise. This  object may be easily subclassed for extension with other data for cases  where additional regulatory data may be required.</p>
@@ -7225,246 +7235,6 @@
       <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li>
 <li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
-    </section>
-  
-
-    <section id="InvoiceRegistrationCredential">
-      <h2>Invoice Registration Credential</h2>
-      <p>Ecommerce Invoice Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#InvoiceRegistrationCredential">https://w3id.org/traceability#InvoiceRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/InvoiceRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/InvoiceRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-    "type": ["InvoiceRegistrationCredential"],
-    "invoiceID": "Invoice#490",
-    "orderID": [],
-    "productInOrder": [
-      "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-      "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
-      "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
-    ],
-    "certificateName": "ACME Ecommerce Invoice Registration Certificate"
-  }</pre>
-      
-    </section>
-  
-
-    <section id="InvoiceRegistrationEvidenceDocument">
-      <h2>Invoice Registration Evidence Document</h2>
-      <p>Evidence data for a registered eCommerce Invoice</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#InvoiceRegistrationEvidenceDocument">https://w3id.org/traceability#InvoiceRegistrationEvidenceDocument</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/InvoiceRegistrationEvidenceDocument.yml">https://w3id.org/traceability/openapi/components/schemas/common/InvoiceRegistrationEvidenceDocument.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["InvoiceRegistrationEvidenceDocument"],
-  "identifier": "Invoice#922",
-  "description": "Invoice For Eva Oberbrunner for Order#112",
-  "url": "http://maureen.info?queryid=Invoice#922",
-  "broker": {
-    "type": ["Organization"],
-    "name": "Koch LLC",
-    "leiCode": "54321351219389121979"
-  },
-  "accountId": "xxxx-xxxx-xxxx-6496",
-  "customer": {
-    "type": ["Customer"],
-    "name": "Eva Oberbrunner",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "25849 Carolina Street",
-      "addressLocality": "Baileymouth",
-      "addressRegion": "Minnesota",
-      "postalCode": "23047",
-      "addressCountry": "Samoa"
-    },
-    "telephone": "555-284-1409",
-    "email": "Daniella_Morar46@example.com"
-  },
-  "paymentDueDate": "2020-01-07",
-  "totalPaymentDue": 0,
-  "totalPaymentDueCurrency": "LBP",
-  "paymentStatus": "PaymentComplete",
-  "provider": {
-    "type": ["Organization"],
-    "name": "Rohan - Feeney",
-    "leiCode": "23451152048570336774"
-  },
-  "referencesOrder": [
-    {
-      "type": ["OrderRegistrationEvidenceDocument"],
-      "description": "New Order For Eva Oberbrunner",
-      "url": "https://claire.biz?queryid=Order#112",
-      "orderNumber": "Order#112",
-      "orderDate": "2020-01-07",
-      "orderStatus": "OrderReturned",
-      "seller": {
-        "type": ["Organization"],
-        "name": "Rohan - Feeney",
-        "leiCode": "23451152048570336774"
-      },
-      "broker": {
-        "type": ["Organization"],
-        "name": "Koch LLC",
-        "leiCode": "54321351219389121979"
-      },
-      "customer": {
-        "type": ["Customer"],
-        "name": "Eva Oberbrunner",
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "25849 Carolina Street",
-          "addressLocality": "Baileymouth",
-          "addressRegion": "Minnesota",
-          "postalCode": "23047",
-          "addressCountry": "Samoa"
-        },
-        "telephone": "555-284-1409",
-        "email": "Daniella_Morar46@example.com"
-      },
-      "paymentMethod": "http://purl.org/goodrelations/v1#Cash",
-      "paymentDueDate": "2020-01-07",
-      "orderedItem": [
-        {
-          "type": ["OrderedItem"],
-          "name": "ACME Bluetooth Computer Mouse 3000-1",
-          "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-          "unitPrice": 6,
-          "orderQuantity": 3,
-          "price": 18
-        },
-        {
-          "type": ["OrderedItem"],
-          "name": "ACME Laptop 3000",
-          "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
-          "unitPrice": 0,
-          "orderQuantity": 8,
-          "price": 0
-        },
-        {
-          "type": ["OrderedItem"],
-          "name": "ACME Bluetooth Computer Mouse 3000-1",
-          "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-          "unitPrice": 6,
-          "orderQuantity": 9,
-          "price": 54
-        },
-        {
-          "type": ["OrderedItem"],
-          "name": "ACME Bluetooth Computer Keyboard 3801-1",
-          "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-          "unitPrice": 6,
-          "orderQuantity": 1,
-          "price": 6
-        }
-      ]
-    }
-  ]
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#Customer'>Customer</a></li>
-<li><a href='#Organization'>Organization</a></li></ul>
-    </section>
-  
-
-    <section id="IssuerAgent">
-      <h2>IssuerAgent</h2>
-      <p>IssuerAgent definition based on IATA electronic Air Way Bill https://blanker.org/files/air-waybill-2.xls</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#IssuerAgent">https://w3id.org/traceability#IssuerAgent</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/IssuerAgent.yml">https://w3id.org/traceability/openapi/components/schemas/common/IssuerAgent.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["IssuerAgent"],
-  "issuerAgentOrg": {
-    "type": ["Organization"],
-    "name": "Lesch - Smith",
-    "description": "Adaptive attitude-oriented customer loyalty",
-    "location": {
-      "type": ["Place"],
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "98546 Megane Locks",
-        "addressLocality": "Lake Lilliana",
-        "addressRegion": "Idaho",
-        "postalCode": "61383",
-        "addressCountry": "Saint Vincent and the Grenadines"
-      }
-    },
-    "email": "Cordia1@example.net",
-    "phoneNumber": "555-721-4155",
-    "faxNumber": "555-448-4391"
-  },
-  "iataCode": "IATA#175",
-  "accountNumber": "",
-  "accountingInformation": "Please charge to Account 123 and not Account 321",
-  "charge": {
-    "type": ["PriceSpecification"],
-    "price": 1923,
-    "priceCurrency": "MUR"
-  },
-  "declaredValueCarriage": {
-    "type": ["PriceSpecification"],
-    "price": 5048,
-    "priceCurrency": "PEN"
-  },
-  "declaredValueCarriagePaymentStatus": "PaymentPastDue",
-  "declaredValueCustoms": {
-    "type": ["PriceSpecification"],
-    "price": 8658,
-    "priceCurrency": "EUR"
-  },
-  "declaredValueCustomsPaymentStatus": "PaymentPastDue",
-  "amountInsurance": {
-    "type": ["PriceSpecification"],
-    "price": 2421,
-    "priceCurrency": "AFN"
-  }
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
-<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
     </section>
   
 
@@ -7785,36 +7555,6 @@
       "validationAuthorityEntityID": "622LO2SWTJWOVTZ581RV"
     }
   ]
-}</pre>
-      
-    </section>
-  
-
-    <section id="LegalEntityIdentifierCredential">
-      <h2>LegalEntityIdentifierCredential</h2>
-      <p>GLEIF verifiable Legal Entity Identifier Credential (verifiable leiCode Credential)</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#LegalEntityIdentifierCredential">https://w3id.org/traceability#LegalEntityIdentifierCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/LegalEntityIdentifierCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/LegalEntityIdentifierCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["LegalEntityIdentifierCredential"],
-  "leiCode": "X1VP3GQ3TP91GVP4F446",
-  "certificateName": "US Legal Entity Certificate"
 }</pre>
       
     </section>
@@ -9040,163 +8780,99 @@
     </section>
   
 
-    <section id="OrderRegistrationCredential">
-      <h2>Order Registration Credential</h2>
-      <p>Ecommerce Order Registration Credential</p>
+    <section id="Order">
+      <h2>Order</h2>
+      <p>An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer.</p>
       
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#OrderRegistrationCredential">https://w3id.org/traceability#OrderRegistrationCredential</a></td>
+    <td><a href="https://schema.org/Order">https://schema.org/Order</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/OrderRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/OrderRegistrationCredential.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/Order.yml">https://w3id.org/traceability/openapi/components/schemas/common/Order.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
       <pre class="example">{
-  "type": ["OrderRegistrationCredential"],
-  "orderID": "Order#51",
-  "productInOrder": [
-    "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
-  ],
-  "certificateName": "ACME Order Registration Certificate"
-}</pre>
-      
-    </section>
-  
-
-    <section id="OrderRegistrationEvidenceDocument">
-      <h2>Order Registration Evidence Document</h2>
-      <p>Evidence data for a registered eCommerce Order</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#OrderRegistrationEvidenceDocument">https://w3id.org/traceability#OrderRegistrationEvidenceDocument</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/OrderRegistrationEvidenceDocument.yml">https://w3id.org/traceability/openapi/components/schemas/common/OrderRegistrationEvidenceDocument.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["OrderRegistrationEvidenceDocument"],
-  "orderNumber": "Order#538",
-  "orderDate": "2020-01-07",
-  "orderStatus": "OrderPaymentDue",
-  "description": "New Order For Stefan Gaylord",
-  "url": "https://dudley.com?queryid=Order#538",
-  "seller": {
-    "type": ["Organization"],
-    "name": "Watsica, Blick and Paucek",
-    "leiCode": "23451420761202927678"
-  },
-  "broker": {
-    "type": ["Organization"],
-    "name": "Mills - Bartoletti",
-    "leiCode": "54321937108944635838"
-  },
-  "customer": {
-    "type": ["Customer"],
-    "name": "Oscar Keebler",
-    "address": {
-      "type": ["PostalAddress"],
-      "streetAddress": "41379 Kerluke Mill",
-      "addressLocality": "Fritschport",
-      "addressRegion": "Nevada",
-      "postalCode": "23952-3805",
-      "addressCountry": "Ethiopia"
-    },
-    "telephone": "555-138-7096",
-    "email": "Morton_Kihn14@example.com"
-  },
-  "paymentDueDate": "2021-03-09",
-  "paymentMethod": "http://purl.org/goodrelations/v1#ByInvoice",
-  "orderedItem": [
+  "type": ["Order"],
+  "orderNumber": "https://ecommerce-marketplace.example.com/orders/b88db1f4-dbac-4048-8fb5-fa61e54781fa",
+  "orderedItems": [
     {
-      "type": ["OrderedItem"],
-      "name": "ACME Bluetooth Computer Mouse 3000-1",
-      "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-      "unitPrice": 8,
-      "orderQuantity": 9,
-      "price": 72
-    },
-    {
-      "type": ["OrderedItem"],
-      "name": "ACME Bluetooth Computer Mouse 3000-1",
-      "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-      "unitPrice": 6,
-      "orderQuantity": 8,
-      "price": 48
-    },
-    {
-      "type": ["OrderedItem"],
-      "name": "ACME Laptop 3000",
-      "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
-      "unitPrice": 2,
-      "orderQuantity": 4,
-      "price": 8
-    },
-    {
-      "type": ["OrderedItem"],
-      "name": "ACME Bluetooth Computer Keyboard 3801-1",
-      "productID": "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-      "unitPrice": 2,
-      "orderQuantity": 1,
-      "price": 2
+      "type": ["OrderItem"],
+      "orderedItem": {
+        "type": ["Product"],
+        "id": "ecommerce-marketplace.example.com/catalog/lawn-flamingos-357fc1f4",
+        "gtin": "8948786268509",
+        "name": "Lawn Flamingos"
+      },
+      "orderedQuantity": 1
     }
   ]
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Customer'>Customer</a></li>
-<li><a href='#Organization'>Organization</a></li></ul>
+      
     </section>
   
 
-    <section id="OrderedItem">
-      <h2>Order Item Record</h2>
-      <p>Order Item Record based on orderedItem from schema.org</p>
+    <section id="OrderItem">
+      <h2>Order Item</h2>
+      <p>An order item is a line of an order. It includes the quantity and shipping details of a bought offer.</p>
       
   <table class="simple">
   <tbody>
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#OrderedItem">https://w3id.org/traceability#OrderedItem</a></td>
+    <td><a href="https://schema.org/OrderItem">https://schema.org/OrderItem</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/OrderedItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/OrderedItem.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/OrderItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/OrderItem.yml</a></td>
 </tr>
 
   </tbody>
   </table>
   
       <pre class="example">{
-  "type": ["OrderedItem"],
-  "name": "ACME Laptop 3000",
-  "productID": "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
-  "unitPrice": 0,
-  "orderQuantity": 4,
-  "price": 0
+  "type": ["OrderItem"],
+  "marketplace": {
+    "type": ["Organization"],
+    "id": "did:web:ecommerce-marketplace.example.com",
+    "name": "Ecommerce Worldwide, Inc."
+  },
+  "fulfillmentCenter": {
+    "type": ["Organization"],
+    "id": "did:web:ecommerce-marketplace.example.com",
+    "name": "Fulfillment Global, Ltd."
+  },
+  "orderedItem": {
+    "type": ["Product"],
+    "id": "ecommerce-marketplace.example.com/catalog/lawn-flamingos-357fc1f4",
+    "gtin": "8948786268509",
+    "name": "Lawn Flamingos",
+    "seller": {
+      "type": ["Organization"],
+      "id": "did:web:garden-stuff.example.com"
+    },
+    "productPrice": {
+      "type": ["PriceSpecification"],
+      "price": 99.50,
+      "priceCurrency": "USD"
+    }
+  },
+  "orderedQuantity": 1
 }</pre>
-      
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Product'>Product</a></li></ul>
     </section>
   
 
@@ -9864,83 +9540,6 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     </section>
   
 
-    <section id="PackageItem">
-      <h2>Package Item</h2>
-      <p>Ecommerce Package Item</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#PackageItem">https://w3id.org/traceability#PackageItem</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/PackageItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/PackageItem.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["PackageItem"],
-  "productReceiptID": "https://vc.example.com/?queryID=0xF74adE972a00d1B5C0adB9ecf3a6deBF81BDdc3c0b71c1Cd27BEC833CfF6fbBf",
-  "packingListID": "https://vc.example.com/?queryID=0xFDdB6eCedEc650A514Ee7d2d900Af7DeCc2722B2ECaEae72D8eA6B62D00f77c5",
-  "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
-  "productInOrder": [
-    "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
-  ]
-}</pre>
-      
-    </section>
-  
-
-    <section id="PackageRegistrationCredential">
-      <h2>Package Registration Credential</h2>
-      <p>Ecommerce Package Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#PackageRegistrationCredential">https://w3id.org/traceability#PackageRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/PackageRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/PackageRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["PackageRegistrationCredential"],
-  "trackingID": "662796962028",
-  "packageItems": [
-    {
-      "type": ["PackageItem"],
-      "productReceiptID": "https://vc.example.com/?queryID=0xacbC416aBdEC7B664Ee27DFF738fd0B8ab9cFE0eDa3BBEd07FD10B46c279de08",
-      "packingListID": "https://vc.example.com/?queryID=0x212d4Da8A4D9C14C9C4c57bB1c4CEdaB9d095FDb3d940dac04C1CdBA6bC4be81",
-      "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
-      "productInOrder": [
-        "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-        "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
-        "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
-      ]
-    }
-  ],
-  "certificateName": "ACME Carrier Package Registration Certificate"
-}</pre>
-      
-    </section>
-  
-
     <section id="PackingList">
       <h2>Packing List</h2>
       <p>A seller-prepared commercial document indicating the net and gross weights, dimensions and contents of all shipping pieces (boxes, crates, bundles, etc.) in a shipment. Each packing list should reference the shipment for which is made, and the line item totals should agree with the relevant commercial invoice. A packing list should be made for all shipments consisting of more than one shipping piece for the following reasons - They aid in identifying lost cargo, especially for carrier and insurance claims. - They permit selective inspection by customs authorities, and many government require them for large shipments. - They provide a "map" of the shipment, enabling the buyer to easily unpack and stock the shipped goods. In certain cases it is advisable elaborate the packing list considering the information requested by the importer, especially for customs purposes, as may be the case that the Customs request a "detailed document", for example, in the case of a machine, the identification of each of the parts and components. (source: Olegario Llamazares: Dictionary of International Trade, Key definitions of 2000 trade terms and acronyms).</p>
@@ -10150,78 +9749,6 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
     </section>
   
 
-    <section id="PackingListItem">
-      <h2>Packing List Item</h2>
-      <p>Ecommerce Packing List Item</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#PackingListItem">https://w3id.org/traceability#PackingListItem</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/PackingListItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/PackingListItem.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["PackingListItem"],
-  "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
-  "productInOrder": [
-    "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-    "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-    "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
-  ]
-}</pre>
-      
-    </section>
-  
-
-    <section id="PackingListRegistrationCredential">
-      <h2>Packing List Registration Credential</h2>
-      <p>Ecommerce Packing List Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#PackingListRegistrationCredential">https://w3id.org/traceability#PackingListRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/PackingListRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/PackingListRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["PackingListRegistrationCredential"],
-  "packageItems": [
-    {
-      "type": ["PackingListItem"],
-      "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
-      "productInOrder": [
-        "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
-      ]
-    }
-  ],
-  "certificateName": "ACME Packing List Registration Certificate"
-}</pre>
-      
-    </section>
-  
-
     <section id="ParcelDelivery">
       <h2>Parcel Delivery</h2>
       <p>Details on a shipment or delivery.</p>
@@ -10282,7 +9809,8 @@ https://www.cbp.gov/sites/default/files/assets/documents/2021-Dec/ACE%20CATAIR%2
   "deliveryMethod": "Rail freight transport",
   "trackingNumber": "598186458445"
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+      <b>Dependencies</b><ul><li><a href='#Order'>Order</a></li>
+<li><a href='#Organization'>Organization</a></li>
 <li><a href='#Place'>Place</a></li></ul>
     </section>
   
@@ -11335,129 +10863,6 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
 <li><a href='#Organization'>Organization</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li>
 <li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
-    </section>
-  
-
-    <section id="ProductReceiptRegistrationCredential">
-      <h2>Product Receipt Registration Credential</h2>
-      <p>Ecommerce Product Receipt Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#ProductReceiptRegistrationCredential">https://w3id.org/traceability#ProductReceiptRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ProductReceiptRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/ProductReceiptRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["ProductReceiptRegistrationCredential"],
-  "receiptID": "Receipt#663",
-  "packingListID": [
-    "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
-  ],
-  "orderID": [
-    "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a"
-  ],
-  "productInOrder": [
-    "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-    "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e",
-    "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a",
-    "https://vc.example.com/?queryID=6206f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58598a"
-  ],
-  "certificateName": "ACME Carrier Product Receipt Registration Certificate"
-}</pre>
-      
-    </section>
-  
-
-    <section id="ProductRegistrationCredential">
-      <h2>Product Registration Credential</h2>
-      <p>Ecommerce Product Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#ProductRegistrationCredential">https://w3id.org/traceability#ProductRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ProductRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/ProductRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["ProductRegistrationCredential"],
-  "productCode": 10,
-  "productCodeType": "UPC",
-  "certificateName": "ACME Product Registration Certificate"
-}</pre>
-      
-    </section>
-  
-
-    <section id="ProductRegistrationEvidenceDocument">
-      <h2>Product Registration Evidence Document</h2>
-      <p>Evidence data for a registered eCommerce Product</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#ProductRegistrationEvidenceDocument">https://w3id.org/traceability#ProductRegistrationEvidenceDocument</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ProductRegistrationEvidenceDocument.yml">https://w3id.org/traceability/openapi/components/schemas/common/ProductRegistrationEvidenceDocument.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["ProductRegistrationEvidenceDocument"],
-  "category": "Specialty Goods",
-  "inProductGroupWithID": "Group537",
-  "productID": "58H7E5MR18",
-  "mpn": "RI2GNK0VTV",
-  "gtin": "17552493072510",
-  "isAccessoryOrSparePartFor": "n/a",
-  "releaseDate": "2020-01-07",
-  "manufacturer": "Larkin - Armstrong",
-  "globalLocationNumber": "3353436169913",
-  "leiCode": "",
-  "name": "Intelligent Granite Cheese",
-  "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-  "model": "b958ba42-ca02-44c7-90b2-0e6fbb34c4aa",
-  "color": "plum",
-  "material": "Wooden",
-  "weight": "4.182 kg",
-  "height": "9.535 m",
-  "width": "5.342 m",
-  "depth": "3.023 m",
-  "url": "https://example.com/Intelligent Granite Cheese",
-  "isBasedOn": "Generic Frozen Shoes",
-  "image": "http://placeimg.com/640/480"
-}</pre>
-      
     </section>
   
 
@@ -15520,83 +14925,6 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     </section>
   
 
-    <section id="WayBillRegistrationCredential">
-      <h2>WayBill Registration Credential</h2>
-      <p>Ecommerce Way Bill Registration Credential</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#WayBillRegistrationCredential">https://w3id.org/traceability#WayBillRegistrationCredential</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/WayBillRegistrationCredential.yml">https://w3id.org/traceability/openapi/components/schemas/common/WayBillRegistrationCredential.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["WayBillRegistrationCredential"],
-  "wayBillID": "ACMEWayBill#956",
-  "carrierName": "Veum LLC",
-  "modeOfTransport": "Sea",
-  "portOfEntry": {
-    "type": ["ShippingStop"],
-    "shippingStopAddress": {
-      "type": ["PostalAddress"],
-      "name": "Oberbrunner, Feeney and Langosh",
-      "streetAddress": "13308 Abigayle Drives",
-      "addressLocality": "South Vanessaton",
-      "addressRegion": "Kentucky",
-      "postalCode": "62798-8923",
-      "addressCountry": "Saudi Arabia"
-    },
-    "carrier": {
-      "type": ["Organization"],
-      "name": "Schuster Group",
-      "description": "Progressive intermediate model",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "570 Dena Ranch",
-          "addressLocality": "Scarlettfurt",
-          "addressRegion": "Florida",
-          "postalCode": "08794",
-          "addressCountry": "Cuba"
-        }
-      },
-      "email": "Gretchen_Reichel@example.org",
-      "phoneNumber": "555-864-1793",
-      "faxNumber": "555-445-2750"
-    },
-    "vesselNumber": "ACMECarrierVessel#315",
-    "arrivalDate": "2021-03-09",
-    "stopType": "Destination"
-  },
-  "masterWayBill": "No",
-  "wayBillVCID": [
-    "https://vc.example.com/?queryID=0xE8Ab93dff3469bCBeA9ee32c81B84940E64F5EF7A0f3C82Ef3bAC2bFd8aBa7Ad"
-  ],
-  "packageVCID": [
-    "https://vc.example.com/?queryID=0xaBCFCEfE28CaeffE73D6f32d86D711F7eCd55f5dEC62BF8c3F0Eb4F1857b73b3",
-    "https://vc.example.com/?queryID=0x9aD0b2b931F85a19eDdb9a99BB4DCCee93a651AEbe7Ad6FC95E0781c4a9C420c",
-    "https://vc.example.com/?queryID=0xEbC6AC3A2A1DffE59f26b5718Adff52A0EF2551A460d81B97A9feBbDCBDe00Bb",
-    "https://vc.example.com/?queryID=0xa0FBa7FcA65BbDF8CC25fb7C078E52C07DC10F6E535b1449c1649789DFDBaA7b",
-    "https://vc.example.com/?queryID=0x2CE71f6F667e3CBE2fd62710EA40CDb213Fa5AC339Ca04b2ACEbE0CBDF4d6b6D"
-  ],
-  "certificateName": "ACME Carrier Way Bill Registration Certificate"
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#ShippingStop'>ShippingStop</a></li></ul>
-    </section>
-  
-
     <section id="Workflow">
       <h2>Workflow</h2>
       <p>A Workflow Definition and Instance.</p>
@@ -15707,5 +15035,6 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       <b>Dependencies</b><ul><li><a href='#Workflow'>Workflow</a></li></ul>
     </section>
   
+
     </section>
   
