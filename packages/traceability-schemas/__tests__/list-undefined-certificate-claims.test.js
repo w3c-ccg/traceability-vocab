@@ -8,7 +8,7 @@ const documentLoader = require('../services/documentLoader');
 
 const { schemas } = require('../services/schemas');
 
-jest.setTimeout(30000);
+jest.setTimeout(10000);
 
 const verifiableCredentials = schemas
   .map((s) => {
