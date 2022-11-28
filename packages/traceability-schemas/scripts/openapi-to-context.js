@@ -18,8 +18,11 @@ const showUndefinedTerms = false;
 
 const schemasToContext = (srcSchemas, srcContext) => {
   const context = srcSchemas.reduce((prev, curr) => {
-    const { term } = curr.$linkedData;
     const clone = { ...prev };
+    if (!curr.$linkedData) {
+      return clone;
+    }
+    const { term } = curr.$linkedData;
     const rdfClass = {
       '@id': curr.$linkedData['@id'],
       '@context': {},

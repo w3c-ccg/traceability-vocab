@@ -1,0 +1,43 @@
+type: object
+title: Business Registration Verification
+description: In cases where ownership or rights for intellectual property claims are not available as Verifiable Credentials, affirmation of other types of documentation can be provided as evidence.
+$linkedData:
+  term: BusinessRegistrationVerification
+  '@id': https://w3id.org/traceability#BusinessRegistrationVerification
+properties:
+  affirmingParty:
+    title: Affirming Party
+    description: The party which have conducted the affirmation.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: affirmingParty
+      '@id': https://w3id.org/traceability#affirmingParty
+  registrationUrl:
+    type: string
+    description: URL for the state business registration.
+    $linkedData:
+      term: registrationUrl
+      '@id': https://schema.org/url
+  taxIdentificationNumber:
+    title: Tax Identification Number
+    description: The registration number by which a company/organization is identified with the tax administration.
+    type: string
+    $linkedData:
+      term: taxIdentificationNumber
+      '@id': https://vocabulary.uncefact.org/uncl1153#AHP
+  countryOfRegistration:
+    type: string
+    description: Country of registered business.
+    $linkedData:
+      term: countryOfRegistration
+      '@id': https://schema.org/country
+example: |-
+  {
+    "affirmingParty": {
+      "type": ["Organization"],
+      "id": "did:web:ecommerce-marketplace.example.com"
+    },
+    "registrationUrl": "https://country.gov/corporation-directory/298774108",
+    "taxIdentificationNumber": "298774108",
+    "countryOfRegistration": "MX"
+  }
