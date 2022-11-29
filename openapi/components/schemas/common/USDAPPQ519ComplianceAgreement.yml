@@ -1,0 +1,131 @@
+$linkedData:
+  term: USDAPPQ519ComplianceAgreement
+  '@id': https://w3id.org/traceability#USDAPPQ519ComplianceAgreement
+title: USDA PPQ 519 Compliance Agreement
+description: USDA APHIS (Animal and Plant Health Inspection Service) PPQ (Plant Protection and Quarantine) 519, Compliance Agreement.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - USDAPPQ519ComplianceAgreement
+    default:
+      - USDAPPQ519ComplianceAgreement
+    items:
+      type: string
+      enum:
+        - USDAPPQ519ComplianceAgreement
+  person:
+    title: Person
+    description: The person applying for or representing a firm applying for a compliance agreement. If a firm is applying, enter the information for the signee.
+    $ref: ./Person.yml
+    $linkedData:
+      term: person
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  firm:
+    title: Firm
+    description: The firm applying for a compliance agreement. Leave blank if no firm is involved.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: firm
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  regulatedArticles:
+    title: Regulated Articles
+    description: A description of the regulated articles.
+    type: string
+    $linkedData:
+      term: regulatedArticles
+      '@id': https://www.gs1.org/voc/regulatedProductName
+  quarantinesRegulations:
+    title: Quarantines and Regulations
+    description: A description of applicable federal quarantine(s) or regulations.
+    type: string
+    $linkedData:
+      term: quarantinesRegulations
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableRegulatoryProcedure
+  agreement:
+    title: Agreement
+    description: The applicant agrees to the following.
+    type: string
+    $linkedData:
+      term: agreement
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#guarantee
+  signatureDate:
+    title: Signature Date
+    description: Date when the application was signed by applicant.
+    type: string
+    $linkedData:
+      term: signatureDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime
+  ppqCbpOfficial:
+    title: PPQ/CBP Official
+    description: The PPQ/CBP official validating the compliance agreement.
+    $ref: ./Person.yml
+    $linkedData:
+      term: ppqCbpOfficial
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  usAgencyOfficial:
+    title: U.S. Government/State Agency Official
+    description: The U.S. government/state agency official validating the compliance agreement.
+    $ref: ./Person.yml
+    $linkedData:
+      term: usAgencyOfficial
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  agreementNumber:
+    title: Agreement Number
+    description: The identification number for the compliance agreement.
+    type: string
+    $linkedData:
+      term: agreementNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime  
+  agreementDate:
+    title: Agreement Date
+    description: The date of validation for the compliance agreement.
+    type: string
+    $linkedData:
+      term: agreementDate
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["USDAPPQ519ComplianceAgreement"],
+    "person": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Jason",
+      "lastName": "Grant",
+      "email": "jgrant@example.com",
+      "phoneNumber": "460-555-4373",
+      "jobTitle": "Principal Data Supervisor"
+    },
+    "firm": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Ace Foodstuffs",
+      "description": "Agricultural goods shipping & distribution",
+      "email": "logistics@example.com",
+      "phoneNumber": "895-555-1661",
+      "faxNumber": "497-555-2527"
+    },
+    "regulatedArticles": "298 crates of broccoli containing significant aphid infestation",
+    "quarantinesRegulations": "Regulation 123 prohibiting distribution of goods containing insect infestations above permitted thresholds",
+    "agreement": "To comply with relevant regulations this shipment is to be redirected to the nearby Signet landfill.",
+    "signatureDate": "2021-02-16",
+    "ppqCbpOfficial": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Sylvia",
+      "lastName": "Stone",
+      "email": "sylvia.stone@example.org",
+      "phoneNumber": "108-555-9372",
+      "jobTitle": "Chief Regulatory Officer"
+    },
+    "agreementNumber": "1548039",
+    "agreementDate": "2021-02-16"
+  }

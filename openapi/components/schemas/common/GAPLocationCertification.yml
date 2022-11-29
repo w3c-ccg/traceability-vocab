@@ -1,135 +1,78 @@
 $linkedData:
-  term: GAPInspectionCredential
-  '@id': https://w3id.org/traceability#GAPInspectionCredential
-title: GAP Inspection Credential
-tags:
-  - Agriculture
-description: >-
-  Good Agricultural Practices (GAP) audits are voluntary audits that verify that fruits and
-  vegetables are produced, packed, handled, and stored to minimize risks of microbial food safety
-  hazards. GAP audits verify adherence to the recommendations made in the U.S. Food and Drug
-  Administration’s  Guide to Minimize Microbial Food Safety Hazards for Fresh Fruits and Vegetables
-  (pdf) and industry recognized food safety practices.
-
-  (source: Good Agricultural Practices (GAP) Audits,
-  https://www.ams.usda.gov/services/auditing/gap-ghp).
+  term: GAPLocationCertification
+  '@id': https://w3id.org/traceability#GAPLocationCertification
+title: GAP Location Certification
+description: Information regarding an agricultural facility's GAP certification status.
 type: object
 properties:
-  '@context':
-    type: array
-    readOnly: true
-    const:
-      - https://www.w3.org/2018/credentials/v1
-      - https://w3id.org/traceability/v1
-    default:
-      - https://www.w3.org/2018/credentials/v1
-      - https://w3id.org/traceability/v1
-    items:
-      type: string
-      enum:
-        - https://www.w3.org/2018/credentials/v1
-        - https://w3id.org/traceability/v1
   type:
     type: array
     readOnly: true
     const:
-      - VerifiableCredential
-      - GAPInspectionCredential
+      - GAPLocationCertification
     default:
-      - VerifiableCredential
-      - GAPInspectionCredential
+      - GAPLocationCertification
     items:
       type: string
       enum:
-        - VerifiableCredential
-        - GAPInspectionCredential
-  id:
-    type: string
-  name:
-    type: string
-  description:
-    type: string
-  issuanceDate:
-    type: string
-  expirationDate:
-    type: string
-  issuer:
-    $ref: ../common/Organization.yml
-  credentialSubject:
-    $ref: ../common/GAPInspection.yml
-  proof:
-    $ref: ../snippets/proof.yml
-  relatedLink:
-    title: Related Link
-    description: Links related to this verifiable credential
-    type: array
-    items:
-      $ref: ../common/LinkRole.yml
+        - GAPLocationCertification
+  location:
+    title: Location
+    description: The location of the agricultural facility.
+    $ref: ./Place.yml
+    $linkedData:
+      term: location
+      '@id': https://www.gs1.org/voc/certificationSubject
+  gapInspection:
+    title: GAP Inspection
+    description: The facility's GAP inspection report.
+    $ref: ./GAPInspection.yml
+    $linkedData:
+      term: gapInspection
+      '@id': https://www.gs1.org/voc/certification
+  isCertified:
+    title: Is Certified
+    description: This facility is GAP certified (i.e., its GAP certification has not been revoked).
+    type: boolean
+    $linkedData:
+      term: isCertified
+      '@id': https://www.gs1.org/voc/certificationStatus
 additionalProperties: false
 required:
-  - '@context'
   - type
-  - issuanceDate
-  - issuer
-  - credentialSubject
 example: |-
   {
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://w3id.org/traceability/v1"
-    ],
-    "id": "https://example.com/credential/123",
-    "type": [
-      "VerifiableCredential",
-      "GAPInspectionCredential"
-    ],
-    "name": "GAP Inspection Certificate",
-    "issuanceDate": "2021-12-11T03:50:55Z",
-    "issuer": {
-      "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "type": ["GAPLocationCertification"],
+    "location": {
       "type": [
-        "Organization"
+        "Place"
       ],
-      "name": "Hauck Group",
-      "description": "Focused secondary synergy",
-      "location": {
+      "globalLocationNumber": "5449782976823",
+      "geo": {
         "type": [
-          "Place"
+          "GeoCoordinates"
         ],
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "streetAddress": "3198 O'Kon Wall",
-          "addressLocality": "North Adolphchester",
-          "addressRegion": "Nevada",
-          "postalCode": "50788",
-          "addressCountry": "Cote d'Ivoire"
-        }
+        "latitude": "-79.6395",
+        "longitude": "178.5353"
       },
-      "email": "Bernita.Quitzon98@example.com",
-      "phoneNumber": "555-171-4411",
-      "faxNumber": "+1-555-758-9761"
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "name": "Ace Foodstuffs",
+        "streetAddress": "853 Wisozk River",
+        "addressLocality": "New Noemyfort",
+        "addressRegion": "New Mexico",
+        "postalCode": "18047-2038",
+        "addressCountry": "Togo"
+      },
+      "unLocode": "DKCPH"
     },
-    "credentialSubject": {
-      "type": [
-        "GAPInspection"
-      ],
+    "gapInspection":{
+      "type": ["GAPInspection"],
       "GAPPlus": false,
       "commonInfo": {
-        "type": [
-          "AgricultureInspectionCommonInfo"
-        ],
-        "applicant": {
-          "type": [
-            "Organization"
-          ],
-          "name": "Miracle Produce",
-          "description": "Organic fruits & vegetables",
-          "email": "contact@example.com",
-          "phoneNumber": "460-555-2604",
-          "url": "miracle.example.com"
-        },
+        "type": ["AgricultureInspectionCommonInfo"],
         "facility": {
           "type": [
             "Place"
@@ -146,7 +89,7 @@ example: |-
             "type": [
               "PostalAddress"
             ],
-            "name": "Miracle Produce",
+            "name": "Ace Foodstuffs",
             "streetAddress": "853 Wisozk River",
             "addressLocality": "New Noemyfort",
             "addressRegion": "New Mexico",
@@ -181,47 +124,29 @@ example: |-
           },
           "qualification": [
             {
-              "type": [
-                "Qualification"
-              ],
+              "type": ["Qualification"],
               "qualificationCategory": "Agricultural Security Analyst",
               "qualificationValue": "Executive"
             },
             {
-              "type": [
-                "Qualification"
-              ],
+              "type": ["Qualification"],
               "qualificationCategory": "Future Metrics Planner",
               "qualificationValue": "Coordinator"
             },
             {
-              "type": [
-                "Qualification"
-              ],
+              "type": ["Qualification"],
               "qualificationCategory": "Internal Identity Agent",
               "qualificationValue": "Assistant"
             }
           ]
         },
-        "delegateOf": {
-          "type": [
-            "Organization"
-          ],
-          "name": "Glayson & Co. Inspections",
-          "description": "Agricultural cleanliness & grade assurance",
-          "email": "Marina96@glaysonco.net",
-          "phoneNumber": "521-555-6143",
-          "faxNumber": "150-555-7668"
-        },
         "regulatoryAgency": {
-          "type": [
-            "Organization"
-          ],
+          "type": ["Organization"],
           "name": "CDFA",
           "description": "California Department of Food and Agriculture",
-          "email": "relations@example.org",
-          "phoneNumber": "467-555-2604",
-          "faxNumber": "486-555-3154"
+          "email": "Briana55@cdfa.ca.gov.org",
+          "phoneNumber": "555-467-2604",
+          "faxNumber": "+1-555-486-3154"
         },
         "inspectionStarted": "2020-03-15T14:30-08:00",
         "inspectionEnded": "2020-03-15T17:30-08:00"
@@ -332,35 +257,23 @@ example: |-
       "meetsCriteria": true,
       "requirementResults": [
         {
-          "type": [
-            "GAPRequirementResult"
-          ],
+          "type": ["GAPRequirementResult"],
           "requirementNumber": "G-4",
           "resultCode": "C",
           "auditorComments": "Worker training exceeds requirements"
         },
         {
-          "type": [
-            "GAPRequirementResult"
-          ],
+          "type": ["GAPRequirementResult"],
           "requirementNumber": "G-5",
           "resultCode": "C"
         },
         {
-          "type": [
-            "GAPRequirementResult"
-          ],
+          "type": ["GAPRequirementResult"],
           "requirementNumber": "G-6",
           "resultCode": "N/A",
           "auditorComments": "Product not subject to traceability rule"
         }
       ]
     },
-    "proof": {
-      "type": "Ed25519Signature2018",
-      "created": "2022-11-29T02:14:02Z",
-      "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
-      "proofPurpose": "assertionMethod",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TxrZrTho0gE7XhfFkqLZ44UBTEeeRnMGlHXElyr4ucZ9xv8PmExPSV2ybGgzyCvffedPq4l-waXe_jzbhFCoDw"
-    }
+    "isCertified": true
   }

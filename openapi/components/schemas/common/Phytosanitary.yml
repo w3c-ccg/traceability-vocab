@@ -30,7 +30,7 @@ properties:
   plantOrg:
     title: Plant Protection Organization
     description: The phytosanitary standard-setting organization for a region.
-    $ref: ./Entity.yml
+    $ref: ./Organization.yml
     $linkedData:
       term: plantOrg
       '@id': https://www.gs1.org/voc/Organization
@@ -150,8 +150,8 @@ properties:
       '@id': https://w3id.org/traceability#AgriculturePackage
   applicant:
     title: Applicant
-    description: Entity that is applying for the inspection.
-    $ref: ./Entity.yml
+    description: Organization that is applying for the inspection.
+    $ref: ./Organization.yml
     $linkedData:
       term: applicant
       '@id': https://w3c-ccg.github.io/traceability-vocab/#dfn-entities
@@ -382,11 +382,10 @@ example: |-
       }
     },
     "applicant": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "Example Application Organization",
       "email": "Talia.Abbott@example.net",
-      "phoneNumber": "555-435-5262",
-      "entityType": "Organization"
+      "phoneNumber": "435-555-5262"
     },
     "inspectionDate": "2020-03-15",
     "inspectionType": "Food Safety",
@@ -434,13 +433,12 @@ example: |-
     ],
     "certificateNumber": "330893782475",
     "plantOrg": {
-      "type": ["Entity"],
+      "type": ["Organization"],
       "name": "APHIS",
       "description": "Animal and Plant Health Inspection Service",
       "email": "Irwin_OConnell83@aphis.usda.gov",
-      "phoneNumber": "555-588-8829",
-      "faxNumber": "555-118-6444",
-      "entityType": "Organization"
+      "phoneNumber": "588-555-8829",
+      "faxNumber": "118-555-6444"
     },
     "distinguishingMarks": "Enim repudiandae excepturi rem.",
     "portOfEntry": {

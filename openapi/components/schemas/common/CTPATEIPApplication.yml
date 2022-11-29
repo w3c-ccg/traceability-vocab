@@ -1,0 +1,50 @@
+$linkedData:
+  term: CTPATEIPApplication
+  '@id': https://w3id.org/traceability#CTPAT
+title: CTPAT EIP Application
+description: CTPATEIPApplication
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - CTPATEIPApplication
+    default:
+      - CTPATEIPApplication
+    items:
+      type: string
+      enum:
+        - CTPATEIPApplication
+  applicant:
+    title: Applicant
+    description: Organization applying for CTPAT EIP Certification.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: applicant
+      '@id': https://w3id.org/traceability#applicant
+  applicantType:
+    title: Applicant Type
+    description: The type of Ecommerce role in which the applicant seeks to gain CTPAT EIP certification.
+    enum:
+      - Seller
+      - Marketplace
+      - Fulfillment
+    $linkedData:
+      term: applicantType
+      '@id': https://w3id.org/traceability#applicantType
+additionalProperties: false
+required:
+  - type
+  - applicant
+  - applicantType
+example: |-
+  {
+    "type": ["CTPATEIPApplication"],
+    "applicant": {
+      "type": ["Organization"],
+      "id": "did:web:ecommerce-fulfillment.example.com",
+      "name": "Fulfillment Global, Ltd."
+    },
+    "applicantType": "Fulfillment"
+  }
