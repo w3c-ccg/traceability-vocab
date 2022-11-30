@@ -1,0 +1,76 @@
+type: object
+title: BankAccount
+description: Bank Account for entities.
+$linkedData:
+  'term': 'BankAccount'
+  '@id': 'https://w3id.org/bankAccount#BankAccount'
+properties:
+  accountId:
+    type: string
+    description: Bank account Id.
+    $linkedData:
+      'term': 'account'
+      '@id': 'https://w3id.org/bankAccount#accountId'
+  BIC11:
+    type: string
+    description: The BIC11.
+    $linkedData:
+      'term': 'BIC11'
+      '@id': 'https://w3id.org/bankAccount#BIC11'
+  iban:
+    type: string
+    description: The iban.
+    $linkedData:
+      'term': 'iban'
+      '@id': 'https://w3id.org/bankAccount#iban'
+  routingInfo:
+    type: string
+    description: The routing info.
+    $ref: ./RoutingInfo.yml
+    $linkedData:
+      'term': 'routingInfo'
+      '@id': 'https://w3id.org/bankAccount#routingInfo'
+  familyName:
+    type: string
+    description: The family name.
+    $linkedData:
+      'term': 'familyName'
+      '@id': 'http://schema.org/familyName'
+  givenName:
+    type: string
+    description: The given name.
+    $linkedData:
+      'term': 'givenName'
+      '@id': 'http://schema.org/givenName'
+  address:
+    title: Postal Address
+    description: The postal address for an organization or place.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: address
+      '@id': https://schema.org/PostalAddress
+  
+example: |-
+  {
+    "type": ["BankAccount"],
+    "accountId": "1111111",
+    "BIC11": "TDOMCATTTOR",
+    "familyName": "Smith",
+    "givenName": "Alice",
+    "id": "did:knox:z6Mk2cd21e9abe57fae7f62cf07e7be5931073da1b522790e63834fe17a4c2be",
+    "iban": "GB74GSLD04296280001319",
+    "routingInfo": {
+      "type": ["RoutingInfo"],
+      "code": "GBDSC",
+      "value": "042962"
+    },
+    "address": {
+      "type": ["PostalAddress"],
+      "name": "Lebsack Inc",
+      "streetAddress": "758 Huel Neck",
+      "addressLocality": "Hagenesstad",
+      "addressRegion": "Illinois",
+      "postalCode": "38421-3292",
+      "addressCountry": "Tonga"
+    }
+  }
