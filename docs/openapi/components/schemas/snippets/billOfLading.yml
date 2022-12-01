@@ -1,0 +1,548 @@
+$linkedData:
+  term: BillOfLading
+  '@id': https://w3id.org/traceability#BillOfLading
+title: Bill Of Lading
+description: Bill Of Lading
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - BillOfLading
+    default:
+      - BillOfLading
+    items:
+      type: string
+      enum:
+        - BillOfLading
+  billOfLadingNumber:
+    title: Bill Of Lading Number
+    description: This identifier might not be globally unique.
+    type: string
+  bookingNumber:
+    title: Booking Number
+    description: >-
+      Reference number assigned by a carrier of its agent to identify a specific
+      consignment such as a booking reference number when cargo space is
+      reserved prior to loading.
+    type: string
+  relatedDocuments:
+    title: Purchase
+    description: Purchase documents related to a bill of lading
+    type: array
+    items:
+      $ref: ../common/Purchase.yml
+  scac:
+    title: SCAC
+    description: >-
+      For maritime shipments, this code qualifies a Standard Alpha Carrier Code
+      (SCAC) as issued by the United Stated National Motor Traffic Association
+      Inc.
+    type: string
+  carrier:
+    title: Carrier
+    description: >-
+      The party providing the transport of goods in this consignment between
+      named points.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the carrier.
+        type: string
+      name:
+        title: Name
+        description: Name of the carrier.
+        type: string
+      url:
+        title: URL
+        description: URL of the carrier.
+        type: string
+      description:
+        title: Description
+        description: Description of the carrier.
+        type: string
+      email:
+        title: Email Address
+        description: carrier's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: carrier's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: freight forwarder's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ../common/GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ../common/PostalAddress.yml
+        additionalProperties: false
+        required:
+          - type
+          - address
+    additionalProperties: false
+    required:
+      - type
+      - name
+      - location
+  consignor:
+    title: Consignor
+    description: >-
+      The party consigning goods, as stipulated in the transport contract by the
+      party ordering transport.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier of the consignor.
+        type: string
+      name:
+        title: Name
+        description: Name of the consignor.
+        type: string
+      url:
+        title: URL
+        description: URL of the consignor.
+        type: string
+      description:
+        title: Description
+        description: Description of the consignor.
+        type: string
+      email:
+        title: Email Address
+        description: consignor's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: consignor's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: consignor's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ../common/GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ../common/PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
+  consignee:
+    title: Consignee
+    description: A party to which goods are consigned.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the consignee
+        type: string
+      name:
+        title: Name
+        description: Name of the consignee.
+        type: string
+      url:
+        title: URL
+        description: URL of the consignee.
+        type: string
+      description:
+        title: Description
+        description: Description of the consignee.
+        type: string
+      email:
+        title: Email Address
+        description: consignee's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: consignee's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Consignee's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ../common/GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ../common/PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
+  notify:
+    title: Notify Party
+    description: >-
+      The party to be notified upon arrival of goods and when special
+      occurrences (usually pre-defined) take place during a transportation
+      service.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id:
+        title: Identifier
+        description: Decentralized identifier for the notify party
+        type: string
+      name:
+        title: Name
+        description: Name of the notify party.
+        type: string
+      url:
+        title: URL
+        description: URL of the notify party.
+        type: string
+      description:
+        title: Description
+        description: Description of the notify party.
+        type: string
+      email:
+        title: Email Address
+        description: notify party's primary email address.
+        type: string
+      phoneNumber:
+        title: Phone Number
+        description: notify party's contact phone number.
+        type: string
+      location:
+        title: Location
+        description: Notify party's physical location, such as address or coordinates.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          geo:
+            title: Geographic Coordinates
+            description: Links to information about geocoordinates for a place.
+            $ref: ../common/GeoCoordinates.yml
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            $ref: ../common/PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - name
+  freight:
+    title: 'Freight '
+    description: Content described by the bill of lading
+    $ref: ./parcel.yml
+  nmfcFreightClass:
+    title: NMFC Freight Class
+    description: >-
+      The National Motor Freight Classification® (NMFC®) is a standard that
+      allows for determining of freight classes for the comparison of different
+      commodities and products being shipped.
+    type: string
+  hazardCode:
+    title: Hazard Code
+    description: >-
+      The Department of Transportation (DOT) hazard code associated with the
+      shipment.
+    type: string
+  portOfLoading:
+    title: Port of Loading
+    description: Port where fright is loaded
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      unLocode:
+        title: UN Locode
+        description: LOCODE
+        type: string
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - unLocode
+  portOfDischarge:
+    title: Port of Discharge
+    description: Port where fright is unloaded
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      unLocode:
+        title: UN Locode
+        description: LOCODE
+        type: string
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+      - unLocode
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["BillOfLading"],
+    "billOfLadingNumber": "991205182A",
+    "bookingNumber": "991205182",
+    "scac": "NISC",
+    "carrier": {
+      "type": ["Organization"],
+      "name": "Carrior Goods And More",
+      "email": "Adaline29@example.com",
+      "phoneNumber": "+1 555-234-9983",
+      "location": {
+        "type": ["Place"],
+        "geo": {
+          "type": ["GeoCoordinates"],
+          "latitude": "-20.840731978309044",
+          "longitude": "-159.78393883134225"
+        },
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Hahn LLC",
+          "streetAddress": "786 Pfeffer Plains",
+          "addressLocality": "West Ottilie",
+          "addressRegion": "Nebraska",
+          "postalCode": "50878-0870",
+          "addressCountry": "Cook Islands"
+        }
+      }
+    },
+    "consignor": {
+      "type": ["Organization"],
+      "name": "Consignor Is Us",
+      "email": "Idella60@example.org",
+      "phoneNumber": "+1-555-953-9479",
+      "location": {
+        "type": ["Place"],
+        "geo": {
+          "type": ["GeoCoordinates"],
+          "latitude": "-20.840731978309044",
+          "longitude": "-159.78393883134225"
+        },
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Hahn LLC",
+          "streetAddress": "786 Pfeffer Plains",
+          "addressLocality": "West Ottilie",
+          "addressRegion": "Nebraska",
+          "postalCode": "50878-0870",
+          "addressCountry": "Cook Islands"
+        }
+      }
+    },
+    "consignee": {
+      "type": ["Organization"],
+      "name": "Victorian Consignee",
+      "email": "Victoria.Hane74@example.org",
+      "phoneNumber": "+1-555-455-9053",
+      "location": {
+        "type": ["Place"],
+        "geo": {
+          "type": ["GeoCoordinates"],
+          "latitude": "-20.840731978309044",
+          "longitude": "-159.78393883134225"
+        },
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Hahn LLC",
+          "streetAddress": "786 Pfeffer Plains",
+          "addressLocality": "West Ottilie",
+          "addressRegion": "Nebraska",
+          "postalCode": "50878-0870",
+          "addressCountry": "Cook Islands"
+        }
+      }
+    },
+    "notify": {
+      "type": ["Organization"],
+      "name": "Florida Contact Org",
+      "email": "Florida91@example.net",
+      "phoneNumber": "+1-555-104-1126",
+      "location": {
+        "type": ["Place"],
+        "geo": {
+          "type": ["GeoCoordinates"],
+          "latitude": "-20.840731978309044",
+          "longitude": "-159.78393883134225"
+        },
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Hahn LLC",
+          "streetAddress": "786 Pfeffer Plains",
+          "addressLocality": "West Ottilie",
+          "addressRegion": "Nebraska",
+          "postalCode": "50878-0870",
+          "addressCountry": "Cook Islands"
+        }
+      }
+    },
+    "freight": {
+      "type": ["ParcelDelivery"],
+      "deliveryAddress": {
+        "type": ["Place"],
+        "geo": {
+          "type": ["GeoCoordinates"],
+          "latitude": "-20.840731978309044",
+          "longitude": "-159.78393883134225"
+        },
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Hahn LLC",
+          "streetAddress": "786 Pfeffer Plains",
+          "addressLocality": "West Ottilie",
+          "addressRegion": "Nebraska",
+          "postalCode": "50878-0870",
+          "addressCountry": "Cook Islands"
+        }
+      },
+      "originAddress": {
+        "type": ["Place"],
+        "geo": {
+          "type": ["GeoCoordinates"],
+          "latitude": "-23.25979250428427",
+          "longitude": "-58.36431415044023"
+        },
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Rosenbaum, Hills and Pagac",
+          "streetAddress": "71834 Zelma Trail",
+          "addressLocality": "West Gerhardview",
+          "addressRegion": "North Carolina",
+          "postalCode": "78251-3640",
+          "addressCountry": "Paraguay"
+        }
+      },
+      "deliveryMethod": "Ocean transport",
+      "trackingNumber": "178380801954"
+    },
+    "portOfLoading": {
+      "type": ["Place"],
+      "unLocode": "USMOB"
+    },
+    "portOfDischarge": {
+      "type": ["Place"],
+      "unLocode": "MXATM"
+    }
+  }

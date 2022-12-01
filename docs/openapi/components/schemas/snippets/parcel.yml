@@ -1,0 +1,117 @@
+$linkedData:
+  term: ParcelDelivery
+  '@id': https://schema.org/ParcelDelivery
+title: Parcel Delivery
+description: Details on a shipment or delivery.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - ParcelDelivery
+    default:
+      - ParcelDelivery
+    items:
+      type: string
+      enum:
+        - ParcelDelivery
+  deliveryAddress:
+    title: Delivery Address
+    description: Final destination address to which the shipment is being sent.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      geo:
+        title: Geographic Coordinates
+        description: Links to information about geocoordinates for a place.
+        $ref: ../common/GeoCoordinates.yml
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+  originAddress:
+    title: Origin Address
+    description: Address from where the shipment was sent.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      geo:
+        title: Geographic Coordinates
+        description: Links to information about geocoordinates for a place.
+        $ref: ../common/GeoCoordinates.yml
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+  deliveryMethod:
+    title: Delivery Method
+    description: The means of transportation used in delivering the shipment.
+    type: string
+  trackingNumber:
+    title: Tracking Number
+    description: Shipper tracking number.
+    type: string
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": [ "ParcelDelivery" ] ,
+    "deliveryAddress": {
+      "type": ["Place"],
+      "geo": {
+        "type": ["GeoCoordinates"],
+        "latitude": "13.439524698695452",
+        "longitude": "-14.657778853024668"
+      },
+      "address" : {
+        "type": ["PostalAddress"],
+        "name": "Reichel, Feil and Botsford",
+        "streetAddress": "632 Adelbert Avenue",
+        "addressLocality": "Jaidenland",
+        "addressRegion": "Missouri",
+        "postalCode": "03612-8503",
+        "addressCountry": "Gambia"
+      }
+    },
+    "originAddress": {
+      "type": ["Place"],
+      "geo": {
+        "type": ["GeoCoordinates"],
+        "latitude": "13.086211925429193",
+        "longitude": "-86.3588054628698"
+      },
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "Jaskolski Inc",
+        "streetAddress": "25015 Crona Mission",
+        "addressLocality": "Marcoston",
+        "addressRegion": "Pennsylvania",
+        "postalCode": "13480",
+        "addressCountry": "Nicaragua"
+      }
+    },
+    "deliveryMethod": "Rail freight transport",
+    "trackingNumber": "598186458445"
+  }
