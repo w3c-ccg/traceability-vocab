@@ -1,0 +1,79 @@
+$linkedData:
+  term: MonthlyDeliveryStatement
+  '@id': https://w3id.org/traceability#MonthlyDeliveryStatement
+title: Monthly Delivery Statement
+description: Monthly statement indicates items delivered in the specific month
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - MonthlyDeliveryStatement
+    default:
+      - MonthlyDeliveryStatement
+    items:
+      type: string
+      enum:
+        - MonthlyDeliveryStatement
+  statementMonth:
+    title: Statement Month
+    description: Year and month of the statement
+    type: string
+  itemsDelivered:
+    title: Items Delivered
+    description: An arry of items being deliverd with delivery details
+    type: array
+    items:
+      $ref: ./DeliveryStatement.yml
+    $linkedData:
+      term: itemsDelivered
+      '@id': https://w3id.org/traceability#DeliveryStatement
+additionalProperties: false  
+required:
+  - type
+example: |-
+  {
+    "type": ["MonthlyDeliveryStatement"],
+    "statementMonth": "March 2022",
+    "itemsDelivered": [
+      {
+        "type": ["DeliveryStatement"],
+        "commodity":{
+            "type":[
+               "Commodity"
+            ],
+            "commodityCode":"2714.10.00.00",
+            "commodityCodeType":"HTS"
+        },
+        "deliveredDate": "2019-12-11T03:50:55Z",
+        "deliveredVolume": {
+          "type": [
+            "MeasuredValue"
+          ],
+          "value": "8806",
+          "unitCode": "dth"
+        },
+        "observation": [
+          {
+            "type": [
+              "Observation"
+            ],
+            "property": {
+              "type": [
+                "ChemicalProperty"
+              ],
+              "name": "Heat Content"
+            },
+            "measurement": {
+              "type": [
+                "MeasuredValue"
+              ],
+              "value": "50000",
+              "unitCode": "BTU"
+            }
+          }
+        ]
+      }      
+    ]
+  }
