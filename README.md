@@ -10,46 +10,79 @@ mechanical properties, country of origin, and other attributes used to determine
 the status of products and materials in a supply chain.
 
 We encourage contributions meeting the [Contribution
-Guidelines](CONTRIBUTING.md). While we prefer the creation of issues and Pull
-Requests in the GitHub repository, discussions often occur on the
+Guidelines](CONTRIBUTING.md). While we prefer the creation of 
+[Issues](https://github.com/w3c-ccg/traceability-vocab/issues) and 
+[Pull Requests](https://github.com/w3c-ccg/traceability-vocab/pulls) in the 
+GitHub repository, discussions often occur on the
 [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/)
-mailing list as well, and at regular public meetings (see below).
+mailing list as well, and at regular public meetings ([see below](#meetings)).
+
+## Latest Spec
+
+<https://w3id.org/traceability>
 
 ## Meetings
 
 Meetings are held
 
-- Tuesdays at 1.30pm ET/10.30pm PT
-- on jitsi using this link: [meet.w3c-ccg.org/traceability](https://meet.w3c-ccg.org/traceability)
-- with standing agenda to review open [Pull Requests](https://github.com/w3c-ccg/traceability-vocab/pulls),
-  then [open Issues](https://github.com/w3c-ccg/traceability-vocab/issues), unless otherwise noted on the mailing list
+- Tuesdays at [13:30 ET/10:30 PT](http://www.timebie.com/std/newyork.php?q=13.5)
+- Via [Jitsi](https://github.com/jitsi) in browser or 
+  [standalone app](https://github.com/jitsi/jitsi-meet-electron/releases) 
+- using this link: [meet.w3c-ccg.org/traceability](https://meet.w3c-ccg.org/traceability)
+- With standing agenda to review open Pull Requests 
+  ([trace-vocab](https://github.com/w3c-ccg/traceability-vocab/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-asc), 
+  [trace-interop](https://github.com/w3c-ccg/traceability-interop/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-asc)),
+  then open Issues 
+  ([trace-vocab](https://github.com/w3c-ccg/traceability-vocab/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-asc), 
+  [trace-interop](https://github.com/w3c-ccg/traceability-interop/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-asc)), 
+  unless otherwise noted on the [mailing list](https://lists.w3.org/Archives/Public/public-credentials/)
+
+Historical archives for meetings [can be found here](https://github.com/w3c-ccg/meetings).
 
 ### Hosting instructions
 
 Any chair, editor, or other party authorized by CCG to manage recordings and
-minutes can do the following. A scribe-bot will show up in the main #ccg IRC
-channel automatically.
+minutes can do the following.
 
-1. Make sure to select "Start Recording" at the beginning of the call and "Stop
-   Recording" when you're done.
-2. Make sure to kick everyone out of the room when the meeting is done.
-3. Once the last person leaves, everything else is automated (publishing raw IRC
-   log, audio, and video). If you want to clean up the minutes, it takes about
-   5-10 minutes to clean up the transcription and publish it.
+#### Before the Meeting
 
-#### Retrieving Minutes
+- Duplicate the 
+  [W3C-CCG Traceability Agenda Email Draft](https://docs.google.com/document/d/1Se_PIZNhIzZrwVftbYi-Z3oEMXvucQ7jNjxzjMVWCm4/edit) 
+  in Google Docs
+- Update all the items highlighted in yellow, in particular adding new agenda 
+  items for week starting with item 6.
+- If there are presentation materials, add them to the appropriate 
+  [dated meeting archives folder](https://github.com/w3c-ccg/meetings/) 
+  before the meeting.
+- Send agenda to public-credentials@w3.org before each meeting. Use the 
+  following format for the subject (modify date accordingly):
+  ```
+  [AGENDA] W3C CCG Traceability Call - 2022-11-22
+  ```
+- Confirm in the 
+  [CCG mail archives](https://lists.w3.org/Archives/Public/public-credentials/) 
+  that the agenda was sent correctly
 
-1. Go to [Scribe tool](https://w3c-ccg.github.io/meetings/scribe-tool/)
-2. Select "Traceability" from the drop-down at the bottom right.
-3. Select a day for the call you're interested in.
-4. Click "Retrieve Raw Logs".
-5. The display will then render the minutes.
+#### During the Meeting
+- Be sure to click **`Start Recording`** and then **`Stop Subtitles`**
+- Make sure to link to the agenda at the beginning of the meeting (`Agenda: ...`)
+- Make sure the scribe is identified (`Scribe: ...` or `scribe+ ...` 
+  identifying someone else, or `scribe+` identifying oneself). Scribes, please 
+  familiarize yourself with general scribing guidance 
+  [here](https://www.w3.org/2008/04/scribe.html) and 
+  [here](https://www.w3.org/2008/xmlsec/Group/Scribe-Instructions.html).
+- Make sure topics are labeled when the topic changes (`Topic: ...`)
+- Make sure that action items are listed so that they can be added to issues 
+  later ("Action: ...")
 
-#### Publishing Minutes
+#### After the Meeting
+- Kick everyone from the meeting, and click **`Stop Recording`**
+- [Publish the minutes](https://github.com/w3c-ccg/traceability-interop/tree/main/docs/weekly-minutes)
 
-[Publish Instructions](https://github.com/w3c-ccg/meetings#publish-the-minutes-for-ccg-meetings-task-forces-and-other-recorded-meetings)
 
-### Development
+## Development
+
+See [DEVELOPMENT.md](./DEVELOPMENT.md). The basics are as follow:
 
 ```
 npm i
@@ -58,6 +91,3 @@ npm run test
 npm run build
 npm run serve
 ```
-
-See [DEVELOPMENT.md](./DEVELOPMENT.md)
-
