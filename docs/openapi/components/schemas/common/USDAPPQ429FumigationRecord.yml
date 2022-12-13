@@ -1,0 +1,638 @@
+$linkedData:
+  term: USDAPPQ429FumigationRecord
+  '@id': https://w3id.org/traceability#USDAPPQ429FumigationRecord
+title: USDA PPQ 429 Fumigation Record
+description: A record for fumigation with or without tarpaulin, combining USDA APHIS (Animal and Plant Health Inspection Service) PPQ (Plant Protection and Quarantine) 429A (Fumigation Record With Tarpaulin) and 429B (Fumigation Record Without Tarpaulin).
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - USDAPPQ429FumigationRecord
+    default:
+      - USDAPPQ429FumigationRecord
+    items:
+      type: string
+      enum:
+        - USDAPPQ429FumigationRecord
+  tarpaulin:
+    title: Tarpaulin
+    description: Fumigation performed with tarpaulin.
+    type: boolean
+    $linkedData:
+      term: tarpaulin
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#value
+  stationReporting:
+    title: Station Reporting
+    description: The station reporting the fumigation.
+    $ref: ./Place.yml
+    $linkedData:
+      term: stationReporting
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#relevantLocation
+  pest:
+    title: Pest
+    description: The common name for the target pest.
+    type: string
+    $linkedData:
+      term: pest
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  interceptionRecord:
+    title: Interception Record
+    description: The record for the pest interception which prompted fumigation.
+    $ref: ./USDAPPQ309APestInterceptionRecord.yml
+    $linkedData:
+      term: interceptionRecord
+      '@id': https://w3id.org/traceability#USDAPPQ309APestInterceptionRecord.yml
+  shipment:
+    title: Shipment
+    description: The shipment fumigated.
+    $ref: ./AgricultureParcelDelivery.yml
+    $linkedData:
+      term: shipment
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportPackage
+  fumigationContractor:
+    title: Fumigation Contractor.
+    description: The contractor performing the fumigation.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: fumigationContractor
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty
+  dateFumigationOrdered:
+    title: Date Fumigation Ordered
+    description: The date fumigation was ordered.
+    type: string
+    $linkedData:
+      term: dateFumigationOrdered
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualDateTime
+  fumigationSite:
+    title: Fumigation Site
+    description: Where fumigation takes place.
+    $ref: ./Place.yml
+    $linkedData:
+      term: fumigationSite
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#occurrenceLocation
+  dateFumigated:
+    title: Date Fumigated
+    description: The date of fumigation.
+    type: string
+    $linkedData:
+      term: dateFumigated
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualOccurrenceDateTime
+  fumigantAndTreatmentSchedule:
+    title: Fumigant and Treatment Schedule
+    description: The relevant schedule for fumigation and treatment. 
+    type: string
+    $linkedData:
+      term: fumigantAndTreatmentSchedule
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#regulationName
+  temperatureOfSpace:
+    title: Temperature of Space
+    description: The temperature of the space fumigated.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: temperatureOfSpace
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualReportedMeasurement
+  temperatureOfCommodity:
+    title: Temperature of Commodity
+    description: The temperature of the commodity fumigated.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: temperatureOfCommodity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualReportedMeasurement
+  gasAnalyzer:
+    title: Gas Analyzer
+    description: Gas analyzer type and serial number.
+    type: string
+    $linkedData:
+      term: gasAnalyzer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  enclosure:
+    title: Enclosure
+    description: The type of enclosure for fumigation.
+    type: string
+    $linkedData:
+      term: enclosure
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  weatherConditions:
+    title: Weather Conditions
+    description: The weather conditions during fumigation.
+    type: string
+    $linkedData:
+      term: weatherConditions
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  cubicCapacity:
+    title: Cubic Capacity
+    description: The cubic capacity of the space fumigated.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: cubicCapacity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualReportedMeasurement
+  section18Exemption:
+    title: Section 18 Exemption
+    description: Treatment is under section 18 exemption.
+    type: boolean
+    $linkedData:
+      term: section18Exemption
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#value
+  numberOfFans:
+    title: Number of Fans
+    description: The number of fans for fumigation.
+    type: number
+    $linkedData:
+      term: numberOfFans
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#unitQuantity
+  totalCFMOfFans:
+    title: Total CFM of Fans
+    description: The total CFM (Cubic Feet per Minute) of the fans.
+    type: number
+    $linkedData:
+      term: totalCFMOfFans
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualReportedMeasurement
+  timeFansOperated:
+    title: Time Fans Operated
+    description: The time for which fans were operated.
+    type: string
+    $linkedData:
+      term: timeFansOperated
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#durationMeasure
+  foodOrFeedCommodity:
+    title: Food or Feed Commodity
+    description: The commodity is for food or feed.
+    type: boolean
+    $linkedData:
+      term: foodOrFeedCommodity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#functionDescription
+  gasIntroductionStart:
+    title: Gas Introduction Start
+    description: Start time for gas introduction.
+    type: string
+    $linkedData:
+      term: gasIntroductionStart
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#startDateTime
+  gasIntroductionFinish:
+    title: Gas Introduction Finish
+    description: Finish time for gas introduction.
+    type: string
+    $linkedData:
+      term: gasIntroductionFinish
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#endDateTime
+  totalGasIntroduced:
+    title: Total Gas Introduced
+    description: The total amount of gas introduced during fumigation.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: totalGasIntroduced
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#actualReportedMeasurement
+  residueSampleTaken:
+    title: Residue Sample Taken.
+    description: A fumigant residue sample was taken.
+    type: boolean
+    $linkedData:
+      term: residueSampleTaken
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#value
+  residueSampleNumber:
+    title: Residue Sample Number
+    description: The sample number, if a fumigant residue sample was taken.
+    type: string
+    $linkedData:
+      term: residueSampleNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  gasConcentrations:
+    title: Gas Concentrations
+    description: Observations regarding the gas concentrations recorded during treatment.
+    type: array
+    items:
+      $ref: ./Observation.yml
+    $linkedData:
+      term: gasConcentrations
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#relatedObservation
+  detectorTubeReadings:
+    title: Detector Tube Readings
+    description: The detector tube readings for residual gas.
+    type: array
+    items:
+      $ref: ./Observation.yml
+    $linkedData:
+      term: detectorTubeReadings
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#relatedObservation
+  remarks:
+    title: Remarks
+    description: Any additional remarks regarding the fumigation.
+    type: string
+    $linkedData:
+      term: remarks
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#remark
+  inspector:
+    title: Inspector
+    description: The fumigation inspector.
+    $ref: ./Person.yml
+    $linkedData:
+      term: inspector
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPerson
+  reviewer:
+    title: Reviewer
+    description: The fumigation reviewer.
+    $ref: ./Person.yml
+    $linkedData:
+      term: reviewer
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPerson
+  fumigatorMaterials:
+    title: Fumigator Materials
+    description: A list of materials used by fumigator.
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: fumigatorMaterials
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  ppqMaterials:
+    title: PPQ Materials
+    description: A list of materials used by PPQ official.
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: ppqMaterials
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+  preparationProcedures:
+    title: Preparation Procedures
+    description: A list of relevant procedures for fumigation.
+    type: array
+    items:
+      type: string
+    $linkedData:
+      term: preparationProcedures
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["USDAPPQ429FumigationRecord"],
+    "tarpaulin": true,
+    "pest": "Aphids",
+    "interceptionRecord": {
+      "type": ["USDAPPQ309APestInterceptionRecord"],
+      "interceptionNumber": "143l5khj1234l134",
+      "forwardTo": "PPQ",
+      "priority": "Prompt",
+      "interceptionDate": "2021-10-07",
+      "inspector": {
+        "type": [
+          "Inspector"
+        ],
+        "person": {
+          "type": [
+            "Person"
+          ],
+          "firstName": "Jason",
+          "lastName": "Grant",
+          "email": "Santa43@example.org",
+          "phoneNumber": "555-460-4373",
+          "worksFor": {
+            "type": [
+              "Organization"
+            ],
+            "name": "Glayson & Co. Inspections",
+            "description": "Agricultural cleanliness & grade assurance",
+            "email": "Marina96@glaysonco.net",
+            "phoneNumber": "555-521-6143",
+            "faxNumber": "555-150-7668"
+          },
+          "jobTitle": "Principal Data Supervisor"
+        },
+        "qualification": [
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Agricultural Security Analyst",
+            "qualificationValue": "Executive"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Future Metrics Planner",
+            "qualificationValue": "Coordinator"
+          },
+          {
+            "type": ["Qualification"],
+            "qualificationCategory": "Internal Identity Agent",
+            "qualificationValue": "Assistant"
+          }
+        ]
+      },
+      "overtime": false,
+      "pathway": "Maritime",
+      "modeOfTransportation": "Vessel",
+      "materialFor": "Consumption",
+      "narp": false,
+      "importedAs": "Fruit",
+      "whereIntercepted": "General Cargo",
+      "pestSample": {
+        "type": ["PestSample"],
+        "hostName": {
+          "type": ["Taxonomy"],
+          "family": "Solanaceae",
+          "genus": "Solanum",
+          "species": "S. lycopersicum"
+        },
+        "hostQuantity": {
+          "type": ["QuantitativeValue"],
+          "unitCode": "crates",
+          "value": "33"
+        },
+        "affected": 12,
+        "plantPartsAffected": [
+          "Stem"
+        ],
+        "pestDistribution": "Common",
+        "pestProximity": "On",
+        "pestType": "Insect",
+        "aliveAdults": 23,
+        "aliveEggs": 13,
+        "deadAdults": 77,
+        "samplingMethod": "Randomized inspection of product"
+      },
+      "pestDeterminations": [
+        {
+          "type": ["PestDetermination"],
+          "final": true,
+          "determination": {
+            "type": ["Taxonomy"],
+            "family": "Aphididae",
+            "genus": "Acyrthosiphon",
+            "species": "argus"
+          },
+          "method": "Morphology",
+          "determinedBy": {
+            "type": ["Person"],
+            "firstName": "Mary",
+            "lastName": "Smith",
+            "email": "msmith@example.org",
+            "phoneNumber": "555-018-2076",
+            "worksFor": {
+              "type": [
+                "Organization"
+              ],
+              "name": "Glayson & Co. Inspections",
+              "description": "Agricultural cleanliness & organic assurance",
+              "email": "Marina96@glaysonco.net",
+              "phoneNumber": "555-521-6143",
+              "faxNumber": "555-150-7668"
+            },
+            "jobTitle": "Certification Specialist"
+          },
+          "date": "2021-10-11"
+        }  
+      ],
+      "quarantineStatus": "Check Regs."
+    },
+    "shipment": {
+      "type": [
+        "AgricultureParcelDelivery"
+      ],
+      "deliveryAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "name": "Industrial Distributions",
+        "streetAddress": "853 Wisozk River",
+        "addressLocality": "New Noemyfort",
+        "addressRegion": "New Mexico",
+        "postalCode": "18047-2038",
+        "addressCountry": "Togo"
+      },
+      "originAddress": {
+        "type": [
+          "PostalAddress"
+        ],
+        "name": "Green Fields",
+        "streetAddress": "97696 Weissnat Pines",
+        "addressLocality": "Reynabury",
+        "addressRegion": "North Dakota",
+        "postalCode": "51361-9603",
+        "addressCountry": "U.S."
+      },
+      "deliveryMethod": "Truck transport",
+      "trackingNumber": "866440000109",
+      "expectedArrival": "2021-03-14",
+      "specialInstructions": "The package is delicate so handle with appropriate caution.",
+      "consignee": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Ace Foodstuffs",
+        "description": "Agricultural goods shipping & distribution",
+        "email": "Hipolito58@acefoodstuffs.org",
+        "phoneNumber": "+1-895-555-1661",
+        "faxNumber": "+1-497-555-2527"
+      },
+      "agriculturePackage": [
+        {
+          "type": [
+            "AgriculturePackage"
+          ],
+          "packageName": "Tomatoes, Bulk",
+          "grade": "AA",
+          "responsibleParty": {
+            "type": ["Organization"],
+            "name": "Example Responsible Party Organization",
+            "email": "Chadrick_Gibson@example.com",
+            "phoneNumber": "+1-820-555-1520"
+          },
+          "voicePickCode": "4642",
+          "date": "2021-03-14",
+          "labelImageUrl": "https://img.example.org/640/480/",
+          "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "agricultureProduct": [
+            {
+              "type": [
+                "AgricultureProduct"
+              ],
+              "upc": "033383401508",
+              "plu": "94225",
+              "gtin": "033383401508",
+              "product": {
+                "type": [
+                  "Product"
+                ],
+                "manufacturer": {
+                  "type": [
+                    "Organization"
+                  ],
+                  "email": "Sven22@example.org",
+                  "phoneNumber": "+1-267-555-4748"
+                },
+                "name": "Tomatoes",
+                "description": "Tomatoes, Cartons",
+                "sizeOrAmount": {
+                  "type": [
+                    "QuantitativeValue"
+                  ],
+                  "unitCode": "cartons",
+                  "value": "348"
+                },
+                "weight": {
+                  "type": [
+                    "QuantitativeValue"
+                  ],
+                  "unitCode": "lbs",
+                  "value": "640"
+                },
+                "sku": "164664203943"
+              },
+              "scientificName": "Solanum lycopersicum",
+              "labelImageUrl": "https://img.example.org/033383401508/640/480/",
+              "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "name": "Tomatoes",
+              "productImageUrl": "https://img.example.org/102934920857/937/903/",
+              "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+            }
+          ]
+        }
+      ],
+      "shipper": {
+        "type": ["Organization"],
+        "name": "Green Fields",
+        "description": "Growing & packaging for high quality produce",
+        "email": "sales@greenfields.org",
+        "phoneNumber": "+1-865-555-8495"
+      },
+      "purchaser": {
+        "type": ["Organization"],
+        "name": "Ace Foodstuffs",
+        "description": "Agricultural goods shipping & distribution",
+        "email": "Hipolito58@acefoodstuffs.org",
+        "phoneNumber": "+1-895-555-1661",
+        "faxNumber": "+1-497-555-2527"
+      },
+      "carrier": {
+        "type": [
+          "Organization"
+        ],
+        "email": "Adaline29@example.com",
+        "phoneNumber": "+1-234-555-9983"
+      },
+      "broker": {
+        "type": ["Organization"],
+        "name": "Cole United",
+        "leiCode": "54321351219389121979"
+      }
+    },
+    "fumigationContractor": {
+      "type": ["Organization"],
+      "name": "Western Fumigators Inc.",
+      "description": "Safe & thorough shipment fumigation",
+      "email": "contact@example.com",
+      "phoneNumber": "+1-928-555-0173"
+    },
+    "dateFumigationOrdered": "2021-10-08",
+    "fumigationSite": {
+      "type": [
+        "Place"
+      ],
+      "globalLocationNumber": "5449782976823",
+      "geo": {
+        "type": [
+          "GeoCoordinates"
+        ],
+        "latitude": "-79.6395",
+        "longitude": "178.5353"
+      },
+      "unLocode": "DKCPH"
+    },
+    "dateFumigated": "2021-10-10",
+    "temperatureOfSpace": {
+      "type": ["QuantitativeValue"],
+      "unitCode": "C",
+      "value": "14"
+    },
+    "temperatureOfCommodity": {
+      "type": ["QuantitativeValue"],
+      "unitCode": "C",
+      "value": "15"
+    },
+    "gasAnalyzer": "Fumiscope 392A2",
+    "weatherConditions": "cloudy with 10mph gusts of wind",
+    "cubicCapacity": {
+      "type": ["QuantitativeValue"],
+      "unitCode": "m3",
+      "value": "59"
+    },
+    "section18Exemption": false,
+    "numberOfFans": 7,
+    "totalCFMOfFans": 217,
+    "timeFansOperated": "52 minutes",
+    "foodOrFeedCommodity": true,
+    "gasIntroductionStart": "2021-10-10T09:28Z",
+    "gasIntroductionFinish": "2021-10-10T010:30Z",
+    "totalGasIntroduced": {
+      "type": ["QuantitativeValue"],
+      "unitCode": "kg",
+      "value": "3.291"
+    },
+    "residueSampleTaken": false,
+    "remarks": "fumigation was halted briefly partway through due to a fire alarm, triggered by mistake",
+    "inspector": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Jane",
+      "lastName": "Lucia",
+      "email": "jlucia@example.net",
+      "phoneNumber": "+1-460-555-4373",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Glayson & Co. Inspections",
+        "description": "In-transit pest management administration",
+        "email": "contact@example.net",
+        "phoneNumber": "+1-521-555-6143"
+      },
+      "jobTitle": "Principal Inspections Administrator"
+    },
+    "reviewer": {
+      "type": [
+        "Person"
+      ],
+      "firstName": "Jason",
+      "lastName": "Grant",
+      "email": "jgrant@example.net",
+      "phoneNumber": "+1-918-555-0173",
+      "worksFor": {
+        "type": [
+          "Organization"
+        ],
+        "name": "Glayson & Co. Inspections",
+        "description": "In-transit pest management administration",
+        "email": "contact@example.net",
+        "phoneNumber": "+1-521-555-6143"
+      },
+      "jobTitle": "Inspection Review Technician"
+    },
+    "fumigatorMaterials": [
+      "Tarpaulin",
+      "Burlap / Padding",
+      "Fans (metal)",
+      "Extension Cords",
+      "Gas Introduction Line",
+      "Volatilizer",
+      "Approved Air Monitoring Device per Fumigation Label, PID-Photo Ionization Detector",
+      "Thermometer",
+      "PPQ Treatment Manual"
+    ],
+    "ppqMaterials": [
+      "Self-Contained Breathing Apparatus (SCBA)",
+      "Tape Measure",
+      "Thermometer",
+      "Blank PPQ Form 429",
+      "PPQ Treatment Manual"
+    ],
+    "preparationProcedures": [
+      "1. Ventilated Area",
+      "1. Sheltered Area",
+      "1. Impervious Surface",
+      "2. Placement of Padding",
+      "4. Plant Pest"
+    ]
+  }
