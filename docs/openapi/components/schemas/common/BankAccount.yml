@@ -1,31 +1,31 @@
 type: object
 title: BankAccount
-description: Bank Account for entities.
+description: Bank Account KYC (Know Your Customer) information for end users who wish to make financial transactions in compliance with financial regulations.
 $linkedData:
   'term': 'BankAccount'
   '@id': 'https://w3id.org/traceability#BankAccount'
 properties:
   accountId:
     type: string
-    description: Bank account Id.
+    description: Bank Account Id.
     $linkedData:
       'term': 'accountId'
       '@id': 'https://w3id.org/traceability#accountId'
   BIC11:
     type: string
-    description: The BIC11.
+    description: Business Identifier Code — ISO 9362 identification of the financial institution’s branch.
     $linkedData:
       'term': 'BIC11'
       '@id': 'https://w3id.org/traceability#BIC11'
   iban:
     type: string
-    description: The iban.
+    description: International Bank Account Number — ISO 13616 identification of bank accounts across national borders.
     $linkedData:
       'term': 'iban'
       '@id': 'https://w3id.org/traceability#iban'
   routingInfo:
     type: string
-    description: The routing info.
+    description: To identify the financial institution and branch location associated with the bank account.
     $ref: ./RoutingInfo.yml
     $linkedData:
       'term': 'routingInfo'
@@ -44,7 +44,7 @@ properties:
       '@id': 'http://schema.org/givenName'
   address:
     title: Postal Address
-    description: The postal address for an organization or place.
+    description: The postal address for the subject.
     $ref: ./PostalAddress.yml
     $linkedData:
       term: address
