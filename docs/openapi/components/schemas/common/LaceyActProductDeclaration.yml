@@ -1,0 +1,87 @@
+$linkedData:
+  term: LaceyActProductDeclaration
+  '@id': https://w3id.org/traceability#LaceyActProductDeclaration
+title: Lacey Act Product Declaration
+description: The declaration for a product listed in the Lacey Act, which bans trade in agricultural goods that are illegally taken, possessed, transported or sold.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - LaceyActProductDeclaration
+    default:
+      - LaceyActProductDeclaration
+    items:
+      type: string
+      enum:
+        - LaceyActProductDeclaration
+  htsNumber:
+    title: HTS Number
+    description: The Harmonized Tariff Code for the merchendise.
+    type: string
+    $linkedData:
+      term: htsNumber
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableRegulatoryProcedure
+  enteredValue:
+    title: Entered Value
+    description: The value of the imported merchandise in U.S. dollars.
+    type: number
+    $linkedData:
+      term: enteredValue
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#customsValueSpecifiedAmount
+  articleOrComponent:
+    title: Article / Component of Article
+    description: A brief description of the article, or component of an article, that is manufactured from plants or plant parts.
+    type: string
+    $linkedData:
+      term: articleOrComponent
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#procedureCode
+  plantScientificNames:
+    title: Plant Scientific Names
+    description: The scientific name (species and genus) for the article / component. If the species of plant used to produce the product varies,or if the species used to produce the product is unknown, enter each species that may have been used to prode the product.
+    type: array
+    items:
+      $ref: ./Taxonomy.yml
+    $linkedData:
+      term: plantScientificNames
+      '@id': https://w3id.org/traceability#Taxonomy
+  countryOfHarvest:
+    title: Country of Harvest
+    description: string
+    type: string
+    $linkedData:
+      term: countryOfHarvest
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry
+  quantityOfPlantMaterial:
+    title: Quantity of Plant Material
+    description: The quantity of plant material.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: quantityOfPlantMaterial
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#totalPackageSpecifiedQuantity
+  percentRecycled:
+    title: Percent Recycled
+    description: The percentage recycled as a decimal figure (e.g., ".2" for 20%). Applicable ONLY if the product is paper or paperboard. If the percentage of recycled material varies, enter the average percentage of recycled material used in the product.
+    type: number
+    $linkedData:
+      term: percentRecycled
+      '@id': https://qudt.org/vocab/unit/PERCENT
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["LaceyActProductDeclaration"],
+    "htsNumber": "9401692010",
+    "enteredValue": 1354,
+    "articleOrComponent": "Cherry Tomatoes",
+    "plantScientificNames": [
+      {
+        "type": ["Taxonomy"],
+        "genus": "Solanum",
+        "species": "S. lycopersicum"
+      }
+    ],
+    "countryOfHarvest": "Mexico"
+  }
