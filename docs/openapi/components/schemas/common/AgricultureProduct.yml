@@ -50,9 +50,16 @@ properties:
     $linkedData:
       term: gtin
       '@id': https://www.gs1.org/voc/gtin
+  countryOfOrigin:
+    title: Country of Origin
+    description: The country in which this product originated.
+    type: string
+    $linkedData:
+      term: countryOfOrigin
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry
   product:
     title: Product
-    description: Product details as specified in the Product schema
+    description: Product details as specified in the Product schema.
     $ref: ./Product.yml
     $linkedData:
       term: product
@@ -66,10 +73,17 @@ properties:
     type: string
     $linkedData:
       term: scientificName
-      '@id': https://w3id.org/traceability#scientificName
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#scientificName
+  plantParts:
+    title: Plant Parts
+    description: If applicable, the type of plant parts this product consists of (seeds, cuttings, rhizomes, plants, bulbs, fruits, etc.).
+    type: string
+    $linkedData:
+      term: plantParts
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description
   labelImageUrl:
     title: Label Image URL
-    description: Image of the package label
+    description: Image of the package label.
     type: string
     $linkedData:
       term: labelImageUrl
@@ -115,6 +129,7 @@ example: |-
     "upc": "033383401508",
     "plu": "94225",
     "gtin": "033383401508",
+    "countryOfOrigin": "United States",
     "product": {
       "type": ["Product"],
       "manufacturer": {
@@ -144,6 +159,7 @@ example: |-
       "sku": "71266019767"
     },
     "scientificName": "Persea americana",
+    "plantParts": "fruit",
     "labelImageUrl": "https://img.example.org/033383401508/640/480/",
     "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "name": "Avocados",
