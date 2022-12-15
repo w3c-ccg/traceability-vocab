@@ -27,7 +27,7 @@ properties:
     description: >-
       Organization that is declaring their intention for a product to be exported to a
       different location than where it was created.
-    type: object
+    $ref: ./Organization.yml
     $linkedData:
       term: exporter
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty
@@ -35,7 +35,7 @@ properties:
     title: Importer
     description: >-
       Organization that is expected to receive some amount of the product.
-    type: object
+    $ref: ./Organization.yml
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
@@ -58,6 +58,7 @@ required:
   - type
   - importer
   - product
+  - declarationDate
 example: |-
   {
     "type": ["IntentToImport"],
