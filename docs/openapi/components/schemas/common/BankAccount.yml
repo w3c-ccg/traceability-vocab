@@ -5,6 +5,17 @@ $linkedData:
   'term': 'BankAccount'
   '@id': 'https://w3id.org/traceability#BankAccount'
 properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - BankAccount
+    default:
+      - BankAccount
+    items:
+      type: string
+      enum:
+        - BankAccount
   accountId:
     type: string
     description: Bank Account Id.
@@ -24,7 +35,6 @@ properties:
       'term': 'iban'
       '@id': 'https://w3id.org/traceability#iban'
   routingInfo:
-    type: string
     description: To identify the financial institution and branch location associated with the bank account.
     $ref: ./RoutingInfo.yml
     $linkedData:
@@ -49,7 +59,6 @@ properties:
     $linkedData:
       term: address
       '@id': https://schema.org/PostalAddress
-  
 example: |-
   {
     "type": ["BankAccount"],
