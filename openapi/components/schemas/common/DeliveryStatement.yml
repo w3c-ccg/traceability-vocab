@@ -1,0 +1,90 @@
+$linkedData:
+  term: DeliveryStatement
+  '@id': https://w3id.org/traceability#DeliveryStatement
+title: Delivery Details
+description: A statement indicating item(s) delivered
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - DeliveryStatement
+    default:
+      - DeliveryStatement
+    items:
+      type: string
+      enum:
+        - DeliveryStatement
+  commodity:
+    title: Commodity
+    description: Product commodity code, codification system, and description
+    $ref: ./Commodity.yml
+    $linkedData:
+      term: commodity
+      '@id': https://w3id.org/traceability#Commodity
+  deliveredDate:
+    title: Delivered Date
+    description: A date time value when the item is delivered
+    type: string
+    $linkedData:
+      term: deliveredDate
+      '@id': https://schema.org/Date
+  deliveredVolume:
+    title: deliveredVolume
+    description: Volume of the item being delivered
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: deliveredVolume
+      '@id': https://schema.org/MeasuredValue
+  observation:
+    title: Observation List
+    description: List of observations
+    type: array
+    items:
+      $ref: ./Observation.yml
+    $linkedData:
+      term: observation
+      '@id': https://w3id.org/traceability#observation
+additionalProperties: false  
+required:
+  - type
+example: |-
+  {
+    "type": ["DeliveryStatement"],
+    "commodity":{
+        "type":[
+           "Commodity"
+        ],
+        "commodityCode":"2714.10.00.00",
+        "commodityCodeType":"HTS"
+    },
+    "deliveredDate": "2019-12-11T03:50:55Z",
+    "deliveredVolume": {
+      "type": [
+        "MeasuredValue"
+      ],
+      "value": "8806",
+      "unitCode": "dth"
+    },
+    "observation": [
+      {
+        "type": [
+          "Observation"
+        ],
+        "property": {
+          "type": [
+            "ChemicalProperty"
+          ],
+          "name": "Heat Content"
+        },
+        "measurement": {
+          "type": [
+            "MeasuredValue"
+          ],
+          "value": "50000",
+          "unitCode": "BTU"
+        }
+      }
+    ]
+  }

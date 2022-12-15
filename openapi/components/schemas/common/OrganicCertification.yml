@@ -1,6 +1,6 @@
 $linkedData:
-  term: OrganicCertificate
-  '@id': https://w3id.org/traceability#OrganicCertificate
+  term: OrganicCertification
+  '@id': https://w3id.org/traceability#OrganicCertification
 title: Organic Certificate
 description: Information regarding the organic certificate.
 type: object
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - OrganicCertificate
+      - OrganicCertification
     default:
-      - OrganicCertificate
+      - OrganicCertification
     items:
       type: string
       enum:
-        - OrganicCertificate
+        - OrganicCertification
   countryOfIssuance:
     title: Country of Issuance
     description: The country issuing the organic certificate. This value should be a two letter country code as defined in ISO 3166 (e.g., "US" for United States, "CA" for Canada).
@@ -79,7 +79,7 @@ required:
   - type
 example: |-
   {
-    "type": ["OrganicCertificate"],
+    "type": ["OrganicCertification"],
     "countryOfIssuance": "US",
     "certifiedOperation": {
       "type": ["Organization"],

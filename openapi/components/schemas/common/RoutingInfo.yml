@@ -1,0 +1,36 @@
+type: object
+title: RoutingInfo
+description: Routing info is a banking code that makes it easy to identify the financial institution and branch location associated with your bank account.
+$linkedData:
+  'term': 'RoutingInfo'
+  '@id': 'https://w3id.org/traceability#RoutingInfo'
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - RoutingInfo
+    default:
+      - RoutingInfo
+    items:
+      type: string
+      enum:
+        - RoutingInfo
+  code:
+    type: string
+    description: The routing info code.
+    $linkedData:
+      'term': 'code'
+      '@id': 'https://w3id.org/traceability#routingInfoCode'
+  value:
+    type: string
+    description: The routing info value.
+    $linkedData:
+      'term': 'value'
+      '@id': 'https://w3id.org/traceability#routingInfoValue'
+example: |-
+  {
+    "type": ["RoutingInfo"],
+    "code": "GBDSC",
+    "value": "042962"
+  }
