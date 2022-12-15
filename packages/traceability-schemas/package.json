@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "lint": "eslint . --fix",
-    "test": "jest",
+    "test": "node --max-old-space-size=4096 'node_modules/.bin/jest'",
     "regenerate": "npm i && node ./scripts/regenerate.js",
     "build:openapi": "node ./scripts/schemas-to-openapi.js",
     "build:context": "node ./scripts/openapi-to-context.js",

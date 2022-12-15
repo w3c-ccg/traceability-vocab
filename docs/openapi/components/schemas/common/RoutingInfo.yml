@@ -5,6 +5,17 @@ $linkedData:
   'term': 'RoutingInfo'
   '@id': 'https://w3id.org/traceability#RoutingInfo'
 properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - RoutingInfo
+    default:
+      - RoutingInfo
+    items:
+      type: string
+      enum:
+        - RoutingInfo
   code:
     type: string
     description: The routing info code.
@@ -17,7 +28,6 @@ properties:
     $linkedData:
       'term': 'value'
       '@id': 'https://w3id.org/traceability#routingInfoValue'
-  
 example: |-
   {
     "type": ["RoutingInfo"],
