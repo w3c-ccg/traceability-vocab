@@ -27,7 +27,7 @@ properties:
     description: >-
       Organization that is declaring their intention for a product to be exported to a
       different location than where it was created.
-    $ref: ./Organization.yml
+    $ref: ../snippets/IntentToImportOrganization.yml
     $linkedData:
       term: exporter
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty
@@ -35,7 +35,7 @@ properties:
     title: Importer
     description: >-
       Organization that is expected to receive some amount of the product.
-    $ref: ./Organization.yml
+    $ref: ../snippets/IntentToImportOrganization.yml
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
@@ -94,7 +94,9 @@ example: |-
           "postalCode": "48232-5170",
           "addressCountry": "USA"
         }
-      }
+      },
+      "email": "info@example.net",
+      "phoneNumber": "555-127-7813"
     },
     "product": {
       "type": ["Product"],
