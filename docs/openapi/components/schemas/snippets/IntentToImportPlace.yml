@@ -1,0 +1,34 @@
+title: Intent to Import Place
+description: Entities that have a somewhat fixed, physical location.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Place
+    default:
+      - Place
+    items:
+      type: string
+      enum:
+        - Place
+  address:
+    title: Postal Address
+    description: The postal address for an organization or place.
+    $ref: ../common/PostalAddress.yml
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["Place"],
+    "address": {
+      "type": ["PostalAddress"],
+      "streetAddress": "Avenida Carlos 100",
+      "addressLocality": "Hernádez de Mara",
+      "addressRegion": "Nuevo Leon",
+      "postalCode": "32200",
+      "addressCountry": "Mexico"
+    }
+  }
