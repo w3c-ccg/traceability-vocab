@@ -57,7 +57,7 @@ properties:
     $ref: ./Organization.yml
     $linkedData:
       term: manufacturer
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty  
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#manufacturerParty
   countryOfOrigin:
     title: Country of Origin
     description: Country in which the product(s) were manufactured. The two-letter ISO 3166-1 alpha-2 country code.
@@ -79,24 +79,26 @@ properties:
     $linkedData:
       term: countryOfMeltAndPour
       '@id': https://w3id.org/traceability#countryOfMeltAndPour
-  expectedPortOfEntry: 
+  expectedPortOfEntry:
     title: Expected Port of Entry
-    description: Expected port of entry. 
+    description: Expected port of entry.
     type: string
     $linkedData:
       term: expectedPortOfEntry
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#UNECELOCODE
-  expectedDateOfExport: 
+  expectedDateOfExport:
     title: Expected Date of Export
     description: Date product(s) expected to be shipped from the country of exportation.
     type: string
+    format: date-time
     $linkedData:
       term: expectedDateOfExport
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exportExitDateTime
-  expectedDateOfImport: 
+  expectedDateOfImport:
     title: Expected Date of Import
     description: Date product(s) expected to be shipped from the country of exportation.
     type: string
+    format: date-time
     $linkedData:
       term: expectedDateOfImport
       '@id': https://w3id.org/traceability#importDateTime
@@ -109,9 +111,10 @@ properties:
     $linkedData:
       term: productInformation
       '@id': https://w3id.org/traceability#productInformation
-additionalProperties: false  
+additionalProperties: false
 required:
   - type
+  - licenseNumber
   - applicantCompany
   - importer
   - exporter
@@ -122,7 +125,8 @@ required:
   - productInformation
 example: |-
   {
-    "type": ["SIMASteelImportLicense"], 
+    "type": ["SIMASteelImportLicense"],
+    "licenseNumber": "N75REX123",
     "applicantCompany": {
       "type": ["Organization"],
       "name": "Maxi Acero Mexicano",
@@ -222,6 +226,7 @@ example: |-
             "description": "Steel Coils"
           }
         },
+        "productCategory": "Long (Carbon and Alloy)",
         "customsValue": 4450
       }
     ]

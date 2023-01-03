@@ -24,25 +24,26 @@ properties:
     $linkedData:
       term: steelProduct
       '@id': https://w3id.org/traceability#SteelProduct
-  productCategory: 
+  productCategory:
     title: Product Category
-    description: Category assigned to the product based on the Product HTS. This is automatically generated upon submission. 
+    description: Category assigned to the product based on the Product HTS. This is automatically generated upon submission.
     type: string
     $linkedData:
       term: productCategory
       '@id': https://w3id.org/traceability#ProductCategory
-  customsValue: 
+  customsValue:
     title: Customs Value
     description: Entered value of this product in U.S. dollars; not invoiced value (It should not include duty, brokerage fees, or freight).
     type: number
     $linkedData:
       term: customsValue
       '@id': https://schema.org/MonetaryAmount
-additionalProperties: false  
+additionalProperties: false
 required:
   - type
   - steelProduct
   - customsValue
+  - productCategory
 example: |-
   {
     "type": [
@@ -63,5 +64,6 @@ example: |-
         "description": "Steel Coils"
       }
     },
+    "productCategory": "Long (Carbon and Alloy)",
     "customsValue": 4450
   }
