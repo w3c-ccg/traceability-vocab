@@ -161,6 +161,9 @@
     },
     "AgricultureProduct": {
       "@context": {
+        "countryOfOrigin": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
+        },
         "gtin": {
           "@id": "https://www.gs1.org/voc/gtin"
         },
@@ -172,6 +175,9 @@
         },
         "name": {
           "@id": "https://www.schema.org/name"
+        },
+        "plantParts": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#description"
         },
         "plu": {
           "@id": "https://w3id.org/traceability#plu"
@@ -186,7 +192,7 @@
           "@id": "https://schema.org/url"
         },
         "scientificName": {
-          "@id": "https://w3id.org/traceability#scientificName"
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#scientificName"
         },
         "upc": {
           "@id": "https://www.gs1.org/standards/barcodes/ean-upc"
@@ -1912,6 +1918,11 @@
       },
       "@id": "https://w3id.org/traceability#GS1CompanyPrefixLicenceCredential"
     },
+    "GS1KeyCredential": {
+      "@context": {
+      },
+      "@id": "https://w3id.org/traceability#GS1KeyCredential"
+    },
     "GS1PrefixLicenceCredential": {
       "@context": {
       },
@@ -2691,6 +2702,32 @@
         }
       },
       "@id": "https://w3id.org/traceability#LEIregistration"
+    },
+    "LaceyActProductDeclaration": {
+      "@context": {
+        "articleOrComponent": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#procedureCode"
+        },
+        "countryOfHarvest": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry"
+        },
+        "enteredValue": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#customsValueSpecifiedAmount"
+        },
+        "htsNumber": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#applicableRegulatoryProcedure"
+        },
+        "percentRecycled": {
+          "@id": "https://qudt.org/vocab/unit/PERCENT"
+        },
+        "plantScientificNames": {
+          "@id": "https://w3id.org/traceability#Taxonomy"
+        },
+        "quantityOfPlantMaterial": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#totalPackageSpecifiedQuantity"
+        }
+      },
+      "@id": "https://w3id.org/traceability#LaceyActProductDeclaration"
     },
     "LinkRole": {
       "@context": {
@@ -4377,20 +4414,8 @@
         "heatNumber": {
           "@id": "https://schema.org/identifier"
         },
-        "inspection": {
-          "@id": "https://w3id.org/traceability#InspectionReport"
-        },
         "originalCountryOfMeltAndPour": {
           "@id": "https://schema.org/addressCountry"
-        },
-        "purchase": {
-          "@id": "https://w3id.org/traceability#Purchase"
-        },
-        "shipment": {
-          "@id": "https://schema.org/ParcelDelivery"
-        },
-        "size": {
-          "@id": "https://schema.org/size"
         },
         "specification": {
           "@id": "https://schema.org/identifier"
@@ -4971,6 +4996,23 @@
       },
       "@id": "https://w3id.org/traceability#USDAPPQ449RTemperatureCalibration"
     },
+    "USDAPPQ505PlantDeclaration": {
+      "@context": {
+        "date": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#issueDateTime"
+        },
+        "preparer": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#declarantParty"
+        },
+        "productDeclarations": {
+          "@id": "https://w3id.org/traceability#LaceyActProductDeclaration"
+        },
+        "shipment": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#transportPackage"
+        }
+      },
+      "@id": "https://w3id.org/traceability#USDAPPQ505PlantDeclaration"
+    },
     "USDAPPQ519ComplianceAgreement": {
       "@context": {
         "agreement": {
@@ -5005,6 +5047,26 @@
         }
       },
       "@id": "https://w3id.org/traceability#USDAPPQ519ComplianceAgreement"
+    },
+    "USDAPPQ587PlantImportApplication": {
+      "@context": {
+        "applicant": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#associatedParty"
+        },
+        "date": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#creationDateTime"
+        },
+        "intendedUse": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#intendedUse"
+        },
+        "meansOfTransportation": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#usedTransportMeans"
+        },
+        "plantProductsImported": {
+          "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedProduct"
+        }
+      },
+      "@id": "https://w3id.org/traceability#USDAPPQ587PlantImportApplication"
     },
     "USDAPPQ587PlantImportPermit": {
       "@context": {
