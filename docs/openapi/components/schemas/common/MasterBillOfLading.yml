@@ -65,141 +65,27 @@ properties:
       term: scac
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number
+  carrier:
+    title: Carrier
+    description: A carrier party.
+    $ref: ../snippets/carrier.yml
+    $linkedData:
+      term: carrier
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
   shipper: 
     title: Shipper
     description: A consignor party for the consignment.
-    type: object
-    properties:
-      type:
-        type: array
-        readOnly: true
-        const:
-          - Organization
-        default:
-          - Organization
-        items:
-          type: string
-          enum:
-            - Organization
-      id:
-        title: Identifier
-        description: Decentralized identifier of the consignor.
-        type: string
-      name:
-        title: Name
-        description: Name of the consignor.
-        type: string
-      url:
-        title: URL
-        description: URL of the consignor.
-        type: string
-      description:
-        title: Description
-        description: Description of the consignor.
-        type: string
-      email:
-        title: Email Address
-        description: consignor's primary email address.
-        type: string
-      phoneNumber:
-        title: Phone Number
-        description: consignor's contact phone number.
-        type: string
-      location:
-        title: Location
-        description: consignor's physical location, such as address or coordinates.
-        type: object
-        properties:
-          type:
-            type: array
-            readOnly: true
-            const:
-              - Place
-            default:
-              - Place
-            items:
-              type: string
-              enum:
-                - Place
-          address:
-            title: Postal Address
-            description: The postal address for an organization or place.
-            $ref: ./PostalAddress.yml
-    additionalProperties: false
-    required:
-      - type
-      - name
+    $ref: ../snippets/consignor.yml
     $linkedData:
       term: shipper
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
   consignee:
     title: Consignee
     description: A consignee party for the consignment.
-    type: object
-    properties:
-      type:
-        type: array
-        readOnly: true
-        const:
-          - Organization
-        default:
-          - Organization
-        items:
-          type: string
-          enum:
-            - Organization
-      id:
-        title: Identifier
-        description: Decentralized identifier for the consignee
-        type: string
-      name:
-        title: Name
-        description: Name of the consignee.
-        type: string
-      url:
-        title: URL
-        description: URL of the consignee.
-        type: string
-      description:
-        title: Description
-        description: Description of the consignee.
-        type: string
-      email:
-        title: Email Address
-        description: consignee's primary email address.
-        type: string
-      phoneNumber:
-        title: Phone Number
-        description: consignee's contact phone number.
-        type: string
-      location:
-        title: Location
-        description: Consignee's physical location, such as address or coordinates.
-        type: object
-        properties:
-          type:
-            type: array
-            readOnly: true
-            const:
-              - Place
-            default:
-              - Place
-            items:
-              type: string
-              enum:
-                - Place
-          address:
-            title: Postal Address
-            description: The postal address for an organization or place.
-            $ref: ./PostalAddress.yml
-    additionalProperties: false
-    required:
-      - type
-      - name
+    $ref: ../snippets/consignee.yml
     $linkedData:
       term: consignee
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
   forwardingAgent: 
     title: Forwarding Agent
     description: The freight forwarder party for this supply chain consignment.
@@ -338,79 +224,6 @@ properties:
       term: notifyParty
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
-  carrier:
-    title: Carrier
-    description: A carrier party.
-    type: object
-    properties:
-      type:
-        type: array
-        readOnly: true
-        const:
-          - Organization
-        default:
-          - Organization
-        items:
-          type: string
-          enum:
-            - Organization
-      id:
-        title: Identifier
-        description: Decentralized identifier for the carrier.
-        type: string
-      name:
-        title: Name
-        description: Name of the carrier.
-        type: string
-      url:
-        title: URL
-        description: URL of the carrier.
-        type: string
-      description:
-        title: Description
-        description: Description of the carrier.
-        type: string
-      email:
-        title: Email Address
-        description: carrier's primary email address.
-        type: string
-      phoneNumber:
-        title: Phone Number
-        description: carrier's contact phone number.
-        type: string
-      location:
-        title: Location
-        description: freight forwarder's physical location, such as address or coordinates.
-        type: object
-        properties:
-          type:
-            type: array
-            readOnly: true
-            const:
-              - Place
-            default:
-              - Place
-            items:
-              type: string
-              enum:
-                - Place
-          address:
-            title: Postal Address
-            description: The postal address for an organization or place.
-            $ref: ./PostalAddress.yml
-        additionalProperties: false
-        required:
-          - type
-          - address
-    additionalProperties: false
-    required:
-      - type
-      - name
-      - location
-    $linkedData:
-      term: carrier
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
   preCarriageTransportMovement:
     title: Pre-carriage Transport Movement
     description: A pre-carriage logistics transport movement for the consignment.
