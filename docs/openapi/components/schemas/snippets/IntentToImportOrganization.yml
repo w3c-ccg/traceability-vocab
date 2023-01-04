@@ -1,0 +1,61 @@
+title: Intent to Import Organization
+description: An organization such as a corporation, firm, club, etc.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Organization
+    default:
+      - Organization
+    items:
+      type: string
+      enum:
+        - Organization
+  id: 
+    title: Identifier
+    description: Organization identifier.
+    type: string
+  name:
+    title: Name
+    description: Name of the organization.
+    type: string
+  description:
+    title: Description
+    description: Description of the company.
+    type: string
+  location:
+    title: Location
+    description: The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
+    $ref: ./IntentToImportPlace.yml
+  email:
+    title: Email Address
+    description: Organization's primary email address.
+    type: string
+  phoneNumber:
+    title: Phone Number
+    description: Organization's contact phone number.
+    type: string
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["Organization"],
+    "name": "Maxi Acero Mexicano",
+    "description": "Fusion y fabricacion de acero solido",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      }
+    },
+    "email": "info@example.net",
+    "phoneNumber": "555-127-7813"
+  }
