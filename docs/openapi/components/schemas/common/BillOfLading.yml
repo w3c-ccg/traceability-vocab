@@ -458,6 +458,15 @@ properties:
       term: portOfDischarge
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncl3227/#Place_of_discharge
+  particulars:
+    title: Particulars
+    description: Description of goods.
+    type: array
+    items:
+      $ref: ./ConsignmentItem.yml
+    $linkedData:
+      term: particulars
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#includedConsignmentItem
 additionalProperties: false
 required:
   - type
@@ -575,5 +584,32 @@ example: |-
     "portOfDischarge": {
       "type": ["Place"],
       "unLocode": "MXATM"
-    }
+    },
+    "particulars": [
+      {
+        "type": ["ConsignmentItem"],
+        "marksAndNumbers": "Espresso Italiano",
+        "commodity": {
+          "type": ["Commodity"],
+          "commodityCode": "851671",
+          "commodityCodeType": "HS"
+        },
+        "packageQuantity": 2200,
+        "netWeight": {
+          "type": ["QuantitativeValue"],
+          "unitCode": "kg",
+          "value": "14600"
+        },
+        "grossWeight": {
+          "type": ["QuantitativeValue"],
+          "unitCode": "kg",
+          "value": "15960"
+        },
+        "grossVolume": {
+          "type": ["QuantitativeValue"],
+          "value": "856",
+          "unitCode": "cmb"
+        }
+      }
+    ]
   }
