@@ -40,13 +40,6 @@ properties:
     $linkedData:
       term: grade
       '@id': https://schema.org/Rating
-  size:
-    title: Size
-    description: The size of the product
-    type: string
-    $linkedData:
-      term: size
-      '@id': https://schema.org/size
   weight:
     title: Weight
     description: The weight of the product
@@ -68,27 +61,6 @@ properties:
     $linkedData:
       term: originalCountryOfMeltAndPour
       '@id': https://schema.org/addressCountry
-  inspection:
-    title: Inspection
-    description: Observations of chemical and mechanical properties of the product
-    $ref: ./InspectionReport.yml
-    $linkedData:
-      term: inspection
-      '@id': https://w3id.org/traceability#InspectionReport
-  purchase:
-    title: Purchase
-    description: Purchase details about a product and its customer
-    $ref: ./Purchase.yml
-    $linkedData:
-      term: purchase
-      '@id': https://w3id.org/traceability#Purchase
-  shipment:
-    title: Parcel Delivery
-    description: Shipment details about a product
-    $ref: ./ParcelDelivery.yml
-    $linkedData:
-      term: shipment
-      '@id': https://schema.org/ParcelDelivery
   commodity:
     title: Commodity
     description: Product commodity code, codification system and description
@@ -96,6 +68,8 @@ properties:
     $linkedData:
       term: commodity
       '@id': https://w3id.org/traceability#Commodity
+  inspection:
+    $ref: ./InspectionReport.yml
 additionalProperties: false  
 required:
   - type
@@ -103,6 +77,7 @@ required:
   - specification
   - grade
   - originalCountryOfMeltAndPour
+  - inspection
 example: |-
   {
     "type": ["SteelProduct"],
@@ -120,6 +95,53 @@ example: |-
     },
     "inspection": {
       "type": ["InspectionReport"],
+      "inspectors": [
+        {
+          "type": [
+            "Person"
+          ],
+          "firstName": "John",
+          "lastName": "Doe",
+          "email": "john@doe.com",
+          "phoneNumber": "555-615-4231",
+          "worksFor": {
+            "type": [
+              "Organization"
+            ],
+            "name": "IRON APPROVERS INC.",
+            "description": "Inpsections for Iron Commodities",
+            "location": {
+              "type": [
+                "Place"
+              ],
+              "address": {
+                "type": [
+                  "PostalAddress"
+                ],
+                "streetAddress": "21 Jump Street",
+                "addressLocality": "Salem",
+                "addressRegion": "Oregon",
+                "postalCode": "21445",
+                "addressCountry": "US"
+              }
+            }
+          },
+          "jobTitle": "Cheif Inspector"
+        }
+      ],
+      "inspectionFacility" : {
+        "type": ["Place"],
+        "globalLocationNumber": "3177794693200",
+        "address": {
+            "type": ["PostalAddress"],
+            "name": "Canada Border Services Agency",
+            "streetAddress": "Highway 12",
+            "addressLocality": "Sprague",
+            "addressRegion": "Manitoba",
+            "postalCode": "R0A1Z0",
+            "addressCountry": "CA"
+        }
+      },
       "observation": [
         {
           "type": ["Observation"],
