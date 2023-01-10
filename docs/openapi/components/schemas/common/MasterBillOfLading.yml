@@ -54,27 +54,44 @@ properties:
     $linkedData:
       term: shippersReferences
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned
+  scac:
+    title: SCAC
+    description: >-
+      For maritime shipments, this code qualifies a Standard Alpha Carrier Code
+      (SCAC) as issued by the United Stated National Motor Traffic Association
+      Inc.
+    type: string
+    $linkedData:
+      term: scac
+      '@id': >-
+        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number
+  carrier:
+    title: Carrier
+    description: A carrier party.
+    $ref: ../snippets/carrier.yml
+    $linkedData:
+      term: carrier
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
   shipper: 
     title: Shipper
     description: A consignor party for the consignment.
-    $ref: ./Organization.yml
+    $ref: ../snippets/consignor.yml
     $linkedData:
       term: shipper
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consignorParty
   consignee:
     title: Consignee
     description: A consignee party for the consignment.
-    $ref: ./Organization.yml
+    $ref: ../snippets/consignee.yml
     $linkedData:
       term: consignee
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#consigneeParty
   forwardingAgent: 
     title: Forwarding Agent
     description: The freight forwarder party for this supply chain consignment.
-    $ref: ./Organization.yml
+    $ref: ../snippets/forwarder.yml
     $linkedData:
-      term: notifyParty
+      term: forwardingAgent
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#freightForwarderParty
   notifyParty:
@@ -82,19 +99,11 @@ properties:
     description: The freight forwarder party for this supply chain consignment.
     type: array 
     items: 
-      $ref: ./Organization.yml
+      $ref: ../snippets/notify.yml
     $linkedData:
       term: notifyParty
       '@id': >-
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#notifyParty
-  carrier:
-    title: Carrier
-    description: A carrier party.
-    $ref: ./Organization.yml
-    $linkedData:
-      term: carrier
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncefact/#carrierParty
   preCarriageTransportMovement:
     title: Pre-carriage Transport Movement
     description: A pre-carriage logistics transport movement for the consignment.
