@@ -1,0 +1,77 @@
+title: Forwarding Agent
+description: The freight forwarder party for this supply chain consignment.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Organization
+    default:
+      - Organization
+    items:
+      type: string
+      enum:
+        - Organization
+  id:
+    title: Identifier
+    description: Decentralized identifier for the freight forwarder
+    type: string
+  name:
+    title: Name
+    description: Name of the freight forwarder.
+    type: string
+  url:
+    title: URL
+    description: URL of the freight forwarder.
+    type: string
+  description:
+    title: Description
+    description: Description of the freight forwarder.
+    type: string
+  email:
+    title: Email Address
+    description: Freight forwarder's primary email address.
+    type: string
+  phoneNumber:
+    title: Phone Number
+    description: Freight forwarder's contact phone number.
+    type: string
+  location:
+    title: Location
+    description: Freight forwarder's physical location, such as address or coordinates.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+additionalProperties: false
+required:
+  - type
+  - name
+example: |-
+  {
+    "type": ["Organization"],
+    "name": "FFW, Inc.",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "100 Pence Road",
+        "postalCode": "12100",
+        "addressCountry": "US"
+      }
+    }
+  }

@@ -7623,14 +7623,8 @@
   "seller": {
     "type": ["Organization"],
     "name": "Maxi Acero Mexicano",
-    "description": "Fusión y fabricación de acero sólido",
     "location": {
       "type": ["Place"],
-      "geo": {
-        "type": ["GeoCoordinates"],
-        "latitude": "25.682338876065607",
-        "longitude": "-100.31373788104028"
-      },
       "address": {
         "type": ["PostalAddress"],
         "streetAddress": "Avenida Carlos 100",
@@ -7647,6 +7641,7 @@
     "type": [
       "Organization"
     ],
+    "id": "did:web:generic-motors.example.com",
     "location": {
       "type": ["Place"],
       "address": {
@@ -7662,6 +7657,12 @@
       }
     }
   },
+  "consignee": {
+    "type": [
+      "Organization"
+    ],
+    "id": "did:web:generic-motors.example.com"
+  },
   "itemsShipped": [
     {
       "type": ["TradeLineItem"],
@@ -7670,14 +7671,8 @@
         "manufacturer": {
           "type": ["Organization"],
           "name": "Maxi Acero Mexicano",
-          "description": "Fusión y fabricación de acero sólido",
           "location": {
             "type": ["Place"],
-            "geo": {
-              "type": ["GeoCoordinates"],
-              "latitude": "25.682338876065607",
-              "longitude": "-100.31373788104028"
-            },
             "address": {
               "type": ["PostalAddress"],
               "streetAddress": "Avenida Carlos 100",
@@ -7686,9 +7681,7 @@
               "postalCode": "32200",
               "addressCountry": "Mexico"
             }
-          },
-          "email": "info@example.net",
-          "phoneNumber": "555-127-7813"
+          }
         },
         "description": "UNS S30400 chromium-nickel stainless steel rolls.",
         "weight": {
@@ -7716,14 +7709,8 @@
         "manufacturer": {
           "type": ["Organization"],
           "name": "Maxi Acero Mexicano",
-          "description": "Fusión y fabricación de acero sólido",
           "location": {
             "type": ["Place"],
-            "geo": {
-              "type": ["GeoCoordinates"],
-              "latitude": "25.682338876065607",
-              "longitude": "-100.31373788104028"
-            },
             "address": {
               "type": ["PostalAddress"],
               "streetAddress": "Avenida Carlos 100",
@@ -7732,9 +7719,7 @@
               "postalCode": "32200",
               "addressCountry": "Mexico"
             }
-          },
-          "email": "info@example.net",
-          "phoneNumber": "555-127-7813"
+          }
         },
         "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
         "weight": {
@@ -7767,9 +7752,12 @@
     "priceCurrency": "USD"
   }
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li>
+      <b>Dependencies</b><ul><li><a href='#BuyerParty'>BuyerParty</a></li>
+<li><a href='#ConsigneeParty'>ConsigneeParty</a></li>
+<li><a href='#Place'>Place</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li>
-<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li>
+<li><a href='#SellerParty'>SellerParty</a></li></ul>
     </section>
   
 
@@ -8383,10 +8371,13 @@
   "shippedOnBoardDate": "2022-02-02T09:30:00Z",
   "termsAndConditions": "https://terms-of-shipment.carrier.example.com"
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
-<li><a href='#Place'>Place</a></li>
+      <b>Dependencies</b><ul><li><a href='#Place'>Place</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li>
-<li><a href='#Transport'>Transport</a></li></ul>
+<li><a href='#Transport'>Transport</a></li>
+<li><a href='#carrier'>carrier</a></li>
+<li><a href='#consignee'>consignee</a></li>
+<li><a href='#consignor'>consignor</a></li>
+<li><a href='#forwarder'>forwarder</a></li></ul>
     </section>
   
 
@@ -8423,7 +8414,7 @@
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://www.schema.org/QuantitativeValue">https://www.schema.org/QuantitativeValue</a></td>
+    <td><a href="https://schema.org/QuantitativeValue">https://schema.org/QuantitativeValue</a></td>
   </tr>
   
   
@@ -11803,22 +11794,6 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
       "type": ["TradeLineItem"],
       "product": {
         "type": ["Product"],
-        "manufacturer": {
-          "type": ["Organization"],
-          "name": "Aishi Metal Shinzo Co., Ltd.",
-          "location": {
-            "type": ["Place"],
-            "address": {
-              "type": ["PostalAddress"],
-              "name": "Aishi Metal Shinzo Co., Ltd.",
-              "streetAddress": "1651, Shimonakano, Yoshida",
-              "addressLocality": "Tsubame-shi",
-              "addressRegion": "Niigata-ken",
-              "postalCode": "959-0215",
-              "addressCountry": "Japan"
-            }
-          }
-        },
         "description": "UNS S30400 chromium-nickel stainless steel rolls.",
         "weight": {
           "type": ["QuantitativeValue"],
@@ -11842,22 +11817,6 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
       "type": ["TradeLineItem"],
       "product": {
         "type": ["Product"],
-        "manufacturer": {
-          "type": ["Organization"],
-          "name": "Aishi Metal Shinzo Co., Ltd.",
-          "location": {
-            "type": ["Place"],
-            "address": {
-              "type": ["PostalAddress"],
-              "name": "Aishi Metal Shinzo Co., Ltd.",
-              "streetAddress": "1651, Shimonakano, Yoshida",
-              "addressLocality": "Tsubame-shi",
-              "addressRegion": "Niigata-ken",
-              "postalCode": "959-0215",
-              "addressCountry": "Japan"
-            }
-          }
-        },
         "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
         "weight": {
           "type": ["QuantitativeValue"],
@@ -11889,10 +11848,12 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
     "priceCurrency": "USD"
   }
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+      <b>Dependencies</b><ul><li><a href='#BuyerParty'>BuyerParty</a></li>
 <li><a href='#Place'>Place</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li>
-<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li>
+<li><a href='#SellerParty'>SellerParty</a></li>
+<li><a href='#ShipToParty'>ShipToParty</a></li></ul>
     </section>
   
 
@@ -17084,6 +17045,16 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       <b>Dependencies</b><ul><li><a href='#Workflow'>Workflow</a></li></ul>
     </section>
   
+
+
+
+
+
+
+
+
+
+
 
 
 
