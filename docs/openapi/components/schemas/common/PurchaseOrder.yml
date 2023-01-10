@@ -54,61 +54,150 @@ properties:
   seller:
     title: Seller
     description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
-    $ref: ./Organization.yml
+    $ref: ../snippets/SellerParty.yml
     $linkedData:
       term: seller
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./Organization.yml
+    $ref: ../snippets/BuyerParty.yml
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
-  exporter:
-    title: Exporter
-    description: The party who makes, or on whose behalf the export declaration is made, and who is the owner of the goods or has similar rights of disposal over them at the time when the declaration is accepted.
-    $ref: ./Organization.yml
-    $linkedData:
-      term: exporter
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#exporterParty
-  importer:
-    title: Importer
-    description: The party who makes, or on whose behalf a customs clearing agent or other authorized person makes, an import declaration. This may include a person who has possession of the goods or to whom the goods are consigned. Also refered to as Importer of Record.
-    $ref: ./Organization.yml
-    $linkedData:
-      term: importer
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
-  shipFromParty:
-    title: Ship From Party
-    description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
-    $ref: ./Organization.yml
-    $linkedData:
-      term: shipFromParty
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipFromParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
-    $ref: ./Organization.yml
+    $ref: ../snippets/ShipToParty.yml
     $linkedData:
       term: shipToParty
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
-  provider:
-    title: Provider
-    description: >-
-      The service provider, service operator, or service performer; the goods
-      producer. Another party (a seller) may offer those services or goods on
-      behalf of the provider. A provider may also serve as the seller.
-    $ref: ./Organization.yml
-    $linkedData:
-      term: provider
-      '@id': https://schema.org/provider
   itemsOrdered:
     title: Items Ordered
     description: Itemized list of ordered goods.
     type: array
     items:
-      $ref: ./TradeLineItem.yml
+      type: object
+      properties:
+        type:
+          type: array
+          readOnly: true
+          const:
+            - TradeLineItem
+          default:
+            - TradeLineItem
+          items:
+            type: string
+            enum:
+              - TradeLineItem
+        name:
+          title: Name
+          description: Name of the Tradeline item.
+          type: string
+        description:
+          title: Description of product
+          type: string
+        product:
+          title: Product
+          description: Product details. 
+          type: object
+          properties:
+            type:
+              type: array
+              readOnly: true
+              const:
+                - Product
+              default:
+                - Product
+              items:
+                type: string
+                enum:
+                  - Product
+            id:
+              title: Product Identifier
+              description: The product identifier, such as ISBN.
+              type: string
+            gtin:
+              title: Global Trade Item Number (GTIN)
+              type: string
+            manufacturer:
+              title: Manufacturer
+              description: The entity manufacturing the product.
+              $ref: ../snippets/ManufacturerParty.yml
+              $linkedData:
+                term: manufacturer
+                '@id': https://schema.org/manufacturer
+            name:
+              title: Name
+              description: Product name.
+              type: string
+            description:
+              title: Description
+              description: Product description.
+              type: string
+            category:
+              title: Category
+              description: A category for the item.
+              type: string
+            sizeOrAmount:
+              title: Size or Amount
+              description: The size or amount of the product
+              $ref: ./QuantitativeValue.yml
+            weight:
+              title: Weight
+              description: Weight of the product.
+              $ref: ./QuantitativeValue.yml
+            productPrice:
+              title: Product Price
+              description: >-
+                One or more detailed price specifications, indicating the unit price and
+                delivery or payment charges.
+              $ref: ./PriceSpecification.yml
+            sku:
+              title: SKU Number
+              description: >-
+                The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
+                product or service, or for the product to which the offer refers.
+              type: string
+            batchNumber:
+              title: Batch Number
+              description: A tracking number for commodities
+              type: string
+            commodity:
+              title: Commodity
+              description: Product commodity code, codification system and description
+              $ref: ./Commodity.yml
+          additionalProperties: false
+          required:
+            - type
+        itemCount:
+          title: Item Count
+          description: A quantity despatched in the trade delivery.
+          type: number
+        freeTradeAgreement:
+          title: Free Trade Agreement
+          description: Relevant Free Trade Agreement
+          type: string
+        countryOfOrigin:
+          title: Country of Origin
+          description: Identify the 2-digit ISO country code of the country of production.
+        netWeight:
+          title: Trade Line Item Net Weight
+          description: A measure of the net weight (mass).
+          $ref: ./QuantitativeValue.yml
+        grossWeight:
+          title: Trade Line Item Gross Weight
+          description: >-
+            A measure of the gross weight (mass) which includes packaging but excludes
+            any transport equipment.
+          $ref: ./QuantitativeValue.yml
+        lineItemTotalPrice:
+          title: Total Price
+          description: Total line item price.
+          $ref: ./PriceSpecification.yml
+      additionalProperties: false  
+      required:
+        - type
     $linkedData:
       term: itemsOrdered
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem
@@ -270,22 +359,6 @@ example: |-
         "type": ["TradeLineItem"],
         "product": {
           "type": ["Product"],
-          "manufacturer": {
-            "type": ["Organization"],
-            "name": "Aishi Metal Shinzo Co., Ltd.",
-            "location": {
-              "type": ["Place"],
-              "address": {
-                "type": ["PostalAddress"],
-                "name": "Aishi Metal Shinzo Co., Ltd.",
-                "streetAddress": "1651, Shimonakano, Yoshida",
-                "addressLocality": "Tsubame-shi",
-                "addressRegion": "Niigata-ken",
-                "postalCode": "959-0215",
-                "addressCountry": "Japan"
-              }
-            }
-          },
           "description": "UNS S30400 chromium-nickel stainless steel rolls.",
           "weight": {
             "type": ["QuantitativeValue"],
@@ -309,22 +382,6 @@ example: |-
         "type": ["TradeLineItem"],
         "product": {
           "type": ["Product"],
-          "manufacturer": {
-            "type": ["Organization"],
-            "name": "Aishi Metal Shinzo Co., Ltd.",
-            "location": {
-              "type": ["Place"],
-              "address": {
-                "type": ["PostalAddress"],
-                "name": "Aishi Metal Shinzo Co., Ltd.",
-                "streetAddress": "1651, Shimonakano, Yoshida",
-                "addressLocality": "Tsubame-shi",
-                "addressRegion": "Niigata-ken",
-                "postalCode": "959-0215",
-                "addressCountry": "Japan"
-              }
-            }
-          },
           "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
           "weight": {
             "type": ["QuantitativeValue"],
