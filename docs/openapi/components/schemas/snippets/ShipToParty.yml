@@ -1,0 +1,78 @@
+title: Ship To Party
+description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Organization
+    default:
+      - Organization
+    items:
+      type: string
+      enum:
+        - Organization
+  id:
+    title: Identifier
+    description: Identifier for the ship to party.
+    type: string
+  name:
+    title: Name
+    description: Name of the ship to party.
+    type: string
+  url:
+    title: URL
+    description: URL of the ship to party.
+    type: string
+  email:
+    title: Email Address
+    description: Ship to party's primary email address.
+    type: string
+  phoneNumber:
+    title: Phone Number
+    description: Ship to party's contact phone number.
+    type: string
+  location:
+    title: Location
+    description: Ship to party's physical location, such as address or coordinates.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+    additionalProperties: false
+    required:
+      - type
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["Organization"],
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "Generic Motors of America",
+        "streetAddress": "12 Generic Motors Dr",
+        "addressLocality": "Detroit",
+        "addressRegion": "Michigain",
+        "postalCode": "48232-5170",
+        "addressCountry": "USA"
+      }
+    }
+  }
+  
