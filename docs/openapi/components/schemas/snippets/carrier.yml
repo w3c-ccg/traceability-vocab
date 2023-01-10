@@ -1,0 +1,81 @@
+title: Carrier
+description: A carrier party.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Organization
+    default:
+      - Organization
+    items:
+      type: string
+      enum:
+        - Organization
+  id:
+    title: Identifier
+    description: Decentralized identifier for the carrier.
+    type: string
+  name:
+    title: Name
+    description: Name of the carrier.
+    type: string
+  url:
+    title: URL
+    description: URL of the carrier.
+    type: string
+  description:
+    title: Description
+    description: Description of the carrier.
+    type: string
+  email:
+    title: Email Address
+    description: Carrier's primary email address.
+    type: string
+  phoneNumber:
+    title: Phone Number
+    description: Carrier's contact phone number.
+    type: string
+  location:
+    title: Location
+    description: Carrier's physical address.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+additionalProperties: false
+required:
+  - type
+  - name
+  - location
+example: |-
+  {
+    "type": ["Organization"],
+    "id": "did:key:z6Mku6sNEit2qhNyaKDoj6ozURx5ApD85Za5g6dmnpYi6Auv",
+    "name": "MULTI CONTAINER LINE",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "MCL Multi Container Line LTD.",
+        "streetAddress": "Rm. 3501, 35/F Manhatten Place, 23 Wang Tai Road",
+        "addressLocality": "Kowloon Bay",
+        "addressRegion": "Hong Kong",
+        "addressCountry": "Hong Kong SAR"
+      }
+    }
+  }

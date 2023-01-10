@@ -1,0 +1,80 @@
+title: Consignee
+description: A consignee party for the consignment.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Organization
+    default:
+      - Organization
+    items:
+      type: string
+      enum:
+        - Organization
+  id:
+    title: Identifier
+    description: Decentralized identifier for the consignee
+    type: string
+  name:
+    title: Name
+    description: Name of the consignee.
+    type: string
+  url:
+    title: URL
+    description: URL of the consignee.
+    type: string
+  description:
+    title: Description
+    description: Description of the consignee.
+    type: string
+  email:
+    title: Email Address
+    description: Consignee's primary email address.
+    type: string
+  phoneNumber:
+    title: Phone Number
+    description: Consignee's contact phone number.
+    type: string
+  location:
+    title: Location
+    description: Consignee's physical address.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        $ref: ../common/PostalAddress.yml
+additionalProperties: false
+required:
+  - type
+  - name
+example: |-
+  {
+    "type": ["Organization"],
+    "name": "Prosumer Coffee Supplies, Ltd.",
+    "description": "Coffee Machine Imports",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "3934 Spinnaker Lane",
+        "addressLocality": "Joliet",
+        "addressRegion": "Illinois",
+        "postalCode": "60432",
+        "addressCountry": "US"
+      }
+    }
+  }
