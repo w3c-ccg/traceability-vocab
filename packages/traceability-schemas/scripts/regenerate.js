@@ -78,7 +78,14 @@ const main = async () => {
     const file = fs.readFileSync(`${path}/${filename}`, 'utf-8');
     const start = file.indexOf('  {');
     const jsonStr = file.substring(start);
-    const example = JSON.parse(jsonStr);
+    let example
+    try {
+      example = JSON.parse(jsonStr);
+    } catch(err) {
+      console.log("ERROR IN", filename)
+      console.log(jsonStr)
+      throw err;
+    }
 
     if (example.proof) {
       const verified = await checkVerififcation(example, filename);
