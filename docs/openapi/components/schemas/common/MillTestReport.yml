@@ -1,0 +1,59 @@
+$linkedData:
+  term: MillTestReport
+  '@id': https://w3id.org/traceability#MillTestReport
+title: Mill Test Report
+description: Mill Test Report
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - MillTestReport
+    default:
+      - MillTestReport
+    items:
+      type: string
+      enum:
+        - MillTestReport
+  resourceType:
+    description: The type of resource.
+    type: string
+    enum:
+      - External
+      - GeoJSON
+    $linkedData:
+      term: resourceType
+      '@id': https://schema.org/additionalType
+  manufacturer:
+    title: Manufacturer
+    description: The manufacturer of the steel being reported on
+    type: object
+  countryOfMeltAndPour:
+    title: Country of Melt and Pour
+    description: The country in which the steel was poured
+    type: string
+  steelLicenseNumber:
+    title: Steel License Number
+    description: The country in which the steel was poured
+    type: string
+  purchaseDetails:
+    title: Purchase Details
+    description: The purchase details related to a steel purchase
+    type: object
+  shippingDetails:
+    title: Shipping Details
+    description: The manufacturer of the steel being reported on
+    type: object
+  chemicalAnalysis:
+    title: Chemical Analysis
+    description: Chemical analysis conducted on the steel material
+    type: object
+  mechanicalTests:
+    title: Mechanical Tests
+    description: Mechanical Tests conducted on the steel material
+    type: object
+  productDetails:
+    title: Product Details
+    description: Product details about the tested steel
+    type: object
