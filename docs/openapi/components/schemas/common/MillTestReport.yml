@@ -19,7 +19,7 @@ properties:
   manufacturer:
     title: Manufacturer
     description: The manufacturer of the steel being reported on
-    type: object
+    $ref: ./Organization.yml
     $linkedData:
       term: manufacturer
       '@id': https://w3id.org/traceability#manufacturer
@@ -40,35 +40,35 @@ properties:
   purchaseDetails:
     title: Purchase Details
     description: The purchase details related to a steel purchase
-    type: object
+    $ref: ./PurchaseDetails.yml
     $linkedData:
       term: purchaseDetails
       '@id': https://w3id.org/traceability#purchaseDetails
   shippingDetails:
     title: Shipping Details
     description: The manufacturer of the steel being reported on
-    type: object
+    $ref: ./ShippingDetails.yml
     $linkedData:
       term: shippingDetails
       '@id': https://w3id.org/traceability#shippingDetails
   chemicalAnalysis:
     title: Chemical Analysis
     description: Chemical analysis conducted on the steel material
-    type: object
+    $ref: ./SteelChemicalAnalysis.yml
     $linkedData:
       term: chemicalAnalysis
       '@id': https://w3id.org/traceability#chemicalAnalysis
   mechanicalTests:
     title: Mechanical Tests
     description: Mechanical Tests conducted on the steel material
-    type: object
+    $ref: ./SteelMechanicalTests.yml
     $linkedData:
       term: mechanicalTests
       '@id': https://w3id.org/traceability#mechanicalTests
   productDetails:
     title: Product Details
     description: Product details about the tested steel
-    type: object
+    $ref: ./SteelProductDetails.yml
     $linkedData:
       term: productDetails
       '@id': https://w3id.org/traceability#productDetails
@@ -172,6 +172,9 @@ example: |-
           "SteelMechanicalTests"
         ],
         "dimensions":{
+          "type":[
+            "Dimensions"
+          ],
           "width":"1.58m",
           "height":"0.3m",
           "thickness":"0.4m"
