@@ -1,0 +1,117 @@
+$linkedData:
+  term: SteelProductDetails
+  '@id': https://w3id.org/traceability#SteelProductDetails
+title: Steel Product Details
+description: Product details about the tested steel
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - SteelProductDetails
+    default:
+      - SteelProductDetails
+    items:
+      type: string
+      enum:
+        - SteelProductDetails
+  heatNo:
+    title: Heat Number
+    description: Heat number of the steel shipment
+    type: string
+    example: 225606
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  section:
+    title: Section
+    description: Section of the steel shipment
+    type: string
+    example: ASTM- A615-01a
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  grade:
+    title: Grade
+    description: Grade of the steel shipment
+    type: string
+    example: 60
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  quantity:
+    title: Quantity
+    description: Quantity of steel items
+    type: string
+    example: 3
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  description:
+    title: Descrption
+    description: Description of steel items
+    type: string
+    example: SS490 steel is a structural hot rolled sheet in the form of plates, sheets and strips for general structural applications. 
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  otherSpecifications:
+    title: Other Specifications
+    description: Other Specifications
+    type: string
+    example: AST-51
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  standardGrades:
+    title: Standard Grades
+    description: Standard Grades
+    type: string
+    example: SUS201
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  standardSpecifications:
+    title: Standard Specifications
+    description: Standard Specifications
+    type: string
+    example: JIS G 3101
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  otherGrades:
+    title: Other Grades
+    description: Other Grades
+    type: string
+    example: BF-4122
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+additionalProperties: false
+required:
+  - type
+  - heatNo
+  - section
+  - grade
+  - quantity
+  - description
+  - otherSpecifications
+  - standardGrades
+  - standardSpecifications
+  - otherGrades
+example: |-
+  {
+    "type":[
+        "SteelProductDetails"
+    ],
+    "heatNo":"225606",
+    "section":"ASTM- A615-01a",
+    "grade":"60",
+    "quantity":"3",
+    "description":"SS490 steel is a structural hot rolled sheet in the form of plates, sheets and strips for general structural applications. ",
+    "otherSpecifications":"AST-51",
+    "standardGrades":"SUS201",
+    "standardSpecifications":"JIS G 3101",
+    "otherGrades":"BF-4122"
+  }
