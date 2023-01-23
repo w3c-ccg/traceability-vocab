@@ -1,0 +1,103 @@
+$linkedData:
+  term: SteelMechanicalTests
+  '@id': https://w3id.org/traceability#SteelMechanicalTests
+title: Steel Mechanical Tests
+description: Mechanical Tests conducted on the steel material
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - SteelMechanicalTests
+    default:
+      - SteelMechanicalTests
+    items:
+      type: string
+      enum:
+        - SteelMechanicalTests
+  dimensions:
+    title: Dimensions
+    description: The dimensions of the tested steel
+    $ref: ./Dimensions.yml
+    $linkedData:
+      term: dimensions
+      '@id': https://w3id.org/traceability#dimensions
+  netWeight:
+    title: Net Weight
+    description: Net weight of the steel shipment
+    type: string
+    example: 0.25t
+    $linkedData:
+      term: netWeight
+      '@id': https://w3id.org/traceability#netWeight
+  yieldToTensileRatio:
+    title: Yield to Tensile Ratio
+    description: Yield to Tensile Ratio
+    type: string
+    example: 712.3 MPA
+    $linkedData:
+      term: yieldToTensileRatio
+      '@id': https://w3id.org/traceability#yieldToTensileRatio
+  yieldStrength:
+    title: Yield Strength
+    description: Yield Strength
+    type: string
+    example: 467.5 MPA
+    $linkedData:
+      term: yieldStrength
+      '@id': https://w3id.org/traceability#yieldStrength
+  elangoration:
+    title: elangoration
+    description: elangoration
+    type: string
+    example: 250.51 MMT
+    $linkedData:
+      term: elangoration
+      '@id': https://w3id.org/traceability#elangoration
+  charpyImpactTem:
+    title: Charpy Impact Tem
+    description: Charpy Impact Tem
+    type: string
+    example: 14 P1
+    $linkedData:
+      term: charpyImpactTem
+      '@id': https://w3id.org/traceability#charpyImpactTem
+  charpyImpactEnergy:
+    title: Charpy Impact Energy
+    description: Charpy Impact Energy
+    type: string
+    example: 203 MMT
+    $linkedData:
+      term: charpyImpactEnergy
+      '@id': https://w3id.org/traceability#charpyImpactEnergy
+additionalProperties: false
+required:
+  - type
+  - dimensions
+  - netWeight
+  - yieldToTensileRatio
+  - yieldStrength
+  - elangoration
+  - charpyImpactTem
+  - charpyImpactEnergy
+example: |-
+  {
+    "type":[
+        "SteelMechanicalTests"
+    ],
+    "dimensions":{
+        "type":[
+          "Dimensions"
+        ],
+        "width":"1.58m",
+        "height":"0.3m",
+        "thickness":"0.4m"
+    },
+    "netWeight":"0.25t",
+    "yieldToTensileRatio":"712.3 MPA",
+    "yieldStrength":"467.5 MPA",
+    "elangoration":"250.51 MMT",
+    "charpyImpactTem":"14 P1",
+    "charpyImpactEnergy":"203 MMT"
+  }

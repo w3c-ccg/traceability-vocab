@@ -1,0 +1,57 @@
+$linkedData:
+  term: Dimensions
+  '@id': https://w3id.org/traceability#Dimensions
+title: Dimensions
+description: The dimensions of the tested steel
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Dimensions
+    default:
+      - Dimensions
+    items:
+      type: string
+      enum:
+        - Dimensions
+  width:
+    title: Width
+    description: Width of the steel being tested
+    type: string
+    example: 2m
+    $linkedData:
+      term: width
+      '@id': https://w3id.org/traceability#width
+  height:
+    title: Height
+    description: Height of the steel being tested
+    type: string
+    example: 1.2m
+    $linkedData:
+      term: height
+      '@id': https://w3id.org/traceability#height
+  thickness:
+    title: Thickness
+    description: Thickness of the steel being tested
+    type: string
+    example: 3mm
+    $linkedData:
+      term: thickness
+      '@id': https://w3id.org/traceability#thickness
+additionalProperties: false
+required:
+  - type
+  - width
+  - height
+  - thickness
+example: |-
+  {
+    "type":[
+        "Dimensions"
+    ],
+    "width":"1.58m",
+    "height":"0.3m",
+    "thickness":"0.4m"
+  }
