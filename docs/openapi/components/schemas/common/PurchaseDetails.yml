@@ -1,0 +1,57 @@
+$linkedData:
+  term: PurchaseDetails
+  '@id': https://w3id.org/traceability#PurchaseDetails
+title: Purchase Details
+description: Details for a purchase including invoice and purchase order numbers
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - PurchaseDetails
+    default:
+      - PurchaseDetails
+    items:
+      type: string
+      enum:
+        - PurchaseDetails
+  invoiceNumber:
+    title: Invoice Number
+    description: The invoice number for the steel shipment
+    type: string
+    example: I 20230211
+    $linkedData:
+      term: invoiceNumber
+      '@id': https://w3id.org/traceability#invoiceNumber
+  purchaseOrderNumber:
+    title: Purchase Order Number
+    description: The purchase order number for the steel shipment
+    type: string
+    example: PO 13502441
+    $linkedData:
+      term: purchaseOrderNumber
+      '@id': https://w3id.org/traceability#purchaseOrderNumber
+  internalCertificateNumber:
+    title: Internal Certificate Number
+    description: An internal system identifier for the Mill Test Report
+    type: string
+    example: 131216-FO17-01/01
+    $linkedData:
+      term: internalCertificateNumber
+      '@id': https://w3id.org/traceability#internalCertificateNumber
+additionalProperties: false
+required:
+  - type
+  - invoiceNumber
+  - purchaseOrderNumber
+  - internalCertificateNumber
+example: |-
+  {
+    "type":[
+        "PurchaseDetails"
+    ],
+    "invoiceNumber":"I 20230211",
+    "purchaseOrderNumber":"PO 13502441",
+    "internalCertificateNumber":"131216-FO17-01/01"
+  }
