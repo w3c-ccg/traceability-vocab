@@ -16,44 +16,185 @@ properties:
       type: string
       enum:
         - MillTestReport
-  resourceType:
-    description: The type of resource.
-    type: string
-    enum:
-      - External
-      - GeoJSON
-    $linkedData:
-      term: resourceType
-      '@id': https://schema.org/additionalType
   manufacturer:
     title: Manufacturer
     description: The manufacturer of the steel being reported on
     type: object
+    $linkedData:
+      term: manufacturer
+      '@id': https://w3id.org/traceability#manufacturer
   countryOfMeltAndPour:
     title: Country of Melt and Pour
     description: The country in which the steel was poured
     type: string
+    $linkedData:
+      term: countryOfMeltAndPour
+      '@id': https://w3id.org/traceability#countryOfMeltAndPour
   steelLicenseNumber:
     title: Steel License Number
     description: The country in which the steel was poured
     type: string
+    $linkedData:
+      term: steelLicenseNumber
+      '@id': https://w3id.org/traceability#steelLicenseNumber
   purchaseDetails:
     title: Purchase Details
     description: The purchase details related to a steel purchase
     type: object
+    $linkedData:
+      term: purchaseDetails
+      '@id': https://w3id.org/traceability#purchaseDetails
   shippingDetails:
     title: Shipping Details
     description: The manufacturer of the steel being reported on
     type: object
+    $linkedData:
+      term: shippingDetails
+      '@id': https://w3id.org/traceability#shippingDetails
   chemicalAnalysis:
     title: Chemical Analysis
     description: Chemical analysis conducted on the steel material
     type: object
+    $linkedData:
+      term: chemicalAnalysis
+      '@id': https://w3id.org/traceability#chemicalAnalysis
   mechanicalTests:
     title: Mechanical Tests
     description: Mechanical Tests conducted on the steel material
     type: object
+    $linkedData:
+      term: mechanicalTests
+      '@id': https://w3id.org/traceability#mechanicalTests
   productDetails:
     title: Product Details
     description: Product details about the tested steel
     type: object
+    $linkedData:
+      term: productDetails
+      '@id': https://w3id.org/traceability#productDetails
+additionalProperties: false
+required:
+  - type
+  - manufacturer
+  - countryOfMeltAndPour
+  - steelLicenseNumber
+  - purchaseDetails
+  - shippingDetails
+  - chemicalAnalysis
+  - mechanicalTests
+  - productDetails
+example: |-
+  {
+    "type":[
+        "MillTestReport"
+    ],
+    "manufacturer":{
+        "type":[
+          "Organization"
+        ],
+        "name":"Melt Global, Inc.",
+        "url":"https://melt-global.example.com",
+        "phoneNumber":"+1 702-647-9292",
+        "contactPoint":{
+          "type":[
+              "ContactPoint"
+          ],
+          "name":"Jon Doe",
+          "jobTitle":"Cheif Inspector",
+          "worksFor":"IRON APPROVERS INC."
+        },
+        "address":{
+          "type":[
+              "PostalAddress"
+          ],
+          "addressLocality":"Hunter Valley",
+          "addressRegion":"Texas",
+          "postalCode":"78599",
+          "addressCountry":"United States"
+        }
+    },
+    "countryOfMeltAndPour":"US",
+    "steelLicenseNumber":"SF52W0720",
+    "purchaseDetails":{
+        "type":[
+          "PurchaseDetails"
+        ],
+        "invoiceNumber":"I 20230211",
+        "purchaseOrderNumber":"PO 13502441",
+        "internalCertificateNumber":"131216-FO17-01/01"
+    },
+    "shippingDetails":{
+        "type":[
+          "ShippingDetails"
+        ],
+        "containerNumber":"SEA-01",
+        "masterBillOfLadingNumber":"HASL6022D2CA001",
+        "manufacturerAddress":{
+          "type":[
+              "PostalAddress"
+          ],
+          "addressLocality":"Hunter Valley",
+          "addressRegion":"Texas",
+          "postalCode":"78599",
+          "addressCountry":"United States"
+        },
+        "customerAddress":{
+          "type":[
+              "PostalAddress"
+          ],
+          "addressLocality":"Sprague",
+          "addressRegion":"Manitoba",
+          "postalCode":"R0A1Z0",
+          "addressCountry":"CA"
+        }
+    },
+    "chemicalAnalysis":{
+        "type":[
+          "SteelChemicalAnalysis"
+        ],
+        "C":15.5,
+        "Mn":0.5,
+        "P":0.5,
+        "Si":0.002,
+        "Cu":0.14,
+        "Cr":0.2,
+        "Ni":3.4,
+        "Mo":0.02,
+        "Cb":1.2,
+        "V":0.23,
+        "Sn":0.25,
+        "S":0.123,
+        "Ti":1.25,
+        "cEq":0.1
+    },
+    "mechanicalTests":{
+        "type":[
+          "SteelMechanicalTests"
+        ],
+        "dimensions":{
+          "width":"1.58m",
+          "height":"0.3m",
+          "thickness":"0.4m"
+        },
+        "netWeight":"0.25t",
+        "yieldToTensileRatio":"712.3 MPA",
+        "yieldStrength":"467.5 MPA",
+        "elangoration":"250.51 MMT",
+        "charpyImpactTem":"14 P1",
+        "charpyImpactEnergy":"203 MMT"
+    },
+    "productDetails":{
+        "type":[
+          "SteelProductDetails"
+        ],
+        "heatNo":"225606",
+        "section":"ASTM- A615-01a",
+        "grade":"60",
+        "quantity":"3",
+        "description":"SS490 steel is a structural hot rolled sheet in the form of plates, sheets and strips for general structural applications. ",
+        "otherSpecifications":"AST-51",
+        "standardGrades":"SUS201",
+        "standardSpecifications":"JIS G 3101",
+        "otherGrades":"BF-4122"
+    }
+  }
