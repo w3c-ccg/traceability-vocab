@@ -1,0 +1,81 @@
+$linkedData:
+  term: ShippingDetails
+  '@id': https://w3id.org/traceability#ShippingDetails
+title: Shipping Details
+description: Details for a shipment, such as the bill of lading number and 
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - ShippingDetails
+    default:
+      - ShippingDetails
+    items:
+      type: string
+      enum:
+        - ShippingDetails
+  containerNumber:
+    title: Container Number
+    description: The container number for the steel shipment
+    type: string
+    example: SEA-01
+    $linkedData:
+      term: containerNumber
+      '@id': https://w3id.org/traceability#containerNumber
+  masterBillOfLadingNumber:
+    title: Master Bill of Lading Number
+    description: The master bill of lading number for the steel shipment
+    type: string
+    example: HASL6022D2CA001
+    $linkedData:
+      term: masterBillOfLadingNumber
+      '@id': https://w3id.org/traceability#masterBillOfLadingNumber
+  manufacturerAddress:
+    title: Manufacturer Address
+    description: The address of the steel manufacturer
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: manufacturerAddress
+      '@id': https://w3id.org/traceability#manufacturerAddress
+  customerAddress:
+    title: Customer Address
+    description: The address of the steel customer
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: customerAddress
+      '@id': https://w3id.org/traceability#customerAddress
+additionalProperties: false
+required:
+  - type
+  - containerNumber
+  - masterBillOfLadingNumber
+  - manufacturerAddress
+  - customerAddress
+example: |-
+  {
+    "type":[
+        "ShippingDetails"
+    ],
+    "containerNumber":"SEA-01",
+    "masterBillOfLadingNumber":"HASL6022D2CA001",
+    "manufacturerAddress":{
+        "type":[
+          "PostalAddress"
+        ],
+        "addressLocality":"Hunter Valley",
+        "addressRegion":"Texas",
+        "postalCode":"78599",
+        "addressCountry":"United States"
+    },
+    "customerAddress":{
+        "type":[
+          "PostalAddress"
+        ],
+        "addressLocality":"Sprague",
+        "addressRegion":"Manitoba",
+        "postalCode":"R0A1Z0",
+        "addressCountry":"CA"
+    }
+  }
