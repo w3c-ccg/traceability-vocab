@@ -43,7 +43,7 @@ describe('Verifiable Credentials Semantics', () => {
         const credentialType = Array.isArray(vc.type)
           ? vc.type[vc.type.length - 1]
           : vc.type;
-        const framed = await jsonld.frame(vc, { documentLoader });
+        const framed = await jsonld.frame(vc, {}, { documentLoader });
         const string = JSON.stringify(framed);
         const undefinedTermCount = countOcurrences(string, vocabBase);
         return { type: credentialType, count: undefinedTermCount };
