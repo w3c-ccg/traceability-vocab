@@ -2397,13 +2397,16 @@
     },
     "InspectionReport": {
       "@context": {
+        "chemicalObservation": {
+          "@id": "https://schema.org/ItemList"
+        },
         "comment": {
           "@id": "https://schema.org/comment"
         },
         "inspectors": {
           "@id": "https://schema.org/Person"
         },
-        "observation": {
+        "mechnicalObservation": {
           "@id": "https://schema.org/ItemList"
         },
         "place": {
@@ -4002,8 +4005,14 @@
         "customer": {
           "@id": "https://w3id.org/traceability#Entity"
         },
+        "internalCertificateNo": {
+          "@id": "https://schema.org/identifier"
+        },
         "invoice": {
           "@id": "https://w3id.org/traceability#Invoice"
+        },
+        "invoiceNo": {
+          "@id": "https://schema.org/identifier"
         },
         "purchaseOrderNo": {
           "@id": "https://schema.org/identifier"
@@ -4301,6 +4310,23 @@
       },
       "@id": "https://service.unece.org/trade/uncefact/vocabulary/uncefact/#ServiceCharge"
     },
+    "ShippingDetails": {
+      "@context": {
+        "containerNumber": {
+          "@id": "https://w3id.org/traceability#containerNumber"
+        },
+        "customerAddress": {
+          "@id": "https://w3id.org/traceability#customerAddress"
+        },
+        "manufacturerAddress": {
+          "@id": "https://w3id.org/traceability#manufacturerAddress"
+        },
+        "masterBillOfLadingNumber": {
+          "@id": "https://vocabulary.uncefact.org/uncl1153#MB"
+        }
+      },
+      "@id": "https://w3id.org/traceability#ShippingDetails"
+    },
     "ShippingInstructions": {
       "@context": {
         "billOfLadingNumber": {
@@ -4408,6 +4434,9 @@
         },
         "heatNumber": {
           "@id": "https://schema.org/identifier"
+        },
+        "inspection": {
+          "@id": "https://w3id.org/traceability#Inspection"
         },
         "originalCountryOfMeltAndPour": {
           "@id": "https://schema.org/addressCountry"
