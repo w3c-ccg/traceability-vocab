@@ -69,7 +69,12 @@ properties:
       term: commodity
       '@id': https://w3id.org/traceability#Commodity
   inspection:
+    title: Inspection
+    description: Product commodity code, codification system and description
     $ref: ./InspectionReport.yml
+    $linkedData:
+      term: inspection
+      '@id': https://w3id.org/traceability#Inspection
 additionalProperties: false  
 required:
   - type
@@ -142,22 +147,7 @@ example: |-
             "addressCountry": "CA"
         }
       },
-      "observation": [
-        {
-          "type": ["Observation"],
-          "date": "2019-12-11T03:50:55Z",
-          "property": {
-            "type": ["MechanicalProperty"],
-            "identifier": "ISO 1352",
-            "name": "Torque-controlled fatigue testing",
-            "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
-          },
-          "measurement": {
-            "type": ["MeasuredValue"],
-            "value": "00.00",
-            "unitCode": "UNKNOWN"
-          }
-        },
+      "chemicalObservation": [
         {
           "type": ["Observation"],
           "date": "2019-12-11T03:50:55Z",
@@ -188,21 +178,6 @@ example: |-
             "type": ["MeasuredValue"],
             "value": "3.2397",
             "unitCode": "P1"
-          }
-        },
-        {
-          "type": ["Observation"],
-          "date": "2019-12-11T03:50:55Z",
-          "property": {
-            "type": ["MechanicalProperty"],
-            "identifier": "ISO 3738",
-            "name": "Rockwell Hardness Test (Scale A)",
-            "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
-          },
-          "measurement": {
-            "type": ["MeasuredValue"],
-            "value": "00.00",
-            "unitCode": "UNKNOWN"
           }
         },
         {
@@ -241,36 +216,6 @@ example: |-
           "type": ["Observation"],
           "date": "2019-12-11T03:50:55Z",
           "property": {
-            "type": ["MechanicalProperty"],
-            "identifier": "ISO 148",
-            "name": "Charpy Impact Strength Test",
-            "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
-          },
-          "measurement": {
-            "type": ["MeasuredValue"],
-            "value": "16.610",
-            "unitCode": "B13"
-          }
-        },
-        {
-          "type": ["Observation"],
-          "date": "2019-12-11T03:50:55Z",
-          "property": {
-            "type": ["MechanicalProperty"],
-            "identifier": "ISO 180",
-            "name": "Izod Impact Strength Test",
-            "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
-          },
-          "measurement": {
-            "type": ["MeasuredValue"],
-            "value": "43.416",
-            "unitCode": "B13"
-          }
-        },
-        {
-          "type": ["Observation"],
-          "date": "2019-12-11T03:50:55Z",
-          "property": {
             "type": ["ChemicalProperty"],
             "name": "Fermium",
             "formula": "Fm",
@@ -297,6 +242,68 @@ example: |-
             "type": ["MeasuredValue"],
             "value": "30.098",
             "unitCode": "P1"
+          }
+        }
+      ],
+      "mechnicalObservation": [
+        {
+          "type": ["Observation"],
+          "date": "2019-12-11T03:50:55Z",
+          "property": {
+            "type": ["MechanicalProperty"],
+            "identifier": "ISO 1352",
+            "name": "Torque-controlled fatigue testing",
+            "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
+          },
+          "measurement": {
+            "type": ["MeasuredValue"],
+            "value": "00.00",
+            "unitCode": "UNKNOWN"
+          }
+        },
+        {
+          "type": ["Observation"],
+          "date": "2019-12-11T03:50:55Z",
+          "property": {
+            "type": ["MechanicalProperty"],
+            "identifier": "ISO 3738",
+            "name": "Rockwell Hardness Test (Scale A)",
+            "description": "The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
+          },
+          "measurement": {
+            "type": ["MeasuredValue"],
+            "value": "00.00",
+            "unitCode": "UNKNOWN"
+          }
+        },
+        {
+          "type": ["Observation"],
+          "date": "2019-12-11T03:50:55Z",
+          "property": {
+            "type": ["MechanicalProperty"],
+            "identifier": "ISO 148",
+            "name": "Charpy Impact Strength Test",
+            "description": "ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
+          },
+          "measurement": {
+            "type": ["MeasuredValue"],
+            "value": "16.610",
+            "unitCode": "B13"
+          }
+        },
+        {
+          "type": ["Observation"],
+          "date": "2019-12-11T03:50:55Z",
+          "property": {
+            "type": ["MechanicalProperty"],
+            "identifier": "ISO 180",
+            "name": "Izod Impact Strength Test",
+            "description": "ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+          },
+          "measurement": {
+            "type": ["MeasuredValue"],
+            "value": "43.416",
+            "unitCode": "B13"
           }
         }
       ]
