@@ -62,6 +62,27 @@ properties:
     $linkedData:
       term: status
       '@id': https://schema.org/status
+  productQuantity:
+    title: Product Quantity
+    description: The type of package (e.g., cartons) and the number of packages present.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: productQuantity
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Measurement
+  packageSize:
+    title: Product Size
+    description: The size of a typical product package.
+    $ref: ./QuantitativeValue.yml
+    $linkedData:
+      term: packageSize
+      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Measurement
+  inspectorCounted:
+    title: Counted by Inspector
+    description: The product was physically counted by an inspector.
+    type: boolean
+    $linkedData:
+      term: inspectorCounted
+      '@id': https://schema.org/value
 additionalProperties: false
 required:
   - type
@@ -224,7 +245,7 @@ example: |-
           "agricultureProduct": [
             {
               "type": [
-                "AgricultureProduct"
+                "AgricultureProduct" 
               ],
               "upc": "033383401508",
               "plu": "94225",
