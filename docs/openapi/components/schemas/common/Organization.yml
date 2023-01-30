@@ -34,13 +34,6 @@ properties:
     $linkedData:
       term: legalName
       '@id': https://schema.org/legalName
-  leiCode:
-    title: Legal Entity Identifier Code
-    description: Legal entity identifier code
-    type: string
-    $linkedData:
-      term: leiCode
-      '@id': https://schema.org/leiCode
   url:
     title: URL
     description: URL of the organization.
@@ -55,13 +48,6 @@ properties:
     $linkedData:
       term: description
       '@id': https://schema.org/description
-  globalLocationNumber:
-    title: Global Location Number
-    description: The GS1 GLN of the organization.
-    type: string
-    $linkedData:
-      term: globalLocationNumber
-      '@id': https://schema.org/globalLocationNumber
   location:
     title: Location
     description: The location of, for example, where an event is happening, where an organization is located, or where an action takes place.
@@ -104,15 +90,6 @@ properties:
     $linkedData:
       term: contactPoint
       '@id': https://schema.org/ContactPoint
-  taxId:
-    title: Tax Identification Number
-    description: >-
-      The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US
-      or the CIF/NIF in Spain.
-    type: string
-    $linkedData:
-      term: taxId
-      '@id': https://schema.org/taxID
   iataCarrierCode:
     title: IATA Carrier Code
     description: Carrier's three-digit IATA airline code number
@@ -120,6 +97,14 @@ properties:
     $linkedData:
       term: iataCarrierCode
       '@id': https://onerecord.iata.org/cargo/Company#airlineCode
+  externalIdentifiers:
+    title: External Identifiers
+    description: External identifiers for this organization.
+    items:
+      $ref: ./ExternalIdentifier.yml
+    $linkedData:
+      term: externalIdentifiers
+      '@id': https://schema.org/identifier
 additionalProperties: false
 required:
   - type
@@ -148,6 +133,18 @@ example: |-
     "email": "contact@glover-gleason.example.net",
     "phoneNumber": "555-758-8926",
     "faxNumber": "555-248-4575",
-    "taxId": "789-56-123",
-    "url": "glover-gleason.example.net"
+    "url": "glover-gleason.example.net",
+    "externalIdentifiers": [
+      {
+        "type": ["ExternalIdentifier"],
+        "name": "LEI Code",
+        "value": "OHVJ56TBUFWT9XWMBEJ9"
+      },
+      {
+        "type": ["ExternalIdentifier"],
+        "name": "TIN",
+        "value": "39407884951871",
+        "uri": "http://example.gov/tin/"
+      }
+    ]
   }
