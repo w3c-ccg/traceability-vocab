@@ -1,0 +1,49 @@
+$linkedData:
+  term: ExternalIdentifier
+  '@id': https://w3id.org/traceability#ExternalIdentifier
+title: External Identifier
+description: Information to recognize & verify an external identifier.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - ExternalIdentifier
+    default:
+      - ExternalIdentifier
+    items:
+      type: string
+      enum:
+        - ExternalIdentifier
+  name:
+    title: URI
+    description: Name of identifier.
+    type: string
+    $linkedData:
+      term: uri
+      '@id': https://schema.org/name
+  value:
+    title: URI
+    description: Value of identifier.
+    type: string
+    $linkedData:
+      term: uri
+      '@id': https://schema.org/value
+  uri:
+    title: URI
+    description: URI (Universal Resource Identifier) for identifier.
+    type: string
+    $linkedData:
+      term: uri
+      '@id': https://schema.org/url
+additionalProperties: false  
+required:
+  - type
+example: |-
+  {
+    "type": ["ExternalIdentifier"],
+    "name": "IOR_Number",
+    "value": "SOMIDNUM123",
+    "uri": "http://example.gov/ior/"
+  }
