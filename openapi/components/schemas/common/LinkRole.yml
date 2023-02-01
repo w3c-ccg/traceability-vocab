@@ -20,6 +20,7 @@ properties:
     title: Target
     description: An entry point, within some Web-based protocol.
     type: string
+    format: uri
     $linkedData:
       term: target
       '@id': https://schema.org/target
@@ -33,6 +34,8 @@ properties:
 additionalProperties: false
 required:
   - type
+  - target
+  - linkRelationship
 example: |-
   {
     "type": ["LinkRole"],
