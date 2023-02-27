@@ -1,21 +1,21 @@
 $linkedData:
-  term: CrudeOilProduct
-  '@id': https://w3id.org/traceability#CrudeOilProduct
-title: Crude Oil Product
-description: Tombstone information regarding a crude oil product
+  term: OilAndGasProduct
+  '@id': https://w3id.org/traceability#OilAndGasProduct
+title: Crude Oil and Natural Gas Product
+description: Information regarding a crude oil or natural gas product 
 type: object
 properties:
   type:
     type: array
     readOnly: true
     const:
-      - CrudeOilProduct
+      - OilAndGasProduct
     default:
-      - CrudeOilProduct
+      - OilAndGasProduct
     items:
       type: string
       enum:
-        - CrudeOilProduct
+        - OilAndGasProduct
   product:
     title: Product
     description: Product details as outlined in the Product schema
@@ -36,13 +36,6 @@ properties:
     type: string
     $linkedData:
       term: UWI
-      '@id': https://schema.org/identifier
-  HSCode:
-    title: HSCode
-    description: Defines the Harmonized System Code for the Commodity
-    type: string
-    $linkedData:
-      term: HSCode
       '@id': https://schema.org/identifier
   productionDate:
     title: Production Date
@@ -68,9 +61,8 @@ required:
 example: |-
   {
    "type":[
-      "CrudeOilProduct"
+      "OilAndGasProduct"
    ],
-   "HSCode":"270900",
    "UWI":"100.12-04-091-05-W5.00",
    "productionDate":"2020-03-30",
    "facility":{
@@ -190,6 +182,11 @@ example: |-
          "unitCode":"hg/ha",
          "value":"9813"
       },
-      "sku":"391864383008"
+      "sku":"391864383008",
+      "commodity": {
+         "type": ["Commodity"],
+         "commodityCode": "270900",
+         "commodityCodeType": "HS"
+      }
    }
   }
