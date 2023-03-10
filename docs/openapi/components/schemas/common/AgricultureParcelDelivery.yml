@@ -50,7 +50,7 @@ properties:
     type: string
     $linkedData:
       term: deliveryMethod
-      '@id': https://schema.org/DeliveryMethod
+      '@id': https://schema.org/hasDeliveryMethod
   trackingNumber:
     title: Tracking Number
     description: Shipper tracking number.
@@ -89,44 +89,53 @@ properties:
       $ref: ./AgriculturePackage.yml
     $linkedData:
       term: agriculturePackage
-      '@id': https://w3id.org/traceability#AgriculturePackage
+      '@id': https://w3id.org/traceability#itemShipped
   movementPoints:
     title: Shipping Stops
-    description: Coordinates and time of each stop, with additional metadata if provided.
+    description: Location and time of each actual stop, with additional metadata if provided.
     type: array
     items:
       $ref: ./ShippingStop.yml
     $linkedData:
       term: movementPoints
-      '@id': https://schema.org/Trip
+      '@id': https://schema.org/itinerary
+  plannedRoute:
+    title: Planned Route
+    description: Location and time of each planned stop, with additional metadata if provided.
+    type: array
+    items:
+      $ref: ./ShippingStop.yml
+    $linkedData:
+      term: plannedRoute
+      '@id': https://schema.org/itinerary
   shipper:
     title: Shipper
     description: Shipper of product.
     $ref: ./Organization.yml
     $linkedData:
       term: shipper
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/seller
   purchaser:
     title: Purchaser
     description: Purchaser of product.
     $ref: ./Organization.yml
     $linkedData:
       term: purchaser
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/buyer
   carrier:
     title: Carrier
     description: Shipping carrier for product. 
     $ref: ./Organization.yml
     $linkedData:
       term: carrier
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/carrier
   broker:
     title: Broker
     description: Shipping broker for product (GS1 Organization).
     $ref: ./Organization.yml
     $linkedData:
       term: broker
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/broker
 additionalProperties: true
 required:
   - type
