@@ -65,6 +65,29 @@ properties:
     $linkedData:
       term: importerOfRecordNumberType
       '@id': https://w3id.org/traceability#assignedIdentifierType
+  fmcNumber:
+    title: FMC Number
+    description: Federal Maritime Commission assigned number
+    type: string
+  filerCode: 
+    title: Filer Code
+    description: CBP issued filer code used as the first part of the Entry Summary entryNumber.
+    type: string
+  ibanNumber: 
+    title: IBAN Number
+    description: International Bank Account Number
+    type: string
+  duns: 
+    title: DUNS
+    description: The Dun & Bradstreet DUNS Number is a unique nine-digit identifier for businesses.
+    type: string
+  faxNumber: 
+    title: Fax Number
+    description: The fax number.
+    type: string
+    $linkedData:
+      term: faxNumber
+      '@id': https://schema.org/faxNumber
   url:
     title: URL
     description: URL of the organization.
@@ -198,7 +221,14 @@ example: |-
     "id": "did:web:quality-metals.example.com",
     "importerOfRecordNumber": "10025672",
     "importerOfRecordNumberType": "CBP",
+    "scac": "NISC",
+    "iataCarrierCode": "ABZ",
+    "fmcNumber": "025202",
+    "filerCode": "HX3",   
+    "ibanNumber": "DK9520000123456789", 
+    "duns": "782011415", 
     "url": "https://quality-metals.example.com",
+    "faxNumber": "1-806-905-6421",
     "location" : [
       {
         "type": ["Place"],
