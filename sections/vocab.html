@@ -1491,33 +1491,36 @@
   
       <pre class="example">{
   "type": ["CTPAT"],
-  "ctpatMember": {
-    "type": [
-      "Organization"
-    ],
-    "id": "did:key:z6MkhfZ7sNYEJ8vFSpwJaeyN7zNUaTxS4TBxW3y6R9ZKRaQ4",
-    "name": "Trans-Atlantic Shipping Co. Ltd.",
-    "location": {
-      "type": ["Place"],
-      "address": {
-        "type": [
-          "PostalAddress"
-        ],
-        "name": "Trans-Atlantic Shipping Co. Ltd.",
-        "streetAddress": "82 Whitchurch Road",
-        "addressLocality": "Elsworth",
-        "postalCode": "CB3 8NW",
-        "addressCountry": "UK"
+  "member": {
+    "type": ["CTPATMember"],
+    "name": "Quality Metals Inc",
+    "id": "did:web:quality-metals.example.com",
+    "importerOfRecordNumber": "10025672",
+    "importerOfRecordNumberType": "CBP",
+    "url": "https://quality-metals.example.com",
+    "location" : [
+      {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Quality Metals",
+          "streetAddress": "1040 Newland Drive",
+          "addressLocality": "Yellowville",
+          "addressRegion": "Texas",
+          "postalCode": "28101",
+          "addressCountry": "US"
+        }
       }
-    }
+    ]
   },
   "sviNumber": "57118961",
   "ctpatAccountNumber": "12008",
   "tradeSector": "Sea Carrier",
+  "tier": "Certified",
   "dateOfLastValidation": "2022-01-06T11:50:00Z",
   "issuingCountry": "US"
 }</pre>
-      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+      
     </section>
   
 
@@ -1552,6 +1555,53 @@
   "applicantType": "Fulfillment"
 }</pre>
       <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
+    </section>
+  
+
+    <section id="CTPATMember">
+      <h2>CTPAT Member Organization</h2>
+      <p>CTPAT members are considered to be of low risk, and are therefore less likely to be examined at a U.S. port of entry.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://schema.org/Organization">https://schema.org/Organization</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CTPATMember.yml">https://w3id.org/traceability/openapi/components/schemas/common/CTPATMember.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["CTPATMember"],
+  "name": "Quality Metals Inc",
+  "id": "did:web:quality-metals.example.com",
+  "importerOfRecordNumber": "10025672",
+  "importerOfRecordNumberType": "CBP",
+  "url": "https://quality-metals.example.com",
+  "location" : [
+    {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "Quality Metals",
+        "streetAddress": "1040 Newland Drive",
+        "addressLocality": "Yellowville",
+        "addressRegion": "Texas",
+        "postalCode": "28101",
+        "addressCountry": "US"
+      }
+    }
+  ]
+}</pre>
+      
     </section>
   
 
