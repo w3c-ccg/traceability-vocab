@@ -16,7 +16,7 @@ properties:
       type: string
       enum:
         - CTPAT
-  ctpatMember:
+  member:
     title: CTPAT Member Organization
     description: CTPAT members are considered to be of low risk, and are therefore less likely to be examined at a U.S. port of entry.
     type: object
@@ -272,14 +272,14 @@ properties:
 additionalProperties: false
 required:
   - type
-  - ctpatMember
+  - member
   - tradeSector
   - tier
   - issuingCountry
 example: |-
   {
     "type": ["CTPAT"],
-    "ctpatMember": {
+    "member": {
       "type": ["CTPATMember"],
       "name": "Quality Metals Inc",
       "id": "did:web:quality-metals.example.com",
