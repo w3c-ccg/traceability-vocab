@@ -19,7 +19,7 @@ properties:
   ctpatMember:
     title: CTPAT Member
     description: CTPAT member organization.
-    $ref: ./Organization.yml
+    $ref: ./CTPATMember.yml
     $linkedData:
       term: ctpatMember
       '@id': https://schema.org/member
@@ -60,6 +60,15 @@ properties:
     $linkedData:
       term: tradeSector
       '@id': https://schema.org/industry
+  tier:
+    title: CTPAT Tier
+    enum:
+      - Certified
+      - Validated
+      - Exceeding
+    $linkedData:
+      term: tier
+      '@id': https://w3id.org/traceability#ctpatTier
   dateOfLastValidation:
     title: Date of Last Validation
     description: >-
@@ -81,29 +90,32 @@ required:
   - type
   - ctpatMember
   - tradeSector
+  - tier
   - issuingCountry
 example: |-
   {
     "type": ["CTPAT"],
     "ctpatMember": {
-      "type": [
-        "Organization"
-      ],
-      "id": "did:key:z6MkhfZ7sNYEJ8vFSpwJaeyN7zNUaTxS4TBxW3y6R9ZKRaQ4",
-      "name": "Trans-Atlantic Shipping Co. Ltd.",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "name": "Trans-Atlantic Shipping Co. Ltd.",
-          "streetAddress": "82 Whitchurch Road",
-          "addressLocality": "Elsworth",
-          "postalCode": "CB3 8NW",
-          "addressCountry": "UK"
+      "type": ["Organization"],
+      "name": "Quality Metals Inc",
+      "id": "did:web:quality-metals.example.com",
+      "importerOfRecordNumber": "10025672",
+      "importerOfRecordNumberType": "CBP",
+      "url": "https://quality-metals.example.com",
+      "location" : [
+        {
+          "type": ["Place"],
+          "address": {
+            "type": ["PostalAddress"],
+            "name": "Quality Metals",
+            "streetAddress": "1040 Newland Drive",
+            "addressLocality": "Yellowville",
+            "addressRegion": "Texas",
+            "postalCode": "28101",
+            "addressCountry": "US"
+          }
         }
-      }
+      ]
     },
     "sviNumber": "57118961",
     "ctpatAccountNumber": "12008",
