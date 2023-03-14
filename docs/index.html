@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Traceability Vocabulary v0.0</title>
+    <title>Traceability Vocabulary v0.1</title>
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <script src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
@@ -231,163 +231,226 @@
       <h2>Introduction</h2>
 
       <p>
-        This specification is designed to enable global supply chain stakeholders to benefit from emerging technological web
-        standards like the Verifiable Credential (VC) Data Model, Linked Data (i.e. JSON-LD), and the Decentralized Identifier
-        (DID) Spec. This specification is relevant to prevalent supply chains but also allows for other use cases across a
-        variety of market segments. The corresponding data exchange schemas are modeled for Verifiable Credentials, which is a
-        standard for cryptographically signing business data. Schema semantics are precisely defined by use of Linked Data
-        which leverage established vocabularies such as schema.org, GS1, and UN/CEFACT.
+        This specification is designed to enable global supply chain
+        stakeholders to benefit from emerging technological web standards like
+        the Verifiable Credential (VC) Data Model, Linked Data (i.e. JSON-LD),
+        and the Decentralized Identifier (DID) Spec. This specification is
+        relevant to prevalent supply chains but also allows for other use cases
+        across a variety of market segments. The corresponding data exchange
+        schemas are modeled for Verifiable Credentials, which is a standard for
+        cryptographically signing business data. Schema semantics are precisely
+        defined by use of Linked Data which leverage established vocabularies
+        such as schema.org, GS1, and UN/CEFACT.
       </p>
 
       <h3>Supply Chain Digitization Challenges</h3>
       <p>
-        While digitization has revolutionized other industries with decades of value, supply chain industries have been slow
-        and fragmented in their digital transformation journey. The sheer number and variety of supply chain actors makes
-        technological advances incredibly difficult. For example, physical paper, manual processing, and outdated technologies
-        still support the vast majority of supply chain information flows. Paper processing costs the supply chain industry
-        upwards of $3 billion every year (not counting the additional costs of paper, ink, and printing) (see "<a
-          href="https://www.supplychainbrain.com/blogs/1-think-tank/post/32802-paper-the-bane-of-the-supply-chain-and-how-to-combat-it">When
-          Will Supply Chains Finally Move on From Paper?</a>"). The resulting data silos and blind spots throughout the supply
-        chain have
-        created a crisis that enterprises and regulators can no longer ignore. This problem is made worse by the coordination
-        challenges inherent in increasingly global supply chains.
+        While digitization has revolutionized other industries with decades of
+        value, supply chain industries have been slow and fragmented in their
+        digital transformation journey. The sheer number and variety of supply
+        chain actors makes technological advances incredibly difficult. For
+        example, physical paper, manual processing, and outdated technologies
+        still support the vast majority of supply chain information flows. Paper
+        processing costs the supply chain industry upwards of $3 billion every
+        year (not counting the additional costs of paper, ink, and printing)
+        (see "<a
+          href="https://www.supplychainbrain.com/blogs/1-think-tank/post/32802-paper-the-bane-of-the-supply-chain-and-how-to-combat-it"
+          >When Will Supply Chains Finally Move on From Paper?</a
+        >"). The resulting data silos and blind spots throughout the supply
+        chain have created a crisis that enterprises and regulators can no
+        longer ignore. This problem is made worse by the coordination challenges
+        inherent in increasingly global supply chains.
       </p>
       <p>
-        As long as semantic standards depend on manual adoption and complex implementations, the impacts of these investments
-        are limited and delayed. Semantic standards and code lists are being rigorously managed by various standards
-        organizations. However, language barriers and differing contexts between standards is a major source of imprecision
-        and errors. The fragmentary environment around different standard types, applications, and governing bodies only adds
-        to the complexity involved in adoption and integration of standards.
+        As long as semantic standards depend on manual adoption and complex
+        implementations, the impacts of these investments are limited and
+        delayed. Semantic standards and code lists are being rigorously managed
+        by various standards organizations. However, language barriers and
+        differing contexts between standards is a major source of imprecision
+        and errors. The fragmentary environment around different standard types,
+        applications, and governing bodies only adds to the complexity involved
+        in adoption and integration of standards.
       </p>
       <p>
-        The identity of supply chain actors is another problem resulting in costs and errors. While nations and platforms have
-        established digital identity regimes within their boundaries, no useful global identity scheme has emerged or been
-        adopted. Public policy, borders, and commercial obstacles create large barriers for a global centralized model to be
-        adopted. The result is that most businesses need to invest heavily in IT infrastructure and middleware data mapping
-        tools to be integrated with their trading partners. In fact, digitizing a major supply chain will cost tens of
-        millions of dollars at the current pace and will be a 3-to-5 year transformation effort in the future (see "<a
-          href="https://hbr.org/2021/09/a-simpler-way-to-modernize-your-supply-chain">A Simpler
-          Way to Modernize Your Supply Chain</a>"). Today, most enterprises only have 20% visibility into their supply chains
-        when
-        they need about 70% to 90% visibility to properly monitor their investments (see "<a
-          href="https://www.supplychainbrain.com/blogs/1-think-tank/post/31062-in-2020-supply-chain-digitization-is-no-longer-optional">In
-          2020, Supply-Chain Digitization
-          Is No Longer Optional</a>"). This means a heavy investment of capital is required to achieve this visibility, which
-        results in de-facto vendor software lock-in.
+        The identity of supply chain actors is another problem resulting in
+        costs and errors. While nations and platforms have established digital
+        identity regimes within their boundaries, no useful global identity
+        scheme has emerged or been adopted. Public policy, borders, and
+        commercial obstacles create large barriers for a global centralized
+        model to be adopted. The result is that most businesses need to invest
+        heavily in IT infrastructure and middleware data mapping tools to be
+        integrated with their trading partners. In fact, digitizing a major
+        supply chain will cost tens of millions of dollars at the current pace
+        and will be a 3-to-5 year transformation effort in the future (see "<a
+          href="https://hbr.org/2021/09/a-simpler-way-to-modernize-your-supply-chain"
+          >A Simpler Way to Modernize Your Supply Chain</a
+        >"). Today, most enterprises only have 20% visibility into their supply
+        chains when they need about 70% to 90% visibility to properly monitor
+        their investments (see "<a
+          href="https://www.supplychainbrain.com/blogs/1-think-tank/post/31062-in-2020-supply-chain-digitization-is-no-longer-optional"
+          >In 2020, Supply-Chain Digitization Is No Longer Optional</a
+        >"). This means a heavy investment of capital is required to achieve
+        this visibility, which results in de-facto vendor software lock-in.
       </p>
 
       <h2>Technology Enablement</h2>
       <h3>Establishing Trust</h3>
       <p>
-        Trust and efficiency are fundamental to supply chains and global trade. Supply chains are a network of economically
-        connected and collaborative stakeholders that includes shippers, carriers, importers, regulators, and other key
-        actors. Traditionally, trust is established in the supply chain by analogue signed contracts, physical meetings, phone
-        calls, faxes, and regular audits that prove credibility of the engaging parties and compliance with relevant
-        regulation. Digitization efforts in the sphere of “contractual trust” have been limited by challenges like altering
-        digital data such as PDFs, which is both easy to do and difficult to detect. Some noteworthy steps have been taken to
-        address this such as encrypted communication channels like HTTP-over-TLS (a/k/a HTTPS) and commercial digital
-        signature platforms (i.e. Docusign). However, a trusted channel does not prevent data alteration by either party and
-        globally scaling a proprietary platform is expensive and comes with political and practical implications.
+        Trust and efficiency are fundamental to supply chains and global trade.
+        Supply chains are a network of economically connected and collaborative
+        stakeholders that includes shippers, carriers, importers, regulators,
+        and other key actors. Traditionally, trust is established in the supply
+        chain by analogue signed contracts, physical meetings, phone calls,
+        faxes, and regular audits that prove credibility of the engaging parties
+        and compliance with relevant regulation. Digitization efforts in the
+        sphere of “contractual trust” have been limited by challenges like
+        altering digital data such as PDFs, which is both easy to do and
+        difficult to detect. Some noteworthy steps have been taken to address
+        this such as encrypted communication channels like HTTP-over-TLS (a/k/a
+        HTTPS) and commercial digital signature platforms (i.e. Docusign).
+        However, a trusted channel does not prevent data alteration by either
+        party and globally scaling a proprietary platform is expensive and comes
+        with political and practical implications.
       </p>
       <p>
-        This landscape has changed with the advent of the VC standard. This standard makes digital contractual trust
-        accessible and affordable for anyone on the planet. VCs work by applying existing cryptographic standards
-        (particularly modern curve-based digital signature algorithms) to business data that is typically exchanged over APIs
-        or XML. The VC specification provides a data model for how data paired with a cryptographic signature should be
-        represented in a data file. The data itself can be anything; it can describe a shipment, an organization, a product,
-        an agreement, etc. The cryptographic signature ensures that anyone with the VC can verify that the data is how the
-        issuer intended it to be. In other words, the VC standard enables the use of cryptographic standards and provides the
-        verifier a sense of trust when presented with the data file from the issuer. The implications of this technology for
-        global supply chains are far-reaching.
+        This landscape has changed with the advent of the VC standard. This
+        standard makes digital contractual trust accessible and affordable for
+        anyone on the planet. VCs work by applying existing cryptographic
+        standards (particularly modern curve-based digital signature algorithms)
+        to business data that is typically exchanged over APIs or XML. The VC
+        specification provides a data model for how data paired with a
+        cryptographic signature should be represented in a data file. The data
+        itself can be anything; it can describe a shipment, an organization, a
+        product, an agreement, etc. The cryptographic signature ensures that
+        anyone with the VC can verify that the data is how the issuer intended
+        it to be. In other words, the VC standard enables the use of
+        cryptographic standards and provides the verifier a sense of trust when
+        presented with the data file from the issuer. The implications of this
+        technology for global supply chains are far-reaching.
       </p>
       <p>
-        However, there remains a great deal of untapped potential from VCs. Trust can be established remotely and fully
-        automated provided that suitable claims are presented and issued by a trustworthy third party such as an existing
-        business partner, a commercial agent, or a government. "Chains of trust" can be established by linking back through
-        relevant claims to a known trust anchor. As you can see, VCs have a great deal of potential in the future of supply
-        chain technology.
+        However, there remains a great deal of untapped potential from VCs.
+        Trust can be established remotely and fully automated provided that
+        suitable claims are presented and issued by a trustworthy third party
+        such as an existing business partner, a commercial agent, or a
+        government. "Chains of trust" can be established by linking back through
+        relevant claims to a known trust anchor. As you can see, VCs have a
+        great deal of potential in the future of supply chain technology.
       </p>
 
       <h3>Linked Semantics</h3>
       <p>
-        Supply chain organizations use different words to say the same thing. For example, “Shipper” and “Consignor” are used
-        interchangeably in shipping. Ensuring precise communication across supply chain participants given these varying
-        vocabularies is challenging. For example, standards bodies govern semantic models with term definitions, APIs for
-        common use cases, and code lists in an attempt to avoid ambiguity. The traditional challenge for these technical
-        publications has been the human element: reading the spec, interpreting the API attribute name, or skimming through
-        the code lists. This labor is required because the data sender and the data receiver have to establish the same
-        understanding. This results in effort and IT costs for both the sender and receiver to ensure they’re communicating
-        unambiguously.
+        Supply chain organizations use different words to say the same thing.
+        For example, “Shipper” and “Consignor” are used interchangeably in
+        shipping. Ensuring precise communication across supply chain
+        participants given these varying vocabularies is challenging. For
+        example, standards bodies govern semantic models with term definitions,
+        APIs for common use cases, and code lists in an attempt to avoid
+        ambiguity. The traditional challenge for these technical publications
+        has been the human element: reading the spec, interpreting the API
+        attribute name, or skimming through the code lists. This labor is
+        required because the data sender and the data receiver have to establish
+        the same understanding. This results in effort and IT costs for both the
+        sender and receiver to ensure they’re communicating unambiguously.
       </p>
       <p>
-        Linked Data addresses this problem by letting computers establish semantic meaning. Leveraging how the web works,
-        Linked Data explicitly ties terms to a precise Uniform Resource Identifier (URI). Much like a URL pointing at a
-        specific website, a URI defines a specific term. Thus, when the data sender defines a term by pointing at a URI, no
-        interpretation is needed and a computer can automatically understand it. Beyond the obvious benefit of establishing
-        shared understanding, integrating Linked Data is simpler and more cost-effective than data interpretation and mapping.
+        Linked Data addresses this problem by letting computers establish
+        semantic meaning. Leveraging how the web works, Linked Data explicitly
+        ties terms to a precise Uniform Resource Identifier (URI). Much like a
+        URL pointing at a specific website, a URI defines a specific term. Thus,
+        when the data sender defines a term by pointing at a URI, no
+        interpretation is needed and a computer can automatically understand it.
+        Beyond the obvious benefit of establishing shared understanding,
+        integrating Linked Data is simpler and more cost-effective than data
+        interpretation and mapping.
       </p>
       <p>
-        Linked Data is not new. It drives internet indexing and search engines. This traceability-vocab specification simply
-        introduces this technology for use in the supply chain industry. All of the schemas which define the data content of
-        Verifiable Credentials are constructed with explicit pointers to the most relevant URIs of the terms used. Existing
-        term definitions, which are available in online vocabularies, can be used to construct the Verifiable Credential
-        schemas.
+        Linked Data is not new. It drives internet indexing and search engines.
+        This traceability-vocab specification simply introduces this technology
+        for use in the supply chain industry. All of the schemas which define
+        the data content of Verifiable Credentials are constructed with explicit
+        pointers to the most relevant URIs of the terms used. Existing term
+        definitions, which are available in online vocabularies, can be used to
+        construct the Verifiable Credential schemas.
       </p>
 
       <h3>Global Identification Scheme</h3>
       <p>
-        A final important part of modernizing the digital supply chain is targeting the problem of identification. The
-        difficulty of scaling centralized solutions has led to the emergence of Decentralized Identifiers (DIDs). DIDs rely on
-        cryptography to prove that you are in control of a given identity. A variety of different types of DIDs exist and
-        apply to different use-cases, like short-term DIDs or long-term, enterprise, security-grade DIDs. A DID is trustless,
-        meaning that anyone can make and control a DID at any time. The value and credibility of a DID comes from its
-        relationship with credentials that are tied to it. These credentials are typically issued by third-party organizations
+        A final important part of modernizing the digital supply chain is
+        targeting the problem of identification. The difficulty of scaling
+        centralized solutions has led to the emergence of Decentralized
+        Identifiers (DIDs). DIDs rely on cryptography to prove that you are in
+        control of a given identity. A variety of different types of DIDs exist
+        and apply to different use-cases, like short-term DIDs or long-term,
+        enterprise, security-grade DIDs. A DID is trustless, meaning that anyone
+        can make and control a DID at any time. The value and credibility of a
+        DID comes from its relationship with credentials that are tied to it.
+        These credentials are typically issued by third-party organizations
         and/or governments.
       </p>
       <p>
-        While the identification of supply chain parties is a major identity problem, DIDs also provide value in other
-        contexts. DIDs can be used to represent products, shipments, contractual agreements, or anything else in the supply
-        chain that would benefit from the properties of DIDs. When paired with DIDs representing supply chain actors, DIDs
-        that represent supply chain products or shipments stand to offer an ever more granular snapshot of the supply chain.
+        While the identification of supply chain parties is a major identity
+        problem, DIDs also provide value in other contexts. DIDs can be used to
+        represent products, shipments, contractual agreements, or anything else
+        in the supply chain that would benefit from the properties of DIDs. When
+        paired with DIDs representing supply chain actors, DIDs that represent
+        supply chain products or shipments stand to offer an ever more granular
+        snapshot of the supply chain.
       </p>
       <p>
-        Note that the traceability-vocab's use of Decentralized Identifiers is limited to example uses. Traditional means of
-        identification can also be used, but use of DIDs is encouraged to ensure that actual control of an identity can be
-        proven.
+        Note that the traceability-vocab's use of Decentralized Identifiers is
+        limited to example uses. Traditional means of identification can also be
+        used, but use of DIDs is encouraged to ensure that actual control of an
+        identity can be proven.
       </p>
 
       <h3>Technology Summary</h3>
       <p>
-        This section describes the emerging technology standards of Verifiable Credentials, Linked Data, and Decentralized Identifiers with a real-world supply chain use case.
+        This section describes the emerging technology standards of Verifiable
+        Credentials, Linked Data, and Decentralized Identifiers with a
+        real-world supply chain use case.
       </p>
       <p>
-        The Commercial Invoice is a critical supply chain document that is essential to Customs who use it for duty
-        determination and other tasks. This document includes data such as the description of the goods, where the goods are
-        being shipped to and from, and the value of the goods. This document is supplied by the shipper.
+        The Commercial Invoice is a critical supply chain document that is
+        essential to Customs who use it for duty determination and other tasks.
+        This document includes data such as the description of the goods, where
+        the goods are being shipped to and from, and the value of the goods.
+        This document is supplied by the shipper.
       </p>
       <p>
-        The Commercial Invoice document is typically exchanged via PDF, email, or EDI. With the use of Verifiable Credential
-        technology, we are able to digitize a Commercial Invoice into a verifiable Commercial Invoice credential. Each data
-        point on the Commercial Invoice VC is mapped to a semantic model for common definition using Linked Data. For example,
-        the “Consignee” field or the “Shipper” field on the Commercial Invoice are defined unambiguously to precise URIs. This
-        promotes a singular, common definition of the data labels so that organizations have a shared understanding.
+        The Commercial Invoice document is typically exchanged via PDF, email,
+        or EDI. With the use of Verifiable Credential technology, we are able to
+        digitize a Commercial Invoice into a verifiable Commercial Invoice
+        credential. Each data point on the Commercial Invoice VC is mapped to a
+        semantic model for common definition using Linked Data. For example, the
+        “Consignee” field or the “Shipper” field on the Commercial Invoice are
+        defined unambiguously to precise URIs. This promotes a singular, common
+        definition of the data labels so that organizations have a shared
+        understanding.
       </p>
       <p>
-        In addition, certain data points on the Commercial Invoice are used to identify an organization. For example, the
-        “Consignee” field identifies the receiver of the goods and the “Shipper” field identifies the shipper of the goods. In
-        this example, both the consignee and shipper would be organizations. Using a Decentralized Identifier (DID), for
-        example, the consignee organization can self-authenticate as the receiver of the goods.
+        In addition, certain data points on the Commercial Invoice are used to
+        identify an organization. For example, the “Consignee” field identifies
+        the receiver of the goods and the “Shipper” field identifies the shipper
+        of the goods. In this example, both the consignee and shipper would be
+        organizations. Using a Decentralized Identifier (DID), for example, the
+        consignee organization can self-authenticate as the receiver of the
+        goods.
       </p>
       <p>
-        The Shipper’s Decentralized Identifier is included as the Verifiable Credential issuer, binding the claims on the
-        Commercial Invoice back to the Shipper. Cryptographic traceability of the Commercial Invoice is thus established from
-        the Shipper to the Consignee. Anyone presented with the Commercial Invoice can verify that it originates from the
+        The Shipper’s Decentralized Identifier is included as the Verifiable
+        Credential issuer, binding the claims on the Commercial Invoice back to
+        the Shipper. Cryptographic traceability of the Commercial Invoice is
+        thus established from the Shipper to the Consignee. Anyone presented
+        with the Commercial Invoice can verify that it originates from the
         Shipper and is targeted to the Consignee.
       </p>
       <p>
-        This example portrays a specific use case with a Commercial Invoice and shows how Verifiable Credentials, Linked Data,
-        and Decentralized Identifiers apply. We apply these technologies to common trade documents to further digitize
-        documents and promote trust throughout the entire supply chain.
+        This example portrays a specific use case with a Commercial Invoice and
+        shows how Verifiable Credentials, Linked Data, and Decentralized
+        Identifiers apply. We apply these technologies to common trade documents
+        to further digitize documents and promote trust throughout the entire
+        supply chain.
       </p>
 
       <h2>Structure</h2>
@@ -477,35 +540,40 @@
         </p>
       </section>
 
-<section class="informative">
-  <h4>Open API</h4>
-  <p>
-    This vocabulary can also be viewed as an
-    <a href="https://w3id.org/traceability/openapi/"
-      >Open API Specification</a
-    >.
-  </p>
-<p>
-See <a href="https://w3id.org/traceability/interoperability">w3id.org/traceability/interoperability</a> 
-for REST API and interoperability tests associated with this vocabulary.
-</p>
-</section>
+      <section class="informative">
+        <h4>Open API</h4>
+        <p>
+          This vocabulary can also be viewed as an
+          <a href="https://w3id.org/traceability/openapi/"
+            >Open API Specification</a
+          >.
+        </p>
+        <p>
+          See
+          <a href="https://w3id.org/traceability/interoperability"
+            >w3id.org/traceability/interoperability</a
+          >
+          for REST API and interoperability tests associated with this
+          vocabulary.
+        </p>
+      </section>
 
-<section>
-  <h4>Undefined Terms</h4>
-  <p>
-    This vocabulary uses
-    <code>
-      '@vocab': 'https://w3id.org/traceability/#undefinedTerm'
-    </code>
-    to disable JSON-LD related errors associated with Verifiable
-    Credentials, issued about terms that have not yet been added here.
-  </p>
+      <section>
+        <h4>Undefined Terms</h4>
+        <p>
+          This vocabulary uses
+          <code>
+            '@vocab': 'https://w3id.org/traceability/#undefinedTerm'
+          </code>
+          to disable JSON-LD related errors associated with Verifiable
+          Credentials, issued about terms that have not yet been added here.
+        </p>
 
-<p class="advisement">
-Issuers are advised to review the JSON-LD and all associated terms before issuing verifiable credentials.
-</p>
-</section>
+        <p class="advisement">
+          Issuers are advised to review the JSON-LD and all associated terms
+          before issuing verifiable credentials.
+        </p>
+      </section>
     </section>
 
     <section id="terminology" class="informative">
@@ -536,21 +604,43 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         <section>
           <h4>Verifiable Credential</h4>
 
-          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+          <p>
+            The object MUST conform to the basic requirements section of the
+            <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts"
+              >W3C VC Data Model</a
+            >.
+          </p>
 
-          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+          <p>
+            The <code>@context</code> MUST contain
+            <code>"https://w3id.org/traceability/v1"</code>.
+          </p>
 
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+          <p>
+            The object MUST have an <code>id</code> property, and its value MUST
+            be a valid IRI (URI, URN).
+          </p>
         </section>
 
         <section>
           <h4>Verifiable Presentation</h4>
 
-          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+          <p>
+            The object MUST conform to the basic requirements section of the
+            <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts"
+              >W3C VC Data Model</a
+            >.
+          </p>
 
-          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+          <p>
+            The <code>@context</code> MUST contain
+            <code>"https://w3id.org/traceability/v1"</code>.
+          </p>
 
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+          <p>
+            The object MUST have an <code>id</code> property, and its value MUST
+            be a valid IRI (URI, URN).
+          </p>
         </section>
 
         <section>
@@ -566,12 +656,21 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
             have complicated workflows, which may yield many individual
             presentations of credentials.
           </p>
-          
+
           <p class="note">
-            There are several systems for workflow definitions. See 
-            <a href="https://www.omg.org/spec/BPMN/2.0/About-BPMN/" target="_blank">BPMN</a>,
-            <a href="https://en.wikipedia.org/wiki/YAWL" target="_blank">YAWL</a>, and/or
-            <a href="https://docs.github.com/en/actions/using-workflows/about-workflows" target="_blank">GitHub Workflows</a>.
+            There are several systems for workflow definitions. See
+            <a
+              href="https://www.omg.org/spec/BPMN/2.0/About-BPMN/"
+              target="_blank"
+              >BPMN</a
+            >,
+            <a href="https://en.wikipedia.org/wiki/YAWL" target="_blank">YAWL</a
+            >, and/or
+            <a
+              href="https://docs.github.com/en/actions/using-workflows/about-workflows"
+              target="_blank"
+              >GitHub Workflows</a
+            >.
           </p>
 
           <p>
@@ -638,12 +737,15 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           </p>
 
           <p class="note">
-            An example of a workflow definition is 
-            <a href="https://www.cbp.gov/trade/programs-administration/entry-summary/ace-process-and-policy">US Customs ACE Entry Summary Process</a>.
-            Where specific instances are used to track cross border imports, it is important to be able to identify specific
-            collections of documents associated with a given import.
-            Workflow instances help achieve this by providing a topic
-            identifier enabling the grouping of related credentials and presentations.
+            An example of a workflow definition is
+            <a
+              href="https://www.cbp.gov/trade/programs-administration/entry-summary/ace-process-and-policy"
+              >US Customs ACE Entry Summary Process</a
+            >. Where specific instances are used to track cross border imports,
+            it is important to be able to identify specific collections of
+            documents associated with a given import. Workflow instances help
+            achieve this by providing a topic identifier enabling the grouping
+            of related credentials and presentations.
           </p>
 
           <p>
@@ -750,63 +852,201 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <a href="https://schema.org/addressCountry">addressCountry</a>).
         </p>
 
-      <h5>Mill Test Certification</h5>
+        <h5>Mill Test Certification</h5>
         <figure>
-          <img src="resources/mill-test-workflow.png" alt="Mill Test Certification Workflow" style="width:100%">
+          <img
+            src="resources/mill-test-workflow.png"
+            alt="Mill Test Certification Workflow"
+            style="width: 100%"
+          />
           <figcaption>Mill Test Certification Workflow</figcaption>
         </figure>
         <p>
-          Steel Inspection Agency issues a <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> (1) for the Steel Manufacturer, which gets presented (2) and verifies the <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> (3).
+          Steel Inspection Agency issues a
+          <a href="https://w3id.org/traceability/#MillTestReportCertificate"
+            >Mill Test Report</a
+          >
+          (1) for the Steel Manufacturer, which gets presented (2) and verifies
+          the
+          <a href="https://w3id.org/traceability/#MillTestReportCertificate"
+            >Mill Test Report</a
+          >
+          (3).
         </p>
         <p>
-          Steel Manufacturer issues a <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> as part of a sales transaction and an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> to initiate the import (4). The documents are presented to the customer, Steel Importer (5), which can verify the originality of both documents, respectively tracing the <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> back to the Manufacturer (6) and the <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> back to a trusted steel certifying agent (7). 
+          Steel Manufacturer issues a
+          <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate"
+            >Commercial Invoice</a
+          >
+          as part of a sales transaction and an
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          to initiate the import (4). The documents are presented to the
+          customer, Steel Importer (5), which can verify the originality of both
+          documents, respectively tracing the
+          <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate"
+            >Commercial Invoice</a
+          >
+          back to the Manufacturer (6) and the
+          <a href="https://w3id.org/traceability/#MillTestReportCertificate"
+            >Mill Test Report</a
+          >
+          back to a trusted steel certifying agent (7).
         </p>
-      <h5>SIMA Steel License</h5>
+        <h5>SIMA Steel License</h5>
         <figure>
-          <img src="resources/sima-workflow.png" alt="SIMA License Workflow" style="width:100%">
+          <img
+            src="resources/sima-workflow.png"
+            alt="SIMA License Workflow"
+            style="width: 100%"
+          />
           <figcaption>SIMA Steel License Workflow</figcaption>
         </figure>
         <p>
-          Steel Inc applies for a <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA Licence</a>, issuing (1) and presenting a <a href="https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCertificate">SIMA Steel License Application</a> to SIMA (2).
+          Steel Inc applies for a
+          <a
+            href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate"
+            >SIMA Licence</a
+          >, issuing (1) and presenting a
+          <a
+            href="https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCertificate"
+            >SIMA Steel License Application</a
+          >
+          to SIMA (2).
         </p>
         <p>
-          Steel Import Monitoring and Analysis verifies (3) and processes Steel Inc’s application, issues a <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA Steel License</a> (4) which is presented back to Steel Inc. (5).
+          Steel Import Monitoring and Analysis verifies (3) and processes Steel
+          Inc’s application, issues a
+          <a
+            href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate"
+            >SIMA Steel License</a
+          >
+          (4) which is presented back to Steel Inc. (5).
         </p>
         <p>
-          At time of import, Steel Inc. issues an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> and a <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">7501 Entry Summary</a> (6) which are presented to CBP together with the <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA License</a> (7).
+          At time of import, Steel Inc. issues an
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          and a
+          <a
+            href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate"
+            >7501 Entry Summary</a
+          >
+          (6) which are presented to CBP together with the
+          <a
+            href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate"
+            >SIMA License</a
+          >
+          (7).
         </p>
         <p>
-          CBP Verifies that the SIMA Certificate originates from the SIMA issuer (8) and that the certified organization match the issuer of the import credentials (9). 
+          CBP Verifies that the SIMA Certificate originates from the SIMA issuer
+          (8) and that the certified organization match the issuer of the import
+          credentials (9).
         </p>
-      <h5>Steel Import Under USMCA Free Trade Agreement</h5>
-      <figure>
-        <img src="resources/usmca-workflow.png" alt="USMCA Steel Import Workflow" style="width:65%">
-        <figcaption>USMCA Steel Import Workflow</figcaption>
-      </figure>
-      <p>
-        Steel Importer issues a <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USCMA Certificate of Origin</a> (1). Initiating the importing workflow, Steel Importer also issues an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (2). 
-      </p>
-      <p>
-        Steel Importer presents the <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Certificate of Origin</a> and <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> along with a <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> to Customs (3).
-      </p>
-      <p>
-        Customs verifies the <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Certification of Origin</a> (4), cross checks HTS codes with the <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> (5), and initiates the import procedures (6). 
-      </p>
-      <h5>Steel Import Customs Brokerage</h5>
-      <figure>
-        <img src="resources/document-pouch-workflow.png" alt="Steel Import Customs Brokerage Workflow" style="width:100%">
-        <figcaption>Steel Import Customs Brokerage Workflow</figcaption>
-      </figure>
-      <p>
-        Steel Importer issues <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> (1) and <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (2) in relation to a shipment of steel. These are presented to the Customs Broker along with a <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA License</a>, a <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Declaration</a>, a <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a>, and a <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Importer Certificate</a>. 
-      </p>
-      <p>
-        The Customs Broker issues a <a href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCertificate">3461 Immediate Delivery Certificate</a> (3) and an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (4), and has received the <a href="https://w3id.org/traceability/#BillOfLadingCertificate">Bill of Lading</a> from the carrier. 
-      </p>
-      <p>
-        The full pouch of documents are presented to Customs (5) for verification (6) and import processing.
-      </p>
-    </section>
+        <h5>Steel Import Under USMCA Free Trade Agreement</h5>
+        <figure>
+          <img
+            src="resources/usmca-workflow.png"
+            alt="USMCA Steel Import Workflow"
+            style="width: 65%"
+          />
+          <figcaption>USMCA Steel Import Workflow</figcaption>
+        </figure>
+        <p>
+          Steel Importer issues a
+          <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin"
+            >USCMA Certificate of Origin</a
+          >
+          (1). Initiating the importing workflow, Steel Importer also issues an
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          (2).
+        </p>
+        <p>
+          Steel Importer presents the
+          <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin"
+            >USMCA Certificate of Origin</a
+          >
+          and
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          along with a
+          <a href="https://w3id.org/traceability/#MillTestReportCertificate"
+            >Mill Test Report</a
+          >
+          to Customs (3).
+        </p>
+        <p>
+          Customs verifies the
+          <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin"
+            >USMCA Certification of Origin</a
+          >
+          (4), cross checks HTS codes with the
+          <a href="https://w3id.org/traceability/#MillTestReportCertificate"
+            >Mill Test Report</a
+          >
+          (5), and initiates the import procedures (6).
+        </p>
+        <h5>Steel Import Customs Brokerage</h5>
+        <figure>
+          <img
+            src="resources/document-pouch-workflow.png"
+            alt="Steel Import Customs Brokerage Workflow"
+            style="width: 100%"
+          />
+          <figcaption>Steel Import Customs Brokerage Workflow</figcaption>
+        </figure>
+        <p>
+          Steel Importer issues
+          <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate"
+            >Commercial Invoice</a
+          >
+          (1) and
+          <a href="https://w3id.org/traceability/#PackingListCertificate"
+            >Packing List</a
+          >
+          (2) in relation to a shipment of steel. These are presented to the
+          Customs Broker along with a
+          <a
+            href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate"
+            >SIMA License</a
+          >, a
+          <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin"
+            >USMCA Declaration</a
+          >, a
+          <a href="https://w3id.org/traceability/#MillTestReportCertificate"
+            >Mill Test Report</a
+          >, and a
+          <a href="https://w3id.org/traceability/#CTPATCertificate"
+            >CTPAT Importer Certificate</a
+          >.
+        </p>
+        <p>
+          The Customs Broker issues a
+          <a
+            href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCertificate"
+            >3461 Immediate Delivery Certificate</a
+          >
+          (3) and an
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          (4), and has received the
+          <a href="https://w3id.org/traceability/#BillOfLadingCertificate"
+            >Bill of Lading</a
+          >
+          from the carrier.
+        </p>
+        <p>
+          The full pouch of documents are presented to Customs (5) for
+          verification (6) and import processing.
+        </p>
+      </section>
 
       <section>
         <h5>Food and Agriculture</h5>
@@ -907,27 +1147,46 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           inferences, and data quality remediation on Customs pre-entry data.
         </p>
 
-
         <h5>CTPAT Ecommerce Incentive Program Marketplace Registration</h5>
         <p>
-          Ecommerce Marketplace CTPAT EIP Certification workflow. Registration is mandatory for subsequent benefits, including pre-processing of shipments and issuance of CTPAT EIP Certificate. 
+          Ecommerce Marketplace CTPAT EIP Certification workflow. Registration
+          is mandatory for subsequent benefits, including pre-processing of
+          shipments and issuance of CTPAT EIP Certificate.
         </p>
         <figure>
-          <img src="resources/marketplace-registration.png" alt="Ecommerce Marketplace Registration Workflow" style="width:100%">
+          <img
+            src="resources/marketplace-registration.png"
+            alt="Ecommerce Marketplace Registration Workflow"
+            style="width: 100%"
+          />
           <figcaption>Ecommerce Marketplace Registration Workflow</figcaption>
         </figure>
         <p><b>Mandatory Input</b></p>
         <dl>
-          <dt><a href="https://w3id.org/traceability/#CTPATEIPApplicationCredential">CTPAT EIP Application</a></dt>
+          <dt>
+            <a
+              href="https://w3id.org/traceability/#CTPATEIPApplicationCredential"
+              >CTPAT EIP Application</a
+            >
+          </dt>
           <dd>Issuer: Applicant Marketplace</dd>
           <dd>Credential Subject: Applicant Marketplace</dd>
-          <dt><a href="https://w3id.org/traceability/#VerifiableBusinessCard">Verifiable Business Card</a></dt>
+          <dt>
+            <a href="https://w3id.org/traceability/#VerifiableBusinessCard"
+              >Verifiable Business Card</a
+            >
+          </dt>
           <dd>Issuer: Applicant Marketplace</dd>
           <dd>Credential Subject: Applicant Marketplace</dd>
         </dl>
         <p><b>Optional Input</b></p>
         <dl>
-          <dt>AEO Certificates such as <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Certificate</a></dt>
+          <dt>
+            AEO Certificates such as
+            <a href="https://w3id.org/traceability/#CTPATCertificate"
+              >CTPAT Certificate</a
+            >
+          </dt>
           <dd>Issuer: CTPAT</dd>
           <dd>Credential Subject: Applicant Marketplace</dd>
           <dt>Other Organizational Evidence</dt>
@@ -937,98 +1196,245 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         <p><b>Output</b></p>
         <dl>
           <dt>Marketplace CTPAT EIP Certificate</dt>
-          <dd><a href="https://w3id.org/traceability/#CTPATEIPMarketplaceCredential">CTPAT Ecommerce Incentive Program Marketplace Credential</a></dd>
+          <dd>
+            <a
+              href="https://w3id.org/traceability/#CTPATEIPMarketplaceCredential"
+              >CTPAT Ecommerce Incentive Program Marketplace Credential</a
+            >
+          </dd>
           <dd>Issuer: CTPAT EIP</dd>
           <dd>Credential Subject: Applicant Marketplace</dd>
         </dl>
 
-
         <h5>De Minimis Shipment</h5>
         <figure>
-          <img src="resources/de-minimis-shipment.png" alt="De Minimis Shipment Workflow" style="width:100%">
+          <img
+            src="resources/de-minimis-shipment.png"
+            alt="De Minimis Shipment Workflow"
+            style="width: 100%"
+          />
           <figcaption>De Minimis Shipment Workflow</figcaption>
         </figure>
         <p>
-          As part of an international ecommerce sale, the Ecommerce platform issues a <a href="https://w3id.org/traceability/#DeMinimisShipmentCertificate">De Minimis Shipment Certificate</a> (1) indicating exemption from importing duties. An <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> is also issued (2) to initiate the import workflow (3). 
+          As part of an international ecommerce sale, the Ecommerce platform
+          issues a
+          <a href="https://w3id.org/traceability/#DeMinimisShipmentCertificate"
+            >De Minimis Shipment Certificate</a
+          >
+          (1) indicating exemption from importing duties. An
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          is also issued (2) to initiate the import workflow (3).
         </p>
         <p>
-          Customs verifies both (4) and (5) and allows the shipment "direct pass" through customs. 
+          Customs verifies both (4) and (5) and allows the shipment "direct
+          pass" through customs.
         </p>
         <h5>Packing and Shipping</h5>
         <figure>
-          <img src="resources/shipping-workflow.png" alt="Packing and Shipping Workflow" style="width:100%">
+          <img
+            src="resources/shipping-workflow.png"
+            alt="Packing and Shipping Workflow"
+            style="width: 100%"
+          />
           <figcaption>Packing and Shipping Workflow</figcaption>
         </figure>
         <p>
-          A purchase is made on a US eCommerce platform, triggering issuance of a <a href="https://w3id.org/traceability/#PurchaseOrderCertificate">Purchase Order</a> (1), which is passed to the foreign fulfillment center (2).
+          A purchase is made on a US eCommerce platform, triggering issuance of
+          a
+          <a href="https://w3id.org/traceability/#PurchaseOrderCertificate"
+            >Purchase Order</a
+          >
+          (1), which is passed to the foreign fulfillment center (2).
         </p>
         <p>
-          Receiving and verifying the <a href="https://w3id.org/traceability/#PurchaseOrderCertificate">Purchase Order</a>, the fulfillment center organizes shipping with an international carrier, issuing (4) and presenting <a href="https://w3id.org/traceability/#ShippingInstructionsCertificate">Shipping Instructions</a> (5).
+          Receiving and verifying the
+          <a href="https://w3id.org/traceability/#PurchaseOrderCertificate"
+            >Purchase Order</a
+          >, the fulfillment center organizes shipping with an international
+          carrier, issuing (4) and presenting
+          <a
+            href="https://w3id.org/traceability/#ShippingInstructionsCertificate"
+            >Shipping Instructions</a
+          >
+          (5).
         </p>
         <p>
-          Upon shipping, the Fulfillment Center issues a <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (7), presented to the courier (8). The courier verifies the <a href="https://w3id.org/traceability/#ShippingInstructionsCertificate">Shipping Instructions</a> (6) and prepares for shipping. 
+          Upon shipping, the Fulfillment Center issues a
+          <a href="https://w3id.org/traceability/#PackingListCertificate"
+            >Packing List</a
+          >
+          (7), presented to the courier (8). The courier verifies the
+          <a
+            href="https://w3id.org/traceability/#ShippingInstructionsCertificate"
+            >Shipping Instructions</a
+          >
+          (6) and prepares for shipping.
         </p>
         <p>
-          The carrier verifies the <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (9) and automatically correlates it to the shipment through the common workflow instance id.
+          The carrier verifies the
+          <a href="https://w3id.org/traceability/#PackingListCertificate"
+            >Packing List</a
+          >
+          (9) and automatically correlates it to the shipment through the common
+          workflow instance id.
         </p>
         <h5>Importing Procedures</h5>
         <figure>
-          <img src="resources/import-procedures-workflow.png" alt="Import Procedures Workflow" style="width:100%">
+          <img
+            src="resources/import-procedures-workflow.png"
+            alt="Import Procedures Workflow"
+            style="width: 100%"
+          />
           <figcaption>Import Procedures Workflow</figcaption>
         </figure>
         <p>
-          Express Carrier issues a <a href="https://w3id.org/traceability/#HouseBillOfLadingCertificate">House Bill of Lading</a> (1), which is presented to the Customs Broker along with other documents associated with the <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (2). 
+          Express Carrier issues a
+          <a href="https://w3id.org/traceability/#HouseBillOfLadingCertificate"
+            >House Bill of Lading</a
+          >
+          (1), which is presented to the Customs Broker along with other
+          documents associated with the
+          <a href="https://w3id.org/traceability/#PackingListCertificate"
+            >Packing List</a
+          >
+          (2).
         </p>
         <p>
-          The Customs Broker issues <a href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCertificate">3461 Immediate Delivery</a> (3) and <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (4) certificates. The documents are submitted to Customs through a Traceable Presentation with a defined workflow instance id such as “a123-b456” (5).
+          The Customs Broker issues
+          <a
+            href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCertificate"
+            >3461 Immediate Delivery</a
+          >
+          (3) and
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          (4) certificates. The documents are submitted to Customs through a
+          Traceable Presentation with a defined workflow instance id such as
+          “a123-b456” (5).
         </p>
         <p>
-          Customs verifies the pouch of documents associated with the shipment (6) and initiates importing procedures based on submitted data (7). 
+          Customs verifies the pouch of documents associated with the shipment
+          (6) and initiates importing procedures based on submitted data (7).
         </p>
         <h5>Import Completion</h5>
         <figure>
-          <img src="resources/entry-summary-workflow.png" alt="Import Completion Workflow" style="width:65%">
+          <img
+            src="resources/entry-summary-workflow.png"
+            alt="Import Completion Workflow"
+            style="width: 65%"
+          />
           <figcaption>Import Procedures Workflow</figcaption>
         </figure>
         <p>
-          The Customs Broker completes the importing procedures by issuing the <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">7501 Entry Summary</a> (1), presenting it to Customs (2), and associating it with the earlier submission by correlating the workflow instance id ("a123-b456").
+          The Customs Broker completes the importing procedures by issuing the
+          <a
+            href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate"
+            >7501 Entry Summary</a
+          >
+          (1), presenting it to Customs (2), and associating it with the earlier
+          submission by correlating the workflow instance id ("a123-b456").
         </p>
         <p>
-          Customs verifies the <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">Entry Summary</a> (3) and completes the importing assessment. 
+          Customs verifies the
+          <a
+            href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate"
+            >Entry Summary</a
+          >
+          (3) and completes the importing assessment.
         </p>
         <h5>Trusted Trader Program</h5>
         <figure>
-          <img src="resources/ctpat-workflow.png" alt="Trusted Trader Program Workflow" style="width:100%">
+          <img
+            src="resources/ctpat-workflow.png"
+            alt="Trusted Trader Program Workflow"
+            style="width: 100%"
+          />
           <figcaption>Trusted Trader Program Workflow</figcaption>
         </figure>
         <p>
-          CTPAT runs vetting procedures, and issues and presents to the Importer (2) a <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Certificate</a> (1).
+          CTPAT runs vetting procedures, and issues and presents to the Importer
+          (2) a
+          <a href="https://w3id.org/traceability/#CTPATCertificate"
+            >CTPAT Certificate</a
+          >
+          (1).
         </p>
         <p>
-          Upon importing goods, the Importer issues a <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">7501 Entry Summary</a> (4) and an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (5), which are presented to CBP (6) along with the <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Certificate</a>.
+          Upon importing goods, the Importer issues a
+          <a
+            href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate"
+            >7501 Entry Summary</a
+          >
+          (4) and an
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          (5), which are presented to CBP (6) along with the
+          <a href="https://w3id.org/traceability/#CTPATCertificate"
+            >CTPAT Certificate</a
+          >.
         </p>
         <h5>Freight Forwarder Consignment</h5>
         <p>
-          This workflow demonstrates how separate workflows graphs may be joined by use of the instance id array.  
+          This workflow demonstrates how separate workflows graphs may be joined
+          by use of the instance id array.
         </p>
         <figure>
-          <img src="resources/workflow-graph-join.png" alt="Freight Forwarder Consignment Workflow" style="width:100%">
+          <img
+            src="resources/workflow-graph-join.png"
+            alt="Freight Forwarder Consignment Workflow"
+            style="width: 100%"
+          />
           <figcaption>Freight Forwarder Consignment Workflow</figcaption>
         </figure>
         <p>
-          The product importer of record issues <a href="https://w3id.org/traceability/#ProformaInvoiceCertificate">Proforma Invoice</a> (1) and <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (2) credentials which are presented to CBP (3) with instance id [inst_1] well ahead of shipping. 
+          The product importer of record issues
+          <a href="https://w3id.org/traceability/#ProformaInvoiceCertificate"
+            >Proforma Invoice</a
+          >
+          (1) and
+          <a href="https://w3id.org/traceability/#IntentToImportCertificate"
+            >Intent To Import</a
+          >
+          (2) credentials which are presented to CBP (3) with instance id
+          [inst_1] well ahead of shipping.
         </p>
         <p>
-          CBP verifies the initial import documentation submitted by the Importer (4).
+          CBP verifies the initial import documentation submitted by the
+          Importer (4).
         </p>
         <p>
-          Upon shipping, the Freight Forwarder issues a <a href="https://w3id.org/traceability/#HouseBillOfLadingCertificate">House BL</a> (5) which is presented to CBP (6) with a separate instance id [inst_2].
+          Upon shipping, the Freight Forwarder issues a
+          <a href="https://w3id.org/traceability/#HouseBillOfLadingCertificate"
+            >House BL</a
+          >
+          (5) which is presented to CBP (6) with a separate instance id
+          [inst_2].
         </p>
         <p>
-          The Importer issues the final <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> (8) which is presented to the Freight Forwarder (9) also with instance id [inst_1]. Passing on the <a href="">Commercial Invoice</a>, the Freight Forwarder includes both its own and the Importer’s instance ids [inst_1, inst_2], indicating to Customs that the workflows are related.
+          The Importer issues the final
+          <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate"
+            >Commercial Invoice</a
+          >
+          (8) which is presented to the Freight Forwarder (9) also with instance
+          id [inst_1]. Passing on the <a href="">Commercial Invoice</a>, the
+          Freight Forwarder includes both its own and the Importer’s instance
+          ids [inst_1, inst_2], indicating to Customs that the workflows are
+          related.
         </p>
         <p>
-          Receiving the <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> (10), CBP can also join the two graphs, thus knowing that the original <a href="https://w3id.org/traceability/#ProformaInvoiceCertificate">Proforma Invoice</a> relates to the Freight Forwarder’s presentations. 
+          Receiving the
+          <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate"
+            >Commercial Invoice</a
+          >
+          (10), CBP can also join the two graphs, thus knowing that the original
+          <a href="https://w3id.org/traceability/#ProformaInvoiceCertificate"
+            >Proforma Invoice</a
+          >
+          relates to the Freight Forwarder’s presentations.
         </p>
       </section>
       <section>
@@ -1222,9 +1628,9 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Air Waybill form</figcaption>
             </figure>
             <p>
-              A <a href="#IATAAirWaybillCertificate">Waybill</a> is a transport 
-              document issued by the carrier. It serves a similar purpose as a 
-              Bill of Lading, except that it does not carry title. Instead, the 
+              A <a href="#IATAAirWaybillCertificate">Waybill</a> is a transport
+              document issued by the carrier. It serves a similar purpose as a
+              Bill of Lading, except that it does not carry title. Instead, the
               consignee is identified on the document.
             </p>
           </dd>
@@ -1239,8 +1645,8 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Proforma Invoice form</figcaption>
             </figure>
             <p>
-              The <a href="#ProformaInvoiceCertificate">Proforma Invoice</a> is a 
-              sample invoice provided by an exporter prior to a sale.
+              The <a href="#ProformaInvoiceCertificate">Proforma Invoice</a> is
+              a sample invoice provided by an exporter prior to a sale.
             </p>
           </dd>
           <dt>Commercial Invoice</dt>
@@ -1270,9 +1676,11 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Importer Security Filing form</figcaption>
             </figure>
             <p>
-              The <a href="#ImporterSecurityFilingCertificate">Importer Security 
-              Filing</a>, commonly referred to as "10+2" is a requirement for 
-              import containerized cargo into the United States. 
+              The
+              <a href="#ImporterSecurityFilingCertificate"
+                >Importer Security Filing</a
+              >, commonly referred to as "10+2" is a requirement for import
+              containerized cargo into the United States.
             </p>
           </dd>
         </dl>
@@ -1280,9 +1688,9 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
     </section>
 
     <section
-    data-include="sections/ontology-visualizations.html"
-    data-include-replace="true"
-  ></section>
+      data-include="sections/ontology-visualizations.html"
+      data-include-replace="true"
+    ></section>
 
     <section
       data-include="sections/credentials.html"
@@ -1294,7 +1702,6 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
       data-include-replace="true"
     ></section>
 
-   
     <section id="conformance"></section>
 
     <section
@@ -1393,5 +1800,4 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
   ></script>
 
   <script src="./visualizations.js"></script>
-
 </html>
