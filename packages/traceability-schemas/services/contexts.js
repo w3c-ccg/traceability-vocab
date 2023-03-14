@@ -126,7 +126,78 @@ const contexts = {
       },
     },
   },
-
+  'https://ref.gs1.org/gs1/vc/declaration-context/': {
+    '@context': {
+      '@version': 1.1,
+      rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+      rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
+      owl: 'http://www.w3.org/2002/07/owl#',
+      skos: 'http://www.w3.org/2004/02/skos/core#',
+      gs1: 'https://gs1.org/voc/',
+      language: '@language',
+      value: '@value',
+      GS1KeyCredential: {
+        '@id': 'gs1:GS1KeyCredential',
+      },
+      GS1DataCredential: {
+        '@id': 'gs1:GS1DataCredential',
+      },
+      GS1DelegationCredential: {
+        '@id': 'gs1:GS1DelegationCredential',
+      },
+      sameAs: {
+        '@id': 'gs1:sameAs',
+      },
+      keyAuthorization: {
+        '@id': 'gs1:keyAuthorization',
+      },
+      dataCertification: {
+        '@id': 'gs1:dataCertification',
+      },
+      delegation: {
+        '@id': 'gs1:delegation',
+      },
+      dataCredentialType: {
+        '@id': 'gs1:dataCredentialType',
+      },
+    },
+  },
+  'https://ref.gs1.org/gs1/vc/trade-item-context/': {
+    '@context': {
+      '@version': 1.1,
+      rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+      rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
+      owl: 'http://www.w3.org/2002/07/owl#',
+      skos: 'http://www.w3.org/2004/02/skos/core#',
+      gs1: 'https://gs1.org/voc/',
+      language: '@language',
+      value: '@value',
+      GS1VerifiedByGS1TradeItemDataCredential: {
+        '@id': 'gs1:GS1VerifiedByGS1TradeItemDataCredential',
+      },
+      brandOwner: {
+        '@id': 'gs1:brandOwner',
+      },
+      tradeItemDescription: {
+        '@id': 'gs1:tradeItemDescription',
+      },
+      tradeItemImageURL: {
+        '@id': 'gs1:tradeItemImageURL',
+      },
+      gpcCode: {
+        '@id': 'gs1:gpcCode',
+      },
+      netContent: {
+        '@id': 'gs1:netContent',
+      },
+      netContentUOM: {
+        '@id': 'gs1:netContentUOM',
+      },
+      targetMarketCountryCode: {
+        '@id': 'gs1:targetMarketCountryCode',
+      },
+    },
+  },
   'https://w3id.org/traceability/v1': JSON.parse(
     fs
       .readFileSync(
