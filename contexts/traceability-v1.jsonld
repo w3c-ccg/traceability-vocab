@@ -121,13 +121,13 @@
     "AgricultureParcelDelivery": {
       "@context": {
         "agriculturePackage": {
-          "@id": "https://w3id.org/traceability#AgriculturePackage"
+          "@id": "https://schema.org/itemShipped"
         },
         "broker": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://schema.org/broker"
         },
         "carrier": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://schema.org/carrier"
         },
         "consignee": {
           "@id": "https://schema.org/Organization"
@@ -136,28 +136,31 @@
           "@id": "https://schema.org/deliveryAddress"
         },
         "deliveryMethod": {
-          "@id": "https://schema.org/DeliveryMethod"
+          "@id": "https://schema.org/hasDeliveryMethod"
         },
         "expectedArrival": {
           "@id": "https://schema.org/expectedArrivalFrom"
         },
         "foreignPortExport": {
-          "@id": "https://w3id.org/traceability#foreignPortExport"
+          "@id": "https://schema.org/itinerary"
         },
         "movementPoints": {
-          "@id": "https://schema.org/Trip"
+          "@id": "https://schema.org/itinerary"
         },
         "originAddress": {
           "@id": "https://schema.org/originAddress"
         },
+        "plannedRoute": {
+          "@id": "https://schema.org/itinerary"
+        },
         "portOfEntry": {
-          "@id": "https://w3id.org/traceability#portOfEntry"
+          "@id": "https://schema.org/itinerary"
         },
         "purchaser": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://schema.org/buyer"
         },
         "shipper": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://schema.org/seller"
         },
         "specialInstructions": {
           "@id": "https://schema.org/comment"
@@ -4428,19 +4431,28 @@
     "ShippingStop": {
       "@context": {
         "arrivalDate": {
-          "@id": "https://schema.org/Date"
+          "@id": "https://schema.org/expectedArrivalFrom"
         },
         "carrier": {
-          "@id": "https://schema.org/Organization"
+          "@id": "https://schema.org/carrier"
         },
         "from": {
-          "@id": "https://schema.org/Place"
+          "@id": "https://schema.org/fromLocation"
+        },
+        "path": {
+          "@id": "https://schema.org/line"
+        },
+        "shippingMethod": {
+          "@id": "https://schema.org/hasDeliveryMethod"
+        },
+        "shippingStopAddress": {
+          "@id": "https://schema.org/address"
         },
         "stopType": {
           "@id": "https://schema.org/description"
         },
         "to": {
-          "@id": "https://schema.org/Place"
+          "@id": "https://schema.org/toLocation"
         },
         "vesselNumber": {
           "@id": "https://schema.org/identifier"
