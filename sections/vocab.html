@@ -1468,6 +1468,36 @@
     </section>
   
 
+    <section id="CBPImporterOfRecord">
+      <h2>CBP Importer Of Record</h2>
+      <p>US CBP importer of record identifier and identifier type (IRS, SSN, or CBP).</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#CBPImporterOfRecord">https://w3id.org/traceability#CBPImporterOfRecord</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CBPImporterOfRecord.yml">https://w3id.org/traceability/openapi/components/schemas/common/CBPImporterOfRecord.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["CBPImporterOfRecord"],
+  "number": "10025672",
+  "identifierType": "CBP"
+}</pre>
+      
+    </section>
+  
+
     <section id="CTPAT">
       <h2>CTPAT</h2>
       <p>CTPAT classification based on either WCO HS or USITS HTS codification.</p>
@@ -1495,8 +1525,11 @@
     "type": ["CTPATMember"],
     "name": "Quality Metals Inc",
     "id": "did:web:quality-metals.example.com",
-    "importerOfRecordNumber": "10025672",
-    "importerOfRecordNumberType": "CBP",
+    "importerOfRecord":   {
+      "type": ["CBPImporterOfRecord"],
+      "number": "10025672",
+      "identifierType": "CBP"
+    },
     "scac": "NISC",
     "iataCarrierCode": "ABZ",
     "fmcNumber": "025202",
@@ -1590,8 +1623,11 @@
   "type": ["CTPATMember"],
   "name": "Quality Metals Inc",
   "id": "did:web:quality-metals.example.com",
-  "importerOfRecordNumber": "10025672",
-  "importerOfRecordNumberType": "CBP",
+  "importerOfRecord": {
+    "type": ["CBPImporterOfRecord"],
+    "number": "10025672",
+    "identifierType": "CBP"
+  },
   "scac": "NISC",
   "iataCarrierCode": "ABZ",
   "fmcNumber": "025202",
@@ -1615,7 +1651,7 @@
     }
   ]
 }</pre>
-      
+      <b>Dependencies</b><ul><li><a href='#CBPImporterOfRecord'>CBPImporterOfRecord</a></li></ul>
     </section>
   
 

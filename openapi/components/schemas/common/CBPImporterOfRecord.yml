@@ -1,0 +1,46 @@
+$linkedData:
+  term: CBPImporterOfRecord
+  '@id': https://w3id.org/traceability#CBPImporterOfRecord
+title: CBP Importer Of Record
+description: US CBP importer of record identifier and identifier type (IRS, SSN, or CBP).
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - CBPImporterOfRecord
+    default:
+      - CBPImporterOfRecord
+    items:
+      type: string
+      enum:
+        - CBPImporterOfRecord
+  number: 
+    title: importerOfRecordNumber
+    description: Importer Of Record Number
+    type: string
+    $linkedData:
+      term: number
+      '@id': https://w3id.org/traceability#CBPImporterOfRecordNumber
+  identifierType:
+    title: Assigned Identifier Type
+    description: IRS, SSN, or CBP Assigned number.
+    type: string
+    enum:
+      - IRS
+      - SSN
+      - CBP
+    $linkedData:
+      term: identifierType
+      '@id': https://w3id.org/traceability#CBPImporterOfRecordType
+additionalProperties: false
+required:
+  - number
+  - type
+example: |-
+  {
+    "type": ["CBPImporterOfRecord"],
+    "number": "10025672",
+    "identifierType": "CBP"
+  }

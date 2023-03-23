@@ -64,23 +64,34 @@ properties:
         $linkedData:
           term: iataCarrierCode
           '@id': https://onerecord.iata.org/cargo/Company#airlineCode
-      importerOfRecordNumber: 
-        title: importerOfRecordNumber
-        description: Importer Of Record Number
-        type: string
-        $linkedData:
-          term: importerOfRecordNumber
-          '@id': https://schema.org/identifier
-      importerOfRecordNumberType:
-        title: Assigned Identifier Type
-        description: IRS, SSN, or CBP Assigned number.
-        enum:
-          - IRS
-          - SSN
-          - CBP
-        $linkedData:
-          term: importerOfRecordNumberType
-          '@id': https://w3id.org/traceability#assignedIdentifierType
+      importerOfRecord: 
+        title: Importer Of Record
+        description: US CBP importer of record.
+        type: object 
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - CBPImporterOfRecord
+            default:
+              - CBPImporterOfRecord
+            items:
+              type: string
+              enum:
+                - CBPImporterOfRecord
+          number: 
+            title: importerOfRecordNumber
+            description: Importer Of Record Number
+            type: string
+          identifierType:
+            title: Assigned Identifier Type
+            description: IRS, SSN, or CBP Assigned number.
+            type: string
+            enum:
+              - IRS
+              - SSN
+              - CBP
       fmcNumber:
         title: FMC Number
         description: Federal Maritime Commission assigned number
@@ -250,6 +261,7 @@ properties:
     title: CTPAT Trade Sector
     description: >-
       Trade sectors elegible for CTPAT certification.
+    type: string
     enum:
       - U.S. Importers
       - Highway Carriers
@@ -269,6 +281,7 @@ properties:
       '@id': https://schema.org/industry
   tier:
     title: CTPAT Tier
+    type: string
     enum:
       - Certified
       - Validated
@@ -306,8 +319,11 @@ example: |-
       "type": ["CTPATMember"],
       "name": "Quality Metals Inc",
       "id": "did:web:quality-metals.example.com",
-      "importerOfRecordNumber": "10025672",
-      "importerOfRecordNumberType": "CBP",
+      "importerOfRecord":   {
+        "type": ["CBPImporterOfRecord"],
+        "number": "10025672",
+        "identifierType": "CBP"
+      },
       "scac": "NISC",
       "iataCarrierCode": "ABZ",
       "fmcNumber": "025202",
