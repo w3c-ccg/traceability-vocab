@@ -1,21 +1,21 @@
 $linkedData:
-  term: ImmediateDeliveryEntity
-  '@id': https://w3id.org/traceability#ImmediateDeliveryEntity
-title: Immediate Delivery Entity
-description: Entity identifier used on CBP 3461 Immediate Delivery Form.
+  term: CBPEntryEntity
+  '@id': https://w3id.org/traceability#CBPEntryEntity
+title: Entry Entity
+description: Entity identifier used on CBP 3461 Entry/Immediate Delivery Form.
 type: object
 properties:
   type:
     type: array
     readOnly: true
     const:
-      - ImmediateDeliveryEntity
+      - CBPEntryEntity
     default:
-      - ImmediateDeliveryEntity
+      - CBPEntryEntity
     items:
       type: string
       enum:
-        - ImmediateDeliveryEntity
+        - CBPEntryEntity
   manufacturer:
     title: Manufacturer
     description: A manufacturer party.
@@ -44,31 +44,20 @@ properties:
     $linkedData:
       term: buyer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
-  assignedIdentifier: 
-    title: Assigned Identifier
-    description: Assigned Identifier
-    type: string
+  importerOfRecord: 
+    title: Importer Of Record
+    description: US CBP importer of record.
+    $ref: ./CBPImporterOfRecord.yml
     $linkedData:
-      term: assignedIdentifier
-      '@id': https://schema.org/identifier
-  assignedIdentifierType:
-    title: Assigned Identifier Type
-    description: IRS, SSN, or CBP Assigned number.
-    enum:
-      - IRS
-      - SSN
-      - CBP
-    $linkedData:
-      term: assignedIdentifierType
-      '@id': https://w3id.org/traceability#assignedIdentifierType
+      term: importerOfRecord
+      '@id': https://w3id.org/traceability#importerOfRecord
 additionalProperties: false
 required:
   - type
-  - assignedIdentifier
-  - assignedIdentifierType
+  - importerOfRecord
 example: |-
   {
-    "type": ["ImmediateDeliveryEntity"],
+    "type": ["CBPEntryEntity"],
     "consignee": {
       "type": ["Organization"],
       "name": "Future Mobility, Inc.",
@@ -83,6 +72,9 @@ example: |-
         }
       }
     },
-    "assignedIdentifier": "12345678",
-    "assignedIdentifierType": "CBP"
+    "importerOfRecord":   {
+      "type": ["CBPImporterOfRecord"],
+      "number": "10025672",
+      "identifierType": "CBP"
+    }
   }

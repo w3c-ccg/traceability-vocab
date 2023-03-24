@@ -1,6 +1,6 @@
 $linkedData:
-  term: EntrySummaryLineItem
-  '@id': https://w3id.org/traceability#EntrySummaryLineItem
+  term: CBPEntrySummaryLineItem
+  '@id': https://w3id.org/traceability#CBPEntrySummaryLineItem
 title: Entry Summary Line Item
 description: A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement. 
 type: object
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - EntrySummaryLineItem
+      - CBPEntrySummaryLineItem
     default:
-      - EntrySummaryLineItem
+      - CBPEntrySummaryLineItem
     items:
       type: string
       enum:
-        - EntrySummaryLineItem
+        - CBPEntrySummaryLineItem
   commodity:
     title: Commodity
     description: Product commodity code, codification system and description
@@ -171,7 +171,7 @@ required:
   - type
 example: |-
   {
-    "type": ["EntrySummaryLineItem"],
+    "type": ["CBPEntrySummaryLineItem"],
     "commodity": {
       "type": ["Commodity"],
       "commodityCode": "2204.21.60 00",
