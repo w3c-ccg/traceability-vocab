@@ -74,9 +74,10 @@ properties:
     $linkedData:
       term: chemicalObservation
       '@id': https://schema.org/ItemList
-  mechnicalObservation:
+  mechanicalObservation:
     title: Observation List
     description: List of observations
+    type: array
     items:
       type: object
       properties:
@@ -104,7 +105,7 @@ properties:
           description: The date of the Observation.
           type: string
     $linkedData:
-      term: mechnicalObservation
+      term: mechanicalObservation
       '@id': https://schema.org/ItemList
 additionalProperties: false
 required:
@@ -112,7 +113,7 @@ required:
   - inspectors
   - inspectionFacility
   - chemicalObservation
-  - mechnicalObservation
+  - mechanicalObservation
 example: |-
   {
     "type": ["InspectionReport"],
@@ -198,7 +199,7 @@ example: |-
         }
       }
     ],
-    "mechnicalObservation": [
+    "mechanicalObservation": [
       {
         "type": ["Observation"],
         "date": "2019-12-11T03:50:55Z",
