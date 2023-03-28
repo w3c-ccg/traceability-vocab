@@ -1,5 +1,5 @@
-title: Intent to Import Organization
-description: An organization such as a corporation, firm, club, etc.
+title: Issuer Organization
+description: Organization issuing a Verifiable Credential.
 type: object
 properties:
   type:
@@ -61,9 +61,6 @@ properties:
             title: Name
             description: The name of the entity in text.
             type: string
-            $linkedData:
-              term: name
-              '@id': https://schema.org/name
           streetAddress:
             title: Street Address
             description: >-
@@ -71,40 +68,25 @@ properties:
               printed on paper as the first lines below the name. For example, the name
               of the street and the number in the street or the name of a building.
             type: string
-            $linkedData:
-              term: streetAddress
-              '@id': https://schema.org/streetAddress
           addressLocality:
             title: Address Locality
             description: Text specifying the name of the locality; for example, a city.
             type: string
-            $linkedData:
-              term: addressLocality
-              '@id': https://schema.org/addressLocality
           addressRegion:
             title: Address Region
             description: >-
               Text specifying a province or state in abbreviated format; for example,
               NJ.
             type: string
-            $linkedData:
-              term: addressRegion
-              '@id': https://schema.org/addressRegion
           addressCountry:
             title: Address Country
             description: >-
               The two-letter ISO 3166-1 alpha-2 country code.
             type: string
-            $linkedData:
-              term: addressCountry
-              '@id': https://schema.org/addressCountry
           postalCode:
             title: Postal Code
             description: Text specifying the postal code for an address.
             type: string
-            $linkedData:
-              term: postalCode
-              '@id': https://schema.org/postalCode
         additionalProperties: false
         required:
           - type
