@@ -1468,6 +1468,471 @@
     </section>
   
 
+    <section id="CBPEntry">
+      <h2>CBP Entry</h2>
+      <p>CBP Form 3461 for Entry/Immediate Delivery (https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%20Form%203461%20-%20ACE%20Fillable.pdf and https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%203461%20Instructions_0.pdf).</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#CBPEntry">https://w3id.org/traceability#CBPEntry</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CBPEntry.yml">https://w3id.org/traceability/openapi/components/schemas/common/CBPEntry.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["CBPEntry"],
+  "portOfEntry": {
+    "type": ["Place"],
+    "unLocode": "USLBC"
+  },
+  "bondType": "Single Transaction Bond",
+  "importer": {
+    "type": ["Organization"],
+    "name": "Onwards A/S",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Sludevej 63",
+        "addressLocality": "Kgs. Lyngby",
+        "postalCode": "2800",
+        "addressCountry": "DK"
+      }
+    }
+  },
+  "importerOfRecord":   {
+    "type": ["CBPImporterOfRecord"],
+    "number": "10025672",
+    "identifierType": "CBP"
+  },
+  "entryNumber": "12345123456",
+  "bondValue": 12000,
+  "entryValue": 12000,
+  "centralizedExaminationSite": "K682",
+  "entryType": "11",
+  "originatingWarehouseEntryNumber": "38819",
+  "suretyCode": "511",
+  "portOfUnlading": {
+    "type": ["Place"],
+    "unLocode": "USBBK"
+  },
+  "transportMode": "Ocean",
+  "locationOfGoods": {
+    "type": ["Place"],
+    "unLocode": "USMRE"
+  },
+  "generalOrderNumber": "O1000212",
+  "conveyanceNameOrFreeTradeZoneID": "FTZ0260A01",
+  "referenceIDCode": "EXCODE",
+  "referenceIDNumber": "EX123456",
+  "lineItems": [
+    {
+      "type": ["CBPEntryLineItem"],
+      "commodity": {
+        "type": ["Commodity"],
+        "commodityCode": "9403 7000 00",
+        "commodityCodeType": "HTS"
+      },
+      "productDescription": "Mobility assistance equipment",
+      "itemCount": 400,
+      "itemParty": {
+        "type": ["CBPEntryEntity"],
+        "consignee": {
+          "type": ["Organization"],
+          "name": "Future Mobility, Inc.",
+          "location": {
+            "type": ["Place"],
+            "address": {
+              "type": ["PostalAddress"],
+              "streetAddress": "2016 W Farmington Rd",
+              "addressLocality": "West Peoria",
+              "postalCode": "61604",
+              "addressCountry": "US"
+            }
+          }
+        },
+        "importerOfRecord":   {
+          "type": ["CBPImporterOfRecord"],
+          "number": "10025672",
+          "identifierType": "CBP"
+        }
+      },
+      "freeTradeZoneFilingDate": "2022-02-25",
+      "freeTradeZoneStatus": "N",
+      "countryOfOrigin": "CN",
+      "value": "6800"
+    }
+  ],
+  "nonAMS": false,
+  "splitBill": false,
+  "bolType": "Master",
+  "scac": "NISC",
+  "inBondNumber": "B00012345",
+  "bolNumber": "87654321A",
+  "quantity": {
+    "type": [
+      "MeasuredValue"
+    ],
+    "value": "200"
+  },
+  "voyageFlightTrip": "E002901",
+  "conveyanceName": "Gizera",
+  "arrivalDate": "2022-02-25"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#CBPImporterOfRecord'>CBPImporterOfRecord</a></li>
+<li><a href='#MeasuredValue'>MeasuredValue</a></li>
+<li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li></ul>
+    </section>
+  
+
+    <section id="CBPEntryEntity">
+      <h2>Entry Entity</h2>
+      <p>Entity identifier used on CBP 3461 Entry/Immediate Delivery Form.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#CBPEntryEntity">https://w3id.org/traceability#CBPEntryEntity</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CBPEntryEntity.yml">https://w3id.org/traceability/openapi/components/schemas/common/CBPEntryEntity.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["CBPEntryEntity"],
+  "consignee": {
+    "type": ["Organization"],
+    "name": "Future Mobility, Inc.",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "importerOfRecord":   {
+    "type": ["CBPImporterOfRecord"],
+    "number": "10025672",
+    "identifierType": "CBP"
+  }
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#CBPImporterOfRecord'>CBPImporterOfRecord</a></li>
+<li><a href='#Organization'>Organization</a></li></ul>
+    </section>
+  
+
+    <section id="CBPEntryLineItem">
+      <h2>CBP Entry Line Item</h2>
+      <p>Line Item identifier used on CBP 3461 Entry/Immediate Delivery Form.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#CBPEntryLineItem">https://w3id.org/traceability#CBPEntryLineItem</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CBPEntryLineItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/CBPEntryLineItem.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["CBPEntryLineItem"],
+  "commodity": {
+    "type": ["Commodity"],
+    "commodityCode": "9403 7000 00",
+    "commodityCodeType": "HTS"
+  },
+  "productDescription": "Mobility assistance equipment",
+  "itemCount": 400,
+  "itemParty": {
+    "type": ["CBPEntryEntity"],
+    "consignee": {
+      "type": ["Organization"],
+      "name": "Future Mobility, Inc.",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      }
+    },
+    "importerOfRecord": {
+      "type": [
+        "CBPImporterOfRecord"
+      ],
+      "number": "10025672",
+      "identifierType": "CBP"
+    }
+  },
+  "freeTradeZoneFilingDate": "2022-02-25",
+  "freeTradeZoneStatus": "N",
+  "countryOfOrigin": "CN",
+  "value": "6800"
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#CBPEntryEntity'>CBPEntryEntity</a></li>
+<li><a href='#Commodity'>Commodity</a></li></ul>
+    </section>
+  
+
+    <section id="CBPEntrySummary">
+      <h2>Entry Summary</h2>
+      <p>CBP Form 7501 for Entry Summary (https://www.cbp.gov/sites/default/files/assets/documents/2021-Sep/CBP%20Form%207501.pdf).</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#CBPEntrySummary">https://w3id.org/traceability#CBPEntrySummary</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CBPEntrySummary.yml">https://w3id.org/traceability/openapi/components/schemas/common/CBPEntrySummary.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["CBPEntrySummary"],
+  "entryNumber": "73461882610",
+  "entryType": "01",
+  "summaryDate": "2022-03-01T12:54Z",
+  "suretyCode": "228",
+  "bondType": "Single Transaction Bond",
+  "portCode": {
+    "type": ["Place"], 
+    "unLocode": "USLBC"
+  },
+  "entryDate": "2022-03-01T12:54Z",
+  "importingCarrier": "NISC",
+  "transportMode": "Ocean",
+  "countryOfOrigin": "SG",
+  "importDate": "2022-03-12T00:00Z",
+  "billOfLadingNumber": "NC989877201",
+  "manufacturerId": "2300912",
+  "exportingCountry": "SG",
+  "exportDate": "2022-02-06T07:20Z",
+  "immediateTransportationNumber": "230012",
+  "immediateTransportationDate": "2022-03-01T12:54Z",
+  "missingDocuments": [],
+  "portOfLoading": {
+    "type": ["Place"],
+    "unLocode": "SGSIN"
+  },
+  "portOfUnlading": {
+    "type": ["Place"],
+    "unLocode": "USLBC"
+  },
+  "locationOfGoods": {
+    "type": ["Place"],
+    "unLocode": "USLBC"
+  },
+  "consigneeNumber": "9982312",
+  "importerNumber": "9900127",
+  "referenceNumber": "ref199812841",
+  "ultimateConsignee": {
+    "type": ["Organization"],
+    "name": "Future Mobility, Inc.",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "importerOfRecord": {
+    "type": ["Organization"],
+    "name": "Future Mobility, Inc.",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "2016 W Farmington Rd",
+        "addressLocality": "West Peoria",
+        "postalCode": "61604",
+        "addressCountry": "US"
+      }
+    }
+  },
+  "descriptionOfMerchandise": [
+    {
+      "type": ["CBPEntrySummaryLineItem"],
+      "commodity": {
+        "type": ["Commodity"],
+        "commodityCode": "2204.21.60 00",
+        "commodityCodeType": "HS",
+        "description": "Wine of fresh grapes"
+      },
+      "adCvdNumber": "A123-234-345",
+      "categoryNumber": "CAT ABC",
+      "grossWeight": {
+        "type": ["QuantitativeValue"],
+        "value": "7420",
+        "unitCode": "kg"
+      },
+      "manifestQuantity": 3500,
+      "netQuantity": {
+        "type": ["QuantitativeValue"],
+        "value": "6620",
+        "unitCode": "kg"
+      },
+      "enteredValue": {
+        "type": ["PriceSpecification"],
+        "price": 12000,
+        "priceCurrency": "USD"
+      },
+      "charges": {
+        "type": ["PriceSpecification"],
+        "price": 1500,
+        "priceCurrency": "USD"
+      },
+      "relationship": false,
+      "htsRate": "ad valorem",
+      "visaNumber": "V10000345",
+      "dutyAndIRTax": {
+        "type": ["PriceSpecification"],
+        "price": 8230,
+        "priceCurrency": "USD"
+      }
+    }
+  ],
+  "otherFeeSummary": "AD",
+  "totalEnteredValue": {
+    "type": ["PriceSpecification"],
+    "price": 8230,
+    "priceCurrency": "USD"
+  },
+  "declarationOfImporter": "Importer of Record",
+  "duty": {
+    "type": ["PriceSpecification"],
+    "price": 20,
+    "priceCurrency": "USD"
+  },
+  "tax": {
+    "type": ["PriceSpecification"],
+    "price": 282,
+    "priceCurrency": "USD"
+  },
+  "total": {
+    "type": ["PriceSpecification"],
+    "price": 8532,
+    "priceCurrency": "USD"
+  }
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
+<li><a href='#Place'>Place</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
+    </section>
+  
+
+    <section id="CBPEntrySummaryLineItem">
+      <h2>Entry Summary Line Item</h2>
+      <p>A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement.</p>
+      
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability#CBPEntrySummaryLineItem">https://w3id.org/traceability#CBPEntrySummaryLineItem</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/CBPEntrySummaryLineItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/CBPEntrySummaryLineItem.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      <pre class="example">{
+  "type": ["CBPEntrySummaryLineItem"],
+  "commodity": {
+    "type": ["Commodity"],
+    "commodityCode": "2204.21.60 00",
+    "commodityCodeType": "HS",
+    "description": "Wine of fresh grapes"
+  },
+  "adCvdNumber": "A123-234-345",
+  "categoryNumber": "CAT ABC",
+  "grossWeight": {
+    "type": ["QuantitativeValue"],
+    "value": "7420",
+    "unitCode": "kg"
+  },
+  "manifestQuantity": 3500,
+  "netQuantity": {
+    "type": ["QuantitativeValue"],
+    "value": "6620",
+    "unitCode": "kg"
+  },
+  "enteredValue": {
+    "type": ["PriceSpecification"],
+    "price": 12000,
+    "priceCurrency": "USD"
+  },
+  "charges": {
+    "type": ["PriceSpecification"],
+    "price": 1500,
+    "priceCurrency": "USD"
+  },
+  "relationship": false,
+  "htsRate": "ad valorem",
+  "visaNumber": "V10000345",
+  "dutyAndIRTax": {
+    "type": ["PriceSpecification"],
+    "price": 8230,
+    "priceCurrency": "USD"
+  }
+}</pre>
+      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
+<li><a href='#PriceSpecification'>PriceSpecification</a></li>
+<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
+    </section>
+  
+
     <section id="CBPImporterOfRecord">
       <h2>CBP Importer Of Record</h2>
       <p>US CBP importer of record identifier and identifier type (IRS, SSN, or CBP).</p>
@@ -3155,231 +3620,6 @@
   "jobTitle": "Lead Division Producer"
 }</pre>
       <b>Dependencies</b><ul><li><a href='#PostalAddress'>PostalAddress</a></li></ul>
-    </section>
-  
-
-    <section id="EntrySummary">
-      <h2>Entry Summary</h2>
-      <p>CBP Form 7501 for Entry Summary (https://www.cbp.gov/sites/default/files/assets/documents/2021-Sep/CBP%20Form%207501.pdf).</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#EntrySummary">https://w3id.org/traceability#EntrySummary</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/EntrySummary.yml">https://w3id.org/traceability/openapi/components/schemas/common/EntrySummary.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["EntrySummary"],
-  "entryNumber": "73461882610",
-  "entryType": "01",
-  "summaryDate": "2022-03-01T12:54Z",
-  "suretyCode": "228",
-  "bondType": "Single Transaction Bond",
-  "portCode": {
-    "type": ["Place"], 
-    "unLocode": "USLBC"
-  },
-  "entryDate": "2022-03-01T12:54Z",
-  "importingCarrier": "NISC",
-  "transportMode": "Ocean",
-  "countryOfOrigin": "SG",
-  "importDate": "2022-03-12T00:00Z",
-  "billOfLadingNumber": "NC989877201",
-  "manufacturerId": "2300912",
-  "exportingCountry": "SG",
-  "exportDate": "2022-02-06T07:20Z",
-  "immediateTransportationNumber": "230012",
-  "immediateTransportationDate": "2022-03-01T12:54Z",
-  "missingDocuments": [],
-  "portOfLoading": {
-    "type": ["Place"],
-    "unLocode": "SGSIN"
-  },
-  "portOfUnlading": {
-    "type": ["Place"],
-    "unLocode": "USLBC"
-  },
-  "locationOfGoods": {
-    "type": ["Place"],
-    "unLocode": "USLBC"
-  },
-  "consigneeNumber": "9982312",
-  "importerNumber": "9900127",
-  "referenceNumber": "ref199812841",
-  "ultimateConsignee": {
-    "type": ["Organization"],
-    "name": "Future Mobility, Inc.",
-    "location": {
-      "type": ["Place"],
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "2016 W Farmington Rd",
-        "addressLocality": "West Peoria",
-        "postalCode": "61604",
-        "addressCountry": "US"
-      }
-    }
-  },
-  "importerOfRecord": {
-    "type": ["Organization"],
-    "name": "Future Mobility, Inc.",
-    "location": {
-      "type": ["Place"],
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "2016 W Farmington Rd",
-        "addressLocality": "West Peoria",
-        "postalCode": "61604",
-        "addressCountry": "US"
-      }
-    }
-  },
-  "descriptionOfMerchandise": [
-    {
-      "type": ["EntrySummaryLineItem"],
-      "commodity": {
-        "type": ["Commodity"],
-        "commodityCode": "2204.21.60 00",
-        "commodityCodeType": "HS",
-        "description": "Wine of fresh grapes"
-      },
-      "adCvdNumber": "A123-234-345",
-      "categoryNumber": "CAT ABC",
-      "grossWeight": {
-        "type": ["QuantitativeValue"],
-        "value": "7420",
-        "unitCode": "kg"
-      },
-      "manifestQuantity": 3500,
-      "netQuantity": {
-        "type": ["QuantitativeValue"],
-        "value": "6620",
-        "unitCode": "kg"
-      },
-      "enteredValue": {
-        "type": ["PriceSpecification"],
-        "price": 12000,
-        "priceCurrency": "USD"
-      },
-      "charges": {
-        "type": ["PriceSpecification"],
-        "price": 1500,
-        "priceCurrency": "USD"
-      },
-      "relationship": false,
-      "htsRate": "ad valorem",
-      "visaNumber": "V10000345",
-      "dutyAndIRTax": {
-        "type": ["PriceSpecification"],
-        "price": 8230,
-        "priceCurrency": "USD"
-      }
-    }
-  ],
-  "otherFeeSummary": "AD",
-  "totalEnteredValue": {
-    "type": ["PriceSpecification"],
-    "price": 8230,
-    "priceCurrency": "USD"
-  },
-  "declarationOfImporter": "Importer of Record",
-  "duty": {
-    "type": ["PriceSpecification"],
-    "price": 20,
-    "priceCurrency": "USD"
-  },
-  "tax": {
-    "type": ["PriceSpecification"],
-    "price": 282,
-    "priceCurrency": "USD"
-  },
-  "total": {
-    "type": ["PriceSpecification"],
-    "price": 8532,
-    "priceCurrency": "USD"
-  }
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li>
-<li><a href='#Place'>Place</a></li>
-<li><a href='#PriceSpecification'>PriceSpecification</a></li></ul>
-    </section>
-  
-
-    <section id="EntrySummaryLineItem">
-      <h2>Entry Summary Line Item</h2>
-      <p>A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement.</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#EntrySummaryLineItem">https://w3id.org/traceability#EntrySummaryLineItem</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/EntrySummaryLineItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/EntrySummaryLineItem.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["EntrySummaryLineItem"],
-  "commodity": {
-    "type": ["Commodity"],
-    "commodityCode": "2204.21.60 00",
-    "commodityCodeType": "HS",
-    "description": "Wine of fresh grapes"
-  },
-  "adCvdNumber": "A123-234-345",
-  "categoryNumber": "CAT ABC",
-  "grossWeight": {
-    "type": ["QuantitativeValue"],
-    "value": "7420",
-    "unitCode": "kg"
-  },
-  "manifestQuantity": 3500,
-  "netQuantity": {
-    "type": ["QuantitativeValue"],
-    "value": "6620",
-    "unitCode": "kg"
-  },
-  "enteredValue": {
-    "type": ["PriceSpecification"],
-    "price": 12000,
-    "priceCurrency": "USD"
-  },
-  "charges": {
-    "type": ["PriceSpecification"],
-    "price": 1500,
-    "priceCurrency": "USD"
-  },
-  "relationship": false,
-  "htsRate": "ad valorem",
-  "visaNumber": "V10000345",
-  "dutyAndIRTax": {
-    "type": ["PriceSpecification"],
-    "price": 8230,
-    "priceCurrency": "USD"
-  }
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
-<li><a href='#PriceSpecification'>PriceSpecification</a></li>
-<li><a href='#QuantitativeValue'>QuantitativeValue</a></li></ul>
     </section>
   
 
@@ -6805,230 +7045,6 @@
     </section>
   
 
-    <section id="ImmediateDelivery">
-      <h2>Immediate Delivery</h2>
-      <p>CBP Form 3461 for Immediate Delivery (https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%20Form%203461%20-%20ACE%20Fillable.pdf and https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%203461%20Instructions_0.pdf).</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#ImmediateDelivery">https://w3id.org/traceability#ImmediateDelivery</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ImmediateDelivery.yml">https://w3id.org/traceability/openapi/components/schemas/common/ImmediateDelivery.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["ImmediateDelivery"],
-  "portOfEntry": {
-    "type": ["Place"],
-    "unLocode": "USLBC"
-  },
-  "bondType": "Single Transaction Bond",
-  "importer": {
-    "type": ["Organization"],
-    "name": "Onwards A/S",
-    "location": {
-      "type": ["Place"],
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "Sludevej 63",
-        "addressLocality": "Kgs. Lyngby",
-        "postalCode": "2800",
-        "addressCountry": "DK"
-      }
-    }
-  },
-  "assignedIdentifier": "12345678",
-  "assignedIdentifierType": "CBP",
-  "entryNumber": "12345123456",
-  "bondValue": 12000,
-  "entryValue": 12000,
-  "centralizedExaminationSite": "K682",
-  "entryType": "11",
-  "originatingWarehouseEntryNumber": "38819",
-  "suretyCode": "511",
-  "portOfUnlading": {
-    "type": ["Place"],
-    "unLocode": "USBBK"
-  },
-  "transportMode": "Ocean",
-  "locationOfGoods": {
-    "type": ["Place"],
-    "unLocode": "USMRE"
-  },
-  "generalOrderNumber": "O1000212",
-  "conveyanceNameOrFreeTradeZoneID": "FTZ0260A01",
-  "referenceIDCode": "EXCODE",
-  "referenceIDNumber": "EX123456",
-  "lineItems": [
-    {
-      "type": ["ImmediateDeliveryLineItem"],
-      "commodity": {
-        "type": ["Commodity"],
-        "commodityCode": "9403 7000 00",
-        "commodityCodeType": "HTS"
-      },
-      "productDescription": "Mobility assistance equipment",
-      "itemCount": 400,
-      "itemParty": {
-        "type": ["ImmediateDeliveryEntity"],
-        "consignee": {
-          "type": ["Organization"],
-          "name": "Future Mobility, Inc.",
-          "location": {
-            "type": ["Place"],
-            "address": {
-              "type": ["PostalAddress"],
-              "streetAddress": "2016 W Farmington Rd",
-              "addressLocality": "West Peoria",
-              "postalCode": "61604",
-              "addressCountry": "US"
-            }
-          }
-        },
-        "assignedIdentifier": "12345678",
-        "assignedIdentifierType": "CBP"
-      },
-      "freeTradeZoneFilingDate": "2022-02-25",
-      "freeTradeZoneStatus": "N",
-      "countryOfOrigin": "CN",
-      "value": "6800"
-    }
-  ],
-  "nonAMS": false,
-  "splitBill": false,
-  "bolType": "Master",
-  "scac": "NISC",
-  "inBondNumber": "B00012345",
-  "bolNumber": "87654321A",
-  "quantity": {
-    "type": [
-      "MeasuredValue"
-    ],
-    "value": "200"
-  },
-  "voyageFlightTrip": "E002901",
-  "conveyanceName": "Gizera",
-  "arrivalDate": "2022-02-25"
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#MeasuredValue'>MeasuredValue</a></li>
-<li><a href='#Organization'>Organization</a></li>
-<li><a href='#Place'>Place</a></li></ul>
-    </section>
-  
-
-    <section id="ImmediateDeliveryEntity">
-      <h2>Immediate Delivery Entity</h2>
-      <p>Entity identifier used on CBP 3461 Immediate Delivery Form.</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#ImmediateDeliveryEntity">https://w3id.org/traceability#ImmediateDeliveryEntity</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ImmediateDeliveryEntity.yml">https://w3id.org/traceability/openapi/components/schemas/common/ImmediateDeliveryEntity.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["ImmediateDeliveryEntity"],
-  "consignee": {
-    "type": ["Organization"],
-    "name": "Future Mobility, Inc.",
-    "location": {
-      "type": ["Place"],
-      "address": {
-        "type": ["PostalAddress"],
-        "streetAddress": "2016 W Farmington Rd",
-        "addressLocality": "West Peoria",
-        "postalCode": "61604",
-        "addressCountry": "US"
-      }
-    }
-  },
-  "assignedIdentifier": "12345678",
-  "assignedIdentifierType": "CBP"
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#Organization'>Organization</a></li></ul>
-    </section>
-  
-
-    <section id="ImmediateDeliveryLineItem">
-      <h2>Immediate Delivery Line Item</h2>
-      <p>Line Item identifier used on CBP 3461 Immediate Delivery Form.</p>
-      
-  <table class="simple">
-  <tbody>
-
-  <tr>
-    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability#ImmediateDeliveryLineItem">https://w3id.org/traceability#ImmediateDeliveryLineItem</a></td>
-  </tr>
-  
-  
-<tr>
-  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/ImmediateDeliveryLineItem.yml">https://w3id.org/traceability/openapi/components/schemas/common/ImmediateDeliveryLineItem.yml</a></td>
-</tr>
-
-  </tbody>
-  </table>
-  
-      <pre class="example">{
-  "type": ["ImmediateDeliveryLineItem"],
-  "commodity": {
-    "type": ["Commodity"],
-    "commodityCode": "9403 7000 00",
-    "commodityCodeType": "HTS"
-  },
-  "productDescription": "Mobility assistance equipment",
-  "itemCount": 400,
-  "itemParty": {
-    "type": ["ImmediateDeliveryEntity"],
-    "consignee": {
-      "type": ["Organization"],
-      "name": "Future Mobility, Inc.",
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": ["PostalAddress"],
-          "streetAddress": "2016 W Farmington Rd",
-          "addressLocality": "West Peoria",
-          "postalCode": "61604",
-          "addressCountry": "US"
-        }
-      }
-    },
-    "assignedIdentifier": "12345678",
-    "assignedIdentifierType": "CBP"
-  },
-  "freeTradeZoneFilingDate": "2022-02-25",
-  "freeTradeZoneStatus": "N",
-  "countryOfOrigin": "CN",
-  "value": "6800"
-}</pre>
-      <b>Dependencies</b><ul><li><a href='#Commodity'>Commodity</a></li>
-<li><a href='#ImmediateDeliveryEntity'>ImmediateDeliveryEntity</a></li></ul>
-    </section>
-  
-
     <section id="ImporterSecurityFiling">
       <h2>Importer Security Filing</h2>
       <p>An Importer Security Filing, commonly known as “10+2”, is a filing process that is required by the United States Customs and Border Protection (CPB) which requires import containerized cargo information. The information must be transmitted to the agency at least 24 hours before goods are loaded onboard a vessel to the USA. https://www.cbp.gov/border-security/ports-entry/cargo-security/importer-security-filing-102</p>
@@ -7487,7 +7503,7 @@
       }
     }
   ],
-  "mechnicalObservation": [
+  "mechanicalObservation": [
     {
       "type": ["Observation"],
       "date": "2019-12-11T03:50:55Z",
@@ -12570,7 +12586,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
                     }
                   }
               ],
-              "mechnicalObservation":[
+              "mechanicalObservation":[
                   {
                     "type":[
                         "Observation"
@@ -12901,7 +12917,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
               }
             }
         ],
-        "mechnicalObservation":[
+        "mechanicalObservation":[
             {
               "type":[
                   "Observation"
@@ -13881,7 +13897,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
         }
       }
     ],
-    "mechnicalObservation": [
+    "mechanicalObservation": [
       {
         "type": ["Observation"],
         "date": "2019-12-11T03:50:55Z",

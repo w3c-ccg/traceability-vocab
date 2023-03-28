@@ -1,21 +1,21 @@
 $linkedData:
-  term: ImmediateDeliveryLineItem
-  '@id': https://w3id.org/traceability#ImmediateDeliveryLineItem
-title: Immediate Delivery Line Item
-description: Line Item identifier used on CBP 3461 Immediate Delivery Form.
+  term: CBPEntryLineItem
+  '@id': https://w3id.org/traceability#CBPEntryLineItem
+title: CBP Entry Line Item
+description: Line Item identifier used on CBP 3461 Entry/Immediate Delivery Form.
 type: object
 properties:
   type:
     type: array
     readOnly: true
     const:
-      - ImmediateDeliveryLineItem
+      - CBPEntryLineItem
     default:
-      - ImmediateDeliveryLineItem
+      - CBPEntryLineItem
     items:
       type: string
       enum:
-        - ImmediateDeliveryLineItem
+        - CBPEntryLineItem
   commodity: 
     title: Commodity
     description: Commodity classification based on either WCO HS or USITS HTS codification.
@@ -38,7 +38,7 @@ properties:
         https://service.unece.org/trade/uncefact/vocabulary/uncefact/#despatchedQuantity
   itemParty:
     title: Item Party
-    $ref: ./ImmediateDeliveryEntity.yml
+    $ref: ./CBPEntryEntity.yml
     $linkedData:
       term: itemParty
       '@id': https://w3id.org/traceability#itemParty
@@ -78,7 +78,7 @@ required:
   - countryOfOrigin
 example: |-
   {
-    "type": ["ImmediateDeliveryLineItem"],
+    "type": ["CBPEntryLineItem"],
     "commodity": {
       "type": ["Commodity"],
       "commodityCode": "9403 7000 00",
@@ -87,7 +87,7 @@ example: |-
     "productDescription": "Mobility assistance equipment",
     "itemCount": 400,
     "itemParty": {
-      "type": ["ImmediateDeliveryEntity"],
+      "type": ["CBPEntryEntity"],
       "consignee": {
         "type": ["Organization"],
         "name": "Future Mobility, Inc.",
@@ -102,8 +102,13 @@ example: |-
           }
         }
       },
-      "assignedIdentifier": "12345678",
-      "assignedIdentifierType": "CBP"
+      "importerOfRecord": {
+        "type": [
+          "CBPImporterOfRecord"
+        ],
+        "number": "10025672",
+        "identifierType": "CBP"
+      }
     },
     "freeTradeZoneFilingDate": "2022-02-25",
     "freeTradeZoneStatus": "N",
