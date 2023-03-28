@@ -1,21 +1,21 @@
 $linkedData:
-  term: ImmediateDelivery
-  '@id': https://w3id.org/traceability#ImmediateDelivery
-title: Immediate Delivery
-description: CBP Form 3461 for Immediate Delivery (https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%20Form%203461%20-%20ACE%20Fillable.pdf and https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%203461%20Instructions_0.pdf).
+  term: CBPEntry
+  '@id': https://w3id.org/traceability#CBPEntry
+title: CBP Entry
+description: CBP Form 3461 for Entry/Immediate Delivery (https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%20Form%203461%20-%20ACE%20Fillable.pdf and https://www.cbp.gov/sites/default/files/assets/documents/2016-Jun/CBP%203461%20Instructions_0.pdf).
 type: object
 properties:
   type:
     type: array
     readOnly: true
     const:
-      - ImmediateDelivery
+      - CBPEntry
     default:
-      - ImmediateDelivery
+      - CBPEntry
     items:
       type: string
       enum:
-        - ImmediateDelivery
+        - CBPEntry
   portOfEntry:
     title: Port Of Entry
     $ref: ./Place.yml
@@ -31,28 +31,18 @@ properties:
       '@id': https://w3id.org/traceability#bondType
   importer:
     title: Importer
-    description: Importer of Record
+    description: Importer Organization
     $ref: ./Organization.yml
     $linkedData:
       term: importer
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#importerParty
-  assignedIdentifier: 
-    title: Assigned Identifier
-    description: Assigned Identifier
-    type: string
+  importerOfRecord: 
+    title: Importer Of Record
+    description: US CBP importer of record.
+    $ref: ./CBPImporterOfRecord.yml
     $linkedData:
-      term: assignedIdentifier
-      '@id': https://schema.org/identifier
-  assignedIdentifierType:
-    title: Assigned Identifier Type
-    description: IRS, SSN, or CBP Assigned number.
-    enum:
-      - IRS
-      - SSN
-      - CBP
-    $linkedData:
-      term: assignedIdentifierType
-      '@id': https://w3id.org/traceability#assignedIdentifierType
+      term: importerOfRecord
+      '@id': https://w3id.org/traceability#importerOfRecord
   entryNumber:
     title: Entry Number
     description: The 11 digit alphanumeric code. The entry number is comprised of the three-digit filer code, followed by the seven-digit entry number, and completed with the one-digit check digit. The Entry Filer Code represents the three-character alphanumeric filer code assigned to the filer or importer by CBP. The Entry Number represents the seven-digit number assigned by the filer. The number may be assigned in any manner convenient, provided that the same number is not assigned to more than one CBP Form 3461. Leading zeros must be shown. The check digit is computed on the previous 10 characters. The formula for calculating the check digit can be found in Appendix 1.
@@ -178,7 +168,7 @@ properties:
     description: Select the Header Party Type from the available options. Use a separate line for each Header Party Type. The Header Parties must apply to the entire entry.  If not, skip to line information (Block 24).
     type: array
     items: 
-      $ref: ./ImmediateDeliveryEntity.yml 
+      $ref: ./CBPEntryEntity.yml 
     $linkedData:
       term: headerParties
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#Party
@@ -186,7 +176,7 @@ properties:
     title: Line Items
     type: array
     items: 
-      $ref: ./ImmediateDeliveryLineItem.yml 
+      $ref: ./CBPEntryLineItem.yml 
     $linkedData:
       term: lineItems
       '@id': https://w3id.org/traceability#lineItems
@@ -264,15 +254,14 @@ required:
   - type
   - portOfEntry
   - importer
-  - assignedIdentifier
-  - assignedIdentifierType
+  - importerOfRecord
   - entryNumber
   - entryType
   - transportMode
   - arrivalDate
 example: |-
   {
-    "type": ["ImmediateDelivery"],
+    "type": ["CBPEntry"],
     "portOfEntry": {
       "type": ["Place"],
       "unLocode": "USLBC"
@@ -292,8 +281,11 @@ example: |-
         }
       }
     },
-    "assignedIdentifier": "12345678",
-    "assignedIdentifierType": "CBP",
+    "importerOfRecord":   {
+      "type": ["CBPImporterOfRecord"],
+      "number": "10025672",
+      "identifierType": "CBP"
+    },
     "entryNumber": "12345123456",
     "bondValue": 12000,
     "entryValue": 12000,
@@ -316,7 +308,7 @@ example: |-
     "referenceIDNumber": "EX123456",
     "lineItems": [
       {
-        "type": ["ImmediateDeliveryLineItem"],
+        "type": ["CBPEntryLineItem"],
         "commodity": {
           "type": ["Commodity"],
           "commodityCode": "9403 7000 00",
@@ -325,7 +317,7 @@ example: |-
         "productDescription": "Mobility assistance equipment",
         "itemCount": 400,
         "itemParty": {
-          "type": ["ImmediateDeliveryEntity"],
+          "type": ["CBPEntryEntity"],
           "consignee": {
             "type": ["Organization"],
             "name": "Future Mobility, Inc.",
@@ -340,8 +332,11 @@ example: |-
               }
             }
           },
-          "assignedIdentifier": "12345678",
-          "assignedIdentifierType": "CBP"
+          "importerOfRecord":   {
+            "type": ["CBPImporterOfRecord"],
+            "number": "10025672",
+            "identifierType": "CBP"
+          }
         },
         "freeTradeZoneFilingDate": "2022-02-25",
         "freeTradeZoneStatus": "N",

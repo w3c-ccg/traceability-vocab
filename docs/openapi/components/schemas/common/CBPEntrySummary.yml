@@ -1,6 +1,6 @@
 $linkedData:
-  term: EntrySummary
-  '@id': https://w3id.org/traceability#EntrySummary
+  term: CBPEntrySummary
+  '@id': https://w3id.org/traceability#CBPEntrySummary
 title: Entry Summary
 description: CBP Form 7501 for Entry Summary (https://www.cbp.gov/sites/default/files/assets/documents/2021-Sep/CBP%20Form%207501.pdf).
 type: object
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - EntrySummary
+      - CBPEntrySummary
     default:
-      - EntrySummary
+      - CBPEntrySummary
     items:
       type: string
       enum:
-        - EntrySummary
+        - CBPEntrySummary
   entryNumber:
     title: Entry Number
     description: The 11 digit alphanumeric code. The entry number is comprised of the three-digit filer code, followed by the seven-digit entry number, and completed with the one-digit check digit. The Entry Filer Code represents the three-character alphanumeric filer code assigned to the filer or importer by CBP. The Entry Number represents the seven-digit number assigned by the filer. The number may be assigned in any manner convenient, provided that the same number is not assigned to more than one CBP Form 3461. Leading zeros must be shown. The check digit is computed on the previous 10 characters. The formula for calculating the check digit can be found in Appendix 1.
@@ -229,7 +229,7 @@ properties:
     description: A description of the articles in sufficient detail to permit the classification thereof under the proper statistical reporting number in the HTS should be reported at the top of column 28. The standard definitions from the CBP HTS database are acceptable for this requirement. 
     type: array 
     items: 
-      $ref: ./EntrySummaryLineItem.yml
+      $ref: ./CBPEntrySummaryLineItem.yml
     $linkedData:
       term: descriptionOfMerchandise
       '@id': https://w3id.org/traceability#descriptionOfMerchandise
@@ -296,7 +296,7 @@ required:
   - descriptionOfMerchandise
 example: |-
   {
-    "type": ["EntrySummary"],
+    "type": ["CBPEntrySummary"],
     "entryNumber": "73461882610",
     "entryType": "01",
     "summaryDate": "2022-03-01T12:54Z",
@@ -363,7 +363,7 @@ example: |-
     },
     "descriptionOfMerchandise": [
       {
-        "type": ["EntrySummaryLineItem"],
+        "type": ["CBPEntrySummaryLineItem"],
         "commodity": {
           "type": ["Commodity"],
           "commodityCode": "2204.21.60 00",
