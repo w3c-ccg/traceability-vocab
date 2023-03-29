@@ -51,7 +51,200 @@ properties:
       '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
   product:
     title: Product
-    $ref: ./Product.yml
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Product
+        default:
+          - Product
+        items:
+          type: string
+          enum:
+            - Product
+      id:
+        title: Product Identifier
+        description: The product identifier, such as ISBN.
+        type: string
+      gtin:
+        title: Global Trade Item Number (GTIN)
+        type: string
+      manufacturer:
+        title: Manufacturer
+        description: The entity manufacturing the product.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Organization
+            default:
+              - Organization
+            items:
+              type: string
+              enum:
+                - Organization
+          name:
+            title: Name
+            description: Name of the organization.
+            type: string
+          id: 
+            title: Identifier
+            description: Organization identifier.
+            type: string
+          url:
+            title: URL
+            description: URL of the organization.
+            type: string
+          description:
+            title: Description
+            description: Description of the company.
+            type: string
+          globalLocationNumber:
+            title: Global Location Number
+            description: The GS1 GLN of the organization.
+            type: string
+          email:
+            title: Email Address
+            description: Organization's primary email address.
+            type: string
+          phoneNumber:
+            title: Phone Number
+            description: Organization's contact phone number.
+            type: string
+          logo:
+            type: string
+            format: uri
+            description: Logo of the entity.
+          taxId:
+            title: Tax Identification Number
+            description: >-
+              The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US
+              or the CIF/NIF in Spain.
+            type: string
+        additionalProperties: false
+        required:
+          - type
+      name:
+        title: Name
+        description: Name of the shipment item(s)
+        type: string
+      description:
+        title: Description
+        description: Description of the shipment.
+        type: string
+      category:
+        title: Category
+        description: A category for the item.
+        type: string
+      sizeOrAmount:
+        title: Size or Amount
+        description: The size or amount of the product
+        $ref: ./QuantitativeValue.yml
+      weight:
+        title: Weight
+        description: Weight of the product.
+        $ref: ./QuantitativeValue.yml
+      depth:
+        title: Depth
+        description: The depth of the item.
+        $ref: ./QuantitativeValue.yml
+      width:
+        title: Width
+        description: The width of the item.
+        $ref: ./QuantitativeValue.yml
+      height:
+        title: Height
+        description: The height of the item.
+        $ref: ./QuantitativeValue.yml
+      productPrice:
+        title: Product Price
+        description: >-
+          One or more detailed price specifications, indicating the unit price and
+          delivery or payment charges.
+        $ref: ./PriceSpecification.yml
+      sku:
+        title: SKU Number
+        description: >-
+          The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
+          product or service, or for the product to which the offer refers.
+        type: string
+      batchNumber:
+        title: Batch Number
+        description: A tracking number for commodities
+        type: string
+      commodity:
+        title: Commodity
+        description: Product commodity code, codification system and description
+        $ref: ./Commodity.yml
+      seller:
+        title: Seller
+        description: The entity manufacturing the product.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Organization
+            default:
+              - Organization
+            items:
+              type: string
+              enum:
+                - Organization
+          name:
+            title: Name
+            description: Name of the organization.
+            type: string
+          id: 
+            title: Identifier
+            description: Organization identifier.
+            type: string
+          url:
+            title: URL
+            description: URL of the organization.
+            type: string
+          description:
+            title: Description
+            description: Description of the company.
+            type: string
+          globalLocationNumber:
+            title: Global Location Number
+            description: The GS1 GLN of the organization.
+            type: string
+          email:
+            title: Email Address
+            description: Organization's primary email address.
+            type: string
+          phoneNumber:
+            title: Phone Number
+            description: Organization's contact phone number.
+            type: string
+          logo:
+            type: string
+            format: uri
+            description: Logo of the entity.
+          taxId:
+            title: Tax Identification Number
+            description: >-
+              The Tax / Fiscal ID of the organization or person, e.g., the TIN in the US
+              or the CIF/NIF in Spain.
+            type: string
+        additionalProperties: false
+        required:
+          - type
+      images:
+        title: Images of the product
+        type: array
+        items: 
+          type: string
+    additionalProperties: false
+    required:
+      - type
     $linkedData:
       term: product
       '@id': https://schema.org/Product
