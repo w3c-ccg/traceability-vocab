@@ -1,0 +1,35 @@
+title: Organization
+description: The issuer organization
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Organization
+    default:
+      - Organization
+    items:
+      type: string
+      enum:
+        - Organization
+  id: 
+    title: Identifier
+    description: Organization identifier.
+    type: string
+  name:
+    title: Name
+    description: Name of the organization.
+    type: string
+additionalProperties: false
+required:
+  - type
+  - id
+example: |-
+  {
+    "type": [
+      "Organization"
+    ],
+    "id": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+    "name": "Glover - Gleason"
+  }
