@@ -1,0 +1,114 @@
+title: Issuer Organization
+description: Organization issuing a Verifiable Credential.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Organization
+    default:
+      - Organization
+    items:
+      type: string
+      enum:
+        - Organization
+  id: 
+    title: Identifier
+    description: Organization identifier.
+    type: string
+  name:
+    title: Name
+    description: Name of the organization.
+    type: string
+  description:
+    title: Description
+    description: Description of the company.
+    type: string
+  location:
+    title: Location
+    description: The location where, for example, an event is happening, an organization is located, or an action takes place.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Place
+        default:
+          - Place
+        items:
+          type: string
+          enum:
+            - Place
+      address:
+        title: Postal Address
+        description: The postal address for an organization or place.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - PostalAddress
+            default:
+              - PostalAddress
+            items:
+              type: string
+              enum:
+                - PostalAddress
+          name:
+            title: Name
+            description: The name of the entity in text.
+            type: string
+          streetAddress:
+            title: Street Address
+            description: >-
+              The street address expressed as free form text. The street address is
+              printed on paper as the first lines below the name. For example, the name
+              of the street and the number in the street, or the name of a building.
+            type: string
+          addressLocality:
+            title: Address Locality
+            description: Text specifying the name of the locality; for example, a city.
+            type: string
+          addressRegion:
+            title: Address Region
+            description: >-
+              Text specifying a province or state in abbreviated format; for example,
+              NJ.
+            type: string
+          addressCountry:
+            title: Address Country
+            description: >-
+              The two-letter ISO 3166-1 alpha-2 country code.
+            type: string
+          postalCode:
+            title: Postal Code
+            description: Text specifying the postal code for an address.
+            type: string
+        additionalProperties: false
+        required:
+          - type
+additionalProperties: false
+required:
+  - type
+  - id
+example: |-
+  {
+    "type": ["Organization"],
+    "name": "Maxi Acero Mexicano",
+    "id": "did:web:maxi-acero.example.com",
+    "description": "Fusion y fabricacion de acero solido",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "Avenida Carlos 100",
+        "addressLocality": "Hernádez de Mara",
+        "addressRegion": "Nuevo Leon",
+        "postalCode": "32200",
+        "addressCountry": "Mexico"
+      }
+    }
+  }
