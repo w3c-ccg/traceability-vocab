@@ -1,0 +1,192 @@
+$linkedData:
+  term: OilAndGasProduct
+  '@id': https://w3id.org/traceability#OilAndGasProduct
+title: Crude Oil and Natural Gas Product
+description: Information regarding a crude oil or natural gas product 
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - OilAndGasProduct
+    default:
+      - OilAndGasProduct
+    items:
+      type: string
+      enum:
+        - OilAndGasProduct
+  product:
+    title: Product
+    description: Product details as outlined in the Product schema
+    $ref: ./Product.yml
+    $linkedData:
+      term: product
+      '@id': https://www.gs1.org/voc/Product
+  facility:
+    title: Manufacture Facility
+    description: Information on the manufacture facility.
+    $ref: ./Place.yml
+    $linkedData:
+      term: facility
+      '@id': https://www.gs1.org/voc/Place
+  UWI:
+    title: Unique Well Identifier
+    description: Unique Well Identifier used for individual well identification.
+    type: string
+    $linkedData:
+      term: UWI
+      '@id': https://schema.org/identifier
+  productionDate:
+    title: Production Date
+    description: Date when the product was created
+    type: string
+    $linkedData:
+      term: productionDate
+      '@id': https://schema.org/DateTime
+  observation:
+    title: Observation List
+    description: >-
+      List of observations as seen and specified in the Inspection Report
+      schema, https://w3id.org/traceability#InspectionReport
+    type: array
+    items:
+      $ref: ./Observation.yml
+    $linkedData:
+      term: observation
+      '@id': https://w3id.org/traceability#observation
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type":[
+      "OilAndGasProduct"
+    ],
+    "UWI":"100.12-04-091-05-W5.00",
+    "productionDate":"2020-03-30",
+    "facility":{
+      "type":[
+        "Place"
+      ],
+      "globalLocationNumber":"3177794693200",
+      "geo":{
+        "type":[
+          "GeoCoordinates"
+        ],
+        "latitude":"82.9129",
+        "longitude":"-140.7984"
+      },
+      "address":{
+        "type":[
+          "PostalAddress"
+        ],
+        "name":"Nienow Group",
+        "streetAddress":"9479 Keven Wall",
+        "addressLocality":"East Jadonview",
+        "addressRegion":"Virginia",
+        "postalCode":"10260-9018",
+        "addressCountry":"Serbia"
+      },
+      "unLocode":"DKCPH"
+    },
+    "observation":[
+      {
+        "type":[
+          "Observation"
+        ],
+        "date":"2019-12-11T03:50:55Z",
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "identifier":"ISO 180",
+          "name":"Izod Impact Strength Test",
+          "description":"ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"95.699",
+          "unitCode":"B13"
+        }
+      },
+      {
+        "type":[
+          "Observation"
+        ],
+        "date":"2019-12-11T03:50:55Z",
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "identifier":"ISO 180",
+          "name":"Izod Impact Strength Test",
+          "description":"ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"52.953",
+          "unitCode":"B13"
+        }
+      },
+      {
+        "type":[
+          "Observation"
+        ],
+        "date":"2019-12-11T03:50:55Z",
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "identifier":"ISO 1352",
+          "name":"Torque-controlled fatigue testing",
+          "description":"ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10°C and 35°C) in air by applying a pure couple to the specimen about its longitudinal axis."
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"00.00",
+          "unitCode":"UNKNOWN"
+        }
+      }
+    ],
+    "product":{
+      "type":[
+        "Product"
+      ],
+      "manufacturer":{
+        "type":[
+          "Organization"
+        ],
+        "email":"Kellen.Cummerata48@example.org",
+        "phoneNumber":"555-591-2622"
+      },
+      "name":"Crude Oil Barrel",
+      "description":"Heavy Sour Dilbit",
+      "sizeOrAmount":{
+        "type":[
+          "QuantitativeValue"
+        ],
+        "unitCode":"hg/ha",
+        "value":"8438"
+      },
+      "weight":{
+        "type":[
+          "QuantitativeValue"
+        ],
+        "unitCode":"hg/ha",
+        "value":"9813"
+      },
+      "sku":"391864383008",
+      "commodity": {
+        "type": ["Commodity"],
+        "commodityCode": "270900",
+        "commodityCodeType": "HS"
+      }
+    }
+  }
