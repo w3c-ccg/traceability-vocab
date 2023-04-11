@@ -28,7 +28,7 @@ const verifiableCredentials = schemas
   )
   .sort((a, b) => (a.type.toString() > b.type.toString() ? -1 : 1));
 
-const vocabBase = 'https://w3id.org/traceability/#undefinedTerm';
+const vocabBase = 'https://www.w3.org/ns/credentials/issuer-dependent#';
 
 function countOcurrences(str, value) {
   const regExp = new RegExp(value, 'gi');

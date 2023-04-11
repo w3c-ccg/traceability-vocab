@@ -69,7 +69,7 @@ console.log('🧪 build context from api');
   const root = {
     '@context': {
       '@version': 1.1,
-      '@vocab': 'https://w3id.org/traceability/#undefinedTerm',
+      '@vocab': 'https://www.w3.org/ns/credentials/issuer-dependent#',
       id: '@id',
       type: '@type',
       ...rootTerms,
