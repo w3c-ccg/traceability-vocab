@@ -29,7 +29,7 @@ properties:
     type: string
     $linkedData:
       term: orderDate
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerOrderDateTime
+      '@id': https://vocabulary.uncefact.org/buyerOrderDateTime
   portOfEntry:
     title: Port Of Entry
     description: Port where the purchased goods will enter first.
@@ -43,35 +43,35 @@ properties:
     type: string
     $linkedData:
       term: originCountry
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#originCountry
+      '@id': https://vocabulary.uncefact.org/originCountry
   destinationCountry:
     title: Destination Country
     description: Country to which the ordered product will be delivered
     type: string
     $linkedData:
       term: destinationCountry
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#destinationCountry
+      '@id': https://vocabulary.uncefact.org/destinationCountry
   seller:
     title: Seller
     description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
     $ref: ../snippets/SellerParty.yml
     $linkedData:
       term: seller
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#sellerParty
+      '@id': https://vocabulary.uncefact.org/sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
     $ref: ../snippets/BuyerParty.yml
     $linkedData:
       term: buyer
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#buyerParty
+      '@id': https://vocabulary.uncefact.org/buyerParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
     $ref: ../snippets/ShipToParty.yml
     $linkedData:
       term: shipToParty
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#shipToParty
+      '@id': https://vocabulary.uncefact.org/shipToParty
   itemsOrdered:
     title: Items Ordered
     description: Itemized list of ordered goods.
@@ -200,7 +200,7 @@ properties:
         - type
     $linkedData:
       term: itemsOrdered
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#TradeLineItem
+      '@id': https://vocabulary.uncefact.org/SupplyChainTradeLineItem
   comments:
     title: Comments
     description: Free text comments.
@@ -216,7 +216,7 @@ properties:
     type: number
     $linkedData:
       term: packageQuantity
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#packageQuantity
+      '@id': https://vocabulary.uncefact.org/packageQuantity
   totalWeight:
     title: Total Weight
     description: Total weight of the products.
@@ -230,14 +230,14 @@ properties:
     type: string
     $linkedData:
       term: termsOfDelivery
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedDeliveryTerms
+      '@id': https://vocabulary.uncefact.org/specifiedDeliveryTerms
   termsOfPayment:
     title: Terms of Payment
     description: Terms, conditions, and currency of settlement, as agreed upon by the vendor and purchaser per the pro forma invoice, customer purchase order, and/or the letter of credit.
     type: string
     $linkedData:
       term: termsOfPayment
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#specifiedPaymentTerms
+      '@id': https://vocabulary.uncefact.org/specifiedPaymentTerms
   currencyOfSettlement:
     title: Currency of Settlement
     description: Currency agreed upon between seller and buyer as payment.
@@ -269,14 +269,14 @@ properties:
       $ref: ./PriceSpecification.yml
     $linkedData:
       term: discounts
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#deductionAmount
+      '@id': https://vocabulary.uncefact.org/deductionAmount
   tax:
     title: Tax
     description: Applicable tax.
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: tax
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#taxTotalAmount
+      '@id': https://vocabulary.uncefact.org/taxTotalAmount
   freightCost:
     title: Freight Cost
     description: Included cost of freight.
@@ -290,14 +290,14 @@ properties:
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: insuranceCost
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#insuranceChargeTotalAmount
+      '@id': https://vocabulary.uncefact.org/insuranceChargeTotalAmount
   totalOrderAmount:
     title: Total Order Amount
     description: The total amount due.
     $ref: ./PriceSpecification.yml
     $linkedData:
       term: totalOrderAmount
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncefact/#MonetarySummation
+      '@id': https://vocabulary.uncefact.org/grandTotalAmount
 additionalProperties: false
 required:
   - type
