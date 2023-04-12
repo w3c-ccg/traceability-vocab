@@ -1,6 +1,7 @@
 const jose = require('jose');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+// pending merge of https://github.com/w3c-ccg/traceability-vocab/pull/735
 // const { schemas } = require('traceability-schemas');
 const schemas = [];
 const privateKeyJwk = require('./privateKeyJwk');
@@ -75,6 +76,7 @@ describe('sign and verify', () => {
   });
 
   afterAll(() => {
-    fs.writeFileSync('./examples/v2.json', JSON.stringify(fixture, null, 2));
+    // pending merge of https://github.com/w3c-ccg/traceability-vocab/pull/735
+    // fs.writeFileSync('./examples/v2.json', JSON.stringify(fixture, null, 2));
   });
 });
