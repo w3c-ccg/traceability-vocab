@@ -1,0 +1,19 @@
+name: VCDM v2 Test Suite
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Begin CI...
+        uses: actions/checkout@v2
+      - name: Use Node 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Install
+        run: npm ci
+      - name: Test
+        working-directory: packages/traceability-tests
+        run: npm t
