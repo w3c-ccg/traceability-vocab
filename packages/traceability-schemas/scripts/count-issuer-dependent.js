@@ -8,8 +8,6 @@ const documentLoader = require('../services/documentLoader');
 
 const { schemas } = require('../services/schemas');
 
-jest.setTimeout(60 * 1000);
-
 const verifiableCredentials = schemas
   .map((s) => {
     try {
@@ -35,8 +33,7 @@ function countOcurrences(str, value) {
   return (str.match(regExp) || []).length;
 }
 
-describe('Verifiable Credentials Semantics', () => {
-  it('should produce a table / chart', async () => {
+(async () => {
     const table = await Promise.all(
       verifiableCredentials.map(async (vc) => {
         //   note the hacky search for a useful credential type here...
@@ -51,8 +48,7 @@ describe('Verifiable Credentials Semantics', () => {
     );
 
     fs.writeFileSync(
-      '../../docs/credentials-with-undefined-terms.json',
+      '../../docs/credentials-with-issuer-dependent-terms.json',
       JSON.stringify(table, null, 2)
     );
-  });
-});
+  })();
