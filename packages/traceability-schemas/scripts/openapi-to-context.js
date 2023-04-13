@@ -72,6 +72,12 @@ console.log('🧪 build context from api');
       '@vocab': 'https://w3id.org/traceability/#undefinedTerm',
       id: '@id',
       type: '@type',
+      TraceablePresentation: {
+        '@id': 'https://w3id.org/traceability#TraceablePresentation',
+        '@context': {
+          '@vocab': 'https://w3id.org/traceability#'
+        },
+      },
       ...rootTerms,
       ...context,
     },

@@ -1,45 +1,22 @@
-$linkedData:
-  term: Workflow
-  '@id': https://w3id.org/traceability#Workflow
-title: Workflow
-description: A Workflow Definition and Instance.
+title: workflow
+description: This is a property of a TraceablePresentation, and receives its semantics from that RDF Class.
 type: object
 properties:
-  type:
-    type: array
-    readOnly: true
-    const:
-      - Workflow
-    default:
-      - Workflow
-    items:
-      type: string
-      enum:
-        - Workflow
   definition: 
     description: The Workflow Definition indicates the intention behind the presentation. 
     type: array
     items:
       type: string
-    $linkedData:
-      term: definition
-      '@id': https://w3id.org/traceability/#workflow-definition
   instance:
     description: The Workflow Instance identifies this particular workflow. Subsequent presentations may indicate correlation by referencing the same instance identifier.
     type: array
     items:
       type: string
-    $linkedData:
-      term: instance
-      '@id': https://w3id.org/traceability/#workflow-instance
 additionalProperties: false  
 required:
   - instance
 example: |-
   {
-    "type": [
-      "Workflow"
-    ],
     "definition": [
       "https://w3id.org/traceability/#sima-steel-license"
     ],
