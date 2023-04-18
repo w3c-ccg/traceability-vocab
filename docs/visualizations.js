@@ -111,7 +111,7 @@ data.categories = [
       renderer: 'canvas',
       useDirtyRect: false,
     });
-    const res = await fetch('./credentials-with-undefined-terms.json');
+    const res = await fetch('./credentials-with-issuer-dependent-terms.json');
     const undefinedTermsByCredentialType = await res.json();
     const source = undefinedTermsByCredentialType.map((ct) => [ct.type, ct.count]);
     const option = {
