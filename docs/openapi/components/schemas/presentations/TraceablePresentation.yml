@@ -1,6 +1,3 @@
-$linkedData:
-  term: TraceablePresentation
-  '@id': https://w3id.org/traceability#TraceablePresentation
 title: Traceable Presentation
 description: A JSON-LD Presentation which establishes traceability linkage to a workflow instance and workflow definition. The first Traceable Presentation establishes an instance identifier. The Workflow Instance identifies this particular workflow. Subsequent presentations indicates correlation by referencing the same instance identifier. The Workflow Definition indicates the intention of the presentation. 
 type: object
@@ -8,61 +5,31 @@ properties:
   workflow:
     $ref: ../common/Workflow.yml
     description: Establishes a traceable link from the presentation to a workflow.
-    $linkedData:
-      term: workflow
-      '@id': https://w3id.org/traceability#Workflow
 required: 
-  - workflow
   - id
+  - workflow
   - holder
 example: |-
- {
-    "@context":[
-       "https://www.w3.org/2018/credentials/v1",
-       "https://w3id.org/security/suites/jws-2020/v1",
-       "https://w3id.org/traceability/v1"
-    ],
-    "id":"urn:uuid:83432751123654",
-    "type":[
-       "VerifiablePresentation",
-       "TraceablePresentation"
-    ],
-    "workflow":{
-       "instance":[
-          "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
-       ],
-       "definition":[
-          "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
-       ]
-    },
-    "holder":{
-       "id":"did:web:sender.example",
-       "type":["Organization"],
-       "location":{
-          "type":["Place"],
-          "geo":{
-             "type":["GeoCoordinates"],
-             "latitude":"68.7083",
-             "longitude":"4.6377"
-          },
-          "address":{
-             "type":["PostalAddress"],
-             "name":"Ratke - Bergstrom",
-             "streetAddress":"21851 Ima Heights",
-             "addressLocality":"O'Connellborough",
-             "addressRegion":"Missouri",
-             "postalCode":"65587",
-             "addressCountry":"Cyprus"
-          }
-       }
-    },
-    "verifiableCredential":[],
-    "proof":{
-       "type":"JsonWebSignature2020",
-       "created":"2021-10-04T17:19:20Z",
-       "verificationMethod":"did:example:123#key-2",
-       "proofPurpose":"authentication",
-       "challenge":"123",
-       "jws":"eyJhbGciOiJFUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..Q0J7CcbM19fvfLdBZ44MlndvNACnmb0x1SM0cGnECye_-JC3Of29eroksqsVDTyXGAaQ_gnvcB4cqefK0jLIOg"
-    }
- }
+   {
+      "@context": [
+         "https://www.w3.org/2018/credentials/v1",
+         "https://w3id.org/traceability/v1"
+      ],
+      "id": "urn:uuid:00000000-8596-4c3a-a978-8fcaba3903c5",
+      "type": [
+         "VerifiablePresentation",
+         "TraceablePresentation"
+      ],
+      "workflow": {
+         "definition": [
+            "urn:uuid:11111111-cc91-4bb3-91f1-5466a0be084e"
+         ],
+         "instance": [
+            "urn:uuid:22222222-b0b1-41b8-89b0-331ni58b7ee0"
+         ]
+      },
+      "holder": {
+         "id": "did:web:sender.example",
+         "type": "Organization"
+      }
+   }
