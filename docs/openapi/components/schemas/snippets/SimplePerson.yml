@@ -1,0 +1,32 @@
+title: Person
+description: A person
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Person
+    default:
+      - Person
+    items:
+      type: string
+      enum:
+        - Person
+  firstName:
+    title: First Name
+    description: Person's first name.
+    type: string
+  lastName:
+    title: Last Name
+    description: Person's last name.
+    type: string
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["Person"],
+    "firstName": "Amelie",
+    "lastName": "Pfeffer"
+  }
