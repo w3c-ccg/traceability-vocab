@@ -1,8 +1,8 @@
 $linkedData:
   term: Inspection
   '@id': https://w3id.org/traceability#Inspection
-title: Inspection 
-description: Series of observations
+title: Inspection
+description: Inspections conducted as part of a Mill Test certification. 
 type: object
 properties:
   type:
@@ -16,115 +16,150 @@ properties:
       type: string
       enum:
         - Inspection
-  chemicalObservation:
-    title: Observation List
-    description: List of observations
-    type: array
-    items:
-      type: object
-      properties:
-        type:
-          type: array
-          readOnly: true
-          const:
-            - Observation
-          default:
-            - Observation
-          items:
-            type: string
-            enum:
-              - Observation
-        property:
-          title: Measured Property
-          description: The property of an Observation.
-          $ref: ./ChemicalProperty.yml
-        measurement:
-          title: Measured Value
-          description: The measurement of an Observation.
-          $ref: ./MeasuredValue.yml
-        date:
-          title: Observation Date
-          description: The date of the Observation.
-          type: string
-      required:
-        - type
-    $linkedData:
-      term: chemicalObservation
-      '@id': https://schema.org/ItemList
-  mechanicalObservation:
-    title: Observation List
-    description: List of observations
-    type: array
-    items:
-      type: object
-      properties:
-        type:
-          type: array
-          readOnly: true
-          const:
-            - Observation
-          default:
-            - Observation
-          items:
-            type: string
-            enum:
-              - Observation
-        property:
-          title: Measured Property
-          description: The property of an Observation.
-          $ref: ./MechanicalProperty.yml
-        measurement:
-          title: Measured Value
-          description: The measurement of an Observation.
-          $ref: ./MeasuredValue.yml
-        date:
-          title: Observation Date
-          description: The date of the Observation.
-          type: string
-    $linkedData:
-      term: mechanicalObservation
-      '@id': https://schema.org/ItemList
+  productIdentifier: 
+    title: Product Identifier
+    description: Product identifier such as lot, part, coil, or serial number.
+    type: string
+  productName: 
+    title: Product Name
+    description: Descriptive product name. 
+    type: string
+  productDimensions: 
+    title: Product Dimensions
+    description: Confirmed dimensions of product, as applicable to the product type (for example diameter or thickness).
+    $ref: ./ProductDimensions.yml
+  pieces: 
+    title: Pieces
+    description: The amount of units. 
+    type: number
+  perUnitWeight: 
+    title: Per Unit Weight
+    description: Nominal unit weight.
+    $ref: ./MeasuredValue.yml
+  totalWeight: 
+    title: Total Weight
+    description: Total product weight.
+    $ref: ./MeasuredValue.yml
+  countryOfManufacture: 
+    title: Country of Manufacture
+    description: Manufacturing country.
+    type: string
+  countryOfMeltAndPour: 
+    title: Country of Melt and Pour
+    description: Country of original melt and pour.
+    type: string
+  meltPractice: 
+    title: Melt Practice
+    description: Type of melting practice.
+    type: string
+  heatNumber: 
+    title: Heat Number
+    description: Heat identification.
+    type: string
+  testNumber: 
+    title: Test number
+    description: Identifier of test conducted.
+    type: string
+  chemicalComposition: 
+    title: Chemical Composition
+    description: Measured chemical composition. 
+    $ref: ./ChemicalComposition.yml
+  mechanicalProperties: 
+    title: Mechanical Properties
+    description: Mechanical property measurements. 
+    $ref: ./MechanicalProperties.yml
 additionalProperties: false
 required:
   - type
-  - chemicalObservation
-  - mechanicalObservation
 example: |-
   {
     "type": ["Inspection"],
-    "chemicalObservation": [
-      {
-        "type": ["Observation"],
-        "date": "2019-12-11T03:50:55Z",
-        "property": {
-          "type": ["ChemicalProperty"],
-          "name": "Lutetium",
-          "formula": "Lu",
-          "inchi": "InChI=1S/Lu",
-          "inchikey": "OHSVLFRHMCKCQY-UHFFFAOYSA-N"
-        },
-        "measurement": {
-          "type": ["MeasuredValue"],
-          "value": "100.00",
-          "unitCode": "P1"
-        }
+    "productIdentifier": "212900-34",
+    "productName": "Stainless Steel Plate",
+    "productDimensions": {
+      "type": ["ProductDimensions"],
+      "length": {
+        "type": ["MeasuredValue"],
+        "value": "6000",
+        "unitCode": "MM"
+      },
+      "width": {
+        "type": ["MeasuredValue"],
+        "value": "6000",
+        "unitCode": "MM"
+      },
+      "thickness": {
+        "type": ["MeasuredValue"],
+        "value": "6000",
+        "unitCode": "MM"
       }
-    ],
-    "mechanicalObservation": [
-      {
-        "type": ["Observation"],
-        "date": "2019-12-11T03:50:55Z",
-        "property": {
-          "type": ["MechanicalProperty"],
-          "identifier": "ISO 1352",
-          "name": "Torque-controlled fatigue testing",
-          "description": "ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
-        },
-        "measurement": {
-          "type": ["MeasuredValue"],
-          "value": "00.00",
-          "unitCode": "UNKNOWN"
-        }
+    },
+    "pieces": 80, 
+    "perUnitWeight": {
+      "type": ["MeasuredValue"],
+      "value": "3620",
+      "unitCode": "KG"
+    },
+    "totalWeight": {
+      "type": ["MeasuredValue"],
+      "value": "289600",
+      "unitCode": "KG"
+    },
+    "countryOfManufacture": "US", 
+    "countryOfMeltAndPour": "US",
+    "meltPractice": "EAM",
+    "heatNumber": "61316",
+    "testNumber": "1205",
+    "chemicalComposition": {
+      "type": ["ChemicalComposition"],
+      "c": 0.0189,
+      "mn": 1.568,
+      "p": 0.035,
+      "s": 0.0128,
+      "si": 0.312,
+      "al": 0.004,
+      "cu": 0.4208,
+      "ni": 8.286,
+      "cr": 16.558,
+      "mo": 2.03,
+      "nbCb": 0,
+      "v": 0.004,
+      "ti": 0.003,
+      "b": 0.0014,
+      "n": 0.0074,
+      "ca": 0.0018
+    },
+    "mechanicalProperties": {
+      "type": ["MechanicalProperties"],
+      "tensile": {
+        "type": ["MeasuredValue"],
+        "value": "367.22",
+        "unitCode": "MPa"
+      },
+      "yield": {
+        "type": ["MeasuredValue"],
+        "value": "648.71",
+        "unitCode": "MPa"
+      },
+      "hardness": {
+        "type": ["MeasuredValue"],
+        "value": "86",
+        "unitCode": "HRB"
+      },
+      "elongation": {
+        "type": ["MeasuredValue"],
+        "value": "32",
+        "unitCode": "%"
+      },
+      "sharpy": {
+        "type": ["MeasuredValue"],
+        "value": "3.55",
+        "unitCode": "J"
+      },
+      "reduction": {
+        "type": ["MeasuredValue"],
+        "value": "40",
+        "unitCode": "%"
       }
-    ]
+    }
   }

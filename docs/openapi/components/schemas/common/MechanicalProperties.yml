@@ -1,0 +1,97 @@
+$linkedData:
+  term: MechanicalProperties
+  '@id': https://w3id.org/traceability#MechanicalProperties
+title: Mechanical Properties
+description: Mechanical property measurements. 
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - MechanicalProperties
+    default:
+      - MechanicalProperties
+    items:
+      type: string
+      enum:
+        - MechanicalProperties
+  tensile:
+    title: Tensile
+    description: Tensile strength.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: tensile
+      "@id": https://w3id.org/traceability#tensile
+  yield:
+    title: Yield
+    description: Yield strength.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: yield
+      "@id": https://w3id.org/traceability#yield
+  hardness:
+    title: Hardness
+    description: Material hardness.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: hardness
+      "@id": https://w3id.org/traceability#hardness
+  elongation:
+    title: Elongation
+    description: Elongation percentage.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: elongation
+      "@id": https://w3id.org/traceability#elongation
+  sharpy:
+    title: Sharpy
+    description: Dynamic impact test.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: sharpy
+      "@id": https://w3id.org/traceability#sharpy
+  reduction:
+    title: Reduction
+    description: Reduction area.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: reduction
+      "@id": https://w3id.org/traceability#reduction
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": ["MechanicalProperties"],
+    "tensile": {
+      "type": ["MeasuredValue"],
+      "value": "367.22",
+      "unitCode": "MPa"
+    },
+    "yield": {
+      "type": ["MeasuredValue"],
+      "value": "648.71",
+      "unitCode": "MPa"
+    },
+    "hardness": {
+      "type": ["MeasuredValue"],
+      "value": "86",
+      "unitCode": "HRB"
+    },
+    "elongation": {
+      "type": ["MeasuredValue"],
+      "value": "32",
+      "unitCode": "%"
+    },
+    "sharpy": {
+      "type": ["MeasuredValue"],
+      "value": "3.55",
+      "unitCode": "J"
+    },
+    "reduction": {
+      "type": ["MeasuredValue"],
+      "value": "40",
+      "unitCode": "%"
+    }
+  }
