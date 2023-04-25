@@ -11916,7 +11916,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://service.unece.org/trade/uncefact/vocabulary/uncl1001/#Purchase_order">https://service.unece.org/trade/uncefact/vocabulary/uncl1001/#Purchase_order</a></td>
+    <td><a href="https://vocabulary.uncefact.org/DocumentCodeList#105">https://vocabulary.uncefact.org/DocumentCodeList#105</a></td>
   </tr>
   
   
@@ -11933,31 +11933,7 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
     "PurchaseOrder"
   ],
   "purchaseOrderNo" : "fe71665a-e7b3-49ba-ac89-82fc2bf1e877",
-  "portOfEntry": {
-    "type": ["Place"],
-    "unLocode": "USLGB"
-  },
-  "destinationCountry": "MEX",
   "orderDate": "2021-02-21",
-  "seller": {
-    "type": [
-      "Organization"
-    ],
-    "location": {
-      "type": ["Place"],
-      "address": {
-        "type": [
-          "PostalAddress"
-        ],
-        "name": "Aishi Metal Shinzo Co., Ltd.",
-        "streetAddress": "1651, Shimonakano, Yoshida",
-        "addressLocality": "Tsubame-shi",
-        "addressRegion": "Niigata-ken",
-        "postalCode": "959-0215",
-        "addressCountry": "Japan"
-      }
-    }
-  },
   "buyer": {
     "type": [
       "Organization"
@@ -11977,12 +11953,32 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
       }
     }
   },
-  "itemsOrdered": [
+  "seller": {
+    "type": [
+      "Organization"
+    ],
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": [
+          "PostalAddress"
+        ],
+        "name": "Aishi Metal Shinzo Co., Ltd.",
+        "streetAddress": "1651, Shimonakano, Yoshida",
+        "addressLocality": "Tsubame-shi",
+        "addressRegion": "Niigata-ken",
+        "postalCode": "959-0215",
+        "addressCountry": "Japan"
+      }
+    }
+  },
+  "items": [
     {
       "type": ["TradeLineItem"],
       "product": {
         "type": ["Product"],
-        "description": "UNS S30400 chromium-nickel stainless steel rolls.",
+        "id": "https://aishi-metal-shinzo.example.com/products/UNS-S30400-chromium-nickel-stainless-steel-roll",
+        "description": "UNS S30400 chromium-nickel stainless steel roll",
         "weight": {
           "type": ["QuantitativeValue"],
           "unitCode": "lbs",
@@ -12005,7 +12001,8 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
       "type": ["TradeLineItem"],
       "product": {
         "type": ["Product"],
-        "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
+        "id": "https://aishi-metal-shinzo.example.com/products/Galvannealed-ASTM-A-653-zinc-iron-alloy-coated-steel-sheet",
+        "description": "Galvannealed ASTM A-653 zinc-iron alloy-coated steel sheet",
         "weight": {
           "type": ["QuantitativeValue"],
           "value": "12680",
@@ -12037,7 +12034,6 @@ Learn more at [learning.postman.com/docs/getting-started](https://learning.postm
   }
 }</pre>
       <b>Dependencies</b><ul><li><a href='#BuyerParty'>BuyerParty</a></li>
-<li><a href='#Place'>Place</a></li>
 <li><a href='#PriceSpecification'>PriceSpecification</a></li>
 <li><a href='#QuantitativeValue'>QuantitativeValue</a></li>
 <li><a href='#SellerParty'>SellerParty</a></li>
