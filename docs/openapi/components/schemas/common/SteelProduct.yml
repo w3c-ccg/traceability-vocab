@@ -2,7 +2,7 @@ $linkedData:
   term: SteelProduct
   '@id': https://w3id.org/traceability#SteelProduct
 title: Steel Product
-description: Specifications of product.
+description: A finished or unfinished manufactured steel product
 type: object
 properties:
   type:
@@ -26,14 +26,14 @@ properties:
       '@id': https://schema.org/identifier
   specification:
     title: Specification
-    description: Specification of required standard of product.
+    description: The specification of the product
     type: string
     $linkedData:
       term: specification
       '@id': https://schema.org/identifier
   grade:
     title: Grade
-    description: Material grade.
+    description: The grade of the product
     type: array
     items: 
       type: string
@@ -75,23 +75,14 @@ properties:
     $linkedData:
       term: inspection
       '@id': https://w3id.org/traceability#Inspection
-  standard:
-    title: Standard
-    description: Required product standard.
-    type: string
-  heatTreatment:
-    title: Heat Treatment
-    description: Special heat treatments, depending on product specification. 
-    type: string
-  surfaceTreatment:
-    title: Surface Treatment
-    description: Surface treatments, if applicable. 
-    type: string
 additionalProperties: false  
 required:
   - type
+  - heatNumber
   - specification
   - grade
+  - originalCountryOfMeltAndPour
+  - inspection
 example: |-
   {
     "type": ["SteelProduct"],
