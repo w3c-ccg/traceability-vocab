@@ -267,13 +267,13 @@ properties:
     $linkedData:
       term: place
       '@id': https://schema.org/Place
-  commodity:
-    title: Commodity
-    description: Product commodity code, codification system, and description
-    $ref: ./Commodity.yml
+  product:
+    title: Product
+    description: Product details as outlined in the Product schema
+    $ref: ./Product.yml
     $linkedData:
-      term: commodity
-      '@id': https://w3id.org/traceability#Commodity
+      term: product
+      '@id': https://www.gs1.org/voc/Product
   observation:
     title: Observation List
     description: List of observations
@@ -325,14 +325,40 @@ example: |-
              "addressLocality": "Chicago"
          }
      },
-     "commodity": {
-         "type": [
-             "Commodity"
-         ],
-         "commodityCode": "2714.10.00.00",
-         "commodityCodeType": "HTS",
-         "description": "CDB"
-     },
+    "product":{
+      "type":[
+        "Product"
+      ],
+      "manufacturer":{
+        "type":[
+          "Organization"
+        ],
+        "email":"Kellen.Cummerata48@example.org",
+        "phoneNumber":"555-591-2622"
+      },
+      "name":"Crude Oil Barrel",
+      "description":"Heavy Sour Dilbit",
+      "sizeOrAmount":{
+        "type":[
+          "QuantitativeValue"
+        ],
+        "unitCode":"hg/ha",
+        "value":"8438"
+      },
+      "weight":{
+        "type":[
+          "QuantitativeValue"
+        ],
+        "unitCode":"hg/ha",
+        "value":"9813"
+      },
+      "sku":"391864383008",
+      "commodity": {
+        "type": ["Commodity"],
+        "commodityCode": "270900",
+        "commodityCodeType": "HS"
+      }
+    },
      "observation": [
          {
              "type": [
@@ -443,7 +469,7 @@ example: |-
              }
          }
      ],
-     "deliveryDestination": {
+     "destination": {
          "geo": {
              "type": [
                  "GeoCoordinates"
