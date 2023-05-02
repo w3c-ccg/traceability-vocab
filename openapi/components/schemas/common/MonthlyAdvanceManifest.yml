@@ -1,0 +1,76 @@
+$linkedData:
+  term: MonthlyAdvanceManifest
+  '@id': https://w3id.org/traceability#MonthlyAdvanceManifest
+title: Monthly Advance Manifest
+description: A manifest that contains the scheduled deliveries by location for the upcoming month.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - MonthlyAdvanceManifest
+    default:
+      - MonthlyAdvanceManifest
+    items:
+      type: string
+      enum:
+        - MonthlyAdvanceManifest
+  date:
+    title: Date
+    description: A date time value when the manifest is created
+    type: string
+    $linkedData:
+      term: date
+      '@id': https://schema.org/Date
+  scheduledDeliveries:
+    title: scheduledDeliveries
+    description: Scheduled deliveries for the upcoming month
+    type: array
+    items:
+      scheduledDelivery:
+        title: ScheduledDelivery
+        description: sum of all deliveries scheduled for a given location
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - ScheduledDelivery
+            default:
+              - ScheduledDelivery
+            items:
+              type: string
+              enum:
+                - ScheduledDelivery
+          deliveryLocation:
+            type: string
+            title: deliveryLocation
+            description: name of the delivery location
+          sumOfScheduledDeliveries:
+            type: string
+            title: Sum of Scheduled Deliveries
+            description: sum of volumes delivered to the delivery location in one month     
+          numberOfBatches:
+            type: string
+            title: Number of Batches
+            description: Number of batches scheduled for the delivery location in one month       
+
+ 
+additionalProperties: false
+required:
+  - type
+example: |-
+  {
+    "type": [
+        "MonthlyAdvanceManifest"
+    ],
+    "date": "2019-12-11T03:50:55Z",
+    "scheduledDeliveries": [
+        {
+            "deliveryLocation": "Cushing",
+            "sumOfScheduledDelivires": "2000",
+            "numberOfBatches": "1"
+        }
+    ]
+  }
