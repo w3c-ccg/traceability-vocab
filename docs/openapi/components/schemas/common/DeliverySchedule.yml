@@ -101,26 +101,26 @@ properties:
       term: deliveryDate
       '@id': https://schema.org/arrivalTime
   portOfEntry:
-    title: Port of Entry
-    description: The address where the commodity crosses the border
-    $ref: ./Place.yml
+    title: Port of Entry Code
+    description: The code of the port where the commodity crosses the border
+    type: string
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfEntry
+      '@id': https://schema.org/identifier
   portOfDestination:
-    title: Port of Destination
-    description: Port of destination to which the product[s) were transferred
-    $ref: ./Place.yml
+    title: Port of Destination Code
+    description: The code of the port of destination to which the product[s) were transferred
+    type: string
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfDestination
+      '@id': https://schema.org/identifier
   portOfArrival:
-    title: Port of Arrival
-    description: Port of arrival to which the product(s) were transferred
-    $ref: ./Place.yml
+    title: Port of Arrival Code
+    description: The code of the port of arrival to which the product(s) were transferred
+    type: string
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfArrival
+      '@id': https://schema.org/identifier
   countryOfDestination:
     title: Country of Destination
     description: Country to which the product(s) were transferred.
@@ -215,76 +215,8 @@ example: |-
     },
     "injectionDate":"2022-05-01  10:13:00 PM",
     "deliveryDate":"2022-05-01  10:13:00 PM",
-    "portOfEntry":{
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"40.6936",
-        "longitude":"-89.589"
-      },
-      "type":[
-        "Place"
-      ],
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "postalCode":"",
-        "addressRegion":"IL",
-        "streetAddress":"",
-        "addressCountry":"USA",
-        "addressLocality":"Peoria"
-      }
-    },
-    "portOfDestination":{
-      "type":[
-        "Place"
-      ],
-      "globalLocationNumber":"4775333880136",
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"-19.6752",
-        "longitude":"141.8303"
-      },
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "name":"example",
-        "streetAddress":"",
-        "addressLocality":"East Cielofort",
-        "addressRegion":"Alabama",
-        "postalCode":"00548-1233",
-        "addressCountry":"Andorra"
-      }
-    },
-    "portOfArrival":{
-      "type":[
-        "Place"
-      ],
-      "globalLocationNumber":"2040450460298",
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"-20.0464",
-        "longitude":"17.9557"
-      },
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "name":"Mraz Group",
-        "streetAddress":"6892 Kozey Trail",
-        "addressLocality":"Leannonland",
-        "addressRegion":"Georgia",
-        "postalCode":"48950-9803",
-        "addressCountry":"French Polynesia"
-      },
-      "unLocode":"DKCPH"
-    },
+    "portOfEntry": "3501",
+    "portOfDestination": "3901",
+    "portOfArrival": "4105",
     "countryOfDestination":"CAN"
   }
