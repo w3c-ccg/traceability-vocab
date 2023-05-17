@@ -74,7 +74,7 @@ properties:
       '@id': https://schema.org/Quantity
   scheduledDate:
     title: Scheduled Date
-    description: The planned date of natural gas delivery 
+    description: The planned date of natural gas delivery
     type: string
     $linkedData:
       term: scheduledDate
@@ -101,26 +101,26 @@ properties:
       term: deliveryDate
       '@id': https://schema.org/arrivalTime
   portOfEntry:
-    title: Port of Entry
-    description: The address where the commodity crosses the border
-    $ref: ./Place.yml
+    title: Port of Entry Code
+    description: The code of the port where the commodity crosses the border. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
+    type: string
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfEntry
+      '@id': https://schema.org/identifier
   portOfDestination:
-    title: Port of Destination
-    description: Port of destination to which the product[s) were transferred
-    $ref: ./Place.yml
+    title: Port of Destination Code
+    description: The code of the port of destination to which the product[s) were transferred. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
+    type: string
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfDestination
+      '@id': https://schema.org/identifier
   portOfArrival:
-    title: Port of Arrival
-    description: Port of arrival to which the product(s) were transferred
-    $ref: ./Place.yml
+    title: Port of Arrival Code
+    description: The code of the port of arrival to which the product(s) were transferred. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
+    type: string
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfArrival
+      '@id': https://schema.org/identifier
   countryOfDestination:
     title: Country of Destination
     description: Country to which the product(s) were transferred.
@@ -140,9 +140,9 @@ example: |-
       "type":[
         "Organization"
       ],
-      "name":"Enbridge"
+      "name":"Example Org"
     },
-    "batchNumber":"CDB-0284-00",
+    "batchNumber":"111-1111-11",
     "commodity":{
       "type":[
         "Commodity"
@@ -169,7 +169,7 @@ example: |-
         "addressLocality":"Hardisty",
         "addressRegion":"AB",
         "postalCode":"",
-        "addressCountry":"CAN"
+        "addressCountry":"CA"
       }
     },
     "deliveryDestination":{
@@ -190,7 +190,7 @@ example: |-
         "postalCode":"",
         "addressRegion":"IL",
         "streetAddress":"",
-        "addressCountry":"USA",
+        "addressCountry":"US",
         "addressLocality":"Chicago"
       }
     },
@@ -198,13 +198,13 @@ example: |-
       "type":[
         "Organization"
       ],
-      "name":"MPCTS"
+      "name":"Example"
     },
     "consignee":{
       "type":[
         "Organization"
       ],
-      "name":"MASH"
+      "name":"Example"
     },
     "injectionVolume":{
       "type":[
@@ -215,75 +215,8 @@ example: |-
     },
     "injectionDate":"2022-05-01  10:13:00 PM",
     "deliveryDate":"2022-05-01  10:13:00 PM",
-    "portOfEntry":{
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"40.6936",
-        "longitude":"-89.589"
-      },
-      "type":[
-        "Place"
-      ],
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "postalCode":"",
-        "addressRegion":"IL",
-        "streetAddress":"",
-        "addressCountry":"USA",
-        "addressLocality":"Peoria"
-      }
-    },
-    "portOfDestination":{
-      "type":[
-        "Place"
-      ],
-      "globalLocationNumber":"4775333880136",
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"-19.6752",
-        "longitude":"141.8303"
-      },
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "name":"Waelchi - Emard",
-        "streetAddress":"25775 Moen Shores",
-        "addressLocality":"East Cielofort",
-        "addressRegion":"Alabama",
-        "postalCode":"00548-1233",
-        "addressCountry":"Andorra"
-      }
-    },
-    "portOfArrival":{
-      "type":[
-        "Place"
-      ],
-      "globalLocationNumber":"2040450460298",
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"-20.0464",
-        "longitude":"17.9557"
-      },
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "name":"Mraz Group",
-        "streetAddress":"6892 Kozey Trail",
-        "addressLocality":"Leannonland",
-        "addressRegion":"Georgia",
-        "postalCode":"48950-9803",
-        "addressCountry":"French Polynesia"
-      }
-    },
-    "countryOfDestination":"CAN"
+    "portOfEntry": "3501",
+    "portOfDestination": "3901",
+    "portOfArrival": "4105",
+    "countryOfDestination":"CA"
   }
