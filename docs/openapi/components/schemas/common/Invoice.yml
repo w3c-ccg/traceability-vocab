@@ -113,7 +113,9 @@ properties:
   consignee:
     title: Consignee
     description: The consignee party for this supply chain consignment.
-    $ref: ../snippets/ConsigneeParty.yml
+    type: array
+    items: 
+      $ref: ../snippets/ConsigneeParty.yml
     $linkedData:
       term: consignee
       '@id': https://vocabulary.uncefact.org/consigneeParty
@@ -169,9 +171,6 @@ properties:
               title: Manufacturer
               description: The entity manufacturing the product.
               $ref: ../snippets/ManufacturerParty.yml
-              $linkedData:
-                term: manufacturer
-                '@id': https://schema.org/manufacturer
             name:
               title: Name
               description: Product name.
@@ -396,12 +395,12 @@ example: |-
         }
       }
     },
-    "consignee": {
+    "consignee": [{
       "type": [
         "Organization"
       ],
       "id": "did:web:generic-motors.example.com"
-    },
+    }],
     "itemsShipped": [
       {
         "type": ["TradeLineItem"],
