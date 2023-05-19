@@ -2,6 +2,7 @@
 /* eslint-disable operator-linebreak */
 const fs = require('fs');
 const path = require('path');
+const { load } = require('js-yaml')
 
 const { schemas } = require('../services/schemas');
 
@@ -9,6 +10,10 @@ const vocabPath = path.resolve(__dirname, '../../../docs/sections/vocab.html');
 const credentialPath = path.resolve(
   __dirname,
   '../../../docs/sections/credentials.html'
+);
+const workflowPath = path.resolve(
+  __dirname,
+  '../../../docs/sections/workflows.html'
 );
 
 const baseUrl = 'https://w3id.org/traceability';
@@ -67,18 +72,6 @@ const buildClass = (schema) => {
   }
 
   const props = schema.properties ? Object.keys(schema.properties) : [];
-  const dependencies = props
-    .filter((key) => schema.properties[key].$ref)
-    .map((key) => schema.properties[key].$ref)
-    .map((key) => key.split('/').pop().split('.').shift())
-    .filter((key, index, self) => self.indexOf(key) === index)
-    .sort();
-
-  const depList = dependencies.length
-    ? `<b>Dependencies</b><ul>${dependencies
-        .map((key) => `<li><a href='#${key}'>${key}</a></li>`)
-        .join('\n')}</ul>`
-    : '';
 
   const section = `
     <section id="${schema.$linkedData.term}">
@@ -86,7 +79,6 @@ const buildClass = (schema) => {
       <p>${schema.description}</p>
       ${table}
       <pre class="example">${schema.example}</pre>
-      ${depList}
     </section>
   `;
 
@@ -129,9 +121,49 @@ const separateSchemas = (schemaList) => {
   return { credentials, vocab };
 };
 
+const buildWorkflowSection = () => {
+  const images = {
+    "Business Card Workflow": "resources/wf_businesscard.svg"
+  }
+  const files = fs.readdirSync(
+    path.resolve(__dirname, '../../../docs/openapi/components/schemas/workflows')
+  );
+
+  const w = [];
+  files.forEach( file => {
+    const ymlText = fs.readFileSync(
+      path.resolve(__dirname, `../../../docs/openapi/components/schemas/workflows/${file}`)
+    )
+    const yml = load(ymlText);
+    const { title, description,  credentials } = yml;
+    const image = images[title];
+
+    const types = credentials.reduce( (prev, curr) => {
+      const { name, url } = curr;
+      const li = `<li><a href="${url}">${name}</a></li>`
+      return prev + li;
+    }, '');
+
+    w.push(`
+      <h3>${title}</h3>
+      <image style='border: 1px solid #9a9a9a; border-radius: 3px; background-color: #2a303c;' src='${image}'/>
+      <p>${description}</p>
+      <b>Credentials Used:</b>
+      <ol>
+        ${types}
+      </ol>
+      <pre class='example yml'>${ymlText}</pre>
+
+    `);
+  })
+
+  return w.join('\n');
+}
+
 (() => {
   console.log('🧪 build vocab from schemas');
   const { credentials, vocab } = separateSchemas(schemas);
+  const workflows = buildWorkflowSection();
 
   const credentialSection = `
     <section>
@@ -151,6 +183,14 @@ const separateSchemas = (schemaList) => {
     </section>
   `;
 
+  const workflowSection = `
+    <section>
+      <h2>Workflows</h2>
+      ${workflows}
+    </section>
+  `;
+
   fs.writeFileSync(credentialPath, credentialSection);
   fs.writeFileSync(vocabPath, vocabSection);
+  fs.writeFileSync(workflowPath, workflowSection);
 })();
