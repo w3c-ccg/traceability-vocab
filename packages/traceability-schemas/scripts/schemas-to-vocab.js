@@ -13,7 +13,7 @@ const credentialPath = path.resolve(
 
 const baseUrl = 'https://w3id.org/traceability';
 
-const techDemoPhase1Tag = 'TechDemo2023';
+const htmlSectionSchemaTags = 'CATAIR';
 
 const buildLinkedDataTable = (schema) => {
   const { $id, $linkedData } = schema;
@@ -86,7 +86,7 @@ const buildClass = (schema) => {
 
     let catair = ``;
     const {$id} = schema;
-    if (schema.tags && schema.tags.includes(techDemoPhase1Tag) ) {
+    if (schema.tags && schema.tags.includes(htmlSectionSchemaTags) ) {
       const htmlExtension = $id.split('/').pop().replace('.yml', '.html');
       catair = fs.readFileSync(path.resolve(
         __dirname,

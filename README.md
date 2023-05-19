@@ -91,3 +91,44 @@ npm run test
 npm run build
 npm run serve
 ```
+
+### Adding HTML to a Credential Definition
+
+Add a tag to your schema:
+
+```
+title: Mill Test Report Credential
+tags:
+  - Steel
+  - CATAIR // <-- your new tag
+```
+
+Update the section rendering logic to use that tag:
+
+```js
+const htmlSectionSchemaTags = 'CATAIR';
+
+...
+
+let catair = ``;
+    const {$id} = schema;
+    if (schema.tags && schema.tags.includes(htmlSectionSchemaTags) ) {
+      const htmlExtension = $id.split('/').pop().replace('.yml', '.html');
+      catair = fs.readFileSync(path.resolve(
+        __dirname,
+        `../../../docs/sections/catair/${htmlExtension}`
+      )).toString();
+    }
+  const section = `
+    <section id="${schema.$linkedData.term}">
+      <h2>${schema.title}</h2>
+      <p>${schema.description}</p>
+      ${table}
+      ${catair && `<section><h2>Table View</h2>${catair}</section>`}
+      <pre class="example">${schema.example}</pre>
+      ${depList}
+    </section>
+  `;
+```
+
+Any credentials with this tag MUST have an html section defined and named according to the example above.
