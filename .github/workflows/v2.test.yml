@@ -11,8 +11,7 @@ jobs:
         with:
           node-version: 16.15.1
           cache: 'npm'
-      - name: Install
-        run: npm i
-      - name: Test
+      - run: npm i
+      - run: npm t
         working-directory: packages/traceability-tests
-        run: npm t
+        
