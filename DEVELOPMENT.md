@@ -64,7 +64,7 @@ for defining a consistent style with respect to schemas. They are described as f
 5. RDF classes should not be declared with any undefined terms
 6. Example JSON files must include _all_ of the properties defined in the JSON schema
 
-## Continuous Integreation
+## Continuous Integration
 
 When submitting a pull request, the proposed changes must pass the Continuous Integration tests.
 These tests can be run in the local developer environment by running `npm test` from the root

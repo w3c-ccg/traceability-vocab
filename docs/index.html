@@ -496,7 +496,7 @@ for REST API and interoperability tests associated with this vocabulary.
   <p>
     This vocabulary uses
     <code>
-      '@vocab': 'https://w3id.org/traceability/#undefinedTerm'
+      '@vocab': 'https://www.w3.org/ns/credentials/issuer-dependent#'
     </code>
     to disable JSON-LD related errors associated with Verifiable
     Credentials, issued about terms that have not yet been added here.
@@ -1029,6 +1029,60 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         </p>
         <p>
           Receiving the <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> (10), CBP can also join the two graphs, thus knowing that the original <a href="https://w3id.org/traceability/#ProformaInvoiceCertificate">Proforma Invoice</a> relates to the Freight Forwarder’s presentations. 
+        </p>
+        <h5>Product Identifier Verification from Company Prefix License</h5>
+        <p>
+          Workflow for proving control over a GS1 Company Prefix, identification of a product, and makes data assertions about the product.
+        </p>
+        <figure>
+          <img src="resources/product-identifier-verification-from-company-prefix-license.png" alt="Product Identifier Verification from Company Prefix License" style="width:100%">
+          <figcaption>Product Identifier Verification from Company Prefix License</figcaption>
+        </figure>
+        <p>
+          A GS1 Member Organization issues <a href="https://w3id.org/traceability/#GS1CompanyPrefixLicenceCredential">GS1 Company Prefix Licence Credential</a> (1), which is presented to the GS1 User Company (2). 
+        </p>
+        <p>
+          The GS1 User Company issues <a href="https://w3id.org/traceability/#GS1KeyCredential">GS1 Key Credential</a> (3) for GTIN identification of a product.
+        </p>
+        <p>
+          The GS1 User Company associates product data by issuing a <a href="https://w3id.org/traceability/#GS1DataCredential">GS1 Data Credential</a> (4) about the identified product.
+        </p>
+        <p>
+          The GS1 User Company presents License, Key and Data to CBP (5, 6, 7) to CBP. 
+        </p>
+        <h5>Product Identifier Verification from Identification Key License</h5>
+        <p>
+          Workflow for proving control over a GS1 Key, identification of a product, and makes data assertions about the product.
+        </p>
+        <figure>
+          <img src="resources/product-identifier-verification-from-identification-key-license.png" alt="Product Identifier Verification from Identification Key License" style="width:100%">
+          <figcaption>Product Identifier Verification from Identification Key License</figcaption>
+        </figure>
+        <p>
+          A GS1 Member Organization issues <a href="https://w3id.org/traceability/#GS1IdentificationKeyLicenceCredential">GS1 Company Identification Key Licence Credential</a> (1), which is presented to the GS1 User Company (2). 
+        </p>
+        <p>
+          The GS1 User Company issues <a href="https://w3id.org/traceability/#GS1KeyCredential">GS1 Key Credential</a> (3) for GTIN identification of a product.
+        </p>
+        <p>
+          The GS1 User Company associates product data by issuing a <a href="https://w3id.org/traceability/#GS1DataCredential">GS1 Data Credential</a> (4) about the identified product.
+        </p>
+        <p>
+          The GS1 User Company presents License, Key and Data to CBP (5, 6, 7) to CBP. 
+        </p>
+        <h5>GS1 Prefix License Verification</h5>
+        <p>
+          Workflow for establishing the trust relationship from a GS1 Member Organizations to GS1 Global Office.
+        </p>
+        <figure>
+          <img src="resources/GS1-prefix-license-verification.png" alt="GS1 Prefix License Verification" style="width:100%">
+          <figcaption>GS1 Prefix License Verification</figcaption>
+        </figure>
+        <p>
+          GS1 Global Office issues <a href="https://w3id.org/traceability/#GS1PrefixLicenceCredential">GS1 Prefix Licence Credential</a> (1) about a GS1 Member Organization.
+        </p>
+        <p>
+          In conjunction with verification of a GS1 User Company's claims, if the <a href="https://w3id.org/traceability/#GS1PrefixLicenceCredential">GS1 Prefix Licence Credential</a> of an issuing GS1 Member Organization is not already cached, or if a cached <a href="https://w3id.org/traceability/#GS1PrefixLicenceCredential">GS1 Prefix Licence Credential</a> has been revoked, the verifier fetches the corresponding <a href="https://w3id.org/traceability/#GS1PrefixLicenceCredential">GS1 Prefix Licence Credential</a> which is publicly avaiable from GS1 Global Office (2). 
         </p>
       </section>
       <section>

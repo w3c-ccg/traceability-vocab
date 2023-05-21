@@ -1,6 +1,6 @@
 $linkedData:
   term: PurchaseOrder
-  '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1001/#Purchase_order
+  '@id': https://vocabulary.uncefact.org/DocumentCodeList#105
 title: Purchase Order
 description: A statement issued by a buyer for the sale of products or services to be delivered at a later date
 type: object
@@ -22,42 +22,15 @@ properties:
     type: string
     $linkedData:
       term: purchaseOrderNo
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Proposed_purchase_order_reference_number    
+      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#AUJ
   orderDate:
     title: Order Date
     description: The date that payment is made.
     type: string
+    format: date
     $linkedData:
       term: orderDate
       '@id': https://vocabulary.uncefact.org/buyerOrderDateTime
-  portOfEntry:
-    title: Port Of Entry
-    description: Port where the purchased goods will enter first.
-    $ref: ./Place.yml
-    $linkedData:
-      term: portOfEntry
-      '@id': https://schema.org/Place
-  originCountry:
-    title: Origin Country
-    description: A country of origin for the consignment, consignment item, or product.
-    type: string
-    $linkedData:
-      term: originCountry
-      '@id': https://vocabulary.uncefact.org/originCountry
-  destinationCountry:
-    title: Destination Country
-    description: Country to which the ordered product will be delivered
-    type: string
-    $linkedData:
-      term: destinationCountry
-      '@id': https://vocabulary.uncefact.org/destinationCountry
-  seller:
-    title: Seller
-    description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
-    $ref: ../snippets/SellerParty.yml
-    $linkedData:
-      term: seller
-      '@id': https://vocabulary.uncefact.org/sellerParty
   buyer:
     title: Buyer
     description: Importer of record. Party placing the order or paying the invoice.
@@ -65,6 +38,13 @@ properties:
     $linkedData:
       term: buyer
       '@id': https://vocabulary.uncefact.org/buyerParty
+  seller:
+    title: Seller
+    description: An entity which offers (sells, leases, lends, or loans) the services or goods. A seller may also be a provider.
+    $ref: ../snippets/SellerParty.yml
+    $linkedData:
+      term: seller
+      '@id': https://vocabulary.uncefact.org/sellerParty
   shipToParty:
     title: Ship To Party
     description: The party to whom goods will be or have been ultimately shipped. Also refered to as Final Delivery Party or Ultimate Delivery Party
@@ -72,7 +52,7 @@ properties:
     $linkedData:
       term: shipToParty
       '@id': https://vocabulary.uncefact.org/shipToParty
-  itemsOrdered:
+  items:
     title: Items Ordered
     description: Itemized list of ordered goods.
     type: array
@@ -117,16 +97,15 @@ properties:
               title: Product Identifier
               description: The product identifier, such as ISBN.
               type: string
+            sku:
+              title: SKU Number
+              description: >-
+                The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
+                product or service, or for the product to which the offer refers.
+              type: string
             gtin:
               title: Global Trade Item Number (GTIN)
               type: string
-            manufacturer:
-              title: Manufacturer
-              description: The entity manufacturing the product.
-              $ref: ../snippets/ManufacturerParty.yml
-              $linkedData:
-                term: manufacturer
-                '@id': https://schema.org/manufacturer
             name:
               title: Name
               description: Product name.
@@ -135,14 +114,6 @@ properties:
               title: Description
               description: Product description.
               type: string
-            category:
-              title: Category
-              description: A category for the item.
-              type: string
-            sizeOrAmount:
-              title: Size or Amount
-              description: The size or amount of the product
-              $ref: ./QuantitativeValue.yml
             weight:
               title: Weight
               description: Weight of the product.
@@ -153,20 +124,6 @@ properties:
                 One or more detailed price specifications, indicating the unit price and
                 delivery or payment charges.
               $ref: ./PriceSpecification.yml
-            sku:
-              title: SKU Number
-              description: >-
-                The Stock Keeping Unit (SKU), i.e., a merchant-specific identifier for a
-                product or service, or for the product to which the offer refers.
-              type: string
-            batchNumber:
-              title: Batch Number
-              description: A tracking number for commodities
-              type: string
-            commodity:
-              title: Commodity
-              description: Product commodity code, codification system and description
-              $ref: ./Commodity.yml
           additionalProperties: false
           required:
             - type
@@ -174,13 +131,6 @@ properties:
           title: Item Count
           description: A quantity despatched in the trade delivery.
           type: number
-        freeTradeAgreement:
-          title: Free Trade Agreement
-          description: Relevant Free Trade Agreement
-          type: string
-        countryOfOrigin:
-          title: Country of Origin
-          description: Identify the 2-digit ISO country code of the country of production.
         netWeight:
           title: Trade Line Item Net Weight
           description: A measure of the net weight (mass).
@@ -198,6 +148,9 @@ properties:
       additionalProperties: false  
       required:
         - type
+        - product
+        - itemCount
+        - lineItemTotalPrice
     $linkedData:
       term: itemsOrdered
       '@id': https://vocabulary.uncefact.org/SupplyChainTradeLineItem
@@ -210,13 +163,6 @@ properties:
     $linkedData:
       term: comments
       '@id': https://schema.org/Comment
-  packageQuantity:
-    title: Package Quantity
-    description: Total number of packages.
-    type: number
-    $linkedData:
-      term: packageQuantity
-      '@id': https://vocabulary.uncefact.org/packageQuantity
   totalWeight:
     title: Total Weight
     description: Total weight of the products.
@@ -238,13 +184,6 @@ properties:
     $linkedData:
       term: termsOfPayment
       '@id': https://vocabulary.uncefact.org/specifiedPaymentTerms
-  currencyOfSettlement:
-    title: Currency of Settlement
-    description: Currency agreed upon between seller and buyer as payment.
-    type: string
-    $linkedData:
-      term: currencyOfSettlement
-      '@id': https://schema.org/currency
   purchaseOrderSubtotal:
     title: Pucharse Order Subtotal
     description: The subtotal of line items.
@@ -285,7 +224,7 @@ properties:
       term: freightCost
       '@id': https://schema.org/DeliveryChargeSpecification
   insuranceCost:
-    title: Freight Cost
+    title: Insurance Cost
     description: Included cost of insurance.
     $ref: ./PriceSpecification.yml
     $linkedData:
@@ -301,40 +240,17 @@ properties:
 additionalProperties: false
 required:
   - type
-  - seller
   - buyer
-  - itemsOrdered
+  - seller
+  - items
+  - totalOrderAmount
 example: |-
   {
     "type": [
       "PurchaseOrder"
     ],
     "purchaseOrderNo" : "fe71665a-e7b3-49ba-ac89-82fc2bf1e877",
-    "portOfEntry": {
-      "type": ["Place"],
-      "unLocode": "USLGB"
-    },
-    "destinationCountry": "MEX",
     "orderDate": "2021-02-21",
-    "seller": {
-      "type": [
-        "Organization"
-      ],
-      "location": {
-        "type": ["Place"],
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "name": "Aishi Metal Shinzo Co., Ltd.",
-          "streetAddress": "1651, Shimonakano, Yoshida",
-          "addressLocality": "Tsubame-shi",
-          "addressRegion": "Niigata-ken",
-          "postalCode": "959-0215",
-          "addressCountry": "Japan"
-        }
-      }
-    },
     "buyer": {
       "type": [
         "Organization"
@@ -354,12 +270,32 @@ example: |-
         }
       }
     },
-    "itemsOrdered": [
+    "seller": {
+      "type": [
+        "Organization"
+      ],
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "name": "Aishi Metal Shinzo Co., Ltd.",
+          "streetAddress": "1651, Shimonakano, Yoshida",
+          "addressLocality": "Tsubame-shi",
+          "addressRegion": "Niigata-ken",
+          "postalCode": "959-0215",
+          "addressCountry": "Japan"
+        }
+      }
+    },
+    "items": [
       {
         "type": ["TradeLineItem"],
         "product": {
           "type": ["Product"],
-          "description": "UNS S30400 chromium-nickel stainless steel rolls.",
+          "id": "https://aishi-metal-shinzo.example.com/products/UNS-S30400-chromium-nickel-stainless-steel-roll",
+          "description": "UNS S30400 chromium-nickel stainless steel roll",
           "weight": {
             "type": ["QuantitativeValue"],
             "unitCode": "lbs",
@@ -382,7 +318,8 @@ example: |-
         "type": ["TradeLineItem"],
         "product": {
           "type": ["Product"],
-          "description": "Galvalannealed ASTM A-653 zinc-iron alloy-coated steel sheets.",
+          "id": "https://aishi-metal-shinzo.example.com/products/Galvannealed-ASTM-A-653-zinc-iron-alloy-coated-steel-sheet",
+          "description": "Galvannealed ASTM A-653 zinc-iron alloy-coated steel sheet",
           "weight": {
             "type": ["QuantitativeValue"],
             "value": "12680",

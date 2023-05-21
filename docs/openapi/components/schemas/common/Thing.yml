@@ -1,0 +1,42 @@
+$linkedData:
+  term: Thing
+  '@id': https://schema.org/Thing
+title: Thing
+description: The most generic type of item.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - Thing
+    default:
+      - Thing
+    items:
+      type: string
+      enum:
+        - Thing
+      identifier: 
+        description: The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs, etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details.
+        type: string
+        $linkedData:
+          term: uri
+          '@id': https://schema.org/identifier
+      name:
+        title: Name
+        description: The name of the item.
+        type: string
+        $linkedData:
+          term: uri
+          '@id': https://schema.org/name
+additionalProperties: true
+required:
+  - type
+example: |-
+  {
+      "type": [
+        "Thing"
+      ],
+      "identifier": "123",
+      "name": "entrySummaryId"
+  }

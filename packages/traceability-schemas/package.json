@@ -10,11 +10,12 @@
     "postinstall": "npm run build",
     "lint": "eslint . --fix",
     "test": "node --max-old-space-size=4096 'node_modules/.bin/jest'",
-    "regenerate": "npm i && node ./scripts/regenerate.js",
+    "regenerate": "node ./scripts/regenerate.js",
+    "count-issuer-dependent": "node ./scripts/count-issuer-dependent.js",
     "build:openapi": "node ./scripts/schemas-to-openapi.js",
     "build:context": "node ./scripts/openapi-to-context.js",
     "build:vocab": "node ./scripts/schemas-to-vocab.js",
-    "build": "npm run build:openapi && npm run build:context && npm run build:vocab"
+    "build": "npm run build:openapi && npm run build:context && npm run build:vocab && npm run regenerate && npm run count-issuer-dependent"
   },
   "dependencies": {
     "@transmute/credentials-context": "^0.7.0-unstable.30",
@@ -29,7 +30,7 @@
     "ajv-formats": "^2.1.1",
     "js-yaml": "^4.1.0",
     "json-stringify-deterministic": "^1.0.7",
-    "jsonld": "3.2.0"
+    "jsonld": "^3.2.0"
   },
   "devDependencies": {
     "eslint": "^7.11.0",
