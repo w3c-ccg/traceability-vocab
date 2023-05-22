@@ -1,0 +1,31 @@
+id: https://w3id.org/traceability/#us-sima-steel-import-license
+title: US SIMA Steel Import License
+description: >-
+  Pursuant to [CFR 360.103](https://www.ecfr.gov/current/title-19/chapter-III/part-360/section-360.103), a Steel Import Monitoring and Analysis (SIMA) license is required by U.S. Customs and Border Protection 
+  for excemption of tariffs on steel mill products for certain countries, including Mexico and Canada, otherwise imposed under U.S. Department of Commerce, Section 232. 
+  
+  The Importer issues (1) a SIMA application and which is submitted (2) to SIMA. 
+  SIMA issues (3) a SIMA Steel Import License credential, which is presented (4) to the importer.
+  The SIMA Steel Import License credential is presented (5) to CBP during import. 
+
+  https://www.federalregister.gov/documents/2020/03/30/2020-06213/modification-of-regulations-regarding-the-steel-import-monitoring-and-analysis-system
+tags: 
+  - Steel
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential
+    name: SIMA Steel License Application
+  - 
+    id: https://w3id.org/traceability/#SIMASteelImportLicenseCredential
+    name: SIMA Steel License
+mermaid: >-
+  sequenceDiagram
+      title: SIMA Steel Import License
+      participant A as Importer
+      participant B as SIMA
+      participant C as CBP
+      A-->>A: (1) issue SIMA Import License Application Credential
+      A->>B: (2) present SIMA Import License Application Credential
+      B-->>B: (3) issue SIMA Import License Credential
+      B->>A: (4) present SIMA Import License Credential
+      A->>C: (5) present SIMA Import License Credential
