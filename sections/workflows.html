@@ -11,9 +11,9 @@
       <p>This is a simple as possible workflow that describes an interaction between  two individuals. Alice and Bob are two individuals who support sending  presentations using the Traceability API. Alice issues a credential and  sends it to Bob in a Traceable Presentation.</p>
       <b>Credentials Used:</b>
       <ol>
-        <li><a href="https://w3c-ccg.github.io/traceability-vocab/#VerifiableBusinessCard">Verifiable Business Card</a></li>
+        <li><a href="https://w3id.org/traceability/#VerifiableBusinessCard">Verifiable Business Card</a></li>
       </ol>
-      <pre class='example yml'>id: https://w3c-ccg.github.io/traceability-vocab/#business-card-workflow
+      <pre class='example yml'>id: https://w3id.org/traceability/#business-card-workflow
 title: Business Card Workflow
 description: >-
   This is a simple as possible workflow that describes an interaction between 
@@ -24,7 +24,7 @@ tags:
   - Business
 credentials: 
   - 
-    id: https://w3c-ccg.github.io/traceability-vocab/#VerifiableBusinessCard
+    id: https://w3id.org/traceability/#VerifiableBusinessCard
     name: Verifiable Business Card
 mermaid: >-
   sequenceDiagram
@@ -32,6 +32,242 @@ mermaid: >-
       participant B as Bob
       A-->>A: issue Verifiable Business Card
       A->>B: present Verifiable Business Card</pre>
+    
+
+      <h3>US CBP Entry</h3>
+      <pre class='mermaid'>sequenceDiagram
+    title: US CBP Entry
+    participant A as Importer
+    participant B as CBP
+    A-->>A: 1. issue Intent to Import Credential
+    A->>B: 2. present Intent to Import Credential
+    A-->>A: 3. issue CBP Form 3461 - Entry/Immediate Delivery Credential
+    A->>B: 4. present CBP Form 3461 - Entry/Immediate Delivery Credential
+    A->>B: 5. present Commercial Invoice Credential
+    A->>B: 6. present Packing List Credential
+    A->>B: 7. present Bill Of Lading Credential
+    note over A: Within 15 days of shipment arrival
+    B-->>B: 8. issue PGA Shipment Status Credential
+    B->>A: 9. present PGA Shipment Status Credential
+    A-->>A: 10. issue CBP Form 7501 - Entry Summary Credential
+    A->>B: 11. present CBP Form 7501 - Entry Summary Credential
+    note over A: Within 10 days of customs release</pre>
+      <p>This workflow covers common US importing requirements pursuant to the Trade Act of 2002 and the Customs Modernization Act. 
+Additional data filings are often required beyond the common data elements, so please use this in conjunction with other workflows. Such circumstances include:
+    - Commodity, which may require specific product certification credential and/or be subject to specific government agency requirements, 
+    - Origin Country, which may require proof of origin certification and pre-registration,
+    - Transport Method, entailing specific security filings. 
+    - Filer Organization, which can benefit from presenting organization credentials such as CTPAT, or entail power of attourney proof requirements.  
+    - Value, which may entail import bond surety requirements or requirement excemptions.
+        
+The workflow is initiated by issuance (1) and presentation (2) of an Intent to Import credential, which establishes the importer of record.  No later than 15 days prior to goods arrival, the importer file the documents necessary to determine whether merchandise may be released from CBP custody.  This includes issuance (3) and presentation (4) of a 3461 Entry credential, and presentation of Commercial Invoice (5), Packing List (6) and Bill of Lading (7) credentials.  Upon release, CBP issues (8) and presents back (9) a PGA Shipment Status credential.  For duty assessment and statistical purposes, no later than 10 days after goods release the importer must issue (10) and present (11) a CBP 7501 Entry Summary credential. 
+For more information please see https://www.cbp.gov/sites/default/files/documents/Importing%20into%20the%20U.S.pdf.</p>
+      <b>Credentials Used:</b>
+      <ol>
+        <li><a href="https://w3id.org/traceability/#CBP3461EntryCredential">CBP 3461 Entry</a></li><li><a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice</a></li><li><a href="https://w3id.org/traceability/#PackingListCredential">Packing List</a></li><li><a href="https://w3id.org/traceability/#MultiModalBillOfLadingCredential">Bill Of Lading</a></li><li><a href="https://w3id.org/traceability/#MillTestReportCredential">CBP 7501 Entry Summary</a></li>
+      </ol>
+      <pre class='example yml'>id: https://w3id.org/traceability/#us-cbp-entry
+title: US CBP Entry
+description: >-
+  This workflow covers common US importing requirements pursuant to the Trade Act of 2002 and the Customs Modernization Act. 
+  
+  Additional data filings are often required beyond the common data elements, so please use this in conjunction with other workflows. Such circumstances include:
+      - Commodity, which may require specific product certification credential and/or be subject to specific government agency requirements, 
+      - Origin Country, which may require proof of origin certification and pre-registration,
+      - Transport Method, entailing specific security filings. 
+      - Filer Organization, which can benefit from presenting organization credentials such as CTPAT, or entail power of attourney proof requirements.  
+      - Value, which may entail import bond surety requirements or requirement excemptions.
+          
+  The workflow is initiated by issuance (1) and presentation (2) of an Intent to Import credential, which establishes the importer of record. 
+  No later than 15 days prior to goods arrival, the importer file the documents necessary to determine whether merchandise may be released from CBP custody. 
+  This includes issuance (3) and presentation (4) of a 3461 Entry credential, and presentation of Commercial Invoice (5), Packing List (6) and Bill of Lading (7) credentials. 
+  Upon release, CBP issues (8) and presents back (9) a PGA Shipment Status credential. 
+  For duty assessment and statistical purposes, no later than 10 days after goods release the importer must issue (10) and present (11) a CBP 7501 Entry Summary credential. 
+
+  For more information please see https://www.cbp.gov/sites/default/files/documents/Importing%20into%20the%20U.S.pdf.
+tags: 
+  - Steel
+  - Agriculture
+  - OilAndGas
+  - Ecommerce
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#CBP3461EntryCredential
+    name: CBP 3461 Entry
+  - 
+    id: https://w3id.org/traceability/#CommercialInvoiceCredential
+    name: Commercial Invoice
+  - 
+    id: https://w3id.org/traceability/#PackingListCredential
+    name: Packing List
+  - 
+    id: https://w3id.org/traceability/#MultiModalBillOfLadingCredential
+    name: Bill Of Lading
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: CBP 7501 Entry Summary
+mermaid: >-
+  sequenceDiagram
+      title: US CBP Entry
+      participant A as Importer
+      participant B as CBP
+      A-->>A: 1. issue Intent to Import Credential
+      A->>B: 2. present Intent to Import Credential
+      A-->>A: 3. issue CBP Form 3461 - Entry/Immediate Delivery Credential
+      A->>B: 4. present CBP Form 3461 - Entry/Immediate Delivery Credential
+      A->>B: 5. present Commercial Invoice Credential
+      A->>B: 6. present Packing List Credential
+      A->>B: 7. present Bill Of Lading Credential
+      note over A: Within 15 days of shipment arrival
+      B-->>B: 8. issue PGA Shipment Status Credential
+      B->>A: 9. present PGA Shipment Status Credential
+      A-->>A: 10. issue CBP Form 7501 - Entry Summary Credential
+      A->>B: 11. present CBP Form 7501 - Entry Summary Credential
+      note over A: Within 10 days of customs release</pre>
+    
+
+      <h3>Importer Security Filing</h3>
+      <pre class='mermaid'>sequenceDiagram
+    title: Importer Security Filing (10+2)
+    participant A as Importer
+    participant B as Carrier
+    participant C as CBP
+    A-->>A: (1) issue Importer Security Filing Credential
+    A->>C: (2) present Importer Security Filing Credential
+    Note over A: No later than 24h before vessel lading
+    A-->>A: (3) issue Importer Security Filing Credential
+    A->>C: (4) present Importer Security Filing Credential
+    B->>C: (5) Vessel Stow Plan and Contaier Status Message
+    Note over A: No later than 24h before vessel arrival</pre>
+      <p>The ISF-10 filing process is required by the United States Customs and Border Protection (CPB) for U.S.-bound, vessel carried containerized cargo. 
+Eight of the ten data elements must be transmitted to the agency at least 24 hours before goods are loaded onboard a vessel to the USA.  https://www.cbp.gov/border-security/ports-entry/cargo-security/importer-security-filing-102
+Eight of the data elements must be issued (1) and presented (2) no later than 24 hours prior to cargo being loaded onto the vessel at origin.  The remaining two data elements must be issued (3) and presented (4) as soon as possible, and no later than 24 hours prior to vessel arrival at destination.  The Importer Security Filing program also requires the carrier to file vessel stowage plan and container status message 24 hours prior to vessel arrival. For now, this is excluded from the scope of the workflow. </p>
+      <b>Credentials Used:</b>
+      <ol>
+        <li><a href="https://w3id.org/traceability/#ImporterSecurityFilingCredential">Importer Security Filing</a></li>
+      </ol>
+      <pre class='example yml'>id: https://w3id.org/traceability/#us-cbp-import-security-filing
+title: Importer Security Filing
+description: >-
+    The ISF-10 filing process is required by the United States Customs and Border Protection (CPB) for U.S.-bound, vessel carried containerized cargo. 
+    
+    Eight of the ten data elements must be transmitted to the agency at least 24 hours before goods are loaded onboard a vessel to the USA. 
+    https://www.cbp.gov/border-security/ports-entry/cargo-security/importer-security-filing-102
+
+    Eight of the data elements must be issued (1) and presented (2) no later than 24 hours prior to cargo being loaded onto the vessel at origin. 
+    The remaining two data elements must be issued (3) and presented (4) as soon as possible, and no later than 24 hours prior to vessel arrival at destination. 
+    The Importer Security Filing program also requires the carrier to file vessel stowage plan and container status message 24 hours prior to vessel arrival. For now, this is excluded from the scope of the workflow. 
+tags: 
+  - Steel
+  - Agriculture
+  - Ecommerce
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#ImporterSecurityFilingCredential
+    name: Importer Security Filing
+mermaid: >-
+  sequenceDiagram
+      title: Importer Security Filing (10+2)
+      participant A as Importer
+      participant B as Carrier
+      participant C as CBP
+      A-->>A: (1) issue Importer Security Filing Credential
+      A->>C: (2) present Importer Security Filing Credential
+      Note over A: No later than 24h before vessel lading
+      A-->>A: (3) issue Importer Security Filing Credential
+      A->>C: (4) present Importer Security Filing Credential
+      B->>C: (5) Vessel Stow Plan and Contaier Status Message
+      Note over A: No later than 24h before vessel arrival</pre>
+    
+
+      <h3>US SIMA Steel Import License</h3>
+      <pre class='mermaid'>sequenceDiagram
+    title: SIMA Steel Import License
+    participant A as Importer
+    participant B as SIMA
+    participant C as CBP
+    A-->>A: (1) issue SIMA Import License Application Credential
+    A->>B: (2) present SIMA Import License Application Credential
+    B-->>B: (3) issue SIMA Import License Credential
+    B->>A: (4) present SIMA Import License Credential
+    A->>C: (5) present SIMA Import License Credential</pre>
+      <p>Pursuant to [CFR 360.103](https://www.ecfr.gov/current/title-19/chapter-III/part-360/section-360.103), a Steel Import Monitoring and Analysis (SIMA) license is required by U.S. Customs and Border Protection  for excemption of tariffs on steel mill products for certain countries, including Mexico and Canada, otherwise imposed under U.S. Department of Commerce, Section 232. 
+The Importer issues (1) a SIMA application and which is submitted (2) to SIMA.  SIMA issues (3) a SIMA Steel Import License credential, which is presented (4) to the importer. The SIMA Steel Import License credential is presented (5) to CBP during import. 
+https://www.federalregister.gov/documents/2020/03/30/2020-06213/modification-of-regulations-regarding-the-steel-import-monitoring-and-analysis-system</p>
+      <b>Credentials Used:</b>
+      <ol>
+        <li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential">SIMA Steel License Application</a></li><li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseCredential">SIMA Steel License</a></li>
+      </ol>
+      <pre class='example yml'>id: https://w3id.org/traceability/#us-sima-steel-import-license
+title: US SIMA Steel Import License
+description: >-
+  Pursuant to [CFR 360.103](https://www.ecfr.gov/current/title-19/chapter-III/part-360/section-360.103), a Steel Import Monitoring and Analysis (SIMA) license is required by U.S. Customs and Border Protection 
+  for excemption of tariffs on steel mill products for certain countries, including Mexico and Canada, otherwise imposed under U.S. Department of Commerce, Section 232. 
+  
+  The Importer issues (1) a SIMA application and which is submitted (2) to SIMA. 
+  SIMA issues (3) a SIMA Steel Import License credential, which is presented (4) to the importer.
+  The SIMA Steel Import License credential is presented (5) to CBP during import. 
+
+  https://www.federalregister.gov/documents/2020/03/30/2020-06213/modification-of-regulations-regarding-the-steel-import-monitoring-and-analysis-system
+tags: 
+  - Steel
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential
+    name: SIMA Steel License Application
+  - 
+    id: https://w3id.org/traceability/#SIMASteelImportLicenseCredential
+    name: SIMA Steel License
+mermaid: >-
+  sequenceDiagram
+      title: SIMA Steel Import License
+      participant A as Importer
+      participant B as SIMA
+      participant C as CBP
+      A-->>A: (1) issue SIMA Import License Application Credential
+      A->>B: (2) present SIMA Import License Application Credential
+      B-->>B: (3) issue SIMA Import License Credential
+      B->>A: (4) present SIMA Import License Credential
+      A->>C: (5) present SIMA Import License Credential</pre>
+    
+
+      <h3>US Steel Import Classification</h3>
+      <pre class='mermaid'>sequenceDiagram
+    title: Steel Import
+    participant A as Manufacturer
+    participant B as Importer
+    participant C as CBP
+    A-->>A: (1) issue Mill Test Report Credential
+    A->>B: (2) present Mill Test Report Credential
+    B->>C: (3) present Mill Test Report Credential</pre>
+      <p>Filing requirements for steel imports into the US, as per 19 C.F.R. §141.89. Notably this includes certifications needed for proper product classification.
+A Mill Test Report credential is issued (1) by the steel manufacturer, and passed to the US Importer (2).  The Mill Test Report credential is presented (3) to US CBP as part of the import data filings. </p>
+      <b>Credentials Used:</b>
+      <ol>
+        <li><a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report</a></li>
+      </ol>
+      <pre class='example yml'>id: https://w3id.org/traceability/#us-steel-import-classification
+title: US Steel Import Classification
+description: >-
+  Filing requirements for steel imports into the US, as per 19 C.F.R. §141.89. Notably this includes certifications needed for proper product classification.
+
+  A Mill Test Report credential is issued (1) by the steel manufacturer, and passed to the US Importer (2). 
+  The Mill Test Report credential is presented (3) to US CBP as part of the import data filings. 
+tags: 
+  - Steel
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: Mill Test Report
+mermaid: >-
+  sequenceDiagram
+      title: Steel Import
+      participant A as Manufacturer
+      participant B as Importer
+      participant C as CBP
+      A-->>A: (1) issue Mill Test Report Credential
+      A->>B: (2) present Mill Test Report Credential
+      B->>C: (3) present Mill Test Report Credential</pre>
     
     </section>
   
