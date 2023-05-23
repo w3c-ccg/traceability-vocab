@@ -11,15 +11,16 @@ jobs:
     name: Publish unstable release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node 16
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
+          cache: 'npm'
 
       - name: Install
-        run: npm i
+        run: npm ci
 
       - name: Lint
         run: npm run lint
@@ -30,28 +31,8 @@ jobs:
       - name: Bundle
         run: npm run bundle
 
-      - name: 'Automated Version Bump'
-        id: version-bump
-        uses: 'phips28/gh-action-bump-version@master'
-        with:
-          tag-prefix: 'v'
-          commit-message: 'CI: bumps version to {{version}} [skip ci]'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Deploy test report
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-
-      - name: Create new Github Release
-        uses: 'marvinpinto/action-automatic-releases@latest'
-        with:
-          repo_token: '${{ secrets.GITHUB_TOKEN }}'
-          automatic_release_tag: 'latest'
-          prerelease: true
-          title: ${{ steps.version-bump.outputs.newTag }}
-          files: |
-            LICENSE.md
-            ./docs
