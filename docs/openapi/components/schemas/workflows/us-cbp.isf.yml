@@ -1,0 +1,32 @@
+id: https://w3id.org/traceability/#us-cbp-import-security-filing
+title: Importer Security Filing
+description: >-
+    The ISF-10 filing process is required by the United States Customs and Border Protection (CPB) for U.S.-bound, vessel carried containerized cargo. 
+    
+    Eight of the ten data elements must be transmitted to the agency at least 24 hours before goods are loaded onboard a vessel to the USA. 
+    https://www.cbp.gov/border-security/ports-entry/cargo-security/importer-security-filing-102
+
+    Eight of the data elements must be issued (1) and presented (2) no later than 24 hours prior to cargo being loaded onto the vessel at origin. 
+    The remaining two data elements must be issued (3) and presented (4) as soon as possible, and no later than 24 hours prior to vessel arrival at destination. 
+    The Importer Security Filing program also requires the carrier to file vessel stowage plan and container status message 24 hours prior to vessel arrival. For now, this is excluded from the scope of the workflow. 
+tags: 
+  - Steel
+  - Agriculture
+  - Ecommerce
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#ImporterSecurityFilingCredential
+    name: Importer Security Filing
+mermaid: >-
+  sequenceDiagram
+      title: Importer Security Filing (10+2)
+      participant A as Importer
+      participant B as Carrier
+      participant C as CBP
+      A-->>A: (1) issue Importer Security Filing Credential
+      A->>C: (2) present Importer Security Filing Credential
+      Note over A: No later than 24h before vessel lading
+      A-->>A: (3) issue Importer Security Filing Credential
+      A->>C: (4) present Importer Security Filing Credential
+      B->>C: (5) Vessel Stow Plan and Contaier Status Message
+      Note over A: No later than 24h before vessel arrival

@@ -1,0 +1,36 @@
+$linkedData:
+  term: EntryNumber
+  '@id': https://w3id.org/traceability#EntryNumber
+title: Entry Number
+description: A customs entry number
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - EntryNumber
+    default:
+      - EntryNumber
+    items:
+      type: string
+      enum:
+        - EntryNumber
+      entryNumber:
+        title: Entry Number
+        description: The 11 digit alphanumeric code. The entry number is comprised of the three-digit filer code, followed by the seven-digit entry number, and completed with the one-digit check digit. The Entry Filer Code represents the three-character alphanumeric filer code assigned to the filer or importer by CBP. The Entry Number represents the seven-digit number assigned by the filer. The number may be assigned in any convenient manner, provided that the same number is not assigned to more than one CBP Form 3461. Leading zeros must be shown. The check digit is computed on the previous 10 characters. The formula for calculating the check digit can be found in Appendix 1.
+        type: string
+        $linkedData:
+          term: entryNumber
+          '@id': https://vocabulary.uncefact.org/ReferenceCodeList#AQM
+additionalProperties: true
+required:
+  - type
+  - entryNumber
+example: |-
+  {
+      "type": [
+        "EntryNumber"
+      ],
+      "entryNumber": "12345123456"
+  }
