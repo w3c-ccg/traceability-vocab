@@ -122,9 +122,7 @@ const separateSchemas = (schemaList) => {
 };
 
 const buildWorkflowSection = () => {
-  const images = {
-    "Business Card Workflow": "resources/wf_businesscard.svg"
-  }
+  
   const files = fs.readdirSync(
     path.resolve(__dirname, '../../../docs/openapi/components/schemas/workflows')
   );
@@ -135,25 +133,23 @@ const buildWorkflowSection = () => {
       path.resolve(__dirname, `../../../docs/openapi/components/schemas/workflows/${file}`)
     )
     const yml = load(ymlText);
-    const { title, description,  credentials } = yml;
-    const image = images[title];
-
+    const { title, description, credentials, mermaid } = yml;
+  
     const types = credentials.reduce( (prev, curr) => {
-      const { name, url } = curr;
-      const li = `<li><a href="${url}">${name}</a></li>`
+      const { name, id } = curr;
+      const li = `<li><a href="${id}">${name}</a></li>`
       return prev + li;
     }, '');
 
     w.push(`
       <h3>${title}</h3>
-      <image style='border: 1px solid #9a9a9a; border-radius: 3px; background-color: #2a303c;' src='${image}'/>
+      <pre class='mermaid'>${mermaid}</pre>
       <p>${description}</p>
       <b>Credentials Used:</b>
       <ol>
         ${types}
       </ol>
       <pre class='example yml'>${ymlText}</pre>
-
     `);
   })
 
