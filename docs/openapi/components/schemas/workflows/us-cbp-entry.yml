@@ -1,0 +1,58 @@
+id: https://w3id.org/traceability/#us-cbp-entry
+title: US CBP Entry
+description: >-
+  This workflow covers common US importing requirements pursuant to the Trade Act of 2002 and the Customs Modernization Act. 
+  
+  Additional data filings are often required beyond the common data elements, so please use this in conjunction with other workflows. Such circumstances include:
+      - Commodity, which may require specific product certification credential and/or be subject to specific government agency requirements, 
+      - Origin Country, which may require proof of origin certification and pre-registration,
+      - Transport Method, entailing specific security filings. 
+      - Filer Organization, which can benefit from presenting organization credentials such as CTPAT, or entail power of attourney proof requirements.  
+      - Value, which may entail import bond surety requirements or requirement excemptions.
+          
+  The workflow is initiated by issuance (1) and presentation (2) of an Intent to Import credential, which establishes the importer of record. 
+  No later than 15 days prior to goods arrival, the importer file the documents necessary to determine whether merchandise may be released from CBP custody. 
+  This includes issuance (3) and presentation (4) of a 3461 Entry credential, and presentation of Commercial Invoice (5), Packing List (6) and Bill of Lading (7) credentials. 
+  Upon release, CBP issues (8) and presents back (9) a PGA Shipment Status credential. 
+  For duty assessment and statistical purposes, no later than 10 days after goods release the importer must issue (10) and present (11) a CBP 7501 Entry Summary credential. 
+
+  For more information please see https://www.cbp.gov/sites/default/files/documents/Importing%20into%20the%20U.S.pdf.
+tags: 
+  - Steel
+  - Agriculture
+  - OilAndGas
+  - Ecommerce
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#CBP3461EntryCredential
+    name: CBP 3461 Entry
+  - 
+    id: https://w3id.org/traceability/#CommercialInvoiceCredential
+    name: Commercial Invoice
+  - 
+    id: https://w3id.org/traceability/#PackingListCredential
+    name: Packing List
+  - 
+    id: https://w3id.org/traceability/#MultiModalBillOfLadingCredential
+    name: Bill Of Lading
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: CBP 7501 Entry Summary
+mermaid: >-
+  sequenceDiagram
+      title: US CBP Entry
+      participant A as Importer
+      participant B as CBP
+      A-->>A: 1. issue Intent to Import Credential
+      A->>B: 2. present Intent to Import Credential
+      A-->>A: 3. issue CBP Form 3461 - Entry/Immediate Delivery Credential
+      A->>B: 4. present CBP Form 3461 - Entry/Immediate Delivery Credential
+      A->>B: 5. present Commercial Invoice Credential
+      A->>B: 6. present Packing List Credential
+      A->>B: 7. present Bill Of Lading Credential
+      note over A: Within 15 days of shipment arrival
+      B-->>B: 8. issue PGA Shipment Status Credential
+      B->>A: 9. present PGA Shipment Status Credential
+      A-->>A: 10. issue CBP Form 7501 - Entry Summary Credential
+      A->>B: 11. present CBP Form 7501 - Entry Summary Credential
+      note over A: Within 10 days of customs release

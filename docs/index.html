@@ -5,6 +5,7 @@
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <script src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
       class="remove"
@@ -1344,11 +1345,15 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
     ></section>
 
     <section
+      data-include="sections/workflows.html"
+      data-include-replace="true"
+    ></section>
+  
+    <section
       data-include="sections/vocab.html"
       data-include-replace="true"
     ></section>
-
-   
+ 
     <section id="conformance"></section>
 
     <section
@@ -1445,7 +1450,36 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
+ 
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.1.0/+esm'
+    mermaid.initialize({ startOnLoad: false });
 
+    console.log('okay');
+    async function tryRender() {
+      
+      const pre = document.getElementsByClassName('mermaid');
+      if(pre.length === 0) {
+        return setTimeout(tryRender, 50);
+      }
+      
+      for(let i = 0; i < pre.length; i++) {
+        const element = pre[i];
+        const graphDefinition = element.textContent;
+        const { svg } = await mermaid.render('mermaid', graphDefinition);
+        element.innerHTML = '';
+        const blob = new Blob([svg], {type: 'image/svg+xml'});
+        const url = URL.createObjectURL(blob);
+        const image = document.createElement('img');
+        image.src = url;
+        element.appendChild(image);
+      }
+      
+    }
+
+    tryRender();
+
+  </script>
   <script src="./visualizations.js"></script>
 
 </html>

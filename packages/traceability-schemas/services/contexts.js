@@ -5,6 +5,7 @@ const did = require('@transmute/did-context');
 const sec = require('@transmute/security-context');
 
 const contexts = {
+  'https://www.w3.org/ns/activitystreams': require('./contexts/activity-pub.json'),
   'https://www.w3.org/2018/credentials/v1': cred.contexts.get(
     'https://www.w3.org/2018/credentials/v1'
   ),
