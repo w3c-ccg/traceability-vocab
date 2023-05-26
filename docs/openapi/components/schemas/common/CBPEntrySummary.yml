@@ -199,10 +199,10 @@ properties:
   importerNumber:
     title: Importer Identifier
     description: Record the IRS EIN, SSN, or CBP assigned number of the importer of record. Proper format is listed under the instructions for Consignee Number.
-    type: string
+    $ref: ./CBPImporterOfRecord.yml
     $linkedData:
       term: importerNumber
-      '@id': https://schema.org/identifier
+      '@id': https://w3id.org/traceability#importerOfRecord
   referenceNumber:
     title: Reference Number
     description: Record the IRS EIN, SSN, or CBP assigned number of the individual or firm to whom refunds, bills, or notices of extension or suspension of liquidation are to be sent (if other than the importer of record and only when a CBP Form 4811 is on file). Proper formatis listed under the instructions for Consignee Number. Do not use this block to recordany other information.
@@ -331,7 +331,11 @@ example: |-
       "unLocode": "USLBC"
     },
     "consigneeNumber": "9982312",
-    "importerNumber": "9900127",
+    "importerNumber": {
+      "type": ["CBPImporterOfRecord"],
+      "number": "10025672",
+      "identifierType": "CBP"
+    },
     "referenceNumber": "ref199812841",
     "ultimateConsignee": {
       "type": ["Organization"],
