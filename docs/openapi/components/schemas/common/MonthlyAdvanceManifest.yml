@@ -43,6 +43,10 @@ properties:
               type: string
               enum:
                 - ScheduledDelivery
+          portCode: 
+            type: string
+            title: Port Code
+            description: The code of the port of arrival to which the product(s) were transferred. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
           deliveryLocation:
             type: string
             title: deliveryLocation
@@ -68,7 +72,8 @@ example: |-
     "date": "2019-12-11T03:50:55Z",
     "scheduledDeliveries": [
         {
-            "deliveryLocation": "Cushing",
+            "portCode": "3901",
+            "deliveryLocation": "Chicago",
             "sumOfScheduledDelivires": "2000",
             "numberOfBatches": "1"
         }
