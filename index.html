@@ -36,37 +36,12 @@
           repoURL: 'https://github.com/w3c-ccg/traceability-vocab/',
           branch: 'main',
         },
-
-        // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
         specStatus: 'unofficial',
-
-        // the specification's short name, as in http://www.w3.org/TR/short-name/
         shortName: 'traceability-vocab',
-
-        // if you wish the publication date to be other than today, set this
-        // publishDate:  "2009-08-06",
-
-        //subtitle
         subtitle: 'A vocabulary for traceability in supply chains',
-
-        // if there is a previously published draft,
-        // uncomment this and set its YYYY-MM-DD date
-        // and its maturity status
-        previousPublishDate: '2020-09-30',
+        // previousPublishDate: '2020-09-30',
         previousMaturity: 'UNOFFICIAL',
-
-        // if there a publicly available Editor's Draft, this is the link
-        edDraftURI: 'https://w3c-ccg.github.io/traceability-vocab',
-
-        // if this is a LCWD, uncomment and set the end of its review period
-        // lcEnd: "2009-08-05",
-
-        // if you want to have extra CSS, append them to this list
-        // it is recommended that the respec.css stylesheet be kept
-        //extraCSS:             ["spec.css", "prettify.css"],
-
-        // editors, add as many as you like
-        // only "name" is required
+        edDraftURI: 'https://w3id.org/traceability',
         editors: [
           {
             name: 'Orie Steele',
@@ -81,40 +56,20 @@
             companyURL: 'https://www.mesur.io/',
           },
           {
-            name: 'Brian Munz',
-            url: 'https://github.com/brianwmunz',
-            company: 'Mesur.io',
-            companyURL: 'https://www.mesur.io/',
-          },
-          {
             name: 'Mahmoud Alkhraishi',
             url: 'https://github.com/mkhraisha',
             company: 'Mavennet',
             companyURL: 'https://www.mavennet.com/',
           },
         ],
-
-        // extend the bibliography entries
-        //localBiblio: webpayments.localBiblio,
-        // group: "w3c-ccg",
-        // {
-        //   name: "Credentials Community Group",
-        //   url: "https://www.w3.org/community/credentials/",
-        //   list: "public-credentials",
-        //   patentUri: "https://www.w3.org/community/about/agreements/cla/",
-        // }
-        // wg: respecPagesJson.group.name,
-        // // URI of the public WG page
-        // wgURI: respecPagesJson.group.url,
-        // // name (with the @w3c.org) of the public mailing to which comments are due
-        // wgPublicList: respecPagesJson.group.list,
-        // URI of the patent status for this WG, for Rec-track documents
-        // !!!! IMPORTANT !!!!
-        // This is important for Rec-track documents, do not copy a patent URI from a random
-        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-        // Team Contact.
-        // wgPatentURI: respecPagesJson.group.patentUri,
-
+        authors: [
+          {
+            name: 'Brian Munz',
+            url: 'https://github.com/brianwmunz',
+            company: 'Mesur.io',
+            companyURL: 'https://www.mesur.io/',
+          }
+        ],
         otherLinks: [
           {
             key: 'Source Control',
@@ -135,26 +90,7 @@
             ],
           },
         ],
-
-        // URI of the patent status for this WG, for Rec-track documents
-        // !!!! IMPORTANT !!!!
-        // This is important for Rec-track documents, do not copy a patent URI from a random
-        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
-        // Team Contact.
-        // wgPatentURI:  "",
         maxTocLevel: 2,
-        /*preProcess: [ webpayments.preProcess ],
-      alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
-      */
-        localBiblio: {
-          'RDF-DATASET-NORMALIZATION': {
-            title: 'RDF Dataset Normalization 1.0',
-            href: 'http://json-ld.github.io/normalization/spec/',
-            authors: ['David Longley', 'Manu Sporny'],
-            status: 'CGDRAFT',
-            publisher: 'JSON-LD Community Group',
-          },
-        },
       };
     </script>
     <style>
@@ -757,10 +693,10 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Mill Test Certification Workflow</figcaption>
         </figure>
         <p>
-          Steel Inspection Agency issues a <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> (1) for the Steel Manufacturer, which gets presented (2) and verifies the <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> (3).
+          Steel Inspection Agency issues a <a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report</a> (1) for the Steel Manufacturer, which gets presented (2) and verifies the <a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report</a> (3).
         </p>
         <p>
-          Steel Manufacturer issues a <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> as part of a sales transaction and an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> to initiate the import (4). The documents are presented to the customer, Steel Importer (5), which can verify the originality of both documents, respectively tracing the <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> back to the Manufacturer (6) and the <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> back to a trusted steel certifying agent (7). 
+          Steel Manufacturer issues a <a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice</a> as part of a sales transaction and an <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> to initiate the import (4). The documents are presented to the customer, Steel Importer (5), which can verify the originality of both documents, respectively tracing the <a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice</a> back to the Manufacturer (6) and the <a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report</a> back to a trusted steel certifying agent (7). 
         </p>
       <h5>SIMA Steel License</h5>
         <figure>
@@ -774,7 +710,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           Steel Import Monitoring and Analysis verifies (3) and processes Steel Inc’s application, issues a <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA Steel License</a> (4) which is presented back to Steel Inc. (5).
         </p>
         <p>
-          At time of import, Steel Inc. issues an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> and a <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">7501 Entry Summary</a> (6) which are presented to CBP together with the <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA License</a> (7).
+          At time of import, Steel Inc. issues an <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> and a <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCredential">7501 Entry Summary</a> (6) which are presented to CBP together with the <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA License</a> (7).
         </p>
         <p>
           CBP Verifies that the SIMA Certificate originates from the SIMA issuer (8) and that the certified organization match the issuer of the import credentials (9). 
@@ -785,13 +721,13 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         <figcaption>USMCA Steel Import Workflow</figcaption>
       </figure>
       <p>
-        Steel Importer issues a <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USCMA Certificate of Origin</a> (1). Initiating the importing workflow, Steel Importer also issues an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (2). 
+        Steel Importer issues a <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USCMA Certificate of Origin</a> (1). Initiating the importing workflow, Steel Importer also issues an <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> (2). 
       </p>
       <p>
-        Steel Importer presents the <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Certificate of Origin</a> and <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> along with a <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> to Customs (3).
+        Steel Importer presents the <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Certificate of Origin</a> and <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> along with a <a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report</a> to Customs (3).
       </p>
       <p>
-        Customs verifies the <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Certification of Origin</a> (4), cross checks HTS codes with the <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a> (5), and initiates the import procedures (6). 
+        Customs verifies the <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Certification of Origin</a> (4), cross checks HTS codes with the <a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report</a> (5), and initiates the import procedures (6). 
       </p>
       <h5>Steel Import Customs Brokerage</h5>
       <figure>
@@ -799,10 +735,10 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         <figcaption>Steel Import Customs Brokerage Workflow</figcaption>
       </figure>
       <p>
-        Steel Importer issues <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> (1) and <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (2) in relation to a shipment of steel. These are presented to the Customs Broker along with a <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA License</a>, a <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Declaration</a>, a <a href="https://w3id.org/traceability/#MillTestReportCertificate">Mill Test Report</a>, and a <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Importer Certificate</a>. 
+        Steel Importer issues <a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice</a> (1) and <a href="https://w3id.org/traceability/#PackingListCredential">Packing List</a> (2) in relation to a shipment of steel. These are presented to the Customs Broker along with a <a href="https://w3id.org/traceability/#SIMASteelImportLicenseCertificate">SIMA License</a>, a <a href="https://w3id.org/traceability/#USMCACertificationOfOrigin">USMCA Declaration</a>, a <a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report</a>, and a <a href="https://w3id.org/traceability/#CTPATCredential">CTPAT Importer Certificate</a>. 
       </p>
       <p>
-        The Customs Broker issues a <a href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCertificate">3461 Immediate Delivery Certificate</a> (3) and an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (4), and has received the <a href="https://w3id.org/traceability/#BillOfLadingCertificate">Bill of Lading</a> from the carrier. 
+        The Customs Broker issues a <a href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCredential">3461 Immediate Delivery Certificate</a> (3) and an <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> (4), and has received the <a href="https://w3id.org/traceability/#BillOfLadingCredential">Bill of Lading</a> from the carrier. 
       </p>
       <p>
         The full pouch of documents are presented to Customs (5) for verification (6) and import processing.
@@ -928,7 +864,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
         </dl>
         <p><b>Optional Input</b></p>
         <dl>
-          <dt>AEO Certificates such as <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Certificate</a></dt>
+          <dt>AEO Certificates such as <a href="https://w3id.org/traceability/#CTPATCredential">CTPAT Certificate</a></dt>
           <dd>Issuer: CTPAT</dd>
           <dd>Credential Subject: Applicant Marketplace</dd>
           <dt>Other Organizational Evidence</dt>
@@ -950,7 +886,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>De Minimis Shipment Workflow</figcaption>
         </figure>
         <p>
-          As part of an international ecommerce sale, the Ecommerce platform issues a <a href="https://w3id.org/traceability/#DeMinimisShipmentCertificate">De Minimis Shipment Certificate</a> (1) indicating exemption from importing duties. An <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> is also issued (2) to initiate the import workflow (3). 
+          As part of an international ecommerce sale, the Ecommerce platform issues a <a href="https://w3id.org/traceability/#DeMinimisShipmentCertificate">De Minimis Shipment Certificate</a> (1) indicating exemption from importing duties. An <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> is also issued (2) to initiate the import workflow (3). 
         </p>
         <p>
           Customs verifies both (4) and (5) and allows the shipment "direct pass" through customs. 
@@ -961,16 +897,16 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Packing and Shipping Workflow</figcaption>
         </figure>
         <p>
-          A purchase is made on a US eCommerce platform, triggering issuance of a <a href="https://w3id.org/traceability/#PurchaseOrderCertificate">Purchase Order</a> (1), which is passed to the foreign fulfillment center (2).
+          A purchase is made on a US eCommerce platform, triggering issuance of a <a href="https://w3id.org/traceability/#PurchaseOrderCredential">Purchase Order</a> (1), which is passed to the foreign fulfillment center (2).
         </p>
         <p>
-          Receiving and verifying the <a href="https://w3id.org/traceability/#PurchaseOrderCertificate">Purchase Order</a>, the fulfillment center organizes shipping with an international carrier, issuing (4) and presenting <a href="https://w3id.org/traceability/#ShippingInstructionsCertificate">Shipping Instructions</a> (5).
+          Receiving and verifying the <a href="https://w3id.org/traceability/#PurchaseOrderCredential">Purchase Order</a>, the fulfillment center organizes shipping with an international carrier, issuing (4) and presenting <a href="https://w3id.org/traceability/#ShippingInstructionsCertificate">Shipping Instructions</a> (5).
         </p>
         <p>
-          Upon shipping, the Fulfillment Center issues a <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (7), presented to the courier (8). The courier verifies the <a href="https://w3id.org/traceability/#ShippingInstructionsCertificate">Shipping Instructions</a> (6) and prepares for shipping. 
+          Upon shipping, the Fulfillment Center issues a <a href="https://w3id.org/traceability/#PackingListCredential">Packing List</a> (7), presented to the courier (8). The courier verifies the <a href="https://w3id.org/traceability/#ShippingInstructionsCertificate">Shipping Instructions</a> (6) and prepares for shipping. 
         </p>
         <p>
-          The carrier verifies the <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (9) and automatically correlates it to the shipment through the common workflow instance id.
+          The carrier verifies the <a href="https://w3id.org/traceability/#PackingListCredential">Packing List</a> (9) and automatically correlates it to the shipment through the common workflow instance id.
         </p>
         <h5>Importing Procedures</h5>
         <figure>
@@ -978,10 +914,10 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Import Procedures Workflow</figcaption>
         </figure>
         <p>
-          Express Carrier issues a <a href="https://w3id.org/traceability/#HouseBillOfLadingCertificate">House Bill of Lading</a> (1), which is presented to the Customs Broker along with other documents associated with the <a href="https://w3id.org/traceability/#PackingListCertificate">Packing List</a> (2). 
+          Express Carrier issues a <a href="https://w3id.org/traceability/#HouseBillOfLadingCredential">House Bill of Lading</a> (1), which is presented to the Customs Broker along with other documents associated with the <a href="https://w3id.org/traceability/#PackingListCredential">Packing List</a> (2). 
         </p>
         <p>
-          The Customs Broker issues <a href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCertificate">3461 Immediate Delivery</a> (3) and <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (4) certificates. The documents are submitted to Customs through a Traceable Presentation with a defined workflow instance id such as “a123-b456” (5).
+          The Customs Broker issues <a href="https://w3id.org/traceability/#CBP3461ImmediateDeliveryCredential">3461 Immediate Delivery</a> (3) and <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> (4) certificates. The documents are submitted to Customs through a Traceable Presentation with a defined workflow instance id such as “a123-b456” (5).
         </p>
         <p>
           Customs verifies the pouch of documents associated with the shipment (6) and initiates importing procedures based on submitted data (7). 
@@ -992,10 +928,10 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Import Procedures Workflow</figcaption>
         </figure>
         <p>
-          The Customs Broker completes the importing procedures by issuing the <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">7501 Entry Summary</a> (1), presenting it to Customs (2), and associating it with the earlier submission by correlating the workflow instance id ("a123-b456").
+          The Customs Broker completes the importing procedures by issuing the <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCredential">7501 Entry Summary</a> (1), presenting it to Customs (2), and associating it with the earlier submission by correlating the workflow instance id ("a123-b456").
         </p>
         <p>
-          Customs verifies the <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">Entry Summary</a> (3) and completes the importing assessment. 
+          Customs verifies the <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCredential">Entry Summary</a> (3) and completes the importing assessment. 
         </p>
         <h5>Trusted Trader Program</h5>
         <figure>
@@ -1003,10 +939,10 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Trusted Trader Program Workflow</figcaption>
         </figure>
         <p>
-          CTPAT runs vetting procedures, and issues and presents to the Importer (2) a <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Certificate</a> (1).
+          CTPAT runs vetting procedures, and issues and presents to the Importer (2) a <a href="https://w3id.org/traceability/#CTPATCredential">CTPAT Certificate</a> (1).
         </p>
         <p>
-          Upon importing goods, the Importer issues a <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCertificate">7501 Entry Summary</a> (4) and an <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (5), which are presented to CBP (6) along with the <a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Certificate</a>.
+          Upon importing goods, the Importer issues a <a href="https://w3id.org/traceability/#CBP7501EntrySummaryCredential">7501 Entry Summary</a> (4) and an <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> (5), which are presented to CBP (6) along with the <a href="https://w3id.org/traceability/#CTPATCredential">CTPAT Certificate</a>.
         </p>
         <h5>Freight Forwarder Consignment</h5>
         <p>
@@ -1017,19 +953,19 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
           <figcaption>Freight Forwarder Consignment Workflow</figcaption>
         </figure>
         <p>
-          The product importer of record issues <a href="https://w3id.org/traceability/#ProformaInvoiceCertificate">Proforma Invoice</a> (1) and <a href="https://w3id.org/traceability/#IntentToImportCertificate">Intent To Import</a> (2) credentials which are presented to CBP (3) with instance id [inst_1] well ahead of shipping. 
+          The product importer of record issues <a href="https://w3id.org/traceability/#ProformaInvoiceCredential">Proforma Invoice</a> (1) and <a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import</a> (2) credentials which are presented to CBP (3) with instance id [inst_1] well ahead of shipping. 
         </p>
         <p>
           CBP verifies the initial import documentation submitted by the Importer (4).
         </p>
         <p>
-          Upon shipping, the Freight Forwarder issues a <a href="https://w3id.org/traceability/#HouseBillOfLadingCertificate">House BL</a> (5) which is presented to CBP (6) with a separate instance id [inst_2].
+          Upon shipping, the Freight Forwarder issues a <a href="https://w3id.org/traceability/#HouseBillOfLadingCredential">House BL</a> (5) which is presented to CBP (6) with a separate instance id [inst_2].
         </p>
         <p>
-          The Importer issues the final <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> (8) which is presented to the Freight Forwarder (9) also with instance id [inst_1]. Passing on the <a href="">Commercial Invoice</a>, the Freight Forwarder includes both its own and the Importer’s instance ids [inst_1, inst_2], indicating to Customs that the workflows are related.
+          The Importer issues the final <a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice</a> (8) which is presented to the Freight Forwarder (9) also with instance id [inst_1]. Passing on the <a href="">Commercial Invoice</a>, the Freight Forwarder includes both its own and the Importer’s instance ids [inst_1, inst_2], indicating to Customs that the workflows are related.
         </p>
         <p>
-          Receiving the <a href="https://w3id.org/traceability/#CommercialInvoiceCertificate">Commercial Invoice</a> (10), CBP can also join the two graphs, thus knowing that the original <a href="https://w3id.org/traceability/#ProformaInvoiceCertificate">Proforma Invoice</a> relates to the Freight Forwarder’s presentations. 
+          Receiving the <a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice</a> (10), CBP can also join the two graphs, thus knowing that the original <a href="https://w3id.org/traceability/#ProformaInvoiceCredential">Proforma Invoice</a> relates to the Freight Forwarder’s presentations. 
         </p>
         <h5>Product Identifier Verification from Company Prefix License</h5>
         <p>
@@ -1140,7 +1076,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
             </figure>
             <p>
               The
-              <a href="#MillTestReportCertificate">Mill Test Report</a>
+              <a href="#MillTestReportCredential">Mill Test Report</a>
               certifies metal type and quality, listing chemical and mechanical
               properties.
             </p>
@@ -1156,7 +1092,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Commercial Invoice</figcaption>
             </figure>
             <p>
-              <a href="#CommercialInvoiceCertificate">Commercial Invoice</a>
+              <a href="#CommercialInvoiceCredential">Commercial Invoice</a>
               indicates to authorities the value of goods subject to tariffs and
               duties.
             </p>
@@ -1172,7 +1108,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Bill of Lading</figcaption>
             </figure>
             <p>
-              <a href="#BillOfLadingCertificate">Bill of Lading</a> certificates
+              <a href="#BillOfLadingCredential">Bill of Lading</a> certificates
               are issued by the carrier, indicating a) receipt of goods, b)
               evidence of consignment contract, and c) title of goods.
             </p>
@@ -1197,7 +1133,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
             </figure>
             <p>
               The
-              <a href="#USMCACertificateOfOrigin"
+              <a href="#USMCACertificationOfOrigin"
                 >USMCA Certificate Of Origin</a
               >
               schema is adapted from
@@ -1238,7 +1174,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Purchase Order form</figcaption>
             </figure>
             <p>
-              The <a href="#PurchaseOrderCertificate">Purchase Order</a>
+              The <a href="#PurchaseOrderCredential">Purchase Order</a>
               is a formal request of goods by buyer to seller.
             </p>
           </dd>
@@ -1261,7 +1197,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Packing List form</figcaption>
             </figure>
             <p>
-              The <a href="#PackingListCertificate">Packing List</a>
+              The <a href="#PackingListCredential">Packing List</a>
               lists the goods of a shipment. It is used by the consignee and
               Customs to practically manage and organize the consgned goods.
             </p>
@@ -1277,7 +1213,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Air Waybill form</figcaption>
             </figure>
             <p>
-              A <a href="#IATAAirWaybillCertificate">Waybill</a> is a transport 
+              A <a href="#IATAAirWaybillCredential">Waybill</a> is a transport 
               document issued by the carrier. It serves a similar purpose as a 
               Bill of Lading, except that it does not carry title. Instead, the 
               consignee is identified on the document.
@@ -1294,7 +1230,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Proforma Invoice form</figcaption>
             </figure>
             <p>
-              The <a href="#ProformaInvoiceCertificate">Proforma Invoice</a> is a 
+              The <a href="#ProformaInvoiceCredential">Proforma Invoice</a> is a 
               sample invoice provided by an exporter prior to a sale.
             </p>
           </dd>
@@ -1309,7 +1245,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Commercial Invoice</figcaption>
             </figure>
             <p>
-              An <a href="#CommercialInvoiceCertificate">Invoice</a>
+              An <a href="#CommercialInvoiceCredential">Invoice</a>
               requests payment for a shipment of goods. It is based on the same
               schema as the Commercial Invoice, but is typically at a finer
               level of details, line items corresponding to the Purchase Order.
@@ -1325,7 +1261,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
               <figcaption>Sample Importer Security Filing form</figcaption>
             </figure>
             <p>
-              The <a href="#ImporterSecurityFilingCertificate">Importer Security 
+              The <a href="#ImporterSecurityFilingCredential">Importer Security 
               Filing</a>, commonly referred to as "10+2" is a requirement for 
               import containerized cargo into the United States. 
             </p>
