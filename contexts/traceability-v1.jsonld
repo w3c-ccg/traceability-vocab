@@ -2931,6 +2931,17 @@
       },
       "@id": "https://w3id.org/traceability#MillTestReportCredential"
     },
+    "MonetaryAmount": {
+      "@context": {
+        "currency": {
+          "@id": "https://schema.org/currency"
+        },
+        "value": {
+          "@id": "https://schema.org/value"
+        }
+      },
+      "@id": "https://schema.org/MonetaryAmount"
+    },
     "MonthlyAdvanceManifest": {
       "@context": {
         "date": {
@@ -4206,29 +4217,23 @@
     },
     "SIMASteelImportLicense": {
       "@context": {
-        "applicantCompany": {
-          "@id": "https://schema.org/Organization"
-        },
         "countryOfExportation": {
-          "@id": "https://schema.org/addressCountry"
-        },
-        "countryOfMeltAndPour": {
-          "@id": "https://w3id.org/traceability#countryOfMeltAndPour"
+          "@id": "https://vocabulary.uncefact.org/exportCountry"
         },
         "countryOfOrigin": {
-          "@id": "https://schema.org/addressCountry"
+          "@id": "https://vocabulary.uncefact.org/originCountry"
         },
         "customsEntryNumber": {
-          "@id": "https://schema.org/identifier"
+          "@id": "https://vocabulary.uncefact.org/ReferenceCodeList#AQM"
         },
         "expectedDateOfExport": {
-          "@id": "https://vocabulary.uncefact.org/exportExitDateTime"
+          "@id": "https://vocabulary.uncefact.org/DateTimePeriodFunctionCodeList#129"
         },
         "expectedDateOfImport": {
-          "@id": "https://w3id.org/traceability#importDateTime"
+          "@id": "https://vocabulary.uncefact.org/DateTimePeriodFunctionCodeList#151"
         },
         "expectedPortOfEntry": {
-          "@id": "https://vocabulary.uncefact.org/Location"
+          "@id": "https://vocabulary.uncefact.org/LocationFunctionCodeList#24"
         },
         "exporter": {
           "@id": "https://vocabulary.uncefact.org/exporterParty"
@@ -4238,6 +4243,9 @@
         },
         "licenseNumber": {
           "@id": "https://schema.org/identifier"
+        },
+        "licensedCompany": {
+          "@id": "https://schema.org/Organization"
         },
         "manufacturer": {
           "@id": "https://vocabulary.uncefact.org/manufacturerParty"
@@ -4260,14 +4268,14 @@
     },
     "SIMASteelImportProductSpecifier": {
       "@context": {
+        "countryOfMeltAndPour": {
+          "@id": "https://w3id.org/traceability#countryOfMeltAndPour"
+        },
         "customsValue": {
-          "@id": "https://schema.org/MonetaryAmount"
+          "@id": "https://vocabulary.uncefact.org/declaredValueForCustomsAmount"
         },
         "productCategory": {
           "@id": "https://w3id.org/traceability#ProductCategory"
-        },
-        "steelProduct": {
-          "@id": "https://w3id.org/traceability#SteelProduct"
         }
       },
       "@id": "https://w3id.org/traceability#SIMASteelImportProductSpecifier"

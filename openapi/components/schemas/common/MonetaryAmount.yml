@@ -1,0 +1,47 @@
+$linkedData:
+  term: MonetaryAmount
+  '@id': https://schema.org/MonetaryAmount
+title: Monetary Amount
+description: A monetary value or range. This type can be used to describe an amount of money such as $50 USD, or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. It is recommended to use PriceSpecification Types to describe the price of an Offer, Invoice, etc.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - MonetaryAmount
+    default:
+      - MonetaryAmount
+    items:
+      type: string
+      enum:
+        - MonetaryAmount
+  value:
+    title: Value
+    description: >-
+      Use values from 0123456789. Use '.' rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+    type: number
+    $linkedData:
+      term: value
+      '@id': https://schema.org/value
+  currency:
+    title: Currency
+    description: >-
+      The currency in which the monetary amount is expressed. Use standard formats: ISO 4217 currency format, e.g. "USD".
+    type: string
+    $linkedData:
+      term: currency
+      '@id': https://schema.org/currency
+additionalProperties: false
+required:
+  - type
+  - value
+  - currency
+example: |-
+  {
+    "type": [
+      "MonetaryAmount"
+    ],
+    "value": 150000,
+    "currency": "USD"
+  }
