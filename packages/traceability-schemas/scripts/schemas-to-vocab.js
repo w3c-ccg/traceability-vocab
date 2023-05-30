@@ -18,12 +18,16 @@ const workflowPath = path.resolve(
 
 const baseUrl = 'https://w3id.org/traceability';
 
+const htmlSectionSchemaTags = 'CATAIR';
+
 const buildLinkedDataTable = (schema) => {
   const { $id, $linkedData } = schema;
   if (!$linkedData) {
     return '';
   }
+  
   const section = `
+  
   <table class="simple">
   <tbody>
 
@@ -72,12 +76,21 @@ const buildClass = (schema) => {
   }
 
   const props = schema.properties ? Object.keys(schema.properties) : [];
-
+    let catair = ``;
+    const {$id} = schema;
+    if (schema.tags && schema.tags.includes(htmlSectionSchemaTags) ) {
+      const htmlExtension = $id.split('/').pop().replace('.yml', '.html');
+      catair = fs.readFileSync(path.resolve(
+        __dirname,
+        `../../../docs/sections/catair/${htmlExtension}`
+      )).toString();
+    }
   const section = `
     <section id="${schema.$linkedData.term}">
       <h2>${schema.title}</h2>
       <p>${schema.description}</p>
       ${table}
+      ${catair && `<section><h2>Table View</h2>${catair}</section>`}
       <pre class="example">${schema.example}</pre>
     </section>
   `;
