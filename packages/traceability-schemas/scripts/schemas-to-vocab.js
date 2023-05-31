@@ -187,7 +187,7 @@ const buildWorkflowSection = () => {
 
   const vocabSection = `
     <section>
-      <h2>Vocabulary</h2>
+      <h2>RDF Types</h2>
       ${vocab}
     </section>
   `;
