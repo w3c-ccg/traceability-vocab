@@ -176,7 +176,7 @@
         which leverage established vocabularies such as schema.org, GS1, and UN/CEFACT.
       </p>
 
-      <h3>Supply Chain Digitization Challenges</h3>
+      <h3>Supply Chain Digitization</h3>
       <p>
         While digitization has revolutionized other industries with decades of value, supply chain industries have been slow
         and fragmented in their digital transformation journey. The sheer number and variety of supply chain actors makes
@@ -213,8 +213,8 @@
         results in de-facto vendor software lock-in.
       </p>
 
-      <h2>Technology Enablement</h2>
-      <h3>Establishing Trust</h3>
+
+      <h2>Establishing Trust</h2>
       <p>
         Trust and efficiency are fundamental to supply chains and global trade. Supply chains are a network of economically
         connected and collaborative stakeholders that includes shippers, carriers, importers, regulators, and other key
@@ -245,7 +245,7 @@
         chain technology.
       </p>
 
-      <h3>Linked Semantics</h3>
+      <h2>Linked Semantics</h2>
       <p>
         Supply chain organizations use different words to say the same thing. For example, “Shipper” and “Consignor” are used
         interchangeably in shipping. Ensuring precise communication across supply chain participants given these varying
@@ -271,7 +271,7 @@
         schemas.
       </p>
 
-      <h3>Global Identification Scheme</h3>
+      <h2>Global Identifiers</h2>
       <p>
         A final important part of modernizing the digital supply chain is targeting the problem of identification. The
         difficulty of scaling centralized solutions has led to the emergence of Decentralized Identifiers (DIDs). DIDs rely on
@@ -327,7 +327,7 @@
         documents and promote trust throughout the entire supply chain.
       </p>
 
-      <h2>Structure</h2>
+      <h2>Vocabulary</h2>
       <p>
         Generally, this vocabulary may be looked at as a set of common objects
         that are shared across multiple business verticals, and vertical or use
@@ -414,225 +414,34 @@
         </p>
       </section>
 
-<section class="informative">
-  <h4>Open API</h4>
-  <p>
-    This vocabulary can also be viewed as an
-    <a href="https://w3id.org/traceability/openapi/"
-      >Open API Specification</a
-    >.
-  </p>
-<p>
-See <a href="https://w3id.org/traceability/interoperability">w3id.org/traceability/interoperability</a> 
-for REST API and interoperability tests associated with this vocabulary.
-</p>
-</section>
-
-<section>
-  <h4>Undefined Terms</h4>
-  <p>
-    This vocabulary uses
-    <code>
-      '@vocab': 'https://www.w3.org/ns/credentials/issuer-dependent#'
-    </code>
-    to disable JSON-LD related errors associated with Verifiable
-    Credentials, issued about terms that have not yet been added here.
-  </p>
-
-<p class="advisement">
-Issuers are advised to review the JSON-LD and all associated terms before issuing verifiable credentials.
-</p>
-</section>
-    </section>
-
-    <section id="terminology" class="informative">
-      <h2>Terminology</h2>
+      <section class="informative">
+        <h4>Open API</h4>
+        <p>
+          This vocabulary can also be viewed as an
+          <a href="https://w3id.org/traceability/openapi/"
+            >Open API Specification</a
+          >.
+        </p>
       <p>
-        The following terms are used to describe concepts in this specification.
+      See <a href="https://w3id.org/traceability/interoperability">w3id.org/traceability/interoperability</a> 
+      for REST API and interoperability tests associated with this vocabulary.
       </p>
-
-      <dl class="termlist">
-        <dt>entity</dt>
-        <dd>
-          A thing with distinct and independent existence, such as a person,
-          organization, or device, that performs one or more roles in the
-          ecosystem.
-        </dd>
-        <dt>user agent</dt>
-        <dd>
-          A program, such as a browser or other Web client, that mediates the
-          communication between the various roles in this specification.
-        </dd>
-        <dt>URI</dt>
-        <dd>An identifier as defined by [[RFC3986]].</dd>
-      </dl>
+      </section>
 
       <section>
-        <h3>Extensions to Standard</h3>
+        <h4>Undefined Terms</h4>
+        <p>
+          This vocabulary uses
+          <code>
+            '@vocab': 'https://www.w3.org/ns/credentials/issuer-dependent#'
+          </code>
+          to disable JSON-LD related errors associated with Verifiable
+          Credentials, issued about terms that have not yet been added here.
+        </p>
 
-        <section>
-          <h4>Verifiable Credential</h4>
-
-          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
-
-          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
-
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
-        </section>
-
-        <section>
-          <h4>Verifiable Presentation</h4>
-
-          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
-
-          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
-
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
-        </section>
-
-        <section>
-          <h4>Workflow Definition</h4>
-          <p>
-            The sequence of industrial, administrative, or other processes
-            through which a piece of work passes from initiation to completion.
-          </p>
-
-          <p>
-            In the context of this vocabulary, we consider the specifics of
-            workflows out of scope. We acknowledge that different use cases may
-            have complicated workflows, which may yield many individual
-            presentations of credentials.
-          </p>
-          
-          <p class="note">
-            There are several systems for workflow definitions. See 
-            <a href="https://www.omg.org/spec/BPMN/2.0/About-BPMN/" target="_blank">BPMN</a>,
-            <a href="https://en.wikipedia.org/wiki/YAWL" target="_blank">YAWL</a>, and/or
-            <a href="https://docs.github.com/en/actions/using-workflows/about-workflows" target="_blank">GitHub Workflows</a>.
-          </p>
-
-          <p>
-            We enable the grouping of all presentations related to a definition,
-            using the convention:
-          </p>
-
-          <pre class="js">
-                {
-                  "@context": [
-                    "https://www.w3.org/2018/credentials/v1",
-                    "https://w3id.org/traceability/v1"
-                  ],
-                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
-                  "type":
-                  [
-                    "VerifiablePresentation",
-                    "TraceablePresentation"
-                  ],
-                  "workflow": {
-                    // This refers to a Workflow Definition
-                    "definition": [
-                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e" 
-                    ],
-                    "instance": [
-                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
-                    ],
-                  },
-                  "holder":{
-                    "id":"did:web:sender.example",
-                    "type":"Organization",
-                    "location":{
-                       "type":"Place",
-                       "geo":{
-                          "type":"GeoCoordinates",
-                          "latitude":"68.7083",
-                          "longitude":"4.6377"
-                       },
-                       "address":{
-                          "type":"PostalAddress",
-                          "organizationName":"Ratke - Bergstrom",
-                          "streetAddress":"21851 Ima Heights",
-                          "addressLocality":"O'Connellborough",
-                          "addressRegion":"Missouri",
-                          "postalCode":"65587",
-                          "addressCountry":"Cyprus"
-                       }
-                    }
-                 }
-                }
-                </pre
-          >
-        </section>
-
-        <section>
-          <h4>Workflow Instance</h4>
-          <p>
-            Each defined workflow may be executed many times for different sets
-            of inputs and among different stakeholders.
-          </p>
-          <p>
-            We refer to Workflow Instance's as an execution of a particular
-            workflow, which may or may not be formally defined.
-          </p>
-
-          <p class="note">
-            An example of a workflow definition is 
-            <a href="https://www.cbp.gov/trade/programs-administration/entry-summary/ace-process-and-policy">US Customs ACE Entry Summary Process</a>.
-            Where specific instances are used to track cross border imports, it is important to be able to identify specific
-            collections of documents associated with a given import.
-            Workflow instances help achieve this by providing a topic
-            identifier enabling the grouping of related credentials and presentations.
-          </p>
-
-          <p>
-            We enable the grouping of all presentations related to an instance,
-            using the convention:
-          </p>
-          <pre class="js">
-                {
-                  "@context": [
-                    "https://www.w3.org/2018/credentials/v1",
-                    "https://w3id.org/traceability/v1"
-                  ],
-                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
-                  "type":
-                  [
-                    "VerifiablePresentation",
-                    "TraceablePresentation"
-                  ],
-                  "workflow": {
-                    "definition": [
-                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
-                    ],
-                    // This refers to a Workflow Instance
-                    "instance": [
-                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
-                    ]
-                  },
-                  "holder":{
-                    "id":"did:web:sender.example",
-                    "type":"Organization",
-                    "location":{
-                       "type":"Place",
-                       "geo":{
-                          "type":"GeoCoordinates",
-                          "latitude":"68.7083",
-                          "longitude":"4.6377"
-                       },
-                       "address":{
-                          "type":"PostalAddress",
-                          "organizationName":"Ratke - Bergstrom",
-                          "streetAddress":"21851 Ima Heights",
-                          "addressLocality":"O'Connellborough",
-                          "addressRegion":"Missouri",
-                          "postalCode":"65587",
-                          "addressCountry":"Cyprus"
-                       }
-                    }
-                 }
-                }
-                </pre
-          >
-        </section>
+      <p class="advisement">
+      Issuers are advised to review the JSON-LD and all associated terms before issuing verifiable credentials.
+      </p>
       </section>
     </section>
 
@@ -1271,7 +1080,7 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
     </section>
 
     <section
-    data-include="sections/ontology-visualizations.html"
+    data-include="sections/workflows.html"
     data-include-replace="true"
   ></section>
 
@@ -1280,103 +1089,281 @@ Issuers are advised to review the JSON-LD and all associated terms before issuin
       data-include-replace="true"
     ></section>
 
-    <section
-      data-include="sections/workflows.html"
-      data-include-replace="true"
-    ></section>
+    <section id="conformance">
+      <section>
+        <h3>Extensions to Standard</h3>
+
+        <section>
+          <h4>Verifiable Credential</h4>
+
+          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+
+          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+
+          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+        </section>
+
+        <section>
+          <h4>Verifiable Presentation</h4>
+
+          <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+
+          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
+
+          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+        </section>
+
+        <section>
+          <h4>Workflow Definition</h4>
+          <p>
+            The sequence of industrial, administrative, or other processes
+            through which a piece of work passes from initiation to completion.
+          </p>
+
+          <p>
+            In the context of this vocabulary, we consider the specifics of
+            workflows out of scope. We acknowledge that different use cases may
+            have complicated workflows, which may yield many individual
+            presentations of credentials.
+          </p>
+          
+          <p class="note">
+            There are several systems for workflow definitions. See 
+            <a href="https://www.omg.org/spec/BPMN/2.0/About-BPMN/" target="_blank">BPMN</a>,
+            <a href="https://en.wikipedia.org/wiki/YAWL" target="_blank">YAWL</a>, and/or
+            <a href="https://docs.github.com/en/actions/using-workflows/about-workflows" target="_blank">GitHub Workflows</a>.
+          </p>
+
+          <p>
+            We enable the grouping of all presentations related to a definition,
+            using the convention:
+          </p>
+
+          <pre class="js">
+                {
+                  "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://w3id.org/traceability/v1"
+                  ],
+                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
+                  "type":
+                  [
+                    "VerifiablePresentation",
+                    "TraceablePresentation"
+                  ],
+                  "workflow": {
+                    // This refers to a Workflow Definition
+                    "definition": [
+                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e" 
+                    ],
+                    "instance": [
+                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+                    ],
+                  },
+                  "holder":{
+                    "id":"did:web:sender.example",
+                    "type":"Organization",
+                    "location":{
+                       "type":"Place",
+                       "geo":{
+                          "type":"GeoCoordinates",
+                          "latitude":"68.7083",
+                          "longitude":"4.6377"
+                       },
+                       "address":{
+                          "type":"PostalAddress",
+                          "organizationName":"Ratke - Bergstrom",
+                          "streetAddress":"21851 Ima Heights",
+                          "addressLocality":"O'Connellborough",
+                          "addressRegion":"Missouri",
+                          "postalCode":"65587",
+                          "addressCountry":"Cyprus"
+                       }
+                    }
+                 }
+                }
+                </pre
+          >
+        </section>
+
+        <section>
+          <h4>Workflow Instance</h4>
+          <p>
+            Each defined workflow may be executed many times for different sets
+            of inputs and among different stakeholders.
+          </p>
+          <p>
+            We refer to Workflow Instance's as an execution of a particular
+            workflow, which may or may not be formally defined.
+          </p>
+
+          <p class="note">
+            An example of a workflow definition is 
+            <a href="https://www.cbp.gov/trade/programs-administration/entry-summary/ace-process-and-policy">US Customs ACE Entry Summary Process</a>.
+            Where specific instances are used to track cross border imports, it is important to be able to identify specific
+            collections of documents associated with a given import.
+            Workflow instances help achieve this by providing a topic
+            identifier enabling the grouping of related credentials and presentations.
+          </p>
+
+          <p>
+            We enable the grouping of all presentations related to an instance,
+            using the convention:
+          </p>
+          <pre class="js">
+                {
+                  "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://w3id.org/traceability/v1"
+                  ],
+                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
+                  "type":
+                  [
+                    "VerifiablePresentation",
+                    "TraceablePresentation"
+                  ],
+                  "workflow": {
+                    "definition": [
+                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
+                    ],
+                    // This refers to a Workflow Instance
+                    "instance": [
+                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+                    ]
+                  },
+                  "holder":{
+                    "id":"did:web:sender.example",
+                    "type":"Organization",
+                    "location":{
+                       "type":"Place",
+                       "geo":{
+                          "type":"GeoCoordinates",
+                          "latitude":"68.7083",
+                          "longitude":"4.6377"
+                       },
+                       "address":{
+                          "type":"PostalAddress",
+                          "organizationName":"Ratke - Bergstrom",
+                          "streetAddress":"21851 Ima Heights",
+                          "addressLocality":"O'Connellborough",
+                          "addressRegion":"Missouri",
+                          "postalCode":"65587",
+                          "addressCountry":"Cyprus"
+                       }
+                    }
+                 }
+                }
+                </pre
+          >
+        </section>
+      </section>
+    </section>
+
+    <section class="informative">
+      <h2>Considerations</h2>
+      <section class="informative">
+        <h2>Privacy Considerations</h2>
   
-    <section
-      data-include="sections/vocab.html"
-      data-include-replace="true"
-    ></section>
- 
-    <section id="conformance"></section>
-
-    <section
-      data-include="sections/test-suite.html"
-      data-include-replace="true"
-    ></section>
-
-    <section class="informative">
-      <h2>Privacy Considerations</h2>
-
-      <p>
-        This section details the general privacy considerations and specific
-        privacy implications of deploying this specification into production
-        environments.
-      </p>
+        <p>
+          This section details the general privacy considerations and specific
+          privacy implications of deploying this specification into production
+          environments.
+        </p>
+      </section>
+  
+      <section class="informative">
+        <h2>Security Considerations</h2>
+  
+        <p>
+          There are a number of security considerations that implementers should
+          be aware of when processing data described by this specification.
+          Ignoring or not understanding the implications of this section can
+          result in security vulnerabilities.
+        </p>
+  
+        <p>
+          While this section attempts to highlight a broad set of security
+          considerations, it is not a complete list. Implementers are urged to
+          seek the advice of security and cryptography professionals when
+          implementing mission critical systems using the technology outlined in
+          this specification.
+        </p>
+      </section>
+  
+      <section class="informative">
+        <h2>Accessibility Considerations</h2>
+  
+        <p>
+          There are a number of accessibility considerations implementers should
+          be aware of when processing data described in this specification. As
+          with any web standards or protocols implementation, ignoring
+          accessibility issues makes this information unusable to a large subset
+          of the population. It is important to follow accessibility guidelines
+          and standards, such as [[WCAG21]], to ensure all people, regardless of
+          ability, can make use of this data. This is especially important when
+          establishing systems utilizing cryptography, which have historically
+          created problems for assistive technologies.
+        </p>
+  
+        <p>
+          This section details the general accessibility considerations to take
+          into account when utilizing this data model.
+        </p>
+      </section>
+  
+      <section class="informative">
+        <h2>Internationalization Considerations</h2>
+  
+        <p>
+          There are a number of internationalization considerations implementers
+          should be aware of when publishing data described in this specification.
+          As with any web standards or protocols implementation, ignoring
+          internationalization makes it difficult for data to be produced and
+          consumed across a disparate set of languages and societies, which would
+          limit the applicability of the specification and significantly diminish
+          its value as a standard.
+        </p>
+  
+        <p>
+          This section outlines general internationalization considerations to
+          take into account when utilizing this data model.
+        </p>
+      </section>
     </section>
 
-    <section class="informative">
-      <h2>Security Considerations</h2>
-
-      <p>
-        There are a number of security considerations that implementers should
-        be aware of when processing data described by this specification.
-        Ignoring or not understanding the implications of this section can
-        result in security vulnerabilities.
-      </p>
-
-      <p>
-        While this section attempts to highlight a broad set of security
-        considerations, it is not a complete list. Implementers are urged to
-        seek the advice of security and cryptography professionals when
-        implementing mission critical systems using the technology outlined in
-        this specification.
-      </p>
-    </section>
-
-    <section class="informative">
-      <h2>Accessibility Considerations</h2>
-
-      <p>
-        There are a number of accessibility considerations implementers should
-        be aware of when processing data described in this specification. As
-        with any web standards or protocols implementation, ignoring
-        accessibility issues makes this information unusable to a large subset
-        of the population. It is important to follow accessibility guidelines
-        and standards, such as [[WCAG21]], to ensure all people, regardless of
-        ability, can make use of this data. This is especially important when
-        establishing systems utilizing cryptography, which have historically
-        created problems for assistive technologies.
-      </p>
-
-      <p>
-        This section details the general accessibility considerations to take
-        into account when utilizing this data model.
-      </p>
-    </section>
-
-    <section class="informative">
-      <h2>Internationalization Considerations</h2>
-
-      <p>
-        There are a number of internationalization considerations implementers
-        should be aware of when publishing data described in this specification.
-        As with any web standards or protocols implementation, ignoring
-        internationalization makes it difficult for data to be produced and
-        consumed across a disparate set of languages and societies, which would
-        limit the applicability of the specification and significantly diminish
-        its value as a standard.
-      </p>
-
-      <p>
-        This section outlines general internationalization considerations to
-        take into account when utilizing this data model.
-      </p>
-    </section>
+    
 
     <section class="appendix">
-      <h2>Acknowledgements</h2>
-      <p>
-        Portions of the work on this specification have been funded by the
-        United States Department of Homeland Security's (US DHS) Silicon Valley
-        Innovation Program under contracts 70RSAT20T00000003, 70RSAT20T00000031,
-        70RSAT20T00000033, 70RSAT20T00000043, and 70RSAT20T00000044. The content
-        of this specification does not necessarily reflect the position or the
-        policy of the U.S. Government and no official endorsement should be
-        inferred.
-      </p>
+      <h2>Appendix</h2>
+      <section>
+        <h2>Acknowledgements</h2>
+        <p>
+          Portions of the work on this specification have been funded by the
+          United States Department of Homeland Security's (US DHS) Silicon Valley
+          Innovation Program under contracts 70RSAT20T00000003, 70RSAT20T00000031,
+          70RSAT20T00000033, 70RSAT20T00000043, and 70RSAT20T00000044. The content
+          of this specification does not necessarily reflect the position or the
+          policy of the U.S. Government and no official endorsement should be
+          inferred.
+        </p>
+      </section>
+      <section>
+        <h2>RDF Type Details</h2>
+  
+        <section
+        data-include="sections/ontology-visualizations.html"
+        data-include-replace="true"
+      ></section>
+        <section
+          data-include="sections/vocab.html"
+          data-include-replace="true"
+        ></section>
+  
+        <section
+        data-include="sections/test-suite.html"
+        data-include-replace="true"
+      ></section>
+      </section>
     </section>
   </body>
 
