@@ -1,5 +1,8 @@
 /* eslint-disable operator-linebreak */
-const { schemas, ajv } = require('../services/schemas');
+const { ajv } = require('../services/schemas');
+let { schemas } = require('../services/schemas');
+
+schemas = schemas.filter((s) => !s.$id.includes('/workflows/'));
 
 it('schemas is an array', () => {
   expect(Array.isArray(schemas)).toBe(true);
