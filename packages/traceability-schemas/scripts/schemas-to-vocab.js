@@ -137,13 +137,13 @@ const separateSchemas = (schemaList) => {
 const buildWorkflowSection = () => {
   
   const files = fs.readdirSync(
-    path.resolve(__dirname, '../../../docs/openapi/components/schemas/workflows')
+    path.resolve(__dirname, '../../../docs/openapi/components/workflows')
   );
 
   const w = [];
   files.forEach( file => {
     const ymlText = fs.readFileSync(
-      path.resolve(__dirname, `../../../docs/openapi/components/schemas/workflows/${file}`)
+      path.resolve(__dirname, `../../../docs/openapi/components/workflows/${file}`)
     )
     const yml = load(ymlText);
     const { title, description, credentials, mermaid } = yml;

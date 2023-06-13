@@ -8,11 +8,22 @@ const yaml = require('js-yaml');
 const Ajv = require('ajv').default;
 const addFormats = require('ajv-formats').default;
 
+const schemaKeys = ['common', 'credentials', 'presentations', 'snippets'];
+
+const specPaths = [
+  ...schemaKeys.map((sk) =>
+    path.resolve(__dirname, `../../../docs/openapi/paths/${sk}.yml`)
+  ),
+];
+
 const specPath = path.resolve(__dirname, '../../../docs/openapi/openapi.yml');
 const dirPath = specPath
   .replace('/openapi.yml', '')
   .replace('\\openapi.yml', '');
-const apiSpec = yaml.load(fs.readFileSync(specPath, { encoding: 'utf-8' }));
+const apiSpecPaths = Object.assign(
+  {},
+  ...specPaths.map((i) => yaml.load(fs.readFileSync(i, { encoding: 'utf-8' })))
+);
 
 const ignoreTags = ['Contexts'];
 
@@ -28,9 +39,10 @@ const ignoreEndpoint = (endpoint) => {
 
 const extractSchemaFromEndpoint = (endpoint) => {
   try {
-    const { $ref } =
-      endpoint.get.responses['200'].content['application/yml'].schema;
-    let schema = fs.readFileSync(path.join(dirPath, $ref), {
+    const $ref =
+      endpoint.get.responses['200'].content['application/yml'].schema.$ref.replace('../', './');
+    const pathToSchema = path.join(dirPath, $ref);
+    let schema = fs.readFileSync(pathToSchema, {
       encoding: 'utf-8',
     });
     schema = yaml.load(schema);
@@ -42,7 +54,7 @@ const extractSchemaFromEndpoint = (endpoint) => {
   return null;
 };
 
-const schemas = Object.values(apiSpec.paths)
+const schemas = Object.values(apiSpecPaths)
   .filter(ignoreEndpoint)
   .map(extractSchemaFromEndpoint)
   .filter((s) => !!s); // remove nulls

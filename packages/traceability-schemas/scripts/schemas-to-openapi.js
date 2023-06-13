@@ -11,65 +11,70 @@ const getAllJsonFilesFromDirectory = (targetDirectory) => {
   return files;
 };
 
-const getTagsFromDirectory = () => {
-  // const dirs = fs.readdirSync(
-  //   path.resolve(__dirname, '../../../docs/openapi/components/schemas/')
-  // );
-  
-  const dirs = [
-    'common',
-    'credentials',
-    'presentations',
-    'snippets',
-  ]
+const dirs = ['common', 'credentials', 'presentations', 'snippets'];
 
+// eslint-disable-next-line arrow-body-style
+const getTagsFromDirectory = () => {
   return dirs;
 };
+
+const paths = dirs.reduce((acc, curr) => ({ ...acc, [curr]: [] }), {});
 
 const getEndpointsFromSchemaNames = (tag) => {
   const newSchemas = getAllJsonFilesFromDirectory(
     path.resolve(__dirname, `../../../docs/openapi/components/schemas/${tag}`)
   );
-  const endpoints = [];
   newSchemas.forEach((sname) => {
     if (sname === 'Context.yml') {
       return;
     }
-    const endpoint = `
-  /schemas/${tag}/${sname}:
-    get:
-      tags:
+    const endpoint = `/schemas/${tag}/${sname}:
+  get:
+    tags:
       - ${tag}
-      responses:
-        '200':
-          content:
-            application/yml:
-              schema:
-                $ref: './components/schemas/${tag}/${sname}'
-    `;
-    endpoints.push(endpoint);
+    responses:
+      '200':
+        content:
+          application/yml:
+            schema:
+              $ref: '../components/schemas/${tag}/${sname}'
+`;
+    paths[tag].push(endpoint);
   });
 
-  return endpoints;
+  return paths;
 };
 
 (async () => {
   console.log('🧪 building open api from components directory...');
 
-  const template = `
-openapi: 3.0.0
+  const finalAPI = `openapi: 3.0.0
 info:
   title: Traceability Schemas
   version: 1.0.0
 servers:
   - url: https://w3id.org/traceability/openapi/components
-  - url: http://localhost:5000/openapi/components
+  - url: http://localhost:3000/openapi/components
+
+paths:
+  allOf:
+    - $ref: './paths/common.yml'
+    - $ref: './paths/credentials.yml'
+    - $ref: './paths/presentations.yml'
+    - $ref: './paths/snippets.yml'
+    - $ref: './paths/workflows.yml'
 `;
 
   const tags = getTagsFromDirectory();
-  const endpoints = tags.map(getEndpointsFromSchemaNames).flat();
-  const finalAPI = `${template}\npaths:${endpoints.join('\n')}`;
-
+  tags.map(getEndpointsFromSchemaNames).flat();
+  // eslint-disable-next-line guard-for-in
+  for (const openapiPath in paths) {
+    const schemaPath = paths[openapiPath].join('\n');
+    fs.writeFileSync(
+      path.resolve(__dirname, `../../../docs/openapi/paths/${openapiPath}.yml`),
+      schemaPath
+    );
+  }
   fs.writeFileSync(
     path.resolve(__dirname, '../../../docs/openapi/openapi.yml'),
     finalAPI
