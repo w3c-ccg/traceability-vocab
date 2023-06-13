@@ -23,7 +23,7 @@ mailing list as well, and at regular public meetings ([see below](#meetings)).
 
 ## Meetings and Hosting
 
-Meetings and hosting instructions can be found at [link](https://github.com/w3c-ccg/traceability-interop/blob/main/MEETINGS.md)
+Meetings and hosting instructions are in [`traceability-interop/MEETINGS.md`](https://github.com/w3c-ccg/traceability-interop/blob/main/MEETINGS.md)
 
 ## Development
 
