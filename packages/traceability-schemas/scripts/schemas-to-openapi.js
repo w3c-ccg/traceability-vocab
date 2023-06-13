@@ -15,13 +15,14 @@ const getTagsFromDirectory = () => {
   // const dirs = fs.readdirSync(
   //   path.resolve(__dirname, '../../../docs/openapi/components/schemas/')
   // );
-  
+
   const dirs = [
     'common',
     'credentials',
     'presentations',
     'snippets',
-  ]
+    'workflows',
+  ];
 
   return dirs;
 };
