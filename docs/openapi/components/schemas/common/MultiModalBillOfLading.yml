@@ -163,14 +163,14 @@ properties:
     $linkedData:
       term: transportEquipmentQuantity
       '@id': https://vocabulary.uncefact.org/transportEquipmentQuantity
-  includedConsignmentItems:
-    title: Included Consignment Items
-    description: A consignment item included in the consignment.
+  particulars:
+    title: Consignment item particulars
+    description: Consignment item particular listing.
     type: array
     items: 
       $ref: ./ConsignmentItem.yml
     $linkedData:
-      term: includedConsignmentItems
+      term: particulars
       '@id': https://vocabulary.uncefact.org/includedConsignmentItem
   utilizedTransportEquipment:
     title: Utilized Transport Equipment
@@ -222,7 +222,7 @@ required:
   - carrier
   - portOfLoading
   - portOfDischarge
-  - includedConsignmentItems
+  - particulars
   - termsAndConditions
 example: |-
   {
@@ -337,7 +337,7 @@ example: |-
         ]
       }
     ],
-    "includedConsignmentItems": [
+    "particulars": [
       {
         "type": ["ConsignmentItem"],
         "marksAndNumbers": "Espresso Italiano",
