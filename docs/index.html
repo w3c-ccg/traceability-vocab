@@ -1131,22 +1131,21 @@
 
         <section>
           <h4>Verifiable Credential</h4>
-
           <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
-
-          <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
-
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+          <p>It is RECOMMENDED the <code>id</code> be a valid UUID v4 URN, for example <code>urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5</code></p>
         </section>
 
         <section>
           <h4>Verifiable Presentation</h4>
-
           <p>The object MUST conform to the basic requirements section of the <a href="https://www.w3.org/TR/vc-data-model/#basic-concepts">W3C VC Data Model</a>.</p>
+        </section>
 
+        <section>
+          <h4>Traceable Presentation</h4>
+          <p>This object extends <code>VerifiablePresentation</code> to support workflows.</p>
           <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
-
           <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
+          <p>It is RECOMMENDED the <code>id</code> be a valid UUID v4 URN, for example <code>urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5</code></p>
         </section>
 
         <section>
@@ -1247,50 +1246,115 @@
             using the convention:
           </p>
           <pre class="js">
-                {
-                  "@context": [
-                    "https://www.w3.org/2018/credentials/v1",
-                    "https://w3id.org/traceability/v1"
-                  ],
-                  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
-                  "type":
-                  [
-                    "VerifiablePresentation",
-                    "TraceablePresentation"
-                  ],
-                  "workflow": {
-                    "definition": [
-                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
-                    ],
-                    // This refers to a Workflow Instance
-                    "instance": [
-                      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
-                    ]
-                  },
-                  "holder":{
-                    "id":"did:web:sender.example",
-                    "type":"Organization",
-                    "location":{
-                       "type":"Place",
-                       "geo":{
-                          "type":"GeoCoordinates",
-                          "latitude":"68.7083",
-                          "longitude":"4.6377"
-                       },
-                       "address":{
-                          "type":"PostalAddress",
-                          "organizationName":"Ratke - Bergstrom",
-                          "streetAddress":"21851 Ima Heights",
-                          "addressLocality":"O'Connellborough",
-                          "addressRegion":"Missouri",
-                          "postalCode":"65587",
-                          "addressCountry":"Cyprus"
-                       }
-                    }
-                 }
-                }
-                </pre
-          >
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5",
+  "type":
+  [
+    "VerifiablePresentation",
+    "TraceablePresentation"
+  ],
+  "workflow": {
+    "definition": [
+      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
+    ],
+    // This refers to a Workflow Instance
+    "instance": [
+      "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
+    ]
+  },
+  "holder":{
+    "id":"did:web:sender.example",
+    "type":"Organization",
+    "location":{
+        "type":"Place",
+        "geo":{
+          "type":"GeoCoordinates",
+          "latitude":"68.7083",
+          "longitude":"4.6377"
+        },
+        "address":{
+          "type":"PostalAddress",
+          "organizationName":"Ratke - Bergstrom",
+          "streetAddress":"21851 Ima Heights",
+          "addressLocality":"O'Connellborough",
+          "addressRegion":"Missouri",
+          "postalCode":"65587",
+          "addressCountry":"Cyprus"
+        }
+    }
+  }
+}
+        </pre>
+        </section>
+        <section>
+          <h4>Workflow Replace</h4>
+          <p>
+A holder MAY use the <code>replace</code> property of a <code>TraceablePresentation</code> 
+to communciate to a verifier that a previous presentation should be replaced with a new presentation.
+          </p>
+          <p>
+Holders SHOULD ensure the previous presentation was accepted before presenting a <code>replace</code> presentation.
+          </p>
+          <p>
+Holders MUST present the same credential types that were present in the previous presentation and no new credentials.
+          </p>
+          <p>
+The presentation <code>id</code> of the <code>replace</code> presentation MUST be unique, 
+and MUST NOT be the same as any previous values presented.
+          </p>
+          <p>
+The credential <code>id</code> of any corrected credentials MUST be unique, 
+and MUST NOT be the same as any previous values presented.
+          </p>
+          <p>
+In the example below <code>did:web:customs.broker.1.example</code> 
+had made a mistake in a previous presentation, and corrects the mistake with a replace presentation.
+          </p>
+          <pre class="js">
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "urn:uuid:p2",
+  "type": [
+    "VerifiablePresentation",
+    "TraceablePresentation"
+  ],
+  "replace": {
+    "id": "urn:uuid:p1",
+    "note": "I made a mistake in my presentation 'urn:uuid:p1', the invoice number was incorrect, this presentation corrects the error."
+  },
+  "workflow": {
+    "definition": [
+      "urn:definition:customs-commodity-import-workflow-456"
+    ],
+    "instance": [
+      "urn:instance:commodity-import-for-us-customs-123"
+    ]
+  },
+  "holder": {
+    "id": "did:web:customs.broker.1.example"
+  },
+  "verifiableCredential": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://w3id.org/traceability/v1"
+      ],
+      "id": "urn:uuid:c2",
+      "type": [
+        "VerifiableCredential"
+      ],
+      "invoice": "123xxxx"
+    }
+  ]
+}
+          </pre>
         </section>
       </section>
     </section>
