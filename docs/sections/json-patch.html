@@ -1,0 +1,112 @@
+
+<section>
+  <h2>JSON Patch</h2>
+  <p>
+Instead of presenting a corrected documents, 
+some implementations might wish to communicate 
+only the corrections to a previously submitted JSON document. 
+  </p>
+  
+  <p>
+    JSON Patch supports this operation, here is an example:
+  </p>
+  <pre class="example" title="Presentation with error">
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        {
+          "replaces": {
+            "@id": "https://w3id.org/traceability#replaces",
+            "@type": "@id"
+          },
+          "patch": {
+            "@id": "https://datatracker.ietf.org/doc/rfc6902#section-4",
+            "@type": "@json"
+          },
+          "workflow": {
+            "@context": {
+              "definition": {
+                "@id": "https://w3id.org/traceability#definition",
+                "@type": "@id"
+              },
+              "instance": {
+                "@id": "https://w3id.org/traceability#instance",
+                "@type": "@id"
+              }
+            }
+          }
+        }
+      ],
+      "id": "urn:uuid:1111",
+      "type": [
+        "VerifiablePresentation",
+        "TraceablePresentation"
+      ],
+      "workflow": {
+        "definition": [
+          "urn:definition:steel-import"
+        ],
+        "instance": [
+          "urn:instance:steel-import-from-customs-broker-123"
+        ]
+      },
+      "name": "alcie"
+    }
+  </pre>
+  <pre class="example" title="Presentation with json patch correction">
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        {
+          "replaces": {
+            "@id": "https://w3id.org/traceability#replaces",
+            "@type": "@id"
+          },
+          "patch": {
+            "@id": "https://datatracker.ietf.org/doc/rfc6902#section-4",
+            "@type": "@json"
+          },
+          "workflow": {
+            "@context": {
+              "definition": {
+                "@id": "https://w3id.org/traceability#definition",
+                "@type": "@id"
+              },
+              "instance": {
+                "@id": "https://w3id.org/traceability#instance",
+                "@type": "@id"
+              }
+            }
+          }
+        }
+      ],
+      "id": "urn:uuid:2222",
+      "type": [
+        "VerifiablePresentation",
+        "TraceablePresentation"
+      ],
+      "replaces": {
+        "id": "urn:uuid:1111",
+        "type": [
+          "VerifiablePresentation",
+          "TraceablePresentation"
+        ]
+      },
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "alice"
+        }
+      ]
+    }
+  </pre>
+  <p class="advisement">
+    This approach requires holders to store all presentations they send to verifiers, 
+    AND for verifiers to apply JSON Patches prior to storing claims.
+  </p>
+  <p>
+    Verifiers won't be able to query for corrections unless 
+    they have applied all correction patches to their local state store.
+  </p>
+</section>
