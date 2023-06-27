@@ -22,7 +22,7 @@ properties:
     $ref: ./Organization.yml
     $linkedData:
       term: transporter
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/agent
   batchNumber:
     title: Batch Number
     description: A tracking number for commodities
@@ -43,35 +43,37 @@ properties:
     $ref: ./Place.yml
     $linkedData:
       term: place
-      '@id': https://schema.org/Place
+      '@id': https://schema.org/fromLocation
   deliveryDestination:
     title: Delivery Destination
     description: The address to which the commodity is being shipped
     $ref: ./Place.yml
     $linkedData:
       term: place
-      '@id': https://schema.org/Place
+      '@id': https://schema.org/toLocation
   consignor:
     title: Consignor
     description: The organization that plans and organizes the transportation event
     $ref: ./Organization.yml
     $linkedData:
       term: consignor
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/sender
   consignee:
     title: Consignee
     description: The organization that receives the transported commodities
     $ref: ./Organization.yml
     $linkedData:
       term: consignee
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/recipient
   scheduledVolume:
     title: Scheduled Volume
     description: the planned volume of the commodities to be delivered
-    $ref: ./QuantitativeValue.yml
+    type: array
+    items:
+      $ref: ./QuantitativeValue.yml
     $linkedData:
       term: scheduledVolume
-      '@id': https://schema.org/Quantity
+      '@id': https://w3id.org/traceability#QuantitativeValue
   scheduledDate:
     title: Scheduled Date
     description: The planned date of natural gas delivery
@@ -82,10 +84,12 @@ properties:
   injectionVolume:
     title: Injection Volume
     description: Volume of the shipped commodities at the begining of the transportation event
-    $ref: ./QuantitativeValue.yml
+    type: array
+    items:
+      $ref: ./QuantitativeValue.yml
     $linkedData:
       term: injectionVolume
-      '@id': https://schema.org/Quantity
+      '@id': https://w3id.org/traceability#QuantitativeValue
   injectionDate:
     title: Injection Date
     description: The planned time for crude oil injection starts
@@ -101,26 +105,26 @@ properties:
       term: deliveryDate
       '@id': https://schema.org/arrivalTime
   portOfEntry:
-    title: Port of Entry Code
-    description: The code of the port where the commodity crosses the border. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
-    type: string
+    title: Port of Entry
+    description: The port where the commodity crosses the border.
+    $ref: ./Place.yml
     $linkedData:
       term: portOfEntry
-      '@id': https://schema.org/identifier
+      '@id': https://w3id.org/traceability#Place
   portOfDestination:
-    title: Port of Destination Code
-    description: The code of the port of destination to which the product[s) were transferred. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
-    type: string
+    title: Port of Destination
+    description: The port of destination to which the product[s) were transferred.
+    $ref: ./Place.yml
     $linkedData:
       term: portOfDestination
-      '@id': https://schema.org/identifier
+      '@id': https://w3id.org/traceability#Place
   portOfArrival:
-    title: Port of Arrival Code
-    description: The code of the port of arrival to which the product(s) were transferred. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
-    type: string
+    title: Port of Arrival
+    description: The port of arrival to which the product(s) were transferred.
+    $ref: ./Place.yml
     $linkedData:
       term: portOfArrival
-      '@id': https://schema.org/identifier
+      '@id': https://w3id.org/traceability#Place
   countryOfDestination:
     title: Country of Destination
     description: Country to which the product(s) were transferred.
@@ -128,6 +132,10 @@ properties:
     $linkedData:
       term: addressCountry
       '@id': https://schema.org/addressCountry
+  nominationMonth:
+    title: Nomination Month
+    description: the month which pipeline and terminal nominations is for
+    type: string
 additionalProperties: false
 required:
   - type
@@ -206,17 +214,59 @@ example: |-
       ],
       "name":"Example"
     },
-    "injectionVolume":{
-      "type":[
-        "QuantitativeValue"
-      ],
-      "value":"8806",
-      "unitCode":"M3"
-    },
+    "scheduledVolume":[
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"900000",
+        "unitCode":"m3"
+      },
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"5660820",
+        "unitCode":"bbl"
+      }
+    ],
+    "scheduledDate":"2022-05-01  10:13:00 PM",
+    "injectionVolume":[
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"900000",
+        "unitCode":"m3"
+      },
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"5660820",
+        "unitCode":"bbl"
+      }
+    ],
     "injectionDate":"2022-05-01  10:13:00 PM",
     "deliveryDate":"2022-05-01  10:13:00 PM",
-    "portOfEntry": "3501",
-    "portOfDestination": "3901",
-    "portOfArrival": "4105",
-    "countryOfDestination":"CA"
+    "portOfEntry":{
+      "type":[
+        "Place"
+      ],
+      "usPortCode":"3501"
+    },
+    "portOfDestination":{
+      "type":[
+        "Place"
+      ],
+      "usPortCode":"3901"
+    },
+    "portOfArrival":{
+      "type":[
+        "Place"
+      ],
+      "usPortCode":"4105"
+    },
+    "countryOfDestination":"USA",
+    "nominationMonth":"Jan-23"
   }
