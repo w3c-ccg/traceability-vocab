@@ -4,7 +4,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const stringify = require('json-stringify-deterministic');
 const { schemas } = require('../services/schemas');
 const rootTerms = require('./rootTerms.json');
 
@@ -81,5 +80,5 @@ console.log('🧪 build context from api');
     console.log(JSON.stringify(undefinedTerms, null, 2));
   }
 
-  fs.writeFileSync(contextPath, stringify(root, { space: '  ' }));
+  fs.writeFileSync(contextPath, JSON.stringify(root, { space: '  ' }));
 })();

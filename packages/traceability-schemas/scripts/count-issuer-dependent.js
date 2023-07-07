@@ -10,6 +10,10 @@ const { schemas } = require('../services/schemas');
 
 const verifiableCredentials = schemas
   .map((s) => {
+    // skip anything that does not have an example
+    if (!s.example) {
+      return null;
+    }
     try {
       return JSON.parse(s.example);
     } catch (e) {
