@@ -1,0 +1,68 @@
+id: https://w3id.org/traceability/#svip-steel-tech-demo
+title: SVIP Steel Tech Demo
+description: >-
+    SVIP Steel Tech Demo
+tags: 
+  - Steel
+credentials: 
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: Purchase Order Credential
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: Intent To Import Credential
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: CTPAT Credential
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: Commercial Invoice Credential
+  - 
+    id: https://w3id.org/traceability/#MillTestReportCredential
+    name: Mill Test Report Credential
+  - 
+    id: https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential
+    name: SIMA Import License Application Credential
+  - 
+    id: https://w3id.org/traceability/#SIMASteelImportLicenseCredential
+    name: SIMA Import License Credential
+  - 
+    id: https://w3id.org/traceability/#EntryNumberCredential
+    name: Entry Number Credential
+  - 
+    id: https://w3id.org/traceability/#MultiModalBillOfLadingCredential
+    name: Multimodal Bill Of Lading Credential
+mermaid: >-
+  sequenceDiagram
+    title SVIP Steel Tech Demo Use Case: Steel import into USA from Mexico via road carrier
+    participant A as Steel Buyer
+    participant B as Steel Producer
+    participant C as Customs Broker
+    participant D as SIMA
+    participant E as Road Carrier
+    participant F as CBP
+    A-->>A: issue Purchase Order Credential
+    A->>B: present Purchase Order Credential
+    A-->>A: issue Intent To Import Credential
+    A->>F: present Purchase Order Credential
+    A->>F: present Intent To Import Credential
+    A->>F: present CTPAT Credential
+    B-->>B: issue Commercial Invoice Credential
+    B->>A: present Commercial Invoice Credential
+    B->>F: present Commercial Invoice Credential
+    B-->>B: issue Mill Test Report Credential
+    B->>A: present Mill Test Report Credential
+    B->>F: present Mill Test Report Credential
+    C-->>C: issue SIMA Import License Application Credential
+    C->>D: present SIMA Import License Application Credential
+    D-->>D: issue SIMA Import License Credential
+    D->>F: present SIMA Import License Credential
+    D->>C: present SIMA Import License Credential
+    C->>A: present SIMA Import License Credential
+    E->>F: present CTPAT Credential
+    C-->>C: issue Entry Number Credential
+    C->>F: present Entry Number Credential
+    E-->>E: issue Multimodal Bill Of Lading Credential
+    E->>B: present Multimodal Bill Of Lading Credential
+    B->>C: present Multimodal Bill Of Lading Credential
+    C->>F: present Multimodal Bill Of Lading Credential
