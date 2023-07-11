@@ -19,157 +19,40 @@ properties:
 
   createdDate:
     title: Created Date
-    description: Ending date of the oil delivery process
+    description: Creation date of the oil delivery ticket
     type: string
     $linkedData:
       term: createdDate
-      '@id': https://schema.org/Date
+      '@id': https://schema.org/dateIssued
   openDate:
     title: Open Date
     description: Starting date of the oil delivery process
     type: string
     $linkedData:
       term: openDate
-      '@id': https://schema.org/Date
+      '@id': https://schema.org/startDate
   closeDate:
     title: Close Date
     description: Date of ending the oil delivery process
     type: string
     $linkedData:
       term: closeDate
-      '@id': https://schema.org/Date
+      '@id': https://schema.org/endDate
   carrier:
     title: Carrier
     description: >-
       The party providing the transport of goods in this consignment between
       named points.
-    type: object
-    properties:
-      type:
-        type: array
-        readOnly: true
-        const:
-          - Organization
-        default:
-          - Organization
-        items:
-          type: string
-          enum:
-            - Organization
-      id:
-        title: Identifier
-        description: Decentralized identifier for the carrier.
-        type: string
-      name:
-        title: Name
-        description: Name of the carrier.
-        type: string
-      url:
-        title: URL
-        description: URL of the carrier.
-        type: string
-      description:
-        title: Description
-        description: Description of the carrier.
-        type: string
-      email:
-        title: Email Address
-        description: carrier's primary email address.
-        type: string
-      phoneNumber:
-        title: Phone Number
-        description: carrier's contact phone number.
-        type: string
-      location:
-        title: Location
-        description: freight forwarder's physical location, such as address or coordinates.
-        type: object
-        properties:
-          type:
-            type: array
-            readOnly: true
-            const:
-              - Place
-            default:
-              - Place
-            items:
-              type: string
-              enum:
-                - Place
-          address:
-            title: Postal Address
-            description: The postal address for an organization or place.
-            $ref: ./PostalAddress.yml
-        additionalProperties: false
-        required:
-          - type
-          - address
+    $ref: ./Organization.yml
+    $linkedData:
+      term: transporter
+      '@id': https://schema.org/agent
   consignor:
     title: Consignor
     description: >-
       The party consigning goods, as stipulated in the transport contract by the
       party ordering transport.
-    type: object
-    properties:
-      type:
-        type: array
-        readOnly: true
-        const:
-          - Organization
-        default:
-          - Organization
-        items:
-          type: string
-          enum:
-            - Organization
-      id:
-        title: Identifier
-        description: Decentralized identifier of the consignor.
-        type: string
-      name:
-        title: Name
-        description: Name of the consignor.
-        type: string
-      url:
-        title: URL
-        description: URL of the consignor.
-        type: string
-      description:
-        title: Description
-        description: Description of the consignor.
-        type: string
-      email:
-        title: Email Address
-        description: consignor's primary email address.
-        type: string
-      phoneNumber:
-        title: Phone Number
-        description: consignor's contact phone number.
-        type: string
-      location:
-        title: Location
-        description: consignor's physical location, such as address or coordinates.
-        type: object
-        properties:
-          type:
-            type: array
-            readOnly: true
-            const:
-              - Place
-            default:
-              - Place
-            items:
-              type: string
-              enum:
-                - Place
-          address:
-            title: Postal Address
-            description: The postal address for an organization or place.
-            $ref: ./PostalAddress.yml
-    additionalProperties: false
-    required:
-      - type
-      - name
+    $ref: ./Organization.yml
     $linkedData:
       term: consignor
       '@id': >-
@@ -177,67 +60,7 @@ properties:
   consignee:
     title: Consignee
     description: A party to which goods are consigned.
-    type: object
-    properties:
-      type:
-        type: array
-        readOnly: true
-        const:
-          - Organization
-        default:
-          - Organization
-        items:
-          type: string
-          enum:
-            - Organization
-      id:
-        title: Identifier
-        description: Decentralized identifier for the consignee
-        type: string
-      name:
-        title: Name
-        description: Name of the consignee.
-        type: string
-      url:
-        title: URL
-        description: URL of the consignee.
-        type: string
-      description:
-        title: Description
-        description: Description of the consignee.
-        type: string
-      email:
-        title: Email Address
-        description: consignee's primary email address.
-        type: string
-      phoneNumber:
-        title: Phone Number
-        description: consignee's contact phone number.
-        type: string
-      location:
-        title: Location
-        description: Consignee's physical location, such as address or coordinates.
-        type: object
-        properties:
-          type:
-            type: array
-            readOnly: true
-            const:
-              - Place
-            default:
-              - Place
-            items:
-              type: string
-              enum:
-                - Place
-          address:
-            title: Postal Address
-            description: The postal address for an organization or place.
-            $ref: ./PostalAddress.yml
-    additionalProperties: false
-    required:
-      - type
-      - name
+    $ref: ./Organization.yml
     $linkedData:
       term: consignee
       '@id': >-
@@ -248,7 +71,7 @@ properties:
     type: string
     $linkedData:
       term: ticketControlNumber
-      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#CBA
+      '@id': https://schema.org/ticketNumber
   batchNumber:
     title: Batch Number
     description: A tracking number for commodities
@@ -256,7 +79,7 @@ properties:
     $linkedData:
       term: batchNumber
       '@id': https://vocabulary.uncefact.org/ReferenceCodeList#BT
-  nosMonth:
+  notificationOfShipment:
     title: Notification of Shipment Month
     description: Year and month of the notification of shipment statement
     type: string
@@ -266,7 +89,7 @@ properties:
     $ref: ./Place.yml
     $linkedData:
       term: place
-      '@id': https://schema.org/Place
+      '@id': https://schema.org/toLocation
   product:
     title: Product
     description: Product details as outlined in the Product schema
@@ -288,43 +111,55 @@ required:
   - type
 example: |-
   {
-     "type": [
-         "OilAndGasDeliveryTicket"
-     ],
-     "createdDate": "2022-12-31 13:40:00",
-     "openDate": "2023-01-01 13:40:00",
-     "closeDate": "2023-01-01 20:44:00",
-     "carrier": {
-         "type": [
-             "Organization"
-         ],
-         "name": "Keystone"
-     },
-     "ticketControlNumber": "991205182",
-     "batchNumber": "CDB-0284-00",
-     "nosMonth": "Jan-23",
-     "destination": {
-         "geo": {
-             "type": [
-                 "GeoCoordinates"
-             ],
-             "latitude": "41.8781",
-             "longitude": "-87.6298"
-         },
-         "type": [
-             "Place"
-         ],
-         "address": {
-             "type": [
-                 "PostalAddress"
-             ],
-             "postalCode": "",
-             "addressRegion": "IL",
-             "streetAddress": "",
-             "addressCountry": "US",
-             "addressLocality": "Chicago"
-         }
-     },
+    "type":[
+      "OilAndGasDeliveryTicket"
+    ],
+    "createdDate":"2022-12-31 13:40:00",
+    "openDate":"2023-01-01 13:40:00",
+    "closeDate":"2023-01-01 20:44:00",
+    "carrier":{
+      "type":[
+        "Organization"
+      ],
+      "name":"Keystone"
+    },
+    "consignor":{
+      "type":[
+        "Organization"
+      ],
+      "name":"Consignor Co."
+    },
+    "consignee":{
+      "type":[
+        "Organization"
+      ],
+      "name":"Consignee Co."
+    },
+    "ticketControlNumber":"991205182",
+    "batchNumber":"CDB-0284-00",
+    "notificationOfShipment":"Jan-23",
+    "destination":{
+      "geo":{
+        "type":[
+          "GeoCoordinates"
+        ],
+        "latitude":"41.8781",
+        "longitude":"-87.6298"
+      },
+      "type":[
+        "Place"
+      ],
+      "address":{
+        "type":[
+          "PostalAddress"
+        ],
+        "postalCode":"",
+        "addressRegion":"IL",
+        "streetAddress":"",
+        "addressCountry":"US",
+        "addressLocality":"Chicago"
+      }
+    },
     "product":{
       "type":[
         "Product"
@@ -353,190 +188,122 @@ example: |-
         "value":"9813"
       },
       "sku":"391864383008",
-      "commodity": {
-        "type": ["Commodity"],
+      "commodity":{
+        "type":[
+          "Commodity"
+        ],
         "commodityCode":"2714.10.00.00",
-        "commodityCodeType": "HTS"
+        "commodityCodeType":"HTS"
       }
     },
-     "observation": [
-         {
-             "type": [
-                 "Observation"
-             ],
-             "property": {
-                 "type": [
-                     "MechanicalProperty"
-                 ],
-                 "name": "gsv_m3"
-             },
-             "measurement": {
-                 "type": [
-                     "MeasuredValue"
-                 ],
-                 "value": "9500",
-                 "unitCode": "m3"
-             }
-         },
-         {
-             "type": [
-                 "Observation"
-             ],
-             "property": {
-                 "type": [
-                     "MechanicalProperty"
-                 ],
-                 "name": "gsv_bbl"
-             },
-             "measurement": {
-                 "type": [
-                     "MeasuredValue"
-                 ],
-                 "value": "45000",
-                 "unitCode": "bbl"
-             }
-         },
-         {
-             "type": [
-                 "Observation"
-             ],
-             "property": {
-                 "type": [
-                     "MechanicalProperty"
-                 ],
-                 "name": "nsv_m3"
-             },
-             "measurement": {
-                 "type": [
-                     "MeasuredValue"
-                 ],
-                 "value": "9450",
-                 "unitCode": "m3"
-             }
-         },
-         {
-             "type": [
-                 "Observation"
-             ],
-             "property": {
-                 "type": [
-                     "MechanicalProperty"
-                 ],
-                 "name": "nsv_bbl"
-             },
-             "measurement": {
-                 "type": [
-                     "MeasuredValue"
-                 ],
-                 "value": "54000",
-                 "unitCode": "bbl"
-             }
-         },
-         {
-             "type": [
-                 "Observation"
-             ],
-             "property": {
-                 "type": [
-                     "MechanicalProperty"
-                 ],
-                 "name": "density"
-             },
-             "measurement": {
-                 "type": [
-                     "MeasuredValue"
-                 ],
-                 "value": "921.7",
-                 "unitCode": "lbm/ft3"
-             }
-         },
-         {
-             "type": [
-                 "Observation"
-             ],
-             "property": {
-                 "type": [
-                     "MechanicalProperty"
-                 ],
-                 "name": "API"
-             },
-             "measurement": {
-                 "type": [
-                     "MeasuredValue"
-                 ],
-                 "value": "28",
-                 "unitCode": "degrees"
-             }
-         }
-     ],
-     "destination": {
-         "geo": {
-             "type": [
-                 "GeoCoordinates"
-             ],
-             "latitude": "41.8781",
-             "longitude": "-87.6298"
-         },
-         "type": [
-             "Place"
-         ],
-         "address": {
-             "type": [
-                 "PostalAddress"
-             ],
-             "postalCode": "",
-             "addressRegion": "IL",
-             "streetAddress": "",
-             "addressCountry": "US",
-             "addressLocality": "Chicago"
-         }
-     },
-     "consignor": {
-         "type": [
-             "Organization"
-         ],
-         "name": "Idella",
-         "email": "Idella60@example.org",
-         "phoneNumber": "+1-675-555-1755",
-         "location": {
-             "type": [
-                 "Place"
-             ],
-             "address": {
-                 "type": [
-                     "PostalAddress"
-                 ],
-                 "name": "Hahn LLC",
-                 "streetAddress": "786 Pfeffer Plains",
-                 "addressLocality": "West Ottilie",
-                 "addressRegion": "Nebraska",
-                 "postalCode": "50878-0870",
-                 "addressCountry": "Cook Islands"
-             }
-         }
-     },
-     "consignee": {
-         "type": [
-             "Organization"
-         ],
-         "name": "Victoria Hane",
-         "email": "Victoria.Hane74@example.org",
-         "phoneNumber": "+1-869-555-1500",
-         "location": {
-             "type": [
-                 "Place"
-             ],
-             "address": {
-                 "type": [
-                     "PostalAddress"
-                 ],
-                 "name": "Hahn LLC",
-                 "streetAddress": "786 Pfeffer Plains",
-                 "addressLocality": "West Ottilie",
-                 "addressRegion": "Nebraska",
-                 "postalCode": "50878-0870",
-                 "addressCountry": "Cook Islands"
-             }
-         }
-     }
-   }
+    "observation":[
+      {
+        "type":[
+          "Observation"
+        ],
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "name":"gsv_m3"
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"9500",
+          "unitCode":"m3"
+        }
+      },
+      {
+        "type":[
+          "Observation"
+        ],
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "name":"gsv_bbl"
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"45000",
+          "unitCode":"bbl"
+        }
+      },
+      {
+        "type":[
+          "Observation"
+        ],
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "name":"nsv_m3"
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"9450",
+          "unitCode":"m3"
+        }
+      },
+      {
+        "type":[
+          "Observation"
+        ],
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "name":"nsv_bbl"
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"54000",
+          "unitCode":"bbl"
+        }
+      },
+      {
+        "type":[
+          "Observation"
+        ],
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "name":"density"
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"921.7",
+          "unitCode":"lbm/ft3"
+        }
+      },
+      {
+        "type":[
+          "Observation"
+        ],
+        "property":{
+          "type":[
+            "MechanicalProperty"
+          ],
+          "name":"API"
+        },
+        "measurement":{
+          "type":[
+            "MeasuredValue"
+          ],
+          "value":"28",
+          "unitCode":"degrees"
+        }
+      }
+    ]
+  }
