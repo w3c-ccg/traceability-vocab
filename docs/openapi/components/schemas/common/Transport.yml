@@ -21,27 +21,27 @@ properties:
     $ref: ./Place.yml
     $linkedData:
       term: arrivalLocation
-      '@id': https://schema.org/Place
+      '@id': https://schema.org/fromLocation
   arrivalLocation:
     title: Arrival Location
     $ref: ./Place.yml
     $linkedData:
       term: arrivalLocation
-      '@id': https://schema.org/Place
+      '@id': https://schema.org/toLocation
   plannedDepartureDate:
     title: Planned Departure Date
     description: The planned date of departure.
     type: string
     $linkedData:
       term: plannedDepartureDate
-      '@id': https://schema.org/Date
+      '@id': https://schema.org/departureTime
   plannedArrivalDate:
     title: Planned Arrival Date
     description: The planned date of arrival.
     type: string
     $linkedData:
       term: plannedArrivalDate
-      '@id': https://schema.org/Date
+      '@id': https://schema.org/arrivalTime
   modeOfTransport:
     title: Mode of Transport
     description: The mode of transport as defined by DCSA.
@@ -60,7 +60,7 @@ properties:
     $ref: ./Organization.yml
     $linkedData:
       term: carrier
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/carrier
   vesselNumber:
     title: Vessel Number
     description: The unique reference for a registered vessel.
@@ -68,7 +68,7 @@ properties:
     $linkedData:
       term: vesselNumber
       '@id': >-
-        https://vocabulary.uncefact.org/transportMeans
+        https://vocabulary.uncefact.org/identifier
   voyageNumber:
     title: Voyage Number
     description: The vessel operator-specific identifier of the Voyage.
@@ -76,7 +76,7 @@ properties:
     $linkedData:
       term: voyageNumber
       '@id': >-
-        https://vocabulary.uncefact.org/TransportMovement
+        https://vocabulary.uncefact.org/identifier
   path:
     title: Path
     description: The transport path, expressed as a polyline (implementing Google's Encoded Polyline Algorithm Format).
