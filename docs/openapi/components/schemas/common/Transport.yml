@@ -3,8 +3,8 @@ $linkedData:
   '@id': https://w3id.org/traceability#Transport
 title: Transport
 description: >-
-  A transport which can be a leg of a journey. In the context of the IATA Electronic Air
-  Waybill this transport describes a shipping stop and the path to the next destination.
+  A transport which can be a leg of a journey. In contexts where a stop is expected this can be
+  understood to mean the departure location.
 type: object
 properties:
   type:
@@ -20,12 +20,14 @@ properties:
         - Transport
   departureLocation:
     title: Departure Location.
+    description: The departure location. In some contexts this may also be a shipping stop.
     $ref: ./Place.yml
     $linkedData:
       term: arrivalLocation
       '@id': https://schema.org/fromLocation
   arrivalLocation:
     title: Arrival Location
+    description: The arrival location.
     $ref: ./Place.yml
     $linkedData:
       term: arrivalLocation
