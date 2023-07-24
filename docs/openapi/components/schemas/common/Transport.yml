@@ -16,17 +16,17 @@ properties:
       type: string
       enum:
         - Transport
-  loadLocation:
-    title: Load Location
+  departureLocation:
+    title: Departure Location.
     $ref: ./Place.yml
     $linkedData:
-      term: loadLocation
+      term: arrivalLocation
       '@id': https://schema.org/Place
-  dischargeLocation:
-    title: Discharge Location
+  arrivalLocation:
+    title: Arrival Location
     $ref: ./Place.yml
     $linkedData:
-      term: dischargeLocation
+      term: arrivalLocation
       '@id': https://schema.org/Place
   plannedDepartureDate:
     title: Planned Departure Date
@@ -56,6 +56,7 @@ properties:
         https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/modeOfTransport
   carrier:
     title: carrier
+    description: The shipping carrier if applicable.
     $ref: ./Organization.yml
     $linkedData:
       term: carrier
