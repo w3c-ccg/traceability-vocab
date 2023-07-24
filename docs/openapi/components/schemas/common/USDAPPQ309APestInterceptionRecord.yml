@@ -26,7 +26,7 @@ properties:
   shippingStop:
     title: Shipping Stop
     description: Shipping stop, including information on location, origin, destination, and vessel number.
-    $ref: ./ShippingStop.yml
+    $ref: ./Transport.yml
     $linkedData:
       term: shippingStop
       '@id': https://vocabulary.uncefact.org/itineraryStopEvent
@@ -167,15 +167,19 @@ example: |-
     "type": ["USDAPPQ309APestInterceptionRecord"],
     "interceptionNumber": "143l5khj1234l134",
     "shippingStop": {
-      "type": ["ShippingStop"],
-      "shippingStopAddress": {
-        "type": ["PostalAddress"],
-        "name": "Tremblay, Prosacco and Beatty",
-        "streetAddress": "69047 Mann Lodge",
-        "addressLocality": "Cormierview",
-        "addressRegion": "Mississippi",
-        "postalCode": "87042",
-        "addressCountry": "Colombia"
+      "type": ["Transport"],
+      "departureLocation": {
+        "type": ["Place"] {
+          "address": {
+            "type": ["PostalAddress"],
+            "name": "Tremblay, Prosacco and Beatty",
+            "streetAddress": "69047 Mann Lodge",
+            "addressLocality": "Cormierview",
+            "addressRegion": "Mississippi",
+            "postalCode": "87042",
+            "addressCountry": "Colombia"
+          }
+        }
       },
       "carrier": {
         "type": ["Organization"],
@@ -198,7 +202,6 @@ example: |-
       },
       "vesselNumber": "ACMECarrierVessel#770",
       "arrivalDate": "2021-03-09",
-      "stopType": "Departure"
     },
     "forwardTo": "PPQ",
     "priority": "Prompt",
