@@ -147,7 +147,7 @@ properties:
     description: The name of the airport of departure. Box 9 and 11A-F.
     type: array
     items:
-      $ref: ./ShippingStop.yml
+      $ref: ./Transport.yml
     $linkedData:
       term: requestedRouting
       '@id': https://schema.org/Trip
@@ -539,33 +539,56 @@ example: |-
     },
     "requestedRouting": [
       {
-        "type": ["ShippingStop"],
-        "from": {
+        "type": ["Transport"],
+        "departureLocation": {
           "type": ["Place"],
+          "unLocode": "ITMIL"
           "address": {
             "type": ["PostalAddress"],
             "addressLocality": "Xiamen"
           }
         },
-        "to": {
+        "arrivalLocation": {
           "type": ["Place"],
           "iataAirportCode": "LUX"
+          "unLocode": "USLGB"
         },
+        "modeOfTransport": "Vessel",
+        "voyageNumber": "Atl-W0425"
         "carrier": {
           "type": ["Organization"],
           "iataCarrierCode": "CV"
-        }
+          "name": "Koepp - Ratke",
+          "description": "Fully-configurable 5th generation infrastructure",
+          "email": "Oliver16@example.com",
+          "phoneNumber": "+1-408-555-6112",
+          "faxNumber": "+1-104-555-9003"
+        },
+        "arrivalDate": "2021-03-09"
       },
       {
-        "type": ["ShippingStop"],
-        "to": {
+        "type": ["Transport"],
+        "departureLocation": {
           "type": ["Place"],
-          "iataAirportCode": "CPH"
+          "iataAirportCode": "LUX "
+          "unLocode": "ITMIL"
         },
+        "arrivalLocation": {
+          "type": ["Place"],
+          "unLocode": "CPH"
+        },
+        "modeOfTransport": "Vessel",
+        "voyageNumber": "Atl-W0425"
         "carrier": {
           "type": ["Organization"],
           "iataCarrierCode": "CV"
-        }
+          "name": "Koepp - Ratke",
+          "description": "Fully-configurable 5th generation infrastructure",
+          "email": "Oliver16@example.com",
+          "phoneNumber": "+1-408-555-6112",
+          "faxNumber": "+1-104-555-9003"
+        },
+        "arrivalDate": "2021-03-10"
       }
     ],
     "destinationAirport": {
