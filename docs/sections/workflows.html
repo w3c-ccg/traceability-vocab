@@ -34,6 +34,106 @@ mermaid: >-
       A->>B: present Verifiable Business Card</pre>
     
 
+      <h3>CBP Steel Tech Demo 2023</h3>
+      <pre class='mermaid'>sequenceDiagram
+  title CBP Steel Tech Demo 2023 Use Case: Steel import into USA from Mexico via road carrier
+  participant A as Steel Buyer
+  participant B as Steel Producer
+  participant C as Customs Broker
+  participant D as SIMA
+  participant E as Road Carrier
+  participant F as CBP
+  A-->>A: issue Purchase Order Credential
+  A->>B: present Purchase Order Credential
+  A-->>A: issue Intent To Import Credential
+  A->>F: present Purchase Order Credential
+  A->>F: present Intent To Import Credential
+  A->>F: present CTPAT Credential
+  B-->>B: issue Commercial Invoice Credential
+  B->>A: present Commercial Invoice Credential
+  B->>F: present Commercial Invoice Credential
+  B-->>B: issue Mill Test Report Credential
+  B->>A: present Mill Test Report Credential
+  B->>F: present Mill Test Report Credential
+  C-->>C: issue SIMA Import License Application Credential
+  C->>D: present SIMA Import License Application Credential
+  D-->>D: issue SIMA Import License Credential
+  D->>F: present SIMA Import License Credential
+  D->>C: present SIMA Import License Credential
+  C->>A: present SIMA Import License Credential
+  E->>F: present CTPAT Credential
+  C-->>C: issue Entry Number Credential
+  C->>F: present Entry Number Credential
+  E-->>E: issue Multimodal Bill Of Lading Credential
+  E->>B: present Multimodal Bill Of Lading Credential
+  B->>C: present Multimodal Bill Of Lading Credential
+  C->>F: present Multimodal Bill Of Lading Credential</pre>
+      <p>CBP Steel Tech Demo 2023</p>
+      <b>Credentials Used:</b>
+      <ol>
+        <li><a href="https://w3id.org/traceability/#PurchaseOrderCredential">Purchase Order Credential</a></li><li><a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import Credential</a></li><li><a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Credential</a></li><li><a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice Credential</a></li><li><a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report Credential</a></li><li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential">SIMA Import License Application Credential</a></li><li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseCredential">SIMA Import License Credential</a></li><li><a href="https://w3id.org/traceability/#EntryNumberCredential">Entry Number Credential</a></li><li><a href="https://w3id.org/traceability/#MultiModalBillOfLadingCredential">Multimodal Bill Of Lading Credential</a></li>
+      </ol>
+      <pre class='example yml'>id: https://w3id.org/traceability/#cbp-steel-tech-demo-2023
+title: CBP Steel Tech Demo 2023
+description: >-
+    CBP Steel Tech Demo 2023
+tags: 
+  - Steel
+credentials: 
+  - id: https://w3id.org/traceability/#PurchaseOrderCredential
+    name: Purchase Order Credential
+  - id: https://w3id.org/traceability/#IntentToImportCredential
+    name: Intent To Import Credential
+  - id: https://w3id.org/traceability/#CTPATCertificate
+    name: CTPAT Credential
+  - id: https://w3id.org/traceability/#CommercialInvoiceCredential
+    name: Commercial Invoice Credential
+  - id: https://w3id.org/traceability/#MillTestReportCredential
+    name: Mill Test Report Credential
+  - id: https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential
+    name: SIMA Import License Application Credential
+  - id: https://w3id.org/traceability/#SIMASteelImportLicenseCredential
+    name: SIMA Import License Credential
+  - id: https://w3id.org/traceability/#EntryNumberCredential
+    name: Entry Number Credential
+  - id: https://w3id.org/traceability/#MultiModalBillOfLadingCredential
+    name: Multimodal Bill Of Lading Credential
+mermaid: >-
+  sequenceDiagram
+    title CBP Steel Tech Demo 2023 Use Case: Steel import into USA from Mexico via road carrier
+    participant A as Steel Buyer
+    participant B as Steel Producer
+    participant C as Customs Broker
+    participant D as SIMA
+    participant E as Road Carrier
+    participant F as CBP
+    A-->>A: issue Purchase Order Credential
+    A->>B: present Purchase Order Credential
+    A-->>A: issue Intent To Import Credential
+    A->>F: present Purchase Order Credential
+    A->>F: present Intent To Import Credential
+    A->>F: present CTPAT Credential
+    B-->>B: issue Commercial Invoice Credential
+    B->>A: present Commercial Invoice Credential
+    B->>F: present Commercial Invoice Credential
+    B-->>B: issue Mill Test Report Credential
+    B->>A: present Mill Test Report Credential
+    B->>F: present Mill Test Report Credential
+    C-->>C: issue SIMA Import License Application Credential
+    C->>D: present SIMA Import License Application Credential
+    D-->>D: issue SIMA Import License Credential
+    D->>F: present SIMA Import License Credential
+    D->>C: present SIMA Import License Credential
+    C->>A: present SIMA Import License Credential
+    E->>F: present CTPAT Credential
+    C-->>C: issue Entry Number Credential
+    C->>F: present Entry Number Credential
+    E-->>E: issue Multimodal Bill Of Lading Credential
+    E->>B: present Multimodal Bill Of Lading Credential
+    B->>C: present Multimodal Bill Of Lading Credential
+    C->>F: present Multimodal Bill Of Lading Credential</pre>
+    
+
       <h3>Intention to Import Workflow</h3>
       <pre class='mermaid'>sequenceDiagram
     participant A as Importer of Record
@@ -67,115 +167,6 @@ mermaid: >-
       participant B as US Customs and Border Protection
       A-->>A: issue Intent to Import Credential
       A->>B: present Intent to Import Credential</pre>
-    
-
-      <h3>SVIP Steel Tech Demo</h3>
-      <pre class='mermaid'>sequenceDiagram
-  title SVIP Steel Tech Demo Use Case: Steel import into USA from Mexico via road carrier
-  participant A as Steel Buyer
-  participant B as Steel Producer
-  participant C as Customs Broker
-  participant D as SIMA
-  participant E as Road Carrier
-  participant F as CBP
-  A-->>A: issue Purchase Order Credential
-  A->>B: present Purchase Order Credential
-  A-->>A: issue Intent To Import Credential
-  A->>F: present Purchase Order Credential
-  A->>F: present Intent To Import Credential
-  A->>F: present CTPAT Credential
-  B-->>B: issue Commercial Invoice Credential
-  B->>A: present Commercial Invoice Credential
-  B->>F: present Commercial Invoice Credential
-  B-->>B: issue Mill Test Report Credential
-  B->>A: present Mill Test Report Credential
-  B->>F: present Mill Test Report Credential
-  C-->>C: issue SIMA Import License Application Credential
-  C->>D: present SIMA Import License Application Credential
-  D-->>D: issue SIMA Import License Credential
-  D->>F: present SIMA Import License Credential
-  D->>C: present SIMA Import License Credential
-  C->>A: present SIMA Import License Credential
-  E->>F: present CTPAT Credential
-  C-->>C: issue Entry Number Credential
-  C->>F: present Entry Number Credential
-  E-->>E: issue Multimodal Bill Of Lading Credential
-  E->>B: present Multimodal Bill Of Lading Credential
-  B->>C: present Multimodal Bill Of Lading Credential
-  C->>F: present Multimodal Bill Of Lading Credential</pre>
-      <p>SVIP Steel Tech Demo</p>
-      <b>Credentials Used:</b>
-      <ol>
-        <li><a href="https://w3id.org/traceability/#MillTestReportCredential">Purchase Order Credential</a></li><li><a href="https://w3id.org/traceability/#MillTestReportCredential">Intent To Import Credential</a></li><li><a href="https://w3id.org/traceability/#MillTestReportCredential">CTPAT Credential</a></li><li><a href="https://w3id.org/traceability/#MillTestReportCredential">Commercial Invoice Credential</a></li><li><a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report Credential</a></li><li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential">SIMA Import License Application Credential</a></li><li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseCredential">SIMA Import License Credential</a></li><li><a href="https://w3id.org/traceability/#EntryNumberCredential">Entry Number Credential</a></li><li><a href="https://w3id.org/traceability/#MultiModalBillOfLadingCredential">Multimodal Bill Of Lading Credential</a></li>
-      </ol>
-      <pre class='example yml'>id: https://w3id.org/traceability/#svip-steel-tech-demo
-title: SVIP Steel Tech Demo
-description: >-
-    SVIP Steel Tech Demo
-tags: 
-  - Steel
-credentials: 
-  - 
-    id: https://w3id.org/traceability/#MillTestReportCredential
-    name: Purchase Order Credential
-  - 
-    id: https://w3id.org/traceability/#MillTestReportCredential
-    name: Intent To Import Credential
-  - 
-    id: https://w3id.org/traceability/#MillTestReportCredential
-    name: CTPAT Credential
-  - 
-    id: https://w3id.org/traceability/#MillTestReportCredential
-    name: Commercial Invoice Credential
-  - 
-    id: https://w3id.org/traceability/#MillTestReportCredential
-    name: Mill Test Report Credential
-  - 
-    id: https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential
-    name: SIMA Import License Application Credential
-  - 
-    id: https://w3id.org/traceability/#SIMASteelImportLicenseCredential
-    name: SIMA Import License Credential
-  - 
-    id: https://w3id.org/traceability/#EntryNumberCredential
-    name: Entry Number Credential
-  - 
-    id: https://w3id.org/traceability/#MultiModalBillOfLadingCredential
-    name: Multimodal Bill Of Lading Credential
-mermaid: >-
-  sequenceDiagram
-    title SVIP Steel Tech Demo Use Case: Steel import into USA from Mexico via road carrier
-    participant A as Steel Buyer
-    participant B as Steel Producer
-    participant C as Customs Broker
-    participant D as SIMA
-    participant E as Road Carrier
-    participant F as CBP
-    A-->>A: issue Purchase Order Credential
-    A->>B: present Purchase Order Credential
-    A-->>A: issue Intent To Import Credential
-    A->>F: present Purchase Order Credential
-    A->>F: present Intent To Import Credential
-    A->>F: present CTPAT Credential
-    B-->>B: issue Commercial Invoice Credential
-    B->>A: present Commercial Invoice Credential
-    B->>F: present Commercial Invoice Credential
-    B-->>B: issue Mill Test Report Credential
-    B->>A: present Mill Test Report Credential
-    B->>F: present Mill Test Report Credential
-    C-->>C: issue SIMA Import License Application Credential
-    C->>D: present SIMA Import License Application Credential
-    D-->>D: issue SIMA Import License Credential
-    D->>F: present SIMA Import License Credential
-    D->>C: present SIMA Import License Credential
-    C->>A: present SIMA Import License Credential
-    E->>F: present CTPAT Credential
-    C-->>C: issue Entry Number Credential
-    C->>F: present Entry Number Credential
-    E-->>E: issue Multimodal Bill Of Lading Credential
-    E->>B: present Multimodal Bill Of Lading Credential
-    B->>C: present Multimodal Bill Of Lading Credential
-    C->>F: present Multimodal Bill Of Lading Credential</pre>
     
 
       <h3>US CBP Entry</h3>
