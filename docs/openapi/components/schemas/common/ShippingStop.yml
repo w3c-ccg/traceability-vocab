@@ -1,0 +1,121 @@
+$linkedData:
+  term: ShippingStop
+  '@id': https://w3id.org/traceability#ShippingStop
+title: Shipping Stop
+description: >-
+  Shipping Stop definition based on IATA electronic Air Way Bill
+  https://blanker.org/files/air-waybill-2.xls
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - ShippingStop
+    default:
+      - ShippingStop
+    items:
+      type: string
+      enum:
+        - ShippingStop
+  shippingStopAddress:
+    title: Shipping Stop Address
+    description: The postal address for this shipping stop.
+    $ref: ./PostalAddress.yml
+    $linkedData:
+      term: shippingStopAddress
+      '@id': https://schema.org/address
+  from:
+    title: From
+    description: The location of the shipment for the duration of this stop.
+    $ref: ./Place.yml
+    $linkedData:
+      term: from
+      '@id': https://schema.org/fromLocation
+  to:
+    title: To
+    description: The next intended destination for the shipment.
+    $ref: ./Place.yml
+    $linkedData:
+      term: to
+      '@id': https://schema.org/toLocation
+  carrier:
+    title: Carrier
+    description: The shipping carrier if applicable.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: carrier
+      '@id': https://schema.org/carrier
+  vesselNumber:
+    title: Vessel Number
+    description: The identification number for this vessel.
+    type: string
+    $linkedData:
+      term: vesselNumber
+      '@id': https://schema.org/identifier
+  arrivalDate:
+    title: Arrival Date
+    description: The expected date of arrival at the next destination.
+    type: string
+    $linkedData:
+      term: arrivalDate
+      '@id': https://schema.org/expectedArrivalFrom
+  stopType:
+    title: Stop Type
+    description: The type of vessel stop.
+    type: string
+    $linkedData:
+      term: stopType
+      '@id': https://schema.org/description
+  shippingMethod:
+    title: Shipping Method
+    description: The method of shipment to the next destination, e.g., truck transport.
+    type: string
+    $linkedData:
+      term: shippingMethod
+      '@id': https://schema.org/hasDeliveryMethod  
+  path:
+    title: Path
+    description: The path to the next destination, expressed as a polyline (implementing Google's Encoded Polyline Algorithm Format).
+    type: string
+    $linkedData:
+      term: path
+      '@id': https://schema.org/line
+additionalProperties: false  
+required:
+  - type
+example: |-
+  {
+    "type": ["ShippingStop"],
+    "shippingStopAddress": {
+      "type": ["PostalAddress"],
+      "name": "Tremblay, Prosacco and Beatty",
+      "streetAddress": "69047 Mann Lodge",
+      "addressLocality": "Cormierview",
+      "addressRegion": "Mississippi",
+      "postalCode": "87042",
+      "addressCountry": "Colombia"
+    },
+    "carrier": {
+      "type": ["Organization"],
+      "name": "Koepp - Ratke",
+      "description": "Fully-configurable 5th generation infrastructure",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "7070 Mohr Village",
+          "addressLocality": "Dereckmouth",
+          "addressRegion": "Washington",
+          "postalCode": "79586",
+          "addressCountry": "Equatorial Guinea"
+        }
+      },
+      "email": "Oliver16@example.com",
+      "phoneNumber": "+1-408-555-6112",
+      "faxNumber": "+1-104-555-9003"
+    },
+    "vesselNumber": "ACMECarrierVessel#770",
+    "arrivalDate": "2021-03-09",
+    "stopType": "Departure"
+  }
