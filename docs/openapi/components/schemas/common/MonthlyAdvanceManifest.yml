@@ -52,9 +52,14 @@ properties:
             title: deliveryLocation
             description: name of the delivery location
           sumOfScheduledDeliveries:
-            type: string
+            type: array
             title: Sum of Scheduled Deliveries
-            description: sum of volumes delivered to the delivery location in one month     
+            description: sum of volumes delivered to the delivery location in one month
+            items:
+              $ref: ./QuantitativeValue.yml
+            $linkedData:
+              term: sumOfScheduledDeliveries
+              '@id': https://w3id.org/traceability#QuantitativeValue
           numberOfBatches:
             type: string
             title: Number of Batches
@@ -74,7 +79,18 @@ example: |-
         {
             "portCode": "3901",
             "deliveryLocation": "Chicago",
-            "sumOfScheduledDelivires": "2000",
+            "sumOfScheduledDelivires": [
+              {
+                "type": ["QuantitativeValue"],
+                "unitCode": "m3",
+                "value": "18170.90"
+              },
+              {
+                "type": ["QuantitativeValue"],
+                "unitCode": "bbl",
+                "value": "114294.96"
+              }
+            ],
             "numberOfBatches": "1"
         }
     ]
