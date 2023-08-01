@@ -2882,7 +2882,7 @@
   },
   "transports": [{
     "type": ["Transport"],
-    "loadLocation": {
+    "departureLocation": {
       "type": ["Place"],
       "address": {
         "type": ["PostalAddress"],
@@ -2890,7 +2890,7 @@
         "addressCountry": "CN"
       }
     },
-    "dischargeLocation": {
+    "arrivalLocation": {
       "type": ["Place"],
       "address": {
         "type": ["PostalAddress"],
@@ -6894,33 +6894,56 @@
   },
   "requestedRouting": [
     {
-      "type": ["ShippingStop"],
-      "from": {
+      "type": ["Transport"],
+      "departureLocation": {
         "type": ["Place"],
+        "unLocode": "ITMIL",
         "address": {
           "type": ["PostalAddress"],
           "addressLocality": "Xiamen"
         }
       },
-      "to": {
+      "arrivalLocation": {
         "type": ["Place"],
-        "iataAirportCode": "LUX"
+        "iataAirportCode": "LUX",
+        "unLocode": "USLGB"
       },
+      "modeOfTransport": "Vessel",
+      "voyageNumber": "Atl-W0425",
       "carrier": {
         "type": ["Organization"],
-        "iataCarrierCode": "CV"
-      }
+        "iataCarrierCode": "CV",
+        "name": "Koepp - Ratke",
+        "description": "Fully-configurable 5th generation infrastructure",
+        "email": "Oliver16@example.com",
+        "phoneNumber": "+1-408-555-6112",
+        "faxNumber": "+1-104-555-9003"
+      },
+      "arrivalDate": "2021-03-09"
     },
     {
-      "type": ["ShippingStop"],
-      "to": {
+      "type": ["Transport"],
+      "departureLocation": {
         "type": ["Place"],
-        "iataAirportCode": "CPH"
+        "iataAirportCode": "LUX",
+        "unLocode": "ITMIL"
       },
+      "arrivalLocation": {
+        "type": ["Place"],
+        "unLocode": "CPH"
+      },
+      "modeOfTransport": "Vessel",
+      "voyageNumber": "Atl-W0425",
       "carrier": {
         "type": ["Organization"],
-        "iataCarrierCode": "CV"
-      }
+        "iataCarrierCode": "CV",
+        "name": "Koepp - Ratke",
+        "description": "Fully-configurable 5th generation infrastructure",
+        "email": "Oliver16@example.com",
+        "phoneNumber": "+1-408-555-6112",
+        "faxNumber": "+1-104-555-9003"
+      },
+      "arrivalDate": "2021-03-10"
     }
   ],
   "destinationAirport": {
@@ -13946,7 +13969,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
 
     <section id="Transport">
       <h2>Transport</h2>
-      <p>A transport which can be a leg of a journey.</p>
+      <p>A transport which can be a leg of a journey. In contexts where a stop is expected this can be understood to mean the departure location.</p>
       
   
   <table class="simple">
@@ -13969,17 +13992,37 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       
       <pre class="example">{
   "type": ["Transport"],
-  "loadLocation": {
+  "departureLocation": {
     "type": ["Place"],
     "unLocode": "ITMIL"
   },
-  "dischargeLocation": {
+  "arrivalLocation": {
     "type": ["Place"],
     "unLocode": "USLGB"
   },
   "modeOfTransport": "Vessel",
   "vesselNumber": "MS Seven Seas",
-  "voyageNumber": "Atl-W0425"
+  "voyageNumber": "Atl-W0425",
+  "carrier": {
+    "type": ["Organization"],
+    "name": "Koepp - Ratke",
+    "description": "Fully-configurable 5th generation infrastructure",
+    "location": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "streetAddress": "7070 Mohr Village",
+        "addressLocality": "Dereckmouth",
+        "addressRegion": "Washington",
+        "postalCode": "79586",
+        "addressCountry": "Equatorial Guinea"
+      }
+    },
+    "email": "Oliver16@example.com",
+    "phoneNumber": "+1-408-555-6112",
+    "faxNumber": "+1-104-555-9003"
+  },
+  "arrivalDate": "2021-03-09"
 }</pre>
     </section>
   
@@ -14613,15 +14656,18 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   "type": ["USDAPPQ309APestInterceptionRecord"],
   "interceptionNumber": "143l5khj1234l134",
   "shippingStop": {
-    "type": ["ShippingStop"],
-    "shippingStopAddress": {
-      "type": ["PostalAddress"],
-      "name": "Tremblay, Prosacco and Beatty",
-      "streetAddress": "69047 Mann Lodge",
-      "addressLocality": "Cormierview",
-      "addressRegion": "Mississippi",
-      "postalCode": "87042",
-      "addressCountry": "Colombia"
+    "type": ["Transport"],
+    "departureLocation": {
+      "type": ["Place"],
+      "address": {
+        "type": ["PostalAddress"],
+        "name": "Tremblay, Prosacco and Beatty",
+        "streetAddress": "69047 Mann Lodge",
+        "addressLocality": "Cormierview",
+        "addressRegion": "Mississippi",
+        "postalCode": "87042",
+        "addressCountry": "Colombia"
+      }
     },
     "carrier": {
       "type": ["Organization"],
@@ -14643,8 +14689,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "faxNumber": "+1-369-555-7331"
     },
     "vesselNumber": "ACMECarrierVessel#770",
-    "arrivalDate": "2021-03-09",
-    "stopType": "Departure"
+    "arrivalDate": "2021-03-09"
   },
   "forwardTo": "PPQ",
   "priority": "Prompt",
