@@ -68,7 +68,7 @@ mermaid: >-
   E->>B: present Multimodal Bill Of Lading Credential
   B->>C: present Multimodal Bill Of Lading Credential
   C->>F: present Multimodal Bill Of Lading Credential</pre>
-      <p>CBP Steel Tech Demo 2023</p>
+      <p>[TESTING TESTING 123] CBP Steel Tech Demo 2023</p>
       <b>Credentials Used:</b>
       <ol>
         <li><a href="https://w3id.org/traceability/#PurchaseOrderCredential">Purchase Order Credential</a></li><li><a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import Credential</a></li><li><a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Credential</a></li><li><a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice Credential</a></li><li><a href="https://w3id.org/traceability/#MillTestReportCredential">Mill Test Report Credential</a></li><li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseApplicationCredential">SIMA Import License Application Credential</a></li><li><a href="https://w3id.org/traceability/#SIMASteelImportLicenseCredential">SIMA Import License Credential</a></li><li><a href="https://w3id.org/traceability/#EntryNumberCredential">Entry Number Credential</a></li><li><a href="https://w3id.org/traceability/#MultiModalBillOfLadingCredential">Multimodal Bill Of Lading Credential</a></li>
@@ -76,7 +76,7 @@ mermaid: >-
       <pre class='example yml'>id: https://w3id.org/traceability/#cbp-steel-tech-demo-2023
 title: CBP Steel Tech Demo 2023
 description: >-
-    CBP Steel Tech Demo 2023
+    [TESTING TESTING 123] CBP Steel Tech Demo 2023
 tags: 
   - Steel
 credentials: 
@@ -132,6 +132,65 @@ mermaid: >-
     E->>B: present Multimodal Bill Of Lading Credential
     B->>C: present Multimodal Bill Of Lading Credential
     C->>F: present Multimodal Bill Of Lading Credential</pre>
+    
+
+      <h3>Common Import Credentials</h3>
+      <pre class='mermaid'>sequenceDiagram
+  title: Common Import Credentials
+  participant A as Importer
+  participant B as Customs Broker
+  participant C as TraceAPI
+  participant D as CBP
+  A->>C: IntentToImport
+  C->>C: Verification
+  C->>D: Authorized Data
+  A->>C: CommercialInvoice
+  A->>C: PurchaseOrder
+  B->>C: MultiModalBillOfLading
+  A->>C: CTPAT (Verify)
+  C->>D: Authorized Data</pre>
+      <p>Common Import Credentials</p>
+      <b>Credentials Used:</b>
+      <ol>
+        <li><a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice Credential</a></li><li><a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Credential</a></li><li><a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import Credential</a></li><li><a href="https://w3id.org/traceability/#MultiModalBillOfLadingCredential">Multimodal Bill Of Lading Credential</a></li><li><a href="https://w3id.org/traceability/#PurchaseOrderCredential">Purchase Order Credential</a></li>
+      </ol>
+      <pre class='example yml'>id: https://w3id.org/traceability/#common-import-credentials
+title: Common Import Credentials
+description: >-
+    Common Import Credentials
+tags: 
+  - Steel
+  - Agriculture
+  - OilAndGas
+  - Ecommerce
+  - Other
+credentials: 
+  - id: https://w3id.org/traceability/#CommercialInvoiceCredential
+    name: Commercial Invoice Credential
+  - id: https://w3id.org/traceability/#CTPATCertificate
+    name: CTPAT Credential
+  - id: https://w3id.org/traceability/#IntentToImportCredential
+    name: Intent To Import Credential
+  - id: https://w3id.org/traceability/#MultiModalBillOfLadingCredential
+    name: Multimodal Bill Of Lading Credential
+  - id: https://w3id.org/traceability/#PurchaseOrderCredential
+    name: Purchase Order Credential
+mermaid: >-
+  sequenceDiagram
+    title: Common Import Credentials
+    participant A as Importer
+    participant B as Customs Broker
+    participant C as TraceAPI
+    participant D as CBP
+    A->>C: IntentToImport
+    C->>C: Verification
+    C->>D: Authorized Data
+    A->>C: CommercialInvoice
+    A->>C: PurchaseOrder
+    B->>C: MultiModalBillOfLading
+    A->>C: CTPAT (Verify)
+    C->>D: Authorized Data
+</pre>
     
 
       <h3>Intention to Import Workflow</h3>
