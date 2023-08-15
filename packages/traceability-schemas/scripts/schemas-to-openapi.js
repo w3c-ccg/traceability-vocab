@@ -19,7 +19,6 @@ const getTagsFromDirectory = () => {
   const dirs = [
     'common',
     'credentials',
-    'presentations',
     'snippets',
     'workflows',
   ];
