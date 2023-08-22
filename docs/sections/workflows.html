@@ -134,6 +134,63 @@ mermaid: >-
     C->>F: present Multimodal Bill Of Lading Credential</pre>
     
 
+      <h3>Common Import Credentials</h3>
+      <pre class='mermaid'>sequenceDiagram
+  title: Common Import Credentials
+  participant A as Importer
+  participant B as Customs Broker
+  participant C as TraceAPI
+  participant D as CBP
+  A->>C: IntentToImport
+  C->>C: Verification
+  C->>D: Authorized Data
+  A->>C: CommercialInvoice
+  A->>C: PurchaseOrder
+  B->>C: MultiModalBillOfLading
+  A->>C: CTPAT (Verify)
+  C->>D: Authorized Data</pre>
+      <p>Common credentials for an importation workflow.</p>
+      <b>Credentials Used:</b>
+      <ol>
+        <li><a href="https://w3id.org/traceability/#CommercialInvoiceCredential">Commercial Invoice Credential</a></li><li><a href="https://w3id.org/traceability/#CTPATCertificate">CTPAT Certificate</a></li><li><a href="https://w3id.org/traceability/#IntentToImportCredential">Intent To Import Credential</a></li><li><a href="https://w3id.org/traceability/#MultiModalBillOfLadingCredential">Multimodal Bill Of Lading Credential</a></li><li><a href="https://w3id.org/traceability/#PurchaseOrderCredential">Purchase Order Credential</a></li>
+      </ol>
+      <pre class='example yml'>id: https://w3id.org/traceability/#common-import-credentials
+title: Common Import Credentials
+description: >-
+    Common credentials for an importation workflow.
+tags: 
+  - Steel
+  - Agriculture
+  - Ecommerce
+credentials: 
+  - id: https://w3id.org/traceability/#CommercialInvoiceCredential
+    name: Commercial Invoice Credential
+  - id: https://w3id.org/traceability/#CTPATCertificate
+    name: CTPAT Certificate
+  - id: https://w3id.org/traceability/#IntentToImportCredential
+    name: Intent To Import Credential
+  - id: https://w3id.org/traceability/#MultiModalBillOfLadingCredential
+    name: Multimodal Bill Of Lading Credential
+  - id: https://w3id.org/traceability/#PurchaseOrderCredential
+    name: Purchase Order Credential
+mermaid: >-
+  sequenceDiagram
+    title: Common Import Credentials
+    participant A as Importer
+    participant B as Customs Broker
+    participant C as TraceAPI
+    participant D as CBP
+    A->>C: IntentToImport
+    C->>C: Verification
+    C->>D: Authorized Data
+    A->>C: CommercialInvoice
+    A->>C: PurchaseOrder
+    B->>C: MultiModalBillOfLading
+    A->>C: CTPAT (Verify)
+    C->>D: Authorized Data
+</pre>
+    
+
       <h3>Intention to Import Workflow</h3>
       <pre class='mermaid'>sequenceDiagram
     participant A as Importer of Record
