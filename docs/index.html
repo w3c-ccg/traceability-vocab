@@ -1161,12 +1161,15 @@
           <h4>Traceable Presentation</h4>
           <p>This object extends <code>VerifiablePresentation</code> to support workflows.</p>
           <p>The <code>@context</code> MUST contain <code>"https://w3id.org/traceability/v1"</code>.</p>
-          <p>The object MUST have an <code>id</code> property, and its value MUST be a valid IRI (URI, URN).</p>
-          <p>It is RECOMMENDED the <code>id</code> be a valid UUID v4 URN, for example <code>urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5</code></p>
+          <p>The object MUST have an <code>id</code> property.</p>
+          <p>The <code>id</code> MUST be a UUID v4 URN per [[rfc4122]], for example <code>urn:uuid:3978344f-8596-4c3a-a978-8fcaba3903c5</code></p>
         </section>
 
         <section>
           <h4>Workflow</h4>
+          <p>
+            <em>Workflows</em> enable correlation of multiple Traceable Presentations, made at different point in time and between different holders and verfiers. 
+          </p>
           <p>
             A <code>TraceablePresentation</code> MAY specify a <code>workflow</code>. 
           </p>
@@ -1176,13 +1179,16 @@
           <p>
             A <code>workflow</code> MAY reference one or more <a href="https://w3id.org/traceability#workflow-instance>">WorkflowInstances</a> to correlate multiple <code>TraceablePresentations</code>.
           </p>
-
+          <p>
+            When a Workflow referneces both Definition(s) and Instance(s), the Workflow Instance's progress <em>MAY</em> be tracked by comparing the credentials which have been presented within the Workflow Instance (numerator) against the combined set of credentials types required by the targeted Workflow Definitions (denominator). 
+          </p>
 
         <section>
           <h5>Workflow Definition</h5>
           <p>
             The sequence of industrial, administrative, or other processes
-            through which a piece of work passes from initiation to completion.
+            through which a piece of work passes from initiation to completion,
+            or the <em>type</em> of workflow that the presented credentials belong to.
           </p>
 
           <p>
@@ -1191,13 +1197,33 @@
             have complicated workflows, which may yield many individual
             presentations of credentials.
           </p>
-          
+
+          <p>
+            A Workflow Definition MUST be identified with a [[rfc3986]] conformant URI, 
+            for example <code>https://w3id.org/traceability#us-cbp-entry</code>
+          </p>
+          <p>
+            By referencing a Workflow Definition `id` in a Traceable Presentation, the holder indicates 
+            to the verifier the intention of making the presentation.
+          </p>
+
+          <p>
+            The Workflow Definitions <em>SHOULD</em> resolve to a manifest file describing 
+            the intent of completing the workflow, participating parties, and required credential types.
+            For example, <a href="https://w3id.org/traceability/#us-cbp-entry">https://w3id.org/traceability/#us-cbp-entry</a> 
+            indicates that an Importer intends to import goods following common US CBP Entry filings.
+          </p>
           <p class="note">
             There are several systems for workflow definitions. See 
             <a href="https://www.omg.org/spec/BPMN/2.0/About-BPMN/" target="_blank">BPMN</a>,
             <a href="https://en.wikipedia.org/wiki/YAWL" target="_blank">YAWL</a>, and/or
             <a href="https://docs.github.com/en/actions/using-workflows/about-workflows" target="_blank">GitHub Workflows</a>.
           </p>
+
+          <p>      
+            Multiple Workflow Definitions <em>MAY</em> be referenced by a Traceable Presentation, 
+            indicating that multiple relevant circumstances apply. 
+          </p>          
 
           <p>
             We enable the grouping of all presentations related to a definition,
@@ -1219,7 +1245,7 @@
                   "workflow": {
                     // This refers to a Workflow Definition
                     "definition": [
-                      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e" 
+                      "https://w3id.org/traceability#us-cbp-entry" 
                     ],
                     "instance": [
                       "urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0"
@@ -1260,6 +1286,19 @@
           <p>
             We refer to Workflow Instance's as an execution of a particular
             workflow, which may or may not be formally defined.
+          </p>          
+          <p>
+            A Workflow Instance <em>MUST</em> be identified with a UUID v4 per [[rfc4122]], 
+            for example <code>urn:uuid:f5fb6ce4-b0b1-41b8-89b0-331ni58b7ee0</code>
+          </p>
+          <p>
+            By referencing the same Workflow Instance `id` in separate Traceable Presentations, 
+            the holder indicates to the verifier that the presentations are related. 
+          </p>
+          <p>
+            For example, an initial presentation of an Intent to Import Credential may be followed at a 
+            later date by presentation of a Commercial Invoice Credential. The two presentations reference 
+            a common Workflow Instance identifier to indicate that they relate to the same shipment import.
           </p>
 
           <p class="note">
@@ -1269,6 +1308,11 @@
             collections of documents associated with a given import.
             Workflow instances help achieve this by providing a topic
             identifier enabling the grouping of related credentials and presentations.
+          </p>
+
+          <p>
+            The same Traceable Presentation <em>MAY</em> reference multiple Workflow Instances. 
+            This is a signal by the holder that the referenced Workflow Instances are the same and should be joined. 
           </p>
 
           <p>
@@ -1289,7 +1333,7 @@
   ],
   "workflow": {
     "definition": [
-      "urn:uuid:n1552885-cc91-4bb3-91f1-5466a0be084e"
+      "https://w3id.org/traceability#us-cbp-entry"
     ],
     // This refers to a Workflow Instance
     "instance": [
@@ -1322,7 +1366,7 @@
         </pre>
         </section>
         <section>
-          <h4>Workflow Replace</h4>
+          <h4>Presentation Replace</h4>
           <p>
 A holder MAY use the <code>replace</code> property of a <code>TraceablePresentation</code> 
 to communciate to a verifier that a previous presentation should be replaced with a new presentation.
@@ -1331,14 +1375,7 @@ to communciate to a verifier that a previous presentation should be replaced wit
 Holders SHOULD ensure the previous presentation was accepted before presenting a <code>replace</code> presentation.
           </p>
           <p>
-Holders MUST present the same credential types that were present in the previous presentation and no new credentials.
-          </p>
-          <p>
 The presentation <code>id</code> of the <code>replace</code> presentation MUST be unique, 
-and MUST NOT be the same as any previous values presented.
-          </p>
-          <p>
-The credential <code>id</code> of any corrected credentials MUST be unique, 
 and MUST NOT be the same as any previous values presented.
           </p>
           <p>
