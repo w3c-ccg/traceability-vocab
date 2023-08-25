@@ -29,7 +29,7 @@ properties:
       enum:
         - https://w3id.org/traceability/v1
         - https://w3id.org/vc/status-list/2021/v1
-        - https://ref.gs1.org/gs1/vc/licence-context/
+        - https://ref.gs1.org/gs1/vc/license-context/
         - https://ref.gs1.org/gs1/vc/trade-item-context/
         - https://ref.gs1.org/gs1/vc/declaration-context/
 `)
@@ -65,11 +65,11 @@ properties:
         const validation1 = validate(instance1);
         expect(validation1).toBe(true);
       });
-      it('https://ref.gs1.org/gs1/vc/licence-context/', async () => {
+      it('https://ref.gs1.org/gs1/vc/license-context/', async () => {
         const instance1 = {
           '@context': [
             'https://www.w3.org/2018/credentials/v2',
-            'https://ref.gs1.org/gs1/vc/licence-context/',
+            'https://ref.gs1.org/gs1/vc/license-context/',
           ],
         };
         const validation1 = validate(instance1);
