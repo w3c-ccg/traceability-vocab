@@ -43,17 +43,6 @@ properties:
     $linkedData:
       term: relatedDocuments
       '@id': https://schema.org/Purchase
-  scac:
-    title: SCAC
-    description: >-
-      For maritime shipments, this code qualifies a Standard Alpha Carrier Code
-      (SCAC) as issued by the United Stated National Motor Traffic Association
-      Inc.
-    type: string
-    $linkedData:
-      term: scac
-      '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Standard_Carrier_Alpha_Code_(SCAC)_number
   carrier:
     title: Carrier
     description: >-
@@ -87,6 +76,13 @@ properties:
       description:
         title: Description
         description: Description of the carrier.
+        type: string
+      scac:
+        title: SCAC
+        description: >-
+          For maritime shipments, this code qualifies a Standard Alpha Carrier Code
+          (SCAC) as issued by the United Stated National Motor Traffic Association
+          Inc.
         type: string
       email:
         title: Email Address
@@ -475,10 +471,10 @@ example: |-
     "type": ["BillOfLading"],
     "billOfLadingNumber": "991205182A",
     "bookingNumber": "991205182",
-    "scac": "NISC",
     "carrier": {
       "type": ["Organization"],
       "name": "Carrior Goods And More",
+      "scac": "NISC",
       "email": "Adaline29@example.com",
       "phoneNumber": "+1-376-555-0509",
       "location": {
