@@ -20,17 +20,6 @@ properties:
       type: string
       enum:
         - AgricultureProduct
-  upc:
-    title: UPC Number
-    description: >-
-      UPC (aka UPC-A) consists of 12 numeric digits that are uniquely assigned
-      to each trade item. Along with the related EAN barcode, the UPC is the
-      barcode mainly used for scanning of trade items at the point of sale, per
-      GS1 specifications.
-    type: string
-    $linkedData:
-      term: upc
-      '@id': https://www.gs1.org/standards/barcodes/ean-upc
   plu:
     title: PLU Number
     description: >-
@@ -41,15 +30,6 @@ properties:
     $linkedData:
       term: plu
       '@id': https://w3id.org/traceability#plu
-  gtin:
-    title: GTIN Code
-    description: >-
-      Global Trade Item Number (GTIN) can be used by a company to uniquely
-      identify all of its trade items.
-    type: string
-    $linkedData:
-      term: gtin
-      '@id': https://www.gs1.org/voc/gtin
   countryOfOrigin:
     title: Country of Origin
     description: The country in which this product originated.
@@ -97,72 +77,64 @@ properties:
     $linkedData:
       term: labelImageHash
       '@id': https://w3id.org/traceability#labelImageHash
-  name:
-    title: Name
-    description: Name of the ag. product.
-    type: string
-    $linkedData:
-      term: name
-      '@id': https://schema.org/name
-  productImageUrl:
-    title: Product Image URL
-    description: Image of the product.
-    type: string
-    $linkedData:
-      term: productImageUrl
-      '@id': https://schema.org/url
-  productImageHash:
-    title: Product Image Hash
-    description: >-
-      Hash value for securely identifying the product image.  More information can
-      be found at the following link: https://cybersecurityglossary.com/hashing
-    type: string
-    $linkedData:
-      term: productImageHash
-      '@id': https://w3id.org/traceability#productImageHash
 additionalProperties: true
 required:
   - type
 example: |-
   {
-    "type": ["AgricultureProduct"],
-    "upc": "033383401508",
+    "type": [
+      "AgricultureProduct"
+    ],
     "plu": "94225",
-    "gtin": "033383401508",
-    "countryOfOrigin": "United States",
     "product": {
-      "type": ["Product"],
+      "type": [
+        "Product"
+      ],
       "manufacturer": {
-        "type": ["Organization"],
-        "name": "Jimbo's Awesome Farm",
-        "description": "Organic fruits & vegetables",
-        "email": "Chloe.Ondricka42@jimbofarm.example.org",
-        "phoneNumber": "+1-302-555-6543",
-        "faxNumber": "+1-436-555-6157"
+        "type": [
+          "Organization"
+        ],
+        "name": "Zemlak - Wyman",
+        "description": "Progressive fault-tolerant task-force",
+        "location": {
+          "type": [
+            "Place"
+          ],
+          "address": {
+            "type": [
+              "PostalAddress"
+            ],
+            "streetAddress": "964 Mikayla Viaduct",
+            "addressLocality": "Runolfsdottirburgh",
+            "addressRegion": "Florida",
+            "postalCode": "48442-9522",
+            "addressCountry": "Barbados"
+          }
+        },
+        "email": "Reyna_Hamill56@example.com",
+        "phoneNumber": "+1-264-555-5427",
+        "faxNumber": "+1-597-555-6162"
       },
-      "name": "Avocados",
-      "description": "Avocados, 4 pack boxes",
+      "countryOfOrigin": "United States",
+      "name": "Handmade Fresh Hat",
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
       "sizeOrAmount": {
         "type": [
           "QuantitativeValue"
         ],
-        "unitCode": "boxes",
-        "value": "893"
+        "unitCode": "sqm",
+        "value": "47"
       },
       "weight": {
         "type": [
           "QuantitativeValue"
         ],
-        "unitCode": "lbs",
-        "value": "1784"
+        "unitCode": "kg",
+        "value": "4890"
       },
-      "sku": "71266019767"
-    },
-    "scientificName": "Persea americana",
-    "plantParts": "fruit",
-    "labelImageUrl": "https://img.example.org/033383401508/640/480/",
-    "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "name": "Avocados",
-    "productImageUrl": "https://img.example.org/102934920857/937/903/",
-    "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+      "upc": "033383401508",
+      "sku": "712120934258",
+      "imageUrl": "https://img.example.org/102934920857/937/903/",
+      "imageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+    }
   }

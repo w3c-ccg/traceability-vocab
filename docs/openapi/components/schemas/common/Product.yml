@@ -25,10 +25,24 @@ properties:
       '@id': https://schema.org/productID
   gtin:
     title: Global Trade Item Number (GTIN)
+    description: >-
+      Global Trade Item Number (GTIN) can be used by a company to uniquely
+      identify all of its trade items.
     type: string
     $linkedData:
       term: gtin
       '@id': https://schema.org/gtin
+  upc:
+    title: UPC Number
+    description: >-
+      UPC (aka UPC-A) consists of 12 numeric digits that are uniquely assigned
+      to each trade item. Along with the related EAN barcode, the UPC is the
+      barcode mainly used for scanning of trade items at the point of sale, per
+      GS1 specifications.
+    type: string
+    $linkedData:
+      term: upc
+      '@id': https://www.gs1.org/standards/barcodes/ean-upc
   manufacturer:
     title: Manufacturer
     description: The entity manufacturing the product.
@@ -36,6 +50,13 @@ properties:
     $linkedData:
       term: manufacturer
       '@id': https://schema.org/manufacturer
+  countryOfOrigin:
+    title: Country of Origin
+    description: The country in which this product originated.
+    type: string
+    $linkedData:
+      term: countryOfOrigin
+      '@id': https://vocabulary.uncefact.org/originCountry
   name:
     title: Name
     description: Name of the shipment item(s)
@@ -129,14 +150,22 @@ properties:
     $linkedData:
       term: seller
       '@id': https://vocabulary.uncefact.org/sellerParty
-  images:
-    title: Images of the product
-    type: array
-    items: 
-      type: string
+  imageUrl:
+    title: Image URL
+    description: Image of the product.
+    type: string
     $linkedData:
-      term: images
-      '@id': https://schema.org/image
+      term: imageUrl
+      '@id': https://schema.org/url
+  imageHash:
+    title: Image Hash
+    description: >-
+      Hash value for securely identifying the product image.  More information can
+      be found at the following link: https://cybersecurityglossary.com/hashing
+    type: string
+    $linkedData:
+      term: imageHash
+      '@id': https://w3id.org/traceability#imageHash
 additionalProperties: false
 required:
   - type
@@ -162,6 +191,7 @@ example: |-
       "phoneNumber": "+1-264-555-5427",
       "faxNumber": "+1-597-555-6162"
     },
+    "countryOfOrigin": "United States",
     "name": "Handmade Fresh Hat",
     "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
     "sizeOrAmount": {
@@ -174,5 +204,8 @@ example: |-
       "unitCode": "kg",
       "value": "4890"
     },
-    "sku": "712120934258"
+    "upc": "033383401508",
+    "sku": "712120934258",
+    "imageUrl": "https://img.example.org/102934920857/937/903/",
+    "imageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
   }
