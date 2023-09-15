@@ -36,6 +36,14 @@ properties:
     $linkedData:
       term: buyer
       '@id': https://vocabulary.uncefact.org/buyerParty
+  consignee:
+    title: Consignee
+    description: A consignee party for the consignment.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignee
+      '@id': >-
+        https://vocabulary.uncefact.org/consigneeParty
   shipFromParty:
     title: Ship From Party
     description: The party from whom goods will be or have been originally shipped. Also refered to as Original Despatch Party
@@ -207,7 +215,7 @@ example: |-
         }
       }
     },
-    "shipToParty": {
+    "consignee": {
       "type": ["Organization"],
       "name": "By ACRE",
       "location": {
