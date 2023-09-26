@@ -16404,9 +16404,9 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     </section>
   
 
-    <section id="USMCAProductSpecifier">
-      <h2>USMCA Product Specifier</h2>
-      <p>USMCA product origin specifier</p>
+    <section id="USMCAClaims">
+      <h2>USMCA Claims</h2>
+      <p>Claims for preferential treatment under the USMCA.</p>
       
   
   <table class="simple">
@@ -16414,13 +16414,13 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
 
   <tr>
     <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
-    <td><a href="https://w3id.org/traceability/USMCAProductSpecifier">https://w3id.org/traceability/USMCAProductSpecifier</a></td>
+    <td><a href="https://w3id.org/traceability/USMCAClaims">https://w3id.org/traceability/USMCAClaims</a></td>
   </tr>
   
   
 <tr>
   <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
-  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/USMCAProductSpecifier.yml">https://w3id.org/traceability/openapi/components/schemas/common/USMCAProductSpecifier.yml</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/USMCAClaims.yml">https://w3id.org/traceability/openapi/components/schemas/common/USMCAClaims.yml</a></td>
 </tr>
 
   </tbody>
@@ -16428,24 +16428,7 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
   
       
       <pre class="example">{
-  "type": ["USMCAProductSpecifier"],
-  "product": {
-    "type": [
-      "Product"
-    ],
-    "sku": "323050346937",
-    "description": "Non-alloy steel rolls",
-    "commodity": {
-      "type": [
-        "Commodity"
-      ],
-      "commodityCode": "721320",
-      "commodityCodeType": "HS",
-      "description": "Steel Coils"
-    }
-  },
-  "originCriterion": "A",
-  "countryOfOrigin": "MX",
+  "type": ["USMCAClaims"],
   "importerDetails": [{
     "type": [
       "Organization"
@@ -16456,13 +16439,6 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "type": [
         "Place"
       ],
-      "geo": {
-        "type": [
-          "GeoCoordinates"
-        ],
-        "latitude": "26.710654",
-        "longitude": "-103.671937"
-      },
       "address": {
         "type": [
           "PostalAddress"
@@ -16487,13 +16463,6 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
       "type": [
         "Place"
       ],
-      "geo": {
-        "type": [
-          "GeoCoordinates"
-        ],
-        "latitude": "43.655585429184434",
-        "longitude": "-120.33634354756568"
-      },
       "address": {
         "type": [
           "PostalAddress"
@@ -16508,36 +16477,71 @@ https://github.com/spdx/spdx-examples/blob/master/example1/spdx/example1.spdx</p
     "email": "contact@example.net",
     "phoneNumber": "+1-834-555-9332"
   },
-  "producerDetails": [
-    {
+  "producerDetails": {
+    "type": [
+      "Organization"
+    ],
+    "name": "Melt Global, Inc.",
+    "phoneNumber": "+1-804-555-3340",
+    "location": {
       "type": [
-        "Organization"
+        "Place"
       ],
-      "name": "Melt Global, Inc.",
-      "phoneNumber": "+1-804-555-3340",
-      "location": {
+      "address": {
         "type": [
-          "Place"
+          "PostalAddress"
         ],
-        "geo": {
-          "type": [
-            "GeoCoordinates"
-          ],
-          "latitude": "30.893066748785927",
-          "longitude": "-93.80232474809726"
-        },
-        "address": {
-          "type": [
-            "PostalAddress"
-          ],
-          "addressLocality": "Hunter Valley",
-          "addressRegion": "Texas",
-          "postalCode": "78599",
-          "addressCountry": "United States"
-        }
+        "addressLocality": "Hunter Valley",
+        "addressRegion": "Texas",
+        "postalCode": "78599",
+        "addressCountry": "United States"
       }
     }
+  },
+  "goods": [
+    {
+      "type": ["USMCAProduct"],
+      "description": "Non-alloy steel rolls",
+      "commodityCode": "721320",
+      "commodityCodeType": "HS",
+      "originCriterion": "A",
+      "countryOfOrigin": "MX"
+    }
   ]
+}</pre>
+    </section>
+  
+
+    <section id="USMCAProduct">
+      <h2>USMCA Product</h2>
+      <p>USMCA product origin specifier</p>
+      
+  
+  <table class="simple">
+  <tbody>
+
+  <tr>
+    <td><a href="https://json-ld.org/spec/latest/json-ld/#node-identifiers">@id</a></td>
+    <td><a href="https://w3id.org/traceability/USMCAProduct">https://w3id.org/traceability/USMCAProduct</a></td>
+  </tr>
+  
+  
+<tr>
+  <td><a href="https://swagger.io/specification/#schema-object">schema</a></td>
+  <td><a href="https://w3id.org/traceability/openapi/components/schemas/common/USMCAProduct.yml">https://w3id.org/traceability/openapi/components/schemas/common/USMCAProduct.yml</a></td>
+</tr>
+
+  </tbody>
+  </table>
+  
+      
+      <pre class="example">{
+  "type": ["USMCAProduct"],
+  "description": "Non-alloy steel rolls",
+  "commodityCode": "721320",
+  "commodityCodeType": "HS",
+  "originCriterion": "A",
+  "countryOfOrigin": "MX"
 }</pre>
     </section>
   
