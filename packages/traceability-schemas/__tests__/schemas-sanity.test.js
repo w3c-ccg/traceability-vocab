@@ -1,5 +1,8 @@
 /* eslint-disable operator-linebreak */
-const { schemas, ajv } = require('../services/schemas');
+const { ajv } = require('../services/schemas');
+let { schemas } = require('../services/schemas');
+
+schemas = schemas.filter((s) => !s.$id.includes('/workflows/'));
 
 it('schemas is an array', () => {
   expect(Array.isArray(schemas)).toBe(true);
@@ -36,15 +39,6 @@ it('all schemas examples are valid', async () => {
     schemas.map(async (s) => {
       try {
         const input = JSON.parse(s.example);
-        if (
-          input.issue &&
-          input.issue.startsWith(
-            'https://github.com/w3c-ccg/traceability-vocab/issues/'
-          )
-        ) {
-          console.warn('Bad issue: ', input.issue);
-          return true;
-        }
         await ajv.compileAsync(s);
         const isValid = ajv.validate(s.$id, input);
         if (!isValid) {

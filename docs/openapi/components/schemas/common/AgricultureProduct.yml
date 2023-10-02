@@ -20,17 +20,6 @@ properties:
       type: string
       enum:
         - AgricultureProduct
-  upc:
-    title: UPC Number
-    description: >-
-      UPC (aka UPC-A) consists of 12 numeric digits that are uniquely assigned
-      to each trade item. Along with the related EAN barcode, the UPC is the
-      barcode mainly used for scanning of trade items at the point of sale, per
-      GS1 specifications.
-    type: string
-    $linkedData:
-      term: upc
-      '@id': https://www.gs1.org/standards/barcodes/ean-upc
   plu:
     title: PLU Number
     description: >-
@@ -40,16 +29,7 @@ properties:
     type: string
     $linkedData:
       term: plu
-      '@id': https://www.ifpsglobal.com/PLU-Codes
-  gtin:
-    title: GTIN Code
-    description: >-
-      Global Trade Item Number (GTIN) can be used by a company to uniquely
-      identify all of its trade items.
-    type: string
-    $linkedData:
-      term: gtin
-      '@id': https://www.gs1.org/voc/gtin
+      '@id': https://schema.org/identifier
   countryOfOrigin:
     title: Country of Origin
     description: The country in which this product originated.
@@ -146,36 +126,55 @@ required:
   - type
 example: |-
   {
-    "type": ["AgricultureProduct"],
-    "upc": "033383401508",
+    "type": [
+      "AgricultureProduct"
+    ],
     "plu": "94225",
-    "gtin": "033383401508",
-    "countryOfOrigin": "United States",
     "product": {
-      "type": ["Product"],
+      "type": [
+        "Product"
+      ],
       "manufacturer": {
-        "type": ["Organization"],
-        "name": "Jimbo's Awesome Farm",
-        "description": "Organic fruits & vegetables",
-        "email": "Chloe.Ondricka42@jimbofarm.example.org",
-        "phoneNumber": "555-496-7149",
-        "faxNumber": "555-209-6489"
+        "type": [
+          "Organization"
+        ],
+        "name": "Zemlak - Wyman",
+        "description": "Progressive fault-tolerant task-force",
+        "location": {
+          "type": [
+            "Place"
+          ],
+          "address": {
+            "type": [
+              "PostalAddress"
+            ],
+            "streetAddress": "964 Mikayla Viaduct",
+            "addressLocality": "Runolfsdottirburgh",
+            "addressRegion": "Florida",
+            "postalCode": "48442-9522",
+            "addressCountry": "Barbados"
+          }
+        },
+        "email": "Reyna_Hamill56@example.com",
+        "phoneNumber": "+1-264-555-5427",
+        "faxNumber": "+1-597-555-6162"
       },
-      "name": "Avocados",
-      "description": "Avocados, 4 pack boxes",
+      "countryOfOrigin": "United States",
+      "name": "Handmade Fresh Hat",
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
       "sizeOrAmount": {
         "type": [
           "QuantitativeValue"
         ],
-        "unitCode": "boxes",
-        "value": "893"
+        "unitCode": "sqm",
+        "value": "47"
       },
       "weight": {
         "type": [
           "QuantitativeValue"
         ],
-        "unitCode": "lbs",
-        "value": "1784"
+        "unitCode": "kg",
+        "value": "4890"
       },
       "sku": "71266019767"
     },

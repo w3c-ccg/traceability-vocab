@@ -2,7 +2,9 @@ $linkedData:
   term: Transport
   '@id': https://w3id.org/traceability#Transport
 title: Transport
-description: A transport which can be a leg of a journey.
+description: >-
+  A transport which can be a leg of a journey. In contexts where a stop is expected this can be
+  understood to mean the departure location.
 type: object
 properties:
   type:
@@ -16,50 +18,54 @@ properties:
       type: string
       enum:
         - Transport
-  loadLocation:
-    title: Load Location
+  departureLocation:
+    title: Departure Location.
+    description: The departure location. In some contexts, this may also be a shipping stop.
     $ref: ./Place.yml
     $linkedData:
-      term: loadLocation
-      '@id': https://schema.org/Place
-  dischargeLocation:
-    title: Discharge Location
+      term: arrivalLocation
+      '@id': https://schema.org/fromLocation
+  arrivalLocation:
+    title: Arrival Location
+    description: The arrival location.
     $ref: ./Place.yml
     $linkedData:
-      term: dischargeLocation
-      '@id': https://schema.org/Place
-  plannedDepartureDate:
+      term: arrivalLocation
+      '@id': https://schema.org/toLocation
+  departureDate:
     title: Planned Departure Date
     description: The planned date of departure.
     type: string
     $linkedData:
-      term: plannedDepartureDate
-      '@id': https://schema.org/Date
-  plannedArrivalDate:
+      term: departureDate
+      '@id': https://schema.org/departureTime
+  arrivalDate:
     title: Planned Arrival Date
     description: The planned date of arrival.
     type: string
     $linkedData:
-      term: plannedArrivalDate
-      '@id': https://schema.org/Date
+      term: arrivalDate
+      '@id': https://schema.org/arrivalTime
   modeOfTransport:
     title: Mode of Transport
-    description: The mode of transport as defined by DCSA.
+    description: The mode of transport as defined by DCSA and extended to include Air.
     enum:
       - Vessel
       - Rail
       - Truck
       - Barge
+      - Air
     $linkedData:
       term: modeOfTransport
       '@id': >-
         https://api.swaggerhub.com/domains/dcsaorg/DCSA_DOMAIN/1.0.1#/components/schemas/modeOfTransport
   carrier:
     title: carrier
+    description: The shipping carrier if applicable.
     $ref: ./Organization.yml
     $linkedData:
       term: carrier
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/carrier
   vesselNumber:
     title: Vessel Number
     description: The unique reference for a registered vessel.
@@ -67,7 +73,7 @@ properties:
     $linkedData:
       term: vesselNumber
       '@id': >-
-        https://vocabulary.uncefact.org/transportMeans
+        https://vocabulary.uncefact.org/identifier
   voyageNumber:
     title: Voyage Number
     description: The vessel operator-specific identifier of the Voyage.
@@ -75,22 +81,49 @@ properties:
     $linkedData:
       term: voyageNumber
       '@id': >-
-        https://vocabulary.uncefact.org/TransportMovement
+        https://vocabulary.uncefact.org/identifier
+  path:
+    title: Path
+    description: The transport path, expressed as a polyline (implementing Google's Encoded Polyline Algorithm Format).
+    type: string
+    $linkedData:
+      term: path
+      '@id': https://schema.org/line
 additionalProperties: false  
 required:
   - type
 example: |-
   {
     "type": ["Transport"],
-    "loadLocation": {
+    "departureLocation": {
       "type": ["Place"],
       "unLocode": "ITMIL"
     },
-    "dischargeLocation": {
+    "arrivalLocation": {
       "type": ["Place"],
       "unLocode": "USLGB"
     },
     "modeOfTransport": "Vessel",
     "vesselNumber": "MS Seven Seas",
-    "voyageNumber": "Atl-W0425"
+    "voyageNumber": "Atl-W0425",
+    "carrier": {
+      "type": ["Organization"],
+      "name": "Koepp - Ratke",
+      "description": "Fully-configurable 5th generation infrastructure",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "7070 Mohr Village",
+          "addressLocality": "Dereckmouth",
+          "addressRegion": "Washington",
+          "postalCode": "79586",
+          "addressCountry": "Equatorial Guinea"
+        }
+      },
+      "email": "Oliver16@example.com",
+      "phoneNumber": "+1-408-555-6112",
+      "faxNumber": "+1-104-555-9003"
+    },
+    "arrivalDate": "2021-03-09"
   }

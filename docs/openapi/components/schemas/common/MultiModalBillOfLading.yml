@@ -25,7 +25,7 @@ properties:
     $linkedData:
       term: billOfLadingNumber
       '@id': >-
-        https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
+        https://vocabulary.uncefact.org/ReferenceCodeList#BM
   bookingNumber:
     title: Booking Number
     description:  A unique identifier assigned by the carrier to the consignment, such as a booking reference number when cargo space is reserved prior to loading.
@@ -44,7 +44,7 @@ properties:
       type: string
     $linkedData:
       term: shippersReferences
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#SID_(Shipper's_identifying_number_for_shipment)
+      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#SI
   freightForwardersReferences:
     title: Freight Forwarder's References
     description: Reference number assigned by the freight forwarder to identify a particular consignment.
@@ -52,8 +52,8 @@ properties:
     items: 
       type: string
     $linkedData:
-      term: shippersReferences
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Consignment_identifier_freight_forwarder_assigned
+      term: freightForwardersReferences
+      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#FF
   shipper: 
     title: Shipper
     description: A consignor party for the consignment.
@@ -74,7 +74,7 @@ properties:
     description: The freight forwarder party for this supply chain consignment.
     $ref: ./Organization.yml
     $linkedData:
-      term: notifyParty
+      term: forwardingAgent
       '@id': >-
         https://vocabulary.uncefact.org/freightForwarderParty
   notifyParty:
@@ -134,7 +134,7 @@ properties:
     description: A transshipment location for this supply chain consignment.
     $ref: ./Place.yml
     $linkedData:
-      term: portOfLoading
+      term: transshipmentLocation
       '@id': https://vocabulary.uncefact.org/transshipmentLocation
   placeOfDelivery:
     title: Place of Delivery
@@ -163,14 +163,14 @@ properties:
     $linkedData:
       term: transportEquipmentQuantity
       '@id': https://vocabulary.uncefact.org/transportEquipmentQuantity
-  includedConsignmentItems:
-    title: Included Consignment Items
-    description: A consignment item included in the consignment.
+  particulars:
+    title: Consignment item particulars
+    description: Consignment item particular listing.
     type: array
     items: 
       $ref: ./ConsignmentItem.yml
     $linkedData:
-      term: includedConsignmentItems
+      term: particulars
       '@id': https://vocabulary.uncefact.org/includedConsignmentItem
   utilizedTransportEquipment:
     title: Utilized Transport Equipment
@@ -222,7 +222,7 @@ required:
   - carrier
   - portOfLoading
   - portOfDischarge
-  - includedConsignmentItems
+  - particulars
   - termsAndConditions
 example: |-
   {
@@ -246,7 +246,7 @@ example: |-
         }
       },
       "email": "sales@espresso-italiano.example.com",
-      "phoneNumber": "+39 0351 9067195"
+      "phoneNumber": "+39 5555 7534484"
     },
     "consignee": {
       "type": ["Organization"],
@@ -337,7 +337,7 @@ example: |-
         ]
       }
     ],
-    "includedConsignmentItems": [
+    "particulars": [
       {
         "type": ["ConsignmentItem"],
         "marksAndNumbers": "Espresso Italiano",

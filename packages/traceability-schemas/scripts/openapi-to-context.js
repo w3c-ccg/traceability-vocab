@@ -4,7 +4,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const stringify = require('json-stringify-deterministic');
 const { schemas } = require('../services/schemas');
 const rootTerms = require('./rootTerms.json');
 
@@ -72,12 +71,6 @@ console.log('🧪 build context from api');
       '@vocab': 'https://www.w3.org/ns/credentials/issuer-dependent#',
       id: '@id',
       type: '@type',
-      TraceablePresentation: {
-        '@id': 'https://w3id.org/traceability#TraceablePresentation',
-        '@context': {
-          '@vocab': 'https://w3id.org/traceability#'
-        },
-      },
       ...rootTerms,
       ...context,
     },
@@ -87,5 +80,5 @@ console.log('🧪 build context from api');
     console.log(JSON.stringify(undefinedTerms, null, 2));
   }
 
-  fs.writeFileSync(contextPath, stringify(root, { space: '  ' }));
+  fs.writeFileSync(contextPath, JSON.stringify(root, { space: '  ' }));
 })();

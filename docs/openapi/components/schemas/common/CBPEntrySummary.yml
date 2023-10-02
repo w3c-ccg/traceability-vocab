@@ -22,7 +22,7 @@ properties:
     type: string
     $linkedData:
       term: entryNumber
-      '@id': https://schema.org/identifier
+      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#AQM
   entryType:
     title: Entry Type
     description: >- 
@@ -122,7 +122,7 @@ properties:
     type: string
     $linkedData:
       term: billOfLadingNumber
-      '@id': https://service.unece.org/trade/uncefact/vocabulary/uncl1153/#Bill_of_lading_number
+      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#BM
   manufacturerId:
     title: Manufacturer Identifier
     description: This block is provided to accommodate the manufacturer/shipper identification code. This code identifies the manufacture/shipper of the merchandise by a constructed code. The method for deriving the code can be found in Appendix 2. For the purposes of this code, the manufacturer should be construed to refer to the invoicing party or parties (manufacturers or other direct suppliers). The name and address of the invoicing party, whose invoice accompanies the CBP entry, should be used to construct the MID. The manufacturer/shipper identification code is required for all entry summaries and entry/entry summaries, including informal entries, filed on the CBP Form 7501. For textile shipments, the manufacturer should be construed to refer to the actual manufacturer in accordance with 19 CFR 102.23(a) and the Appendix to 19 CFR Part102 – Textile and Apparel Manufacturer Identification. Non-textile shipments may use the invoicing party or parties (manufacturers or other direct suppliers). When an entry summary covers merchandise from more than one manufacturer, record the word "MULTI" in this block. In column 28, indicate the MID Code corresponding to each line item. If there is more than one vendor for a particular HTS number, separate line items will be required for each MID.
@@ -199,10 +199,10 @@ properties:
   importerNumber:
     title: Importer Identifier
     description: Record the IRS EIN, SSN, or CBP assigned number of the importer of record. Proper format is listed under the instructions for Consignee Number.
-    type: string
+    $ref: ./CBPImporterOfRecord.yml
     $linkedData:
       term: importerNumber
-      '@id': https://schema.org/identifier
+      '@id': https://w3id.org/traceability#importerOfRecord
   referenceNumber:
     title: Reference Number
     description: Record the IRS EIN, SSN, or CBP assigned number of the individual or firm to whom refunds, bills, or notices of extension or suspension of liquidation are to be sent (if other than the importer of record and only when a CBP Form 4811 is on file). Proper formatis listed under the instructions for Consignee Number. Do not use this block to recordany other information.
@@ -304,7 +304,7 @@ example: |-
     "bondType": "Single Transaction Bond",
     "portCode": {
       "type": ["Place"], 
-      "unLocode": "USLBC"
+      "usPortCode": "2709"
     },
     "entryDate": "2022-03-01T12:54Z",
     "importingCarrier": "NISC",
@@ -324,14 +324,18 @@ example: |-
     },
     "portOfUnlading": {
       "type": ["Place"],
-      "unLocode": "USLBC"
+      "usPortCode": "2709"
     },
     "locationOfGoods": {
       "type": ["Place"],
-      "unLocode": "USLBC"
+      "usPortCode": "2709"
     },
     "consigneeNumber": "9982312",
-    "importerNumber": "9900127",
+    "importerNumber": {
+      "type": ["CBPImporterOfRecord"],
+      "number": "10025672",
+      "identifierType": "CBP"
+    },
     "referenceNumber": "ref199812841",
     "ultimateConsignee": {
       "type": ["Organization"],

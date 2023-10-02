@@ -2,6 +2,7 @@
 /* eslint-disable operator-linebreak */
 const fs = require('fs');
 const path = require('path');
+const { load } = require('js-yaml')
 
 const { schemas } = require('../services/schemas');
 
@@ -10,15 +11,23 @@ const credentialPath = path.resolve(
   __dirname,
   '../../../docs/sections/credentials.html'
 );
+const workflowPath = path.resolve(
+  __dirname,
+  '../../../docs/sections/workflows.html'
+);
 
 const baseUrl = 'https://w3id.org/traceability';
+
+const htmlSectionSchemaTags = 'CATAIR';
 
 const buildLinkedDataTable = (schema) => {
   const { $id, $linkedData } = schema;
   if (!$linkedData) {
     return '';
   }
+  
   const section = `
+  
   <table class="simple">
   <tbody>
 
@@ -67,26 +76,22 @@ const buildClass = (schema) => {
   }
 
   const props = schema.properties ? Object.keys(schema.properties) : [];
-  const dependencies = props
-    .filter((key) => schema.properties[key].$ref)
-    .map((key) => schema.properties[key].$ref)
-    .map((key) => key.split('/').pop().split('.').shift())
-    .filter((key, index, self) => self.indexOf(key) === index)
-    .sort();
-
-  const depList = dependencies.length
-    ? `<b>Dependencies</b><ul>${dependencies
-        .map((key) => `<li><a href='#${key}'>${key}</a></li>`)
-        .join('\n')}</ul>`
-    : '';
-
+    let catair = ``;
+    const {$id} = schema;
+    if (schema.tags && schema.tags.includes(htmlSectionSchemaTags) ) {
+      const htmlExtension = $id.split('/').pop().replace('.yml', '.html');
+      catair = fs.readFileSync(path.resolve(
+        __dirname,
+        `../../../docs/sections/catair/${htmlExtension}`
+      )).toString();
+    }
   const section = `
     <section id="${schema.$linkedData.term}">
       <h2>${schema.title}</h2>
       <p>${schema.description}</p>
       ${table}
+      ${catair && `<section><h2>Table View</h2>${catair}</section>`}
       <pre class="example">${schema.example}</pre>
-      ${depList}
     </section>
   `;
 
@@ -129,9 +134,45 @@ const separateSchemas = (schemaList) => {
   return { credentials, vocab };
 };
 
+const buildWorkflowSection = () => {
+  
+  const files = fs.readdirSync(
+    path.resolve(__dirname, '../../../docs/openapi/components/schemas/workflows')
+  );
+
+  const w = [];
+  files.forEach( file => {
+    const ymlText = fs.readFileSync(
+      path.resolve(__dirname, `../../../docs/openapi/components/schemas/workflows/${file}`)
+    )
+    const yml = load(ymlText);
+    const { title, description, credentials, mermaid } = yml;
+  
+    const types = credentials.reduce( (prev, curr) => {
+      const { name, id } = curr;
+      const li = `<li><a href="${id}">${name}</a></li>`
+      return prev + li;
+    }, '');
+
+    w.push(`
+      <h3>${title}</h3>
+      <pre class='mermaid'>${mermaid}</pre>
+      <p>${description}</p>
+      <b>Credentials Used:</b>
+      <ol>
+        ${types}
+      </ol>
+      <pre class='example yml'>${ymlText}</pre>
+    `);
+  })
+
+  return w.join('\n');
+}
+
 (() => {
   console.log('🧪 build vocab from schemas');
   const { credentials, vocab } = separateSchemas(schemas);
+  const workflows = buildWorkflowSection();
 
   const credentialSection = `
     <section>
@@ -146,11 +187,19 @@ const separateSchemas = (schemaList) => {
 
   const vocabSection = `
     <section>
-      <h2>Vocabulary</h2>
+      <h2>RDF Types</h2>
       ${vocab}
+    </section>
+  `;
+
+  const workflowSection = `
+    <section>
+      <h2>Workflows</h2>
+      ${workflows}
     </section>
   `;
 
   fs.writeFileSync(credentialPath, credentialSection);
   fs.writeFileSync(vocabPath, vocabSection);
+  fs.writeFileSync(workflowPath, workflowSection);
 })();

@@ -22,7 +22,7 @@ properties:
     $ref: ./Organization.yml
     $linkedData:
       term: transporter
-      '@id': https://schema.org/Organization
+      '@id': https://schema.org/agent
   batchNumber:
     title: Batch Number
     description: A tracking number for commodities
@@ -43,38 +43,40 @@ properties:
     $ref: ./Place.yml
     $linkedData:
       term: place
-      '@id': https://schema.org/Place
+      '@id': https://schema.org/fromLocation
   deliveryDestination:
     title: Delivery Destination
     description: The address to which the commodity is being shipped
     $ref: ./Place.yml
     $linkedData:
       term: place
-      '@id': https://schema.org/Place
+      '@id': https://schema.org/toLocation
   consignor:
     title: Consignor
     description: The organization that plans and organizes the transportation event
     $ref: ./Organization.yml
     $linkedData:
       term: consignor
-      '@id': https://schema.org/Organization
+      '@id': https://vocabulary.uncefact.org/consignorParty
   consignee:
     title: Consignee
     description: The organization that receives the transported commodities
     $ref: ./Organization.yml
     $linkedData:
       term: consignee
-      '@id': https://schema.org/Organization
+      '@id': https://vocabulary.uncefact.org/consigneeParty
   scheduledVolume:
     title: Scheduled Volume
     description: the planned volume of the commodities to be delivered
-    $ref: ./QuantitativeValue.yml
+    type: array
+    items:
+      $ref: ./QuantitativeValue.yml
     $linkedData:
       term: scheduledVolume
-      '@id': https://schema.org/Quantity
+      '@id': https://w3id.org/traceability#QuantitativeValue
   scheduledDate:
     title: Scheduled Date
-    description: The planned date of natural gas delivery 
+    description: The planned date of natural gas delivery
     type: string
     $linkedData:
       term: scheduledDate
@@ -82,10 +84,12 @@ properties:
   injectionVolume:
     title: Injection Volume
     description: Volume of the shipped commodities at the begining of the transportation event
-    $ref: ./QuantitativeValue.yml
+    type: array
+    items:
+      $ref: ./QuantitativeValue.yml
     $linkedData:
       term: injectionVolume
-      '@id': https://schema.org/Quantity
+      '@id': https://w3id.org/traceability#QuantitativeValue
   injectionDate:
     title: Injection Date
     description: The planned time for crude oil injection starts
@@ -102,25 +106,25 @@ properties:
       '@id': https://schema.org/arrivalTime
   portOfEntry:
     title: Port of Entry
-    description: The address where the commodity crosses the border
+    description: The port where the commodity crosses the border.
     $ref: ./Place.yml
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfEntry
+      '@id': https://w3id.org/traceability#Place
   portOfDestination:
     title: Port of Destination
-    description: Port of destination to which the product[s) were transferred
+    description: The port of destination to which the product[s) were transferred.
     $ref: ./Place.yml
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfDestination
+      '@id': https://w3id.org/traceability#Place
   portOfArrival:
     title: Port of Arrival
-    description: Port of arrival to which the product(s) were transferred
+    description: The port of arrival to which the product(s) were transferred.
     $ref: ./Place.yml
     $linkedData:
-      term: place
-      '@id': https://schema.org/Place
+      term: portOfArrival
+      '@id': https://w3id.org/traceability#Place
   countryOfDestination:
     title: Country of Destination
     description: Country to which the product(s) were transferred.
@@ -128,6 +132,10 @@ properties:
     $linkedData:
       term: addressCountry
       '@id': https://schema.org/addressCountry
+  nominationMonth:
+    title: Nomination Month
+    description: the month which pipeline and terminal nominations is for
+    type: string
 additionalProperties: false
 required:
   - type
@@ -140,9 +148,9 @@ example: |-
       "type":[
         "Organization"
       ],
-      "name":"Enbridge"
+      "name":"Example Org"
     },
-    "batchNumber":"CDB-0284-00",
+    "batchNumber":"111-1111-11",
     "commodity":{
       "type":[
         "Commodity"
@@ -169,7 +177,7 @@ example: |-
         "addressLocality":"Hardisty",
         "addressRegion":"AB",
         "postalCode":"",
-        "addressCountry":"CAN"
+        "addressCountry":"CA"
       }
     },
     "deliveryDestination":{
@@ -190,7 +198,7 @@ example: |-
         "postalCode":"",
         "addressRegion":"IL",
         "streetAddress":"",
-        "addressCountry":"USA",
+        "addressCountry":"US",
         "addressLocality":"Chicago"
       }
     },
@@ -198,92 +206,67 @@ example: |-
       "type":[
         "Organization"
       ],
-      "name":"MPCTS"
+      "name":"Example"
     },
     "consignee":{
       "type":[
         "Organization"
       ],
-      "name":"MASH"
+      "name":"Example"
     },
-    "injectionVolume":{
-      "type":[
-        "QuantitativeValue"
-      ],
-      "value":"8806",
-      "unitCode":"M3"
-    },
+    "scheduledVolume":[
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"900000",
+        "unitCode":"m3"
+      },
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"5660820",
+        "unitCode":"bbl"
+      }
+    ],
+    "scheduledDate":"2022-05-01  10:13:00 PM",
+    "injectionVolume":[
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"900000",
+        "unitCode":"m3"
+      },
+      {
+        "type":[
+          "QuantitativeValue"
+        ],
+        "value":"5660820",
+        "unitCode":"bbl"
+      }
+    ],
     "injectionDate":"2022-05-01  10:13:00 PM",
     "deliveryDate":"2022-05-01  10:13:00 PM",
     "portOfEntry":{
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"40.6936",
-        "longitude":"-89.589"
-      },
       "type":[
         "Place"
       ],
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "postalCode":"",
-        "addressRegion":"IL",
-        "streetAddress":"",
-        "addressCountry":"USA",
-        "addressLocality":"Peoria"
-      }
+      "usPortCode":"3501"
     },
     "portOfDestination":{
       "type":[
         "Place"
       ],
-      "globalLocationNumber":"4775333880136",
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"-19.6752",
-        "longitude":"141.8303"
-      },
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "name":"Waelchi - Emard",
-        "streetAddress":"25775 Moen Shores",
-        "addressLocality":"East Cielofort",
-        "addressRegion":"Alabama",
-        "postalCode":"00548-1233",
-        "addressCountry":"Andorra"
-      }
+      "usPortCode":"3901"
     },
     "portOfArrival":{
       "type":[
         "Place"
       ],
-      "globalLocationNumber":"2040450460298",
-      "geo":{
-        "type":[
-          "GeoCoordinates"
-        ],
-        "latitude":"-20.0464",
-        "longitude":"17.9557"
-      },
-      "address":{
-        "type":[
-          "PostalAddress"
-        ],
-        "name":"Mraz Group",
-        "streetAddress":"6892 Kozey Trail",
-        "addressLocality":"Leannonland",
-        "addressRegion":"Georgia",
-        "postalCode":"48950-9803",
-        "addressCountry":"French Polynesia"
-      }
+      "usPortCode":"4105"
     },
-    "countryOfDestination":"CAN"
+    "countryOfDestination":"USA",
+    "nominationMonth":"Jan-23"
   }

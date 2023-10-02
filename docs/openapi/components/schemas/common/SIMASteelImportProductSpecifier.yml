@@ -16,336 +16,128 @@ properties:
       type: string
       enum:
         - SIMASteelImportProductSpecifier
-  steelProduct:
-    title: Steel Product
-    description: >-
-      Steel product details.
-    $ref: ./SteelProduct.yml
-    $linkedData:
-      term: steelProduct
-      '@id': https://w3id.org/traceability#SteelProduct
+  commodity:
+    title: Commodity
+    description: Product commodity code, codification system and description
+    $ref: ./Commodity.yml
   productCategory:
     title: Product Category
-    description: Category assigned to the product based on the Product HTS. This is automatically generated upon submission.
+    description: Category assigned to the product based on the Product HTS. 
     type: string
     $linkedData:
       term: productCategory
       '@id': https://w3id.org/traceability#ProductCategory
+  countryOfMeltAndPour:
+    title: Country of Melt And Pour
+    description: Modified regulations pertaining to the Steel Import Monitoring and Analysis (SIMA) system to require steel import license applicants to identify the country where the steel used in the manufacture of the imported steel product was melted and poured (https://www.govinfo.gov/content/pkg/FR-2020-09-11/html/2020-19753.htm). The two-letter ISO 3166-1 alpha-2 country code.
+    type: string
+    $linkedData:
+      term: countryOfMeltAndPour
+      '@id': https://w3id.org/traceability#countryOfMeltAndPour
+  weight:
+    title: Weight
+    description: Volume (Quantity - KG)
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - MeasuredValue
+        default:
+          - MeasuredValue
+        items:
+          type: string
+          enum:
+            - MeasuredValue
+      value:
+        title: Measurement Value
+        description: >-
+          A floating-point numeric value that is qualified by the corresponding
+          measurement unit code - see gs1:unitCode.
+        type: string
+        $linkedData:
+          term: value
+          '@id': https://schema.org/value
+      unitCode:
+        title: Measurement Unit
+        description: Product weight must be provided in kilograms on the SIMA Application. 
+        type: string
+        enum: 
+          - KGM
+        $linkedData:
+          term: unitCode
+          '@id': https://schema.org/unitCode
   customsValue:
     title: Customs Value
     description: Entered value of this product in U.S. dollars; not invoiced value (It should not include duty, brokerage fees, or freight).
-    type: number
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - MonetaryAmount
+        default:
+          - MonetaryAmount
+        items:
+          type: string
+          enum:
+            - MonetaryAmount
+      value:
+        title: Value
+        description: >-
+          Use values from 0123456789. Use '.' rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+        type: number
+      currency:
+        title: Currency
+        description: >-
+          The currency in which the monetary amount is expressed. Use standard formats: ISO 4217 currency format, e.g. "USD".
+        type: string
+        enum: 
+          - USD
+    additionalProperties: false
+    required:
+      - type
+      - value
+      - currency
     $linkedData:
       term: customsValue
-      '@id': https://schema.org/MonetaryAmount
+      '@id': https://vocabulary.uncefact.org/declaredValueForCustomsAmount
 additionalProperties: false
 required:
   - type
-  - steelProduct
+  - commodity
+  - countryOfMeltAndPour
+  - weight
   - customsValue
-  - productCategory
 example: |-
   {
-    "type":[
-        "SIMASteelImportProductSpecifier"
+    "type": [
+      "SIMASteelImportProductSpecifier"
     ],
-    "steelProduct":{
-        "type":[
-          "SteelProduct"
-        ],
-        "heatNumber":"841",
-        "specification":"ASTM-66272",
-        "grade":[
-          "95913"
-        ],
-        "originalCountryOfMeltAndPour":"MX",
-        "weight":3200,
-        "weightUnit":"https://service.unece.org/trade/uncefact/vocabulary/rec20/#kilogram",
-        "commodity":{
-          "type":[
-              "Commodity"
-          ],
-          "commodityCode":"721320",
-          "commodityCodeType":"HS",
-          "description":"Steel Coils"
-        },
-        "inspection":{
-          "type":[
-              "InspectionReport"
-          ],
-          "inspectors":[
-              {
-                "type":[
-                    "Person"
-                ],
-                "firstName":"John",
-                "lastName":"Doe",
-                "email":"john@doe.com",
-                "phoneNumber":"555-615-4231",
-                "worksFor":{
-                    "type":[
-                      "Organization"
-                    ],
-                    "name":"IRON APPROVERS INC.",
-                    "description":"Inpsections for Iron Commodities",
-                    "location":{
-                      "type":[
-                          "Place"
-                      ],
-                      "address":{
-                          "type":[
-                            "PostalAddress"
-                          ],
-                          "streetAddress":"21 Jump Street",
-                          "addressLocality":"Salem",
-                          "addressRegion":"Oregon",
-                          "postalCode":"21445",
-                          "addressCountry":"US"
-                      }
-                    }
-                },
-                "jobTitle":"Cheif Inspector"
-              }
-          ],
-          "inspectionFacility":{
-              "type":[
-                "Place"
-              ],
-              "globalLocationNumber":"3177794693200",
-              "address":{
-                "type":[
-                    "PostalAddress"
-                ],
-                "name":"Canada Border Services Agency",
-                "streetAddress":"Highway 12",
-                "addressLocality":"Sprague",
-                "addressRegion":"Manitoba",
-                "postalCode":"R0A1Z0",
-                "addressCountry":"CA"
-              }
-          },
-          "chemicalObservation":[
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "ChemicalProperty"
-                    ],
-                    "name":"Xenon",
-                    "formula":"Xe",
-                    "inchi":"InChI=1S/Xe",
-                    "inchikey":"FHNFHKCVQCLJFQ-UHFFFAOYSA-N"
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"4.4313",
-                    "unitCode":"P1"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "ChemicalProperty"
-                    ],
-                    "name":"Neptunium",
-                    "formula":"Np",
-                    "inchi":"InChI=1S/Np",
-                    "inchikey":"LFNLGNPSGWYGGD-UHFFFAOYSA-N"
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"3.2397",
-                    "unitCode":"P1"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "ChemicalProperty"
-                    ],
-                    "name":"Strontium",
-                    "formula":"Sr",
-                    "inchi":"InChI=1S/Sr",
-                    "inchikey":"CIOAGBVUUVVLOB-UHFFFAOYSA-N"
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"6.4585",
-                    "unitCode":"P1"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "ChemicalProperty"
-                    ],
-                    "name":"Lawrencium",
-                    "formula":"Lr",
-                    "inchi":"InChI=1S/Lr",
-                    "inchikey":"CNQCVBJFEGMYDW-UHFFFAOYSA-N"
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"31.155",
-                    "unitCode":"P1"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "ChemicalProperty"
-                    ],
-                    "name":"Fermium",
-                    "formula":"Fm",
-                    "inchi":"InChI=1S/Fm",
-                    "inchikey":"MIORUQGGZCBUGO-UHFFFAOYSA-N"
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"24.618",
-                    "unitCode":"P1"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "ChemicalProperty"
-                    ],
-                    "name":"Xenon",
-                    "formula":"Xe",
-                    "inchi":"InChI=1S/Xe",
-                    "inchikey":"FHNFHKCVQCLJFQ-UHFFFAOYSA-N"
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"30.098",
-                    "unitCode":"P1"
-                }
-              }
-          ],
-          "mechanicalObservation":[
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "MechanicalProperty"
-                    ],
-                    "identifier":"ISO 1352",
-                    "name":"Torque-controlled fatigue testing",
-                    "description":"ISO 1352:2011 specifies the conditions for performing torsional, constant-amplitude, nominally elastic stress fatigue tests on metallic specimens without deliberately introducing stress concentrations. The tests are carried out at ambient temperature (ideally at between 10 °C and 35 °C) in air by applying a pure couple to the specimen about its longitudinal axis."
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"00.00",
-                    "unitCode":"UNKNOWN"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "MechanicalProperty"
-                    ],
-                    "identifier":"ISO 3738",
-                    "name":"Rockwell Hardness Test (Scale A)",
-                    "description":"The Rockwell hardness test is an empirical indentation hardness test that can provide useful information about metallic materials."
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"00.00",
-                    "unitCode":"UNKNOWN"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "MechanicalProperty"
-                    ],
-                    "identifier":"ISO 148",
-                    "name":"Charpy Impact Strength Test",
-                    "description":"ISO 148-1:2016 specifies the Charpy (V-notch and U-notch) pendulum impact test method for determining the energy absorbed in an impact test of metallic materials. This part of ISO 148 does not cover instrumented impact testing, which is specified in ISO 14556."
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"16.610",
-                    "unitCode":"B13"
-                }
-              },
-              {
-                "type":[
-                    "Observation"
-                ],
-                "date":"2019-12-11T03:50:55Z",
-                "property":{
-                    "type":[
-                      "MechanicalProperty"
-                    ],
-                    "identifier":"ISO 180",
-                    "name":"Izod Impact Strength Test",
-                    "description":"ISO 180 defines the method used for pendulums to determine the impact resistance of a plastic specimen when supported in a cantilever configuration. Test results are used to evaluate the resilience of materials, typically plastics."
-                },
-                "measurement":{
-                    "type":[
-                      "MeasuredValue"
-                    ],
-                    "value":"43.416",
-                    "unitCode":"B13"
-                }
-              }
-          ]
-        }
+    "commodity": {
+      "type": [
+        "Commodity"
+      ],
+      "commodityCode": "7207200075",
+      "commodityCodeType": "HTS",
+      "description": "SEMIFINISHED IRON/NONALLOW STL"
     },
-    "productCategory":"Long (Carbon and Alloy)",
-    "customsValue":4450
+    "productCategory": "Blooms, Billets and Slabs",
+    "countryOfMeltAndPour": "AR",
+    "weight": {
+      "type": [
+        "MeasuredValue"
+      ],
+      "value": "10000",
+      "unitCode": "KGM"
+    },
+    "customsValue": {
+      "type": [
+        "MonetaryAmount"
+      ],
+      "value": 24000,
+      "currency": "USD"
+    }
   }

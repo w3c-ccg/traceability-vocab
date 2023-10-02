@@ -49,9 +49,10 @@ properties:
     type: array
     items:
       type: string
+      format: url
     $linkedData:
       term: products
-      '@id': https://w3c-ccg.github.io/hashlink/#hl-url-params
+      '@id': https://schema.org/Product
   actor:
     title: Event Actors
     description: >-
@@ -111,7 +112,7 @@ properties:
     $linkedData:
       term: place
       '@id': https://schema.org/Place
-additionalProperties: false  
+additionalProperties: false
 required:
   - type
 example: |-
@@ -141,7 +142,7 @@ example: |-
         "postalCode": "",
         "addressRegion": "New York",
         "streetAddress": "",
-        "addressCountry": "USA",
+        "addressCountry": "US",
         "addressLocality": "Buffalo"
       }
     },
@@ -231,5 +232,5 @@ example: |-
         "addressLocality": "Buffalo"
       }
     },
-    "countryOfDestination": "CAN"
+    "countryOfDestination": "CA"
   }

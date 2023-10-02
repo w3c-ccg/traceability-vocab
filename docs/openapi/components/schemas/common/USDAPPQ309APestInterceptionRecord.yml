@@ -26,7 +26,7 @@ properties:
   shippingStop:
     title: Shipping Stop
     description: Shipping stop, including information on location, origin, destination, and vessel number.
-    $ref: ./ShippingStop.yml
+    $ref: ./Transport.yml
     $linkedData:
       term: shippingStop
       '@id': https://vocabulary.uncefact.org/itineraryStopEvent
@@ -167,15 +167,18 @@ example: |-
     "type": ["USDAPPQ309APestInterceptionRecord"],
     "interceptionNumber": "143l5khj1234l134",
     "shippingStop": {
-      "type": ["ShippingStop"],
-      "shippingStopAddress": {
-        "type": ["PostalAddress"],
-        "name": "Tremblay, Prosacco and Beatty",
-        "streetAddress": "69047 Mann Lodge",
-        "addressLocality": "Cormierview",
-        "addressRegion": "Mississippi",
-        "postalCode": "87042",
-        "addressCountry": "Colombia"
+      "type": ["Transport"],
+      "departureLocation": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "name": "Tremblay, Prosacco and Beatty",
+          "streetAddress": "69047 Mann Lodge",
+          "addressLocality": "Cormierview",
+          "addressRegion": "Mississippi",
+          "postalCode": "87042",
+          "addressCountry": "Colombia"
+        }
       },
       "carrier": {
         "type": ["Organization"],
@@ -193,12 +196,11 @@ example: |-
           }
         },
         "email": "Oliver16@example.com",
-        "phoneNumber": "555-931-2101",
-        "faxNumber": "555-741-9481"
+        "phoneNumber": "+1-091-555-4343",
+        "faxNumber": "+1-369-555-7331"
       },
       "vesselNumber": "ACMECarrierVessel#770",
-      "arrivalDate": "2021-03-09",
-      "stopType": "Departure"
+      "arrivalDate": "2021-03-09"
     },
     "forwardTo": "PPQ",
     "priority": "Prompt",
@@ -214,7 +216,7 @@ example: |-
         "firstName": "Jason",
         "lastName": "Grant",
         "email": "Santa43@example.org",
-        "phoneNumber": "555-460-4373",
+        "phoneNumber": "+1-217-555-0553",
         "worksFor": {
           "type": [
             "Organization"
@@ -222,8 +224,8 @@ example: |-
           "name": "Glayson & Co. Inspections",
           "description": "Agricultural cleanliness & grade assurance",
           "email": "Marina96@glaysonco.net",
-          "phoneNumber": "555-521-6143",
-          "faxNumber": "555-150-7668"
+          "phoneNumber": "+1-671-555-6281",
+          "faxNumber": "+1-463-555-5804"
         },
         "jobTitle": "Principal Data Supervisor"
       },
@@ -261,7 +263,7 @@ example: |-
         "type": ["Organization"],
         "name": "Example Responsible Party Organization",
         "email": "Chadrick_Gibson@example.com",
-        "phoneNumber": "+1-555-820-1520"
+        "phoneNumber": "+1-426-555-4205"
       },
       "voicePickCode": "4642",
       "date": "2021-03-14",
@@ -272,9 +274,7 @@ example: |-
           "type": [
             "AgricultureProduct"
           ],
-          "upc": "033383401508",
           "plu": "94225",
-          "gtin": "033383401508",
           "product": {
             "type": [
               "Product"
@@ -284,7 +284,7 @@ example: |-
                 "Organization"
               ],
               "email": "Sven22@example.org",
-              "phoneNumber": "555-267-4748"
+              "phoneNumber": "+1-683-555-8810"
             },
             "name": "Tomatoes",
             "description": "Tomatoes, Cartons",
@@ -306,10 +306,7 @@ example: |-
           },
           "scientificName": "Solanum lycopersicum",
           "labelImageUrl": "https://img.example.org/033383401508/640/480/",
-          "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "name": "Tomatoes",
-          "productImageUrl": "https://img.example.org/102934920857/937/903/",
-          "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
+          "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ]
     },
@@ -355,7 +352,7 @@ example: |-
           "firstName": "Mary",
           "lastName": "Smith",
           "email": "msmith@example.org",
-          "phoneNumber": "555-018-2076",
+          "phoneNumber": "+1-258-555-6349",
           "worksFor": {
             "type": [
               "Organization"
@@ -363,8 +360,8 @@ example: |-
             "name": "Glayson & Co. Inspections",
             "description": "Agricultural cleanliness & organic assurance",
             "email": "Marina96@glaysonco.net",
-            "phoneNumber": "555-521-6143",
-            "faxNumber": "555-150-7668"
+            "phoneNumber": "+1-076-555-5650",
+            "faxNumber": "+1-353-555-2093"
           },
           "jobTitle": "Certification Specialist"
         },
