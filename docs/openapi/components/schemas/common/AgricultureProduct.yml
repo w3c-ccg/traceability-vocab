@@ -30,13 +30,6 @@ properties:
     $linkedData:
       term: plu
       '@id': https://schema.org/identifier
-  countryOfOrigin:
-    title: Country of Origin
-    description: The country in which this product originated.
-    type: string
-    $linkedData:
-      term: countryOfOrigin
-      '@id': https://vocabulary.uncefact.org/originCountry
   product:
     title: Product
     description: Product details as specified in the Product schema.
@@ -76,7 +69,51 @@ properties:
     type: string
     $linkedData:
       term: labelImageHash
-      '@id': https://schema.org/sha256
+      '@id': https://w3id.org/traceability#labelImageHash
+  name:
+    title: Name
+    description: Name of the agricultural product.
+    type: string
+    $linkedData:
+      term: name
+      '@id': https://schema.org/name
+  productImageUrl:
+    title: Product Image URL
+    description: Image of the product.
+    type: string
+    $linkedData:
+      term: productImageUrl
+      '@id': https://schema.org/url
+  productImageHash:
+    title: Product Image Hash
+    description: >-
+      Hash value for securely identifying the product image.  More information can
+      be found at the following link: https://cybersecurityglossary.com/hashing
+    type: string
+    $linkedData:
+      term: productImageHash
+      '@id': https://w3id.org/traceability#productImageHash
+  variety:
+    title: Variety
+    description: "Additional details regarding the product. For example, in this case of potatoes, this might include: russet, white, yellow flesh, etc."
+    type: string
+    $linkedData:
+      term: variety
+      '@id': https://www.gs1.org/voc/consumerProductVariant
+  commodityDesignation:
+    title: Commodity Designation
+    description: "Additional product subcategories such as: frozen, fresh, sliced, canned, dried, dehydrated, etc."
+    type: string
+    $linkedData:
+      term: commodityDesignation
+      '@id': https://www.gs1.org/voc/additionalProductDescription
+  packType:
+    title: Pack Type
+    description: "Details like: volume filled, tray pack, 18/lb consumer units, 10/5 pound bags, etc."
+    type: string
+    $linkedData:
+      term: packType
+      '@id': https://www.gs1.org/voc/packaging
 additionalProperties: true
 required:
   - type
@@ -132,8 +169,16 @@ example: |-
         "unitCode": "kg",
         "value": "4890"
       },
-      "sku": "712120934258",
-      "imageUrl": "https://img.example.org/102934920857/937/903/",
-      "imageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3"
-    }
+      "sku": "71266019767"
+    },
+    "scientificName": "Persea americana",
+    "plantParts": "fruit",
+    "labelImageUrl": "https://img.example.org/033383401508/640/480/",
+    "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "name": "Avocados",
+    "productImageUrl": "https://img.example.org/102934920857/937/903/",
+    "productImageHash": "8kb47j986hklhde4rfh78okjhgjo08765fgu7tfg4t864fy876rfser45thj87f3",
+    "variety": "Firm",
+    "commodityDesignation": "Whole, fresh",
+    "packType": "4-pack boxes"
   }
