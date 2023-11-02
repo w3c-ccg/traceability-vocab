@@ -184,15 +184,6 @@ properties:
     $linkedData:
       term: referenceIDNumber
       '@id': https://w3id.org/traceability#referenceIDNumber
-  headerParties:
-    title: Header Parties 
-    description: Select the Header Party Type from the available options. Use a separate line for each Header Party Type. The Header Parties must apply to the entire entry.  If not, skip to line information (Block 24).
-    type: array
-    items: 
-      $ref: ./CBPEntryEntity.yml 
-    $linkedData:
-      term: headerParties
-      '@id': https://schema.org/Organization
   lineItems:
     title: Line Items
     type: array
@@ -339,7 +330,8 @@ example: |-
         "itemCount": 400,
         "itemParty": {
           "type": ["CBPEntryEntity"],
-          "consignee": {
+          "role": "Consignee",
+          "organization": {
             "type": ["Organization"],
             "name": "Future Mobility, Inc.",
             "location": {
