@@ -1,0 +1,176 @@
+$linkedData:
+  term: CBPEntryType86
+  '@id': https://w3id.org/traceability#CBPEntryType86
+title: CBP Entry Type 86
+description: https://www.federalregister.gov/documents/2019/08/13/2019-17243/test-concerning-entry-of-section-321-low-valued-shipments-through-automated-commercial-environment
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - CBPEntryType86
+    default:
+      - CBPEntryType86
+    items:
+      type: string
+      enum:
+        - CBPEntryType86
+  bolNumber:
+    title: Bill of Lading Number
+    description: Record the number listed on the manifest of the importing carrier. Provide the Bill of Lading number
+    type: string
+    $linkedData:
+      term: bolNumber
+      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#BM
+  entryNumber:
+    title: Entry Number
+    description: The 11 digit alphanumeric code. The entry number is comprised of the three-digit filer code, followed by the seven-digit entry number, and completed with the one-digit check digit. The Entry Filer Code represents the three-character alphanumeric filer code assigned to the filer or importer by CBP. The Entry Number represents the seven-digit number assigned by the filer. The number may be assigned in any manner convenient, provided that the same number is not assigned to more than one CBP Form 3461. Leading zeros must be shown. The check digit is computed on the previous 10 characters. The formula for calculating the check digit can be found in Appendix 1.
+    type: string
+    $linkedData:
+      term: entryNumber
+      '@id': https://vocabulary.uncefact.org/ReferenceCodeList#AQM
+  portOfEntry:
+    title: Port Of Entry
+    $ref: ./Place.yml
+    $linkedData:
+      term: portOfEntry
+      '@id': https://schema.org/Place
+  shipper:
+    title: Shipper
+    $ref: ./Organization.yml
+    $linkedData:
+      term: shipper
+      '@id': https://vocabulary.uncefact.org/consignorParty
+  consignee:
+    title: Consignee
+    description: Consignee
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignee
+      '@id': https://vocabulary.uncefact.org/consigneeParty
+  countryOfOrigin: 
+    title: Country of Origin
+    type: string
+    $linkedData:
+      term: countryOfOrigin
+      '@id': https://vocabulary.uncefact.org/originCountry
+  quantity:
+    title: Quantity
+    description: Report the entered quantity for each IT/BL/AWB covered by this entry. The quantity reported should be at the most detailed level of the shipment being reported. (The quantity being reported is the smallest exterior packaging unit.) If the entry covers the entire bill of lading, AWB, or in-bond shipment, the quantity reported will be the total quantity. If the entry is for a house bill, both the master bill and house bill will be shown in Block 29, but the only quantity reported will be the house bill quantity.
+    $ref: ./MeasuredValue.yml
+    $linkedData:
+      term: quantity
+      '@id': https://w3id.org/traceability#quantity
+  fairRetailValue: 
+    title: Fair Retail Value
+    description: Fair retail value in the country of shipment in U.S. dollars, rounded off to the nearest whole dollar.
+    $ref: ./MonetaryAmount.yml
+    $linkedData:
+      term: fairRetailValue
+      '@id': https://schema.org/MonetaryAmount
+  htsusNumber:
+    title: HTSUS Number
+    description: 10-digit HTS commodity code.
+    type: string
+    $linkedData:
+      term: htsusNumber
+      '@id': https://w3id.org/traceability#commodityCode
+  importerOfRecord: 
+    title: Importer Of Record
+    description: US CBP importer of record.
+    $ref: ./CBPImporterOfRecord.yml
+    $linkedData:
+      term: importerOfRecord
+      '@id': https://w3id.org/traceability#importerOfRecord
+additionalProperties: false
+required:
+  - type
+  - bolNumber
+  - entryNumber
+  - portOfEntry
+  - shipper
+  - consignee
+  - countryOfOrigin
+  - quantity
+  - fairRetailValue
+  - htsusNumber
+  - importerOfRecord
+example: |-
+  {
+    "type": ["CBPEntryType86"],
+    "bolNumber": "87654321A",
+    "entryNumber": "12345123456",
+    "portOfEntry": {
+      "type": ["Place"],
+      "unLocode": "USLBC"
+    },
+    "shipper": {
+      "type": ["Organization"],
+      "name": "Onwards A/S",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Sludevej 63",
+          "addressLocality": "Kgs. Lyngby",
+          "postalCode": "2800",
+          "addressCountry": "DK"
+        }
+      }
+    },
+    "shipper": {
+      "type": ["Organization"],
+      "name": "Onwards A/S",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "Sludevej 63",
+          "addressLocality": "Kgs. Lyngby",
+          "postalCode": "2800",
+          "addressCountry": "DK"
+        }
+      }
+    },
+    "consignee": {
+      "type": [
+        "Organization"
+      ],
+      "name": "Future Mobility, Inc.",
+      "location": {
+        "type": [
+          "Place"
+        ],
+        "address": {
+          "type": [
+            "PostalAddress"
+          ],
+          "streetAddress": "2016 W Farmington Rd",
+          "addressLocality": "West Peoria",
+          "postalCode": "61604",
+          "addressCountry": "US"
+        }
+      }
+    },
+    "countryOfOrigin": "DK",
+    "quantity": {
+      "type": [
+        "MeasuredValue"
+      ],
+      "value": "1"
+    },
+    "fairRetailValue": {
+      "type": [
+        "MonetaryAmount"
+      ],
+      "value": 729,
+      "currency": "USD"
+    },
+    "htsusNumber": "9403 7000 00",
+    "importerOfRecord":   {
+      "type": ["CBPImporterOfRecord"],
+      "number": "10025672",
+      "identifierType": "CBP"
+    }
+  }
