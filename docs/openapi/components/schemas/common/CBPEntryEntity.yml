@@ -16,34 +16,97 @@ properties:
       type: string
       enum:
         - CBPEntryEntity
-  manufacturer:
-    title: Manufacturer
-    description: A manufacturer party.
-    $ref: ./Organization.yml
-    $linkedData:
-      term: importer
-      '@id': https://vocabulary.uncefact.org/manufacturerParty
-  consignee:
-    title: Consignee
-    description: Consignee
-    $ref: ./Organization.yml
-    $linkedData:
-      term: consignee
-      '@id': https://vocabulary.uncefact.org/consigneeParty
-  seller: 
-    title: Seller
-    description: An entity which offers (sells / leases / lends / loans) the services / goods. A seller may also be a provider.
-    $ref: ./Organization.yml
-    $linkedData:
-      term: seller
-      '@id': https://vocabulary.uncefact.org/sellerParty
-  buyer:
-    title: Buyer
-    description: Importer of record. Party placing the order or paying the invoice.
-    $ref: ./Organization.yml
-    $linkedData:
-      term: buyer
-      '@id': https://vocabulary.uncefact.org/buyerParty
+  role: 
+    title: Role
+    type: string
+    enum:
+      - Manufacturer
+      - Consignee
+      - Seller 
+      - Buyer
+  organization:
+    title: Organization
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id: 
+        title: Issuer's Identifier
+        description: Issuing organization identifier, typically a Decentralized Identifier (DID).
+        type: string
+        format: uri
+      name:
+        title: Name
+        description: Issuing organization name.
+        type: string
+      location:
+        title: Location
+        description: Issuing organization's location of business.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          address:
+            title: Postal Address
+            description: Issuing organization's postal address.
+            type: object
+            properties:
+              type:
+                type: array
+                readOnly: true
+                const:
+                  - PostalAddress
+                default:
+                  - PostalAddress
+                items:
+                  type: string
+                  enum:
+                    - PostalAddress
+              streetAddress:
+                title: Street Address
+                description: >-
+                  The street address expressed as free form text. The street address is
+                  printed on paper as the first lines below the name. For example, the name
+                  of the street and the number in the street, or the name of a building.
+                type: string
+              addressLocality:
+                title: City
+                description: Text specifying the name of the locality; for example, a city.
+                type: string
+              addressRegion:
+                title: State
+                description: >-
+                  Text specifying a province or state in abbreviated format; for example,
+                  NJ.
+                type: string
+              postalCode:
+                title: Postal Code
+                description: Text specifying the postal code for an address.
+                type: string
+              addressCountry:
+                title: Country
+                description: >-
+                  The two-letter ISO 3166-1 alpha-2 country code.
+                type: string
+            additionalProperties: false
   importerOfRecord: 
     title: Importer Of Record
     description: US CBP importer of record.
@@ -58,7 +121,8 @@ required:
 example: |-
   {
     "type": ["CBPEntryEntity"],
-    "consignee": {
+    "role": "Consignee",
+    "organization": {
       "type": ["Organization"],
       "name": "Future Mobility, Inc.",
       "location": {
