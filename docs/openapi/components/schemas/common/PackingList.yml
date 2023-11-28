@@ -108,14 +108,14 @@ properties:
     $linkedData:
       term: handlingInstructions
       '@id': https://vocabulary.uncefact.org/handlingInstructions
-  partOfOrder:
-    title: Part of Order
-    description: Products in Parcel that are Part of one or more Orders
+  items:
+    title: Packed Items
+    description: Goods and packages list
     type: array
     items:
-      $ref: ./PartOfOrder.yml
+      $ref: ./ConsignmentItem.yml
     $linkedData:
-      term: partOfOrder
+      term: items
       '@id': >-
         https://vocabulary.uncefact.org/includedConsignmentItem
   totalNetWeight:
@@ -231,9 +231,9 @@ example: |-
         "description": "Handle with care"
       }
     ],
-    "partOfOrder": [
+    "items": [
       {
-        "type": ["PartOfOrder"],
+        "type": ["ConsignmentItem"],
         "packageQuantity": 540,
         "transportPackages": [
           {
@@ -266,7 +266,7 @@ example: |-
         ]
       },
       {
-        "type": ["PartOfOrder"],
+        "type": ["ConsignmentItem"],
         "packageQuantity": 2,
         "transportPackages": [
           {
@@ -299,7 +299,7 @@ example: |-
         ]
       },
       {
-        "type": ["PartOfOrder"],
+        "type": ["ConsignmentItem"],
         "packageQuantity": 80,
         "transportPackages": [
           {
