@@ -1,0 +1,153 @@
+type: object
+title: Intellectual Property Rights License
+description: Licensing of Intellectual Property Ownership or Rights
+$linkedData:
+  term: IntellectualPropertyRightsLicense
+  '@id': https://w3id.org/traceability#IntellectualPropertyRightsLicense
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - IntellectualPropertyRightsLicense
+    default:
+      - IntellectualPropertyRightsLicense
+    items:
+      type: string
+      enum:
+        - IntellectualPropertyRightsLicense
+  licensee:
+    title: IPR Licensee Organization
+    description: Organization granted licencee intellectual property rights.
+    type: object
+    properties:
+      type:
+        type: array
+        readOnly: true
+        const:
+          - Organization
+        default:
+          - Organization
+        items:
+          type: string
+          enum:
+            - Organization
+      id: 
+        title: Identifier
+        description: Organization identifier.
+        type: string
+        format: uri
+      name:
+        title: Name
+        description: Name of the organization.
+        type: string
+      location:
+        title: Location
+        description: The location where, for example, an event is happening, an organization is located, or an action takes place.
+        type: object
+        properties:
+          type:
+            type: array
+            readOnly: true
+            const:
+              - Place
+            default:
+              - Place
+            items:
+              type: string
+              enum:
+                - Place
+          address:
+            title: Postal Address
+            description: The postal address for an organization or place.
+            type: object
+            properties:
+              type:
+                type: array
+                readOnly: true
+                const:
+                  - PostalAddress
+                default:
+                  - PostalAddress
+                items:
+                  type: string
+                  enum:
+                    - PostalAddress
+              name:
+                title: Name
+                description: The name of the entity in text.
+                type: string
+              streetAddress:
+                title: Street Address
+                description: >-
+                  The street address expressed as free form text. The street address is
+                  printed on paper as the first lines below the name. For example, the name
+                  of the street and the number in the street, or the name of a building.
+                type: string
+              addressLocality:
+                title: Address Locality
+                description: Text specifying the name of the locality; for example, a city.
+                type: string
+              addressRegion:
+                title: Address Region
+                description: >-
+                  Text specifying a province or state in abbreviated format; for example,
+                  NJ.
+                type: string
+              addressCountry:
+                title: Address Country
+                description: >-
+                  The two-letter ISO 3166-1 alpha-2 country code.
+                type: string
+              postalCode:
+                title: Postal Code
+                description: Text specifying the postal code for an address.
+                type: string
+            additionalProperties: false
+            required:
+              - type
+    additionalProperties: false
+    required:
+      - type
+      - id
+  intellectualPropertyRightsType:
+    title: Intellectual Property Rights Type
+    description: Type of intellectual property right.
+    type: string
+    enum:
+      - Trademark
+      - Patent
+      - Copyright
+  intellectualPropertyRightsProduct:
+    title: Intellectual Property Rights Product
+    description: Product of which the intellectual property rights are concerned.
+    $ref: ./Product.yml
+  extendsCredential:
+    description: URI of the IPR credential that this IPR license extends.
+    type: string
+    format: uri
+required:
+  - licensee
+  - extendsCredential
+example: |-
+  {
+    "type": [
+      "IntellectualPropertyRightsLicense"
+    ],
+    "licensee": {
+      "type": [
+        "Organization"
+      ],
+      "id": "did:web:plastics-manufacturer.example.com",
+      "name": "Plasticts Mnfg."
+    },
+    "intellectualPropertyRightsType": "Copyright",
+    "intellectualPropertyRightsProduct": {
+      "type": [
+        "Product"
+      ],
+      "name": "Lawn Flamingos",
+      "description": "Classic plastic lawn flamingos, 2pcs"
+    },
+    "extendsCredential": "did:key:z6LSpdSReUHCjYcQb1243aF1vS7sd9ArK585Mm4ktARQxatd"
+  }
