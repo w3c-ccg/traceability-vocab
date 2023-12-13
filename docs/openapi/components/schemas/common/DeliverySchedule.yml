@@ -90,19 +90,33 @@ properties:
     $linkedData:
       term: injectionVolume
       '@id': https://w3id.org/traceability#QuantitativeValue
-  injectionDate:
-    title: Injection Date
+  injectionStartDate:
+    title: Injection Start Date
     description: The planned time for crude oil injection starts
     type: string
     $linkedData:
       term: injectionDate
       '@id': https://schema.org/departureTime
-  deliveryDate:
-    title: Delivery Date
+  injectionEndDate:
+    title: Injection End Date
+    description: The planned time for crude oil injection ends
+    type: string
+    $linkedData:
+      term: injectionEndDate
+      '@id': https://schema.org/departureTime
+  deliveryStartDate:
+    title: Delivery Start Date
     description: The planned time for crude oil delivery starts
     type: string
     $linkedData:
       term: deliveryDate
+      '@id': https://schema.org/arrivalTime
+  deliveryEndDate:
+    title: Delivery End Date
+    description: The planned time for crude oil delivery ends
+    type: string
+    $linkedData:
+      term: deliveryEndDate
       '@id': https://schema.org/arrivalTime
   portOfEntry:
     title: Port of Entry
@@ -247,8 +261,10 @@ example: |-
         "unitCode":"bbl"
       }
     ],
-    "injectionDate":"2022-05-01  10:13:00 PM",
-    "deliveryDate":"2022-05-01  10:13:00 PM",
+    "injectionStartDate":"2022-05-01  10:13:00 PM",
+    "injectionEndDate":"2022-05-01  12:13:00 PM",
+    "deliveryStartDate":"2022-05-10  10:13:00 PM",
+    "deliveryEndDate":"2022-05-10  12:13:00 PM",
     "portOfEntry":{
       "type":[
         "Place"
