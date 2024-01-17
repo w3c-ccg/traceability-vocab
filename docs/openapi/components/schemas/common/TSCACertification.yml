@@ -16,13 +16,6 @@ properties:
       type: string
       enum:
         - TSCACertification
-  role:
-    title: Role
-    description: >-
-      Importer's declaration for compliance with the Toxic
-      Substances Control Act (TSCA) regulations
-    enum:
-      - Importer
   certificationType:
     title: Certification Type
     description: >-
@@ -33,9 +26,6 @@ properties:
     enum:
       - Positive
       - Negative
-    $linkedData:
-      term: role
-      '@id': https://w3id.org/traceability#certifierRole
   certifierDetails:
     title: Certifier's Details
     description: >-
@@ -48,13 +38,11 @@ properties:
 additionalProperties: true
 required: 
   - type
-  - role
   - certificationType
   - certifierDetails
 example: |-
   {
     "type": ["TSCACertification"],
-    "role": "Importer",
     "certificationType": "Positive" 
     "certifierDetails": {
       "type": ["Organization"],
