@@ -1,0 +1,78 @@
+$linkedData:
+  term: TSCACertification
+  '@id': https://w3id.org/traceability/TSCACertification
+title: TSCA Certification
+description: TSCA Import Certification Statement
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - TSCACertification
+    default:
+      - TSCACertification
+    items:
+      type: string
+      enum:
+        - TSCACertification
+  role:
+    title: Role
+    description: >-
+      Importer's declaration for compliance with the Toxic
+      Substances Control Act (TSCA) regulations
+    enum:
+      - Importer
+  certificationType:
+    title: Certification Type
+    description: >-
+      The type of TSCA certification. This can be either 'Positive' to certify 
+      compliance with all applicable TSCA rules and orders, or 'Negative' to 
+      certify that the chemical shipment is not subject to TSCA.
+    type: string
+    enum:
+      - Positive
+      - Negative
+    $linkedData:
+      term: role
+      '@id': https://w3id.org/traceability#certifierRole
+  certifierDetails:
+    title: Certifier's Details
+    description: >-
+      Provide the certifier’s name, title, address (including country), telephone 
+      number and email address.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: certifierDetails
+      '@id': https://w3id.org/traceability#certifierDetails
+additionalProperties: true
+required: 
+  - type
+  - role
+  - certificationType
+  - certifierDetails
+example: |-
+  {
+    "type": ["TSCACertification"],
+    "role": "Importer",
+    "certificationType": "Positive" 
+    "certifierDetails": {
+      "type": ["Organization"],
+      "id": "did:key:z6MkjR12D3456sn2yBAyqj5gqckDjvyAbNSusehsxtkvknfa",
+      "name": "Chemical Import Co",
+      "description": "Specialist in importing and distributing chemical products",
+      "location": {
+        "type": ["Place"],
+        "address": {
+          "type": ["PostalAddress"],
+          "streetAddress": "123 Industry Blvd",
+          "addressLocality": "Chemtown",
+          "addressRegion": "CA",
+          "postalCode": "90001",
+          "addressCountry": "USA"
+        }
+      },
+      "email": "contact@chemicalimportco.com",
+      "phoneNumber": "+1-555-123-4567"
+    }
+  }
