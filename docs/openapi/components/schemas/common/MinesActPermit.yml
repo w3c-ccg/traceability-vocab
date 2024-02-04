@@ -1,0 +1,177 @@
+---
+$linkedData:
+  term: MinesActPermit
+  '@id': https://w3id.org/traceability#MinesActPermit
+title: Mines Act Permit
+description: The Mines Act regulates mining activities in British Columbia (B.C.) - from early exploration to development, production, reclamation, closure, and post-closure. A permit must be in place before any work in, on, or about a mine can occur. A B.C. Mines Act Permit credential issued according to this Governance Framework (GF) provides evidence the credential holder has been issued a B.C. Mines Act Permit.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - MinesActPermit
+    default:
+      - MinesActPermit
+    items:
+      type: string
+      enum:
+        - MinesActPermit
+  permit_no:
+    title: Permit Number
+    description: >-
+      (3-digit) Alpha-numeric identifier: M-##- or C-##- Permit Numbers are assigned to a specific mining operation or activity that has been granted permission or authorization. Mines Act Section 10 (1).
+    type: string
+    $linkedData:
+      term: permit_no
+      '@id': https://w3id.org/traceability#permit_no
+  permit_status:
+    title: Permit Status
+    description: >-
+      Defined as either "open" or "closed".
+    type: string
+    $linkedData:
+      term: 
+      '@id': https://w3id.org/traceability#permit_status
+  permittee_name:
+    title: Permittee
+    description: >-
+      Name of the mining company that holds the permit.
+    type: string
+    $linkedData:
+      term: permittee_name
+      '@id': https://w3id.org/traceability#permittee_name
+  mine_operation_status:
+    title: Mine Operation Status
+    description: >-
+      Layer one in the hierarchy of identifying mine status. Mines status can be (1) Abandoned (2) Closed (3) Not Started (4) Operating.
+    type: string
+    $linkedData:
+      term: mine_operation_status
+      '@id': https://w3id.org/traceability#mine_operation_status
+  mine_operation_status_reason:
+    title: Mine Operation Status Reason
+    description: >-
+      Layer two in the hierarchy for identifying mine status. Reasons for Closed Mines (1) Closed for Care and Maintenance, (2) Closed for Reclamation and (3) Closed for Unknown. Reasons for Operating (1) Operating Seasonal, or (2) Operating Year Round
+    type: string
+    $linkedData:
+      term: mine_operation_status_reason
+      '@id': https://w3id.org/traceability#mine_operation_status_reason
+  mine_operation_status_sub_reason:
+    title: Mine Operation Status Sub Reason
+    description: >-
+      Layer three in the hierarchy for identifying mine status. Mine Operation Reasons for "Closed for Reclamation" (1) Long-Term Maintenance (2) Long-Term Maintenance and Water Treatment or (3) Permit Release Pending.
+    type: string
+    $linkedData:
+      term: mine_operation_status_sub_reason
+      '@id': https://w3id.org/traceability#mine_operation_status_sub_reason
+  mine_commodity:
+    title: Mine Commodity
+    description: >-
+      Lists the name(s) of the commodities being mined.
+    type: string
+    $linkedData:
+      term: mine_commodity
+      '@id': https://w3id.org/traceability#mine_commodity
+  mine_disturbance:
+    title: Mine Disturbance
+    description: >-
+      Specifies if mine is above ground (surface) or below ground (sub-surface).
+    type: string
+    $linkedData:
+      term: mine_disturbance
+      '@id': https://w3id.org/traceability#mine_disturbance
+  mine_no:
+    title: Mine Number
+    description: >-
+      (7-digit) Unique identifier assigned to a specific mine or mining operation to differentiate and track individual mines within a jurisdiction.
+    type: string
+    $linkedData:
+      term: mine_no
+      '@id': https://w3id.org/traceability#mine_no
+  issue_date:
+    title: Permit Start Date
+    description: >-
+      (YYYY-MM-DD) The original issue date of the permit.
+    type: string
+    $linkedData:
+      term: issue_date
+      '@id': https://w3id.org/traceability#issue_date
+  latitude:
+    title: Latitude
+    description: >-
+      (00.0000000) The geographic coordinate representing the north-south position of a specific location related to the administrative building at the mining operation or mine site.
+    type: string
+    $linkedData:
+      term: latitude
+      '@id': https://w3id.org/traceability#latitude
+  longitude:
+    title: Longitude
+    description: >-
+      (-000.0000000) The geographic coordinate that represents the east-west position of a specific location related to the administrative building at the mining operation or mine site.
+    type: string
+    $linkedData:
+      term: longitude
+      '@id': https://w3id.org/traceability#longitude
+  bond_total:
+    title: Bond Total
+    description: >-
+      (0.00) Lists the total bond value of the permit. A permittee is required to provide monetary security to cover reclamation costs, and to provide for the protection of, and mitigation of damage to, watercourses and cultural heritage resources affected by the mine.
+    type: string
+    $linkedData:
+      term: bond_total
+      '@id': https://w3id.org/traceability#bond_total
+  tsf_operating_count:
+    title: TSF Operating Count
+    description: >-
+      Numerical value for the total number of tailing storage facilities that are in Operating status.
+    type: string
+    $linkedData:
+      term: tsf_operating_count
+      '@id': https://w3id.org/traceability#tsf_operating_count
+  tsf_care_and_maintenance_count:
+    title: TSF Maintenance Count
+    description: >-
+      Numerical value for the total number of tailing storage facilities that are in Care and Maintenance status.
+    type: string
+    $linkedData:
+      term: tsf_care_and_maintenance_count
+      '@id': https://w3id.org/traceability#tsf_care_and_maintenance_count
+additionalProperties: false
+required:
+  - permit_no
+  - permit_status
+  - permittee_name
+  - mine_operation_status
+  - mine_operation_status_reason
+  - mine_operation_status_sub_reason
+  - mine_commodity
+  - mine_disturbance
+  - mine_no
+  - issue_date
+  - latitude
+  - longitude
+  - bond_total
+  - tsf_operating_count
+  - tsf_care_and_maintenance_count
+example: |-
+  {
+    "type": [
+      "MinesActPermit"
+    ],
+    "permit_no": "",
+    "permit_status": "",
+    "permittee_name": "",
+    "mine_operation_status": "",
+    "mine_operation_status_reason": "",
+    "mine_operation_status_sub_reason": "",
+    "mine_commodity": "",
+    "mine_disturbance": "",
+    "mine_no": "",
+    "issue_date": "",
+    "latitude": "",
+    "longitude": "",
+    "bond_total": "",
+    "tsf_operating_count": "",
+    "tsf_care_and_maintenance_count": ""
+  }
