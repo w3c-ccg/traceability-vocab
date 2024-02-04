@@ -1,0 +1,127 @@
+---
+$linkedData:
+  term: PetroleumAndNaturalGasTitle
+  '@id': https://w3id.org/traceability#PetroleumAndNaturalGasTitle
+title: Petroleum And Natural Gas Title
+description: The majority of subsurface petroleum and natural gas (PNG) resources in British Columbia (B.C.) are owned by the Province. By entering into a tenure agreement with the Province, private industry can develop these resources. Tenure agreements are the mechanism used by the Province to give rights to petroleum and natural gas resources through issuance of Petroleum and Natural Gas Titles.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - PetroleumAndNaturalGasTitle
+    default:
+      - PetroleumAndNaturalGasTitle
+    items:
+      type: string
+      enum:
+        - PetroleumAndNaturalGasTitle
+  title_number:
+    title: Title Number
+    description: >-
+      A number is used to uniquely identify a title, assigned based on administrative policy by the TRSB. The title number is associated with the Exploration Licence outlined in Section 126, part 14.126 of the PNG Act
+    type: string
+    $linkedData:
+      term: title_number
+      '@id': https://w3id.org/traceability#title_number
+  title_type:
+    title: Title Type
+    description: >-
+      This field specifies the type of title based on the PNG Act. Title types can include the following: 1. Lease (Part 6); 2. Permit (Part 5); 3. Drilling Licence (Part 5.1), and 4. Storage Reservoir Licence (Part 14.130). Each title has only one title type.
+    type: string
+    $linkedData:
+      term: title_type
+      '@id': https://w3id.org/traceability#title_type
+  issue_date:
+    title: Issue Date
+    description: >-
+      The date when a title is issued, format is YYYY-MM-DD. Section 64 of the PNG Act
+    type: string
+    $linkedData:
+      term: issue_date
+      '@id': https://w3id.org/traceability#issue_date
+  effective_date:
+    title: Effective Date
+    description: >-
+      The date when the title becomes effective, format YYYY-MM-DD. This date usually follows after an issuance date and signals the start of a title period. This date does not change.
+    type: string
+    $linkedData:
+      term: effective_date
+      '@id': https://w3id.org/traceability#effective_date
+  term:
+    title: Term
+    description: >-
+      This describes the length of time (term) granted for each title, expressed in YYYY. This date does not change.
+    type: string
+    $linkedData:
+      term: term
+      '@id': https://w3id.org/traceability#term
+  expiry_date:
+    title: Expiry Date
+    description: >-
+      Expiry date is defined as effective date plus term, expressed as YYYY-MM-DD. This date signals the end of the title period.
+    type: string
+    $linkedData:
+      term: expiry_date
+      '@id': https://w3id.org/traceability#expiry_date
+  area:
+    title: Area
+    description: >-
+      This attribute is the surface area in planned use, measured in hectares. This includes 3 dimensional layers.
+    type: string
+    $linkedData:
+      term: area
+      '@id': https://w3id.org/traceability#area
+  title_holders:
+    title: Title Holders
+    description: >-
+      The PNG Act describes a "holder of a location" as meaning "in accordance with the context, a permittee, licensee" . In this credential, the term title holder is used to reference a person in whose name a PNG title document is recorded in the division records. Title holders can be registered companies, and/or persons. A Title Holder will hold a percentage (%) interest in the title. Percent interest defines the percentage of interest allotted to each party named in the PNG title document. Percentage of ownership can be divided up to eight digits and should always equal 100% total. Lessee is defined by the PNG Act as "a person in whose name a lease is recorded in the division records".
+    type: string
+    $linkedData:
+      term: title_holders
+      '@id': https://w3id.org/traceability#title_holders
+  tracts:
+    title: Tracts
+    description: >-
+      A Tract is an area of land within a title defined by locations sharing identical rights. This attribute has all of the tract(s) information contained within a title. See Tracts Appendix below for a detailed description of the information included.
+    type: string
+    $linkedData:
+      term: tracts
+      '@id': https://w3id.org/traceability#tracts
+  caveats:
+    title: Caveats
+    description: >-
+      Caveats provide information and guidance to the tenure holder that will assist in activity planning by identifying potential access restrictions. Caveats will also flag concerns identified through pre-tenure consultation and may recommend engagement with First Nations, stakeholders, and other agencies as appropriate. Caveats often point to relevant statute and policy and are not binding or enforced by the Ministry.
+    type: string
+    $linkedData:
+      term: caveats
+      '@id': https://w3id.org/traceability#caveats
+additionalProperties: false
+required:
+  - title_number
+  - title_type
+  - issue_date
+  - effective_date
+  - term
+  - expiry_date
+  - area
+  - title_holders
+  - tracts
+  - caveats
+example: |-
+  {
+    "type": [
+      "PetroleumAndNaturalGasTitle"
+    ],
+    "title_number": "",
+    "title_type": "",
+    "issue_date": "",
+    "effective_date": "",
+    "term": "",
+    "expiry_date": "",
+    "area": "",
+    "title_holders": "",
+    "tracts": "",
+    "caveats": ""
+  }
