@@ -47,6 +47,25 @@ properties:
             type: string
             title: Port Code
             description: The code of the port of arrival to which the product(s) were transferred. These codes are outlined in https://www.cbp.gov/sites/default/files/assets/documents/2020-Jan/ACE%20Appendix%20E%20Schedule%20D%20January%202020%20%281%29.pdf
+          portOfArrival:
+            title: Port Of Arrival
+            $ref: ./Place.yml
+            $linkedData:
+              term: portOfArrival
+              '@id': https://schema.org/Place
+          portOfDestination:
+            title: Port Of Destination
+            $ref: ./Place.yml
+            $linkedData:
+              term: portOfDestination
+              '@id': https://schema.org/Place
+          transporter:
+            title: Transporter
+            description: The organization that carries out the transportation event
+            $ref: ./Organization.yml
+            $linkedData:
+              term: transporter
+              '@id': https://schema.org/agent
           deliveryLocation:
             type: string
             title: deliveryLocation
@@ -61,9 +80,13 @@ properties:
               term: sumOfScheduledDeliveries
               '@id': https://schema.org/QuantitativeValue
           numberOfBatches:
-            type: string
+            type: number
             title: Number of Batches
-            description: Number of batches scheduled for the delivery location in one month       
+            description: Number of batches scheduled for the delivery location in one month 
+          countOfShippers:
+            type: number
+            title: Count of Shippers
+            description: Number of shippers that shipped the commodity to a given destination.      
 
  
 additionalProperties: false
@@ -78,6 +101,22 @@ example: |-
     "scheduledDeliveries": [
         {
             "portCode": "3901",
+            "portOfArrival": 
+            {
+              "type": ["Place"],
+              "locationName": "Morgan",
+              "usPortCode": "3319"
+            },
+            "portOfDestination": 
+            {
+              "type": ["Place"],
+              "locationName": "Pembina ND",
+              "usPortCode": "3401"
+            },
+            "transporter": {
+            "type": ["Organization"],
+            "name": "Gas Transmission Northwest (GTN)"
+            },
             "deliveryLocation": "Chicago",
             "sumOfScheduledDeliveries": [
               {
@@ -91,7 +130,8 @@ example: |-
                 "value": "114294.96"
               }
             ],
-            "numberOfBatches": "1"
+            "numberOfBatches": 1,
+            "countOfShippers": 7
         }
     ]
   }
