@@ -236,7 +236,7 @@ properties:
   quantity:
     title: Quantity
     description: Report the entered quantity for each IT/BL/AWB covered by this entry. The quantity reported should be at the most detailed level of the shipment being reported. (The quantity being reported is the smallest exterior packaging unit.) If the entry covers the entire bill of lading, AWB, or in-bond shipment, the quantity reported will be the total quantity. If the entry is for a house bill, both the master bill and house bill will be shown in Block 29, but the only quantity reported will be the house bill quantity.
-    $ref: ./MeasuredValue.yml
+    $ref: ./QuantitativeValue.yml
     $linkedData:
       term: quantity
       '@id': https://w3id.org/traceability#quantity
@@ -365,9 +365,10 @@ example: |-
     "bolNumber": "87654321A",
     "quantity": {
       "type": [
-        "MeasuredValue"
+        "QuantitativeValue"
       ],
-      "value": "200"
+      "value": "200",
+      "unitCode": "items"
     },
     "voyageFlightTrip": "E002901",
     "conveyanceName": "Gizera",

@@ -2,7 +2,7 @@ $linkedData:
   term: QuantitativeValue
   '@id': https://schema.org/QuantitativeValue
 title: Quantitative Value
-description: A point value or interval for product characteristics and other purposes
+description: A point value or interval for product characteristics and other purposes.
 type: object
 properties:
   type:
@@ -18,14 +18,19 @@ properties:
         - QuantitativeValue
   unitCode:
     title: Unit Code
-    description: Unit of measurement.
+    description: >-
+      A string value indicating a Measurement Unit from UN/ECE Recommendation
+      20, Units of Measure used in International Trade, e.g., GRM = gram - see
+      <a href="https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_rev3_Annex3e.pdf">rec20_rev3</a>
     type: string
     $linkedData:
       term: unitCode
       '@id': https://schema.org/unitCode
   value:
     title: Value
-    description: Value or amount.
+    description: >-
+      A floating-point numeric value that is qualified by the corresponding
+      measurement unit code - see gs1:unitCode.    type: string
     type: string
     $linkedData:
       term: value

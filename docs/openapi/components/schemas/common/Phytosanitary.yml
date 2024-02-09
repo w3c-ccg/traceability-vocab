@@ -93,10 +93,10 @@ properties:
   disinfectionTemperature:
     title: Disinfection Temperature
     description: Temperature at which the disinfection chemical was applied.
-    $ref: ./MeasuredValue.yml
+    $ref: ./QuantitativeValue.yml
     $linkedData:
       term: disinfectionTemperature
-      '@id': https://schema.org/MeasuredValue
+      '@id': https://schema.org/QuantitativeValue
   disinfectionConcentration:
     title: Disinfection Concentration
     description: >-
@@ -104,7 +104,7 @@ properties:
       the disinfection process. More information can be found at the following
       link:
       https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/04._Reactions_in_Aqueous_Solution/4.5%3A_Concentration_of_Solutions
-    $ref: ./MeasuredValue.yml
+    $ref: ./QuantitativeValue.yml
     $linkedData:
       term: disinfectionConcentration
       '@id': https://w3id.org/traceability#disinfectionConcentration
@@ -402,7 +402,7 @@ example: |-
         },
         "measurement": {
           "type": [
-            "MeasuredValue"
+            "QuantitativeValue"
           ],
           "value": "57.243",
           "unitCode": "P1"
@@ -423,7 +423,7 @@ example: |-
         },
         "measurement": {
           "type": [
-            "MeasuredValue"
+            "QuantitativeValue"
           ],
           "value": "00.00",
           "unitCode": "UNKNOWN"
@@ -454,12 +454,12 @@ example: |-
     "disinfectionChemical": "Methyl Bromide",
     "disinfectionDuration": "79 minutes",
     "disinfectionTemperature": {
-      "type": ["MeasuredValue"],
+      "type": ["QuantitativeValue"],
       "value": "2",
       "unitCode": "Celsius"
     },
     "disinfectionConcentration": {
-      "type": ["MeasuredValue"],
+      "type": ["QuantitativeValue"],
       "value": "21",
       "unitCode": "Percent"
     },
