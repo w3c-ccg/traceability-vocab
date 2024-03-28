@@ -54,14 +54,29 @@ properties:
     $linkedData:
       term: voicePickCode
       '@id': https://w3id.org/traceability#voicePickCode
-  date:
-    title: Packing, Harvest, or Best By Date
+  packingDate:
+    title: Packing Date
     description: >-
-      Human readable date describing the date the package was packed, harvested,
-      or is 'best by.'
+      Human readable date describing the date the package was packed.
     type: string
     $linkedData:
-      term: date
+      term: packingDate
+      '@id': https://schema.org/DateTime
+  harvestDate:
+    title: Harvest Date
+    description: >-
+      Human readable date describing the date the package was harvested.
+    type: string
+    $linkedData:
+      term: harvestDate
+      '@id': https://schema.org/DateTime
+  bestByDate:
+    title: Best By Date
+    description: >-
+      Human readable date describing the date the package is 'best by'.
+    type: string
+    $linkedData:
+      term: bestByDate
       '@id': https://schema.org/DateTime
   labelImageUrl:
     title: Label Image URL
@@ -108,7 +123,7 @@ example: |-
       "phoneNumber": "+1-632-555-6601"
     },
     "voicePickCode": "4642",
-    "date": "2021-03-14",
+    "harvestDate": "2021-03-14",
     "labelImageUrl": "https://img.example.org/640/480/",
     "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "agricultureProduct": [
@@ -130,13 +145,6 @@ example: |-
           },
           "name": "Avocados",
           "description": "Avocados, 4 pack boxes",
-          "sizeOrAmount": {
-            "type": [
-              "QuantitativeValue"
-            ],
-            "unitCode": "hg/ha",
-            "value": "60"
-          },
           "weight": {
             "type": [
               "QuantitativeValue"
@@ -168,13 +176,6 @@ example: |-
           },
           "name": "Avocados",
           "description": "Avocados, 4 pack boxes",
-          "sizeOrAmount": {
-            "type": [
-              "QuantitativeValue"
-            ],
-            "unitCode": "boxes",
-            "value": "893"
-          },
           "weight": {
             "type": [
               "QuantitativeValue"
@@ -183,6 +184,13 @@ example: |-
             "value": "1784"
           },
           "sku": "563279941950"
+        },
+        "unitQuantity": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "boxes",
+          "value": "893"
         },
         "scientificName": "Persea americana",
         "labelImageUrl": "https://img.example.org/033383401508/640/480/",
