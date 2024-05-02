@@ -49,13 +49,13 @@ properties:
     $ref: ./LEIaddress.yml
     $linkedData:
       term: legalAddress
-      '@id': https://w3id.org/traceability#LEIaddress
+      '@id': https://www.gleif.org/ontology/Base/hasAddressLegal
   headquartersAddress:
     title: HeadquartersAddress
     $ref: ./LEIaddress.yml
     $linkedData:
       term: headquartersAddress
-      '@id': https://schema.org/PostalAddress
+      '@id': https://www.gleif.org/ontology/Base/hasAddressHeadquarters
   registrationAuthority:
     title: RegistrationAuthority
     $ref: ./LEIauthority.yml
@@ -98,6 +98,7 @@ properties:
     $linkedData:
       term: expirationDate
       '@id': https://schema.org/expires
+      '@type': http://www.w3.org/2001/XMLSchema#date
   expirationReason:
     title: ExpirationReason
     type: string
@@ -151,8 +152,9 @@ example: |-
     ],
     "legalAddress": {
       "type": ["LEIaddress"],
-      "language": "fa",
-      "addressLines": [
+      "language": "en-US",
+      "firstAddressLine": "29723 Dare Radial",
+      "additionalAddressLines": [
         "Hansen Group",
         "34443 Cassin Turnpike"
       ],
@@ -166,8 +168,9 @@ example: |-
     },
     "headquartersAddress": {
       "type": ["LEIaddress"],
-      "language": "en_BORK",
-      "addressLines": [
+      "language": "en-GB",
+      "firstAddressLine": "29723 Dare Radial",
+      "additionalAddressLines": [
         "Labadie, Stiedemann and Little",
         "8379 Bennett Cliff"
       ],

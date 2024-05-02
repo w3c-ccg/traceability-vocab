@@ -23,6 +23,7 @@ properties:
     $linkedData:
       term: requestDate
       '@id': https://vocabulary.uncefact.org/reportSubmissionDateTime
+      '@type': http://www.w3.org/2001/XMLSchema#date
   anticipatedAuditDate:
     title: Anticipated Audit Date
     description: Anticipated date of the audit.
@@ -30,6 +31,7 @@ properties:
     $linkedData:
       term: anticipatedAuditDate
       '@id': https://www.gs1.org/voc/certificationAuditDate
+      '@type': http://www.w3.org/2001/XMLSchema#date
   auditee:
     title: Auditee
     description: The party to be audited.
@@ -167,13 +169,6 @@ example: |-
           },
           "name": "Tomatoes",
           "description": "Tomatoes, Cartons",
-          "sizeOrAmount": {
-            "type": [
-              "QuantitativeValue"
-            ],
-            "unitCode": "cartons",
-            "value": "348"
-          },
           "weight": {
             "type": [
               "QuantitativeValue"
@@ -182,6 +177,13 @@ example: |-
             "value": "640"
           },
           "sku": "164664203943"
+        },
+        "unitQuantity": {
+          "type": [
+            "QuantitativeValue"
+          ],
+          "unitCode": "cartons",
+          "value": "348"
         },
         "scientificName": "Solanum lycopersicum",
         "labelImageUrl": "https://img.example.org/033383401508/640/480/",

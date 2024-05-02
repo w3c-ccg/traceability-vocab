@@ -1,6 +1,6 @@
 $linkedData:
-  term: OrganicCertification
-  '@id': https://w3id.org/traceability#OrganicCertification
+  term: OrganicCertificate
+  '@id': https://w3id.org/traceability#OrganicCertificate
 title: Organic Certificate
 description: Information regarding the organic certificate.
 type: object
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - OrganicCertification
+      - OrganicCertificate
     default:
-      - OrganicCertification
+      - OrganicCertificate
     items:
       type: string
       enum:
-        - OrganicCertification
+        - OrganicCertificate
   countryOfIssuance:
     title: Country of Issuance
     description: The country issuing the organic certificate. This value should be a two letter country code as defined in ISO 3166 (e.g., "US" for United States, "CA" for Canada).
@@ -44,6 +44,7 @@ properties:
     $linkedData:
       term: effectiveDate
       '@id': https://www.gs1.org/voc/certificationStartDate
+      '@type': http://www.w3.org/2001/XMLSchema#date
   issueDate:
     title: Applicant Certification Number
     description: When the certifying agent issued the organic certificate.
@@ -51,6 +52,7 @@ properties:
     $linkedData:
       term: issueDate
       '@id': https://www.gs1.org/voc/initialCertificationDate
+      '@type': http://www.w3.org/2001/XMLSchema#date
   anniversaryDate:
     title: Applicant Certification Number
     description: When the certified operation must submit its annual update.
@@ -58,6 +60,7 @@ properties:
     $linkedData:
       term: anniversaryDate
       '@id': https://www.gs1.org/voc/certificationEndDate
+      '@type': http://www.w3.org/2001/XMLSchema#date
   operationCategory:
     title: Operation Category
     description: Options are "crops", "wild crops", "livestock", and "handling/processing".
@@ -79,7 +82,7 @@ required:
   - type
 example: |-
   {
-    "type": ["OrganicCertification"],
+    "type": ["OrganicCertificate"],
     "countryOfIssuance": "US",
     "certifiedOperation": {
       "type": ["Organization"],

@@ -1,7 +1,7 @@
 $linkedData:
-  term: OrganicProductCertification
-  '@id': https://w3id.org/traceability#OrganicProductCertification
-title: Organic Product Certification
+  term: OrganicProductCertificate
+  '@id': https://w3id.org/traceability#OrganicProductCertificate
+title: Organic Product Certificate
 description: Information regarding an agriculture product's organic certification status.
 type: object
 properties:
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - OrganicProductCertification
+      - OrganicProductCertificate
     default:
-      - OrganicProductCertification
+      - OrganicProductCertificate
     items:
       type: string
       enum:
-        - OrganicProductCertification
+        - OrganicProductCertificate
   agricultureProduct:
     title: Agriculture Product
     description: The product certified as organic.
@@ -23,12 +23,12 @@ properties:
     $linkedData:
       term: agricultureProduct
       '@id': https://www.gs1.org/voc/certificationSubject
-  organicCertification:
+  organicCertificate:
     title: Organic Certificate
-    description: The product's organic certification.
-    $ref: ./OrganicCertification.yml
+    description: The product's organic certificate.
+    $ref: ./OrganicCertificate.yml
     $linkedData:
-      term: organicCertification
+      term: organicCertificate
       '@id': https://www.gs1.org/voc/certification
   isCertified:
     title: Is Certified
@@ -42,7 +42,7 @@ required:
   - type
 example: |-
   {
-    "type": ["OrganicProductCertification"],
+    "type": ["OrganicProductCertificate"],
     "agricultureProduct": {
       "type": [
         "AgricultureProduct"
@@ -61,13 +61,6 @@ example: |-
         },
         "name": "Tomatoes",
         "description": "Tomatoes, Cartons",
-        "sizeOrAmount": {
-          "type": [
-            "QuantitativeValue"
-          ],
-          "unitCode": "cartons",
-          "value": "348"
-        },
         "weight": {
           "type": [
             "QuantitativeValue"
@@ -78,11 +71,18 @@ example: |-
         "sku": "164664203943"
       },
       "scientificName": "Solanum lycopersicum",
+      "unitQuantity": {
+        "type": [
+          "QuantitativeValue"
+        ],
+        "unitCode": "cartons",
+        "value": "348"
+      },
       "labelImageUrl": "https://img.example.org/033383401508/640/480/",
       "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
-    "organicCertification": {
-      "type": ["OrganicCertification"],
+    "organicCertificate": {
+      "type": ["OrganicCertificate"],
       "certifiedOperation": {
         "type": ["Organization"],
         "name": "John's Produce",

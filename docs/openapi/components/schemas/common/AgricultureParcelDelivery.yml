@@ -65,6 +65,7 @@ properties:
     $linkedData:
       term: expectedArrival
       '@id': https://schema.org/expectedArrivalFrom
+      '@type': http://www.w3.org/2001/XMLSchema#date
   specialInstructions:
     title: Special Instructions
     description: Instructions for freight handlers
@@ -242,7 +243,7 @@ example: |-
           "phoneNumber": "+1-470-555-7721"
         },
         "voicePickCode": "4642",
-        "date": "2021-03-14",
+        "harvestDate": "2021-03-14",
         "labelImageUrl": "https://img.example.org/640/480/",
         "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "agricultureProduct": [
@@ -264,13 +265,6 @@ example: |-
               },
               "name": "Avocados",
               "description": "Avocados, 4 pack boxes",
-              "sizeOrAmount": {
-                "type": [
-                  "QuantitativeValue"
-                ],
-                "unitCode": "hg/ha",
-                "value": "60"
-              },
               "weight": {
                 "type": [
                   "QuantitativeValue"

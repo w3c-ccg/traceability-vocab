@@ -1,8 +1,8 @@
 $linkedData:
   term: LEIaddress
-  '@id': https://w3id.org/traceability#LEIaddress
+  '@id': https://www.gleif.org/ontology/Base/PhysicalAddress
 title: LEIaddress
-description: GLEIF LEI Redord Level 1 Schema for LEI Address
+description: "LEI Address: [GLEIF Level 1 Ontology: Physical Address](https://www.gleif.org/ontology/v1.0/Base/index-en.html#PhysicalAddress) and [Common Data Format 3.1 XSD](https://www.gleif.org/about-lei/common-data-file-format/current-versions/level-1-data-lei-cdf-3-1-format/2021-03-04_lei-cdf-v3-1.xsd)"
 type: object
 properties:
   type:
@@ -22,42 +22,49 @@ properties:
     default: null
     $linkedData:
       term: language
-      '@id': https://schema.org/Language
-  addressLines:
-    title: Addresslines
+      '@id': https://schema.org/inLanguage
+  firstAddressLine:
+    title: First Address Line
+    type: string
+    $linkedData:
+      term: firstAddressLine
+      '@id': https://www.gleif.org/ontology/Base/hasFirstAddressLine
+  additionalAddressLines:
+    title: Additional Address Lines
     type: array
     items:
+      type: string
       $linkedData:
-        term: addressLines
-        '@id': https://schema.org/streetAddress
+        term: additionalAddressLines
+        '@id': https://www.gleif.org/ontology/Base/hasAdditionalAddressLine
   addressNumber:
-    title: Addressnumber
+    title: Address Number
     type: string
     default: null
     items:
       $linkedData:
         term: addressNumber
-        '@id': https://schema.org/Number
+        '@id': https://www.gleif.org/ontology/Base/hasAddressNumber
   addressNumberWithinBuilding:
-    title: Addressnumberwithinbuilding
+    title: Address Number Within Building
     type: string
     default: null
     $linkedData:
       term: addressNumberWithinBuilding
-      '@id': https://schema.org/value
+      '@id': https://www.gleif.org/ontology/Base/hasAddressNumberWithinBuilding
   mailRouting:
-    title: Mailrouting
+    title: Mail Routing
     type: string
     default: null
     $linkedData:
       term: mailRouting
-      '@id': https://schema.org/Trip
+      '@id': https://www.gleif.org/ontology/Base/hasMailRouting
   city:
     title: City
     type: string
     $linkedData:
       term: city
-      '@id': https://schema.org/addressLocality
+      '@id': https://www.gleif.org/ontology/Base/hasCity
   region:
     title: Region
     type: string
@@ -75,20 +82,19 @@ properties:
     type: string
     $linkedData:
       term: postalCode
-      '@id': https://schema.org/postalCode
+      '@id': https://www.gleif.org/ontology/Base/hasPostalCode
 additionalProperties: false
 required:
   - type
-  - addressLines
+  - firstAddressLine
   - city
-  - region
   - country
-  - postalCode
 example: |-
   {
     "type": ["LEIaddress"],
-    "language": "ru",
-    "addressLines": [
+    "language": "en-US",
+    "firstAddressLine": "29996 Hahn Extension",
+    "additionalAddressLines": [
       "Baumbach, O'Keefe and Feil",
       "29996 Hahn Extension"
     ],
