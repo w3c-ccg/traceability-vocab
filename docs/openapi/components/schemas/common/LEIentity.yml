@@ -1,7 +1,7 @@
 $linkedData:
-  term: LEIentity
-  '@id': https://w3id.org/traceability#LEIentity
-title: LEIentity
+  term: LEIEntity
+  '@id': https://w3id.org/traceability#LEIEntity
+title: LEIEntity
 description: GLEIF LEI Redord Level 1 Schema for LEI Entity
 type: object
 properties:
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - LEIentity
+      - LEIEntity
     default:
-      - LEIentity
+      - LEIEntity
     items:
       type: string
       enum:
-        - LEIentity
+        - LEIEntity
   legalName:
     title: Legalname
     type: string
@@ -46,22 +46,22 @@ properties:
         '@id': https://schema.org/name
   legalAddress:
     title: LegalAddress
-    $ref: ./LEIaddress.yml
+    $ref: ./LEIAddress.yml
     $linkedData:
       term: legalAddress
       '@id': https://www.gleif.org/ontology/Base/hasAddressLegal
   headquartersAddress:
     title: HeadquartersAddress
-    $ref: ./LEIaddress.yml
+    $ref: ./LEIAddress.yml
     $linkedData:
       term: headquartersAddress
       '@id': https://www.gleif.org/ontology/Base/hasAddressHeadquarters
   registrationAuthority:
     title: RegistrationAuthority
-    $ref: ./LEIauthority.yml
+    $ref: ./LEIAuthority.yml
     $linkedData:
       term: registrationAuthority
-      '@id': https://w3id.org/traceability#LEIauthority
+      '@id': https://w3id.org/traceability#LEIAuthority
   legalJurisdiction:
     title: LegalJurisdiction
     type: string
@@ -115,7 +115,7 @@ properties:
     title: OtherAddresses
     type: array
     items:
-      $ref: ./LEIaddress.yml
+      $ref: ./LEIAddress.yml
     $linkedData:
       term: otherAddresses
       '@id': https://schema.org/Place
@@ -139,7 +139,7 @@ required:
   - otherAddresses
 example: |-
   {
-    "type": ["LEIentity"],
+    "type": ["LEIEntity"],
     "legalName": "Dicki Group",
     "legalNameLanguage": "cz",
     "otherNames": [
@@ -151,7 +151,7 @@ example: |-
       "Kilback, Schaden and Gerhold"
     ],
     "legalAddress": {
-      "type": ["LEIaddress"],
+      "type": ["LEIAddress"],
       "language": "en-US",
       "firstAddressLine": "29723 Dare Radial",
       "additionalAddressLines": [
@@ -167,7 +167,7 @@ example: |-
       "postalCode": "65001-1865"
     },
     "headquartersAddress": {
-      "type": ["LEIaddress"],
+      "type": ["LEIAddress"],
       "language": "en-GB",
       "firstAddressLine": "29723 Dare Radial",
       "additionalAddressLines": [
@@ -183,7 +183,7 @@ example: |-
       "postalCode": "38600"
     },
     "registrationAuthority": {
-      "type": ["LEIauthority"],
+      "type": ["LEIAuthority"],
       "validationAuthorityID": "RA000005",
       "otherValidationAuthorityID": "W9TPAHSE",
       "validationAuthorityEntityID": "15YFIRA9D02OZZ1LN4FB"
