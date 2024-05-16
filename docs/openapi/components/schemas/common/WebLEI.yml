@@ -1,7 +1,7 @@
 $linkedData:
-  term: LEIevidenceDocument
-  '@id': https://w3id.org/traceability#LEIevidenceDocument
-title: LEIevidenceDocument
+  term: WebLEI
+  '@id': https://w3id.org/traceability#WebLEI
+title: WebLEI
 description: GLEIF LEI Redord Level 1 Schema
 type: object
 properties:
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - LEIevidenceDocument
+      - WebLEI
     default:
-      - LEIevidenceDocument
+      - WebLEI
     items:
       type: string
       enum:
-        - LEIevidenceDocument
+        - WebLEI
   lei:
     title: Lei
     type: string
@@ -23,17 +23,17 @@ properties:
       term: lei
       '@id': https://www.gleif.org/en/about-lei/iso-17442-the-lei-code-structure#
   entity:
-    title: LEIentity
-    $ref: ./LEIentity.yml
+    title: LEIEntity
+    $ref: ./LEIEntity.yml
     $linkedData:
       term: entity
-      '@id': https://w3id.org/traceability#LEIentity
+      '@id': https://w3id.org/traceability#LEIEntity
   registration:
-    title: LEIregistration
-    $ref: ./LEIregistration.yml
+    title: LEIRegistration
+    $ref: ./LEIRegistration.yml
     $linkedData:
       term: registration
-      '@id': https://w3id.org/traceability#LEIregistration
+      '@id': https://w3id.org/traceability#LEIRegistration
   bic:
     title: bic
     description: S.W.I.F.T. bank identifier code
@@ -51,10 +51,10 @@ required:
   - bic
 example: |-
   {
-    "type": ["LEIevidenceDocument"],
+    "type": ["WebLEI"],
     "lei": "1GS89XTLP3YKEINUGJM9",
     "entity": {
-      "type": ["LEIentity"],
+      "type": ["LEIEntity"],
       "legalName": "Bashirian, Botsford and Hilll",
       "legalNameLanguage": "tr",
       "otherNames": [
@@ -66,7 +66,7 @@ example: |-
         "Goodwin Group"
       ],
       "legalAddress": {
-        "type": ["LEIaddress"],
+        "type": ["LEIAddress"],
         "language": "en",
         "firstAddressLine": "29723 Dare Radial",
         "additionalAddressLines": [
@@ -82,7 +82,7 @@ example: |-
         "postalCode": "56041-9807"
       },
       "headquartersAddress": {
-        "type": ["LEIaddress"],
+        "type": ["LEIAddress"],
         "language": "sk",
         "firstAddressLine": "ul. Švermova 43",
         "additionalAddressLines": [
@@ -98,7 +98,7 @@ example: |-
         "postalCode": "98342-0463"
       },
       "registrationAuthority": {
-        "type": ["LEIauthority"],
+        "type": ["LEIAuthority"],
         "validationAuthorityID": "RA000001",
         "otherValidationAuthorityID": "1QXYYF6U",
         "validationAuthorityEntityID": "OK35QOCIONDW5FEW4RKH"
@@ -122,7 +122,7 @@ example: |-
       "otherAddresses": []
     },
     "registration": {
-      "type": ["LEIregistration"],
+      "type": ["LEIRegistration"],
       "initialRegistrationDate": "2020-01-01",
       "lastUpdateDate": "2020-01-01",
       "status": "IN PROGRESS",
@@ -131,7 +131,7 @@ example: |-
       "validationSources": "NOT_CORROBORATED",
       "validationAuthority": [
         {
-          "type": ["LEIauthority"],
+          "type": ["LEIAuthority"],
           "validationAuthorityID": "RA000004",
           "otherValidationAuthorityID": "7HBOLS20",
           "validationAuthorityEntityID": "5W2KTTRTR6P3OPH5NU1Q"
