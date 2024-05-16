@@ -1,7 +1,7 @@
 $linkedData:
-  term: LEIregistration
-  '@id': https://w3id.org/traceability#LEIregistration
-title: LEIregistration
+  term: LEIRegistration
+  '@id': https://w3id.org/traceability#LEIRegistration
+title: LEIRegistration
 description: GLEIF LEI Redord Level 1 Schema for LEI Registration
 type: object
 properties:
@@ -9,13 +9,13 @@ properties:
     type: array
     readOnly: true
     const:
-      - LEIregistration
+      - LEIRegistration
     default:
-      - LEIregistration
+      - LEIRegistration
     items:
       type: string
       enum:
-        - LEIregistration
+        - LEIRegistration
   initialRegistrationDate:
     title: Initialregistrationdate
     type: string
@@ -59,10 +59,10 @@ properties:
     title: validationAuthority
     type: array
     items:
-      $ref: ./LEIauthority.yml
+      $ref: ./LEIAuthority.yml
     $linkedData:
       term: validationAuthority
-      '@id': https://w3id.org/traceability#LEIauthority
+      '@id': https://w3id.org/traceability#LEIAuthority
 additionalProperties: false
 required:
   - type
@@ -75,7 +75,7 @@ required:
   - validationAuthority
 example: |-
   {
-    "type": ["LEIregistration"],
+    "type": ["LEIRegistration"],
     "initialRegistrationDate": "2020-01-01",
     "lastUpdateDate": "2020-01-01",
     "status": "CONFIRMED",
@@ -84,7 +84,7 @@ example: |-
     "validationSources": "FULLY_CORROBORATED",
     "validationAuthority": [
       {
-        "type": ["LEIauthority"],
+        "type": ["LEIAuthority"],
         "validationAuthorityID": "RA000004",
         "otherValidationAuthorityID": "ZQSXNACY",
         "validationAuthorityEntityID": "622LO2SWTJWOVTZ581RV"
