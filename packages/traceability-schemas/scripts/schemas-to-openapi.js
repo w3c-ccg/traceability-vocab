@@ -42,6 +42,7 @@ const getEndpointsFromSchemaNames = (tag) => {
       - ${tag}
       responses:
         '200':
+          description: 'successfully issued ${sname.split('.')[0]} schema.'
           content:
             application/yml:
               schema:
@@ -57,7 +58,7 @@ const getEndpointsFromSchemaNames = (tag) => {
   console.log('🧪 building open api from components directory...');
 
   const template = `
-openapi: 3.0.0
+openapi: 3.1.0
 info:
   title: Traceability Schemas
   version: 1.0.0

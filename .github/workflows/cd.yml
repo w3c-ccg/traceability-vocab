@@ -11,12 +11,12 @@ jobs:
     name: Publish unstable release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Use Node 16
-        uses: actions/setup-node@v3
+      - name: Use Node 20
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 20.x
           cache: 'npm'
 
       - name: Install
@@ -27,7 +27,7 @@ jobs:
 
       - name: Test
         run: npm run test
-      
+
       - name: Bundle
         run: npm run bundle
 
