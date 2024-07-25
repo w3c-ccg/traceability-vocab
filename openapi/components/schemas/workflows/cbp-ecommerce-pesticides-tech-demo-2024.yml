@@ -1,0 +1,84 @@
+id: https://w3id.org/traceability#cbp-ecommerce-pesticides-tech-demo-2024
+title: CBP E-Commerce Pesticides Tech Demo 2024
+description: >-
+    CBP E-Commerce Pesticides Tech Demo 2024
+
+tags: 
+  - Steel
+credentials: 
+  - id: https://w3id.org/traceability#GS1PrefixLicenseCredential
+    name: Prefix Credential
+  - id: https://w3id.org/traceability#GS1CompanyPrefixLicenseCredential
+    name: Company Prefix Credential
+  - id: https://w3id.org/traceability#GS1KeyCredential
+    name: Key Credential
+  - id: https://w3id.org/traceability#GS1OrganizationDataCredential
+    name: Organization Data Credential
+  - id: https://w3id.org/traceability#GS1DataCredential
+    name: Data Credential
+  - id: https://w3id.org/traceability#EPARegisteredPesticideCredential
+    name: EPA Registered Pesticide Credential
+  - id: https://w3id.org/traceability#EPAProducerEstablishmentCredential
+    name: EPA Producer Establishment Credential
+  - id: https://w3id.org/traceability#CommercialInvoiceCredential
+    name: Commercial Invoice
+  - id: https://w3id.org/traceability#IntentToImport
+    name: Intent To Import
+  - id: https://w3id.org/traceability#EPAForm3540-1
+    name: EPA Form 3540-1 Pesticides Notice of Arrival
+  - id: https://w3id.org/traceability#EntryNumberCredential
+    name: Entry Number Credential
+  - id: https://w3id.org/traceability#PGAShipmentStatusCredential
+    name: PGA Shipment Status Credential
+  - id: https://w3id.org/traceability#PackingListCredential
+    name: Packing List
+  - id: https://w3id.org/traceability#MultiModalBillOfLadingCredential
+    name: Bill of Lading
+mermaid: >-
+  sequenceDiagram
+    title CBP E-Commerce Pesticides Tech Demo 2024 Use Case
+    participant A as GS1 Global Office
+    participant B as GS1 US
+    participant C as Registrant
+    participant D as Manufacturer
+    participant E as Online Seller
+    participant F as Customs Broker
+    participant G as Courier
+    participant H as Customs and Border Protection
+    participant I as Environmental Protection Agency
+    A-->>A: issue Prefix License
+    A->>B: present Prefix License
+    A->>G: present Prefix License
+    A-->>A: issue Company Prefix License
+    A-->>A: issue Key Credential (GLN)
+    A-->>A: issue Organization Data Credential
+    A->>C: present Company Prefix License, Key Credential (GLN), Organization Data Credential
+    C->>G: present Company Prefix License, Key Credential (GLN), Organization Data Credential
+    C-->>C: issue Key Credential (GTIN)
+    C->>E: present Key Credential (GTIN)
+    C-->>C: issue Data Credential
+    C->>H: present Key Credential (GTIN), Data Credential
+    I-->>I: issue EPA Registered Pesticide Credential
+    I->>C: present EPA Registered Pesticide Credential
+    C->>H: present EPA Registered Pesticide Credential
+    I-->>I: issue EPA Producer Establishment Credential
+    I->>D: present EPA Producer Establishment Credential
+    D->>H: present EPA Producer Establishment Credential
+    E-->>E: issue Commercial Invoice Credential
+    E-->>E: issue Intent To Import
+    E-->>E: issue EPA Form 3540-1 Pesticides Notice of Arrival
+    E->>H: present Commercial Invoice Credential, Intent To Import, EPA Form 3540-1 Pesticides Notice of Arrival
+    E->>F: present Commercial Invoice Credential, Intent To Import, EPA Form 3540-1 Pesticides Notice of Arrival
+    F-->>F: issue EPA Form 3540-1 Pesticides Notice of Arrival
+    F-->>F: issue Entry Number Credential
+    F->>H: present EPA Form 3540-1 Pesticides Notice of Arrival, Entry Number Credential
+    H->>I: present EPA Form 3540-1 Pesticides Notice of Arrival
+    I-->>I: issue PGA Shipment Status Credential
+    I->>H: present PGA Shipment Status Credential
+    H->>F: present PGA Shipment Status Credential
+    E-->>E: issue Packing List Credential
+    E->>G: present Packing List Credential
+    G-->>G: issue Bill Of Lading Credential
+    G->>H: present Packing List Credential, Bill Of Lading Credential
+    H-->>H: issue PGA Shipment Status Credential
+    H->>G: present PGA Shipment Status Credential

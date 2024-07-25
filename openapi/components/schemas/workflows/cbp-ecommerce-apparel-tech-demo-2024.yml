@@ -1,0 +1,64 @@
+id: https://w3id.org/traceability#cbp-ecommerce-apparel-tech-demo-2024
+title: CBP E-Commerce Apparel Tech Demo 2024
+description: >-
+    CBP E-Commerce Apparel Tech Demo 2024
+
+tags: 
+  - Steel
+credentials: 
+  - id: https://w3id.org/traceability#GS1PrefixLicenseCredential
+    name: Prefix Credential
+  - id: https://w3id.org/traceability#GS1CompanyPrefixLicenseCredential
+    name: Company Prefix Credential
+  - id: https://w3id.org/traceability#GS1KeyCredential
+    name: Key Credential
+  - id: https://w3id.org/traceability#GS1OrganizationDataCredential
+    name: Organization Data Credential
+  - id: https://w3id.org/traceability#GS1DataCredential
+    name: Data Credential
+  - id: https://w3id.org/traceability#IntellectualPropertyRightsCredential
+    name: Intellectual Property Rights Credential
+  - id: https://w3id.org/traceability#IntellectualPropertyRightsLicenseCredential
+    name: Intellectual Property Rights License Credential
+  - id: https://w3id.org/traceability#CommercialInvoiceCredential
+    name: Commercial Invoice
+  - id: https://w3id.org/traceability#EntryNumberCredential
+    name: Entry Number Credential
+  - id: https://w3id.org/traceability#PackingListCredential
+    name: Packing List
+  - id: https://w3id.org/traceability#MultiModalBillOfLadingCredential
+    name: Bill of Lading
+mermaid: >-
+  sequenceDiagram
+    title CBP E-Commerce Apparel Tech Demo 2024 Use Case
+    participant A as GS1 Global Office
+    participant B as GS1 US
+    participant C as Brand Owner
+    participant D as Online Seller
+    participant E as Fulfillment
+    participant F as Logistics Provider
+    participant G as Customs and Border Protection
+    A-->>A: issue Prefix License
+    A->>B: present Prefix License
+    A->>G: present Prefix License
+    B-->>A: issue Company Prefix License
+    B-->>A: issue Key Credential (GLN)
+    B-->>A: issue Organization Data Credential
+    B->>C: present Company Prefix License, Key Credential (GLN), Org Data Credential
+    C->>G: present Company Prefix License, Key Credential (GLN), Org Data Credential
+    C-->>C: issue Key Credential (GTIN)
+    C-->>C: issue Data Credential
+    C->>G: present Key Credential (GTIN), Data Credential
+    C-->>C: issue Intellectual Property Rights Credential
+    C->>G: present Intellectual Property Rights Credential
+    C-->>C: issue Intellectual Property Rights License Credential
+    C->>D: present Intellectual Property Rights License Credential
+    D->>G: present Intellectual Property Rights License Credential
+    D-->>D: issue Commercial Invoice Credential
+    D-->>D: issue Entry Number Credential
+    D->>G: present Commercial Invoice Credential, Entry Number Credential
+    E-->>E: issue Packing List Credential
+    E->>D: present Packing List Credential
+    F-->>F: issue Bill Of Lading Credential
+    F->>D: present Bill Of Lading Credential
+    D->>G: present Packing List Credential, Bill Of Lading Credential
