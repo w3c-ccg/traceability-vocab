@@ -34,12 +34,18 @@ properties:
     $linkedData:
       term: validationAuthorityEntityID
       '@id': https://schema.org/leiCode
+  id:
+    title: Issuer's Identifier
+    description: Identifier of the issuing organization , typically a Decentralized Identifier (DID).
+    type: string
+    format: uri
+  name:
+    title: Name
+    description: Name of the issuing organization.
+    type: string
 additionalProperties: false
 required:
   - type
-  - validationAuthorityID
-  - otherValidationAuthorityID
-  - validationAuthorityEntityID
 example: |-
   {
     "type": ["LEIAuthority"],
