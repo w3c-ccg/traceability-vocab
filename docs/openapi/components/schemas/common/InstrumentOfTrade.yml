@@ -1,0 +1,77 @@
+$linkedData:
+  term: InstrumentOfTrade
+  '@id': https://w3id.org/traceability#InstrumentOfTrade
+title: Intrument of International Trade
+description: >-
+  The actual packaging (container, crate, pallet, etc.) which is used to
+  transport goods.
+type: object
+properties:
+  type:
+    type: array
+    readOnly: true
+    const:
+      - InstrumentOfTrade
+    default:
+      - IntrumentOfTrade
+    items:
+      type: string
+      enum:
+        - InstrumentOfTrade
+  packagingMaterial:
+    title: Packaging Material
+    description: >-
+      The material used for packaging the goods e.g., wood, plastic, cardboard.
+    type: string
+  ippcStamp:
+    title: IPPC Stamp
+    description: IPPC Stamp information
+    type:     description: >-
+      IPPC ISPM 15 stamp information as described in
+      https://www.ippc.int/en/publications/640/
+    type: object:
+    properties:
+      originCountry:
+        title: Country
+        description: The two-letter ISO 3166-1 alpha-2 country code.
+        type: string
+		  providerCode: 
+        title: Provider Code
+        description: >-
+          The producer/treatment provider code is a unique code assigned by the
+          NPPO to the producer of the wood packaging material or treatment
+          provider who applies the marks or the entity otherwise responsible
+          to the NPPO for ensuring that appropriately treated wood is used and
+          properly marked (shown in the examples as “000”). The number and order
+          of digits and/or letters are assigned by the NPPO.
+        type: string
+      treatmentCode:
+        title: Treatment Code
+        description: >-
+          a treatment code using the appropriate abbreviation according to ISPM
+          15 (HT, DH, MB or SF).
+        type: string
+        enum:
+          - HT
+          - DH
+          - MB
+          - SF
+    additionalProperties: true
+    required:
+      - originCountry
+      - providerCode
+      - treatmentCode
+additionalProperties: true
+required:
+  - type
+  - packagingMaterial
+example: |-
+  {
+    "type": ["InstrumentOfTrade"],
+    "packagingMaterial": "wood",
+    "ippcStamp": {
+      "originCountry": "US"
+      "providerCode": "000"
+      "treatmentCode": "HT"
+    }
+  }
