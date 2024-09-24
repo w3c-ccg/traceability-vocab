@@ -111,15 +111,6 @@ properties:
     $linkedData:
       term: harvest
       '@id': https://w3id.org/traceability#AgricultureActivity
-  instrumentOfTrade:
-    title: Instrument of  International Trade
-    description: The materials used for shipping the product, such as boxes, pallets, etc.
-    type: array
-    items:
-      $ref: ./InstrumentOfTrade.yml
-    $linkedData:
-      term: instrumentOfTrade
-      '@id': https://w3id.org/traceability#InstrumentOfTrade
 additionalProperties: true
 required:
   - type
@@ -207,21 +198,6 @@ example: |-
         "scientificName": "Persea americana",
         "labelImageUrl": "https://img.example.org/033383401508/640/480/",
         "labelImageHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      }
-    ],
-    instrumentOfTrade: [
-      {
-        "type": ["InstrumentOfTrade"],
-        "packagingMaterial": "wood",
-        "ippcStamp": {
-          "originCountry": "US"
-          "providerCode": "000"
-          "treatmentCode": "HT"
-        }
-      },
-      {
-        "type": ["InstrumentOfTrade"],
-        "packagingMaterial": "paper"
       }
     ]
   }
