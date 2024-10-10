@@ -38,6 +38,36 @@ properties:
     $linkedData:
       term: deliveredVolume
       '@id': https://schema.org/MeasuredValue
+  carrier:
+    title: Carrier
+    description: >-
+      The party providing the transport of goods in this consignment between
+      named points.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: transporter
+      '@id': https://schema.org/agent
+  consignor:
+    title: Consignor
+    description: >-
+      The party consigning goods, as stipulated in the transport contract by the
+      party ordering transport.
+    $ref: ./Organization.yml
+    $linkedData:
+      term: consignor
+      '@id': >-
+        https://vocabulary.uncefact.org/consignorParty
+  notificationOfShipment:
+    title: Notification of Shipment Month
+    description: Year and month of the notification of shipment statement
+    type: string
+  destination:
+    title: Delivery Destination
+    description: The address to which the commodity is being shipped
+    $ref: ./Place.yml
+    $linkedData:
+      term: place
+      '@id': https://schema.org/toLocation
   observation:
     title: Observation List
     description: List of observations
@@ -47,7 +77,7 @@ properties:
     $linkedData:
       term: observation
       '@id': https://w3id.org/traceability#observation
-additionalProperties: false  
+additionalProperties: false
 required:
   - type
 example: |-
