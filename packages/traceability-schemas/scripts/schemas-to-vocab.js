@@ -2,7 +2,7 @@
 /* eslint-disable operator-linebreak */
 const fs = require('fs');
 const path = require('path');
-const { load } = require('js-yaml')
+const { load } = require('js-yaml');
 
 const { schemas } = require('../services/schemas');
 
@@ -25,7 +25,7 @@ const buildLinkedDataTable = (schema) => {
   if (!$linkedData) {
     return '';
   }
-  
+
   const section = `
   
   <table class="simple">
@@ -76,9 +76,9 @@ const buildClass = (schema) => {
   }
 
   const props = schema.properties ? Object.keys(schema.properties) : [];
-    let catair = ``;
-    const {$id} = schema;
-    if (schema.tags && schema.tags.includes(htmlSectionSchemaTags) ) {
+    let catair = '';
+    const { $id } = schema;
+    if (schema.tags && schema.tags.includes(htmlSectionSchemaTags)) {
       const htmlExtension = $id.split('/').pop().replace('.yml', '.html');
       catair = fs.readFileSync(path.resolve(
         __dirname,
@@ -135,22 +135,23 @@ const separateSchemas = (schemaList) => {
 };
 
 const buildWorkflowSection = () => {
-  
   const files = fs.readdirSync(
     path.resolve(__dirname, '../../../docs/openapi/components/schemas/workflows')
   );
 
   const w = [];
-  files.forEach( file => {
+  files.forEach((file) => {
     const ymlText = fs.readFileSync(
       path.resolve(__dirname, `../../../docs/openapi/components/schemas/workflows/${file}`)
-    )
+    );
     const yml = load(ymlText);
-    const { title, description, credentials, mermaid } = yml;
-  
-    const types = credentials.reduce( (prev, curr) => {
+    const {
+ title, description, credentials, mermaid
+} = yml;
+
+    const types = credentials.reduce((prev, curr) => {
       const { name, id } = curr;
-      const li = `<li><a href="${id}">${name}</a></li>`
+      const li = `<li><a href="${id}">${name}</a></li>`;
       return prev + li;
     }, '');
 
@@ -164,10 +165,10 @@ const buildWorkflowSection = () => {
       </ol>
       <pre class='example yml'>${ymlText}</pre>
     `);
-  })
+  });
 
   return w.join('\n');
-}
+};
 
 (() => {
   console.log('🧪 build vocab from schemas');
