@@ -1,23 +1,23 @@
 // https://github.com/digitalbazaar/jsonld.js/issues/516#issuecomment-1485959372
-const { kyPromise } = require('@digitalbazaar/http-client');
-const { canonize } = require('jsonld');
+const { kyPromise } = require('@digitalbazaar/http-client')
+const { canonize } = require('jsonld')
 
 beforeAll(async () => {
   // https://github.com/digitalbazaar/jsonld.js/issues/516#issuecomment-1485959372
-  await kyPromise;
-});
+  await kyPromise
+})
 
 it('canonize', async () => {
   const data = await canonize(
     {
       '@context': [
-        'https://www.w3.org/2018/credentials/v1',
+        'https://www.w3.org/ns/credentials/v2',
         {
           '@vocab': 'https://w3id.org/traceability#',
           TraceablePresentation: {
             '@id': 'https://w3id.org/traceability#TraceablePresentation',
             '@context': {
-              '@vocab': 'https://w3id.org/traceability#'
+              '@vocab': 'https://w3id.org/traceability#',
             },
           },
         },
@@ -45,5 +45,5 @@ it('canonize', async () => {
 <urn:uuid:00000000-8596-4c3a-a978-8fcaba3903c5> <https://www.w3.org/2018/credentials#holder> <did:web:sender.example> .
 _:c14n0 <https://w3id.org/traceability#definition> "urn:uuid:11111111-cc91-4bb3-91f1-5466a0be084e" .
 _:c14n0 <https://w3id.org/traceability#instance> "urn:uuid:22222222-b0b1-41b8-89b0-331ni58b7ee0" .
-`);
-});
+`)
+})
